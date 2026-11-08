@@ -1,0 +1,710 @@
+\section{Worldsheet I: dictionary, inverse, moduli}
+\label{ch:worldsheet-dictionary}
+
+This chapter collects the worldsheet reading of the auxiliary fields that does not depend on a model of the inverse of the quartic form.
+It starts from the first three subsections of the paper's worldsheet section before its last tightening: the auxiliary fields as groups of punctures, the inverse $\sprod{2}{2}^{-1}$ and its exclusion as a local worldsheet kernel, and the counting of moduli.
+Five sections of a note on the Riemann-surface picture follow, which give the full derivations behind the dictionary: the two internal kernels, frozen-neck sewing and the chain surfaces, the coloured operad, the analogy with the $KBc$ algebra of open string field theory, and the tower of the fields $\Sigma_k$.
+Four sections exist only here, written from the derivation records: the coloured grading and the Schwinger forms of the inverse together with the Neumann series, the exclusion of a sewing form for the inverse summed over levels, the geometry of the auxiliary channel after a change of its kinetic term, and the branched-cover test of the double-strand version of that change.
+The chapter closes with two sections of the overview note on explicit local coordinates, the asymmetric cubic vertex with its gluings and the hyperbolic vertices, and with the figures of the Riemann-surface note.
+The paper keeps a shortened version of the first three subsections; the circle picture of the inverse and the covering question are in \cref{ch:worldsheet-circle}.
+
+\medskip
+
+The first block opens the paper's worldsheet section and describes an auxiliary field and a $\Sigma_2$ line on the worldsheet, in the paper's notation.
+The dictionary it states (fields as groups of punctures, the line of $\Sigma_2$ as two strands with no length modulus, the resolved genus as bookkeeping) is derived in full in the sections of the Riemann-surface note below, where its status is given.
+
+\input{extracted/09/1-p}
+
+The second block holds the paper's subsections on the inverse of the quartic form and on the counting of moduli.
+It states three results:
+\begin{itemize}
+  \item there is no local worldsheet kernel for $\sprod{2}{2}^{-1}$, an exclusion within connected surfaces of bounded type carrying standard sewing ghost insertions (any genus, any number of vertices and frozen nodes, smoothed handles, continuous moduli with their $b$-ghost measure), modulo the standard input that these are the only insertions at a degenerating node: \status{Proven}\record{022-rs5-no-local-kernel-theorem (R28)};
+  \item the Neumann series is a representation of $\sprod{2}{2}^{-1}$ as a convergent sum over chains of frozen-neck surfaces, under the hypothesis that the spectral radius of the iterated operator is smaller than one for the level-diagonal split, away from the zeros of the truncated determinant (\cref{ch:hypotheses}): \status{Conditional(PH21) -- Proven}\record{020-riemann-m2-geometric (R27)};
+  \item the virtual dimensions of the calculus with negative moduli, for every number of punctures on the sphere, and their closure at every order: \status{Proven}\record{036-covering-m06-composite (R59)}.
+\end{itemize}
+The finite-model demonstration that the Neumann series can converge or diverge, while the algebraic inverse telescopes in both cases, is written out in \cref{sec:ws1:neumann}.
+
+\input{extracted/09/2-p}
+
+\medskip
+
+\noindent
+The next five blocks come from a note on the Riemann-surface picture of the auxiliary sector.
+It derives the dictionary that the paper's worldsheet section summarizes, with the ghost-saturation diagnostic, the frozen-neck definitions, the three-grading table and the genus formula of the coloured operad.
+Its results, and their status:
+\begin{itemize}
+  \item the two internal kernels distinguished, frozen-neck chains and their gradings, the combinatorial covering by the three exchange channels, the genus formula $g_{\rm res} = L_c + \sum_e (k_e - 1)$ of the coloured operad: \status{Proven}\record{020-riemann-m2-geometric (R27)};
+  \item the identification of one contraction with the inverse single-string pairing as plumbing at frozen length, $\omega_1^{-1} = b_0^- \delta_{L_0^-, 0}$, and the factorized propagator $(b_0^+ / L_0^+) \, \omega_1^{-1}$: \status{Verified}\record{021-rs4-sewing-fixtures (R27)};
+  \item the Laplace and Schwinger forms of $\sprod{2}{2}^{-1}$, under spectral conditions that are open beyond level~$0$: \status{Conditional(PH1) -- Proven} (\cref{sec:ws1:schwinger});
+  \item the dictionary with the $KBc$ algebra of open string field theory is an organizing analogy, not a result, and carries no status.
+\end{itemize}
+The note uses an earlier notation, translated below.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: Riemann-surface note $\to$ paper.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $V_n$ $\to$ $\vertex{n}$; $V_4$ read as a bilinear form on $\Sym^2 \Hilb_0$ is the paper's $\vertex{4}(A, B) = \pair[2]{A}{\sprod{2}{2}(B)}$, and $V_4(\Sig, \Sig)$ is the kinetic term of $\Sigma_2$.
+    \item $\mtwo = G_2^{-1} V_4$ $\to$ $\sprod{2}{2}$; $\mtwo^{-1}$ $\to$ $\sprod{2}{2}^{-1}$; $\Ngh(\mtwo) = + 2$ is the physical ghost number of $\sprod{2}{2}$.
+    \item $\Hilb_0$ $\to$ $\Hs$ restricted to level-matched states; $\Sym^k \Hilb_0$ $\to$ $\Hn{k}$; $G_k = \omega_1^{\otimes k}$ $\to$ the multi-string pairing $\pair[k]{\cdot}{\cdot}$; $\Sig \equiv \Sigma_2$, $\Sig_k \to \Sigma_k$.
+    \item The two kernels: the \enquote{worldsheet sewing kernel} $\mathsf P$ of a colour-1 line is the propagator of $\Psi$; the \enquote{colour-2 contraction} $\mathsf S = (12 / \gs^2) \, \mtwo^{-1} G_2^{-1}$ is the propagator of $\Sigma_2$ of the Feynman rules (\cref{p:sec:hs:quartic}).
+    \item HS (Hubbard--Stratonovich) Feynman rules are the Feynman rules of the cubic action; $\pklg$ are the maps of the IBL structure of \cref{ch:ibl}.
+    \item In the tower section, $\tilde V_{2k}(\Sig_k, \Sig_k)$ is the kinetic term of $\Sigma_k$ built from the reduced vertex, $\dvertex{2k}(\Sigma_k, \Sigma_k) = \pair[k]{\Sigma_k}{\wprod{k}{k}(\Sigma_k)}$ (\cref{ch:all-orders}); the symbols $\hat M_k$, $\hat H_k$, $L_k$ of the continued fraction are the note's own.
+    \item \emph{Reality.} The note's conjugation is $\ddagger = (-1)^{\Ngh + 1} \star$ on each strand, so that its condition $\Sig_k^\ddagger = \Sig_k$ is the paper's $\Sigma_k^\star = (-1)^k \Sigma_k$: the two read the same for $\Sigma_2$, while for odd $k$ the sign is explicit, $\Sigma_3^\star = - \Sigma_3$, and $\Psi^\ddagger = \Psi$ is $\Psi^\star = - \Psi$ (\cref{ch:conventions}).
+  \end{itemize}
+\end{quote}
+
+The first section of the note separates the two internal lines of a diagram, the propagator of $\Psi$ and the contraction of $\Sigma_2$, by the count of one $b$-ghost per real modulus.
+
+\input{extracted/09/3-rs}
+
+The second section defines frozen-neck sewing, shows that a colour-2 edge is two such contractions at once, computes the resolved genus of a chain, and shows in the three-grading table that the physical gradings follow the coloured graph.
+
+\input{extracted/09/4-rs}
+
+The third section makes the colour-2 edge exact as a composition in a coloured operad and proves the genus formula.
+
+\input{extracted/09/5-rs}
+
+The fourth section compares the auxiliary sector with the analytic-solution technology of open string field theory, entry by entry.
+
+\input{extracted/09/6-rs}
+
+The fifth section extends the dictionary to the tower of fields $\Sigma_k$ of the all-orders construction.
+
+\input{extracted/09/7-rs}
+
+% ------------------------------------------------------------------
+\subsection{The inverse of the quartic form: gradings, Schwinger forms, Neumann series}
+\label{sec:ws1:inverse-full}
+
+\status{mixed}\record{008-a2-v4-inverse-analysis (R15)}
+The coloured grading of chains \status{Proven}; the Schwinger forms of the inverse of the Gram matrix, with the collapse in sandwiched position \status{Proven}; the level-$0$ anchor, a nonvanishing tachyon-diagonal element \status{Numerical}.
+
+This section gives the derivations behind three statements of the paper's subsection on the inverse: that a chain of $\Sigma_2$ exchanges is graded by the coloured graph and not by the genus of its resolution, that the inverse has a Schwinger form whose parameter is not a modulus, and that the Neumann series is the one place where the four-point identity of \cref{sec:order:amplitude} can fail.
+Throughout, we work at a fixed truncation level, so that $\Hn{2}$ is finite-dimensional, and we use the Feynman rules of the quartic order (\cref{p:sec:hs:quartic}): the $\Sigma_2$ propagator is $(12 / \gs^2) \, \sprod{2}{2}^{-1}$, acting on the quotient by the kernel of $\sprod{2}{2}$, and every field of this sector is Grassmann even in the physical grading.
+The total symmetry of $\vertex{4}$ in its four slots is used where stated.
+
+\subsubsection{Two gradings of a chain}
+\label{sec:ws1:grading}
+
+We describe the diagrams in two colours: colour~$1$ is a single-string leg, carrying $\Hs$, and colour~$2$ is a double-string leg, carrying $\Hn{2}$.
+The ingredients of the cubic action are then coloured corollas: $\vertex{3}(\Psi^3)$ is a corolla $(1, 1, 1)$; $\vertex{4}(\Sigma_2, \Psi^2)$ is a corolla $(2, 1, 1)$, the four-punctured sphere with two of its punctures bundled into one colour-$2$ leg; the kinetic term $- \tfrac{\gs^2}{4!} \vertex{4}(\Sigma_2, \Sigma_2)$ is a corolla $(2, 2)$.
+A colour-$1$ edge is ordinary plumbing with the propagator of $\Psi$.
+A colour-$2$ edge is a contraction with the propagator of $\Sigma_2$, one elementary composition, which we draw as a double line.
+The coloured loop number of a connected diagram counts the edges of both colours, each as one edge,
+\begin{equation}
+  \label{eq:ch9:coloured-loops}
+  L_c
+    = E - V + 1.
+\end{equation}
+
+Consider a chain of length $k$: $k$ corollas of type $(2, 1, 1)$ or $(2, 2)$ joined linearly by $k - 1$ colour-$2$ edges.
+This is the power $\vertex{4}^k$ that appears in any expansion of the inverse, a Neumann or a Schwinger series.
+In the coloured grading it is a tree: $E = k - 1$, $V = k$, $L_c = 0$.
+Its underlying uncoloured surface is obtained by resolving each colour-$2$ edge into two simultaneous ordinary plumbings, so that $k$ four-punctured spheres are glued along $2 (k - 1)$ necks.
+Gluing along circles preserves the additivity of the Euler characteristic, since $\chi(S^1) = 0$, and
+\begin{equation}
+  \label{eq:ch9:chain-genus}
+  \chi
+    = \sum_{i = 1}^k \chi(S^2 \smallsetminus 4 \text{ points})
+    = - 2 k,
+  \qquad
+  n_{\rm ext}
+    = 4 k - 4 (k - 1)
+    = 4,
+  \qquad
+  2 - 2 g - n_{\rm ext}
+    = \chi
+  \;\Longrightarrow\;
+  g
+    = k - 1.
+\end{equation}
+Both computations are correct, and they grade different things.
+The genus $k - 1$ is a formal Euler-characteristic bookkeeping of a resolution of the chain into surfaces with fixed, degenerate plumbing: the moduli of genus $k - 1$ with four punctures, of complex dimension $3 g - 3 + n = 3 k - 2 > 0$ for $k \ge 2$, never appear, since the chain carries no moduli integral beyond those of its vertices.
+The perturbative expansion of the auxiliary theory, its power counting in $\gs$ and its split into trees and loops are governed by $L_c$.
+
+The power counting shows why.
+With $\vertex{4}$ of order $\gs^2$ and the propagator of order $\gs^{-2}$, the chain of length $k$ carries
+\begin{equation}
+  \label{eq:ch9:chain-coupling}
+  \gs^{2 k} \cdot \gs^{- 2 (k - 1)}
+    = \gs^2,
+\end{equation}
+the order of one $\vertex{4}$.
+This is a consistency requirement rather than an independent argument, since the chains resum to $\vertex{4}$ by the telescoping in sandwiched position.
+The inferential content is the contrapositive: a grading by the uncoloured genus would predict a suppression $\gs^{2 (k - 1)}$ of the chain of length $k$, which contradicts the actual uniform $\gs^2$.
+The uncoloured grading is therefore inconsistent with the coupling expansion, and the coloured grading agrees with it.
+
+\paragraph{Physical meaning.}
+A $\Sigma_2$ exchange is a tree-level event however much genus its resolution carries, in the same way as a nonplanar contraction in a matrix model is still a tree diagram of the matrix field: the double line of 't~Hooft~\cite{tHooft1974} carries a ribbon genus to which no coupling is attached.
+The statement does not say that the coloured composition is a geometric sewing of a new class of surfaces with coloured punctures; the coloured operad of the Riemann-surface note makes the composition exact as an operation on state spaces, not as a sewing.
+
+\subsubsection{Schwinger forms of the inverse}
+\label{sec:ws1:schwinger}
+
+To speak of a spectrum we choose an auxiliary positive-definite inner product $G$ on $\Hn{2}$, for instance the Euclidean product of a level truncation, and write $A$ for the matrix of $\vertex{4}$ restricted to $\Hn{2}$ in an orthonormal basis of $G$.
+We assume that $A$ is real symmetric, which uses the total symmetry of $\vertex{4}$, and invertible on the quotient by the kernel.
+The choice of $G$ is not canonical: the BPZ pairing is not positive definite, and in infinite dimensions the self-adjointness of $A$ depends on the choice.
+The question whether the vertex form is positive definite is therefore a question about the pair $(\vertex{4}, G)$, the operator tested being $G^{-1} \vertex{4}$, and not about the vertex alone.
+Only the form inverse that enters the propagator is canonical, and it is recovered as $(G^{-1} \vertex{4})^{-1} G^{-1}$.
+Nothing physical depends on the choice, because the collapse~\eqref{eq:ch9:sandwich} below does not involve $G$.
+The statements are finite-dimensional; their extension to infinite dimensions needs $A$ self-adjoint with $0$ outside its spectrum, which we do not establish.
+
+\paragraph{Direct form.}
+The heat-kernel form holds only for a positive spectrum,
+\begin{equation}
+  \label{eq:ch9:schwinger-direct}
+  A^{-1}
+    = \int_0^\infty \dd t \, \e^{- t A}
+  \qquad \Longleftrightarrow \qquad
+  \operatorname{spec}(A)
+    \subset (0, \infty).
+\end{equation}
+For a sectorial $A$, with spectrum in a half-plane, a rotated contour works.
+For a genuinely indefinite real spectrum, which is the situation one should expect for a vertex form with both signs, no rotation of the contour converges; this last statement is analytic and was not machine-tested.
+
+\paragraph{Squared form.}
+The form that needs no positivity is
+\begin{equation}
+  \label{eq:ch9:schwinger-squared}
+  A^{-1}
+    = \int_0^\infty \dd t \; A \, \e^{- t A^2},
+\end{equation}
+valid because $A^2$ is positive definite whenever $A$ is symmetric and invertible: spectrally it is the identity $\lambda^{-1} = \int_0^\infty \lambda \, \e^{- t \lambda^2} \dd t$ for every real $\lambda \neq 0$.
+This is the form worth carrying, since it makes no assumption on the sign of the vertex.
+
+\paragraph{Surface reading of the integrands.}
+Expanding the exponentials,
+\begin{equation}
+  \label{eq:ch9:schwinger-chains}
+  \e^{- t A}
+    = \sum_{k \ge 0} \frac{(- t)^k}{k!} \, A^k,
+  \qquad
+  A \, \e^{- t A^2}
+    = \sum_{k \ge 0} \frac{(- t)^k}{k!} \, A^{2 k + 1}.
+\end{equation}
+The direct form generates chains of every length, of uncoloured genus $k - 1$ by~\eqref{eq:ch9:chain-genus}; the squared form generates odd chains only, of genus $0, 2, 4, \ldots$.
+Both expansions are statements about the integrand: integrating term by term in $t$ diverges, since $\int_0^\infty t^k \dd t$ does, so neither is a convergent expansion of the inverse in chains.
+The absence of even chains in~\eqref{eq:ch9:schwinger-squared} is the parity of the inverse, an odd function of $A$; it constrains any surface organization of the inverse through this form to chains of odd length.
+
+\paragraph{The Schwinger parameter is not a modulus.}
+In $1 / L_0^+ = \int_0^\infty \dd s \, \e^{- s L_0^+}$ the parameter $s$ is the length of a flat cylinder, a modulus of the glued surface, and the $s$-integral is part of the moduli integral.
+In~\eqref{eq:ch9:schwinger-direct} and~\eqref{eq:ch9:schwinger-squared} the parameter $t$ multiplies the vertex form itself, and the colour-$2$ edge carries no modulus: the $\Sigma_2$ propagator has no $b$-ghost insertion and no moduli integral.
+Two facts make this concrete.
+First, in an amplitude the representation sits between two vertices, and the $t$-integral collapses before any surface interpretation is needed,
+\begin{equation}
+  \label{eq:ch9:sandwich}
+  \int_0^\infty \dd t \; \vertex{4} \big( \vertex{4} \, \e^{- t \vertex{4}^2} \big) \vertex{4}
+    = \vertex{4} \, \vertex{4}^{-1} \vertex{4}
+    = \vertex{4},
+\end{equation}
+and likewise with~\eqref{eq:ch9:schwinger-direct} when $A$ is positive definite; this is the telescoping~\eqref{p:eq:hs4:telescoping}, now an identity of the integral representation.
+Second, the expansion in $t$ reshuffles terms that are all of order $\gs^2$, by~\eqref{eq:ch9:chain-coupling}, which a modulus would not do.
+The parameter $t$ is a spectral parameter, Laplace-dual to the spectrum of the vertex form, as $s$ is Laplace-dual to the spectrum of $L_0^+$.
+
+\paragraph{The forms for $\sprod{2}{2}$ itself.}
+\status{Conditional(PH1) -- Proven}\record{020-riemann-m2-geometric (R27)}
+Written for the operator $\sprod{2}{2}$ instead of the matrix $A$, the two forms read $\sprod{2}{2}^{-1} = \int_0^\infty \dd t \, \sprod{2}{2} \, \e^{- t \sprod{2}{2}^2}$ when the spectrum of $\sprod{2}{2}^2$ lies in $\{\Re > 0\}$, and $\sprod{2}{2}^{-1} = \int_0^\infty \dd t \, \e^{- t \sprod{2}{2}}$ when the spectrum of $\sprod{2}{2}$ lies there.
+The first condition holds in particular when $\sprod{2}{2}$ is self-adjoint for a positive-definite form: at level~$0$, where the pairing is proportional to the identity on the block of tachyon pairs, but not above level~$0$, where the pairing is indefinite.
+The hypothesis in the tag is the invertibility of $\sprod{2}{2}$ on the quotient by its kernel (\cref{ch:hypotheses}); the spectral conditions are additional, open beyond level~$0$, and not among the hypotheses of \cref{ch:hypotheses}.
+The study of the spectrum at fixed level is in \cref{ch:momentum-space}.
+
+\paragraph{When the direct form would be available.}
+If $\vertex{4}$ restricted to $\Hn{2}$ were found positive definite on the physical quotient, in a natural inner product, the direct form with its expansion in chains of every length would be preferred: it has a single exponential and better convergence.
+Until then the squared form~\eqref{eq:ch9:schwinger-squared} is the safe default.
+
+\subsubsection{A level-zero anchor}
+\label{sec:ws1:anchor}
+
+\status{Numerical}
+At zero momentum the tachyon-diagonal element of $\vertex{4}$ on $\Hn{2}$, for the SL(2,$\C$) vertex of parameter $\beta$ (\cref{ch:sl2c-vertex}), is
+\begin{equation}
+  \label{eq:ch9:anchor}
+  \vertex{4}(T^2, T^2)
+    = C \, I(\beta),
+  \qquad
+  I(\beta)
+    = \beta^8 \, \mathrm{Vol}(\mc V_{0, 4}),
+\end{equation}
+with the closed form
+\begin{equation}
+  \label{eq:ch9:anchor-volume}
+  \mathrm{Vol}(\mc V_{0, 4})
+    = \pi a b - 2 A_{\rm lim},
+  \qquad
+  a
+    = \beta^2 + \frac{1}{16 \beta^2},
+  \quad
+  b
+    = \beta^2 - \frac{1}{16 \beta^2},
+  \quad
+  A_{\rm lim}
+    = \frac{\pi}{2} \, \frac{2 + e^2}{a^2 (1 - e^2)^2},
+  \quad
+  e
+    = \frac{8 \beta^2}{1 + 16 \beta^4},
+\end{equation}
+which gives $I(3/2) = 372.463$ and $I(2) = 12764.05$.
+The volume is positive on $\beta \in [3/2, 3]$, where it was computed, and for large $\beta$ it approaches $\pi a b \approx \pi \beta^4 > 0$, so that positivity extends to all $\beta \ge 3/2$.
+The direction $T \otimes T$ therefore has a nonvanishing diagonal element: the block of $\vertex{4}$ on zero-momentum tachyon pairs is $1 \times 1$ and invertible.
+For external tachyons of equal mass squared $k_a^2 = k^2$, the diagonal element at momentum $k$ is
+\begin{equation}
+  \label{eq:ch9:anchor-momentum}
+  \tilde C \, \beta^{8 - 2 \alpha' k^2} \int_{\mc V_{0, 4}} \dd^2 Z_4 \prod_{a < b} \abs{z_{ab}}^{\alpha' k_a \cdot k_b},
+\end{equation}
+with a strictly positive integrand, so the diagonal element has no zero at any $k$ where the integral converges; for unequal $k_a^2$ the expression does not collapse to this form.
+These are statements about a diagonal element only: the momentum-space kernel of $\vertex{4}$ is not diagonal, and the statement excludes only the simplest kernel scenario, a zero of the tachyon block on a locus of momenta.
+The overall constants $C$ and $\tilde C$ are left symbolic: the sign of the tachyon-diagonal element, which would decide between the two Schwinger forms, depends on the orientation of the measure on $\mc V_{0, 4}$, which we do not fix here.
+The kernel of $\sprod{2}{2}$ at level~$0$ and at nonzero momentum is studied in \cref{ch:momentum-space}.
+
+\subsubsection{Where the four-point identity can fail: the Neumann series}
+\label{sec:ws1:neumann}
+
+\status{mixed}\record{023-a4pt-virasoro-shapiro-chain (R29)}
+The vacuity of the telescoping check in a finite-dimensional model \status{Proven}; the Neumann representation and its convergence criterion, which belong to the dictionary of the Riemann-surface note, \status{Conditional(PH21) -- Proven}\record{020-riemann-m2-geometric (R27)}; the two regimes in finite models are a numerical illustration in finite models, with no tag of their own; the convergence for the level-diagonal split of the actual quartic form is a hypothesis (\cref{ch:hypotheses}), supported on one block (zero momentum, the tachyon and the ghost dilaton).
+
+\paragraph{The trap.}
+Consider first a finite-dimensional model: a level truncation in which the relative momentum of the pair is suppressed, so that the intermediate space is finite-dimensional.
+In such a model the three objects of the exchange, the Gram matrix of $\vertex{4}$, the pairing and the pseudo-inverse of $\sprod{2}{2}$, satisfy the telescoping identity as exact matrix algebra.
+A numerical check that assembles the truncated $\Sigma_2$ exchange and compares it with the truncated quartic vertex therefore verifies nothing.
+A finite-dimensional check makes this concrete: replacing $\vertex{4}$ by five deliberately corrupted random totally symmetric vertices, of different rank and sign structure and with no relation to any conformal field theory, the identities
+\begin{equation}
+  \label{eq:ch9:trap}
+  \vertex{4}' \, \big( \vertex{4}' \big)^{+} \, \vertex{4}'
+    = \vertex{4}',
+  \qquad
+  A_4^{\Sigma_2\text{-exchange}}[\vertex{4}']
+    = \gs^2 \, \vertex{4}'(\Psi_1, \ldots, \Psi_4)
+\end{equation}
+hold on this input, where $(\cdot)^{+}$ is the pseudo-inverse.
+What is falsifiable in the finite model is the consistency between objects: that the same $\vertex{4}$ appears in the kinetic term of $\Sigma_2$, in its source and in the contact term it is compared with, with the ratio $2 : 1$ of source to kinetic coefficient, that the pairing is the right one, that no channel is dropped and that the intermediate sum is complete.
+Breaking each of these on purpose makes the check fail (changing the source coefficient from $2$ to $1$ gives exactly $\tfrac14$, the quadratic sensitivity of the collapse).
+These checks certify the coefficients and the support of the exchange, not the telescoping, which cannot fail in a finite model and is untestable there.
+
+A level truncation of the actual theory is not finite in this sense.
+The intermediate sum runs over the levels of the two strands and over the relative momentum of the pair, and truncating the level does not truncate the momentum integral.
+The collapse at fixed level is then not a matrix identity, the argument above does not apply to it, and whether a comparison of exchange and contact at fixed level carries information in the actual theory is open.
+What such a comparison could test is the convergence, at fixed level, of the relative-momentum integral on the states $\sprod{2}{2}(P)$; its failure would show up as a threshold singularity in the pair channel, absent from the standard amplitude.
+
+\paragraph{The resolution.}
+Off-shell, the four-point identity of \cref{sec:order:amplitude} has two open joints, the first two assumptions stated there, and both are statements about $\sprod{2}{2}^{-1}$ and the space it acts on (the third, on-shell, assumption concerns the geometry of the vertex family and is not at stake here).
+By the theorem of the paper's subsection on the inverse, $\sprod{2}{2}^{-1}$ has no local geometric kernel within connected surfaces of bounded type carrying standard sewing ghost insertions, so within that class there is no explicit worldsheet construction of the propagator whose convergence could be tested directly.
+Outside the class the theorem excludes nothing: a dressing fine-tuned at the actual $\vertex{4}$ (explicit-ghost dressings, mixed tube and slice kernels, excluded only as constructions uniform in the vertex data, that is constructions which would also invert every rescaled form $t \vertex{4}$) remains open.
+The Neumann series is the one surface representation known.
+It lies outside the class because it is an infinite sum, not of bounded type, and carries the algebraic factors $D^{-1}$, rather than being the only representation within it.
+We split the Gram matrix of $\vertex{4}$ on $\Hn{2}$ into its level-diagonal part $D$, an invertible reference and a choice of scheme, and the off-diagonal remainder $N$:
+\begin{equation}
+  \label{eq:ch9:neumann}
+  \vertex{4} \big|_{\Hn{2}}
+    = D - N,
+  \qquad
+  \big( \vertex{4} \big|_{\Hn{2}} \big)^{-1}
+    = \sum_{n \ge 0} \big( D^{-1} N \big)^n D^{-1},
+  \qquad
+  \sprod{2}{2}^{-1}
+    = \sum_{n \ge 0} \big( D^{-1} N \big)^n D^{-1} G_2,
+\end{equation}
+all three convergent if and only if $\rho(D^{-1} N) < 1$, where $\rho$ is the spectral radius and $G_2$ the matrix of the pairing, which converts the inverse of the form into $\sprod{2}{2}^{-1}$.
+Each term is a chain of $n$ frozen-neck surfaces, the $N$ insertions, threaded on the reference factors $D^{-1}$.
+The series agrees term by term with the paper's~\eqref{p:eq:ws:neumann}, written with $\sprod{2}{2} = \tilde D - \tilde N$ and $\tilde D$ the level-diagonal part of $\vertex{4}$ read through the pairing, that is $\tilde D = G_2^{-1} D$, $\tilde N = G_2^{-1} N$: then $\tilde D^{-1} \tilde N = D^{-1} N$ and $\tilde D^{-1} = D^{-1} G_2$, so the iterated operator and its spectral radius are the same under either reading.
+The diagonal split is a split of the form $\vertex{4}$, not of the operator $\sprod{2}{2}$ with $D$ the diagonal of the Gram matrix.
+
+Whether $\rho(D^{-1} N) < 1$ holds, and persists as the truncation level grows, is a falsifiable geometric question: it decides whether the Feynman rules of the cubic theory compute amplitudes as convergent sums over surfaces, or only through the algebraic inverse.
+Its motivation, that level-diagonal dominance is the usual situation in level truncation, rests on the open-string record~\cite{Moeller:2000:LevelTruncationTachyon} and the studies that follow it, transferred to the closed-string quartic Gram matrix by analogy.
+
+\paragraph{The two regimes in finite models.}
+The finite-dimensional check uses two totally symmetric finite models with the diagonal split, found and not constructed: it draws random totally symmetric vertices and keeps the first with $\rho < 0.9$ and the first with $\rho \ge 1.05$.
+They have no stated relation to the physical $\vertex{4}$, and what they show is only that both regimes occur in the class of models.
+The models have two states, so $\dim \Hn{2} = 3$ and there is no level structure: $D$ is the full diagonal part, and the demonstration says nothing about the level-diagonal dominance of the hypothesis.
+\begin{itemize}
+  \setlength{\itemsep}{0.5ex}
+  \item Model A, $\rho(D^{-1} N) = 0.7356$: the partial sums of the exchange converge monotonically to the contact term, with relative error $1.7 \times 10^{-4}$ at $K = 12$ terms (absolute errors from $3.87 \times 10^3$ to $4.36 \times 10^1$ at $K = 0, 2, 4, 8, 12$, for a contact term $- 2.57 \times 10^5$). The decay factor over $K = 0 \to 12$ is $88.8$, faster than $\rho^{-12} = 39.8$.
+  \item Model B, $\rho(D^{-1} N) = 2.2803$: the partial sums diverge, the error growing by a factor $215$ from $K = 0$ to $K = 12$ (from $7.30 \times 10^4$ to $1.57 \times 10^7$), slower than $\rho^{12} = 1.97 \times 10^4$; the factors per sampled interval rise, $1.36$, $1.38$, $1.49$, $1.88$, towards $\rho$.
+\end{itemize}
+Both deviations from $\rho^K$ have one explanation.
+The truncation error is $B_K = \sum v_{ij}^\top T^{K + 1} (\vertex{4}|_{\Hn{2}})^{-1} v_{kl}$, summed over the matchings, with $T = D^{-1} N$ and $v_{ij}$ the source vectors, so that $\abs{B_K} \sim \abs{\mc A} \rho^{K + 1}$ only asymptotically, $\mc A$ being the amplitude of the dominant eigendirection of $T$ in this functional.
+A weakly excited dominant mode produces a transient in either direction: faster decay in model A, slower growth in model B.
+The measured normalized amplitudes are small in both models, $4.74 \times 10^{-3}$ and $5.02 \times 10^{-3}$, as the explanation predicts; their closeness is not evidence, since in a three-dimensional space with this normalization it can be an artefact.
+This is a measurement, not a check; it is guarded so that a complex-conjugate dominant pair or a non-converged power iteration returns no number.
+
+What matters is the sign of the exponent: in model B the series diverges while, on the same model and the same external states, the algebraic inverse still telescopes exactly (in exact rational arithmetic; the spectral radii and partial sums are floats).
+This is the precise sense in which the amplitude of the cubic theory differs from that of the original theory only through the representation of $\sprod{2}{2}^{-1}$: the algebraic identity is exact and independent of the scheme in the finite model, while the surface representation depends on the scheme and can fail, detectably ($\rho \ge 1$), not silently.
+In the toy model of the geometric options of \cref{sec:ws1:kinetic}, the series also diverges, with $\rho(D^{-1} N) = 2.48$.
+If $\rho \ge 1$ held for the physical vertex data, the identity of \cref{sec:order:amplitude} would be untouched, since it uses only its three assumptions, but the sum over frozen-neck chains would cease to compute the amplitude and the choice of the split $D$ would acquire a scheme dependence with physical appearance.
+
+% ------------------------------------------------------------------
+\subsection{No sewing form of the inverse summed over levels}
+\label{sec:ws1:sewing}
+
+\status{mixed}\record{110-p22-inverse-sewing (R101)}
+The exclusion within the class stated below \status{Proven}; the existence of a sewing form with non-Möbius cut coordinates \status{Open}; the failure of the condition on the quintic section at first order \status{Proven}; the statements on the fixed-halves model \status{Conditional(PH31)}; the singular weights of that model at real timelike momenta \status{Numerical}.
+
+The paper's theorem on local kernels excludes a geometric kernel for $\sprod{2}{2}^{-1}$ on the space of states.
+A weaker reading remains: $\sprod{2}{2}^{-1}$, summed over levels, could act as a geometric sewing between the states that two fixed cubic halves put on a cut circle, weighted by a current on the plumbing parameters.
+Such a reading would turn the composite $\vertex{5} \, \sprod{2}{2}^{-1} \, \vertex{5}$ of the sextic order into a family of glued surfaces with a weight, so that its covering of $\mc V_{0, 6}$ becomes a statement about chains.
+This section shows that, on a class large enough to represent the tachyon-block functionals, no such sewing form exists with an input-independent current, a fixed half whose local coordinate at the cut is Möbius, and a kernel acting trivially on the matter $\mathfrak{sl}(2)$ multiplicities.
+It uses the gluing of two cubic halves over the vertex region and the fixed-halves model of \cref{ch:worldsheet-circle}.
+
+\paragraph{Inputs.}
+We use the book conventions~\cite{Erbin:2021:StringFieldTheory}, the plumbing parameter $q = \e^{- s + \I \theta}$ with $b_0^+$ for $s$ and $b_0^-$ for $\theta$, and $\mc S(q) = \e^{- s L_0^+} \e^{\I \theta L_0^-}$.
+The cubic vertex is the $S_3$-symmetric SL(2,$\C$) vertex of the theory, at $\beta = \tfrac32$ for the numbers.
+The local coordinates of the quartic vertex are the $S_4$-symmetric Möbius section, continuous across the boundary of the region $Q_V$ of plumbing parameters on which the quartic vertex is a gluing of two rigid halves (\cref{ch:worldsheet-circle}).
+$\Sigma_2$ lives in $\Hn{2}$ modulo the kernel of $\sprod{2}{2}$, each strand at ghost number $2$ and level-matched.
+Every statement about a sum over levels is a statement about the Abel or level-ordered sum of the gluing, never about a fixed-level truncation.
+The statements on the fixed-halves model use the surjectivity hypothesis of \cref{ch:hypotheses}: the extended projection $\pi_W \Phi_2$ is onto $W^{\rm even}$ modulo the kernel of $G$, in the model at the theory's point.
+The exclusions use no hypothesis.
+
+\paragraph{Definition.}
+Let $\Phi : \Hn{2} \to \Hs$ be a circle map, the state that a fixed cubic half puts on its special puncture as a function of the pair on its two other legs, and let a \emph{representative} of a pair functional $u$ be a state $x_u$ of ghost number $2$ with $u(\Sigma) = \omega(x_u, \Phi \Sigma)$ for all $\Sigma$.
+We say that $\sprod{2}{2}^{-1}$ acts as a geometric sewing on a class $\mc A$ of states, with a current $T$ on the $(s, \theta)$ plane (a distribution of finite order, derivatives of measures allowed), if for all $x, y \in \mc A$
+\begin{equation}
+  \label{eq:ch9:sewing-form}
+  \sprod{2}{2}^{-1} \big( \Phi^\dagger x, \Phi^\dagger y \big)
+    = \int T(s, \theta) \, \big\langle x \big| \, c_0^- c_0^+ \, \mc S(q) \, \big| y \big\rangle \, \dd s \, \dd \theta,
+\end{equation}
+where $\Phi^\dagger x := \omega(x, \Phi \, \cdot)$ and the matrix element is the level sum $\sum_{h, m} \langle x | c_0^- c_0^+ | y \rangle_{h, m} \e^{- s h + \I m \theta}$.
+This is shape (i), with representatives independent of $q$; in shape (ii) the representatives are sections $x(q) = T_q(u)$ over the plane and the integral carries a measure $\tau$.
+
+Without a geometric constraint on the class, the definition is empty: any invertible form $p$ on a finite-dimensional space can be written $p = Y^\dagger G Y$ for any invertible $G$ of the same signature (Sylvester), so a factorization $\sprod{2}{2}^{-1} = X^\dagger c_0^- c_0^+ \hat T(L_0^\pm) X$ exists for every form and some $X$.
+The content of~\eqref{eq:ch9:sewing-form} is in the class.
+The glued family is a chain on $\mc M_{0, 6}$ only when the representatives are the cut states, the states that the surfaces of $\vertex{5}$ put on the circle in the frame in which $\Phi$ is computed; with abstract representatives the identity can hold and define no surface.
+
+In the fixed-halves model, under the surjectivity hypothesis, the definition is met on the even-sector states annihilated by $b_0^\pm$, off the sectors where the region transform $\hat f_m(h)$ vanishes, with $\hat T(h, m) = \tfrac{\I}{\kappa_0} \hat f_m(h)^{-1}$: the current is the convolution inverse of the region measure $\mathbb 1_{Q_V} \dd s \, \dd \theta$.
+Without it, the definition is met exactly on the image $G(\pi_W \mc I)$ of the projected circle states.
+
+\paragraph{The tachyon-pair block of the actual quartic form.}
+Take tachyon pairs $T_k = c_1 \bar c_1 \ket{k}$, with $h_k^+ = \tfrac{\alpha'}{2} k^2 - 2$, on the legs $k_{1, 2} = \tfrac{P}{2} \pm \ell$, $k_{3, 4} = - \tfrac{P}{2} \pm \ell'$.
+On these states the antighost dressings of the gluing vanish, since $b_n c_1 \bar c_1 \ket{k} = 0$ for $n \ge 0$, and the change of local coordinate on each leg acts by the scalar $\abs{\kappa(q)}^{h_k^+}$, because $L_1$, $\bar L_1$ annihilate a primary.
+The tachyon-pair block of $\sprod{2}{2}$ is therefore the rigid gluing over $Q_V$ with a weighted measure,
+\begin{equation}
+  \label{eq:ch9:tachyon-block}
+  \sprod{2}{2}(T_{k_1} T_{k_2}, T_{k_3} T_{k_4})
+    = - \I \kappa_0 \int_{Q_V} \dd s \, \dd \theta \; \abs{\kappa(q)}^{H} \,
+      \big\langle \Phi^{\rm rig}(T_{k_3} T_{k_4}) \big| b_0^+ b_0^- \mc S(q) \big| \Phi^{\rm rig}(T_{k_1} T_{k_2}) \big\rangle,
+  \qquad
+  H
+    = \alpha' \Big( \frac{P^2}{2} + \ell^2 + \ell'^2 \Big) - 8,
+\end{equation}
+with $\kappa_0$ the normalization of the measure and $\Phi^{\rm rig}$ the circle map of the rigid half.
+With $y = q / 4 \beta^2$, the rigid matrix element is $N(\ell) N(\ell') \abs{y}^{h_0} \abs{1 - y}^{2 a_-} \abs{1 + y}^{2 a_+}$, with $h_0 = \tfrac{\alpha'}{2} P^2 - 2$, $2 a_\mp = \alpha' (- \tfrac{P^2}{2} \pm 2 \, \ell \cdot \ell')$ up to a shift independent of $\ell$, and a factorized prefactor $N(\ell) N(\ell')$ carrying $\ell^2$, $\ell'^2$.
+At fixed $P$ the part that depends on $q$ depends on $(\ell, \ell')$ only through $\ell \cdot \ell'$.
+The weight is $\abs{\kappa}^H = \abs{\kappa}^{A(P)} \abs{\kappa}^{\alpha' \ell^2} \abs{\kappa}^{\alpha' \ell'^2}$, so that~\eqref{eq:ch9:tachyon-block} is the shape (ii) for $\sprod{2}{2}$ itself, $\sprod{2}{2} = \int_{Q_V} T_q^\dagger \mc G(q) T_q$, with the geometric input operator $T_q = \abs{\kappa(q)}^{\alpha' \ell^2 + A / 2}$ and $\mc G(q)$ the rigid gluing.
+
+\paragraph{The forward identity.}
+Suppose~\eqref{eq:ch9:sewing-form} holds on a class $\mc A$ with a kernel $M$, $\sprod{2}{2}^{-1}(\Phi^\dagger x, \Phi^\dagger y) = \omega(x, M y)$, and that the class satisfies two conditions: (a) for every tachyon pair $\Sigma$ at total momentum $P$, the functional $\sprod{2}{2}(\Sigma, \cdot)$ has a representative $x_\Sigma \in \mc A$; (b) $\mc A$ separates $W^{\rm even}$.
+For $x \in \mc A$, writing $\Sigma_u$ for the class with $\sprod{2}{2}(\Sigma_u, \cdot) = u$,
+\begin{equation}
+  \label{eq:ch9:forward-chain}
+  \omega(x, \Phi \Sigma)
+    = (\Phi^\dagger x)(\Sigma)
+    = \sprod{2}{2}(\Sigma, \Sigma_{\Phi^\dagger x})
+    = \sprod{2}{2}^{-1}(\Phi^\dagger x, \Phi^\dagger x_\Sigma)
+    = \omega(x, M x_\Sigma),
+\end{equation}
+so (b) gives $\pi_W \Phi \Sigma = M x_\Sigma$, and then, with $M^{-1}$ read as a generalized inverse,
+\begin{equation}
+  \label{eq:ch9:forward}
+  K_P(\ell, \ell')
+    = \omega \big( M^{-1} \pi_W \Phi(\ell), \, \Phi(\ell') \big),
+\end{equation}
+an identity of $\sprod{2}{2}$, not of its inverse, on the tachyon block $K_P$: no block is inverted.
+
+\paragraph{The sl(2) lemma.}
+Let $\mathfrak M$ be the operators that act trivially on the multiplicity spaces of the matter $\mathfrak{sl}(2) \oplus \overline{\mathfrak{sl}(2)}$ at fixed generic momentum: $\mathfrak M$ is closed under sums, $q$-integrals, products and inverses, and contains $c_0^\pm$, $b_0^\pm$, $\mc S(q)$, the functions of $L_0^\pm$, every ghost operator, and the Virasoro operators of the Möbius maps fixing the special puncture.
+For a fixed half whose local coordinate at the special puncture is Möbius (legs anywhere, any leg coordinates) and a kernel in $\mathfrak M$, the matter part of $\Phi(\ell)$ is a coherent state linear in $\ell$, and the right side of~\eqref{eq:ch9:forward} is bilinear in the two sides, a function of $P^2$, $P \cdot \ell$, $P \cdot \ell'$, $\ell \cdot \ell'$ times factors of each side.
+Comparing with~\eqref{eq:ch9:tachyon-block},
+\begin{equation}
+  \label{eq:ch9:compare}
+  \tilde F(\ell) \tilde F(\ell') \, C(\ell \cdot \ell', P \cdot \ell, P \cdot \ell'; P)
+    = N(\ell) N(\ell') \int_{Q_V} \abs{\kappa(q)}^{H} \, g(q; \ell \cdot \ell', P) \, \dd s \, \dd \theta,
+  \qquad
+  g
+    = \abs{y}^{h_0} \abs{1 - y}^{2 a_-} \abs{1 + y}^{2 a_+}.
+\end{equation}
+
+\paragraph{The exclusion.}
+In dimension $d \ge 4$, $\ell^2$ and $\ell'^2$ vary independently on an open set at fixed $\ell \cdot \ell'$, $P \cdot \ell$, $P \cdot \ell'$.
+With $\Lambda = \alpha' (\ell^2 + \ell'^2)$, $\lambda(q) = \ln \abs{\kappa(q)}$ and $\rho = \abs{\kappa}^{A(P)} g > 0$, the right side is $N(\ell) N(\ell') \, \mc K(\Lambda)$ with
+\begin{equation}
+  \label{eq:ch9:laplace}
+  \mc K(\Lambda)
+    = \int_{Q_V} \e^{\Lambda \lambda(q)} \, \rho(q) \, \dd s \, \dd \theta
+    = \int \e^{\Lambda \lambda} \, \dd \nu_\rho(\lambda),
+\end{equation}
+$\nu_\rho$ the push-forward of $\rho \, \dd s \, \dd \theta$ under $\lambda$, a finite positive measure of compact support.
+Equating the two sides gives $\phi(\ell^2) \psi(\ell'^2) = \mc K(\alpha' (\ell^2 + \ell'^2))$ on an open set, and after taking logarithms Pexider's equation, whose continuous solutions are affine: $\ln \mc K(\Lambda) = c_0 + \lambda_0 \Lambda$.
+The two-sided Laplace transform of $\nu_\rho$ then equals that of $\e^{c_0} \delta_{\lambda_0}$ on an interval, hence everywhere, since both are entire ($K_P$ is entire in the momenta), and by injectivity of the Laplace transform $\nu_\rho = \e^{c_0} \delta_{\lambda_0}$: $\ln \abs{\kappa}$ is constant almost everywhere on $Q_V$.
+Conversely, a constant $\ln \abs{\kappa} = \lambda_0$ would let the weight out of the integral and the model's kernel would do.
+But $\abs{\kappa(q)} \to 1$ at the inner seam $\abs{q} \to 1^+$, while at the outer seam at $\theta = \pi$, $\ln \abs{\kappa} = - \ln \tfrac{4 \beta^2 - 1}{4 \beta} = \ln \tfrac34$ at $\beta = \tfrac32$, and $\abs{\kappa}$ is continuous on the closure of $Q_V$.
+So $\lambda(q)$ takes every value in $[\ln \tfrac34, 0]$ along the ray $\theta = \pi$, and is not constant.
+
+\medskip
+
+\noindent
+\emph{Within the class of sewing kernels acting trivially on the matter $\mathfrak{sl}(2)$ multiplicities (the pair $c_0^- c_0^+ \mc S(q)$ of conformal Killing vectors, any ghost dressing, any $q$-dependent Möbius change of the cut coordinate), with an input-independent current, representatives relative to the circle map of a fixed half whose local coordinate at the special puncture is Möbius, on classes that represent every tachyon-block functional and separate $W^{\rm even}$, the inverse $\sprod{2}{2}^{-1}$ summed over levels has no sewing form~\eqref{eq:ch9:sewing-form}.}
+The obstruction is already at first order in the expansion in local coordinates, through the mapping radii $\abs{\kappa}$; the Möbius datum and the antighost dressings do not enter on this block.
+
+\paragraph{What is outside the class.}
+Non-Möbius cut coordinates, depending on $q$ or not, break the factorization and are not excluded: their existence for the inverse is open, and the first necessary finite-order test is at second order in the non-Möbius amplitude, the mixed first-order derivative vanishing identically; no decisive step is known.
+The leg-dressed shape (ii), with representatives relative to a moving circle map paired against an input-independent measure, is the structure $\sprod{2}{2}$ itself has; no closing step for its inverse is stated.
+Also outside: classes holding only the slices of the composite, representatives mixing relative momenta, and chain readings that do not factor through a sewing of the inverse.
+The input map $T_q(u) = \mathfrak B(q) \Phi(\sprod{2}{2}^{-1} u; q)$ gives the tautology $\sprod{2}{2}^{-1}(\sprod{2}{2} u, \sprod{2}{2} v) = \sprod{2}{2}(u, v)$ and says nothing about geometric forms of shape (ii).
+The weakest relaxation that evades the exclusion is a $q$-dependent non-Möbius local coordinate at the cut with an input-independent current, not a momentum-dependent region.
+
+\paragraph{The condition on the quintic section.}
+The chain reading needs the cut states of $\vertex{5}$ to be representatives relative to the rigid half: on every surface of $\mc V_{0, 5}$, the local coordinates of the $\Sigma_2$ pair, in the frame normalized by the circle coordinate of the rigid half, must be those of the cubic vertex.
+This condition fails at first order on an open subset, adjacent to the outer seam, of each face of $\mc V_{0, 5}$ that borders a Feynman region $\vertex{3}$--propagator--$\vertex{4}$ in which a pair other than the $\Sigma_2$ pair pinches, for every section obeying the boundary condition of the geometric master equation: there the coordinates of the $\Sigma_2$ legs are those of $\vertex{4}$, whose mapping radii vary over $\mc V_{0, 4}$.
+It holds on the faces where the $\Sigma_2$ pair pinches; whether the whole face fails was not checked.
+
+\paragraph{The model at real momenta.}
+In the fixed-halves model at the theory's point, the real zeros $h_*(m)$ of $\hat f_{m \neq 0}$ make the weights $1 / \hat f_m(h)$ of the $\Sigma_2$ line singular at $\tfrac{\alpha'}{2} P^2 = h_* + 2 - N - \bar N$, real timelike values that are reached in the domain where the exchange at the sextic order is studied ($\alpha' P^2 \le - 8.71$ for $m = 4$, with $h_*(4) = - 2.3555$); that these zeros are poles of the inverse needs the surjectivity hypothesis.
+Off these points the summed current is locally finite in $\theta$ only under a growth bound on $\abs{\hat f_m(h)}^{-1}$ along the sector lattice, which is not established.
+
+\paragraph{Physical meaning.}
+On the tachyon pairs, the whole off-shell content of $\sprod{2}{2}$ beyond the rigid gluing is the weight $\abs{\kappa(q)}^{\sum_i h_i^+}$.
+A sewing of the inverse with an undressed or Möbius-dressed kernel would have to strip this weight into one factor per pair, which is possible only if the mapping radius is the same on the whole region.
+The exclusion therefore stops the chain-level route through a sewing with fixed or Möbius cut frames; the route with non-Möbius cut frames, the form $\sprod{2}{2}$ itself would take if the level-uniform clause of its gluing recipe holds (\cref{ch:worldsheet-circle}), is the open step, and even then that form of $\sprod{2}{2}$ would say nothing about its inverse.
+
+% ------------------------------------------------------------------
+\subsection{Changing the kinetic term of the auxiliary channel}
+\label{sec:ws1:kinetic}
+
+\status{mixed}\record{030-geometric-inverse-second-look (R30)}
+The convention set, the table of ghost numbers and the counting lemma \status{Proven}; the genus obstruction for the double-strand auxiliary \status{Proven}; the counts of the single-strand auxiliary with reversed range, given the extension of the local coordinates \status{Proven}, with the room for the seam of the covering \status{Numerical}; the faithful transplant on the necks, consistent but not cubic \status{Proven}; the finite-dimensional toy, every buildable fixture failing \status{Numerical}.
+
+The inverse $\sprod{2}{2}^{-1}$ has no reading as surfaces within the class of the theorem on local kernels (connected surfaces of bounded type with standard sewing insertions) and for constructions uniform in the vertex data; outside these, the Neumann series of \cref{sec:ws1:neumann} and dressings tuned to the actual vertex are not excluded.
+In the open string, Erbin and F{\i}rat obtain a geometric auxiliary channel by a different move~\cite{Erbin:2023:OpenStringStub}: they do not invert a vertex but define the kinetic term of the auxiliary field as the inverse of a bounded propagator, a strip of length at most $2 \lambda$, so that the inverse of a vertex never appears (\cref{ch:qft-toys}).
+This section asks what that move gives in the closed string.
+The setting is tree level, four points, the closed bosonic string, and the factorization class $\vertex{4} = J \circ K^{-1} \circ J$ below.
+
+\paragraph{Three meanings of \enquote{geometric}.}
+For a map $K$ on $\Hn{2}$, or on the pair space below, with $\Ngh(K) = - 2$:
+\begin{itemize}
+  \setlength{\itemsep}{0.5ex}
+  \item (G-i) \emph{surface kernel}: $K$ is the sewing form of a family of Riemann surfaces of the single $c = 26$ theory with its antighost measure;
+  \item (G-ii) \emph{factorization}: $K$ is not a surface, but the kinetic operator $K^{-1}$ is defined as the inverse of a bounded tube family, and the geometry is the statement $\vertex{4} = \operatorname{Sym}[J \circ K \circ J]$ with $J$ made of surface data;
+  \item (G-iii) \emph{correlator identity}: the composite $J \circ K \circ J$ is a surface family of a different topology which nevertheless evaluates, on all external states, to the family of $\mc V_{0, 4}$.
+\end{itemize}
+For the present auxiliary, with kinetic operator $\sprod{2}{2}$, (G-i) is excluded within the class stated above (the theorem's class, and constructions uniform in the vertex data) and (G-ii) is void, since no tube family has the non-diagonal level structure of $\vertex{4}$; the only surface-flavoured expansion is the Neumann series of \cref{sec:ws1:neumann}.
+This auxiliary reproduces $\vertex{4}$ exactly, with coefficient one, under the assumptions of \cref{sec:order:amplitude}, and needs no geometry.
+Geometry for the auxiliary channel exists only by redefining the kinetic term, which changes the identity to be satisfied, not the kernel.
+
+\paragraph{The transplant.}
+The open-string mechanism has three features: two discs glued along a strip of length in $[0, 2 \lambda]$ are a disc, so the composite is a family in the same moduli space as the target; the ghost count is $3 + 3 - 2 = 4$, one antighost for one modulus; and the bounded strip $b_0 (1 - \e^{- 2 \lambda L_0}) / L_0 \to 2 \lambda b_0$ as $L_0 \to 0$ has no pole and carries no cohomology.
+In the closed string we take an auxiliary $\Sigma \in \mc S$, where $\mc S$ is either $\Hn{2}$ or the pair-level-matched space
+\begin{equation}
+  \label{eq:ch9:pair-space}
+  \mc S_{\rm pair}
+    := \ker \big( L_0^{-(1)} + L_0^{-(2)} \big) \cap \ker \big( b_0^{-(1)} + b_0^{-(2)} \big)
+    \supset \Hn{2},
+\end{equation}
+and the action
+\begin{equation}
+  \label{eq:ch9:changed-action}
+  S
+    = \frac{1}{2} \vertex{2}(\Psi, \Psi) + \frac{\gs}{3!} \vertex{3}(\Psi^3) + \frac{1}{2} \langle \Sigma, K \Sigma \rangle - \langle \Sigma, J(\Psi, \Psi) \rangle,
+\end{equation}
+with $K^{-1}$ a bounded double tube and $J : \Hs^{\otimes 2} \to \mc S$ a \enquote{vertex} $\mc W_3$ with two ordinary punctures and one pair puncture.
+A state of $\mc S$ is a pair of closed-string states with no local operator at one point, so $J$ is a four-punctured sphere, or a family of them, with two punctures bundled, read as a map from two strings to two strings.
+Integrating $\Sigma$ out, the requirement is
+\begin{equation}
+  \label{eq:ch9:factorization}
+  \frac{\gs^2}{4!} \vertex{4}(\Psi^4)
+    \overset{!}{=} - \frac{1}{2} \sum_{\text{3 pairings}} \big\langle J(\Psi_i, \Psi_j), K^{-1} J(\Psi_k, \Psi_l) \big\rangle.
+\end{equation}
+The telescoping of \cref{sec:order:amplitude} is the special case $J \propto \vertex{4}$, $K^{-1} \propto \vertex{4}^{-1}$, where each pairing already gives $\vertex{4}$: the tautology.
+
+\paragraph{Count of real dimensions.}
+The target $\mc V_{0, 4}$ has real dimension $2$.
+The composite has real dimension $2 m_J + n_\mu(K)$, with $m_J$ the number of real moduli integrated in each $J$ and $n_\mu(K)$ the moduli of the tube, the twists counted separately because on $\mc S_{\rm pair}$ a shared twist is not a Kronecker delta.
+The only tube with exactly two genuine moduli is the diagonal tube with one shared length and one shared twist on $\mc S_{\rm pair}$, and it forces $m_J = 0$: $J$ is a rigid surface, a point of the space of four-punctured spheres with local coordinates.
+The bounded product tube on $\Hn{2}$ also fits when its twists are counted as level deltas, again with a rigid $J$.
+Two four-punctured spheres glued along two tubes form a torus with four punctures, by~\eqref{eq:ch9:chain-genus} with $k = 2$, and $\dim_\R \mc M_{1, 4} = 8$: the composite family has the dimension of $\mc V_{0, 4}$ but lives in the wrong moduli space.
+
+\paragraph{Count of ghost numbers.}
+With two surfaces $J$, each carrying $n_b^J$ antighosts, and a two-strand bivector with $n_b(K)$ antighosts, the saturation of the composite is
+\begin{equation}
+  \label{eq:ch9:ghost-count}
+  S \big( J \circ K^{-1} \circ J \big)
+    = 2 (6 + n_b^J) - \big( 12 - n_b(K) \big)
+    = 2 n_b^J + n_b(K)
+    \overset{!}{=} S(\vertex{4})
+    = 8.
+\end{equation}
+Read on the glued torus, this says that the composite has the saturation of the sphere if and only if $n_b^{\rm tot} = 2 n_b^J + n_b(K) = 8 = \dim_\R \mc M_{1, 4}$, the full antighost measure of the torus.
+Together with the dimension count $2 m_J + n_\mu(K) = 2$:
+
+\medskip
+
+\noindent
+\emph{Counting lemma.} $n_b(K)$ and $n_\mu(K)$ are both even, $m_J = 1 - \tfrac12 n_\mu(K)$ and $n_b^J = 4 - \tfrac12 n_b(K)$.
+
+\medskip
+
+\noindent
+Three fixtures survive both counts, all with a rigid $J$: ($\beta 1$) the bounded product tube $b_1 b_2 b_1^- b_2^-$ with two lengths on $\Hn{2}$; ($\beta 2$) the diagonal tube $b_1 b_2 b_1^- b_2^-$ with shared length and shared twist on $\mc S_{\rm pair}$, one $b^-$ not soaking a modulus; ($\beta 3$) the tube $(b_1 + b_2) b_{\rm tot}^-$ on $\mc S_{\rm pair}$, with $J$ carrying one antighost that soaks no modulus.
+Here $b_i := b_0^{+(i)}$ and $L_i := L_0^{+(i)}$.
+The single-antighost fixtures and the fixtures with one shared length on $\Hn{2}$ fail by parity.
+In ($\beta 1$) and ($\beta 2$), $J$ is the integrand $\Omega_{\vertex{4}}(\mu_0)$ of the measure of $\vertex{4}$ at a single point $\mu_0$, with two Beltrami antighosts unsoaked, of ghost number $+ 2$ as a map, the same as $\sprod{2}{2}$, and the requirement becomes
+\begin{equation}
+  \label{eq:ch9:beta-identity}
+  \vertex{4}
+    \overset{?}{=} \operatorname{Sym}_{S_4} \Big[ \Omega_{\vertex{4}}(\mu_0) \circ K^{-1} \circ \Omega_{\vertex{4}}(\mu_0) \Big].
+\end{equation}
+Read as a surface of the single theory, the composite is a torus with anomaly $0$, while $\vertex{4}$ is a sphere with anomaly $6$; the six missing units are six unintegrated antighosts, four Beltrami antighosts of the two rigid slices and the two tube antighosts that soak no modulus.
+
+\paragraph{Count of the Sonoda--Zwiebach hypotheses.}
+Three of the hypotheses of the theorem of Sonoda and Zwiebach fail for~\eqref{eq:ch9:changed-action}: the field content is not a single closed-string field, the vertex $J$ has legs $(1, 1, \text{pair})$ with symmetry $S_2 \times S_2$ rather than $S_3$, and the diagonal tube is two simultaneous sewings $z^{(1)} w^{(1)} = z^{(2)} w^{(2)} = t$ over a bounded annulus of $t$.
+The covering of $\mc M_{0, 4}$ by three channel regions is inapplicable, since $\mc V_{0, 4}$ is covered by definition.
+The mechanism of the theorem, duality along the boundaries of the channels, reappears as a requirement: gauge invariance demands that the channel families glue to $\mc V_{0, 4}$ and match the Feynman regions along the curve $\abs{q} = 1$, a family of spheres, whereas the composite reaches its outer edge as a family of tori.
+The theorem does not apply; its boundary condition does.
+
+\paragraph{Count of the on-shell content.}
+With $L_{\rm tot} = L_1 + L_2$, the three tubes are
+\begin{equation}
+  \label{eq:ch9:tubes}
+  \hat K^{-1}_{(\beta 1)}
+    = b_1 b_2 \, \frac{1 - \e^{- \lambda L_1}}{L_1} \, \frac{1 - \e^{- \lambda L_2}}{L_2},
+  \qquad
+  \hat K^{-1}_{(\beta 2)}
+    = b_1 b_2 \, \frac{1 - \e^{- \lambda L_{\rm tot}}}{L_{\rm tot}},
+  \qquad
+  \hat K^{-1}_{(\beta 3)}
+    = (b_1 + b_2) \, \frac{1 - \e^{- \lambda L_{\rm tot}}}{L_{\rm tot}},
+\end{equation}
+all entire in the $L$'s, with the values $\lambda^2 b_1 b_2$, $\lambda b_1 b_2$, $\lambda (b_1 + b_2)$ at zero.
+The unbounded diagonal tube $1 / L_{\rm tot}$ would have a pole on the pair mass shell $L_1 + L_2 = 0$, which contains off-shell pairs $L_1 = - L_2 \neq 0$; the bound removes it.
+The auxiliary carries no cohomology on the complement of $\ker L_{\rm tot}$, where $(b_1 + b_2) / L_{\rm tot}$ is a contracting homotopy for $Q_{\rm tot}$, by $\{ Q_{\rm tot}, b_1 + b_2 \} = L_{\rm tot}$; on $\ker L_{\rm tot}$ the same restriction as in the open string is needed.
+The kinetic operator in Siegel gauge is $c_1^+ c_2^+ L_{\rm tot} / (1 - \e^{- \lambda L_{\rm tot}})$ for ($\beta 2$), of ghost number $+ 2$, and as $\lambda \to 0$ the auxiliary decouples.
+The on-shell content of the exchange sits entirely in the $\Psi$ propagators, as in the open string.
+
+\paragraph{Verdict for the double strand.}
+\status{Proven}
+The change of kinetic term transplants to the closed string at the level of every count: ghost number, moduli, the Sonoda--Zwiebach hypotheses and the on-shell structure.
+What does not transplant is the geometric factorization: the open-string identity relates families of surfaces of the same topology, while~\eqref{eq:ch9:beta-identity} equates a two-parameter family of tori, carrying the full antighost measure of $\mc M_{1, 4}$ and integrated over two of its eight directions, with a two-parameter family of spheres.
+As a statement about surfaces this is false, since the genus of the glued surface is a topological invariant, by~\eqref{eq:ch9:chain-genus}: $\mc V_{0, 4}$ does not factorize geometrically as $J \circ K^{-1} \circ J$ in the single theory with a double tube, for any $J$ and any tube.
+As a statement about correlators, that the torus family evaluated on all external states could equal the sphere family, it is not disproved here.
+The one picture in which it is not absurd is the double cover of the sphere branched at the four punctures, every elliptic curve being $y^2 = \prod_{i = 1}^4 (x - x_i)$, with the two strands as the two sheets; the composite would then be a sphere correlator of the $\mathbb Z_2$ covering theory with twist fields at the punctures (see~\arxivn{hep-th/0006196} for the covering-space dictionary of symmetric orbifolds).
+This branched-cover question is the subject of \cref{sec:ws1:cover}.
+Independently, the composite carries a piece that $\vertex{4}$ does not: the intermediate sum over $\mc S_{\rm pair}$ runs over the relative momentum $k_a$ of the pair, with $k_b = - k_1 - k_2 - k_a$, a genuine $\int \dd^D k_a$ which is the loop momentum of the torus and has no counterpart in the tree-level integral over $\mc V_{0, 4}$.
+Comparing the analytic structure in the external momenta, with thresholds in the pair channel, is a direct route to a negative answer; the statement that the correlators differ for any slice is argued from this sum and not evaluated, and it is an open hypothesis of \cref{ch:hypotheses}.
+If the identity held, the auxiliary line would acquire a worldsheet Schwinger parameter, $\e^{- s L_{\rm tot}}$ generating a semigroup of wedge type on $\mc S_{\rm pair}$; if it fails, the double-strand theory is a different theory, whose quartic effective vertex differs from $\vertex{4}$ off-shell and whose on-shell four-point amplitude is not an integral over $\mc M_{0, 4}$.
+Either way it is a candidate replacement of $\sprod{2}{2}$, not a representation of its inverse.
+Whether $Q_{\rm tot}$ preserves $\mc S_{\rm pair}$ is not settled: $[Q_{\rm tot}, b^-_{\rm tot}] = L^-_{\rm tot}$ preserves the annihilation by $b^-_{\rm tot}$ only on $\ker L^-_{\rm tot}$, and the Siegel form of the kinetic operator needs $b_1^+ = b_2^+ = 0$.
+
+\paragraph{The single strand.}
+\status{Proven}
+A single-string auxiliary $\Phi \in \Hs$, of ghost number $2$, couples through the asymmetric vertex $\mc V_3'$ of \cref{ov:sec:explicit:V3} on its special leg, $S_{\rm cub} = \omega_1(\Phi, \mc V_3'(\Psi, \Psi))$, with kinetic operator $\mc K_\lambda = Q_B / (1 - \e^{- \lambda L_0^+})$, of ghost number $+ 1$, and Siegel-gauge propagator $b_0^+ (1 - \e^{- \lambda L_0^+}) / L_0^+$, entire, with value $\lambda b_0^+$ at $L_0^+ = 0$.
+The exchange $\mc V_3' \circ \hat{\mathsf P}_{[0, \lambda]} \circ \mc V_3'$ has ghost number $- 1 - 1 + 4 = + 2$, the same as $\sprod{2}{2}$, saturation $6 + 2 = 8$, moduli $0 + 2 + 0 = 2$, and topology a sphere: one tube adds no handle, the ghost anomaly is $6$ on both sides, and no units are missing.
+Summed over the three channels the exchange is symmetric in the $\Psi$ legs under $S_3$; full $S_4$ symmetry is a condition on $\mc V_3'$, whose special leg is distinguished.
+Two prescriptions must be kept apart.
+The faithful transplant of the open-string mechanism, which we call the neck prescription, puts the bounded neck on the necks of a stubbed quartic vertex: it is consistent, but it leaves the interior of $\mc V_{0, 4}$ as an elementary quartic vertex and so does not by itself make the theory cubic.
+The reversed-range prescription aims at covering the interior: since the twist-only gluing of two copies of $\mc V_3'$ at $\abs{q} = 1$ traces $\partial \mc V_{0, 4}$ (\cref{ov:sec:explicit:V3}), a neck with $\abs{q} \in [\e^{- \lambda}, 1]$ lies on the Feynman side of that boundary, and the interior is reached only by $s \in [- \sigma(\theta), 0]$, that is $\abs{q} \in [1, \e^{\sigma(\theta)}]$.
+The propagator is then $b_0^+ (\e^{\sigma L_0^+} - 1) / L_0^+$, with the same counts and still entire, but its kinetic operator $Q_B L_0^+ / (\e^{\sigma L_0^+} - 1)$ is not the Laplace transform of a positive measure: like the open-string kinetic term, it is a definition, not a Schwinger representation.
+A twist-dependent bound $\sigma(\theta)$ replaces $\int \dd \theta \, \e^{\I \theta L_0^-} = 2 \pi \delta_{L_0^-, 0}$ by an operator that is not proportional to $\delta_{L_0^-, 0}$, so that $\Phi$ must be allowed level-mismatched components; $\sigma$ constant is equivalent to $\Phi \in \Hs$ level-matched.
+
+The reversed-range prescription has a precondition: the local coordinate discs of $\mc V_3'$ at the glued legs must extend to radius $\e^{\sigma(\theta)}$ and remain embedded, disjoint from each other and from the discs of the other punctures.
+For the tangent vertex of Sonoda--Zwiebach type the unit discs touch at $\abs{q} = 1$, which is why that curve is $\partial \mc V_{0, 4}$, and the precondition fails.
+For the asymmetric vertex it holds with slack, $\sigma_{\max} = \ln r_{\max} > 0$, when $\gamma' > \gamma'_{\rm sat} = (2 \beta' + 1) / (2 \beta' - 1)$, at $\alpha' = 0$ (here $\alpha'$, $\beta'$, $\gamma'$ are the parameters of the vertex~\eqref{ov:eq:V3primemaps}, not the Regge slope).
+The room needed for the seam of the covering found in \cref{ch:worldsheet-circle}, $\sigma \le 0.880$, requires $\gamma' \ge 9.19$ for a one-sided cut, or $\gamma' \ge 3.15$ for a symmetric cut, at $\alpha' = 0$ and $\beta' = \tfrac32$ \status{Numerical}.
+Whether the bounded-neck family covers the interior once is a covering question in one moduli space, decidable by a sweep of the cross-ratio, and is treated in \cref{ch:worldsheet-circle}.
+
+\paragraph{The toy.}
+\status{Numerical}
+A finite-dimensional toy tests the surface-built kernels against a generic $\vertex{4}$, with a guard against the tautology of \cref{sec:ws1:neumann}.
+Every fixture the toy can build (a disconnected $\mc W_3$, a real positive weight, a rank-limited projector that is not itself a geometric object) fails~\eqref{eq:ch9:factorization} at its analytic floor.
+The toy is blind to a connected rigid $\mc W_3$, so it decides the questions of rank, parameters and signature, not the question of connected surfaces.
+
+\paragraph{Physical meaning.}
+For the auxiliary as it stands, $\sprod{2}{2}^{-1}$ has no geometry in any of the three readings within the class stated at the head of this section, the Neumann series and dressings tuned to the actual vertex being left open, and none is needed, since the auxiliary reproduces $\vertex{4}$ exactly.
+Geometry enters only by redefining the kinetic term as the inverse of a chosen propagator, and the two redefinitions that would remove the quartic vertex are two different cubic theories, not two representations of one object.
+The single strand keeps the topology and turns the question into a covering computation in $\mc M_{0, 4}$, subject to the extension of the local coordinates.
+The double strand keeps the structure $\Hn{2}$, and with it the IBL and BV apparatus of the paper, but changes the genus, and survives only if a correlator identity between tori and spheres holds.
+
+% ------------------------------------------------------------------
+\subsection{The double-strand fixture as a branched cover}
+\label{sec:ws1:cover}
+
+\status{mixed}\record{031-chain-surfaces-as-covers (R33)}
+The quotient family is not $\mc V_{0, 4}$ with the boundary of the twist-only gluing \status{Numerical} (Möbius-disc model, sampled parameters); the induced disc is a limaçon \status{Proven}; the involution exists if the slice is harmonic \status{Proven}, and only if \status{Argued}; the product tube excluded for distant lengths \status{Proven}; the Grassmann factorization of the fixture \status{Proven} and its descent to the orbifold \status{Argued}; the ghost count at $12$ \status{Verified}, given the identification of the twist field; why a gluing of two pairs still describes a sphere \status{Argued}; the inequality of correlators for any slice is an open hypothesis (\cref{ch:hypotheses}), not a result of this section.
+
+The previous section leaves one open question for the double strand ($\beta 2$): whether the torus family of~\eqref{eq:ch9:beta-identity} equals $\vertex{4}$ as a correlator, through the double cover of the sphere branched at the four punctures.
+We answer it negatively within a stated class: Möbius discs for the rigid slice $\mu_0$, at sampled parameters.
+The four punctures of the slice are $1, 2$ on the first sphere and $3, 4$ on the second, and $a, b$ (resp.\ $a', b'$) are the two punctures of each sphere glued by the two tubes.
+
+\paragraph{The involution.}
+A double cover needs an involution of the torus that swaps the two necks and fixes the four external punctures.
+On the first sphere, a Möbius involution $\iota_1$ with $\iota_1(1) = 1$, $\iota_1(2) = 2$ and $\iota_1(a) = b$ exists if and only if the cross-ratio is harmonic,
+\begin{equation}
+  \label{eq:ch9:harmonic}
+  (1, 2; a, b)
+    = - 1,
+\end{equation}
+and it is then unique: in a coordinate with the fixed points at $0$ and $\infty$, the Möbius maps fixing them are $z \mapsto c z$, an involution needs $c = - 1$, and it swaps $a$ and $b$ if and only if $z_b = - z_a$.
+Coordinate-free, the fixed points and two swapped points satisfy $(1, 2; a, b) = (1, 2; b, a) = (1, 2; a, b)^{-1}$, so the cross-ratio is $\pm 1$, and $+ 1$ would force $a = b$.
+The same holds on the second sphere with $(3, 4; a', b') = - 1$, one condition on $\mu_0$ since both slices are the same.
+The involution lifts to the glued torus, with the four external punctures as its fixed points, if the slice is harmonic with $\iota_1$-symmetric discs and the tube is diagonal; then by Riemann--Hurwitz the quotient of the torus by the involution, with four branch points, is a sphere, $2 - 2 \cdot 1 = 2 (2 - 2 \cdot 0) - 4$.
+The converse, that the involution exists only under these conditions, is argued from the preservation of the decomposition and supported numerically on one non-harmonic slice.
+The product tube ($\beta 1$) is excluded when its two lengths differ by more than a constant $C(\mu_0)$, and numerically at a generic point.
+
+\paragraph{The quotient family against $\mc V_{0, 4}$.}
+The quotient of the family of tori by the involution is a one-neck collar in the $s$-channel of an \emph{induced} cubic vertex, whose disc at the pair puncture is a limaçon, never the round disc of the Sonoda--Zwiebach vertex; this holds for all admissible positions and radii of the discs, and does not by itself imply that the boundary curves differ.
+In the cross-ratio $X = (1, 2; 3, 4)$, the $s$-channel Feynman region $F_s$ of the twist-only gluing is a neighbourhood of $X = 1$, bounded by a closed curve symmetric under reflection that crosses the real axis at $X_{SZ}(1) = \big( \tfrac{4 \beta^2 - 1}{4 \beta^2 + 1} \big)^2 < 1$ and at $X_{SZ}(- 1) > 1$.
+The quotient collar $C_s(\lambda)$ runs from the frozen curve ($s = 0$) towards $X = 1$; its images $C_t$, $C_u$ are its images under $S_3$.
+Since $\mc V_{0, 4}$ is the complement of the three Feynman regions, the union of the three collars can equal $\mc V_{0, 4}$ only if (A) the curve $s = \lambda$ of $C_s$ is exactly $\partial F_s$, and (B) the three frozen curves are the internal seams of the tiling.
+Both curves in (A) are symmetric under complex conjugation and cross the real axis at $\theta = 0$ and $\theta = \pi$, so (A) requires one $\lambda$ that matches both crossings.
+For a disc radius $r < r_c(\beta)$ the frozen curve already lies inside $F_s$ and the collar never reaches $\partial F_s$; for $r > r_c(\beta)$ the two crossings are matched by different values of $\lambda$, whose ratio stays below one over the whole scan of $r$.
+For example, at $\beta = 1$, $r = 0.6$ the two crossings need $\lambda = 0.472$ and $\lambda = 0.217$.
+The relative mismatch, sampled at $\beta = 1, 2, 3, 5$, is $0.20$, $0.037$, $0.015$ and $5 \times 10^{-3}$: it is of order one for $\beta$ of order one, but not uniform in $\beta$.
+The frozen curves do not form the seams (B) either.
+The scan of the ratio of crossing values of $\lambda$ covers $\beta \in [0.75, 3]$, $\beta$ being a free parameter of the family of $\mc V_3'$, and $r \in [0.3, 0.95]$.
+Outside the class: discs that are not Möbius (of Cassini type), parameters not sampled (a general proof is open), and the product fixture ($\beta 1$) at every pair of lengths.
+The objective, that ($\beta 2$) is not the integrand of $\vertex{4}$, is reached independently by the loop-momentum argument of the previous section, which is argued and not evaluated.
+
+\paragraph{The sewing lift.}
+The plumbing fixture of ($\beta 2$) factorizes as a Grassmann product, and its soaked part descends to the one-neck propagator of the untwisted sector of the $\mathbb Z_2$ orbifold, $L_{\rm tot} = L_0^{\rm orb}$; this descent is relative to the covering dictionary of symmetric orbifolds, which is cited and not verified here.
+The descended propagator is non-standard by the factor $- \tfrac14 b^+_{\rm rel} b^-_{\rm rel}$, the zero modes of the ghost odd under $S_2$, which are the two unsoaked tube antighosts and the frozen moduli odd under the involution, and by the projection onto pairs of level-matched states.
+
+\paragraph{The ghost count of the twist fields.}
+The six missing units of the previous section become twelve on the quotient, and they match: each of the four twist fields carries $3 = \tfrac32 + \tfrac32$, the ghost number of the bosonized antiperiodic twist field of weight $\lambda = 2$.
+The fixture realizes the reading in which all eight antighosts stay insertions, four Beltrami antighosts at the branch points and $b^\pm_{\rm tot} b^\pm_{\rm rel}$ on the neck; the reading in which only six units are carried by twist fields is not realizable, since $\tfrac32 \notin \Z$.
+The count is exact rational arithmetic, given the identification of the ghost twist field with the antiperiodic ground state; it is a match for the ground-state twist field, not a uniqueness statement, and the anomaly gives no independent negative answer.
+
+\paragraph{Why a gluing of two pairs still describes a sphere.}
+On the quotient, a gluing of two pairs of punctures is a gluing of one puncture to one puncture of two three-punctured spheres of the doubled (orbifold) theory, the pair puncture being a single puncture there.
+The sphere is the orbifold's, the torus is its double cover, and the coloured genus $0$ of \cref{sec:ws1:grading} is the genus of the quotient: the statement that the resolved genus is bookkeeping, not geometry, made precise.
+The sum over pair states on a colour-$2$ edge is the neck sum of the untwisted sector of the doubled theory, which carries the loop momentum of the cover; this reading is argued.
+
+% ------------------------------------------------------------------
+\subsection{Explicit local coordinates}
+\label{sec:ws1:explicit}
+
+The last two blocks come from the overview note.
+The first gives the asymmetric cubic vertex $\mc V_3'$ of Sen and Zwiebach, the location of the fourth puncture in its $s$-channel gluing, and the twist-only gluing of two copies at $\abs{q} = 1$, which reproduces the boundary $\partial \mc V_{0, 4}$ and only the boundary: \status{Verified}\record{001-cubic-sft-overview-note (R2)}.
+The twist-only sewing is computed here, not taken from Sen and Zwiebach, whose propagator integrates the twist; the identification of the curve $\abs{q} = 1$ with $\partial \mc V_{0, 4}$ is quoted, not re-derived.
+The continuation of the same family to $\abs{q} > 1$ and the covering of the interior are in \cref{ch:worldsheet-circle}.
+The second block quotes the hyperbolic local coordinates of the literature; it carries no result of its own.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: overview note $\to$ paper.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $\mtwo$ $\to$ $\sprod{2}{2}$; the pairing $\Mean{A \,|\, B}$ on two-string states $\to$ $\pair[2]{A}{B}$; the quartic form $W_2(A_2, B_2) := \Mean{A_2 \,|\, \mtwo(B_2)}$ $\to$ $\vertex{4}(A_2, B_2)$; $\Sig \to \Sigma_2$.
+    \item $\mc V_{0, 3}'$, $\mc V_3'$: the asymmetric cubic vertex, with parameters $\alpha'$, $\beta'$, $\gamma'$ of its local-coordinate maps; this $\alpha'$ is not the Regge slope.
+    \item $\mc V_{0, n}$ is the vertex region of $\vertex{n}$, $\mc M_{0, n}$ its moduli space.
+    \item \emph{Reality.} The note's $\Sig^\ddagger = \Sig$ is the paper's $\Sigma_2^\star = \Sigma_2$; for odd $k$ the two conventions differ by a sign, $\Sigma_k^\ddagger = \Sigma_k$ being $\Sigma_k^\star = - \Sigma_k$ (\cref{ch:conventions}).
+  \end{itemize}
+\end{quote}
+
+\input{extracted/09/8-ov}
+
+The hyperbolic vertices of the literature give a second explicit set of local coordinates, quoted for comparison.
+
+\input{extracted/09/9-ov}
+
+The figures of the Riemann-surface note, referred to in its sections above, close the chapter.
+
+\input{extracted/09/10-rs}

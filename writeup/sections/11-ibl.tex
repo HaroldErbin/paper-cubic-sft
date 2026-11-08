@@ -1,0 +1,522 @@
+\section{IBL and homotopy transfer}
+\label{ch:ibl}
+
+This chapter reads the cubic action in the language of algebras with operations of several inputs and several outputs, the \IBL{} algebras of Cieliebak, Fukaya and Latschev, and reads the elimination of the auxiliary fields as a homotopy transfer.
+It expands the section of the paper on the \IBL{} perspective and the subsection of the all-order section on integrating out as a homotopy transfer.
+Both are reproduced as they stood before the paper was condensed, followed by three earlier notes: a companion note on the bookkeeping of the raised products and of the \IBL{} relations, the section of the overview note on the \IBL{} structure, and the sections of a pedagogical note on the two presentations of the quartic structure and on its physical grading.
+Only this chapter contains the two record-only sections at its end: the ghost numbers of the kinetic operators and the reading of the canonical-model theorem, which correct several wordings of the earlier texts, and the Maurer--Cartan form of the raised family, with its components, the coupling it requires and the components of its gauge transformation.
+
+\paragraph{Assumptions and conventions.}
+
+Everything in this chapter is at genus zero, in the physical ghost number, with the coupling $\gs$ of ghost number zero.
+Input strands of a product sit at ghost number two and output strands at ghost number three, so that $\Ngh(\sprod{m}{n}) = 3 n - 2 m$.
+The algebraic statements are statements about symmetric multilinear forms on a finite-dimensional graded space, which for the string vertices is a level truncation; the \IBL{} definitions and the theorems of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} are quoted, not re-derived.
+The products studied are those read from the fundamental vertices; from the quintic order on, the cubic action uses reduced vertices, whose readings with several outputs are not studied here.
+
+\subsection*{The \IBL{} section of the paper}
+
+The first block is the section of the paper on the \IBL{} perspective before its condensation.
+It holds the following results.
+
+\noindent\status{Proven} The physical ghost number of the operations, $\Ngh(\sprod{k}{\ell}) = 3 \ell - 2 k$ at genus zero, $3 \ell - 2 k + g$ at genus $g$, the genus term derived at $g \le 1$ and taken from the ghost-additive self-gluing at $g \ge 2$.\record{009-a3-ibl-pedagogical (R23)}
+
+\noindent\status{mixed} The family raised with the inverse of the odd form $\Omega$ is the family of the paper twisted by the parity of the inputs, the two carrying the same information, although on inputs of mixed parity they are different maps; the \IBL{} generating function holds for each family in its own form, and the theorem below holds in the generating-function form under the coefficient rule of the paper.\record{088-ibl-generating-sign (R87)}
+
+\noindent\status{Proven} The raised family with the operations with no input or no output included satisfies every genus-zero \IBL{} relation if and only if the $\ell_n$ form a cyclic \Loo{} algebra; the degree bookkeeping needs $d = \tfrac{1}{2}$, outside the integer values of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}.\record{026-linfty-to-ibl-repackaging (R31)}
+
+\noindent\status{mixed} Without those operations the relation at signature $(1, 2)$ holds, and so does every relation with one input or one output, but the relation at $(2, 2)$ is not implied by the \Loo{} relations, as a statement on general cyclic \Loo{} algebras: one cyclic \Loo{} algebra violates every relation with $k, \ell \ge 2$; whether the closed-string products satisfy it is not evaluated.\record{026-linfty-to-ibl-repackaging (R16)}
+
+\noindent\status{mixed} The braces of a parity-inhomogeneous differential operator $\mathcal D$ form a curved \Loo{} algebra if and only if the brace criterion~\eqref{p:eq:ibl:brace-criterion} holds; the family with two or more outputs is not the brace structure of any such operator within the hosts considered.\record{026-linfty-to-ibl-repackaging (R32)}
+
+\noindent\status{mixed} The map $\Psi \mapsto (\Psi, \Psi^2)$ is not an \Loo{} morphism off the classical complex: the morphism identity with two inputs fails by $\hat{Q}_B (\Psi^2)$, within strict maps whose linear part is the inclusion, on the even-input sectors of a finite model.\record{029-morphism-check (R36)}
+
+\noindent\status{Conditional(PH1) -- Verified (finite-dimensional model)} On the classical complex the elimination of $\Sigma_2$ is a homological-perturbation transfer, with transferred brackets $(Q_B, \gs \ell_2, \gs^2 \ell_3, 0)$ and transfer map $\Psi \mapsto (\Psi, \Psi^2)$, a cyclic \Loo{} quasi-isomorphism, under the invertibility of $\sprod{2}{2}$ on the quotient by its kernel, level by level.\record{037-hpt-transfer-sigma (R41)}
+
+A later check of this section corrects several of its wordings, and the paragraph on homotopy transfer is replaced by an override in the block; the other corrections are the following.\record{114-ibl-remarks-check (R111)}
+\begin{itemize}
+  \setlength{\itemsep}{0.3ex}
+
+  \item The loop homotopy algebras of~\cite{Markl:2001:LoopHomotopyAlgebras} are \Loo{} algebras with a second-order operator of Batalin--Vilkovisky type; they are not presented as \IBL{} algebras, and the inverse pairing alone does not make them one.
+    For \IBL{} structures in string field theory the references are~\cite{Cieliebak:2015:HomologicalAlgebraRelated, Markl:2015:MVFormalismIBL} and Münster--Sachs~\cite{Muenster:2013:QuantumOpenClosedHomotopy}.
+
+  \item The first of the two \enquote{features} is correct in its facts and misleading in its framing.
+    The statement it should make is the ghost-number balance of \cref{ch11:sec:transfer}: the kinetic operator of the $n$-string component, of ghost number $2 n$, has ghost number $n$, and no operator acting strand by strand with ghost number one can appear; in an \IBL{} algebra, by contrast, the differential acts on every strand of a multi-string state, so the auxiliary fields of the cubic action are not the multi-string components of an \IBL{} field.
+    The sentence on the inverse pairing as the only object with two outputs describes the loop homotopy algebra, not the \IBL{} framework.
+
+  \item In the second feature, the auxiliary nature of $\Sigma_2$ and the parity count of the $2$-string pairing are correct, the count under the rule that makes the total multi-string field even.
+    The Batalin--Vilkovisky structure that an \IBL{} algebra defines is a different notion, a higher-order differential operator on the symmetric algebra, which needs no symplectic form, so the paragraph is not contradicted by it.
+    The stronger reason why the cubic action is not of that form is the Maurer--Cartan comparison of \cref{ch11:sec:mc}, within the class of local redefinitions considered there.
+
+  \item The last sentences of that paragraph draw a contrast that does not exist.
+    The quadratic form of $\Sigma_2$ is the quartic vertex itself, $\pair[2]{\Sigma}{\sprod{2}{2} \Sigma'} = \vertex{4}(\Sigma, \Sigma')$, and the self-adjointness of $\sprod{2}{2}$ for the $2$-string pairing is equivalent to the pair-exchange symmetry of $\vertex{4}$, exactly as the cyclicity of $\ell_n$ is the symmetry of $\vertex{n + 1}$ read through the pairing.
+
+  \item The statement that the raised family is not an \IBL{} algebra in the sense of the definition of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} means first that its relations include the operations with no input or no output, which that definition excludes; the degree $d = \tfrac{1}{2}$ is a second point.
+    That value is forced: the strand degree $3 - \Ngh$ is the only one affine in the ghost number that reproduces the degrees of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, and it gives $d = \tfrac{1}{2}$, for which their genus-counting variable would be odd (the derivation is~\eqref{ped:eq:cflmatch} of the pedagogical note below).
+\end{itemize}
+
+\input{extracted/11/1-p}
+
+\medskip
+The second block is the subsection of the all-order section of the paper that states the same transfer in the terms of that section, before the condensation.
+Its references to the all-order construction point to \cref{ch:all-orders}, and the finite-dimensional model it cites is in \cref{ch:finite-models}.
+The status of its statement is that of the transfer on the classical complex listed above.
+
+\input{extracted/11/2-p}
+
+\subsection*{The companion note on the bookkeeping}
+
+The third block is a companion note written to fix the bookkeeping of the raised products: how one vertex defines all the maps $\sprod{k}{\ell}$, how a single contraction between two vertices composes them, which \IBL{} relations hold and why the augmented relation fails at $(2, 2)$, and three senses of the statement that \Loo{} implies \IBL{}.
+Its results are the theorem and the obstruction listed with the first block, in the generating-function language.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: companion note on the bookkeeping $\to$ write-up.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $\mc V_n$, $p_{k, \ell}$, $\braket{\cdot, \cdot}_\ell$ are the paper's $\vertex{n}$, $\sprod{k}{\ell}$, $\pair[\ell]{\cdot}{\cdot}$.
+    \item $\chi$ is a placeholder that marks an output leg in the generating function $H(\Psi, \chi) = S(\Psi + \chi)$; it is not a field, and not the partner field $\Upsilon_2$ of \cref{ch:partner-field}.
+    \item Pairing sign: the note takes the one-string pairing graded \emph{antisymmetric} on its support, $\braket{A, B} = - \braket{B, A}$, and its inverse $\Delta$ antisymmetric.
+      In the conventions of the write-up the one-string pairing is symmetric on its support, $s = + 1$ in~\eqref{p:eq:conv:pairing-symmetry}, and the odd, antisymmetric form is $\Omega$ of~\eqref{p:eq:conv:odd-symplectic}.
+      The note's pairing has the exchange property of $\Omega$, so its intermediate signs are those of the family raised with an antisymmetric inverse pairing, which differs from the family of the paper by the parity of the inputs~\eqref{p:eq:ibl:raised-vs-sprod}.
+      The two coincide on even inputs; the note's statements on the two-string field are stated on physical inputs, all at ghost number two, where nothing changes.
+    \item Weights: the generating function weights $\sprod{k}{\ell}$ by $\gs^{k + \ell - 2}$; there is no $\hbar$.
+    \item Reality: the note uses no reality condition; the write-up's convention is the star convention, $\Sigma_k^\star = (-1)^k \Sigma_k$, with the sign $-1$ for odd $k$.
+  \end{itemize}
+\end{quote}
+
+\input{extracted/11/3-ibk}
+
+\subsection*{The overview note}
+
+The fourth block is the section of the overview note on the \IBL{} structure: the definition and the master equation in the conventions of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, the relations at low signature, the embedding and the projection between \Loo{} and \IBL{} algebras, homotopy transfer and strictification, and a list of convention traps.
+
+\noindent\status{Verified} The degree and Euler-characteristic bookkeeping $\abs{\mathfrak{p}_{k, \ell, g}} = - 2 d (k + g - 1) - 1$, $\chi = 2 - 2 g - k - \ell$, and the \Loo{} relations as the truncation to one output and genus zero, in the degree convention of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, not in the physical ghost number.\record{001-cubic-sft-overview-note (R5)}
+
+The displayed relation at signature $(2, 2, 0)$ is the form of the relation of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, which stands; for the raised products it is not implied by the \Loo{} relations without the operations with no input or no output, as stated with the first block.
+The paragraph on homotopy transfer read the canonical-model theorem as the elimination of the auxiliary fields and called the minimal model quasi-inverse to strictification; it is corrected by an override along the lines of \cref{ch11:sec:transfer}.
+The note identifies the formal variable $\hbar$ of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} with the coupling; the grading analysis of \cref{ch11:sec:mc} identifies the coupling with their second variable $\tau$ at genus zero and keeps $\hbar$ as a separate formal parameter.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: overview note $\to$ write-up.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $\mtwo = \mathfrak{p}_{2, 2, 0}$ $\to$ $\sprod{2}{2}$; $\ell_k = \mathfrak{p}_{k, 1, 0}$, $Q = \mathfrak{p}_{1, 1, 0}$ as in the paper.
+    \item Degrees $\abs{\cdot}$ are the suspended degrees of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} on $C[1]$, with $\abs{\hbar} = 2 d$; at genus zero they match the physical ghost number through the strand degree $3 - \Ngh$, at $d = \tfrac{1}{2}$.
+    \item $\hbar$ $\to$ a formal variable, identified with $\gs$ in the note and not in \cref{ch11:sec:mc}; $\tau = 1$ in the note, $\tau = \gs$ at genus zero in \cref{ch11:sec:mc}.
+    \item $\omega_2 = \omega_1^{\otimes 2}$ $\to$ the $2$-string pairing $\pair[2]{\cdot}{\cdot}$.
+    \item Reality: none used in the block; the write-up's convention is $\Sigma_k^\star = (-1)^k \Sigma_k$, with the sign $-1$ for odd $k$.
+  \end{itemize}
+\end{quote}
+
+\input{extracted/11/4-ov}
+
+\subsection*{The pedagogical note}
+
+The fifth and sixth blocks are three sections of a pedagogical note: the two presentations of the quartic structure, as a genus-zero \IBL{} algebra on the one-string space and as a cyclic \Loo{} algebra on the space enlarged by the two-string field; their physical ghost-number grading without suspension; and the count of suspension units for the pairing of $\Sigma_2$.
+The section of the note on the reading of the $(2, 2, 0)$ relation, which carries a withdrawn argument, is not reproduced (\cref{ch:dead-ends}).
+
+\noindent\status{Verified} The \IBL{} action reproduces the cubic action at order $\gs^2$, and the equation of $\Sigma$ follows by stripping the non-degenerate $2$-string pairing; it uses the full graded symmetry of $\vertex{4}$, a property of the vertex, and is checked on a finite model.\record{003-i2-ibl-action (R8)}
+
+\noindent\status{Proven} The physical ghost number~\eqref{ped:eq:ngformula} of the structure maps, the same result as in the first block.\record{009-a3-ibl-pedagogical (R23)}
+
+\noindent\status{Verified} The $2$-string pairing is graded symmetric in the physical statistics, hence not an odd symplectic form; demanding graded antisymmetry forces one shift of the whole field $\Sigma_2$.\record{002-omega2-construction (R7)}
+
+Several statements of the note were superseded by later results, and the block carries overrides for them: the $(2, 2, 0)$ relation of the raised products, the attribution of the elimination of $\Sigma$ to a transfer of \IBL{} structures, the status of the morphism $(\phi_1, \phi_2)$, and the inverse needed by the propagator route.
+Two more points are corrected here.
+First, presentation (a) reads $\Sigma$ as the two-string component $\Psi_2$ of one Maurer--Cartan element; with the weight of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} that component has ghost number five, and $\Sigma_2$ at ghost number four is the two-string component only after the conjugation~\eqref{ch11:eq:conjugation}, with the genus label $-1$ (\cref{ch11:sec:mc}).
+Second, the shifted form~\eqref{ped:eq:omega2symp} is written with one suspension per tensor factor, $s \otimes s$; the result is one shift of the whole field $\Sigma_2$, as the sixth block explains, and the antisymmetric form so obtained is even in every uniform grading.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: pedagogical note $\to$ write-up.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $\mtwo = \Delta \circ \ell_3$ $\to$ $\sprod{2}{2}$; $V_n$ $\to$ $\vertex{n}$; $V_4(\Sig, \Sig)$ as the kinetic term of $\Sig$ $\to$ $\vertex{4}(\Sigma_2, \Sigma_2) = \pair[2]{\Sigma_2}{\sprod{2}{2} \Sigma_2}$.
+    \item $\Sig$ $\to$ $\Sigma_2$; $\Sym^2 \Hilb_0$ $\to$ the level-matched $2$-string states $\Hn{2}$, quotiented by $\ker \sprod{2}{2}$.
+    \item $\omega_1$, $G_2 = \omega_1^{\otimes 2}$ $\to$ $\pair{\cdot}{\cdot}$, $\pair[2]{\cdot}{\cdot}$; $\Delta = \omega_1^{-1}$ the inverse pairing.
+    \item Degrees: the note's $d = \tfrac{1}{2}$ dictionary, strand degree $3 - \Ngh$, is the one of the first block.
+    \item Exchange sign: the sixth block, in its source, took the one-string pairing antisymmetric ($s = -1$); the override restores $s = + 1$, and the symmetry of $G_2$, which depends on $s^2$ only, is unchanged.
+    \item Reality: none used in the blocks; the write-up's convention is $\Sigma_k^\star = (-1)^k \Sigma_k$, with the sign $-1$ for odd $k$.
+  \end{itemize}
+\end{quote}
+
+\input{extracted/11/5-ped}
+
+\medskip
+The sixth block is the section of the same note on the count of suspension units for the pairing of $\Sigma_2$: two insertions of $c_0^-$ make the $2$-string pairing even as an operation, and one shift of the field makes it antisymmetric.
+
+\input{extracted/11/6-ped}
+
+\subsection{Kinetic operators, the canonical model, and the auxiliary field}
+\label{ch11:sec:transfer}
+
+\noindent\status{Conditional(PH1, PH5, PH14, PH27) -- mixed}\record{114-ibl-remarks-check (R111)}
+This section answers a question raised by the canonical-model theorem of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}: does the theorem say that only the BRST operator carries physical states, and that every other quadratic term defines an auxiliary field?
+We find that the first half is the content of the theorem, and that the second half holds for $\Sigma_2$ in the cubic action but does not follow from the theorem.
+The setting is genus zero with a coupling of ghost number zero.
+The statement on \IBL{} algebras assumes their axioms, with integer $d$, which the raised family does not satisfy, so it describes \IBL{} algebras and not the cubic action.
+The statement on $\Sigma_2$ holds on the classical complex at quartic order assuming that $\sprod{2}{2}$ is invertible on the quotient by its kernel, level by level with stable kernels; the statement on the BRST spectrum assumes in addition that the kernel of $\vertex{4}$ vanishes off shell at generic momentum or is annihilated by $\vertex{5}$ and $\vertex{6}$, that the feedback of the auxiliary exchanges is not expressible through the diagonal values $\vertex{n}(\Psi^n)$ and boundary terms, at order $\gs^4$, and that the vertices kept form the truncation of a consistent genus-zero \Loo{} family.
+
+\paragraph{Ghost number of a kinetic operator.}
+
+A quadratic term $\pair[n]{\Phi}{K \Phi}$ for an $n$-strand field of total ghost number $N$ is nonzero only when the ghost numbers saturate the $n$-string pairing, five per strand:
+\begin{equation}
+  \label{ch11:eq:kinetic-balance}
+  2 N + \Ngh(K)
+    = 5 n,
+  \qquad
+  \Ngh(K)
+    = 5 n - 2 N.
+\end{equation}
+The auxiliary field $\Sigma_n$ has its strands at ghost number two, $N = 2 n$, so its kinetic operator has ghost number
+\begin{equation}
+  \label{ch11:eq:kinetic-n}
+  \Ngh(K_n)
+    = n
+    = 3 n - 2 n
+    = \Ngh(\sprod{n}{n}).
+\end{equation}
+The extension of the BRST operator to $n$ strands,
+\begin{equation}
+  \hat{Q}_B
+    = \sum_{i = 1}^n 1^{\otimes (i - 1)} \otimes Q_B \otimes 1^{\otimes (n - i)},
+\end{equation}
+with the Koszul signs, has ghost number one, so it can be a kinetic operator only for $n = 1$.
+The same holds for any operator of ghost number one acting strand by strand, and for any distribution of the total ghost number $2 n$ among the strands.
+For $\Sigma_2$ the kinetic operator is $\sprod{2}{2}$ at quartic order, dressed by $- \tfrac{\gs}{5} \sprod{3}{2}(\Psi, \cdot)$ beyond; the higher $\Sigma_n$ have kinetic operators built from the reduced vertices.
+
+The contrast with an \IBL{} algebra is direct.
+There the extension $\hat{\mathfrak{p}}_{1, 1, 0}$ of the differential to the symmetric algebra is a derivation acting on every strand~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, and in the two-string component of the Maurer--Cartan equation it appears at the leading order in $\hbar$, with $\mathfrak{p}_{2, 2, 0}$ only at the next order.
+The cubic action has the opposite pattern: no $\hat{Q}_B \Sigma_2$ term, by~\eqref{ch11:eq:kinetic-n}, and $\sprod{2}{2} \Sigma_2$ at leading order.
+The difference rests on the coupling: in the \IBL{} algebra the two terms on one component are balanced by $\hbar$, of ghost number $-1$ in the dictionary of \cref{ch11:sec:mc}, while $\gs$ carries no ghost number.
+
+\paragraph{The canonical model.}
+
+Theorem~6.1 of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} states that every \IBL{} algebra $(C, \{\mathfrak{p}_{k, \ell, g}\})$ over a field of characteristic zero is homotopy equivalent to an \IBL{} structure $\{\mathfrak{q}_{k, \ell, g}\}$ on the homology $H = H(C, \mathfrak{p}_{1, 1, 0})$, with $\mathfrak{q}_{1, 1, 0} = 0$, the $\mathfrak{q}$ being built recursively from a splitting $C = H \oplus B \oplus A$ and a contracting homotopy.
+Its Corollary~6.2 transfers the structure along any chain homotopy equivalence.
+Take $\mathfrak{p}_{1, 1, 0} = Q_B$.
+The structure lives on the symmetric algebra, and in characteristic zero the homology of the derivation extension $\hat{Q}_B$ on the $k$-th symmetric power is the symmetric power of the homology (Künneth):
+\begin{equation}
+  \label{ch11:eq:kunneth}
+  H \bigl( \mathrm{Sym}^k C, \hat{Q}_B \bigr)
+    = \mathrm{Sym}^k H(Q_B).
+\end{equation}
+The canonical model therefore lives on the Fock space $\mathrm{Sym} \, H(Q_B)$ built on the one-particle states $H(Q_B)$.
+This is the precise sense in which only $\mathfrak{p}_{1, 1} = Q_B$ determines the physical states: no other operation, whatever its numbers of inputs and outputs, adds or removes a state, and all of them become operations $\mathfrak{q}_{k, \ell, g}$ on that space.
+
+The multi-string sectors of the canonical model are not empty: they are $\mathrm{Sym}^k H(Q_B)$, read physically as multi-particle states.
+In an \IBL{} algebra no multi-string direction has an operation with $k$ inputs and $k$ outputs as its only quadratic term, because $\hat{\mathfrak{p}}_{1, 1, 0}$ acts on every strand; such operations enter weighted by $\hbar^{k - 1}$, as perturbations of $\hat{\mathfrak{p}}_{1, 1, 0}$, and the theorem transfers them rather than integrating out a field because of them.
+So the statement that every other quadratic term defines an auxiliary field is not what the theorem says, and inside the \IBL{} framework it is false: the multi-string directions carry the multi-particle states.
+
+\paragraph{Why $\Sigma_2$ is auxiliary.}
+
+In the cubic action the situation is different.
+Where the kinetic operator $\sprod{2}{2}$ is injective, on the quotient by its kernel, the pair formed by $\Sigma_2$ and its equation of motion is acyclic.
+Integrating out that pair is a homotopy transfer along a chain homotopy equivalence, the analogue of Corollary~6.2 for \Loo{} algebras, not a passage to homology.
+On the classical complex, the fields and their equations of motion, at quartic order, it is the homological-perturbation transfer of \cref{p:sec:all:homotopy-transfer}, with transferred brackets $(Q_B, \gs \ell_2, \gs^2 \ell_3, 0)$ and transfer map $\Psi \mapsto (\Psi, \Psi^2)$; it controls the solutions and their linearization, not the BRST spectrum.
+The BRST spectrum is a separate statement: around a background $\Psi_0$, the linearized BRST operator of the master action of the cubic theory is similar to the linearized operator $Q^{(k)}_{\Psi_0}$ of the original theory truncated at order $k$, plus a contractible pair, so that their cohomologies agree in all ghost numbers to the truncation order ($\Sigma_2$ alone, $k \in \{2, 3\}$, with the kernel of $\vertex{4}$ quotiented; \cref{p:sec:gauge:spectrum}).
+Under the assumptions stated at the head of this section, $\Sigma_2$ therefore carries no physical state, and only $Q_B$ does.
+For the higher fields $\Sigma_n$, $n \ge 3$, the same is expected, since the ghost number~\eqref{ch11:eq:kinetic-n} does not depend on the order, but their dressed kinetic operators and the transfer of the whole tower have not been examined.
+
+The physical meaning is a difference, not a similarity, with \IBL{} algebras.
+At quartic order the cubic theory and the original one have the same physical states, as Theorem~6.1 would suggest, but by a different mechanism: in an \IBL{} algebra the multi-string directions carry $\hat{Q}_B$ and the states $\mathrm{Sym}^k H(Q_B)$; in the cubic action $\Sigma_2$ carries $\sprod{2}{2}$ and no state, and the multi-particle states are carried by products of $\Psi$.
+
+\paragraph{Strictification, elimination and the minimal model.}
+
+Three transfers are involved, and the earlier texts conflated two of them.
+Strictification goes from the original theory to a larger quasi-isomorphic model with simpler operations: the cubic action, or the bar--cobar construction of \cref{ch:bar-cobar}.
+The elimination of the auxiliary fields goes back from the cubic action to the original theory, a homotopy transfer along a contraction whose kernel is acyclic; for $\Sigma_2$ this is the statement above, on the classical complex and under the invertibility of $\sprod{2}{2}$, and it inverts the strictification up to homotopy.
+The minimal model goes from the original theory to $H(Q_B)$, a transfer onto the cohomology in which every off-shell mode is integrated out with the contracting homotopy as propagator; its genus-zero brackets are the tree-level on-shell amplitudes (\cite{Kajiura:2007:NoncommutativeHomotopyAlgebras} for $\Aoo$ algebras; the construction is the same for the closed-string \Loo{} algebra).
+All three are quasi-isomorphisms, and the minimal model is the end point of the transfer, reached from either theory.
+
+The facts used here were reproduced in finite models, the balance~\eqref{ch11:eq:kinetic-n} by enumeration of the strand distributions and the equivalence of the self-adjointness of $\sprod{2}{2}$ with the symmetry of $\vertex{4}$ on exact data, and~\eqref{ch11:eq:kunneth} was checked on a random graded complex, the last with a control in which a dropped Koszul sign makes $\hat{Q}_B^2 \ne 0$.
+
+\subsection{The Maurer--Cartan form and the gauge components}
+\label{ch11:sec:mc}
+
+This section asks whether the cubic theory is a Maurer--Cartan element of the raised family, read as an \IBL{} structure in the sense of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}.
+It first fixes the gradings, then computes the components of the Maurer--Cartan expression through order $\gs^2$ and compares them with the equations of motion of the cubic action, then identifies the coupling that the components require and what it does to the theory, and finally lists the components of the gauge transformation.
+The setting, for the whole section, is the following.
+The operations are the genus-zero raised family $\sprod{k}{\ell}$ with $k, \ell \ge 1$, truncated at $k + \ell \le 4$, which is the order $\gs^2$.
+The extension $\hat{\phi}$ of an operation $\phi$ with $k$ inputs to a word in the symmetric algebra applies $\phi$ to every $k$-subset of the letters, as in~\cite[(2.1)]{Cieliebak:2015:HomologicalAlgebraRelated}.
+Input strands (fields, gauge parameters, unfed strands of a field) carry the physical parity and output strands of the raised products the shifted parity $\Ngh + 1$, the parity rule of the raised products; the fields have even strands, $\Psi$ at ghost number two and $\Sigma_2$ with strands at $(2, 2)$.
+The variable $\hbar$ is an even, central formal parameter with free powers, whose degree and ghost number are integer labels not tied to the Grassmann parity.
+The comparisons below are identities between explicit expressions and use no hypothesis.
+Reading the components as a gauge-covariant Maurer--Cartan equation needs more: that the single-contraction part of $\hat{\mathfrak{p}} \circ \hat{\mathfrak{p}}$, extended to words with odd letters, is the square of one operator reproducing the antibracket term by term, which is open; and the relations with two contractions between two operations, which are not implied by the genus-zero relations and are expected to fail for the genus-zero truncation unless genus-one operations are added.
+
+\subsubsection{Grading of the Maurer--Cartan equation}
+
+\noindent\status{Verified}\record{103-ibl-mc-conventions (R103)}
+In the weighting of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} the operator is $\hat{\mathfrak{p}} = \sum \hat{\mathfrak{p}}_{k, \ell, g} \hbar^{k + g - 1} \tau^{k + \ell + 2 g - 2}$, and at genus zero the coupling is $\tau$, which weights $\sprod{k}{\ell}$ by $\gs^{k + \ell - 2}$.
+A Maurer--Cartan element with one- and two-string components is $\mathfrak{m} = \hbar^{-1} (\Psi_1 + \Psi_2)$, and the equation is the vanishing of the components of
+\begin{equation}
+  \label{ch11:eq:mc-expansion}
+  e^{- \mathfrak{m}} \hat{\mathfrak{p}} (e^{\mathfrak{m}})
+    = \sum_{k, \ell} \hbar^{k - 1} \gs^{k + \ell - 2} \sum_{a, b} \frac{\hbar^{- a - b}}{a! \, b!} \bigl[ \hat{\mathfrak{p}}_{k, \ell} (\Psi_1^a \Psi_2^b) \bigr]_{\mathrm{conn}},
+\end{equation}
+where the connected part keeps the $k$-subsets that take at least one strand from each factor.
+A term in which $\sprod{k}{\ell}$ takes $t_i \in \{1, 2\}$ strands from the $i$-th factor $\Psi_2$ has the power $(k - 1) - (a + b)$ of $\hbar$, the power $k + \ell - 2$ of $\gs$, and $L = \ell + \sum_i (2 - t_i)$ output strands.
+When the inputs leave one strand of a $\Psi_2$ unfed, that strand stays as an output: this produces the lifts of the one-output operations, among them the lift $\hat{Q} \Psi_2 = (Q_B \otimes 1 + 1 \otimes Q_B) \Psi_2$ of $\sprod{1}{1}$.
+Write $y = \Ngh(\Psi_2)$.
+The connected terms with $k + \ell \le 4$ landing in one or two strands are the following.
+\begin{center}
+  \small
+  \begin{tabular}{llccc}
+    \toprule
+    component & term & $\hbar$ & $\gs$ & $\Ngh$ \\
+    \midrule
+    $E_1$ & $Q_B \Psi_1$, $\tfrac{1}{2} \ell_2(\Psi_1^2)$, $\tfrac{1}{6} \ell_3(\Psi_1^3)$ & $\hbar^{-1}$ & $\gs^{0, 1, 2}$ & $3$ \\
+    & $\ell_2(\Psi_2)$, $\ell_3(\Psi_1, \Psi_2)$ & $\hbar^0$ & $\gs^{1, 2}$ & $y - 1$ \\
+    $E_2$ & $\hat{Q} \Psi_2$, lifts of $\ell_2(\Psi_1, \cdot)$ and $\tfrac{1}{2} \ell_3(\Psi_1^2, \cdot)$ & $\hbar^{-1}$ & $\gs^{0, 1, 2}$ & $y + 1$ \\
+    & $\sprod{1}{2}(\Psi_1)$, $\tfrac{1}{2} \sprod{2}{2}(\Psi_1^2)$ & $\hbar^{-1}$ & $\gs^{1, 2}$ & $6$ \\
+    & $\sprod{2}{2}(\Psi_2)$ & $\hbar^0$ & $\gs^2$ & $y + 2$ \\
+    & lift of $\ell_3(\Psi_2, \cdot)$ on a second $\Psi_2$ & $\hbar^0$ & $\gs^2$ & $2 y - 3$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+At $y = 4$ every term of the $L$-strand component has ghost number
+\begin{equation}
+  \label{ch11:eq:ghost-rule}
+  \Ngh
+    = 2 L + \ell_p,
+\end{equation}
+with $\ell_p$ the number of outputs of the product used: the factors carry two per strand, $2 (k + L - \ell_p)$ in all, and the product adds $3 \ell_p - 2 k$.
+
+Two criteria of homogeneity can be asked: all the terms of a component, every order in $\hbar$ together, at one grading, or each order in $\hbar$ separately, since for a formal $\hbar$ each order is a separate equation.
+In the degree of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, with $\abs{\hbar} = 2 d = 1$, both components are homogeneous if and only if $y = 5$, which is their requirement $\abs{\mathfrak{m}_{2, 0}} = 1$ read through the strand degree $3 - \Ngh$.
+In the physical ghost number with $\hbar$ and $\gs$ ghost-neutral, the one-string component is homogeneous only for $y = 4$ and the two-string component for no $y$, since its ghost numbers $y + 1$ and $y + 2$ never agree; at $y = 4$ it splits into a sector at ghost number five, the one-output lifts, and a sector at ghost number six, the two-output products.
+Giving $\hbar$ the ghost number $x$, the components are homogeneous across the orders in $\hbar$ if and only if
+\begin{equation}
+  (x, y)
+    = (-1, 5),
+\end{equation}
+so the degree of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} is the physical ghost number with $\Ngh(\hbar) = -1$, component by component.
+Order by order, the weighting of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} with $\Psi_2 = \mathfrak{m}_{2, 0}$ requires $y = 5$ for every $x$.
+The order-by-order criterion depends on the power of $\hbar$ that dresses the two-string component; across orders the result is $\Ngh(\mathfrak{m}_{2, g}) = 5 + g$ with $\Ngh(\hbar) = -1$, for every dressing, which is the degree $\abs{\mathfrak{m}_{2, g}} = 1 - g$ of their definition.
+The gauge parameter $\lambda = \hbar^{-1} (\Lambda_1 + \Lambda_2)$, entering through $\delta e^{\mathfrak{m}} = [\hat{\mathfrak{p}}, \lambda] e^{\mathfrak{m}}$, has $\Ngh(\Lambda_1) = 1$ and, in their degree, $\Ngh(\Lambda_2) = 4$.
+
+The value four for $\Sigma_2$ is recovered by a change of weighting.
+Let $\varphi$ multiply the $L$-strand part of the symmetric algebra by $\hbar^{-L}$.
+Since $\hat{\mathfrak{p}}_{k, \ell, g}$ takes $k$ strands and returns $\ell$,
+\begin{equation}
+  \label{ch11:eq:conjugation}
+  \varphi^{-1} \, \hat{\mathfrak{p}}_{k, \ell, g} \hbar^{k + g - 1} \, \varphi
+    = \hat{\mathfrak{p}}_{k, \ell, g} \hbar^{\ell + g - 1},
+  \qquad
+  \hat{\mathfrak{p}}(e^{\varphi(\mathfrak{m}')})
+    = \varphi \bigl( \hat{\mathfrak{p}}'(e^{\mathfrak{m}'}) \bigr),
+\end{equation}
+with $\hat{\mathfrak{p}}' = \sum \hat{\mathfrak{p}}_{k, \ell, g} \hbar^{\ell + g - 1}$: the weight with one $\hbar$ per input beyond the first and the weight with one $\hbar$ per output beyond the first are conjugate.
+Take $\mathfrak{m}' = \Psi + \Sigma_2$, independent of $\hbar$, that is $\mathfrak{m} = \hbar^{-1} \Psi + \hbar^{-2} \Sigma_2$.
+A term of the $L$-strand component then carries $\hbar^{\ell_p - 1}$ in $\hat{\mathfrak{p}}'(e^{\mathfrak{m}'})$, and by~\eqref{ch11:eq:ghost-rule} its total ghost number is $2 L + \ell_p + (\ell_p - 1) x$, the same for all terms if and only if $x = -1$.
+In this output-counting form, $(\Psi, \Sigma_2; \Lambda_1, \Lambda_2)$ at ghost numbers $(2, 4; 1, 3)$ is homogeneous, across orders for $\Ngh(\hbar) = -1$ and order by order for any value, and at genus zero the order in $\hbar$ of a term is the number of outputs of its product minus one.
+The price is that $\Sigma_2$ receives the genus label $-1$ in the expansion of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, outside their range $g \ge 0$ and their filtration condition.
+In either weighting the two-string component at ghost number four placed as $\mathfrak{m}_{2, 0}$ is excluded.
+The obstruction belongs to the raised family: in the structure of Münster and Sachs~\cite{MunsterSachs2013}, whose only two-output datum is the inverse of the odd form, a two-string element at ghost number four is homogeneous with a neutral $\hbar$.
+The gradings were measured term by term in a finite model with the ghost numbers of the vertices imposed, with control runs at the integer values $d = 0$ and $d = 1$, which give no solution.
+
+\subsubsection{The components, and the comparison with the equations of motion}
+
+\noindent\status{mixed}\record{103-ibl-mc-conventions (R104)}
+We work in the output-counting form, $\mathfrak{m}' = \Psi + \Psi_2$ with the weight $\hbar^{\ell - 1} \gs^{k + \ell - 2}$ and $\Ngh(\Psi, \Psi_2) = (2, 4)$.
+On words of even letters, the extension of an operation $\phi$ with $k$ inputs is the differential operator
+\begin{equation}
+  \hat{\phi}
+    = \frac{1}{k!} \, \phi(e_{a_1}, \ldots, e_{a_k}) \, \pd^{a_k} \cdots \pd^{a_1},
+\end{equation}
+the outputs standing to the left.
+With $\Psi = \psi^a e_a$ and $\Psi_2 = s^{a b} e_a e_b$, $s$ symmetric, the derivatives of $\mathfrak{m}'$ are $\pd^a \mathfrak{m}' = \psi^a + 2 s^{a b} e_b$, $\pd^a \pd^b \mathfrak{m}' = 2 s^{a b}$, and the third vanishes.
+Conjugating by the exponential and summing over the set partitions of the derivatives gives, with $\hat{\phi} X = (\phi \otimes 1 + 1 \otimes \phi) X$ the extension to two strands of a map with one free input,
+\begin{equation}
+  \begin{aligned}
+    e^{- \mathfrak{m}'} \hat{p}_{1, \ell} e^{\mathfrak{m}'}
+      &
+      = \sprod{1}{\ell}(\Psi) + \widehat{\sprod{1}{\ell}} \, \Psi_2,
+    \\
+    e^{- \mathfrak{m}'} \hat{p}_{2, \ell} e^{\mathfrak{m}'}
+      &
+      = \tfrac{1}{2} \sprod{2}{\ell}(\Psi^2) + \sprod{2}{\ell}(\Psi_2) + \widehat{\sprod{2}{\ell}(\Psi, \cdot)} \, \Psi_2 + \ldots,
+    \\
+    e^{- \mathfrak{m}'} \hat{p}_{3, \ell} e^{\mathfrak{m}'}
+      &
+      = \tfrac{1}{6} \sprod{3}{\ell}(\Psi^3) + \sprod{3}{\ell}(\Psi, \Psi_2) + \tfrac{1}{2} \widehat{\sprod{3}{\ell}(\Psi, \Psi, \cdot)} \, \Psi_2 + \widehat{\sprod{3}{\ell}(\Psi_2, \cdot)} \, \Psi_2 + \ldots,
+  \end{aligned}
+\end{equation}
+where the dots have more strands.
+Sorting by the number of strands and by the order in $\hbar$, the components through order $\gs^2$ are
+\begin{subequations}
+  \label{ch11:eq:mc-components}
+  \begin{align}
+    \label{ch11:eq:M1}
+    \mathcal{M}_1
+      &
+      = Q_B \Psi + \frac{\gs}{2} \, \ell_2(\Psi^2) + \frac{\gs^2}{3!} \, \ell_3(\Psi^3) + \gs \, \ell_2(\Psi_2) + \gs^2 \, \ell_3(\Psi, \Psi_2),
+    \\
+    \label{ch11:eq:M2-5}
+    \mathcal{M}_2^{(5)}
+      &
+      = \hat{Q} \Psi_2 + \gs \, \widehat{\ell_2(\Psi, \cdot)} \, \Psi_2 + \frac{\gs^2}{2} \, \widehat{\ell_3(\Psi, \Psi, \cdot)} \, \Psi_2 + \gs^2 \, \widehat{\ell_3(\Psi_2, \cdot)} \, \Psi_2,
+    \\
+    \label{ch11:eq:M2-6}
+    \mathcal{M}_2^{(6)}
+      &
+      = \gs \, \sprod{1}{2}(\Psi) + \frac{\gs^2}{2} \, \sprod{2}{2}(\Psi^2) + \gs^2 \, \sprod{2}{2}(\Psi_2),
+  \end{align}
+\end{subequations}
+at ghost numbers three, five and six, the last at order $\hbar$, together with three- and four-strand components, headed by $\gs^2 \hbar^2 \sprod{1}{3}(\Psi)$ at ghost number nine.
+Every relative coefficient is $+ 1$: all the letters are even, so no Koszul sign arises, and the signs of the operations are those of the raised family.
+The three equations are separate both by order in $\hbar$ and by ghost number, so their sum vanishes if and only if each does, whatever value $\hbar$ is given, $\hbar = 1$ included.
+The terms of the three- and four-strand components and their ghost numbers were checked; their coefficients were derived by hand.
+In the native grading of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, one parity per strand, the symmetric $\Sigma_2$ of the paper vanishes in the two-string part of the symmetric algebra, so the comparison below exists only with the parity rule stated at the head of the section.
+
+The equations of motion of the cubic action at quartic order are~\eqref{p:eq:hs4:eom},
+\begin{equation}
+  \mathcal{E}_\Psi
+    = Q_B \Psi + \frac{\gs}{2} \, \ell_2(\Psi^2) + \frac{\gs^2}{3!} \, \ell_3(\Psi, \Sigma_2),
+  \qquad
+  \mathcal{E}_\Sigma
+    = \sprod{2}{2}(\Psi^2) - \sprod{2}{2}(\Sigma_2),
+\end{equation}
+with $\Sigma_2$ in the quotient by $\ker \sprod{2}{2}$.
+The question is whether, for some identification $\Psi_2 = f(\Sigma_2, \Psi)$, the components are these equations.
+The class of $f$ is that of the local redefinitions built from the data of the theory at the order of the truncation: polynomials linear in $\Sigma_2$ and of degree at most two in $\Psi$, built from the fields, the tensor product and the operations of the family, with coefficients power series in $\gs$ and independent of $\hbar$.
+A product adds $\ell_p$ to $\Ngh - 2 L$, and $f$ has two strands at ghost number four, so it contains no product:
+\begin{equation}
+  f
+    = \alpha \, \Sigma_2 + \beta \, \Psi^2,
+  \qquad
+  \alpha
+    = \sum_j \alpha_j \gs^j,
+  \quad
+  \beta
+    = \sum_j \beta_j \gs^j.
+\end{equation}
+In the one-string component, using $\ell_3(\Psi, \Psi^2) = \ell_3(\Psi^3)$,
+\begin{equation}
+  \mathcal{M}_1 - \mathcal{E}_\Psi
+    = \gs \, \alpha \, \ell_2(\Sigma_2) + \gs^2 \bigl( \alpha - \tfrac{1}{6} \bigr) \ell_3(\Psi, \Sigma_2) + \gs \, \beta \, \ell_2(\Psi^2) + \gs^2 \bigl( \beta + \tfrac{1}{6} \bigr) \ell_3(\Psi^3).
+\end{equation}
+The four maps have different field degrees, so each coefficient must vanish: the first gives $\alpha_0 = 0$ and the second $\alpha_0 = \tfrac{1}{6}$.
+The two $\Sigma_2$-terms of $\mathcal{M}_1$ come from the same factor $e^{\Psi_2}$ and carry the same $\alpha$, whereas $\mathcal{E}_\Psi$ has $\ell_3(\Psi, \Sigma_2)$ without $\ell_2(\Sigma_2)$.
+In the two-string component at ghost number six,
+\begin{equation}
+  \mathcal{M}_2^{(6)}
+    = \gs \, \sprod{1}{2}(\Psi) + \gs^2 \bigl( \tfrac{1}{2} + \beta \bigr) \sprod{2}{2}(\Psi^2) + \gs^2 \, \alpha \, \sprod{2}{2}(\Sigma_2).
+\end{equation}
+The cobracket term $\gs \sprod{1}{2}(\Psi)$ is independent of $f$ and linear in $\Psi$, and $\mathcal{E}_\Sigma$ has no such term; without it, the proportionality to $\mathcal{E}_\Sigma$ would need $\alpha + \beta = - \tfrac{1}{2}$, against $\alpha + \beta = 0$ from the one-string component.
+The sector at ghost number five has no counterpart among the equations of motion, which have ghost numbers three and six, so it must vanish identically; its parts of degree one and two, $\alpha \hat{Q} \Sigma_2$ and $2 \beta \, Q_B \Psi \cdot \Psi$, vanish only for $\alpha = \beta = 0$.
+Finally, the equations of motion are invariant under $\Sigma_2 \to \Sigma_2 + N$ with $N \in \ker \sprod{2}{2}$, while the components change by $\alpha \gs \ell_2(N)$ and $\alpha \hat{Q} N$, so for $\alpha \ne 0$ they are not defined on the quotient.
+Hence no $f$ of the class makes the quartic-order equations of motion the components.
+The conclusion does not depend on the reading of \enquote{are}: if each component is only required to be a combination of the equations of motion, $f = 0$ makes $\mathcal{M}_1$ such a combination and removes the ghost-five sector, but the term $\gs \sprod{1}{2}(\Psi)$ survives for every $f$, by an argument that counts the ghost number and the field degree of the combinations (not a check); and on a free solution $\Psi = \varepsilon \Psi_0$, $Q_B \Psi_0 = 0$, $\Sigma_2 = \Psi^2$, the component~\eqref{ch11:eq:M2-6} at first order in $\varepsilon$ is $\gs \sprod{1}{2}(\Psi_0) = 0$, false whenever $\vertex{3}(\cdot, \cdot, \Psi_0) \ne 0$.
+
+The components~\eqref{ch11:eq:M1} and~\eqref{ch11:eq:M2-6} are the Euler--Lagrange equations of
+\begin{equation}
+  \label{ch11:eq:S-MC}
+  S_{\mathrm{MC}}(\Psi, \Psi_2)
+    = S_{\le 4}(\Psi) + \gs \, \vertex{3}(\Psi_2, \Psi) + \frac{\gs^2}{2} \, \vertex{4}(\Psi_2, \Psi^2) + \frac{\gs^2}{2} \, \vertex{4}(\Psi_2, \Psi_2) + O(\gs^3),
+\end{equation}
+the vertex functionals evaluated on $e^{\Psi + \Psi_2}$ without the term $\vertex{2}(\Psi_2)$, which has no input; the ghost-five sector is not the variation of any action and comes from the lifts alone.
+The cubic action is instead $S_{\le 4}(\Psi) - \tfrac{\gs^2}{4!} \vertex{4}(\Sigma_2 - \Psi^2, \Sigma_2 - \Psi^2)$.
+The coupling $\gs \vertex{3}(\Psi_2, \Psi)$ is the common origin of $\gs \ell_2(\Psi_2)$ in~\eqref{ch11:eq:M1} and of $\gs \sprod{1}{2}(\Psi)$ in~\eqref{ch11:eq:M2-6}.
+
+Part of the mismatch is not specific to the cubic action.
+The terms $\gs \sprod{1}{2}(\Psi)$ and $\gs^2 \sprod{1}{3}(\Psi)$ are independent of $f$ and present at $\Psi_2 = 0$: with $\Psi_2 = 0$, or any $\Psi_2(\Psi)$ built locally from the family, the original quartic closed string field theory is not a Maurer--Cartan element of the raised family either.
+A $\Psi_2(\Psi)$ containing the inverse of $\sprod{2}{2}$ removes the cobracket term at the price of a modified kinetic operator of $\Psi$.
+These baseline terms measure the distance between the raised family and any tree-level closed string field theory; removing them means switching off the cobracket on the classical field, the step back to the \Loo{} truncation.
+The mismatches specific to the Hubbard--Stratonovich form are the term $\alpha \gs \ell_2(\Sigma_2)$, the coefficient of the source, the ghost-five sector, the $f$-dependent three- and four-strand terms, the missing invariance under the kernel, and, at the level of actions, the coefficient of $\vertex{4}(\Sigma_2, \Sigma_2)$, which would need $\tfrac{\alpha^2}{2} = - \tfrac{1}{4!}$.
+The exclusion is a statement within the class of $f$ above; outside it lie redefinitions containing the propagator of $\Sigma_2$ or of $\Psi$, $\hbar$-dependent ones, and families with data added to the $\sprod{m}{n}$.
+The identities were checked in a finite model of random graded-symmetric vertices, the components being computed literally in the symmetric algebra, with control runs that remove the obstructions one at a time.
+
+\subsubsection{The coupling required by the Maurer--Cartan form}
+
+\noindent\status{no ledger entry}\record{109-mc-cubic-coupling}
+The two mismatches $\gs \ell_2(\Psi_2)$ and $\gs \sprod{1}{2}(\Psi)$ are the two variations of one term, so we add it to the cubic action and ask what it does.
+With $\Psi_2 = \alpha \Sigma_2$, the terms of~\eqref{ch11:eq:S-MC} linear in $\Psi_2$ are $\alpha \gs \vertex{3}(\Sigma_2, \Psi) + \tfrac{\alpha \gs^2}{2} \vertex{4}(\Sigma_2, \Psi^2)$, and the mixed term of the cubic action, $\tfrac{2 \gs^2}{4!} \vertex{4}(\Sigma_2, \Psi^2)$, fixes the normalization:
+\begin{equation}
+  S'
+    = \caction[\le 4] + c \, \gs \, \vertex{3}(\Sigma_2, \Psi),
+  \qquad
+  \alpha
+    = c
+    = \frac{1}{6}.
+\end{equation}
+The two mismatches give the same value, since the ratio $1 : \tfrac{1}{2}$ of $\vertex{3}(\Psi_2, \Psi)$ and $\vertex{4}(\Psi_2, \Psi^2)$ comes from the exponential alone; the footnote of the paper on the restricted correspondence states this term with $\Psi_2 = \Sigma_2 / 6$.
+The equations of motion of $S'$ are
+\begin{equation}
+  \mathcal{E}'_\Psi
+    = Q_B \Psi + \frac{\gs}{2} \, \ell_2(\Psi^2) + c \, \gs \, \ell_2(\Sigma_2) + \frac{\gs^2}{3!} \, \ell_3(\Psi, \Sigma_2),
+  \qquad
+  \mathcal{E}'_\Sigma
+    = c \, \gs \, \sprod{1}{2}(\Psi) + \frac{\gs^2}{12} \bigl[ \sprod{2}{2}(\Psi^2) - \sprod{2}{2}(\Sigma_2) \bigr].
+\end{equation}
+At $c = \tfrac{1}{6}$ the two mismatches are supplied and the invariance under the kernel is lost, while the coefficient of the source, the ghost-five sector, the term $\ell_3(\Psi^3)$, the baseline term $\sprod{1}{3}(\Psi)$, the three- and four-strand terms and the action-level coefficient remain.
+
+The added term has one slot filled by $\Psi$ and two by the strands of $\Sigma_2$: it is bilinear in the fields, a mixing of order $\gs$ between $\Psi$ and a field whose propagator, $- 12 \, \sprod{2}{2}^{-1} / \gs^2$, is of order $\gs^{-2}$.
+Assuming $\sprod{2}{2}$ invertible, the solution of the equation of $\Sigma_2$ is
+\begin{equation}
+  \Sigma_2^*
+    = \Psi^2 + \frac{12 c}{\gs} \, \sprod{2}{2}^{-1} \sprod{1}{2}(\Psi),
+\end{equation}
+with a part of order $\gs^{-1}$.
+In the full action a term $\gs^{n - 2} \vertex{n}(\Sigma_2^k, \Psi^{n - 2 k})$ then contributes to the eliminated action first at order $\gs^{n - 2 - k}$, so that the order $\gs^p$ receives contributions from every order $n \le 2 p + 4$.
+At order $\gs^0$ only $n \le 4$ enters, and the eliminated action is
+\begin{equation}
+  S'[\Psi]
+    = S_2 + 6 c^2 \, W(\Psi) + O(\gs),
+  \qquad
+  W(\Psi)
+    = \pair[2]{\sprod{1}{2}(\Psi)}{\sprod{2}{2}^{-1} \sprod{1}{2}(\Psi)},
+\end{equation}
+that is $S_2 + \tfrac{1}{6} W$ at $c = \tfrac{1}{6}$: a nonlocal quadratic term, an integral over the momenta of the two strands.
+In the quartic truncation alone the orders $\gs$ and $\gs^2$ are $2 S_3 + S_4$, but in the full action the quintic term adds $\tfrac{1}{30} \gs \vertex{5}((\sprod{2}{2}^{-1} \sprod{1}{2} \Psi)^2, \Psi)$ at order $\gs$, and the higher orders add more; only the order $\gs^0$ is a statement about the theory.
+Heuristically $W$ is a bubble in which both strands of the auxiliary line join two cubic vertices; since $\sprod{2}{2}^{-1}$ is the inverse of a quartic vertex and not a pair of propagators, the picture is only suggestive.
+
+Assume that $W$ is finite and not identically zero for the closed-string vertices.
+This is motivated by its truncation to the tachyon at zero strand momentum, $\vertex{3}(T^3)^2 / \vertex{4}(T^4) \, t^2 \ne 0$, and by the absence of any known structural reason for it to vanish; its finiteness, an integral over the strand momenta, and the invertibility of $\sprod{2}{2}$ on the continuum are not established.
+Under this assumption, and with the operator $\sprod{2}{2}$ of the $\Sigma_2$ sector kept, no rescaling of the two coefficients of the $\Sigma_2$ sector, no redefinition of $\Sigma_2$, no redefinition of $\Psi$ that reduces to the identity at $\gs = 0$, and no counterterm in $\Psi$ alone that keeps $Q_B \Psi$ as the order $\gs^0$ part of the equation of $\Psi$ restores closed string field theory at order $\gs^0$ while keeping the two supplied terms.
+The counterterm $- 6 c^2 W$ would restore $S_2$, but it puts the same nonlocal term into the zeroth-order equation of $\Psi$, where the Maurer--Cartan equation has only $Q_B \Psi$.
+Whether a redefinition of $\Psi$ independent of $\gs$ can absorb $W$ is open for the closed string; in one finite model it cannot, since the free parts differ in rank.
+If $\sprod{2}{2}$ has a kernel on which $\vertex{3}$ does not vanish, the coupling also forbids the quotient: the kernel components of $\Sigma_2$ become Lagrange multipliers for $\vertex{3}(N, \Psi) = 0$, and the quotient is available only if $\vertex{3}(\ker \vertex{4}, \cdot) = 0$ on the states of ghost number two.
+The cubic action of this write-up does not include this coupling.
+The term it would supply, $\gs \sprod{1}{2}(\Psi)$, is a condition that closed string field theory itself does not satisfy: without the coupling it constrains $\Psi$, and with it it is absorbed by $\Sigma_2$ at the price of the term of order $\gs^0$.
+The identities of the quartic truncation were checked in finite models; the statements about the full action are at order $\gs^0$ only and assume the property of $W$ stated above.
+
+\subsubsection{Components of the gauge transformation}
+
+\noindent\status{mixed}\record{111-ibl-gauge-components (R110)}
+In the output-counting form, with $\mathfrak{m}' = \Psi + \Sigma_2$ and $\lambda' = \Lambda_1 + \Lambda_2$ at ghost numbers $(2, 4; 1, 3)$, the transformation $\delta e^{\mathfrak{m}} = [\hat{\mathfrak{p}}, \lambda] e^{\mathfrak{m}}$ gives
+\begin{equation}
+  \delta \mathfrak{m}'
+    = e^{- \mathfrak{m}'} [\hat{\mathfrak{p}}', \lambda'] e^{\mathfrak{m}'},
+\end{equation}
+the sum of the connected configurations of~\eqref{ch11:eq:mc-expansion} with one extra factor $\lambda'$ feeding at least one of its strands.
+With $a$ copies of $\Psi$ and $b = b_1 + b_2$ copies of $\Sigma_2$, fed singly ($b_1$) or doubly ($b_2$), a term has
+\begin{equation}
+  \text{coefficient}
+    = \frac{1}{a! \, b_1! \, b_2!},
+  \qquad
+  \hbar^{\ell - 1} \gs^{k + \ell - 2},
+  \qquad
+  \Ngh
+    = 2 L + \ell_p - 1,
+\end{equation}
+the choice of the fed strand inside a singly fed factor being part of the lift.
+There are 26 connected terms on the one- to four-strand components.
+The transformation of $\Psi$ has six terms, all at order $\hbar^0$ and ghost number two:
+\begin{equation}
+  \delta \Psi
+    = Q_B \Lambda_1 + \gs \, \ell_2(\Psi, \Lambda_1) + \frac{\gs^2}{2} \, \ell_3(\Psi^2, \Lambda_1) + \gs \, \ell_2(\Lambda_2) + \gs^2 \, \ell_3(\Psi, \Lambda_2) + \gs^2 \, \ell_3(\Sigma_2, \Lambda_1).
+\end{equation}
+The first three terms are the gauge transformation of closed string field theory, checked against the literal symmetric algebra.
+The transformation of $\Sigma_2$ splits by ghost number: seven one-output lifts at ghost number four and order $\hbar^0$, whose term of order $\gs^0$ is $\hat{Q}_B \Lambda_2$, the graded-Leibniz extension of $Q_B$, with coefficient $+ 1$ by the normalization of $\Lambda_2$; and three two-output terms at ghost number five and order $\hbar$, $\gs \sprod{1}{2}(\Lambda_1) + \gs^2 \sprod{2}{2}(\Psi, \Lambda_1) + \gs^2 \sprod{2}{2}(\Lambda_2)$.
+Three- and four-strand components are generated, seven and three terms: the two-strand truncation is not preserved.
+For $\Lambda_2$ with strands at ghost numbers $(2, 1)$, $\hat{Q}_B \Lambda_2$ has a part with strands at $(3, 1)$, outside the $(2, 2)$ sector of $\Sigma_2$, which is a constraint on $\Lambda_2$ if $\Sigma_2$ is kept in that sector.
+
+The signs of the 26 terms are fixed by the Koszul rule of~\cite[(2.1)]{Cieliebak:2015:HomologicalAlgebraRelated} in the physical parity of the fed and passed letters, by the choice of the family on odd letters, by two normalizations and by one identification: a raised two-output tensor on a mixed sector, such as $\sprod{1}{2}(\Lambda_1)$ with strands at $(2, 3)$, is graded antisymmetric in the physical parity, and the re-signing $(-1)^{\epsilon_{c_1}}$ on its first strand restores the symmetry in the shifted parity that the parity rule requires; the placement of this sign is a convention, not tested by a composition.
+No hypothesis enters the list of terms.
+What is established is the following.
+The list of terms, their orders and the ghost-number rule are verified; the combinatorial coefficients are verified on some rows and derived from the formula above on the others.
+The signs and coefficients of the terms at order $\hbar^0$ through order $\gs$, namely $Q_B \Lambda_1$, $\gs \ell_2(\Psi, \Lambda_1)$ and $\gs \ell_2(\Lambda_2)$ in $\delta \Psi$, $\hat{Q}_B \Lambda_2$ and the two lifts of order $\gs$ in $\delta \Sigma_2$, and the three-strand term $\gs \widehat{\ell_2}(\Lambda_2, \Sigma_2)$, are verified on a cyclic differential graded Lie algebra, $\mathfrak{sl}_2 \otimes \Lambda[\theta_1, \theta_2, \theta_3]$, where the transformation preserves the one- and two-strand Maurer--Cartan components at those orders; the sign of $\hat{Q}_B \Lambda_2$ relative to $\gs \ell_2(\Lambda_2)$ is fixed there by $Q_B \ell_2(\Lambda_2) + \ell_2(\hat{Q}_B \Lambda_2) = 0$, and a flipped sign fails.
+In that model the gauge parameters of ghost number one are $Q_B$-closed, so the test of $Q_B \Lambda_1$ and of part of $\hat{Q}_B \Lambda_2$ is vacuous.
+The signs of the remaining rows are open, and the invariance beyond order $\gs$ at order $\hbar^0$ rests on the operator form of the relations and on the relations with two contractions stated at the head of this section; it has not been run.

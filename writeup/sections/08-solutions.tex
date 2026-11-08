@@ -1,0 +1,340 @@
+\section{Solutions and fluctuations}
+\label{ch:solutions}
+
+This chapter treats the classical solutions of the cubic action and the fluctuations around them: level truncation and the equations a truncated solution violates, the Hessian of the cubic action and its congruence with the Hessian of the eliminated action, the alternative elimination of the string field, the degenerate branch of the auxiliary equation, and a mean-field reading of the auxiliary field.
+The paper keeps only a short summary of these results, in the paragraphs on the Hessian, on level truncation and on the mean field of its section of further results.
+The full text below is the section on classical solutions and the appendix with the proof of the truncation lemma of an earlier version of the paper, reproduced as they stood.
+Only this write-up contains the analysis of the dilaton direction of the tachyon--dilaton truncation at quintic order, in \cref{sec:sol:dilaton-d5}, written from its derivation record.
+The quartic vertex at level $(1, 1)$ is that of the companion paper on $\group{SL}(2, \C)$ vertices~\cite{Erbin:2026:SL2CVerticesClosed}; its numerical values, and the critical points of the tachyon--dilaton potential computed from them, are not reproduced here.
+
+\paragraph{Status of the results.}
+
+The results of the chapter and their status, in the order of the text:
+\begin{itemize}
+  \setlength{\itemsep}{0.5ex}
+
+  \item Level truncation of the auxiliary field to $\mathcal U^{\wedge 2}$, exact elimination at quartic order and the matching through quintic and sextic order with the truncation-consistent reduced vertex:
+  \status{Proven}\record{057-finite-field-truncation (R61)}
+
+  \item Which equations of the untruncated theory a truncated solution solves, and the selection rule that protects the directions towards the non-universal states (the truncation lemma):
+  \status{mixed}\record{057-finite-field-truncation, part B (R63)}
+
+  \item The one-leg universality selection rule at zero momentum, assumed in the text below and established in the literature:
+  \status{Proven}\footnote{Ledger entry \recordref{R88}; a cited result (Yang and Zwiebach, after Sen), with no derivation record of its own.}
+
+  \item The joint Hessian of the cubic action is congruent to the Hessian of the eliminated action plus the auxiliary block (Schur identity):
+  \status{Proven -- Verified (finite model)}\record{060-mean-field-fluctuations (R65)}
+
+  \item The Hessian of the cubic action is affine in the background; fluctuation counts and zero modes from the low vertices only:
+  \status{Proven; C2.3 Verified (finite model)}\record{066-hessian-affine-background (R71)}
+
+  \item Level-$(1, 1)$ instance: exact elimination at quartic order, the indefinite auxiliary form and the role of the dilaton:
+  \status{Verified}\record{059-tachyon-dilaton-quartic (R64)}
+
+  \item Level-$(1, 1)$ instance: the cubic action at zero momentum, its indefinite auxiliary block and the contour of the Gaussian integral:
+  \status{Verified}\record{064-hs-action-level11 (R68)}
+
+  \item Level-$(1, 1)$ instance: the congruence of the joint Hessian at the critical points, and the wrong count of the frozen auxiliary field:
+  \status{Verified}\record{063-mean-field-level11 (R72)}
+
+  \item Integrating out the string field at tree level: the operator of the auxiliary field, the branch structure of the $\Psi$-equation, the tree-level functional of $\Sigma_2$:
+  \status{Conditional(PH1, PH5) -- Proven}\record{065-sigma-effective-action (R69)}
+
+  \item Exclusion, in a finite model at quintic order with a kernel of dimension one: the degenerate branch carries no generic joint critical point:
+  \status{Proven -- Verified (finite model)}\record{060-mean-field-fluctuations, part 3 (R67)}
+
+  \item Mean field: the one-loop potential of the auxiliary field, the gap equation, and the obstacles to a condensate of BCS type:
+  \status{Proven -- Verified (finite model); Argued (obstacles)}\record{069-mean-field-decomposition (R74)}
+
+  \item Mean field at level $(1, 1)$: no minimum of the gap equation on the real slice; the convergent saddles are the displaced classical points:
+  \status{Proven (reduction, limit points, identity); Verified (numerical) (root set, inertia, energies, contour patterns)}\record{070-mean-field-level11-gap (R77)}
+
+  \item Exclusion, in the five-field truncation: no flat dilaton direction at order $d^5$ (\cref{sec:sol:dilaton-d5}):
+  \status{Conditional(PH27, SL: PH5) -- mixed}\record{095-d5-five-field-truncation (R89)}
+\end{itemize}
+
+\paragraph{The section on classical solutions.}
+
+The next block is the section on classical solutions and fluctuations of the earlier version of the paper, in the paper's notation ($\vertex{n}$ for the vertices, $\sprod{2}{2}$ for the quartic form read as an operator, $\caction$ for the cubic action, $V = - S$ on the potential side); its headings are demoted by one level.
+Two remarks on its status.
+First, the text uses the universality rule~\eqref{p:eq:sol:universality}.
+The rule is established at genus zero and zero momentum, on the Fock space of zero momentum: a vertex given as a moduli integral of a sphere correlator of conformally transformed states with $b$-ghost insertions vanishes when exactly one leg has its matter part outside the matter identity module and all the others inside it, whatever the ghost parts~\cite{Yang:2005:ClosedStringTachyon,Sen:1999:UniversalityTachyonPotential}.
+It holds for the cubic vertex and for the quartic vertex of the $\group{SL}(2, \C)$ family in any admissible section; at five points and more it rests on the family-independent Ward argument, since no quintic vertex of that family exists yet.
+The kinetic term obeys the same rule at every level and ghost number, and at nonzero momentum the same couplings are of order $k^2$.
+The rule does not license dropping the exchanges outside the module in limits $k \to 0$ taken through massless poles; it is used here at fixed zero momentum only.
+Second, in the level-$(1, 1)$ instance the statements that the couplings lie in the window of indefiniteness and that the frozen auxiliary field gives the wrong count are read off the companion paper's values, which we do not reproduce.
+
+\input{extracted/08/1-p}
+
+\subsection{The dilaton direction of the level-\texorpdfstring{$(1, 1)$}{(1,1)} truncation at quintic order}
+\label{sec:sol:dilaton-d5}
+
+\status{Conditional(PH27, SL: PH5) -- mixed}\record{095-d5-five-field-truncation (R89)}
+
+In the level-$(1, 1)$ instance the dilaton is not flat.
+Along the dilaton direction the quartic truncation leaves a nonzero term of order $d^4$ in the potential, which in the full theory is cancelled by the exchange of a massive state the truncation drops, by the dilaton identity of the companion paper at that order.
+We ask the same question one order higher: in the five-field truncation of the quintic cubic action, is the coefficient of $d^5$ zero, and does the auxiliary field contribute to it?
+The answer, under the assumptions below, is that the coefficient is nonzero, that it is again the exchange of the state the truncation drops, and that the auxiliary field contributes nothing below degree six in $\Psi$.
+
+\paragraph{Assumptions and scope.}
+
+The computation is at tree level and zero momentum, and the coefficients are formal Taylor coefficients in $d$.
+The field content is that of the level-$(1, 1)$ instance, $\Psi = t \, T + d \, D$ and $\Sigma_2 \in \mathcal U^{\wedge 2}$ with $\mathcal U = \Span(T, D)$, and the action is the quintic cubic action $\caction[\le 5]$ of \cref{p:sec:hs:quintic} restricted to it, with the quartic form invertible on $\mathcal U^{\wedge 2}$.
+The algebra of the first three steps below holds for arbitrary couplings.
+The identification of the coefficient and its non-vanishing use two further assumptions.
+\begin{itemize}
+  \setlength{\itemsep}{0.5ex}
+
+  \item The vertices kept, the quintic one included, are the truncation of a consistent genus-zero family of string vertices.
+    This includes the normalization of the quintic vertex relative to the cubic and quartic ones, fixed through factorization on the boundary of the moduli space, $C_5 = C_4^2 / C_3$ for the measure constants in each normalization.
+    It follows that the quintic vertex converts from the normalization of the companion paper to ours by the same factor $\tfrac{1}{2}$ per sphere correlator as the lower vertices, for which this factor is established.
+    The assumption is open: no consistent quintic vertex of the family has been constructed.
+
+  \item The order-$d^5$ dilaton identity of the companion paper~\cite{Erbin:2026:SL2CVerticesClosed}, which rests on that paper's assumption that its five-point vertex extends the family consistently, and which it establishes numerically.
+\end{itemize}
+The section of the vertex family and the two values of the family parameter are those of the companion paper.
+
+\paragraph{The couplings.}
+
+We write
+\begin{equation}
+  \label{eq:sol:d5:couplings}
+  m
+    := \pair{T}{Q_B T},
+  \qquad
+  b
+    := \vertex{3}(T, D^2),
+  \qquad
+  c
+    := \vertex{3}(T^2, D),
+  \qquad
+  h_k
+    := \vertex{4}(T^{4 - k}, D^k),
+  \qquad
+  f_k
+    := \vertex{5}(T^{5 - k}, D^k).
+\end{equation}
+In our conventions $m = 1$.
+The kinetic term does not mix the two fields and vanishes on the dilaton, $\pair{T}{Q_B D} = \pair{D}{Q_B D} = 0$, and the cubic couplings $\vertex{3}(T^2, D)$ and $\vertex{3}(D^3)$ vanish by the chiral ghost number.
+We keep $c$ symbolic in the derivation, to see which term it would produce, and set it to zero at the end.
+On $\mathcal U^{\wedge 2}$ we use the basis
+\begin{equation}
+  e_1
+    = T \otimes T,
+  \qquad
+  e_2
+    = \tfrac{1}{2} (T \otimes D + D \otimes T),
+  \qquad
+  e_3
+    = D \otimes D,
+\end{equation}
+in which $\Sigma_2 = \sum_i \sigma_i \, e_i$ and $\Psi^2$ has the components $p = (t^2, 2 t d, d^2)$, as in~\eqref{p:eq:sol:level11}.
+The quartic form and the quintic vertex with one leg on $\Psi$ become the symmetric matrices
+\begin{equation}
+  A_{ij}
+    := \vertex{4}(e_i, e_j),
+  \qquad
+  W(\Psi)_{ij}
+    := \vertex{5}(e_i, e_j, \Psi)
+    = t \, f_{i + j - 2} + d \, f_{i + j - 1},
+\end{equation}
+the second equality because the legs of $e_i$ carry $i - 1$ dilatons.
+
+\paragraph{Step 1: the auxiliary field adds nothing below degree six.}
+
+With these notations the quintic cubic action~\eqref{p:eq:hs5:S5tilde} restricted to the truncation reads
+\begin{equation}
+  \label{eq:sol:d5:action}
+  \caction[\le 5]
+    = \frac{m}{2} \, t^2
+      + \frac{\gs}{6} \big( a \, t^3 + 3 c \, t^2 d + 3 b \, t d^2 \big)
+      - \frac{\gs^2}{24} \, \sigma^\top A \sigma
+      + \frac{\gs^2}{12} \, \sigma^\top A p
+      + \frac{\gs^3}{120} \, \sigma^\top W(\Psi) \sigma,
+\end{equation}
+with $a := \vertex{3}(T^3)$, which will not enter.
+The terms quadratic in $\sigma$ combine into $- \tfrac{\gs^2}{24} \, \sigma^\top K \sigma$ with the dressed operator
+\begin{equation}
+  K(\Psi)
+    := A - \frac{\gs}{5} \, W(\Psi),
+\end{equation}
+the truncated form of the operator of $\Sigma_2$ at quintic order.
+The auxiliary equation $K \sigma = A p$ gives $\sigma^* = K^{-1} A p$, and on this solution
+\begin{equation}
+  \label{eq:sol:d5:sigma-eliminated}
+  \begin{aligned}
+    \caction[\le 5] \big|_{\sigma = \sigma^*}
+      &
+      = S_{\le 3}(\Psi)
+        + \frac{\gs^2}{24} \, p^\top A K^{-1} A p
+    \\
+      &
+      = S_{\le 3}(\Psi)
+        + \frac{\gs^2}{24} \bigg[
+          p^\top A p
+          + \sum_{k \ge 1} \Big( \frac{\gs}{5} \Big)^k \, p^\top W (A^{-1} W)^{k - 1} p
+        \bigg]
+    \\
+      &
+      = S_{\le 5} \big|_{\mathcal U}
+        + \frac{\gs^4}{600} \, v^\top A^{-1} v
+        + O(\gs^5 \Psi^7),
+      \qquad
+      v
+        := W(\Psi) \, p,
+  \end{aligned}
+\end{equation}
+where $S_{\le 3}$ is the kinetic term plus the cubic vertex.
+The second line expands $K^{-1}$ in its Neumann series around $A^{-1}$.
+Since $W$ is linear in $\Psi$ and $p$ is quadratic, the $k$-th term has degree $4 + k$ in $\Psi$.
+The term $p^\top A p$ is $\vertex{4}(\Psi^4)$ and the term $k = 1$ is $p^\top W p = \vertex{5}(\Psi^5)$, which give the quartic and quintic vertices of the original action with their coefficients $\gs^2 / 4!$ and $\gs^3 / 5!$.
+The first term of the cubic formulation of its own is the one of degree six, the composite term of~\eqref{p:eq:sol:matching}.
+As a statement about Taylor coefficients this is exact; the series itself converges for $\gs \lVert A^{-1} W(\Psi) \rVert < 5$.
+The auxiliary field therefore contributes nothing to the coefficient of $d^5$ beyond the quintic vertex $\vertex{5}(D^5)$ that it reproduces.
+
+\paragraph{Step 2: which terms reach $d^5$.}
+
+We now eliminate $t$ along the dilaton.
+Since the kinetic term does not mix $T$ and $D$, the tachyon has no source linear in $d$, and its solution starts at $t^* = O(\gs d^2)$.
+A monomial $t^j d^n$ then contributes from order $d^{n + 2 j}$ on.
+The monomials of weight at most five are $t^2$, which enters only through the propagator $1 / m$, and $t d^2$, $t d^3$, $t^2 d$, $d^4$, $d^5$.
+The monomials $t^3$, $t^2 d^2$ and the whole degree-six remainder of~\eqref{eq:sol:d5:sigma-eliminated} have weight six or more.
+This counting uses $\pair{T}{Q_B D} = \pair{D}{Q_B D} = 0$ and $\vertex{3}(D^3) = 0$: without them, $t$ would be sourced at order $d$, or $d$ would not be flat at quadratic and cubic order.
+Three structures can thus reach $d^5$: the contact term $\vertex{5}(D^5)$, the exchange of one tachyon between $\vertex{3}(T, D^2)$ and $\vertex{4}(T, D^3)$, and a term with two tachyons through $\vertex{3}(T^2, D)$.
+
+\paragraph{Step 3: the coefficient.}
+
+The $t$-equation reads
+\begin{equation}
+  \partial_t \caction
+    = m \, t
+      + J(d)
+      + \gs c \, t d
+      + O(t^2, \gs^2 t d^2),
+  \qquad
+  J(d)
+    := \frac{\gs}{2} \, b \, d^2
+      + \frac{\gs^2}{6} \, h_3 \, d^3,
+\end{equation}
+so that $t^* = - \tfrac{\gs b}{2 m} \, d^2 + O(d^3)$.
+The correction of order $d^3$ to $t^*$ does not enter at order $d^5$: it multiplies $\partial_t \caction$ at order $d^2$, which vanishes on the solution (the $2 n + 1$ rule).
+Inserting $t^*$ gives, through $d^5$,
+\begin{equation}
+  \caction[\rm eff](d)
+    = \frac{\gs^2}{24} \, h_4 \, d^4
+      + \frac{\gs^3}{120} \, f_5 \, d^5
+      - \frac{J(d)^2}{2 m}
+      + \frac{\gs}{2} \, c \, t^{* 2} d
+      + O(d^6),
+\end{equation}
+where $- J^2 / 2 m$ is $\tfrac{m}{2} t^{* 2} + t^* J$ at the orders kept.
+Its expansion is $- \tfrac{\gs^2 b^2}{8 m} \, d^4 - \tfrac{\gs^3 b \, h_3}{12 m} \, d^5$, and the last term is $\tfrac{\gs^3 c \, b^2}{8 m^2} \, d^5$.
+On the potential side, $V_{\rm eff} = - \caction[\rm eff]$, the coefficients of $d^4$ and $d^5$ are
+\begin{equation}
+  \label{eq:sol:d5:c5}
+  V_{\rm eff}(d)
+    \supset \gs^2 \Big( \frac{b^2}{8 m} - \frac{h_4}{24} \Big) d^4
+      + \gs^3 c_5 \, d^5,
+  \qquad
+  c_5
+    = - \frac{f_5}{120}
+      + \frac{b \, h_3}{12 m}
+      - \frac{c \, b^2}{8 m^2}.
+\end{equation}
+With $c = \vertex{3}(T^2, D) = 0$ the term with two tachyons drops, and
+\begin{equation}
+  \label{eq:sol:d5:c5-final}
+  c_5
+    = - \frac{\vertex{5}(D^5)}{120}
+      + \frac{\vertex{3}(T, D^2) \, \vertex{4}(T, D^3)}{12 \, \pair{T}{Q_B T}}.
+\end{equation}
+The couplings $\vertex{3}(T^3)$, $\vertex{4}(T^4)$, $\vertex{4}(T^3, D)$, $\vertex{4}(T^2, D^2)$ and $\vertex{5}(T^{5 - k}, D^k)$ for $k \le 4$ do not enter.
+This closed form was checked by eliminating $\Sigma_2$ and $t$ exactly on random rational couplings, with $c \neq 0$ and $m \neq 1$, which also confirms that the remainder of~\eqref{eq:sol:d5:sigma-eliminated} has no term of degree five or less.
+The $d^4$ coefficient is the one of the quartic instance.
+
+\paragraph{Step 4: the same coefficient as a channel count.}
+
+The coefficient can be compared with the dilaton identity of the companion paper once it is written in that paper's normalization.
+There the couplings are written on the potential side, as brackets $\{X\}$, and each vertex is twice ours, so that $\vertex{n}(X) = - \tfrac{1}{2} \{X\}$; in particular $m = - \tfrac{1}{2} \{T T\} = 1$.
+Substituting into~\eqref{eq:sol:d5:c5},
+\begin{equation}
+  \label{eq:sol:d5:brackets}
+  \begin{aligned}
+    c_5
+      &
+      = \frac{1}{2} \cdot \frac{1}{120} \Big[
+        \{D^5\}^{\rm contact}
+        + 10 \, \Pi_T \, \{D D T\} \{T D^3\}
+        + 15 \, \Pi_T^2 \, \{D D T\}^2 \{T T D\}
+      \Big],
+      \qquad
+      \Pi_T
+        = - \{T T\}^{-1}
+        = \frac{1}{2},
+    \\
+    240 \, c_5
+      &
+      = \{D^5\}^{\rm contact}
+        + 5 \, \{D D T\} \{T D^3\}
+        + \frac{15}{4} \, \{D D T\}^2 \{T T D\},
+      \qquad
+      \{T T D\}
+        = 0.
+  \end{aligned}
+\end{equation}
+The coefficients $10$ and $15$ are the channel counts of the tree diagrams with five external dilatons: $\binom{5}{2} = 10$ pairs of legs on the cubic vertex for one tachyon propagator, and $15$ trees with two propagators.
+This form is the same elimination of $t$ written as a sum over channels, not an independent derivation; its agreement with~\eqref{eq:sol:d5:c5} restates Step 1 together with the sign conventions.
+What constrains the factor $5$ is the coefficient $\gs^3 / 5!$ of the quintic term in the cubic action: with $\gs^3 / 4!$ in its place the elimination no longer reproduces the channel count.
+The sign of the exchange is fixed by $\Pi_T > 0$, that is, by the tachyonic $T$, with $\pair{T}{Q_B T} = + 1$ in the action and $V = - S$.
+Every structure of the truncation has its counterpart, with the same coefficient, in the order-$d^5$ dilaton identity of the companion paper, which reads $\{D^5\}^{\rm contact} + 5 \, \{D D T\} \{T D^3\} - 5 \, \{D D f_1\} \{f_1 D^3\} = 0$.
+The one term of that identity which~\eqref{eq:sol:d5:brackets} does not contain is the exchange of the level-$(2, 2)$ state
+\begin{equation}
+  f_1
+    = c_{-1} \bar c_{-1} \ket{0},
+\end{equation}
+which enters with the opposite sign since its propagator is $\Pi_{f_1} = - \tfrac{1}{2}$.
+
+\paragraph{Result.}
+
+Under the two assumptions above, the identity gives
+\begin{equation}
+  \label{eq:sol:d5:result}
+  c_5
+    = \frac{\{D^5\}^{\rm contact} + 5 \, \{D D T\} \{T D^3\}}{240}
+    = \frac{\{D D f_1\} \{f_1 D^3\}}{48}.
+\end{equation}
+With the values of the companion paper, which we do not reproduce, the two sides of~\eqref{eq:sol:d5:result} agree to the precision of that paper's own identity, and $c_5$ is positive at both values of the family parameter.
+The two pieces the truncation keeps, the contact term and the tachyon exchange, nearly cancel, and what remains is the exchange of $f_1$.
+The truncated dilaton valley, lifted at order $d^4$, is therefore tilted at order $d^5$.
+The two terms are of comparable size only at $\abs{\gs d} \sim 1$, outside the regime of the expansion, so the stationary point they would produce together says nothing about the truncation.
+
+The agreement of the factor $5$ and of the signs is a consistency check, under the factorization rule of the first assumption, that the coefficients $2 \gs^2 / 4!$ and $\gs^3 / 5!$ of the cubic action agree with the Feynman rules and the sign conventions.
+It does not test the normalization of the quintic vertex: every term of the identity carries the weight of one sphere correlator, so that, given the identity in the companion paper's normalization, the identity in ours is equivalent to the factorization rule, and nothing here fixes the conversion factor of the quintic vertex independently of that rule.
+
+\paragraph{Scope of the exclusion.}
+
+The negative statement is that the five-field truncation has no flat dilaton direction at order $d^5$.
+The class is the five-field truncation at zero momentum and tree level, in the section and at the two values of the family parameter of the companion paper; it is the lowest level that contains the dilaton.
+Outside it, the six-field truncation $\{T, D, f_1\}$ and every truncation to higher levels are flat through $d^5$, by the results of the companion paper, at $d^5$ under its assumption on the five-point vertex.
+On the level-$(2, 2)$ Siegel-gauge states the coupling to two dilatons is proportional to the pairing with $f_1$ alone, so the full exchange at that level is the exchange of $f_1$.
+In the six-field truncation $\{T, D, f_1\}$ the weight counting of Step 2 is unchanged, $f_1$ being sourced at order $d^2$; the couplings $\{T D f_1\}$ and $\{f_1 D f_1\}$ vanish by the cubic chiral ghost-number rule, and no state beyond level $(2, 2)$ is sourced.
+The $d^4$ and $d^5$ coefficients of the six-field truncation are thus the full tree-level ones, zero at $d^4$ exactly and at $d^5$ numerically, under the companion paper's assumption.
+Step 1 holds for any $\mathcal U$ with the auxiliary field in $\mathcal U^{\wedge 2}$, so the cubic formulation adds nothing at $d^5$ there either.
+The six-field action itself, with its couplings in our normalization, is not computed here: the statement concerns its coefficients through $d^5$ only.
+In other sections of the vertex family the value of $c_5$ changes, and its non-vanishing is not established there.
+The weakest relaxation that evades the exclusion is to add the single field $f_1$.
+
+\paragraph{Physical meaning.}
+
+The flatness of the dilaton at tree level is a property of the full theory, in which the contact couplings of the dilaton are balanced by the exchange of the other states: at the orders computed here, the tachyon and the massive state $f_1$ (at $d^5$ under the assumption on the five-point vertex stated above).
+A level truncation cuts the balance.
+At level $(1, 1)$ the only state missing from it, at orders $d^4$ and $d^5$ alike, is $f_1$, so the defect of the truncation along the dilaton is the exchange of one state and the remedy is one field.
+The auxiliary field cannot supply the missing exchange: it lives in the symmetric square of the same truncated space, and its first contribution of its own has degree six.
+This is the quintic-order counterpart of the statement of the quartic instance, that nothing specific to the cubic formulation enters before the quintic vertex: at quintic order nothing enters before degree six.
+
+\paragraph{The truncation lemma.}
+
+The last block is the appendix of the earlier version of the paper that states and proves the truncation lemma used in the subsection on level truncations, in the same notation.
+The universality assumption it states is the rule discussed before the section on classical solutions, where its status is given.
+
+\input{extracted/08/2-p}

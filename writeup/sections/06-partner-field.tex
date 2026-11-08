@@ -1,0 +1,123 @@
+\section{The partner field}
+\label{ch:partner-field}
+
+This chapter treats the second $2$-string field $\Upsilon_2$, the partner field, which makes the action local at order $\gs^4$ with elementary vertices only, by cancelling the exchange term that eliminating $\Sigma_2$ produces.
+It expands the paper's appendix on the partner field, reproduced in full as the first block: the localization of inverse vertices, the partner at order $\gs^4$, the alternative where $\Sigma_3$ is introduced first, and the higher orders, with the count of couplings at order $\gs^5$, its deficit, and the number of partners through order $\gs^8$.
+The second block is the older presentation from the pedagogical notes, which starts from the analogy with the induced action of two-dimensional gravity and discusses the split signature of the partner sector and its algebraic structure; this material is not in the paper.
+The section between the two blocks, written for this document, gives the argument that limits the structures an elementary presentation can produce and shows that one partner suffices at order $\gs^5$, with the coupling $\vertex{5}(\Upsilon_2, \Sigma_3)$ absent.
+
+\subsection{The partner field in the paper}
+\label{sec:partner:paper}
+
+The block states four results, with the following status.
+
+\begin{itemize}
+  \item The partner at order $\gs^4$: the action~\eqref{p:eq:wsp:action} with elementary vertices reproduces $S_{\le 6}$ through order $\gs^4$, the ratio of the coefficients $2$ and $1$ being forced by the matching, and $\Upsilon_2$ is real with a positive coefficient of $\vertex{4}(\Upsilon_2^2)$.
+    \status{mixed}\record{017-chi-partner-liouville (R24)}
+    The closure through order $\gs^4$ and the reality are proven at tree level, for generic off-shell $\Psi$, with the quartic form invertible on the quotient and the quintic and sextic vertices vanishing on its kernel, and, for the reality, the reality of the vertices; the closure was also checked numerically in a finite-dimensional model.
+    The quantum status of the negative quadratic term of the partner is open.
+
+  \item The count at order $\gs^5$: with elementary vertices and the fields $(\Psi, \Sigma_2, \Upsilon_2, \Sigma_3)$, three couplings meet three structures in a diagonal system, $\Sigma_3$ is forced, and one partner suffices.
+    \status{mixed}\record{038-chi-scheme-ogs5-count (R42)}
+    The count is a combinatorial argument, proven under the hypotheses below (\cref{sec:partner:strand-locality}), with the coupling $\vertex{5}(\Upsilon_2, \Sigma_3)$ absent; the closure coefficients of the table are numerical, from a random-tensor model on three draws, and one falsification leg of that computation, the branch with $\vertex{5}(\Upsilon_2, \Sigma_3)$ switched on, was left unsettled.
+
+  \item The coefficients of the deficit~\eqref{p:eq:wsp:deficit}: $- \frac{42}{25}$ on $\mathcal I_1$ and $\frac{7 (2 + c_6)}{5}$ on $\mathcal I_2$, and $- 1$ on $\vertex{7}(\Psi^7)$.
+    \status{Conditional(PH14 [$O(\gs^4)$, $O(\gs^5)$], PH15, PH16) -- Proven}\record{048-chi-scheme-ogs5-matching (R49)}
+    The coefficients are derived from the combinatorics of the factors $1 / n!$ and measured in the model on three draws ($- 1.680$, $- 1.674$, $- 1.680$ for $- \frac{42}{25}$); the block quotes the numerical side only.
+
+  \item The rule $\Sigma_2 \to \Sigma_2 + \Upsilon_2$, which identifies the partner with the multiplier $\Theta_2$ of the multiplier form (\cref{p:sec:all:multiplier}) and cancels every exchange term with a $\sprod{2}{2}^{-1}$ line at every order, at tree level and with the quartic form invertible on the quotient, is an exact identity, by bilinearity of $\vertex{4}$.
+    \status{Proven}
+    The number of partners through order $\gs^8$, $\Upsilon_3$ being needed from order $\gs^6$ if and only if $2 a_7 + b_7 \neq 0$, and the closure with $\Upsilon_2$ alone along the completed squares, were found in the finite-dimensional model.
+    \status{Conditional(PH14, PH15, PH16) -- Verified in a finite model}\record{101-partner-count (no ledger entry; tags as proposed in the record)}
+\end{itemize}
+
+The hypotheses named in the tags are, in words: the exchange terms are not linear combinations of the elementary vertices and boundary terms, at the orders indicated; the negative quadratic term of the partner has no physical consequence, which is safe at tree level and open beyond; and the working hypothesis, which these results support, that elementary couplings of the partner cancel the exchange terms order by order.
+
+The block is the paper's appendix as it stood before the paper was shortened, in the paper's notation: $\Upsilon_2$ for the partner, $\vertex{5 \cdot 5}$ for the exchange vertex, $\mathcal I_1$, $\mathcal I_2$ for the two exchange structures at order $\gs^5$.
+
+\input{extracted/06/1-p}
+
+\subsection{Strand locality and one partner at order \texorpdfstring{$\gs^5$}{gs5}}
+\label{sec:partner:strand-locality}
+
+The count of the block compares three couplings with three structures.
+Two arguments lie behind it and are not in the paper: why no other structure can appear in the deficit, and why a partner of $\Sigma_3$ brings nothing at this order.
+Both are statements about which contractions the elimination of the auxiliary fields can produce, at the level of algebra, for generic vertices.
+They hold at tree level, with the quartic form and the quadratic form of $\Sigma_3$ invertible on their quotients, for exchange terms that are not linear combinations of the elementary vertices, and with the coupling $\vertex{5}(\Upsilon_2, \Sigma_3)$ set to zero, as the block requires.
+
+\paragraph{Strand locality.}
+In a presentation with elementary vertices only, every term of the action on the classical values is a tree contraction with whole slots.
+Its nodes are elementary vertices $\vertex{n}$, its internal lines are the inverses $\sprod{2}{2}^{-1}$ on $\Hn{2}$ and $\sprod{3}{3}^{-1}$ on $\Hn{3}$, and its external lines are single strands of $\Psi$.
+The reason is that each vertex of the action takes whole fields in its slots, the only single-strand field being $\Psi$, and the Gaussian elimination of an auxiliary field replaces a pair of its slots by the inverse of its quadratic form, an operator on the whole multi-string space, which joins one complete slot to one complete slot.
+No step of the elimination routes the strands of one slot into two different vertices.
+
+The consequence is that a strand-split contraction is never generated.
+The exchange vertex $\vertex{5 \cdot 5}$, read as a trilinear form on $2$-string states, sends the two strands of its middle argument into the two different quintic vertices (\cref{p:eq:hs5:exchange-vertex}).
+Its contraction at order $\gs^5$,
+\begin{equation}
+  \mathcal I_3
+    := \vertex{5 \cdot 5}\big( \Psi^2, \Psi^2, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3) \big),
+\end{equation}
+is therefore outside the reach of any elementary presentation.
+It appears in the remainder at order $\gs^5$ of the minimal presentation, through the composite vertex $\dvertex{6} = \vertex{6} - \frac{6}{5} \vertex{5 \cdot 5}$, not through any elementary structure, and the partner presentation is never required to produce it.
+An enumeration of the whole-slot trees of degree seven with the fields $(\Psi, \Sigma_2, \Upsilon_2, \Sigma_3)$ then gives exactly the three structures of the block, $\vertex{7}(\Psi^7)$, $\mathcal I_1$ and $\mathcal I_2$, and no fourth one, in particular none with $\sprod{3}{3}^{-1}$.
+The model confirms the absence of $\mathcal I_3$ and of any fourth structure in the deficit.
+
+This statement concerns the contractions a Feynman expansion can produce; it says nothing about whether a kernel can be realized on the worldsheet.
+
+\paragraph{The coupling $\vertex{5}(\Upsilon_2, \Sigma_3)$.}
+The enumeration needs this coupling to vanish.
+It fills five strands with one partner leg, so by~\eqref{p:eq:wsp:order} it is admissible at order $\gs^4$.
+At order $\gs^5$ it would mix $\Upsilon_2$ and $\Sigma_3$ at a power of $\gs$ that is marginal between their quadratic terms, so that chains alternating $\sprod{2}{2}^{-1}$ and $\sprod{3}{3}^{-1}$ lines through further insertions are all of the same order and resum into the inverse of the joint quadratic form; the linear count of the block would not apply to that branch.
+Setting it to zero costs no freedom at the lower orders, and the block gives the reason it must be absent: it spoils the cancellation at order $\gs^4$ once $\Sigma_3$ has its quadratic term.
+What the count would become with this coupling switched on was not settled.
+% omitted: the record's frame-independence argument for setting this coupling to zero (doublet GL(2) frame of its addendum), which needs the frame formalism of the record.
+
+\paragraph{One partner suffices.}
+Consider a partner $\Upsilon_3$ of $\Sigma_3$, with a quadratic term at order $\gs^4$.
+Suppose first it has no source of order $\gs^4$, so that its classical value starts at order $\gs$.
+By~\eqref{p:eq:wsp:order}, a coupling containing $\Upsilon_3$ that contributes at order $\gs^5$ or below fills at most $5 - 1 + 2 = 6$ strands; it is then linear in $\Upsilon_3$ with at most three further strands, which makes it a source of $\Upsilon_3$ at order $\gs^4$ or below, for example $\vertex{6}(\Upsilon_3, \Sigma_2, \Psi)$.
+This contradicts the assumption, so every coupling of such a partner contributes first at order $\gs^6$, and $\Upsilon_3$ is irrelevant at order $\gs^5$.
+If instead $\Upsilon_3$ is given the source $\vertex{6}(\Upsilon_3, \Sigma_2, \Psi)$, its classical value starts at order one and it is a second $\Sigma_3$ with the opposite sign of the quadratic term: it only re-splits the sextic contact term and changes the coefficients of the deficit, without a new direction.
+The one remaining coupling, the mixing $\vertex{5}(\Upsilon_3, \Upsilon_2)$, sources $\Upsilon_3$ at order $\gs^4$ with a composite classical value, and its exchange contributes a structure with $\sprod{3}{3}^{-1}$ at order $\gs^4$, which is absent from the matching at that order; it must vanish, excluded by the lower order and not by order $\gs^5$.
+Hence the partners do not have to mirror the tower of the $\Sigma_k$ at order $\gs^5$; the block shows how this continues, with $\Upsilon_3$ needed from order $\gs^6$ on one route and not on the route of completed squares.
+
+\subsection{The Liouville analogy in the pedagogical notes}
+\label{sec:partner:liouville}
+
+The second block is the section of the pedagogical notes in which the partner was found.
+It writes the partner as $\chi$ and works with the same action as the paper's~\eqref{p:eq:wsp:action}, in the notation of the notes; the box below lists the differences that occur in it.
+It starts from the exact rewriting of the quintic-order action as a Gaussian in the deviation of $\Sigma$ from its classical value, which the notes give in their section on gauge transformations:
+\begin{equation}
+  \label{eq:partner:S3rewrite}
+  S_3
+    = S^{(5)}_{\mathrm{eff}}
+      - \frac{\gs^2}{4!} \, K_\Psi(\tilde X, \tilde X)
+      + \frac{\gs^4}{600} \, v K_\Psi^{-1} v,
+  \qquad
+  K_\Psi
+    := V_4 - \frac{\gs}{5} \, V_5(\cdot, \cdot, \Psi),
+\end{equation}
+with $v := V_5(\cdot, \Psi^{\otimes 2}, \Psi)$ and the deviation $\tilde X := \Sigma - \Psi^{\otimes 2} - \frac{\gs}{5} \, K_\Psi^{-1} v$, so that the equation of $\Sigma$ is $\tilde X = 0$.
+Here $S_3$ is the cubic action through the quintic order and $S^{(5)}_{\mathrm{eff}}$ the original action through the same order.
+
+\begin{quote}
+  \small
+  \textbf{Notation of the block.}
+  \begin{itemize}
+    \item $\chi$ is the partner field $\Upsilon_2$; $\Sig$ is $\Sigma_2$, and $\Sym^2 \Hilb_0$ is the $2$-string space $\Hn{2}$ of the paper, on the quotient by the kernel of the quartic form.
+    \item $V_n$ is $\vertex{n}$; the kinetic term $V_4(\Sigma, \Sigma)$ is $\vertex{4}(\Sigma_2^2) = \pair[2]{\Sigma_2}{\sprod{2}{2}(\Sigma_2)}$, and $V_4^{-1}$ is $\sprod{2}{2}^{-1}$; $\mtwo$ is $\sprod{2}{2}$.
+    \item $\Psi^{\otimes 2}$, also written $P$, is $\Psi^2$; the source $v = V_5(\cdot, \Psi^{\otimes 2}, \Psi)$ is $\sprod{3}{2}(\Psi^3)$ read through the $2$-string pairing, and the feedback $v V_4^{-1} v$ is $\vertex{5 \cdot 5}(\Psi^6)$.
+    \item The composite $\mathcal C$ is the exchange vertex $\vertex{5 \cdot 5}$, and $W_6 = V_6 - \frac{6}{5} \mathcal C$ is the reduced vertex $\dvertex{6}$; $\tilde M$ is the dressed quadratic form of $\Sigma_3$.
+    \item $(a_\chi, b_\chi) = (1, 2)$ are the coefficients of $\vertex{4}(\Upsilon_2^2)$ and $\vertex{5}(\Upsilon_2, \Sigma_2, \Psi)$ in~\eqref{p:eq:wsp:partner-action}; $S_{\mathrm{HS}}$ is the cubic action at quartic order.
+    \item Scheme C is the partner form of the all-orders discussion (\cref{ped:sec:allorders:chi}).
+    \item Reality: the notes write $\Sigma^\ddagger = \Sigma$, the paper $\Sigma_k^\star = (-1)^k \, \Sigma_k$ and $\Psi^\star = - \Psi$. For odd $k$ the two conventions differ by a sign; for the $2$-string fields of this block, $\Sigma_2$ and $\Upsilon_2$, they agree, and $\Upsilon_2^\star = \Upsilon_2$.
+  \end{itemize}
+\end{quote}
+
+The block leaves three questions open at its end: the quantum status of the negative direction, the gauge law and exact rewriting of the partner sector, and the extension to order $\gs^5$.
+The last one is answered in the paper's appendix above, and by \cref{sec:partner:strand-locality}: one partner suffices through order $\gs^5$, with the coupling $\vertex{5}(\Upsilon_2, \Sigma_3)$ absent, and, in a finite model with the couplings of the completed squares, through order $\gs^8$.
+The first two remain open.
+The light-cone form of the split-signature sector, the twist lemma and the coloured coalgebra of the partner are not in the paper.
+
+\input{extracted/06/2-ped}

@@ -1,0 +1,78 @@
+\ProvidesFile{arxiv.def}
+
+\AtEveryCitekey{\clearfield{eprintclass}}
+
+% prevent from showing "visited on" or "accessed on"
+\AtEveryBibitem{
+    \clearfield{urlyear}
+    \clearfield{urlmonth}
+}
+
+\renewbibmacro{in:}{%
+    \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}%
+}
+
+\DeclareFieldFormat{url}{%
+	% \newline
+	\mkbibacro{Url}\addcolon\addnbspace%
+	\url{#1}%
+}
+
+\DeclareFieldFormat{doi}{%
+	% \newline
+	\mkbibacro{Doi}\addcolon\addnbspace%
+	\ifhyperref{%
+		\href{http://dx.doi.org/#1}{\nolinkurl{#1}}%
+	}{%
+		\nolinkurl{#1}%
+	}%
+}
+
+\makeatletter
+\DeclareFieldFormat{eprint:arxiv}{%
+	% \newline
+	arXiv\addcolon\addnbspace%
+	\ifhyperref{%
+		\href{http://arxiv.org/\abx@arxivpath/#1}{%
+			\nolinkurl{#1}%
+			% \iffieldundef{eprintclass}{}{%
+			% 	\addspace\texttt{\mkbibbrackets{\thefield{eprintclass}}}%
+			% }%
+		}%
+	}{%
+		\nolinkurl{#1}
+		% \iffieldundef{eprintclass}{}{%
+		% 	\addspace\texttt{\mkbibbrackets{\thefield{eprintclass}}}%
+		% }%
+	}%
+}
+\makeatother
+
+% TODO: check if arxiv works
+\renewbibmacro*{doi+eprint+url}{%
+    \printfield{doi}%
+    \newunit\newblock%
+    \iftoggle{bbx:eprint}{%
+        \usebibmacro{eprint}%
+    }{}%
+    \newunit\newblock%
+    \iffieldundef{doi}{%
+        \usebibmacro{url+urldate}
+	}{}%
+}
+
+\renewbibmacro*{issue+date}{%
+	\iffieldundef{year}{}{%
+	\printtext[parens]{%
+	\iffieldundef{issue}{%
+		\usebibmacro{date}%
+	}{%
+		\printfield{issue}%
+		\setunit*{\addspace}%
+		\usebibmacro{date}}}%
+	}%
+	\newunit%
+}
+
+% remove conflicting initials
+% https://tex.stackexchange.com/questions/297489/how-to-abbreviate-first-names-with-multiple-letters-using-biblatex/297490#297490

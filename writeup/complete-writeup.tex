@@ -1,0 +1,315 @@
+\documentclass[11pt, a4paper]{article}
+\pdfoutput=1
+\synctex=1
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mlmodern}
+% \usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+
+\usepackage{eurosym}
+\usepackage{xspace}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\usepackage{marginnote}
+\usepackage[multiple]{footmisc}
+\usepackage{microtype}
+
+\usepackage[nottoc]{tocbibind}
+
+\usepackage[dvipsnames, svgnames, table]{xcolor}
+\selectcolormodel{cmy}
+
+\usepackage[backend=biber, style=numeric-comp]{biblatex}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{amsthm, thmtools}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{cancel}
+\usepackage{braket}
+\usepackage{tensor}
+\usepackage{slashed}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\usepackage{authblk}
+\renewcommand{\Affilfont}{\small}
+
+\usepackage[
+	pdftex, breaklinks=true, linktocpage, colorlinks=true,
+	urlcolor=RoyalBlue, linkcolor=RoyalBlue, citecolor=BrickRed
+]{hyperref}
+\usepackage{hyperxmp}
+\usepackage[all]{hypcap}
+\usepackage{xurl}
+
+
+% enable non-breakable space
+\DeclareUnicodeCharacter{00A0}{~}
+\DeclareUnicodeCharacter{202F}{~}
+
+
+% special symbols
+\newcommand{\e}[0]{\mathrm{e}}
+\newcommand{\I}[0]{\mathrm{i}}
+\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\C}[0]{\mathbb{C}}
+\newcommand{\dd}[0]{\mathrm{d}}
+\newcommand{\dc}[0]{\mathrm{D}}
+\newcommand{\id}[0]{\mathrm{id}}
+
+% shortcuts
+\newcommand{\pd}[0]{\partial}
+\newcommand{\mc}[1]{{\mathcal{#1}}}
+
+% operators
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Res}{Res}
+
+% delimiters
+\newcommand{\mean}[1]{\langle #1 \rangle}
+\newcommand{\Mean}[1]{\left \langle #1 \right \rangle}
+\newcommand{\abs}[1]{{|#1|}}
+\newcommand{\Abs}[1]{{\left | #1 \right |}}
+
+% quantum mechanics
+\renewcommand{\bra}[2][]{\mathinner{{}_{#1}\hspace{-2pt}\langle #2 |}}
+\renewcommand{\Bra}[2][]{\mathinner{{}_{#1}\hspace{-2pt}\left \langle #2 \right |}}
+\newcommand{\com}[1]{[ #1 ]}
+\newcommand{\Com}[1]{\left [ #1 \right ]}
+\newcommand{\acom}[1]{\{ #1 \}}
+\newcommand{\Acom}[1]{\left \{ #1 \right \}}
+\newcommand{\norder}[1]{{:\mathrel{#1}:}}
+
+% group theory
+\newcommand{\group}[1]{\mathrm{#1}}
+\newcommand{\alg}[1]{\mathfrak{#1}}
+
+% operations
+\newcommand{\transp}[1]{{#1^t}}
+\newcommand{\conj}[1]{{#1^*}}
+\newcommand{\adj}[1]{{#1^\dagger}}
+
+% other symbols
+\renewcommand{\=}[1]{\stackrel{\text{#1}}{=}}
+
+% links
+\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+\newcommand{\emailfoot}[1]{\thanks{\email{#1}}}
+\newcommand{\arxivn}[1]{\href{https://arxiv.org/abs/#1}{\texttt{#1}}}
+\newcommand{\doi}[1]{\href{https://dx.doi.org/#1}{\nolinkurl{#1}}}
+\newcommand{\urlhttp}[1]{\href{https://#1}{\nolinkurl{#1}}}
+
+
+% numbered and colored comments, the number in the margin (\draftcomment* has none)
+% \draftcommentsfalse removes the comments and keeps the \agmod text, in black
+\newif\ifdraftcomments
+\draftcommentstrue
+\newcounter{draftcommentcnt}
+\makeatletter
+% \marginpar fails in boxes, floats, footnotes and minipages: \marginnote there
+\newcommand{\draftcomment@margin}[1]{%
+	\edef\draftcomment@penalty{\the\@floatpenalty}%
+	\let\draftcomment@next\marginpar
+	\ifinner\let\draftcomment@next\marginnote\fi
+	\ifnum\@floatpenalty<\z@\let\draftcomment@next\marginnote\fi
+	\ifnum\floatingpenalty>\z@\let\draftcomment@next\marginnote\fi
+	\ifx\@footnotetext\@mpfootnotetext\let\draftcomment@next\marginnote\fi
+	\draftcomment@next{#1}%
+	\@floatpenalty\draftcomment@penalty\relax
+}
+\NewDocumentCommand{\draftcomment}{s O{red} +m}{%
+	\ifdraftcomments
+		\leavevmode
+		\IfBooleanF{#1}{%
+			\stepcounter{draftcommentcnt}%
+			\draftcomment@margin{\textcolor{#2}{$\Leftarrow$ \arabic{draftcommentcnt}}}%
+		}%
+		{\color{#2}#3}%
+	\else
+		\@bsphack\@esphack
+	\fi
+}
+\makeatother
+\newcommand{\hecomment}[1]{\draftcomment[CornflowerBlue]{[HE: #1]}}
+\newcommand{\agcomment}[1]{\draftcomment[Olive]{[AG: #1]}}
+\newcommand{\agmod}[1]{\ifdraftcomments\draftcomment[Purple]{#1}\else#1\fi}
+
+
+\usepackage[heightrounded,
+	top=3.5cm, bottom=3cm, left=3.5cm, right=3.5cm,
+	% footskip=1.5cm
+]{geometry}
+% default top=4.5cm, bottom=4cm, left=4.5cm, right=4.5cm
+
+\graphicspath{{figures/}}
+\pagestyle{plain}
+\numberwithin{equation}{section}
+\renewcommand{\theHequation}{\theHsection.\arabic{equation}}
+
+\usepackage[sort&compress, capitalize, english]{cleveref}
+% nameinlink
+
+\ExecuteBibliographyOptions{
+	sorting=none,
+	% sorting=nyt,
+	sortcase=false,
+	sortcites=true,
+	giveninits=true,
+	maxnames=99,
+	autocite=plain
+}
+\addbibresource{string_theory.bib}
+\addbibresource{references.bib}
+\input{arxiv.def}
+
+
+\hypersetup{
+	pdftitle={A cubic closed string field theory: complete write-up},
+	pdfauthor={Harold Erbin},
+	pdflang={en},
+	% pdfkeywords={}
+}
+
+\title{A cubic closed string field theory: complete write-up}
+% \date{}
+
+\author{Harold Erbin\emailfoot{harold.erbin@gmail.com}}
+
+% diagrams in the solution series: y = 0 is centred on = and +
+\tikzset{
+	ext/.pic = {\draw[solid] (-2.5pt, -2.5pt) -- (2.5pt, 2.5pt) (-2.5pt, 2.5pt) -- (2.5pt, -2.5pt);},
+	diagram/.style = {
+		baseline = -0.5ex,
+		thick,
+		every node/.style = {inner sep=2pt},
+	},
+	sigma line/.style = {dash pattern=on 2pt off 1.5pt},
+}
+
+% ---- macros shared with Harold's notes-new (keep in sync; never redefine in sections/) ----
+\newcommand{\IBL}[0]{\ensuremath{\mathrm{IBL}_\infty}}
+\newcommand{\Loo}[0]{\ensuremath{L_\infty}}
+\newcommand{\Ngh}[0]{\ensuremath{N_{\text{gh}}}}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Hess}{Hess}
+\DeclareMathOperator{\gh}{gh}
+% ---- paper macros (definitions in appendix A of the paper) ----
+\newcommand{\gs}[0]{\ensuremath{g_s}}
+\newcommand{\Hs}[0]{\ensuremath{\mathcal{H}}}
+\newcommand{\Hn}[1]{\ensuremath{\mathcal{H}^{\wedge #1}}}
+\newcommand{\pair}[3][]{\ensuremath{\braket{#2, #3}_{#1}}}
+\newcommand{\vertex}[1]{\ensuremath{\mathcal{V}_{#1}}}
+\newcommand{\dvertex}[1]{\ensuremath{\mathcal{W}_{#1}}}
+\newcommand{\sprod}[2]{\ensuremath{p_{#1,#2}}}
+\newcommand{\wprod}[2]{\ensuremath{w_{#1,#2}}}
+\newcommand{\kin}[3]{\ensuremath{k^{(#3)}_{#1,#1\ifx\relax#2\relax\else;#2\fi}}}
+\newcommand{\action}[1][]{\ensuremath{S_{#1}}}
+\newcommand{\caction}[1][]{\ensuremath{\widetilde{S}_{#1}}}
+
+
+% The table of contents stops at subsections (subsubsections are used in section 2).
+\setcounter{tocdepth}{2}
+
+
+% ==== write-up additions (not in the paper) ====
+
+\usepackage{booktabs}
+\usepackage{empheq}
+\declaretheorem[style=plain]{theorem}
+\declaretheorem[style=definition, sibling=theorem]{example}
+\newtheorem{definition}{Definition}[section]
+\usetikzlibrary{decorations.pathmorphing, calc, arrows.meta, positioning,
+	shapes.geometric, fit, backgrounds}
+
+% macros of the reused notes that the paper lacks (the paper's definitions win
+% for \IBL, \Loo, \Ngh, \gs)
+\newcommand{\Hilb}{\mathcal{H}}
+\newcommand{\Sig}{\Sigma}
+\newcommand{\mtwo}{m_2}
+\newcommand{\pklg}{\mathfrak{p}_{k,\ell,g}}
+\newcommand{\Aoo}{A_\infty}
+\DeclareMathOperator{\sys}{sys}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\In}{In}
+\DeclareMathOperator{\Vol}{Vol}
+
+% draft comments gobble their arguments (second net behind tools/extract.py);
+% \agmod prints its argument
+\draftcommentsfalse
+\RenewDocumentCommand{\draftcomment}{s O{} +m}{}
+\renewcommand{\hecomment}[1]{}
+\renewcommand{\agcomment}[1]{}
+\renewcommand{\agmod}[1]{#1}
+\NewDocumentCommand{\draftnote}{O{} +m}{}
+\newcommand{\margnote}[1]{}
+
+% status tag of a result, and pointer to the record that derives it
+\newcommand{\status}[1]{\fbox{\small\textsf{#1}}}
+\newcommand{\record}[1]{\footnote{Derivation record \texttt{#1}, under \nolinkurl{agent/derivations/} of the repository.}}
+\newcommand{\recordref}[1]{\texttt{\small #1}}% a record stem or ledger ID inside a table cell (allowed place for identifiers)
+
+\begin{document}
+
+\maketitle
+
+\hrule
+\pdfbookmark[1]{\contentsname}{toc}
+\tableofcontents
+\bigskip
+\hrule
+
+\newpage
+
+\input{sections/00-preamble}
+\input{sections/01-conventions}
+\input{sections/02-order-by-order}
+\input{sections/03-all-orders}
+\input{sections/04-momentum-space}
+\input{sections/05-multiplier-hybrid}
+\input{sections/06-partner-field}
+\input{sections/07-gauge-bv}
+\input{sections/08-solutions}
+\input{sections/09-worldsheet-dictionary}
+\input{sections/10-worldsheet-circle}
+\input{sections/11-ibl}
+\input{sections/12-bar-cobar}
+\input{sections/13-finite-models}
+\input{sections/14-dead-ends}
+\input{sections/15-open-problems}
+
+\appendix
+
+\input{sections/A-hypotheses}
+\input{sections/B-qft-toys}
+\input{sections/C-sl2c-vertex}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

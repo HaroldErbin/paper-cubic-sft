@@ -1,0 +1,305 @@
+\section{Bar--cobar construction}
+\label{ch:bar-cobar}
+
+This chapter compares the cubic action with the bar--cobar construction of Chiaffrino, Mamade and Zwiebach, which rewrites the equations of motion of any $\Loo$ field theory as a quadratic equation on an enlarged space of multi-string fields but gives no action for it.
+The paper keeps a shortened comparison in three subsections: their construction in our notation, the canonical solutions and the gauge symmetry, and the map to the cubic action.
+This chapter reproduces the comparison section of the paper as it stood before the paper was shortened, in two blocks: the first holds the construction and the identification of the fields on the canonical sector; the second holds the subsection on the cubic action as a truncation of their equations, which is kept here in full, the gauge symmetry, the additional structure of the cubic action and the limits of the comparison.
+The identification of their canonical equations with the multiplier form, which stood between the two blocks, is reproduced in \cref{sec:mult:barcobar} and is not repeated.
+The last section, on the two obstructions to an action and on their scalar example, is written for this document from the derivation and gives the degree count, the self-adjointness test and the scalar computation that the paper states in a few sentences.
+
+The comparison establishes the following statements, with the status of each.
+All the finite-dimensional checks are made in models with commuting fields, where no Koszul sign arises and no type-II field is realized, so that the gauge statements are blind to signs; the solutions for $\Psi$ of the two sets of equations coincide order by order in $\gs$ and modulo the kernel of the quartic form, the auxiliary fields agreeing with the canonical values only at leading order.
+
+\begin{itemize}
+  \setlength{\itemsep}{1ex}
+
+  \item \emph{The comparison as a whole.}
+
+    \status{mixed}\record{024-hs-vs-bar-cobar (R34)}
+
+  \item \emph{Fields and canonical equations.} The multiplier form is not the cotangent action of their type-I sector as such, since the split $(2, 2)$ at length four and the components of $B \Phi_1 = 0$ with two or more output strands have no Euler--Lagrange counterpart; it is the cotangent action of the chain alone, with $\Psi$ not doubled; the multipliers $\Theta_k$ have ghost number $3 k$ for the pairing $\pair[k]{\cdot}{\cdot}$.
+
+    \status{Proven} for the term-by-term comparison and the ghost number; \status{Numerical} for the cotangent action of the chain, in a model with commuting fields.
+
+  \item \emph{The cubic action as a truncation.} At quartic order, the identity~\eqref{p:eq:barcobar:identity} between the chain action with its multiplier on-shell and the quartic term of the cubic action holds off-shell.
+
+    \status{Proven}, and checked in a model with commuting fields.
+
+    The completion at order $\gs^3$ is the quintic term of the cubic action, and the action with $\Sigma_2$ eliminated differs from the original one by a term of order exactly $\gs^4$.
+
+    \status{Conditional(PH1, PH5) -- Numerical}, in a model with commuting fields and a generic invertible quartic form.
+
+    The cubic action is not a consistent truncation of their equations.
+
+    \status{Argued}, by the structural argument of the block.
+
+  \item \emph{Gauge symmetry.} Restricted to the canonical sector, their gauge transformation of $\Sigma_2$ is the composite law plus a term proportional to the equation of motion of $\Psi$, \eqref{p:eq:barcobar:gauge-sigma}.
+
+    \status{Numerical}, in a model with commuting fields.
+
+    Their independent two-string parameter $\hat\Lambda_{1, 2}$ is not a symmetry of the cubic action on type-I fields.
+
+    \status{Argued}, from a ghost-number saturation argument on the gauge laws of the auxiliary field; the model check corroborates it only weakly.
+
+    The parameters that preserve the canonical form are the single-string ones, \eqref{p:eq:barcobar:canonical-parameters}.
+
+    \status{Argued}: their theorem, transcribed to the symmetric coalgebra and not re-derived.
+
+  \item \emph{The two obstructions.} The degree count~\eqref{eq:bc:pairing-degree} of the length-diagonal pairings, and the realization of the second obstruction in sharpened form on a model, in \cref{sec:bc:obstructions}.
+
+    \status{Proven} for the degree count; \status{Numerical} for the second obstruction on the model.
+
+  \item \emph{The scalar example} of $\phi^3 + \phi^4$ theory, reproduced by the multiplier form with three multipliers, in \cref{sec:bc:scalar}.
+
+    \status{Numerical}, on a four-site lattice.
+\end{itemize}
+
+The first block is the introduction of the paper's comparison section, the recall of their construction in our notation (factor number, length, the degree~\eqref{p:eq:barcobar:degree} of a type-I field in terms of its ghost number, the canonical equations and their unique solution), the two obstructions as they state them, and the identification $\Sigma_r = r! \, \Phi_{1, r}$ of their type-I fields with the auxiliary fields.
+It uses the notation of the paper throughout: $\Hn{r}$ for the $r$-string space, $\pair[r]{\cdot}{\cdot}$ for the $r$-string pairing, $\vertex{n}$ for the vertices and $\Theta_k$ for the multipliers.
+
+\input{extracted/12/1-p}
+
+The second block follows, in the paper, the identification of the multiplier form, whose action~\eqref{p:eq:barcobar:multiplier-action} it uses from its first paragraph.
+It relates the cubic action to that action at quartic order, lists what the truncation keeps and drops, compares the gauge symmetries, and states in a few sentences how the cubic action evades the two obstructions; the next section gives these sentences in full.
+
+\input{extracted/12/2-p}
+
+\subsection{The two obstructions and the scalar example in detail}
+\label{sec:bc:detail}
+
+\status{mixed}\record{024-hs-vs-bar-cobar, sections 5 and 6 (R34)}
+
+This section gives the analysis behind the paragraphs on the two obstructions in \cref{p:sec:barcobar:structure} and behind the scalar example.
+Three restrictions hold throughout.
+The finite-dimensional checks are made with commuting fields, so that every sign fixed below by the Grassmann parity is bookkeeping by hand.
+The self-adjointness test concerns constant forms only: a form that depends on the fields, a curved symplectic structure on the type-I space, is not excluded, and they do not exclude it either.
+The word \enquote{evades} refers to the cubic action and to the multiplier form as classical actions; where the first obstruction persists is said at the end of the section.
+
+\subsubsection{First obstruction: the degree of the length-diagonal pairings}
+\label{sec:bc:obstructions}
+
+Their first obstruction is that the enlarged space admits no non-degenerate bilinear form of degree three, the degree that the cyclic form of an action $\pair{\Phi}{\mathcal E}$ must have, since the field $\Phi$ has degree $-1$ and the equation $\mathcal E = (B + \Delta_c) \Phi + \Phi \otimes' \Phi$ has degree $-2$.
+With the homological sign of their degrees, which we keep, the form must pair two elements whose degrees add up to $-3$.
+In their scalar example the argument is a counting one: every vector of the enlarged space has negative degree, so that nothing is available to pair against.
+In closed string field theory the state space contains every ghost number, every degree is populated at every length, and the counting does not apply as such.
+
+A sharper form of the obstruction survives.
+By~\eqref{p:eq:barcobar:degree}, a type-I element of length $\ell$ and total ghost number $N$ has degree $2 \ell - 1 - N$.
+The pairing that the theory supplies on the length-$\ell$ component is the $\ell$-string pairing $\pair[\ell]{\cdot}{\cdot}$, which is non-zero only when the ghost numbers of its two arguments add up to $5 \ell$.
+Its degree is therefore the sum of the degrees of two elements of length $\ell$ whose ghost numbers add up to $5 \ell$:
+\begin{equation}
+  \label{eq:bc:pairing-degree}
+  \deg \pair[\ell]{\cdot}{\cdot}
+    = 2 \, (2 \ell - 1) - 5 \ell
+    = - \ell - 2,
+\end{equation}
+which equals $-3$ only for $\ell = 1$.
+Each length-diagonal pairing thus has the wrong degree at every length $\ell \ge 2$, and the mismatch $\ell - 1$ depends on the length, so that no single shift repairs all of them.
+At $\ell = 2$ the mismatch is the one unit of the shifted two-string pairing of \cref{ch:conventions}, and for even $\ell$ it is also a mismatch of parity: the $\ell$-string pairing is Grassmann-even and graded-symmetric, while a form of odd degree must be odd.
+This is the statement that the two-string pairing is graded-symmetric and not an odd symplectic form.
+In our words, an action of the form $\pair{\Phi}{\mathcal E}$ on the type-I space would need a shift of $\pair[\ell]{\cdot}{\cdot}$ that depends on the length.
+The count is a statement about these forms, not a proof that no other form exists.
+
+\paragraph{How the multiplier form evades it.}
+The multiplier form puts no form on the type-I space.
+It pairs the length-$\ell$ equation of the chain, the constraint $\Sigma_\ell - \Sigma_{\ell - 1} \otimes \Psi$ of ghost number $2 \ell$, with a new field $\Theta_\ell$ in the dual space, through the $\ell$-string pairing used as a duality pairing, whatever its degree~\eqref{eq:bc:pairing-degree}.
+Saturation of the pairing fixes $\Ngh(\Theta_\ell) = 5 \ell - 2 \ell = 3 \ell$ and the Grassmann parity $\ell$ of $\Theta_\ell$, so that each term $\pair[\ell]{\Theta_\ell}{\cdot}$ of the action is even, as an action term must be.
+The multipliers are not elements of the enlarged space: their degree is $- \ell - 1$, not $-1$.
+The cotangent construction asks nothing of the degree of the pairing, only that it be non-degenerate, and the $\ell$-string pairing is, because the single-string pairing is.
+The only form of degree $-3$ that the multiplier form uses is the single-string pairing itself, on the one field that is not doubled, $\Psi$.
+We do not claim a statement at the level of the Batalin--Vilkovisky formalism: the total pairing, the single-string pairing on $\Psi$ plus the $\ell$-string pairings between $\Sigma_\ell$ and $\Theta_\ell$, has a degree that depends on the sector, and whether the multiplier form is the classical part of a master action with one odd symplectic form of uniform degree is open.
+
+\paragraph{How the cubic action evades it.}
+The cubic action needs no odd pairing at all on the auxiliary sector, because $\Sigma_2$ is an auxiliary field without a $Q_B$ kinetic term.
+Its quadratic term $- \tfrac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)$ is a Grassmann-even, symmetric form supplied by the quartic vertex of the theory.
+It saturates at ghost number $4 + 4 = 8$, so that it has degree $2 \cdot 3 - 8 = -2$ in their counting, and it is non-degenerate on the quotient of the $2$-string space by $\ker \sprod{2}{2}$.
+The identity~\eqref{p:eq:barcobar:identity} is the bridge between the two presentations: the multiplier~\eqref{p:eq:barcobar:composite-multiplier} fixed by the $\Sigma_2$ equation converts the duality pairing of the multiplier form into the quadratic term of the cubic action.
+At length $k$ the same holds with the quadratic form of $\Sigma_k$, built from $\vertex{2k}$; whether it is degenerate is discussed below.
+
+\subsubsection{Second obstruction: self-adjointness across factor numbers}
+
+Their second obstruction concerns a form diagonal in factor number and length.
+Since $\Delta_c$ and $\otimes'$ raise the factor number by one, $\pair{\Phi_2}{\Phi_1 \otimes' \Phi_1}$ can be non-zero while the cyclically permuted $\pair{\Phi_1}{\Phi_2 \otimes' \Phi_1}$ vanishes, and $\pair{\Phi_f}{\Delta_c \Phi_{f-1}}$ can be non-zero while $\pair{\Delta_c \Phi_f}{\Phi_{f-1}}$ vanishes.
+In other words, the equation at factor number $f$ involves the fields at factor numbers $f - 1$ and $f$ but not $f + 1$, so that the Jacobian of the equations is block-triangular in the factor number and cannot be self-adjoint for any form diagonal in it.
+
+The precise criterion is the Helmholtz condition of the inverse problem of the calculus of variations.
+A system of equations $\mathcal E(x) = 0$ is the set of Euler--Lagrange equations of an action, through a constant non-degenerate form $\Omega$, if and only if the matrix
+\begin{equation}
+  \label{eq:bc:helmholtz}
+  \Omega \, \frac{\pd \mathcal E}{\pd x}
+\end{equation}
+is symmetric at every point $x$.
+On the canonical sector, the condition fails already at the lowest level.
+Take the pair formed by the one-output component of $B \Phi_1 = 0$ and the first factorization condition, on the fields $(\Psi, \Phi_{1, 2})$ with the canonical value $\Phi_{1, 2} = \Psi^2 / 2$:
+\begin{equation}
+  \mathcal E
+    = \Big( Q_B \Psi + \gs \, \ell_2(\Phi_{1, 2}) + \cdots, \
+      \Phi_{1, 2} - \tfrac{1}{2} \, \Psi^2 \Big).
+\end{equation}
+Its Jacobian is
+\begin{equation}
+  \label{eq:bc:jacobian}
+  \frac{\pd \mathcal E}{\pd (\Psi, \Phi_{1, 2})}
+    = \begin{pmatrix}
+      Q_B & \gs \, \ell_2 \\
+      - \Psi \wedge \cdot & 1
+    \end{pmatrix},
+\end{equation}
+where $\Psi \wedge \cdot$ maps $\delta \Psi$ to the symmetrized product $\Psi \wedge \delta \Psi$.
+Its two off-diagonal blocks are unrelated: $\gs \, \ell_2$ does not depend on $\Psi$ and $- \Psi \wedge \cdot$ does, so that no constant $\Omega$ makes~\eqref{eq:bc:helmholtz} symmetric.
+
+We have tested the stronger form of this statement in a finite-dimensional model with commuting fields.
+For the canonical system on $(\Psi, \Phi_{1, 2})$, the space of constant forms $\Omega$ for which~\eqref{eq:bc:helmholtz} is symmetric at three random points was computed by a singular value decomposition.
+It was computed on the full tensor space $\Hs \oplus \Hs \otimes \Hs$, of dimension $d + d^2$ for $\dim \Hs = d$, rather than on $\Hs \oplus \Hn{2}$; the antisymmetric block decouples with a unit Jacobian and admits the identity form, so that the conclusion carries over to the symmetric space.
+This space of forms is large, of dimension $29$ for $d = 3$ and $92$ for $d = 4$, because the $\Phi_{1, 2}$ block of the constraint is the identity and leaves the corresponding block of $\Omega$ nearly free.
+But every element of it is degenerate: over random combinations the maximal rank is $10$ out of $12$ for $d = 3$ and $17$ out of $20$ for $d = 4$.
+Their canonical equations are therefore the Euler--Lagrange equations of no constant non-degenerate form on the type-I fields, not only of no form diagonal in the factor number: the second obstruction is realized in the model in a sharpened form.
+Nothing weaker than an enlargement of the field space evades it with a constant form.
+
+\paragraph{How the multiplier form evades it.}
+The multiplier form changes the system rather than finding a form for theirs.
+The doubling adds the equations of the multipliers and makes every constraint the $\Theta_\ell$-gradient of a term $\pair[\ell]{\Theta_\ell}{\mathcal E_\ell}$, so that the doubled system is a gradient by construction.
+Its Jacobian is self-adjoint for the cotangent form on $(\Psi; \Sigma_\ell, \Theta_\ell)$,
+\begin{equation}
+  \label{eq:bc:cotangent-form}
+  \Omega_{\mathrm{cot}}
+    = \pair{\cdot}{\cdot}
+      \oplus \bigoplus_{\ell \ge 2}
+      \begin{pmatrix}
+        0 & \pair[\ell]{\cdot}{\cdot} \\
+        \pair[\ell]{\cdot}{\cdot} & 0
+      \end{pmatrix},
+\end{equation}
+which is off-diagonal between $\Sigma_\ell$ and $\Theta_\ell$: this is exactly what the block-triangular form requires, since the factorization equation is paired with a field outside the type-I space.
+There are no type-II fields, so that no cyclicity across factor numbers is needed, and their product $\otimes'$ survives only as the bilinear term $\Sigma_{\ell - 1} \otimes \Psi$ of the constraint, symmetric by construction of $\Hn{\ell}$; this is why the vertices $\vertex{n}(\Sigma_n)$ are cyclic with no further condition.
+
+We have checked this in the model, with the chain action~\eqref{p:eq:barcobar:chain-action} truncated at $k \le 2$ and with the cubic vertex.
+Its Euler--Lagrange system, written by hand, has a Jacobian that is self-adjoint for~\eqref{eq:bc:cotangent-form}, to $10^{-8}$; the system written by hand is the gradient of the action, by an independent computation; and removing from the $\Psi$ equation the back-reaction of the multiplier, the term $\Theta_2 \cdot \Psi$, which is what their undoubled $\Psi$ equation looks like, destroys the symmetry, with an asymmetry of $3.6$.
+Since the cyclicity of an action is automatic, this test is a check of the equations, not of the action: the back-reaction term is the transpose of the dependence of the constraint on $\Psi$.
+
+\paragraph{How the cubic action evades it.}
+The mechanism is the same with another form.
+The pair $(\Psi, \Sigma_2)$ with the gradients of the cubic action is self-adjoint for the single-string pairing plus the two-string pairing, which we also checked in the model.
+The block-triangular form is broken because the $\Psi$ equation now contains $\vertex{4}(\Sigma_2, \Psi, \cdot)$, which depends on $\Psi$, and the $\Sigma_2$ equation contains $\vertex{4}(\Sigma_2 - \Psi^2, \cdot)$: up to the factor fixed by~\eqref{p:eq:barcobar:identity}, both off-diagonal blocks are $\gs^2 \, \vertex{4}(\cdot, \Psi, \cdot)$.
+The price, as in the truncation subsection, is that the $\Sigma_2$ equation imposes the chain only modulo the kernel of the quartic form.
+
+\subsubsection{Where an obstruction persists}
+
+The first obstruction does persist in one place, which is already part of the construction: the Batalin--Vilkovisky, odd-symplectic presentation of the type-I tower with the physical grading.
+That the two-string pairing is graded-symmetric and even, so that the symplectic partner needs the shifted space $(\Hs^{\otimes 2})[1]$ (\cref{ch:conventions}), and that no pairing diagonal in the degree makes the products on the multi-string space cyclic (\cref{ch:ibl}), are by~\eqref{eq:bc:pairing-degree} the same fact as their first obstruction.
+A Batalin--Vilkovisky action of the form $\pair{\Phi}{\mathcal E}$ on the type-I tower would need a shift $\ell - 1$ at length $\ell$, and no single form supplies it.
+The cubic action is not affected, since it uses the even form $\vertex{4}$ and a classical action needs no odd form on its auxiliary fields; the multiplier form is not affected either, being a cotangent construction.
+The statement that may be made is therefore that the construction supplies, at the classical level, the two things the bar--cobar equations lack for an action: a pairing, which is the quartic vertex itself or a dual tower of multipliers, and a field space on which the equations are self-adjoint, by keeping one cyclic physical field and no field of factor number two or more.
+It does not provide a cyclic structure, an odd symplectic form of uniform degree, on the multi-string space.
+
+The tower of all orders does not meet either obstruction.
+Its Hessian is block-tridiagonal and symmetric because it is a Hessian: there are no type-II fields and no factor number to cross, and the off-diagonal blocks between $\Sigma_k$ and $\Sigma_{k+1}$ are transposes of each other by construction, the mechanism checked above for the multiplier form.
+The first obstruction reappears only as the non-degeneracy of the quadratic form of each $\Sigma_k$ on the quotient of $\Hn{k}$ by the kernel of $\vertex{2k}$, which the continued-fraction elimination of \cref{ch:all-orders} needs, and which the quotient handles level by level.
+In a model with random symmetric vertices there is no string kernel, so that a check of this point there tests nothing specific to the string; whether the dressing of order $\gs$ creates a kernel depending on $\Psi$ is a question about the poles of the elimination, not a structural obstruction of their kind.
+
+\subsubsection{The scalar example}
+\label{sec:bc:scalar}
+
+Their example is the scalar theory
+\begin{equation}
+  \label{eq:bc:scalar-action}
+  S
+    = \int \dd x \left(
+      \frac{1}{2} \, \phi \, (\pd^2 - m^2) \, \phi
+      + \frac{g}{3} \, \phi^3
+      + \frac{\lambda}{4} \, \phi^4
+    \right),
+  \qquad
+  (\pd^2 - m^2) \, \phi + g \, \phi^2 + \lambda \, \phi^3
+    = 0,
+\end{equation}
+with $\lambda$ the quartic coupling.
+Its $A_\infty$ data have one degree-zero and one degree-$(-1)$ vector per point, the products $b_1 = \pd^2 - m^2$, $b_2 = g \, \delta$ and $b_3 = \lambda \, \delta \delta$, and no gauge symmetry, since there is no vector of degree one.
+The type-I field is a sequence of functions $\phi_i(x_1, \ldots, x_i)$.
+The equation $B \Phi = 0$ gives, for every $i$ and every slot $k \le i$,
+\begin{equation}
+  \label{eq:bc:scalar-B}
+  (\pd_k^2 - m^2) \, \phi_i
+    + g \, \phi_{i+1}(\ldots, x_k, x_k, \ldots)
+    + \lambda \, \phi_{i+2}(\ldots, x_k, x_k, x_k, \ldots)
+    = 0,
+\end{equation}
+and the factorization equation gives $\phi_{i+j}(x_1, \ldots, x_{i+j}) = \phi_i(x_1, \ldots, x_i) \, \phi_j(x_{i+1}, \ldots, x_{i+j})$ for all $i, j \ge 1$.
+Its unique solution is $\phi_i = \phi_1(x_1) \cdots \phi_1(x_i)$, without the factor $1 / i!$ because their example uses the tensor normalization of the $A_\infty$ case.
+On it every row of~\eqref{eq:bc:scalar-B} collapses to the equation of motion~\eqref{eq:bc:scalar-action} at the point $x_k$, multiplied by $\phi_1$ at the other points.
+
+\paragraph{The multiplier form.}
+With $\Sigma_k = \phi^{\otimes k}$ on the chain, matching their $\phi_i$, and the Euclidean pairing with one component per point, without ghost grading, the multiplier form of~\eqref{eq:bc:scalar-action} is
+\begin{equation}
+  \label{eq:bc:scalar-multiplier}
+  S_{\mathrm{mult}}
+    = \frac{1}{2} \int \phi \, (\pd^2 - m^2) \, \phi
+      + \frac{g}{3} \int_x \Sigma_3(x, x, x)
+      + \frac{\lambda}{4} \int_x \Sigma_4(x, x, x, x)
+      + \sum_{k = 2}^4 \int \Theta_k \, (\Sigma_k - \Sigma_{k-1} \otimes \phi),
+\end{equation}
+with $\Sigma_1 = \phi$.
+The vertices $\vertex{n}(\Sigma_n)$ are here the contact functionals $\int_x \Sigma_n(x, \ldots, x)$, the multilocal field evaluated on the diagonal: this is the scalar shadow of the multilocality of their type-I fields.
+The Euler--Lagrange equations are solved from the top down.
+The $\Theta_k$ equations impose the chain.
+The $\Sigma_4$, $\Sigma_3$ and $\Sigma_2$ equations fix the multipliers:
+\begin{equation}
+  \Theta_4
+    = - \frac{\lambda}{4} \, \delta_{x_1 x_2 x_3 x_4},
+  \qquad
+  \Theta_3
+    = - \frac{g}{3} \, \delta_{x_1 x_2 x_3} + \Theta_4 \cdot \phi,
+  \qquad
+  \Theta_2
+    = \Theta_3 \cdot \phi,
+\end{equation}
+where $\Theta_k \cdot \phi$ contracts the last slot of $\Theta_k$ with $\phi$.
+The $\phi$ equation is
+\begin{equation}
+  \label{eq:bc:scalar-phi}
+  (\pd^2 - m^2) \, \phi
+    - 2 \, \Theta_2 \cdot \phi
+    - \Theta_3(\Sigma_2, \cdot)
+    - \Theta_4(\Sigma_3, \cdot)
+    = 0
+  \quad \Longrightarrow \quad
+  (\pd^2 - m^2) \, \phi + g \, \phi^2 + \lambda \, \phi^3
+    = 0.
+\end{equation}
+On the chain the three multiplier terms give $\tfrac{g}{3} \, (2 + 1) \, \phi^2 + \tfrac{\lambda}{4} \, (2 + 1 + 1) \, \phi^3$.
+The $n$ slots of the contact vertex are recovered as $2$ from $\Theta_2$, whose constraint is quadratic in $\phi$ through $\Sigma_1 = \phi$, plus one for each higher multiplier, in total $n$, which cancels the $1/n$ in front of the vertex.
+This is their collapse $\phi_i = \phi_1^{\otimes i}$ of~\eqref{eq:bc:scalar-B} reproduced from an action, with three multipliers, for their own example.
+
+We have checked this on a periodic lattice of four sites in one dimension, with the lattice Laplacian for $\pd^2$.
+The chain solves all the $\Sigma$ and $\Theta$ equations, to $10^{-10}$.
+The $\phi$-gradient of~\eqref{eq:bc:scalar-multiplier}, computed by finite differences as an independent path, equals the collapsed equation of motion~\eqref{eq:bc:scalar-phi}, to $10^{-9}$.
+Replacing $g / 3$ by $g / 4$ in $\Theta_3$ leaves a residual of $0.05$ in the $\Sigma_3$ equation, so that the check can fail.
+
+\paragraph{The equation of motion term.}
+The scalar theory has no gauge parameter, so that the term proportional to the equation of motion in their gauge transformation of $\Sigma_2$, \eqref{p:eq:barcobar:gauge-sigma}, has no scalar instance.
+What survives is the structure behind it: the components of $B \Phi = 0$ with two or more output strands are proportional to the equation of motion on the chain, identities rather than equations.
+For the scalar, the component $i = 2$, $k = 1$ reads, on the chain and for $\phi$ off-shell,
+\begin{equation}
+  \label{eq:bc:scalar-eom-row}
+  (\pd_1^2 - m^2) \, \phi_2(x_1, x_2)
+    + g \, \phi_3(x_1, x_1, x_2)
+    + \lambda \, \phi_4(x_1, x_1, x_1, x_2)
+    = \big[ (\pd^2 - m^2) \, \phi + g \, \phi^2 + \lambda \, \phi^3 \big](x_1) \, \phi(x_2),
+\end{equation}
+which we checked on the same lattice, to $10^{-15}$.
+In the string case, their gauge variation of $\Sigma_2$ equals the composite law plus the equation of motion times $\Lambda$ for the same reason: $B$ acting on the chain produces the equation of motion in one slot times the rest of the chain, which is the factorized right-hand side of~\eqref{eq:bc:scalar-eom-row}, with the gauge parameter inserted in the remaining slot.
+Without a gauge parameter, the factorization is all there is.
+
+\paragraph{The cubic action.}
+For contrast, the Hubbard--Stratonovich form of~\eqref{eq:bc:scalar-action} with a bilocal field $\Sigma_2(x, y)$ is
+\begin{equation}
+  S_{\mathrm{HS}}
+    = \frac{1}{2} \int \phi \, (\pd^2 - m^2) \, \phi
+      + \frac{g}{3} \int \phi^3
+      - \frac{\lambda}{4} \int_x \Sigma_2(x, x)^2
+      + \frac{\lambda}{2} \int_x \Sigma_2(x, x) \, \phi(x)^2.
+\end{equation}
+This is the quartic step of the construction with $\Hs$ replaced by functions on the lattice, and it was not checked by machine.
+Its $\Sigma_2$ equation is $\Sigma_2(x, x) = \phi(x)^2$ on the diagonal only.
+The quadratic form $\lambda \int_x \Sigma_2(x, x) \, \Sigma_2(x, x)$, which plays the role of $\vertex{4}$, is degenerate on every off-diagonal component of $\Sigma_2$: the scalar kernel of the quartic form is large, of codimension equal to the number of points in the space of symmetric bilocal fields, and the quotient by it reduces $\Sigma_2$ to the local field $\Sigma_2(x, x)$, the ordinary Hubbard--Stratonovich field.
+In string field theory the quartic vertex is not a contact vertex, since it integrates over a region of the moduli space, and its kernel is small; this is why the string $\Sigma_2$ remains a bilocal field while the scalar one collapses to a local field.

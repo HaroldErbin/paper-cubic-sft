@@ -1,0 +1,191 @@
+\section{Preamble and reading guide}
+\label{ch:preamble}
+
+This chapter says what this document is and how to read it.
+It describes the paper it accompanies and how the document was produced, defines the status labels that mark every result, explains how to check a result against its derivation and its companion script, gives once the translation between the notation of the older notes reproduced here and the notation of the paper, and ends with a map of the chapters.
+None of it states a result.
+
+\subsection{The paper and this document}
+\label{sec:pre:document}
+
+The paper, \emph{A cubic closed string field theory}, rewrites the classical action of closed bosonic string field theory, which has interaction vertices $\vertex{n}$ of every order, as an action with cubic interactions only.
+It does so by a Hubbard--Stratonovich transformation: multilocal auxiliary string fields $\Sigma_k \in \Hn{k}$, the $k$-string field entering at order $\gs^{2 k - 2}$, are integrated in so that every vertex with four or more legs is replaced by couplings of at most three fields, and the action is quadratic in each auxiliary field.
+The auxiliary fields can then be eliminated one at a time by exact Gaussian integrals, which give back the original action as a formal power series in $\gs$, on the quotient by the kernels of the quadratic forms and under conditions on these kernels that the paper states.
+The paper also studies the gauge structure of the cubic action, its reading in terms of Riemann surfaces, where the covering of the moduli space by the exchanges of auxiliary fields is left as a conjecture, its algebraic structure as an \IBL{} algebra, and its relation to the bar--cobar construction.
+The construction is classical: the loops of the auxiliary fields and the quantum master equation are not treated.
+
+This document collects every valid result the project behind the paper produced, including what the paper leaves out: the derivations that the paper only states, the results that are too weak or too far from its line to be in it, and the computations that support its statements.
+It is assembled from three kinds of text.
+The largest part is the text of the paper before its last condensation, reproduced block by block, with its headings demoted by one level and its labels prefixed so that they do not collide; the paper is the condensed version of these blocks.
+Older notes of the project are reproduced in their own notation, each preceded by a box that translates its notation into the paper's (\cref{sec:pre:notation}).
+The sections written for this document give the derivations for which no text existed, from the derivation records, in the step-by-step register of notes.
+The document is not proofread to the standard of the paper: a result stated in several sources is stated several times, the notation changes from block to block, and the new text has not been edited for style.
+Statements that turned out wrong or obsolete appear only in \cref{ch:dead-ends}, each with the reason; the open questions are in \cref{ch:open-problems}.
+The level-$(1, 1)$ numbers of the explicit quartic vertex of~\cite{Erbin:2026:SL2CVerticesClosed}, and the critical points computed from them, are not reproduced.
+
+\subsection{How this document was produced}
+\label{sec:pre:disclosure}
+
+% ai-disclosure
+The derivations collected here were produced by language-model agents working under the direction of the author.
+The author chose the questions, the conventions and the scope, decided between the alternatives the agents proposed, directed the work, and read and corrected parts of the text of the paper; the agents wrote the derivation records, the companion scripts and most of the prose, including the draft of the paper from which most blocks of this document are taken, while the older notes and the sections written for this document have had at most a partial reading by the author, and the complete write-up was not proofread by the author.
+Results that rest on a computation were checked by companion scripts that test their statements against independent quantities, many of them with a deliberately broken counterpart that must fail, and in most cases by adversarial reviews, in which other agents re-derived the steps and could reject the derivation.
+The author did not verify every derivation.
+The status label of each result records the strongest check that covers the whole statement, and the verification history of each result is kept in the results ledger.
+This paragraph is the only place where the role of the agents is described; elsewhere \enquote{we} is the voice of the text.
+
+\subsection{Status vocabulary}
+\label{sec:pre:status}
+
+Every result of this document carries a label in a box, \status{like this}, at the head of the block or the section that states it, followed by a footnote naming the derivation record and the entry of the results ledger.
+The label is the one of the ledger, as written there; a label with several parts gives the status of each part.
+
+\begin{description}
+  \setlength{\itemsep}{0.5ex}
+
+  \item[Proven] A complete analytic argument exists; a machine check of it, if any, is part of the verification and does not change the label.
+
+  \item[Verified] Established mainly by exact symbolic computation; a finite-dimensional or numerical check that strengthens it is part of the verification.
+
+  \item[Verified in a finite model] Checked, exactly or numerically, in a finite-dimensional model in which generic tensors stand in for the string vertices.
+    The model establishes the algebra of the statement; it does not establish that the string vertices behave as generic tensors.
+    The ledger also writes this label as \enquote{Proven within the finite model} or \enquote{Verified (finite model)}; a cited result with no derivation of its own is written \enquote{Proven (cited)} and means \emph{Proven} in the cited source.
+
+  \item[Numerical] Numerical computation is the main evidence, in the regime stated with the result: the truncation, the precision, the sampling, the fit or the model.
+
+  \item[Argued] A physical or structural argument, neither a proof nor a check.
+
+  \item[Conditional(\ldots) -- \emph{label}] One of the labels above, holding under the hypotheses named in the parentheses.
+    The hypotheses are listed in \cref{ch:hypotheses}; an identifier after a plus sign names another result the statement relies on, and a bracket after a hypothesis names the clause or the order of it that is used.
+
+  \item[mixed] The parts of the result carry different labels, which the text gives part by part.
+
+  \item[Open] A question stated, not answered.
+
+  \item[Exclusion within a class] A statement that something does not exist, proven or established only within a stated class of objects; the class is part of the statement, and nothing is claimed outside it.
+
+  \item[no ledger entry] A result of a derivation record that was not promoted to the ledger; the label of the record applies, and the text says what it is.
+
+  \item[withdrawn] The statement, or its headline, turned out false; used in \cref{ch:dead-ends} only.
+
+  \item[superseded] A later result removed the premise of the statement or made it obsolete; used in \cref{ch:dead-ends} only.
+\end{description}
+
+Hypotheses carry their own status words, in \cref{ch:hypotheses}: \emph{open}, \emph{supported} with the evidence and its scope, \emph{discharged} when a result proves or replaces them, \emph{adopted} when the hypothesis is taken as part of the definition of the theory, and \emph{refuted}.
+A result conditional on a supported hypothesis remains conditional.
+
+\subsection{How to cross-check a result}
+\label{sec:pre:check}
+
+The footnote next to each status label names the derivation record that establishes the result, a Markdown file under \recordref{agent/derivations/} of the repository, and the identifier of the result in the results ledger, \recordref{knowledge/results.md}, as in \recordref{R43} for a result or \recordref{PH1} for a hypothesis.
+The record contains the claims, the assumptions, the derivation step by step and the checks; the ledger entry gives the statement as established, its scope, its tag and one line per check made, with its date and outcome, including the checks that failed and changed the tag.
+
+The companion scripts are in \nolinkurl{codes/} of the repository, one per derivation or group of derivations, $118$ in all.
+Each runs with Python 3 and the usual scientific libraries (numpy, scipy, sympy and, for the high-precision computations, mpmath), from the root of the repository, as \texttt{python codes/verify-<name>.py}; a few import helpers from \nolinkurl{codes/lib/}.
+Each prints one line PASS or FAIL per named check, with the quantity tested, and exits with a nonzero code if any check fails.
+The checks are meant to compare the result with an independent quantity, a limiting case, a second derivation or a literature value, and many scripts contain break legs: a deliberately wrong version of the tested expression that must fail.
+\Cref{sec:fm:script-table} lists every script with the statement it checks, its record and its last recorded result.
+The table below names the script behind one central statement of each chapter.
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.5\linewidth}>{\raggedright\arraybackslash}p{0.08\linewidth}@{}}
+    \toprule
+    Script & Statement checked & Chapter \\
+    \midrule
+    \nolinkurl{verify-conventions.py} & The conversion between the two normalizations of the sphere correlator. & \ref{ch:conventions} \\
+    \nolinkurl{verify-s6-integrate-out.py} & Integrating $\Sigma_2$ out at order $\gs^2$ gives back exactly the quartic contact term. & \ref{ch:order-by-order} \\
+    \nolinkurl{verify-b7-allorders.py} & The fixed-point theorem of the dressed tower at all orders. & \ref{ch:all-orders} \\
+    \nolinkurl{verify-kp-real-s.py} & The level-zero pair kernel at real momentum: definiteness and the convergence of its eigen-expansion. & \ref{ch:momentum-space} \\
+    \nolinkurl{verify-multiplier-ogs4.py} & The multiplier on the kernel of $\vertex{4}$ at order $\gs^4$. & \ref{ch:multiplier-hybrid} \\
+    \nolinkurl{verify-partner-count.py} & The number of partner fields order by order. & \ref{ch:partner-field} \\
+    \nolinkurl{verify-bv-master-equation.py} & The truncated classical master equation in a finite cyclic \Loo{} model. & \ref{ch:gauge-bv} \\
+    \nolinkurl{verify-hessian-affine.py} & The Hessian of the cubic action is affine in the background. & \ref{ch:solutions} \\
+    \nolinkurl{verify-rs5-no-local-kernel.py} & No local worldsheet kernel represents $\sprod{2}{2}^{-1}$, within its class. & \ref{ch:worldsheet-dictionary} \\
+    \nolinkurl{verify-offshell-gluing.py} & The quartic vertex as a dressed gluing off shell, the measure identity of the rigid gluing, the square point of the Sonoda--Zwiebach sewing. & \ref{ch:worldsheet-circle} \\
+    \nolinkurl{verify-linfty-ibl-repackaging.py} & The repackaging of a cyclic \Loo{} algebra as a genus-zero \IBL{} algebra, and the $(2, 2)$ obstruction. & \ref{ch:ibl} \\
+    \nolinkurl{verify-hs-bar-cobar.py} & The comparison of the cubic action with the canonical equations of the bar--cobar construction. & \ref{ch:bar-cobar} \\
+    \nolinkurl{verify-cheung-remmen.py} & The algebra of the comparison with the cubic action for gravity. & \ref{ch:open-problems} \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+A script tests what its docstring says it tests, often in a finite model or at sampled points; the scope of a check is part of the status of the result, not something the PASS line extends.
+
+\subsection{Notation of the older notes}
+\label{sec:pre:notation}
+
+The paper, and the text written for this document, use the notation of the paper's conventions appendix (\cref{ch:conventions}).
+The older notes reproduced in \cref{ch:conventions,ch:order-by-order,ch:all-orders,ch:partner-field,ch:worldsheet-dictionary,ch:worldsheet-circle,ch:ibl} and in appendices~\ref{ch:qft-toys} and~\ref{ch:sl2c-vertex} use an earlier notation.
+The table below gives the whole translation once; each chapter repeats, in a box before the first block of an older note, the lines that occur in that block, together with the differences specific to that note.
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.4\linewidth}>{\raggedright\arraybackslash}p{0.56\linewidth}@{}}
+    \toprule
+    Older notes & Paper and this document \\
+    \midrule
+    $V_n$, $\mc V_n$ & $\vertex{n}$ \\
+    $m_2 = G_2^{-1} V_4$, $\mtwo^{-1}$ & $\sprod{2}{2}$, $\sprod{2}{2}^{-1}$ \\
+    $V_4(\Sigma, \Sigma)$ as the kinetic term of $\Sigma$ & $\vertex{4}(\Sigma_2, \Sigma_2) = \pair[2]{\Sigma_2}{\sprod{2}{2}(\Sigma_2)}$ \\
+    $\Sigma$, $\Sigma_k$ & $\Sigma_2$, $\Sigma_k$ \\
+    $\mc H_0$, $\Sym^k \mc H_0$ & $\Hs$ restricted to level-matched states, $\Hn{k}$ \\
+    $\braket{A, B}$, $\braket{X, Y}_2$, $G_k = \omega_1^{\otimes k}$ & $\pair{A}{B}$, $\pair[2]{X}{Y}$, the $k$-string pairing $\pair[k]{\cdot}{\cdot}$ \\
+    $\epsilon(A) = \Ngh(A) \bmod 2$ & $\abs{A}$ \\
+    $\chi$, the partner field of wrong sign & $\Upsilon_2$ (in the note on the \IBL{} bookkeeping, $\chi$ is a placeholder in a generating function, not the partner field) \\
+    $\tilde M_k$, $K_6$, $\tilde V_{2k}(\Sigma_k, \Sigma_k)$ & the dressed operators: $\wprod{k}{k}$, with $\dvertex{2k}(\Sigma_k, \Sigma_k) = \pair[k]{\Sigma_k}{\wprod{k}{k}(\Sigma_k)}$ \\
+    $K_\Psi$, $k_\Psi = p_{2,2} - \tfrac{g_s}{5} \, p_{3,2}(\Psi, \cdot)$ & the dressed kinetic operator $\kin{2}{\Psi}{3}$ \\
+    $\widetilde S$, $\widetilde S_{\le n}$, \enquote{HS action} & the cubic action $\caction$, $\caction[\le n]$ \\
+    $\pklg$, \enquote{IBL maps} & the operations $\sprod{k}{\ell}$ of \cref{ch:ibl} \\
+    Route C & the multiplier form (\cref{ch:multiplier-hybrid}) \\
+    Schemes A, B, C & reduced vertices, dressed form, partner form \\
+    Reality $A^\ddagger = A$, with every vertex equivariant without sign & star convention: $A^\ddagger = (-1)^{\Ngh(A) + 1} A^\star$ on one-string states, strand by strand on tensors; $\Psi^\ddagger = \Psi$ is $\Psi^\star = - \Psi$, and $\Sigma_k^\ddagger = \Sigma_k$ is $\Sigma_k^\star = (-1)^k \Sigma_k$. The two conditions agree for even $k$ and \emph{differ by a sign for odd $k$}. \\
+    Numbers computed with $\braket{c_{-1} \bar c_{-1} c_0^- c_0^+ c_1 \bar c_1} = - 1$ & the normalization $- \tfrac{1}{2}$ of~\cite{Erbin:2021:StringFieldTheory}: a factor $\tfrac{1}{2}$ per sphere correlator, so $\vertex{4} \times \tfrac{1}{2}$, $G_2 \times \tfrac{1}{4}$, the spectrum of $\sprod{2}{2}$ $\times 2$, signs unchanged (\cref{sec:conv:two-normalizations}) \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+A reader who reads $\ddagger$ as $\star$ gets the sign of every reality condition with an odd number of strands wrong.
+
+\subsection{Chapter map}
+\label{sec:pre:map}
+
+\begin{description}
+  \setlength{\itemsep}{0.3ex}
+
+  \item[\Cref{ch:conventions}] The state space and the fields, the normalization of the sphere correlator and the conversion between the two in use, the pairings and exchange signs on one and several copies of the state space, the symmetry type of multi-string tensors, and the reality conditions.
+
+  \item[\Cref{ch:order-by-order}] The construction one order in $\gs$ at a time: the action, the quartic order with the quotient, the elimination, the gauge law, the Feynman rules and the four-point amplitude, then the quintic, sextic (in its two presentations), septic and octic orders.
+
+  \item[\Cref{ch:all-orders}] The action with the whole tower of auxiliary fields and its equations of motion, the completed squares and nested operators, the reduced vertices with the matching theorem and the collapse lemma, the elimination and the recovered action, the gauge transformations and the kernel conditions.
+
+  \item[\Cref{ch:momentum-space}] The kinetic operator of $\Sigma_2$ in momentum space: diagonal in the total momentum, a definite trace-class kernel at level zero, and at fixed level an analytic family with no forced null vector.
+
+  \item[\Cref{ch:multiplier-hybrid}] The presentations with Lagrange multipliers: the multiplier form, cubic at all orders with no inverse of a vertex, the hybrid with a multiplier on the kernel only, and their relation to the bar--cobar equations.
+
+  \item[\Cref{ch:partner-field}] The partner field $\Upsilon_2$ of wrong sign, which makes the action local at order $\gs^4$ with elementary vertices, and its count at higher orders.
+
+  \item[\Cref{ch:gauge-bv}] The gauge structure and the Batalin--Vilkovisky description of the cubic action, the spectrum around a background, and the question of an independent two-string gauge parameter.
+
+  \item[\Cref{ch:solutions}] Classical solutions and fluctuations: level truncation and the truncation lemma, the Hessian, the elimination of $\Psi$ instead of $\Sigma_2$, the degenerate branch, and a mean-field reading of the auxiliary field.
+
+  \item[\Cref{ch:worldsheet-dictionary}] The worldsheet reading that does not depend on a model of the inverse: fields as groups of punctures, the inverse of the quartic form and the theorem that it has no local worldsheet kernel, the counting of moduli, and the changed kinetic terms of the auxiliary channel.
+
+  \item[\Cref{ch:worldsheet-circle}] The circle picture: the quartic vertex as a gluing of two three-punctured spheres over a region, its dressed form off shell and its on-shell form, the six-point exchange and the covering conjecture, and the single-strand route.
+
+  \item[\Cref{ch:ibl}] The cubic action as an \IBL{} algebra and the elimination of the auxiliary fields as a homotopy transfer, with the Maurer--Cartan form of the raised family.
+
+  \item[\Cref{ch:bar-cobar}] The comparison with the bar--cobar construction of Chiaffrino, Mamade and Zwiebach: their construction in our notation, the identification on the canonical sector, the gauge symmetry, the cubic action as a truncation of their equations, and the two obstructions to an action.
+
+  \item[\Cref{ch:finite-models}] The finite-dimensional models in which the algebraic statements are checked, statement by statement, and the table of all companion scripts.
+
+  \item[\Cref{ch:dead-ends}] The statements that turned out wrong or obsolete, one paragraph each.
+
+  \item[\Cref{ch:open-problems}] The open problems, and the comparison with the cubic action for gravity of Cheung and Remmen.
+
+  \item[\Cref{ch:hypotheses}] The table of hypotheses with their status and the chapters that use them.
+
+  \item[\Cref{ch:qft-toys}] Field-theory toys: the Hubbard--Stratonovich construction for $N$ scalars, the strictification of Yang--Mills theory, and the open string with stubs.
+
+  \item[\Cref{ch:sl2c-vertex}] The data of the explicit quartic vertex used here: the closed form of the tile integral and its boundary representation, the reduction of the contact term to the Mandelstam invariants, the mapping radius at the third puncture, and the reality of the region.
+\end{description}

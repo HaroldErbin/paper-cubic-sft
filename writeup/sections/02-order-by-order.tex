@@ -1,0 +1,501 @@
+\section{Construction order by order}
+\label{ch:order-by-order}
+
+This chapter carries out the Hubbard--Stratonovich transformation of closed string field theory one order in $\gs$ at a time, from the action of the theory to the octic order.
+Its core is the full order-by-order section of the paper in its earlier version: the action, then the quartic, quintic, sextic, septic and octic orders.
+The paper's sections on the quartic to the septic order are the condensed version of this chapter, and the octic order, which the paper only summarizes, is kept here in full.
+Three sections of a companion note on the quintic order follow: the completion of the square with the dressed kernel, the orders at which the corrected saddle enters, and the proof that the kernel condition is necessary as well as sufficient.
+A section of an older note on the two presentations of the $3$-string field at the sextic order comes next.
+Two sections exist only here: the four-point amplitude of the quartic order in full, and the gauge laws and the products of the sextic order in both presentations.
+
+\medskip
+
+The first two blocks are the introduction of the paper's order-by-order section and its recall of the non-polynomial action, in the paper's notation, which the whole chapter uses except inside the blocks of the two older notes (each preceded by a translation box).
+
+\input{extracted/02/1-p}
+\input{extracted/02/2-p}
+
+The quartic order introduces the $2$-string field $\Sigma_2$ by completing a square, derives the equations of motion and the quotient by the kernel of $\sprod{2}{2}$, eliminates $\Sigma_2$, gives the gauge transformation and the reality condition, writes $\Sigma_2$ in momentum space and reads off the Feynman rules.
+It states the following results:
+\begin{itemize}
+  \item the cubic action and its equation of motion, which gives $\Sigma_2 = \Psi^2$ on the quotient when $\sprod{2}{2}$ is invertible there: \status{Verified}\record{001-cubic-sft-overview-note (R1)};
+  \item $\Sigma_2$ is purely auxiliary if and only if $\sprod{2}{2}$ is injective on the $2$-string states: \status{Verified}\record{004-i3-m2-invertibility (R9)};
+  \item integrating $\Sigma_2$ out gives back the quartic action: \status{mixed}\record{005-s6-integrate-out (R10)};
+  \item the gauge transformation of $\Sigma_2$ makes the variations of the cubic and of the original action equal, exactly and off-shell: \status{Proven}\footnote{Ledger entry \recordref{R11}, with no derivation record of its own.};
+  \item the $\Sigma_2$ exchange collapses to the quartic contact term with coefficient one: \status{Conditional(PH1) -- Verified}\record{007-a1-amplitude-telescoping (R14)}.
+\end{itemize}
+
+\input{extracted/02/3-p}
+
+The next block closes the paper's paragraph on the Feynman rules: the four-point function with identical external states, the collapse of the $\Sigma_2$ line, and the assumption on the intermediate $2$-string states under which the collapse holds for any external states.
+
+\input{extracted/02/4-p}
+
+\paragraph{The four-point amplitude in full}
+\label{sec:order:amplitude}
+
+\status{mixed}\record{023-a4pt-virasoro-shapiro-chain (R29)}
+The statements below have different statuses: the enumeration of the diagrams, the prefactors and the collapse in a finite-dimensional model \status{Proven}; the equality of the off-shell amplitudes \status{Conditional(PH1, PH3) -- Proven}; the on-shell Virasoro--Shapiro amplitude \status{Conditional(PH1, PH3, PH4) -- Proven}; the on-shell limit at level~$0$ \status{Conditional(PH4, PH25, PH29, PH30) -- Proven}.
+
+The block above shows the collapse for four identical external states.
+We now compute the whole four-point amplitude at order $\gs^2$ on four distinct external states, with every prefactor, and follow it to the on-shell amplitude.
+The computation is at tree level, for a fixed consistent family of vertices: the argument does not depend on which family.
+It uses three assumptions, which we state once here.
+The first is the one made in the quartic order: $\sprod{2}{2}$ descends to an injective map on the quotient of the $2$-string states by its kernel, invertible there at each truncation level, and the kernels of the level-truncated forms stabilize as the level grows, so that the quotient and the propagator of $\Sigma_2$ have a limit; at the external momenta used, including the on-shell ones, the truncated determinant on the quotient has no zero that persists with the level.
+The second is the one stated at the end of the block above: the sum over intermediate $2$-string states, which runs over the levels of the two strands and over the relative momentum of the pair, is complete and converges on the states $\sprod{2}{2}(P)$ produced by an external pair $P$.
+The third is needed only on-shell: the three regions of the moduli space $\mathcal M_{0, 4}$ covered by the Feynman diagrams with one propagator, together with the region of the quartic vertex, cover $\mathcal M_{0, 4}$ exactly once.
+No other input enters, beyond the defining properties of the vertex family, among which the total symmetry of $\vertex{4}$ under permutations of its four slots.
+
+\subparagraph{Normalization.}
+The path-integral weight is $\e^{S}$, so that every propagator is minus the inverse of the kinetic form.
+For four distinct external states $\Psi_1, \ldots, \Psi_4$ we define the amplitude as the connected four-point function with amputated external legs,
+\begin{equation}
+  \label{eq:ch2:amp:normalization}
+  A_4(\Psi_1, \ldots, \Psi_4)
+    := \partial_{t_1} \partial_{t_2} \partial_{t_3} \partial_{t_4} \log Z[J(t)] \Big|_{t = 0},
+  \qquad
+  J(t)
+    = \vertex{2} \Big( \sum_i t_i \Psi_i, \cdot \Big),
+\end{equation}
+where $\vertex{2}$ is the kinetic form of $\Psi$, so that the source $J$ cancels the external propagators.
+The coefficient of $t_1 t_2 t_3 t_4$ selects the part multilinear in four distinct states.
+In this normalization every tree diagram on distinct external states has symmetry factor one, and the factorials of the action are absorbed by the sums over the assignments of the legs; the rational factors that remain are shown explicitly below.
+On-shell, $Q_B \Psi_i = 0$, the amplitude~\eqref{eq:ch2:amp:normalization} is the tree-level S-matrix element up to the normalization of the external states, which is common to the cubic theory and to closed string field theory.
+
+\subparagraph{Feynman rules at order $\gs^2$.}
+The rules read off the cubic action through the quartic order are:
+\begin{itemize}
+  \item the propagator $\mathsf P$ of $\Psi$, of order $\gs^0$, the same as in closed string field theory;
+  \item the propagator of $\Sigma_2$, $\tfrac{12}{\gs^2} \, \sprod{2}{2}^{-1}$, of order $\gs^{-2}$, from the kinetic term $- \tfrac{\gs^2}{4!} \vertex{4}(\Sigma_2, \Sigma_2)$;
+  \item the cubic vertex, from $\tfrac{\gs}{3!} \vertex{3}(\Psi^3)$, which on distinct external states reads $\gs \, \vertex{3}(\Psi_i, \Psi_j, \cdot)$;
+  \item the source vertex, from $\tfrac{2 \gs^2}{4!} \vertex{4}(\Sigma_2, \Psi^2)$, which on distinct external states reads $\tfrac{\gs^2}{6} \, \vertex{4}(\cdot, \Psi_i \Psi_j)$ for $i \ne j$, the factor two coming from the two assignments of the external states to the slots.
+\end{itemize}
+There is no self-coupling of $\Sigma_2$ at this order: $\Sigma_2$ enters the quartic-order action quadratically and linearly only.
+The propagator of $\Sigma_2$ is defined with respect to the identity on the symmetric $2$-string states.
+
+\subparagraph{The diagrams.}
+At order $\gs^2$ the connected four-point amplitude receives contributions from exactly four diagrams: the three trees with two cubic vertices joined by a $\Psi$ line, in the channels $s$, $t$ and $u$, and the tree with two source vertices joined by a $\Sigma_2$ line, in its three matchings of the external states.
+No loop, tadpole or mixed diagram contributes.
+This follows from counting.
+Let $n_3$ be the number of cubic vertices, $n_B$ the number of source vertices, $I_\Psi$ and $I_\Sigma$ the numbers of internal lines of $\Psi$ and $\Sigma_2$, and $E = 4$ the number of external states.
+Since $\Sigma_2$ has no external leg and each $\Sigma_2$ line ends on two source vertices, $n_B = 2 I_\Sigma$.
+The order in $\gs$ of a diagram is then
+\begin{equation}
+  n_3 + 2 n_B - 2 I_\Sigma
+    = n_3 + 2 I_\Sigma
+    = 2,
+\end{equation}
+so that $(n_3, I_\Sigma)$ is $(2, 0)$ or $(0, 1)$, for any connected diagram, loops included.
+Counting the legs of $\Psi$, $3 n_3 + 2 n_B = 4 + 2 I_\Psi$, fixes $I_\Psi = 1$ in the first case and $I_\Psi = 0$ in the second, and the number of loops
+\begin{equation}
+  L
+    = (I_\Psi + I_\Sigma) - (n_3 + n_B) + 1
+\end{equation}
+vanishes in both cases: tree topology is forced by the order and the number of external states.
+The first case gives two cubic vertices and one $\Psi$ line in three matchings, the channels $s$, $t$, $u$; the second gives two source vertices and one $\Sigma_2$ line in three matchings.
+A tadpole of $\Psi$ would need a loop at this order, a tadpole of $\Sigma_2$ vanishes since the Gaussian of $\Sigma_2$ has zero mean, the disconnected pieces are removed by the logarithm in~\eqref{eq:ch2:amp:normalization}, and the Gaussian determinant of $\Sigma_2$ does not depend on the fields and cancels in the normalized correlator.
+
+\subparagraph{The assembled amplitude.}
+With $\{ij | kl\}$ running over the three matchings $\{12 | 34\}$, $\{13 | 24\}$, $\{14 | 23\}$, the amplitude is
+\begin{equation}
+  \label{eq:ch2:amp:assembled}
+  A_4^{\text{cubic}}
+    = \sum_{\{ij | kl\}} \gs \, \vertex{3}(\Psi_i, \Psi_j, \cdot) \; \mathsf P \; \gs \, \vertex{3}(\cdot, \Psi_k, \Psi_l)
+      + \sum_{\{ij | kl\}} \frac{\gs^2}{6} \, \vertex{4}(\cdot, \Psi_i \Psi_j) \; \frac{12}{\gs^2} \, \sprod{2}{2}^{-1} \; \frac{\gs^2}{6} \, \vertex{4}(\cdot, \Psi_k \Psi_l),
+\end{equation}
+with no other rational factor.
+The first sum is identical, diagram by diagram, in the cubic theory and in the quartic-truncated action of closed string field theory, $S_{\le 4} = \tfrac12 \pair{\Psi}{Q_B \Psi} + \tfrac{\gs}{3!} \vertex{3}(\Psi^3) + \tfrac{\gs^2}{4!} \vertex{4}(\Psi^4)$, since the two theories share every rule of the $\Psi$ sector.
+The whole comparison is thus between the second sum and the contact term $\gs^2 \, \vertex{4}(\Psi_1, \Psi_2, \Psi_3, \Psi_4)$ of $S_{\le 4}$.
+
+\subparagraph{The collapse, step by step.}
+Take one matching and write $P$ and $Q$ for the symmetrized external pairs $\Psi_i \Psi_j$ and $\Psi_k \Psi_l$; only the symmetric parts couple, by the symmetry of $\vertex{4}$.
+Writing the second vertex through the pairing, $\vertex{4}(\cdot, Q) = \pair[2]{\cdot}{\sprod{2}{2}(Q)}$, we get
+\begin{equation}
+  \label{eq:ch2:amp:collapse}
+  \begin{aligned}
+    A_4^{(ij | kl)}
+      &
+      = \frac{\gs^2}{6} \, \vertex{4}(\cdot, P) \circ \frac{12}{\gs^2} \, \sprod{2}{2}^{-1} \circ \frac{\gs^2}{6} \, \vertex{4}(\cdot, Q)
+    \\
+      &
+      = \frac{\gs^2}{3} \, \vertex{4} \Big( P, \sprod{2}{2}^{-1} \circ \sprod{2}{2}(Q) \Big)
+    \\
+      &
+      = \frac{\gs^2}{3} \, \vertex{4}(P, Q)
+    \\
+      &
+      = \frac{\gs^2}{3} \, \vertex{4}(\Psi_1, \Psi_2, \Psi_3, \Psi_4).
+  \end{aligned}
+\end{equation}
+The second line composes the three factors, which is a sum over a complete set of intermediate $2$-string states $\lambda_I$, normalized so that $\sum_I \lambda_I \pair[2]{\lambda_I}{\cdot}$ is the identity.
+This is where the second assumption acts: the partial sums
+\begin{equation}
+  \label{eq:ch2:amp:partial-sums}
+  s_N(P, Q)
+    = \sum_{I \le N} \vertex{4} \big( P, \sprod{2}{2}^{-1} \lambda_I \big) \, \pair[2]{\lambda_I}{\sprod{2}{2}(Q)}
+\end{equation}
+must converge to $\vertex{4}(P, Q)$, and this convergence, which allows the sum to be exchanged with $\sprod{2}{2}^{-1}$, is the only analytic input of the collapse.
+A level truncation makes the sum over levels finite but does not truncate the integral over the relative momentum of the pair.
+That integral leaves no trace in the result because what is inserted is a resolution of the identity on the whole space of pairs, momentum included, which is saturated against the neighbouring vertex.
+The third line is where the first assumption acts: $Q$ enters modulo the kernel of $\sprod{2}{2}$, the kernel components are not sourced and decouple, and $\vertex{4}(P, \cdot)$ does not see them.
+Nothing stronger is needed: a solution of $\sprod{2}{2}(X) = \sprod{2}{2}(Q)$ exists, $X = Q$, it is unique modulo the kernel by definition of the quotient, and what the first assumption supplies is the uniformity in the level of the quotient on which $\sprod{2}{2}^{-1}$ acts, not a bound on the inverse.
+The last line uses the total symmetry of $\vertex{4}$, which makes the result the same for the three matchings; symmetry under the exchange of the two pairs alone would leave them unequal.
+Summing the three matchings,
+\begin{equation}
+  \label{eq:ch2:amp:sum}
+  A_4^{\Sigma_2\text{-exchange}}
+    = 3 \times \frac{\gs^2}{3} \, \vertex{4}(\Psi_1, \Psi_2, \Psi_3, \Psi_4)
+    = \gs^2 \, \vertex{4}(\Psi_1, \Psi_2, \Psi_3, \Psi_4),
+\end{equation}
+which is the contact term of $S_{\le 4}$ with coefficient one, the chain of factors being $3 \times \tfrac16 \times 12 \times \tfrac16 = 1$.
+Each of the three matchings reproduces the whole quartic vertex region with weight one third: the factor three is a symmetry count, not a tiling of the moduli space like the disjoint regions of the channels $s$, $t$, $u$.
+
+\subparagraph{Off-shell and on-shell.}
+For arbitrary external states, off-shell, and the same vertex family, we therefore have at order $\gs^2$
+\begin{equation}
+  \label{eq:ch2:amp:off-shell}
+  A_4^{\text{cubic}}(\Psi_1, \ldots, \Psi_4)
+    = A_4^{\text{SFT, off-shell}}(\Psi_1, \ldots, \Psi_4),
+\end{equation}
+under the first two assumptions.
+Off-shell amplitudes depend on the vertex family and on the choice of local coordinates, and~\eqref{eq:ch2:amp:off-shell} says that the cubic rewriting adds no dependence of its own: the two theories have the same off-shell Green's functions, not only the same S-matrix.
+Since $\Sigma_2$ enters the quartic-order action quadratically, the same holds for all the Green's functions of $\Psi$ (the Gaussian identity of generating functionals, at tree level in the block above).
+
+To go on-shell, four remarks are needed.
+First, the collapse~\eqref{eq:ch2:amp:collapse} is algebraic and multilinear in the external states and uses no genericity, so it holds wherever both sides are defined, the on-shell locus included.
+Second, the poles of the channels are common to both sides, since the channels $s$, $t$, $u$ are the same diagrams in both theories, so no limit has to be exchanged with the collapse.
+Third, the first two assumptions depend on the external momenta, through $\vertex{4}$ and through the states $\sprod{2}{2}(P)$, and they are to be read as including the on-shell momenta.
+Fourth, the amputation in~\eqref{eq:ch2:amp:normalization} degenerates on-shell, where $Q_B \Psi_i = 0$ kills the numerator while the external propagator diverges; this degeneration cancels because the statement is relative, both theories amputating with the same source and the same external propagators, and an absolute on-shell statement would need an LSZ argument that we do not give.
+The support for the first assumption at the on-shell momenta is genericity: $\sprod{2}{2}$ has no kernel at generic off-shell momentum for a generic vertex family, and no mechanism ties a degeneration to the tachyon shell.
+This support is weak: genericity over families is a remedy rather than evidence, and the on-shell locus lies outside the scope of the genericity statement, which is made off-shell.
+The failure mode is concrete, though: the level-truncated determinant of $\vertex{4}$ has zeros with no known reason to avoid a given locus, and a zero on the tachyon shell that persists with the level would break the on-shell statement.
+
+For four on-shell tachyons, in $D = 26$, the tree amplitude of closed string field theory is the integral over $\mathcal M_{0, 4}$ given the third assumption, which is standard for the minimal-area and hyperbolic vertices~\cite{Zwiebach:1993:ClosedStringField,Erbin:2021:StringFieldTheory} and, for the $\group{SL}(2, \C)$ vertices, supported by numerical checks at a few on-shell points and on the boundary but not established; that integral is the Virasoro--Shapiro amplitude~\cite{Polchinski:2005:StringTheory-1}:
+\begin{equation}
+  \label{eq:ch2:amp:vs}
+  A_4^{\text{SFT}} \Big|_{\text{on-shell}}
+    = A_{\text{VS}}(s, t, u)
+    \propto \frac{\Gamma(-1 - \alpha' s / 4) \, \Gamma(-1 - \alpha' t / 4) \, \Gamma(-1 - \alpha' u / 4)}{\Gamma(2 + \alpha' s / 4) \, \Gamma(2 + \alpha' t / 4) \, \Gamma(2 + \alpha' u / 4)},
+\end{equation}
+with $s = - (k_1 + k_2)^2$ and so on in the signature $(-, +, \ldots, +)$.
+For four tachyons, $m^2 = - 4 / \alpha'$, so that $s + t + u = - 16 / \alpha'$: the three arguments of the numerator sum to one and each argument of the denominator is one minus the corresponding argument of the numerator, the canonical form $\prod_i \Gamma(a_i) / \prod_i \Gamma(1 - a_i)$ with $\sum_i a_i = 1$.
+Combining with~\eqref{eq:ch2:amp:off-shell}, the cubic action reproduces the on-shell four-tachyon Virasoro--Shapiro amplitude under the three assumptions.
+What is shown is the reduction to the standard amplitude of closed string field theory, which is known to equal the Virasoro--Shapiro amplitude on-shell; the Virasoro--Shapiro amplitude is not derived again, and the covering property of the vertex family is assumed, not tested.
+
+At level~$0$, on the block of two tachyons, the first two assumptions are replaced by properties of the kinetic operator of $\Sigma_2$ established in \cref{ch:momentum-space}, for the vertices and under the prescription and the assumptions stated there.
+The $\Sigma_2$ exchange then equals the restriction of an entire function of the external momenta at every real external pair, off-shell included, so that its on-shell limit is its on-shell value; the truncations of the eigenvalue sum, with threshold off the spectrum at the on-shell point, converge uniformly on compact subsets of the Euclidean on-shell region $\alpha' s < 16$, so that truncating and going on-shell commute.
+The propagator alone has no value at the external data and does not enter.
+Above level~$0$ the analogue is open: it needs the first two assumptions on a real neighbourhood of the on-shell locus, and the positivity used at level~$0$ does not carry over, the $2$-string pairing being indefinite there.
+
+\subparagraph{No other diagram at four points.}
+The count above uses the quartic-order action, which has no self-coupling of $\Sigma_2$.
+The couplings of the higher orders, $\vertex{5}(\Sigma_2, \Sigma_2, \Psi)$, the sextic couplings and so on, do not contribute at four points either, but the reason is the number of legs, not the order.
+A vertex with $a$ legs of $\Sigma_2$ and $b$ legs of $\Psi$ comes from a vertex with $n = 2 a + b$ punctures and carries $\gs^{2 a + b - 2}$.
+A connected diagram with $V$ vertices, $I_\Sigma$ propagators of $\Sigma_2$ (each of order $\gs^{-2}$), $I_\Psi$ propagators of $\Psi$, $E$ external $\Psi$ and no external $\Sigma_2$ has $\sum_v a_v = 2 I_\Sigma$ and $\sum_v b_v = E + 2 I_\Psi$, so that its order is
+\begin{equation}
+  \sum_v (2 a_v + b_v - 2) - 2 I_\Sigma
+    = E + 2 (I_\Sigma + I_\Psi - V)
+    = E + 2 L - 2.
+\end{equation}
+Every four-point tree diagram is thus of order $\gs^2$, whatever its vertices.
+Eliminating $I_\Psi$ in the same way gives, at tree level,
+\begin{equation}
+  E
+    = \sum_v (a_v + b_v - 2) + 2,
+\end{equation}
+and every interaction vertex has $a_v + b_v \ge 3$, the only object with $a + b = 2$ being the kinetic term of $\Sigma_2$.
+A vertex of the tower other than the source, that is with $a_v \ge 2$, or with $a_v = 1$ and $b_v \ge 3$, forces $E \ge 5$.
+If $a_v \ge 2$, its legs of $\Sigma_2$ run at tree level to $a_v$ distinct other vertices, so $V \ge 3$ and $E \ge V + 2 \ge 5$.
+If $a_v = 1$ and $b_v \ge 3$, it contributes at least $2$ to the sum, and the vertex at the other end of its $\Sigma_2$ line at least $1$, so $E \ge 5$.
+The cheapest diagram with a tower vertex has five external legs and sits at order $\gs^3$, and the four diagrams above exhaust the four-point amplitude.
+Any statement at order $\gs^3$ needs in addition the kernel condition of the quintic order, \eqref{p:eq:hs5:kernel-condition}.
+
+\subparagraph{What a finite model can and cannot test.}
+In a finite-dimensional model, a level truncation in which the relative momentum of the pair is suppressed, the collapse~\eqref{eq:ch2:amp:collapse} is an identity of matrix algebra for any symmetric $\vertex{4}$ and its pseudo-inverse: a numerical comparison of the truncated exchange with the truncated contact term cannot fail and tests nothing, and it passes as well on randomly corrupted vertices.
+What such a model tests is the rest: the prefactors of~\eqref{eq:ch2:amp:assembled}, checked by expanding the whole generating functional of the joint Gaussian of $(\Psi, \Sigma_2)$ to order $\gs^2$ with no diagram as input; the ratio two to one between the source and the kinetic term of $\Sigma_2$, whose change to one to one gives exactly a quarter of the contact term; the use of the same $\vertex{4}$ in the kinetic term, the source and the contact term; the pairing; and the enumeration of the channels, since dropping one channel breaks the match.
+In a level truncation of the actual theory the sum over intermediate states still contains the integral over the relative momentum, so the collapse at fixed level is not a matrix identity, and whether a comparison at fixed level carries information is open; what it could test is the convergence of that integral.
+
+The physical content of this computation is that the auxiliary field changes nothing in the four-point amplitude, not even off-shell: the $\Sigma_2$ line contracts to a point because the propagator of $\Sigma_2$ is the inverse of the very form that appears in its source.
+Two places only can make the statement fail, both in the representation of $\sprod{2}{2}^{-1}$ on the space of pairs: a kernel that does not stabilize with the level or appears at the external momenta, and a sum over intermediate pairs, levels and relative momentum, that does not converge.
+On-shell the covering of the moduli space is a third, geometric, condition, which belongs to the vertex family and not to the cubic rewriting.
+
+\medskip
+
+The quintic order is the first at which the saddle of $\Sigma_2$ differs from $\Psi^2$: the quintic coupling dresses the kinetic operator of $\Sigma_2$, the saddle carries its inverse, and the elimination produces a six-point feedback term.
+The paper's block derives the coupling, the equations of motion, the completed square, the five-point diagrams, the gauge transformation, and the kernel condition with the reality of the solution.
+It states the following results:
+\begin{itemize}
+  \item the quintic coupling $\tfrac{\gs^3}{5!} \vertex{5}(\Sigma_2, \Sigma_2, \Psi)$ is unique, reproduces the quintic vertex on-shell, and the gauge law extends: \status{Conditional(PH1, PH5) -- Proven}\record{011-b1-quintic-milestone (R17)};
+  \item the corrected saddle and the gauge law are real, under the hypotheses of the block below: \status{mixed}\record{039-reality-ogs3 (R46)}.
+\end{itemize}
+The completion of the square is derived in more detail in the companion sections after the octic order.
+
+\input{extracted/02/5-p}
+
+At the sextic order the feedback of the quintic order must be cancelled together with the production of the sextic vertex, which leads to the reduced vertex and to the $3$-string field $\Sigma_3$.
+The paper's block decomposes the reduced vertex, eliminates the auxiliary fields and states the consistency conditions on the kernels; the hybrid form of the kernel condition, which in the paper follows here, is in \cref{ch:multiplier-hybrid}.
+The block states that, within $(\Psi, \Sigma_2)$ and for generic vertices, a sextic coupling of three $\Sigma_2$ alone leaves the feedback uncancelled: \status{Conditional(PH1, PH5, PH14 [$O(g_s^4)$]) -- Proven}\record{013-b3-sextic-milestone (R19)}.
+
+\input{extracted/02/6-p}
+
+The second block of the sextic order gives the gauge transformations of $\Sigma_3$ and $\Sigma_2$ in the paper's presentation, the one with the reduced vertex, and the localization of the action by a second $2$-string field, which \cref{ch:partner-field} develops.
+The gauge law in the elementary presentation, and the comparison of the two, are in \cref{sec:order:sextic:both-gauge}.
+
+\input{extracted/02/7-p}
+
+At the septic order the $3$-string field becomes indispensable: the auxiliary fields are eliminated one after the other by exact Gaussian integrals, and the cubic coupling of $\vertex{7}$ is fixed by cancelling the interactions this elimination induces.
+The closure at this order, by sequential exact Gaussian elimination, has status \status{Conditional(PH1, PH2 (b), PH5, PH14 [$O(g_s^4)$, $O(g_s^5)$]) + R70 -- Proven}\record{018-b6-ogs5-septic-closure (R25)}.
+
+\input{extracted/02/8-p}
+
+The octic order repeats the sextic one one step up the tower, with the $4$-string field.
+This block is the paper's octic order in full; the paper keeps only its general part, in its all-orders section.
+It states its own scope: the rational term produced by a kernel direction that violates the kernel condition is checked in a finite-dimensional model at $k = 3$ and argued for general $k$.
+
+\input{extracted/02/9-p}
+
+\subsection{The quintic order in the companion note}
+\label{sec:order:companion-quintic}
+
+The next three blocks are sections of a companion note on the quintic order.
+The first completes the square with the dressed kernel line by line and shows that the saddle is the resummation of the recursion of the paper's quintic order; the second explains why the correction of order $\gs$ to the saddle does not enter the action at order $\gs^3$, and that any other coefficient of the quintic coupling fails; the third shows that the kernel condition of the quintic order is necessary, not only sufficient.
+The note writes the coupling as $g_s$ and is otherwise close to the paper's notation; the differences that occur are listed below.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: companion note on the quintic order $\to$ paper.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $g_s$ $\to$ $\gs$; $\mc V_n$ is the paper's $\vertex{n}$; $p_{2,2}$, $p_{3,2}$ are the paper's $\sprod{2}{2}$, $\sprod{3}{2}$.
+    \item $\Sym^2 \mc H_0$, the symmetric level-matched $2$-string states, $\to$ $\Hn{2}$ (input strands of ghost number $2$, symmetric components; see \cref{ch:conventions}); $\braket{A, B}$ $\to$ $\pair[2]{A}{B}$.
+    \item The dressed kernel $K_\Psi(A, B) = \braket{A, k_\Psi(B)}$, $k_\Psi = p_{2,2} - \tfrac{g_s}{5} \, p_{3,2}(\Psi, \cdot)$ $\to$ the dressed kinetic operator $\kin{2}{\Psi}{3}$ of~\eqref{p:eq:hs5:dressed}.
+    \item $\widetilde S_{\le 5}$, $S_{\le 5}$ $\to$ $\caction[\le 5]$, $S_{\le 5}$.
+    \item The deviation $X = \Sigma_2 - \Psi^2$, the shifted saddle $\Sigma_2^*$ and the shifted deviation $\tilde X = \Sigma_2 - \Sigma_2^*$ $\to$ $\sigma_2^{(2)}$, $\Sigma_2^{(3)*}$ and $\sigma_2^{(3)}$ of~\eqref{p:eq:hs5:deviation}.
+    \item The source form $v(A) = \mc V_5(A, \Psi^2, \Psi) = \braket{A, p_{3,2}(\Psi^3)}$; the feedback $\tfrac{g_s^4}{600} \, v(K_\Psi^{-1} v)$ is, at its leading order, the paper's $\tfrac{\gs^4}{600} \vertex{5 \cdot 5}(\Psi^6)$ of~\eqref{p:eq:hs5:eliminate}.
+    \item $\Xi$, $N$ denote kernel elements of $\mc V_4$, the paper's $N_2 \in \ker \sprod{2}{2}$.
+  \end{itemize}
+\end{quote}
+
+\input{extracted/02/10-q}
+
+The second block of the note isolates the reason why the correction to the saddle costs no order: stationarity, not the size of the correction.
+
+\input{extracted/02/11-q}
+
+The third block, from the note's section on the quotient, shows that the kernel condition~\eqref{p:eq:hs5:kernel-condition} is forced by the matching for every choice of representatives, and that keeping the kernel directions with the quadratic form the quintic coupling gives them is worse.
+
+\input{extracted/02/12-q}
+
+\subsection{The two presentations of the sextic order}
+\label{sec:order:sextic-presentations}
+
+The next block is a section of an older note on the $3$-string field at the sextic order.
+It compares two ways of introducing $\Sigma_3$: with the elementary sextic vertex in its kinetic term and its source, which fails, and with the dressed vertex, which closes and is the paper's presentation.
+It also writes the complete cubic action through order $\gs^4$ in the presentation with $\Sigma_2$ only and in the dressed presentation, and the equations of motion.
+It states two results:
+\begin{itemize}
+  \item within $(\Psi, \Sigma_2, \Sigma_3)$ with elementary vertices and generic tensors, the sextic order does not close: \status{Conditional(PH1, PH5, PH14 [$O(g_s^4)$]) -- Proven}\record{014-b4-sigma3-elementary (R20)};
+  \item the gauge laws are identical in the dressed and the elementary presentations, and the failure of the elementary one is dynamical: \status{mixed}\record{015-b5-ogs4-gauge-eom-ibl (R21)}; the gauge laws are derived in \cref{sec:order:sextic:both-gauge}.
+\end{itemize}
+The note uses the older notation of the project, translated below.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: older note on the sextic presentations $\to$ paper.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $V_n$ $\to$ $\vertex{n}$; $\tfrac12 V_2(\Psi^2)$ is the kinetic term of $\Psi$; $\Hilb_0$ $\to$ $\Hs$, $\Sym^k \Hilb_0$ $\to$ $\Hn{k}$; $\Sig \equiv \Sig_2$; $\Sig_k = \Psi^{\otimes k}$ $\to$ $\Sigma_k = \Psi^k$.
+    \item $V_4$ read as a bilinear form on $\Sym^2 \Hilb_0$, and its inverse $V_4^{-1}$, $\to$ $\vertex{4}(A, B) = \pair[2]{A}{\sprod{2}{2}(B)}$ and $\sprod{2}{2}^{-1}$; likewise $M = V_6 |_{\Sym^3}$ $\to$ $\sprod{3}{3}$ of~\eqref{p:eq:hs6:p33}.
+    \item $S_{\rm HS}$, $S_3$ (the cubic actions through the quartic and the quintic order) $\to$ $\caction[\le 4]$, $\caction[\le 5]$; $S^{(6)}_{\rm eff}$ $\to$ $S_{\le 6}$.
+    \item The composite $\mathcal C = V_5 V_4^{-1} V_5$ and the feedback $\tfrac{\gs^4}{600} \, v V_4^{-1} v$, with $v = V_5(\cdot, \Psi^{\otimes 2}, \Psi)$, $\to$ the composite vertex $\vertex{5 \cdot 5}$ of~\eqref{p:eq:hs5:exchange-vertex} and $\tfrac{\gs^4}{600} \vertex{5 \cdot 5}(\Psi^6)$.
+    \item The dressed vertex $W_6 = V_6 - \tfrac65 \, \mathcal C$ $\to$ the reduced vertex $\dvertex{6}$ of~\eqref{p:eq:hs6:dressed-vertex}.
+    \item The dressed kinetic form $\tilde M = M - \tfrac65 N$ of $\Sig_3$ and the dressed source $\Mean{\tilde u(\Sig_2), \Sig_3} = \tilde V_6(\Sig_3, \Sig_2, \Psi)$ $\to$ $\dvertex{6}(\Sigma_3, \Sigma_3) = \pair[3]{\Sigma_3}{\wprod{3}{3}(\Sigma_3)}$ and $\dvertex{6}(\Psi \otimes \Sigma_2, \Sigma_3)$ of~\eqref{p:eq:hs6:S6tilde}; compare the explicit form~\eqref{p:eq:hs6:S6tilde-explicit}. The map $\Phi$ has no name in the paper.
+    \item \emph{Reality.} The note's conjugation is $\ddagger = (-1)^{\Ngh + 1} \star$ on each strand, so that its condition $\Sig_k^\ddagger = \Sig_k$ is the paper's $\Sigma_k^\star = (-1)^k \Sigma_k$: the two read the same for $\Sigma_2$, while for odd $k$ the sign is explicit, $\Sigma_3^\star = - \Sigma_3$, and $\Psi^\ddagger = \Psi$ is $\Psi^\star = - \Psi$ (\cref{ch:conventions}).
+  \end{itemize}
+\end{quote}
+
+\input{extracted/02/13-ped}
+
+\subsubsection{Gauge laws and products of the sextic order in both presentations}
+\label{sec:order:sextic:both-gauge}
+
+\status{mixed}\record{015-b5-ogs4-gauge-eom-ibl (R21)}
+The gauge laws of both presentations and the identity of their structure \status{Conditional(PH1, PH2 (b), PH5) + R70 -- Proven}; the statement that the residual of the elementary presentation is dynamical and not removable at the string vertices \status{Conditional(PH1, PH2 (b), PH5, PH14 [$O(g_s^4)$]) + R70 -- Proven}; the equations of motion and the chain of auxiliarity conditions \status{Proven}; the identification of the products and their ghost numbers \status{Proven}.
+
+The paper gives the gauge law of the sextic order in the dressed presentation (\cref{p:sec:hs:sextic:gauge}).
+We derive it here for both presentations at once, in the notation of the block above, and show that the two have the same gauge structure: the failure of the elementary presentation lies in the matching, not in the gauge invariance.
+The setting is the algebraic one of the block above: generic finite-dimensional tensors, tree level, order $\gs^4$.
+We assume that $V_4$ is invertible on the quotient of $\Sym^2 \Hilb_0$ by its kernel, that $V_5$ and $V_6$ annihilate that kernel, and the condition on the null vectors of the dressed kinetic form of $\Sig_3$ among the kernel conditions of the sextic order (\cref{p:sec:hs:sextic:kernel}); the elementary presentation needs in addition $M = V_6 |_{\Sym^3}$ invertible, and the statement that its residual cannot be removed needs the feedback to be generic, not expressible through the vertices $V_n(\Psi^n)$ and boundary terms.
+The analytic properties of the inverses $\tilde M^{-1}$, $M^{-1}$ and $V_4^{-1}$ at the level of the conformal field theory are not covered.
+
+\paragraph{The two presentations.}
+Both presentations share the action through the quintic order.
+They differ in the sector of $\Sig_3$, which we write with a kinetic form $K_3$ and a source $s(\Sig_2)$, linear in $\Sig_2$:
+\begin{equation}
+  \label{eq:ch2:sext:both}
+  S
+    = S_3 + \frac{\gs^4}{6!} \Big[ - K_3(\Sig_3, \Sig_3) + 2 \, \Mean{s(\Sig_2), \Sig_3} \Big],
+  \qquad
+  (K_3, s)
+    =
+    \begin{cases}
+      (\tilde M, \tilde u)
+        & \text{dressed},
+      \\
+      (M, u)
+        & \text{elementary}.
+    \end{cases}
+\end{equation}
+In both cases $K_3$ does not depend on $\Psi$: $\tilde M$ and $M$ are built from $V_4$, $V_5$, $V_6$ alone.
+The elementary presentation may carry in addition a coupling $\tfrac{\gs^4}{6!} c_6 \, V_6(\Sig_2, \Sig_2, \Sig_2)$, to test whether it can replace the missing subtraction; the block above takes $c_6 = 0$, and so does the dressed presentation, in which a term $c_6 V_6(\Sig_2^3)$ would count the contact term twice, once from the collapse of $\Sig_3$ and once from the coupling.
+The saddle of $\Sig_3$ is
+\begin{equation}
+  \Sig_3^*
+    = K_3^{-1} s(\Sig_2),
+\end{equation}
+and on-shell, $\Sig_2 = \Psi^{\otimes 2}$, the collapse $s(\Psi^{\otimes 2}) = K_3 \, \Psi^{\otimes 3}$ of the block above gives $\Sig_3^* = \Psi^{\otimes 3}$ and the contact term $\tfrac{\gs^4}{6!} K_3(\Psi^{\otimes 3}, \Psi^{\otimes 3})$, that is $\tfrac{\gs^4}{6!} W_6(\Psi^6)$ in the dressed presentation and $\tfrac{\gs^4}{6!} V_6(\Psi^6)$ in the elementary one.
+
+\paragraph{The gauge transformation of $\Sig_3$.}
+The string field transforms with the gauge transformation of closed string field theory truncated at this order,
+\begin{equation}
+  \delta \Psi
+    = Q_B \Lambda
+      + \gs \, \ell_2(\Psi, \Lambda)
+      + \frac{\gs^2}{2} \, \ell_3(\Psi, \Psi, \Lambda)
+      + \frac{\gs^3}{6} \, \ell_4(\Psi, \Psi, \Psi, \Lambda)
+      + \frac{\gs^4}{24} \, \ell_5(\Psi^{\otimes 4}, \Lambda),
+\end{equation}
+under which $\delta S_{\le 6} = O(\gs^5)$.
+We look for $\delta \Sig_2$ and $\delta \Sig_3$ such that
+\begin{equation}
+  \label{eq:ch2:sext:goal}
+  \delta S - \delta S_{\le 6}
+    = \delta \mathbb F
+\end{equation}
+exactly, off-shell and for arbitrary $\delta \Psi$, with $\mathbb F$ independent of the auxiliary fields.
+Let $Y_3 := \Sig_3 - \Sig_3^*(\Psi, \Sig_2)$ be the deviation of $\Sig_3$ from its saddle.
+Completing the square in~\eqref{eq:ch2:sext:both}, the action depends on $Y_3$ only through $- \tfrac{\gs^4}{6!} K_3(Y_3, Y_3)$, whose variation is
+\begin{equation}
+  \delta \Big[ - \frac{\gs^4}{6!} \, K_3(Y_3, Y_3) \Big]
+    = - \frac{2 \gs^4}{6!} \, K_3(\delta Y_3, Y_3),
+\end{equation}
+since $K_3$ does not depend on $\Psi$.
+For the part of $\delta S$ that depends on the auxiliary fields to cancel for every $Y_3$, we need $K_3(\delta Y_3, Y_3) = 0$ for all $Y_3$, hence $\delta Y_3 = 0$, $K_3$ being non-degenerate.
+The $3$-string field thus transforms as its saddle,
+\begin{equation}
+  \label{eq:ch2:sext:gauge3}
+  \delta Y_3
+    = 0,
+  \qquad
+  \delta \Sig_3
+    = \delta \Sig_3^*(\Psi, \Sig_2)
+    = K_3^{-1} \Big[ (\partial_\Psi s) \, \delta \Psi + (\partial_{\Sig_2} s) \, \delta \Sig_2 \Big],
+\end{equation}
+in both presentations, with no rotation of the deviation and no inhomogeneous term.
+This is checked numerically in a finite-dimensional model by three tests: the law agrees with a finite difference of the saddle map computed from the sources alone; the variations of the action of $\Sig_3$ at two different random $Y_3$ are equal; and replacing $K_3$ by a kernel that depends on $\Psi$ breaks the second test by exactly the predicted residual, which a rotation of $Y_3$ then removes.
+
+\paragraph{The gauge transformation of $\Sig_2$.}
+Eliminating $\Sig_3$ first, by its exact Gaussian, adds to the action through the quintic order a term quadratic in $\Sig_2$, the exchange of $\Sig_3$:
+\begin{equation}
+  S \big|_{\Sig_3^*}
+    = S_3 + \frac{\gs^4}{6!} \, \mathcal E(\Sig_2, \Psi),
+  \qquad
+  \mathcal E
+    = s^\top K_3^{-1} s,
+\end{equation}
+that is $\tilde u^\top \tilde M^{-1} \tilde u$ in the dressed presentation and $u^\top M^{-1} u = \mathcal D$ in the elementary one.
+Around the joint saddle $\Sig_2^*(\Psi)$, with $Y_2 := \Sig_2 - \Sig_2^*(\Psi)$, the action takes the form
+\begin{equation}
+  S \big|_{\Sig_3^*}
+    = S_{\le 6} + \Phi_2(Y_2; \Psi) + \mathbb F(\Psi),
+  \qquad
+  \Phi_2
+    = - \frac{\gs^2}{4!} \, \mathcal K(Y_2, Y_2) + \frac{\gs^4}{6!} \, T(Y_2, Y_2, Y_2),
+\end{equation}
+with $\mathcal K$ the Hessian at the saddle, which includes the contribution of $\mathcal E$, and $T$ the cubic term.
+In the dressed presentation $T = 0$ at this order: there is no coupling of three $\Sig_2$, and $\mathcal E$ is quadratic in $\Sig_2$, since $s$ is linear in it, hence quadratic in $Y_2$, so it contributes to $\mathcal K$ only.
+In the elementary presentation $T = c_6 V_6$ when $c_6 \ne 0$, and $\mathcal E$ again contributes to $\mathcal K$ only.
+Requiring $\delta \Phi_2 = 0$ for arbitrary $\delta \Psi$ gives the implicit law
+\begin{equation}
+  \label{eq:ch2:sext:gauge2}
+  \delta Y_2
+    = \mathcal K^{-1} \Big[ - \frac12 \, (\delta \mathcal K)(\cdot, Y_2) + \frac{\gs^2}{20} \, T(\cdot, Y_2, \delta Y_2) \Big],
+  \qquad
+  \delta \Sig_2
+    = \delta \big[ \Sig_2^*(\Psi) \big] + \delta Y_2,
+\end{equation}
+which is solved by a Neumann series for small $\gs$ and is homogeneous, $\delta Y_2 |_{Y_2 = 0} = 0$.
+In the dressed presentation it reduces to the invariance of the quadratic form $\mathcal K$, with no cubic correction.
+With $\delta Y_3 = 0$, the equality~\eqref{eq:ch2:sext:goal} holds exactly, with
+\begin{equation}
+  \label{eq:ch2:sext:F}
+  \mathbb F
+    =
+    \begin{cases}
+      O(\gs^5)
+        & \text{dressed},
+      \\
+      \dfrac{\gs^4}{600} \, v V_4^{-1} v + \dfrac{\gs^4}{6!} \, c_6 \, V_6(\Psi^6) + O(\gs^5)
+        & \text{elementary}.
+    \end{cases}
+\end{equation}
+The off-shell exactness of~\eqref{eq:ch2:sext:goal} and the law~\eqref{eq:ch2:sext:gauge2} are not checked numerically here.
+They are inherited from the explicit expansion around the saddle in the presentation with $\Sig_2$ only, where the off-shell equality was verified by hand: the actions of both presentations differ from that one only by the exchange $\mathcal E$, which is quadratic in $Y_2$ and Gaussian in $\Sig_3$, so that the structure, a quadratic form in $Y_2$ plus a remainder independent of the auxiliary fields, is preserved term by term.
+What is checked numerically is the on-shell value of $\mathbb F$ at order $\gs^4$, which extrapolates to zero in the dressed presentation and to the residual~\eqref{eq:ch2:sext:F} in the elementary one, and the stationarity of the saddle.
+
+\paragraph{The comparison.}
+The two presentations side by side:
+\begin{center}
+  \small
+  \begin{tabular}{lll}
+    \toprule
+                                                & dressed                                          & elementary                               \\
+    \midrule
+    kinetic form $K_3$ of $\Sig_3$              & $\tilde M = M - \tfrac65 N$, composite           & $M$, bare                                \\
+    $\delta Y_3$                                & $0$                                              & $0$                                      \\
+    law of $\Sig_2$                             & implicit, $T = 0$                                & implicit, $T = c_6 V_6$                  \\
+    $\delta S - \delta S_{\le 6}$               & $\delta \mathbb F$, $\mathbb F = O(\gs^5)$       & $\delta \mathbb F$, $\mathbb F = O(\gs^4) \ne 0$ \\
+    independent $2$-string gauge parameter      & none                                             & none                                     \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+The gauge structure is the same: $\Sig_3$ transforms as its saddle, $\Sig_2$ by an implicit homogeneous law, and neither presentation has an independent $2$-string gauge parameter.
+The elementary presentation does not fail for lack of a gauge law: the law exists, is homogeneous and gives the exact equality~\eqref{eq:ch2:sext:goal}.
+It fails because $\mathbb F$ is non-zero at order $\gs^4$: its on-shell contact term of $\Sig_3$ is the bare $V_6(\Psi^6)$ instead of $W_6(\Psi^6)$, so the feedback $\tfrac{\gs^4}{600} v V_4^{-1} v$ of the quintic order is not subtracted.
+The gauge law does not distinguish the composite kinetic form from the elementary one; only the matching does, and the obstruction lies in the target action, not in the gauge invariance.
+
+\paragraph{The products at order $\gs^4$.}
+In the language of the products of \cref{ch:ibl}, the action at this order uses, at genus zero, the following maps with $k$ inputs and $\ell$ outputs, whose physical ghost number is $3 \ell - 2 k$:
+\begin{center}
+  \small
+  \begin{tabular}{llll}
+    \toprule
+    product                          & built from                                  & $\Ngh$ & enters through                             \\
+    \midrule
+    $\ell_4$, $4$ in, $1$ out         & $\vertex{5}$                                & $-5$   & the quintic coupling and the dressing      \\
+    $\ell_5$, $5$ in, $1$ out         & $\vertex{6}$                                & $-7$   & the sextic contact term                    \\
+    $\sprod{3}{2}$, $3$ in, $2$ out   & $\vertex{5}$                                & $0$    & the two-output product of $\vertex{5}$     \\
+    $\sprod{4}{2}$, $4$ in, $2$ out   & $\vertex{6}$                                & $-2$   & the two-output product of $\vertex{6}$     \\
+    $\tilde p_{4, 2}$, $4$ in, $2$ out & the dressed vertex                          & $-2$   & the sector of $\Sig_3$ in the dressed form \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+The dressed product is not the two-output product of a vertex but a composite of lower products: the composite $\mathcal C = V_5 V_4^{-1} V_5$ has the shape of two products $\sprod{3}{2}$ joined by the propagator $\sprod{2}{2}^{-1}$ of $\Sig_2$, so that
+\begin{equation}
+  \tilde p_{4, 2}
+    = \sprod{4}{2} - \frac65 \, \big( \text{composition of } \sprod{3}{2}, \sprod{2}{2}^{-1}, \sprod{3}{2} \big).
+\end{equation}
+It is the first two-output product that is not obtained from a single vertex, and it is the counterpart among the products of the reduced vertex $W_6 = V_6 - \tfrac65 \mathcal C$.
+Of the relations among these products, those with one output are the $L_\infty$ relations through $\ell_4$ and $\ell_5$:
+\begin{equation}
+  \com{Q, \ell_4} + \com{\ell_2, \ell_3}
+    = 0,
+  \qquad
+  \com{Q, \ell_5} + \com{\ell_2, \ell_4} + \frac12 \, \com{\ell_3, \ell_3}
+    = 0,
+\end{equation}
+of ghost numbers $-4$ and $-6$, which the vertices of closed string field theory satisfy.
+The relations with two outputs, at signatures $(3, 2)$ and $(4, 2)$, do not follow from the $L_\infty$ relations in their augmented form: the augmented $(3, 2)$ relation fails on the physical sector for a cyclic $L_\infty$ algebra, and every augmented relation with at least two inputs and two outputs fails for some cyclic $L_\infty$ algebra.
+What holds are the relations with one input or one output and the non-augmented family, which \cref{ch:ibl} states.
+
+The content of this section is that the choice between the elementary and the dressed $3$-string field is invisible to the gauge symmetry and visible only in the matching: the gauge law follows the saddle in both cases, and only the on-shell value of the contact term of $\Sig_3$ decides whether the feedback of the quintic order is subtracted.

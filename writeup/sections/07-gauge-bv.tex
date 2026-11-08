@@ -1,0 +1,770 @@
+\section{Gauge structure and BV}
+\label{ch:gauge-bv}
+
+This chapter treats the gauge structure of the cubic action as a whole and its Batalin--Vilkovisky (BV) description.
+The analysis establishes four statements, each with its own scope: the transformation law of the auxiliary field is fixed by that of $\Psi$ up to trivial symmetries, those every action has, and needs no gauge parameter of its own; a flat representative of this law, constructed through order $\gs^4$ (algebraically at quintic order, for generic vertices in finite-dimensional models at sextic order), makes the auxiliary sector a contractible pair; the master action of the cubic theory is then that of the eliminated theory plus this trivial pair, and it satisfies the classical master equation to the order of the truncation, under the assumptions stated with it, chief among them that the kept vertices truncate a consistent genus-zero family and that the quartic form is invertible on its quotient; and, under the same assumptions, the spectrum of fluctuations around a classical solution is that of the original theory in every ghost number, through order $\gs^4$, where the dressed kinetic operator of the auxiliary field is invertible at the background.
+The first block is the section of the paper on gauge symmetry, the BV structure and the spectrum, as in an earlier version of the paper, reproduced in full; the paper keeps a summary of it in its section of further results.
+The last section, on two-string gauge parameters and gauge unfixing, is written for this document from the derivations: the earlier version of the paper stated only its conclusions, in one paragraph of the first block and one paragraph of its \IBL{} section, which is reproduced at the head of that section.
+
+The first block states the following results, with the status of each.
+
+\begin{itemize}
+  \setlength{\itemsep}{1ex}
+
+  \item \emph{Gauge algebra, $\Psi$ row.} The commutator of two gauge transformations of $\Psi$ is that of closed string field theory, open from order $\gs^2$ on, and the auxiliary fields add no gauge parameter and no term to it.
+
+    \status{Proven}\record{040-gauge-algebra-ogs3 (R44)}
+
+    The statement is made for the action truncated at the quintic order, at the algebraic level, for generic products.
+
+  \item \emph{Gauge algebra, $\Sigma_2$ row, quintic order.} The term proportional to the fluctuation of $\Sigma_2$ in the commutator depends on the representative of the law, and the flat representative removes it, so that the algebra closes modulo the $\Psi$ equation of motion alone.
+
+    \status{Conditional(PH1, PH5) -- Proven}\record{043-gap3-representative-freedom (R45)}\record{040-gauge-algebra-ogs3}
+
+    It holds within the quintic truncation, as a formal power series in $\gs$, with $\sprod{2}{2}$ and the dressed kinetic operator invertible on the quotient.
+
+  \item \emph{Gauge algebra, $\Sigma_2$ row, sextic order.} The flat representative extends by one order, and the auxiliary rows follow from the $\Psi$ row by the chain rule.
+
+    \status{Conditional(PH14 [$O(\gs^4)$], PH1, PH5) -- Proven}\record{053-gauge-algebra-ogs4 (R57)}
+
+    The construction is made in the finite-dimensional models for generic vertices and is carried to the string vertices by the assumption on the exchange terms stated in the block.
+
+  \item \emph{The homogeneous rotation of the auxiliary field} is neither a symmetry on its own nor a trivial symmetry in the sense of Henneaux and Teitelboim: written as a coefficient times the $\Sigma_2$ equation of motion, its coefficient is symmetric where triviality requires antisymmetry (the end of the paragraph on trivial symmetries and the flat variable).
+
+    \status{Conditional(PH1, PH5) -- Proven}\record{016-st4-bv-homogeneous-law (R22)}
+
+    The statement is made at the finite-dimensional algebraic level, for the laws at orders $\gs^3$ and $\gs^4$; that the same holds for the whole tower of auxiliary fields is suggested by the pattern, not proved.
+
+  \item \emph{Contractible pairs.} The shift to the fluctuation, followed by the flat variable and extended to the antifields, is a canonical transformation that brings the auxiliary sector to contractible pairs with constant coefficients.
+
+    \status{Conditional(PH1, PH5, PH14 [$O(\gs^4)$]) -- Proven}\record{056-gap3e-contractible-pair (R60)}
+
+    It is constructed in the finite model of the sextic order, through order $\gs^4$, and carried to the string vertices by the assumption on the exchange terms; the normalization of the terms of antifield number two is not established.
+
+  \item \emph{Master equation.} The antibracket of the master action with itself is that of the $\Psi$ sector alone and vanishes to the order of the truncation, $O(\gs^{N-1})$ for the action truncated at $\vertex{N}$; the master action is proper for $\gs \neq 0$ at generic momentum.
+
+    \status{Conditional(PH1, PH2 (b) [level 3], PH5 [$k \ge 3$], PH14 [$O(\gs^4)$], PH27) + R38 [$k = 3$, when $\ker \vertex{4} \neq 0$] -- mixed}\record{058-bv-master-equation (R62)}
+
+    Here $k$ is the order $\gs^k$ of the truncation, with vertices through $\vertex{k+2}$: $\Sigma_2$ alone for $k \le 3$, $\Sigma_2$ and $\Sigma_3$ for $k = 4$.
+    Properness is perturbative, from the free part at generic momentum; on-shell momenta, the quantum master equation and the multiplier form are not covered.
+
+  \item \emph{BRST operator around a background.} The linearized BRST operator of the cubic theory is similar to the shifted BRST operator of the original theory plus a contractible pair, so that the two cohomologies agree in every ghost number to the order kept.
+
+    \status{mixed}\record{067-brst-around-background (R73)}
+
+    The similarity is established in the finite model and at the algebraic level for backgrounds of order one; its transfer to the string vertices is conditional on the assumptions of the master action.
+
+  \item \emph{The same theorem for the string field}, with its conditions, at sextic order with two pairs, and its reading in level truncation.
+
+    \status{Conditional(PH1, PH5, PH27; at $k = 3$ PH14 [$O(\gs^4)$]) -- Proven}\record{067-brst-around-background, addendum section~6 (R76)}
+
+    The sextic case is derived and not checked numerically, as the block says; the similarity was checked numerically at quartic and quintic order in finite-dimensional models, except the identification of the block of the eliminated theory with the shifted BRST operator at quintic order.
+
+  \item \emph{Direct channel.} The classical auxiliary field carries one third of the $\ell_3$ term of the shifted BRST operator, and the $\Psi \Psi$ block of the Hessian alone is nilpotent at order $\gs^2$ only if the anticommutator $\{ Q_B, \ell_3(\Psi^{*2}, \cdot) \}$ vanishes.
+
+    \status{mixed}\record{060-mean-field-fluctuations (R66)}
+
+    The factor one third and the equivalence with the Jacobiator are identities in any cyclic $\Loo$ algebra; the recovery of the exchange at the string vertices is conditional on the invertibility of the quartic form and on the compatibility of the higher vertices with its kernel; the non-nilpotency at a critical point is a statement in a finite-dimensional model.
+
+  \item \emph{Truncations.} That the master equation fails in level truncation from order $\gs^2$ on is an argument, not checked in a computation, as the block says; the exactness of the similarity in level truncation is part of the string-field statement above.
+    The argument for the truncation to a closed subspace, which preserves the $\Loo$ relations, has no separate entry and is given in full in the block.
+\end{itemize}
+
+The paragraph of the block on whether a $2$-string gauge parameter is needed summarizes the results of \cref{sec:gauge-bv:unfixing}, where their status is given.
+
+The hypotheses named in the tags are, in words and in the order of their numbers: the quartic form $\sprod{2}{2}$ is invertible on the quotient by its kernel, level by level, with a stable kernel (supported at level~$0$, open above); at sextic order, there is a presentation in which every null vector of the kinetic operator of $\Sigma_3$ is a null vector of all the couplings of $\Sigma_3$ (open); the kernel of $\vertex{4}$ vanishes off-shell at generic momentum or, failing that, the quintic and sextic vertices vanish on it (supported at level~$0$, open above); the exchange terms induced by the auxiliary fields are not linear combinations of the elementary vertices and boundary terms, at the order indicated (open); the kept vertices are the truncation of a consistent genus-zero $\Loo$ family (open); and the truncated stationary surface of the single-string sector is regular (open, stated in \cref{sec:gauge-bv:all-symmetries}).
+The additional condition at quintic order is that, when the kernel of $\vertex{4}$ is nonzero, the quintic vertex vanishes on it, for the dressed kinetic operator to be defined on the quotient; it is stated with the master action.
+The hypotheses are listed with their status in \cref{ch:hypotheses}.
+
+The block is in the notation of the paper: $\sigma_2^{(N-2)}$ for the fluctuation of $\Sigma_2$ around its solution at the truncation $\vertex{N}$, $\hat\sigma_2^{(3)}$ for the flat variable, $\kin{2}{\Psi}{3}$ for the dressed kinetic operator, $\Sigma_2^+$ for the antifield of the auxiliary field and $\eta$ for the ghost.
+
+\input{extracted/07/1-p}
+
+\subsection{Two-string gauge parameters and gauge unfixing}
+\label{sec:gauge-bv:unfixing}
+
+The auxiliary field has no gauge parameter of its own, and the cubic action needs none.
+In this section we examine the converse question, whether the cubic action is the gauge-fixed form of a theory in which $\Sigma_2$ has an independent two-string gauge parameter $\Lambda_2$.
+The answer we reach is negative within the classes stated below, and each negative statement comes with the class it covers, the cases outside it and the weakest relaxation that evades it.
+In short: an enlargement with a field-independent operator is a Stückelberg enlargement of the kernel shifts; relaxing level matching on the strands, with the operators built from the zero modes, gives the projector construction on a larger slice plus auxiliary directions; and on the present field content, at the order where $\Sigma_2$ first enters, the part linear in $\Lambda_2$ of every symmetry that the action constrains is a gauge transformation, a kernel shift or a trivial symmetry, and under three assumptions so is every such symmetry.
+
+\begin{itemize}
+  \setlength{\itemsep}{1ex}
+
+  \item The first analysis of the question, which examined enlargements built on the BRST operator acting on both strands, found that the cubic action needs no independent two-string parameter and left open whether it is a gauge-fixed form.
+
+    \status{mixed}\record{012-t6-gauge-tower (R18)}
+
+  \item Within the field-independent operators $D$ and with $\Lambda_2$ not acting on $\Psi$, the projector form is the unique symmetric solution of the gauge-unfixing problem when the enlarged space is the direct sum of a slice and of the image of $D$ (\cref{sec:gauge-bv:projector}).
+
+    \status{Proven}\record{102-gauge-unfixing-structure, node C1 (R105)}
+
+  \item Within the same class, every two-string parameter is a shift, whether the sum is direct or not (\cref{sec:gauge-bv:shift}).
+
+    \status{Proven}\record{102-gauge-unfixing-structure, node C1.5 (R106)}
+
+  \item For the field-independent operators built from $c_0^-$, $b_0^-$ and $L_0^-$ off level matching, the image of $D$ never meets the present space, the gauge slice is larger than the present space, the per-strand slice is never a gauge slice, and the projector form holds on the slice exactly in the sectors where $D$ and the gauge condition are transverse (\cref{sec:gauge-bv:zero-modes}).
+
+    \status{Proven}\record{108-gauge-unfixing-c1-strand-model (R102)}
+
+  \item In a finite model, every symmetry of the cubic action at order $\gs^2$ is a gauge transformation with a field-dependent parameter, a kernel shift or a trivial symmetry, modulo the part the action at this order does not see (\cref{sec:gauge-bv:model}).
+
+    \status{Verified}\record{102-gauge-unfixing-structure, node C3 (R107)}
+
+  \item In closed string field theory at generic momentum, on the present field content, the part linear in $\Lambda_2$ of every symmetry that the action at order $\gs^2$ constrains is a gauge transformation, a kernel shift or a trivial symmetry (\cref{sec:gauge-bv:lambda2-sector}).
+
+    \status{Proven}\record{102-gauge-unfixing-structure, node C4.$\theta$ (R108)}
+
+  \item The same holds for all symmetries, the single-string sector included, under three assumptions (\cref{sec:gauge-bv:all-symmetries}).
+
+    \status{Conditional(PH1, PH27, PH43) -- Argued}\record{102-gauge-unfixing-structure, node C4 (R109)}
+\end{itemize}
+
+The first paragraph below is the one of the \IBL{} section of an earlier version of the paper, in the paper's notation.
+It describes the tower of parameters of the \IBL{} formalism, which acts through the BRST operator on several strands, and it is the other face of the question: there the two-string parameter exists by construction, and the question is how it relates to the cubic action.
+
+\input{extracted/07/2-p}
+
+\subsubsection{Setting}
+\label{sec:gauge-bv:setting}
+
+We write $\Hs_G$ for the subspace of ghost number $G$ of the level-matched single-string space $\Hs$ annihilated by $b_0^-$.
+The present field content is the one of the paper: $\Psi \in \Hs_2$, and
+\begin{equation}
+  \label{eq:gbv:present-content}
+  \Sigma_2
+    \in (\Hs_2)^{\wedge 2} / \ker \sprod{2}{2},
+\end{equation}
+that is, each strand of $\Sigma_2$ has ghost number two, like the strands of $\Psi^2$, and the kernel of the quartic form is quotiented.
+This is a definition of the field content: other two-string states of total ghost number four, with strands of ghost numbers one and three for instance, are not part of it.
+We write $p$ for the quartic form read as a symmetric bilinear form on two-string states,
+\begin{equation}
+  \label{eq:gbv:p}
+  p(A, B)
+    := \vertex{4}(A, B)
+    = \pair[2]{A}{\sprod{2}{2}(B)},
+\end{equation}
+and we take $\sprod{2}{2}$ to be the totally symmetric reading of $\vertex{4}$.
+In this notation the quartic term of the cubic action~\eqref{p:eq:hs4:S4tilde} is $- \tfrac{2 \gs^2}{4!} \, A_p(\Sigma_2, \Psi)$, with
+\begin{equation}
+  \label{eq:gbv:quadratic-part}
+  A_q(\Sigma_2, \Psi)
+    := \frac{1}{2} \, q(\Sigma_2, \Sigma_2)
+      - q(\Sigma_2, \Psi^2)
+\end{equation}
+for any symmetric form $q$, and the gauge transformation of $\Sigma_2$ is the composite law~\eqref{p:eq:hs4:gauge-sigma}, $\delta_\Lambda \Sigma_2 = 2 \, \delta_\Lambda \Psi \otimes \Psi$.
+
+An enlarged theory, of which the cubic action would be a gauge-fixed form, has the following ingredients.
+The auxiliary field lives in a space $E$ of two-string states that contains the present one; the quadratic part of its action is $A_q$ with a symmetric form $q$ on $E$ that reduces to $p$ on the present space; a two-string parameter $\Lambda_2$ of ghost number three, with strands of ghost numbers one and two like $\Lambda \otimes \Psi$, acts by
+\begin{equation}
+  \label{eq:gbv:delta-lambda2}
+  \delta_{\Lambda_2} \Sigma_2
+    = D \Lambda_2,
+  \qquad
+  \delta_{\Lambda_2} \Psi
+    = 0,
+\end{equation}
+with an operator $D$ of ghost number $+1$; and the gauge condition is $B_2 \Sigma_2 = 0$, with $B_2$ of ghost number $-1$ mapping into the space of the parameter.
+The slice $S \subseteq E$ is the subspace selected by the gauge condition.
+Invariance of $\tfrac12 q(\Sigma_2, \Sigma_2)$ under~\eqref{eq:gbv:delta-lambda2} for every $\Sigma_2$ reads
+\begin{equation}
+  \label{eq:gbv:invariance}
+  q(D \lambda, x)
+    = 0
+  \qquad
+  \forall \lambda,
+  \quad
+  \forall x \in E,
+\end{equation}
+which we abbreviate $q \circ D = 0$.
+The forms are graded symmetric, $q(y, x) = (-1)^{\abs{x} \abs{y}} q(x, y)$, the symmetry of the multi-string pairing~\eqref{p:eq:conv:pairing-n-symmetry}; on the states of total ghost number four where $\Sigma_2$ lives all elements are even and this is ordinary symmetry.
+
+The first class we consider is the one where $D$ is linear and field independent and $\Lambda_2$ does not act on $\Psi$.
+A theory outside it has a field-dependent $D$ or a parameter $\Lambda_2$ that also transforms $\Psi$.
+
+\subsubsection{The projector form}
+\label{sec:gauge-bv:projector}
+
+\status{Proven}\record{102-gauge-unfixing-structure, node C1 (R105)}
+
+Assume that the enlarged space is the direct sum of the slice and of the image of $D$,
+\begin{equation}
+  \label{eq:gbv:transverse}
+  E
+    = S \oplus \operatorname{im} D,
+\end{equation}
+which we call transversality, that $p$ is a graded-symmetric form on $S$ with an arbitrary kernel, and that $q$ is a graded-symmetric form on $E$ with $q \circ D = 0$ and $q|_S = p$.
+Let $P$ be the projector onto $S$ along $\operatorname{im} D$: $P|_S = \id_S$, $P \circ D = 0$, $\operatorname{im}(1 - P) = \operatorname{im} D$.
+It exists and is unique by~\eqref{eq:gbv:transverse}, and it preserves the ghost number because both summands are graded.
+The claim is that $q$ is fixed:
+\begin{equation}
+  \label{eq:gbv:projector-form}
+  q(x, y)
+    = p(P x, P y),
+  \qquad
+  \ker q
+    = \ker p \oplus \operatorname{im} D,
+\end{equation}
+and that conversely this form satisfies the hypotheses, so that the solution set is the single form $P^{\mathsf T} p P$.
+
+The proof takes three lines.
+By transversality, every homogeneous $x \in E$ can be written as $x = P x + D \lambda_x$ for a homogeneous $\lambda_x$; only $D \lambda_x = (1 - P) x$ enters below, so it does not matter that $\lambda_x$ is not unique when $D$ has a kernel.
+Graded symmetry moves the condition~\eqref{eq:gbv:invariance} from the first slot to the second:
+\begin{equation}
+  \label{eq:gbv:second-slot}
+  q(y, D \lambda)
+    = (-1)^{\abs{y} \abs{D \lambda}} \, q(D \lambda, y)
+    = 0.
+\end{equation}
+This is the one place where symmetry enters.
+Expanding in the decomposition, three of the four terms vanish by~\eqref{eq:gbv:invariance} and~\eqref{eq:gbv:second-slot}:
+\begin{equation}
+  \label{eq:gbv:expansion}
+  \begin{aligned}
+    q(x, y)
+      &
+      = q(P x + D \lambda_x, P y + D \lambda_y)
+    \\
+      &
+      = q(P x, P y)
+        + q(D \lambda_x, P y)
+        + q(P x, D \lambda_y)
+        + q(D \lambda_x, D \lambda_y)
+      = q(P x, P y),
+  \end{aligned}
+\end{equation}
+and since $P x$ and $P y$ lie in $S$, where $q$ is $p$, we obtain~\eqref{eq:gbv:projector-form}.
+Conversely, $q_0 := P^{\mathsf T} p P$ is graded symmetric because $P$ preserves the degree, it vanishes on $\operatorname{im} D$ because $P D = 0$, and it restricts to $p$ on $S$.
+Its kernel: $q_0(x, \cdot) = 0$ if and only if $p(P x, s) = 0$ for every $s \in S$, since $P$ maps onto $S$, that is, if and only if $P x \in \ker p$, and with $x = P x + D \lambda_x$ this gives $\ker q_0 = \ker p \oplus \operatorname{im} D$.
+The argument is algebraic: it needs the algebraic direct sum and no topology, in finite or infinite dimension.
+
+The physical meaning is that the enlarged action depends on $\Sigma_2$ only through $P \Sigma_2$.
+The orbit of $\Lambda_2$ is $\Sigma_2 + \operatorname{im} D$, and the enlargement is the shift symmetry along $\ker \sprod{2}{2}$ of the quartic section, with the kernel enlarged from $\ker p$ to $\ker p \oplus \operatorname{im} D$: a Stückelberg enlargement.
+A field-independent construction with a transverse slice can therefore produce nothing but the projector form, and any new value of $q$ has to come from a place where a hypothesis fails.
+
+Each hypothesis is needed, and the ways it can fail locate where a new value of $q$ could sit.
+\begin{itemize}
+  \setlength{\itemsep}{1ex}
+
+  \item \emph{Symmetry.} For a form that satisfies $q \circ D = 0$ in the first slot only, with $q|_S = p$, the solutions are $P^{\mathsf T} p P + f(P x, (1 - P) y)$ with $f$ an arbitrary bilinear map on $S \times \operatorname{im} D$ of the right ghost number, an affine space of dimension $\dim S \cdot \operatorname{rank} D$ in the even case.
+    Invariance of the quadratic term constrains only the symmetric part of $q$, to which the result applies, so symmetry costs no generality there.
+    The family $f$ cannot enter a gauge-invariant action either: it drops from $q(\Sigma_2, \Psi^2)$, and invariance of $q(\Psi^2, \Sigma_2)$ under $\delta \Sigma_2 = D \Lambda_2$ requires $f(\Psi^2, D \Lambda_2) = 0$ for every $\Psi$.
+
+  \item \emph{The slice meets the image of $D$}, $S \cap \operatorname{im} D \neq 0$.
+    The conditions $q|_S = p$ and $q \circ D = 0$ force $p(s_0, \cdot) = 0$ for $s_0 \in S \cap \operatorname{im} D$: the problem has a solution if and only if $S \cap \operatorname{im} D \subseteq \ker p$.
+    At such a locus the gauge-fixed form is forced to degenerate, and the kernel of $p$ there is pure gauge, the analogue of the states with $L_0 = 0$ in Siegel gauge.
+    The zeros of the determinant of $\sprod{2}{2}$ are the candidate locus of this kind on the present space.
+
+  \item \emph{The slice and the image of $D$ do not fill $E$}: $E = S \oplus \operatorname{im} D \oplus W$ with $W \neq 0$.
+    On $W$, the form $q$ is constrained by symmetry only and carries data beyond $p$; the gauge-fixed theory lives on $S \oplus W$.
+    If $W$ is auxiliary and eliminated, the condition to reproduce the present theory depends on the source term.
+    Write $\Sigma_2 = s + w + D \lambda$, where $D \lambda$ drops by~\eqref{eq:gbv:invariance}, $u := s - \Psi^2$ with $\Psi^2 \in S$, and $q_{XY}$ for the blocks of $q$.
+    With the source $q(\Sigma_2, \Psi^2)$,
+    \begin{equation}
+      \label{eq:gbv:eliminate-w}
+      \begin{gathered}
+        A_q
+          = \frac{1}{2} \, q(u + w, u + w)
+            - \frac{1}{2} \, q_{SS}(\Psi^2, \Psi^2),
+        \\
+        A_q \big\vert_{w = - q_{WW}^{-1} q_{WS} u}
+          = \frac{1}{2} \, q_{\mathrm{Sch}}(u, u)
+            - \frac{1}{2} \, q_{SS}(\Psi^2, \Psi^2),
+        \\
+        q_{\mathrm{Sch}}
+          := q_{SS} - q_{SW} \, q_{WW}^{-1} \, q_{WS}.
+      \end{gathered}
+    \end{equation}
+    The present action has $A_p = \tfrac12 p(u, u) - \tfrac12 p(\Psi^2, \Psi^2)$, and since $u$ and $\Psi$ are independent variables the two agree if and only if
+    \begin{equation}
+      \label{eq:gbv:eliminate-w-condition}
+      q_{\mathrm{Sch}}
+        = p
+      \text{ on } S
+      \qquad \text{and} \qquad
+      (q_{SS} - p)(\Psi^2, \Psi^2)
+        = 0
+      \quad
+      \forall \Psi.
+    \end{equation}
+    The second condition is an equality on the squares $\Psi^2$, which fixes a symmetric bilinear form on two-string states only modulo forms that vanish on every square; it does not give $q_{SS} = p$ on the span of the squares.
+    With $\sprod{2}{2}$ the totally symmetric reading of $\vertex{4}$, a component of $q$ that vanishes on every square is data beyond $\vertex{4}$, not a redefinition of $\sprod{2}{2}$, and for a $q$ without such data the form on the span of the squares is $p$.
+    The case of a $q$ that carries data beyond $\vertex{4}$, with this source term, is open.
+    For a source that does not couple to $W$, the condition is $q_{\mathrm{Sch}} = p$ on $S$ alone.
+
+  \item \emph{A form defined by the worldsheet on the larger space.} At a transverse locus with $D$ field independent it is again $P^{\mathsf T} p P$, whatever its definition: the worldsheet then changes the status of the projector form, a result instead of a definition, and not its value.
+    It changes the value only together with one of the two failures of transversality above, or with a field-dependent $D$.
+\end{itemize}
+None of these relaxations makes $\Lambda_2$ nontrivial by itself, as the next section shows.
+
+\subsubsection{Every field-independent two-string parameter is a shift}
+\label{sec:gauge-bv:shift}
+
+\status{Proven}\record{102-gauge-unfixing-structure, node C1.5 (R106)}
+
+The two equations~\eqref{eq:gbv:invariance} and~\eqref{eq:gbv:second-slot} use only symmetry and the invariance condition, not transversality.
+On any enlarged space, transverse or not, they give
+\begin{equation}
+  \label{eq:gbv:im-d-kernel}
+  q(D \lambda, x)
+    = q(x, D \lambda)
+    = 0
+  \quad
+  \forall \lambda,
+  \;
+  \forall x \in E,
+  \qquad
+  \operatorname{im} D
+    \subseteq \ker q.
+\end{equation}
+Hence $A_q(\Sigma_2 + D \Lambda_2, \Psi) = A_q(\Sigma_2, \Psi)$ exactly: the transformation~\eqref{eq:gbv:delta-lambda2} is a symmetry of the enlarged quadratic and source terms.
+Take $D$ and $\Lambda_2$ field independent and the composite law for $\Sigma_2$, a function of $\Psi$ alone, as is $\delta_\Lambda \Psi$.
+The commutator with the original gauge symmetry vanishes on both fields:
+\begin{equation}
+  \label{eq:gbv:commutator}
+  \begin{gathered}
+  [\delta_\Lambda, \delta_{\Lambda_2}] \Psi
+    = - \frac{\partial (\delta_\Lambda \Psi)}{\partial \Psi} \, \delta_{\Lambda_2} \Psi
+    = 0,
+  \\
+  [\delta_\Lambda, \delta_{\Lambda_2}] \Sigma_2
+    = \delta_\Lambda (D \Lambda_2)
+      - \frac{\partial (2 \, \delta_\Lambda \Psi \otimes \Psi)}{\partial \Psi} \, \delta_{\Lambda_2} \Psi
+    = 0.
+  \end{gathered}
+\end{equation}
+A parameter that commutes with everything is a shift (the criterion is sufficient, not necessary: by~\eqref{eq:gbv:im-d-kernel} the action is constant along $\operatorname{im} D$ whatever the law of $\Sigma_2$ under $\Lambda$).
+Every such $\Lambda_2$ enlarges the kernel shifts from $\ker p$ to $\ker q \supseteq \operatorname{im} D$.
+
+The commutator can be nonzero only if $\delta_\Lambda (D \Lambda_2) \neq 0$ or $\delta_{\Lambda_2} \Psi \neq 0$, which leaves the class, or if the law of $\Sigma_2$ under $\Lambda$ is not the composite one.
+For $\delta_\Lambda \Sigma_2 = 2 \, \delta_\Lambda \Psi \otimes \Psi + D \kappa(\Lambda, \Psi, \Sigma_2)$, with $\kappa$ linear in $\Sigma_2$, which is still a symmetry by~\eqref{eq:gbv:im-d-kernel},
+\begin{equation}
+  \label{eq:gbv:noncomposite}
+  [\delta_\Lambda, \delta_{\Lambda_2}] \Sigma_2
+    = - D \kappa(\Lambda, \Psi, D \Lambda_2)
+    \in \operatorname{im} D:
+\end{equation}
+such a law changes the gauge algebra, not the triviality, since the action is constant along $\operatorname{im} D$.
+The two failures of transversality and a worldsheet origin of $q$ leave~\eqref{eq:gbv:im-d-kernel} and~\eqref{eq:gbv:commutator} intact.
+A nontrivial two-string parameter therefore needs a field-dependent $D$ or a parameter $\Lambda_2$ that acts on $\Psi$.
+
+\subsubsection{Zero-mode operators off level matching}
+\label{sec:gauge-bv:zero-modes}
+
+\status{Proven}\record{108-gauge-unfixing-c1-strand-model (R102)}
+
+The natural place to look for a larger space is the relaxation of level matching on the two strands of $\Sigma_2$, where $c_0^-$, $b_0^-$ and $L_0^-$ provide field-independent operators of the right ghost numbers.
+Counting ghost numbers shows that on level-matched strands there is no field-independent $D$ and no field-independent $B_2$ at all (\cref{sec:gauge-bv:lambda2-sector}, the last paragraph), so, among these building blocks, this is the only place where the class of the previous sections has members.
+
+\paragraph{Setting.}
+On one strand we allow every eigenvalue $m$ of $L_0^-$ and both values of the $b_0^-$, $c_0^-$ pair: the strand space is
+\begin{equation}
+  \label{eq:gbv:strand-space}
+  V_m
+    = \Hs_m^- \oplus c_0^- \Hs_m^-,
+  \qquad
+  L_0^-
+    = m
+  \text{ on } V_m,
+\end{equation}
+where $\Hs_m^-$ is annihilated by $b_0^-$.
+The zero modes act by
+\begin{equation}
+  \label{eq:gbv:zero-modes}
+  c_0^- e
+    = \bar e,
+  \quad
+  c_0^- \bar e
+    = 0,
+  \quad
+  b_0^- e
+    = 0,
+  \quad
+  b_0^- \bar e
+    = e,
+  \qquad
+  \bar e
+    := c_0^- e,
+  \quad
+  e \in \Hs_m^-,
+\end{equation}
+so that $\{ b_0^-, c_0^- \} = 1$, $(b_0^-)^2 = (c_0^-)^2 = 0$, and $N := c_0^- b_0^-$ projects onto the states with a $c_0^-$.
+The present single-string space is $\Hs = \{ m = 0, \ b_0^- = 0 \}$.
+The pairing on the extended space has ghost number six per strand and pairs equal $m$ only; restricted with one insertion of $c_0^-$ to $\Hs$, it is the pairing of the present space, and $c_0^-$ is BPZ odd, $b_0^-$ BPZ even, $L_0^-$ BPZ even.
+On two strands we count the number of $c_0^-$ (the $c$-count, $0$, $1$ or $2$), and a sector is a pair $\{ m_1, m_2 \}$.
+We write $E^{(k)}$ and $L^{(k)}$ for the parts of $c$-count $k$ of the two-string field space and of the parameter space, and $S_0$ for the level-matched two-string states of ghost number four, at $c$-count $0$ in the sector $\{ 0, 0 \}$, which contain the present space.
+
+The operators are every field-independent $D$ of ghost number $+1$ built from the zero modes, with arbitrary functions of the two $L_0^-$:
+\begin{equation}
+  \label{eq:gbv:d-words}
+  D
+    = \sum_{i \neq j} c_0^{-(i)} \Big[ \alpha\big( L_0^{-(i)}, L_0^{-(j)} \big) + \gamma\big( L_0^{-(i)}, L_0^{-(j)} \big) \, N^{(j)} \Big],
+  \qquad
+  B_2
+    = b_0^{-(1)} + b_0^{-(2)},
+\end{equation}
+where the superscript names the strand on which the operator acts, with the Koszul sign.
+The form $q$ is an arbitrary symmetric form on the two-string space with $q|_{S_0} = p$, and the source term is extended by zero to the new directions.
+The case $\gamma = 0$, $\alpha(m_i, m_j) = f(m_i)$ is $D = c_0^- f(L_0^-)$ symmetrized over the strands.
+
+\paragraph{The image of $D$ misses the present space.}
+Each term of~\eqref{eq:gbv:d-words} is $c_0^-$ on one strand times an even operator that preserves the strand types and the eigenvalues of $L_0^-$.
+Since $c_0^-$ raises the $c$-count by one and kills the states that already carry it,
+\begin{equation}
+  \label{eq:gbv:raise}
+  D \, L^{(k)}_\sigma
+    \subseteq E^{(k+1)}_\sigma,
+  \qquad
+  S_0 \cap \operatorname{im} D
+    = 0,
+\end{equation}
+in every sector $\sigma$.
+The orbit of $\Lambda_2$ never has a component along the present space: $\Lambda_2$ does not act on the present components of $\Sigma_2$, and the composite parameter $\Lambda \otimes \Psi$ is mapped to $c_0^- \Lambda \otimes \Psi \pm \Lambda \otimes c_0^- \Psi$, outside the present space, so that no $D$ of the class mixes $\Lambda_2$ with the composite law.
+The source term extended by zero is invariant for the same reason.
+
+\paragraph{The per-strand slice is never a gauge slice.}
+A graded-symmetric state of $c$-count one in a sector is fixed by its component $\bar x \otimes y$ with the $c_0^-$ on the first strand, $x$ and $y$ of ghost numbers summing to three; a state of $L^{(0)}_\sigma$ is fixed by an unordered pair $\{ x, y \}$ with the same ghost sum, and never with equal ghost numbers.
+Hence
+\begin{equation}
+  \label{eq:gbv:counting}
+  \dim E^{(1)}_\sigma
+    = 2 \dim L^{(0)}_\sigma,
+  \qquad
+  \operatorname{rank} D|_{L^{(0)}_\sigma}
+    \le \frac{1}{2} \dim E^{(1)}_\sigma.
+\end{equation}
+Since $D$ raises the $c$-count by exactly one, only $L^{(0)}$ feeds $E^{(1)}$, and at least half of the directions of $c$-count one in every sector are neither gauge directions nor annihilated by $b_0^-$ on both strands.
+The per-strand condition $b_0^- \Sigma_2 = 0$ on each strand, which is the one that returns the present space in the sector $\{ 0, 0 \}$, is therefore never complemented by $\operatorname{im} D$: it is partly a constraint imposed beside the action, not a gauge fixing.
+This agrees with the free theory without level matching of~\cite{Erbin:2023:ClosedStringTheory}, where the constraints are imposed beside the action, consistently with the result that gauge fixing alone does not return the present content, and with the vertex of~\cite{Okawa:2022:ClosedStringField}, which carries a projector on each input and is decoupled from the extra components by construction.
+
+\paragraph{The gauge slice is larger than the present space.}
+The gauge condition that does fix the gauge is $B_2 \Sigma_2 = 0$.
+Since $\{ \tfrac12 c_0^{-(1)} + \tfrac12 c_0^{-(2)}, B_2 \} = 1$, the complex of $B_2$ is acyclic; $B_2$ maps $E^{(1)}_\sigma$ onto $L^{(0)}_\sigma$ and is injective on $E^{(2)}$, so that
+\begin{equation}
+  \label{eq:gbv:slice}
+  S_\sigma
+    = E^{(0)}_\sigma \oplus \big( S \cap E^{(1)}_\sigma \big),
+  \qquad
+  \dim \big( S \cap E^{(1)}_\sigma \big)
+    = \dim L^{(0)}_\sigma,
+\end{equation}
+independently of $D$.
+In the sector $\{ 0, 0 \}$ the slice contains $S_0$ plus states of $c$-count one, as many as the parameters of $c$-count zero in that sector, and it contains every state annihilated by $b_0^-$ on both strands in the sectors $m \neq 0$.
+The gauge-fixed theory always has more fields than the present one.
+
+\paragraph{Transversality.}
+For $D = c_0^{-(1)} f(L_0^{-(1)}) + c_0^{-(2)} f(L_0^{-(2)})$, write $f_i := f(m_i)$ in the sector $\{ m_1, m_2 \}$.
+With $\{ c_0^{-(i)}, b_0^{-(j)} \} = \delta_{ij}$ and $\{ c_0^{-(1)}, c_0^{-(2)} \} = 0$,
+\begin{equation}
+  \label{eq:gbv:anticommutator}
+  \{ D, B_2 \}
+    = f\big( L_0^{-(1)} \big) + f\big( L_0^{-(2)} \big),
+  \qquad
+  D^2
+    = 0,
+  \qquad
+  B_2^2
+    = 0.
+\end{equation}
+If $h := f_1 + f_2 \neq 0$, every $x$ in the sector decomposes as
+\begin{equation}
+  \label{eq:gbv:hodge}
+  x
+    = h^{-1} B_2 D x + h^{-1} D B_2 x,
+  \qquad
+  h^{-1} B_2 D x
+    \in \ker B_2,
+  \quad
+  h^{-1} D B_2 x
+    \in \operatorname{im} D,
+\end{equation}
+and an element $y = D \lambda$ of $\ker B_2$ is $y = h^{-1} B_2 D D \lambda = 0$; hence $E_\sigma = S_\sigma \oplus \operatorname{im} D_\sigma$.
+If $h = 0$, either $f_1 = f_2 = 0$, $D_\sigma = 0$ and the slice does not fill the sector (extra directions on which no gauge symmetry acts), or $f_1 = - f_2 \neq 0$, $D$ anticommutes with $B_2$ on the sector, and for $\lambda \in L^{(0)}_\sigma$, which $B_2$ annihilates,
+\begin{equation}
+  \label{eq:gbv:residual-gauge}
+  B_2 D \lambda
+    = - D B_2 \lambda
+    = 0,
+  \qquad
+  D \big( L^{(0)}_\sigma \big)
+    \subseteq S_\sigma \cap \operatorname{im} D_\sigma.
+\end{equation}
+The sector $\{ m_1, m_2 \}$ is therefore transverse if and only if $f(m_1) + f(m_2) \neq 0$, and the projector form~\eqref{eq:gbv:projector-form} holds there on the slice $\ker B_2$, $q = P^{\mathsf T} (q|_S) P$.
+The quantity that has to be invertible is $\{ D, B_2 \}$ on the two-strand sector, not $f$ on each strand; the two coincide on the diagonal sectors.
+The case $f_1 = - f_2 \neq 0$, which occurs for odd $f$ in the sector $\{ -1, 1 \}$, gives residual gauge directions inside the slice, at total $L_0^- = 0$ with the strands not level matched: this is the analogue of the states with $L_0 = 0$ in Siegel gauge, and it never reaches the present space, by~\eqref{eq:gbv:raise}.
+The present $\ker p$ is never pure gauge for a $D$ of the class.
+
+\paragraph{A finite strand model.}
+We checked these statements, which hold for arbitrary strand spaces, in a finite model with $m \in \{ -1, 0, 1 \}$: the sector $m = 0$ is the finite model of \cref{sec:gauge-bv:model}, of dimensions $(1, 5, 5, 1)$ at ghost numbers one to four, and the sectors $m = \pm 1$ have dimensions $(1, 2, 2, 1)$.
+The two-string space then has dimension $132$ and the parameter space $36$; the space $S_0$ has dimension $20$, the states with strands of ghost numbers one and three, on which $\vertex{4}$ vanishes, included, and $p$ has a kernel of dimension $6$ on it; in the sector $\{ 0, 0 \}$ the slice $\ker B_2$ has dimension $25 = 20 + 5$.
+The operators tested and the sectors where they fail to be transverse to $\ker B_2$ are, identically at two random seeds:
+\begin{center}
+  \small
+  \begin{tabular}{lll}
+    \toprule
+    $D$ & $\operatorname{rank} D$ & non-transverse sectors \\
+    \midrule
+    $0$ (control) & $0$ & all six, extra directions \\
+    $c_0^-$ & $33$ & none \\
+    $c_0^- L_0^-$ & $27$ & $\{ -1, 1 \}$ residual gauge; $\{ 0, 0 \}$ extra directions \\
+    $c_0^- \delta(L_0^-)$ & $22$ & $\{ -1, -1 \}$, $\{ -1, 1 \}$, $\{ 1, 1 \}$ extra directions \\
+    $c_0^- (1 - \delta(L_0^-))$ & $27$ & $\{ 0, 0 \}$ extra directions \\
+    $c_0^-$ on one strand, $L_0^-$ of the other & $27$ & $\{ -1, 1 \}$ residual gauge; $\{ 0, 0 \}$ extra directions \\
+    $c_0^- \otimes c_0^- b_0^-$, symmetrized & $6$ & all six, extra directions \\
+    generic & $33$ & none \\
+    generic, vanishing on $\{ 0, 0 \}$ & $27$ & $\{ 0, 0 \}$ extra directions \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+The residual gauge directions have dimension $4$ and $q$ vanishes on them.
+For the words with $N$ the transversality is read from this table; for $D = c_0^- f(L_0^-)$ it is the criterion above.
+
+Two yes-or-no rules one might use to decide whether the enlargement carries content do not discriminate.
+The first compares the solutions $q$ with those that do not couple the present space to the other directions; it says ``yes'' in every row, the control $D = 0$ included, because the coupling block between $S_0$ and the directions outside $\operatorname{im} D$ exists without any gauge symmetry.
+With the source extended by zero, $j = (p \Psi^2, 0)$, a form $\bar q = \big( \begin{smallmatrix} p & b \\ b^{\mathsf T} & r \end{smallmatrix} \big)$ on $S_0 \oplus (C / \operatorname{im} D)$, $C$ the complement of $S_0$ and $r$ invertible, gives on elimination
+\begin{equation}
+  \label{eq:gbv:coupling-block}
+  j^{\mathsf T} \, \bar q^{-1} \, j
+    = (p \Psi^2)^{\mathsf T} \big( p - b \, r^{-1} b^{\mathsf T} \big)^{-1} (p \Psi^2),
+\end{equation}
+which is $p(\Psi^2, \Psi^2) = \vertex{4}(\Psi^4)$ for $b = 0$ and generically differs from it when the number of directions outside $\operatorname{im} D$ exceeds $\dim \ker p$, as it does in every row (at least $79$ against $6$); this is the standard elimination formula, not checked by machine.
+The couplings that make the first rule say ``yes'' are thus generically excluded by the requirement that eliminating $\Sigma_2$ returns $\vertex{4}(\Psi^4)$.
+The second rule, relative to the slice $\ker B_2$, also says ``yes'' for $D = 0$; it measures how small $\operatorname{im} D$ is, and we read it only as the transversality test above.
+
+The result is therefore the conjunction of the four structural statements, not a verdict per row.
+For every field-independent word in $c_0^-$, $b_0^-$ and $L_0^-$, at quadratic order: the image of $D$ never meets the present space; the slice $\ker B_2$ is strictly larger than the present space; the per-strand slice is never a gauge slice; and the projector form holds on $\ker B_2$ exactly in the sectors where $f(m_1) + f(m_2) \neq 0$, for $D = c_0^- f(L_0^-)$ symmetrized, the other sectors carrying extra directions on which no gauge symmetry acts or, for odd $f$, residual gauge directions that never reach the present space.
+Relaxing level matching with these operators gives the projector construction on $\ker B_2$ plus auxiliary directions.
+
+The statement covers the words that raise the $c$-count.
+A field-independent $D$ that lowers it needs the quartic form on non-level-matched inputs, $c_0^- f(L_0^-) + b_0^- \hat p \, g(L_0^-)$ with $\hat p$ the extension of $\sprod{2}{2}$ to such inputs being one representative.
+Among the building blocks built from the products, $\sprod{2}{2}$, the pairing and the zero modes, this is the only field-independent way for $\operatorname{im} D$ to reach the present space, and it requires the extended vertex to output states outside $\ker b_0^-$: on level-matched inputs $\sprod{2}{2}$ outputs level-matched states, on which $b_0^-$ vanishes.
+That is a property of the worldsheet vertex on non-level-matched states, not of the algebra, and we have not examined it.
+The other gauge conditions, such as $b_0^- \otimes c_0^- b_0^-$ symmetrized or $b_0^- g(L_0^-)$, and a source term $q(\Sigma_2, \Psi^2)$ instead of the extension by zero, are not tested.
+
+\subsubsection{Symmetries of the cubic action at order \texorpdfstring{$\gs^2$}{gs2}: a finite model}
+\label{sec:gauge-bv:model}
+
+\status{Verified}\record{102-gauge-unfixing-structure, node C3 (R107)}
+
+We now determine which symmetries the cubic action on the present field content admits at order $\gs^2$, the order where $\Sigma_2$ first enters.
+A two-string symmetry, if there is one, must show up here.
+
+\paragraph{Filtration.}
+We give weight $1$ to $\Psi$ and $\Lambda$, weight $2$ to $\Sigma_2$ and $\Lambda_2$, and weight $-1$ to $\gs$.
+The action $\caction[\le 4] = S^{(2)} + S^{(3)} + S^{(4)}$, with $S^{(w)}$ the part of field weight $w$, carries $\gs^{w-2}$ in each term, and $\caction[\le 4](\gs; \Psi, \Sigma_2) = \gs^{-2} \caction[\le 4](1; \gs \Psi, \gs^2 \Sigma_2)$.
+A term of $\delta \phi^i$ of field-plus-parameter weight $\operatorname{wt}(\phi^i) + s$ is said to have shift $s$ and carries $\gs^s$; its contribution to $\delta \caction$ from $S^{(w)}$ has total weight $W = w + s$ and order $\gs^{W-2}$.
+The equations at orders $\gs^0$, $\gs^1$, $\gs^2$ are thus those of total weight $W = 2, 3, 4$, and they involve $S^{(2)}$, $S^{(3)}$, $S^{(4)}$ only: the data of order $\gs^3$ (the quintic coupling, the dressing, the corrections of the laws) enter at $W \ge 5$.
+We take $\delta$ linear in $(\Lambda, \Lambda_2)$, polynomial in the fields and of degree zero for the filtration, with shifts $0$, $1$, $2$; a shift of three or more enters only at $W \ge 5$.
+The other degrees are contained in this one up to powers of $\gs$, or add only the constant kernel shift $\delta \Sigma_2 = \epsilon N$, $N \in \ker p$, of shift $-1$.
+
+A coefficient of shift $s$ on a coordinate enters the equations at $W \le 4$ only if some $S^{(w)}$ with $w \le 4 - s$ depends on that coordinate.
+The coefficients that enter no equation form the part $U$ of $\delta$ that the action at order $\gs^2$ does not see: it is not a class of symmetries, it is fixed only by the action at order $\gs^3$, and every element of it solves the truncated equations.
+Since $\Sigma_2$ enters only $S^{(4)}$, every $\delta \Sigma_2$ of shift $\ge 1$ lies in $U$, here as in closed string field theory.
+
+\paragraph{The three classes.}
+The symmetries we expect are:
+\begin{itemize}
+  \item (G) the composite law of a gauge transformation with a field-dependent parameter $\Lambda'$, polynomial of weight $1 + r$, $r \in \{ 0, 1, 2 \}$: $\delta \Psi = Q_B \Lambda' + \gs \, \ell_2(\Psi, \Lambda') + \dots$, $\delta \Sigma_2 = \delta \Psi \otimes \Psi + \Psi \otimes \delta \Psi$;
+  \item (K) the kernel shifts $\delta \Sigma_2 = m \, N$, $N \in \ker p$, with $m$ linear in the parameters;
+  \item (T) the trivial symmetries $\delta \phi^i = \mu^{ij} \mathcal E_j$, with $\mathcal E_j$ the derivative of $\caction[\le 4]$ along $\phi^j$, over both equations of motion~\eqref{p:eq:hs4:eom}, and $\mu^{ij}$ graded antisymmetric; the mixed entries $\mu^{\Psi \Sigma_2} = - \mu^{\Sigma_2 \Psi}$ pair a $\delta \Psi \propto \mathcal E_{\Sigma_2}$ with a $\delta \Sigma_2 \propto \mathcal E_\Psi$, and the class is a symmetry identically, $\delta \caction = \mu^{ij} \mathcal E_i \mathcal E_j = 0$.
+\end{itemize}
+
+\paragraph{Restriction to the saddle.}
+Let $\delta$ be a symmetry of $\caction[\le 4]$ and $\Sigma_2^*(\Psi)$ the saddle~\eqref{p:eq:hs4:saddle} on the quotient.
+Then $\delta_{\mathrm{el}} \Psi := \delta \Psi |_{\Sigma_2 = \Sigma_2^*(\Psi)}$ is a symmetry of the eliminated action $S_{\mathrm{el}}(\Psi) := \caction[\le 4](\Psi, \Sigma_2^*(\Psi)) = S_{\le 4}(\Psi)$:
+\begin{equation}
+  \label{eq:gbv:restriction}
+  \delta_{\mathrm{el}} S_{\mathrm{el}}
+    = \Big[ \frac{\partial \caction}{\partial \Psi} \, \delta \Psi
+      + \frac{\partial \caction}{\partial \Sigma_2} \, \delta \Sigma_2 \Big]_{\Sigma_2^*}
+      - \Big[ \frac{\partial \caction}{\partial \Sigma_2} \Big]_{\Sigma_2^*} \Big( \delta \Sigma_2 - \frac{\partial \Sigma_2^*}{\partial \Psi} \, \delta \Psi \Big)
+    = 0,
+\end{equation}
+the first bracket being $\delta \caction$ at the saddle and the second vanishing because $\partial_{\Sigma_2} \caction = 0$ there.
+No assumption on $\delta \Sigma_2$ is made: a general symmetry does not preserve the locus $\Sigma_2 = \Psi^2$, and~\eqref{eq:gbv:restriction} does not need it to.
+On the classes, (G) restricts to a gauge transformation of $S_{\le 4}$ with a field-dependent parameter, (K) to $\delta \Psi = 0$, and (T) to a trivial symmetry of $S_{\le 4}$.
+This step holds verbatim in closed string field theory.
+
+\paragraph{The model.}
+The finite model has a graded space of dimensions $(1, 5, 5, 1)$ at ghost numbers one to four, with basis $\lambda$; $\chi, \varphi_1, \varphi_2, \varphi_3, \eta$; their duals $\chi^*, \varphi_i^*, \eta^*$; $\lambda^*$, paired by $\pair{e}{e^*} = 1$.
+The BRST operator is $Q \lambda = \chi$, $Q \chi^* = - \lambda^*$, $Q \eta = \eta^*$, zero on the other vectors: $\chi$ is pure gauge, the $\varphi_i$ are cohomology, and $\eta$ is massive, so that the kinetic term on fields is $\tfrac12 \psi_\eta^2$.
+The cubic vertex has a random symmetric block on $\{ \varphi_i, \eta \}$ and a block $\vertex{3}(y^*, x, \lambda) = M_{y x}$ with a random matrix $M$ on the $\varphi_i$, so that $\delta_\Lambda \Psi = \epsilon (\chi + \gs M \Psi)$ for $\Lambda = \epsilon \lambda$.
+The quartic vertex is a random symmetric form on $\{ \varphi_i, \eta \}$ plus a $\chi$-dependent part fixed by the $\Loo$ relation at order $\gs^2$, not fitted to anything tested, so that $S_{\le 4}$ is gauge invariant through order $\gs^2$ by construction, and not beyond, as in the truncated string theory.
+Since no component of $\vertex{4}$ has two $\chi$ legs, $\chi \otimes \chi \in \ker p$; a degenerate variant, with the free part of $\vertex{4}$ a sum of two fourth powers of linear forms, has $\dim \ker p = 5$.
+The model is the on-shell analogue of closed string field theory: its physical fields have zero kinetic term, as at on-shell momenta.
+
+There are $5205$ unknown coefficients, of which $4965$ lie in $U$ and $240$ are determined.
+The solution space in the determined coefficients is computed exactly and compared with the projection of the three classes:
+\begin{center}
+  \begin{tabular}{lcccccc}
+    \toprule
+    variant & $\dim \ker p$ & $\dim \mathrm{Sol}_{\mathrm{det}}$ & rank (G) & rank (K) & rank (T) & rank (G + K + T) \\
+    \midrule
+    generic & $1$ & $18$ & $1$ & $0$ & $17$ & $18$ \\
+    degenerate & $5$ & $54$ & $1$ & $40$ & $17$ & $54$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+identically at two seeds, the overlap of (K) and (T) being four-dimensional in the degenerate case.
+Hence, in this model at order $\gs^2$,
+\begin{equation}
+  \label{eq:gbv:model-result}
+  \mathrm{Sol}
+    = G + K + T + U.
+\end{equation}
+The part of the determined solutions that depends on $\Lambda_2$ consists of kernel shifts $\delta \Sigma_2 = N(\Lambda_2) \in \ker p$ only, and the field-independent candidate $\delta \Psi = \gs \, \ell_2(\Lambda_2)$ admits no completion at $W \le 4$: it fails at $W = 4$ through the cubic vertex.
+The mixed entries of $\mu$, its antisymmetry and, when $\dim \ker p > 1$, the class (K) are each needed: without the mixed entries the span has rank $4$ instead of $18$, and a solve without them would report false counterexamples.
+The ranks are computed modulo a large prime and the inclusion of the classes in the solutions is checked exactly over $\mathbb Q$; since a rank modulo a prime cannot exceed the rank over $\mathbb Q$, the equality of the two ends found at every instance forces equality throughout.
+In the model, a random solution restricted to the saddle is a symmetry of $S_{\le 4}$ while it does not preserve $\Sigma_2 = \Psi^2$; on $\Sigma_2 = 2 \Psi^2$, which is not a saddle, it is not.
+
+The reach of the model is limited, and the limits are its scope.
+The field-dependent gauge parameters, and every parameter built from $\Lambda_2$ beyond the kernel shifts, lie in $U$ because the model is on-shell: its kinetic term has no $\chi$ or $\varphi$ leg.
+The statement~\eqref{eq:gbv:model-result} is therefore checked modulo what the action does not see, and it does not test separately the step, used in \cref{sec:gauge-bv:all-symmetries}, from a symmetry of $S_{\le 4}$ to a gauge transformation.
+Outside its class are the larger spaces for $\Sigma_2$, the order $\gs^3$, where the unseen coefficients become constrained, non-abelian gauge algebras, and the generic-momentum regime.
+
+\subsubsection{The two-string sector in closed string field theory}
+\label{sec:gauge-bv:lambda2-sector}
+
+\status{Proven}\record{102-gauge-unfixing-structure, node C4.$\theta$ (R108)}
+
+In closed string field theory the part of a symmetry linear in $\Lambda_2$ can be treated directly, at the algebraic level, without the completeness theorem the single-string sector needs.
+We work with the present field content, at order $\gs^2$, in the filtration above, and at generic momentum: for the polynomial at hand, with $K$ the total momentum of the strands of $\Lambda_2$ and $k$ the momentum of a $\Psi$ leg, the states at momenta $K$, $k$ and $k + K$ are off every mass shell, so that $L_0^+ \neq 0$ there.
+Then $h := b_0^+ (L_0^+)^{-1}$ is a contracting homotopy on these sectors, $Q_B h + h Q_B = 1$, and at ghost numbers two and three $\Hs_G = \operatorname{im} Q_B \oplus C_G$ with $C_G = h \Hs_{G+1}$, the Siegel states.
+We write $\omega(X, Y) := \pair{X}{Q_B Y}$ on $\Hs_2$; it is graded symmetric and vanishes when either argument lies in $\operatorname{im} Q_B$.
+Every statement below is on finite-dimensional blocks of fixed level and momentum.
+
+The part of a symmetry linear in $\Lambda_2$ is a symmetry by itself.
+By weight, its components are $\delta \Psi^{[1]} = A(\Lambda_2)$, carrying $\gs$, $\delta \Psi^{[2]} = B(\Lambda_2, \Psi)$, linear in $\Psi$ and carrying $\gs^2$, $\delta \Sigma_2^{[0]} = D_0 \Lambda_2$, and the shifts $\ge 1$ of $\delta \Sigma_2$, which lie in $U$.
+The equations at $W \le 4$ come from the pairs (weight of the action term, shift) $(2, 1)$ at $W = 3$ and $(2, 2)$, $(3, 1)$, $(4, 0)$ at $W = 4$.
+
+At $W = 3$, from $S^{(2)} = \tfrac12 \pair{\Psi}{Q_B \Psi}$,
+\begin{equation}
+  \label{eq:gbv:theta-1}
+  \pair{A(\Lambda_2)}{Q_B \Psi}
+    = 0
+  \quad
+  \forall \Psi
+  \qquad
+  \Longrightarrow
+  \qquad
+  Q_B A(\Lambda_2)
+    = 0
+  \qquad
+  \Longrightarrow
+  \qquad
+  A(\Lambda_2)
+    = Q_B \kappa(\Lambda_2),
+  \quad
+  \kappa
+    := h A.
+\end{equation}
+The parameter $\kappa$ is linear in $\Lambda_2$, of ghost number one and weight two.
+The gauge transformation with the field-independent parameter $\kappa(\Lambda_2)$, $\delta \Psi = Q_B \kappa + \gs \, \ell_2(\Psi, \kappa)$ with its composite $\delta \Sigma_2$ at shift one, solves the equations at $W \le 4$: at $W = 3$ by $Q_B^2 = 0$, at $W = 4$ by the gauge invariance of $S^{(2)} + S^{(3)}$ at order $\gs$.
+Subtracting it leaves $A = 0$ and $B \to B - \gs \, \ell_2(\Psi, \kappa(\Lambda_2))$.
+Among the building blocks without a propagator, the only field-independent candidate is $A = \ell_2(\Lambda_2)$, and $Q_B \ell_2(\Lambda_2) = - \ell_2(Q_B \Lambda_2) \neq 0$ by the $\Loo$ relation, so~\eqref{eq:gbv:theta-1} excludes it; this matches the finite model.
+
+At $W = 4$, the monomials with one $\Sigma_2$ come from $S^{(4)}$ only, through $- \tfrac{2 \gs^2}{4!} \, p(\Sigma_2, D_0 \Lambda_2)$, so that $p(\cdot, D_0 \Lambda_2) = 0$: $D_0 \Lambda_2 \in \ker p$ is a kernel shift, zero on the quotient, and the term $\tfrac{2 \gs^2}{4!} \, p(D_0 \Lambda_2, \Psi^2)$ vanishes with it.
+
+The rest at $W = 4$: the pair $(3, 1)$ vanishes since $A = 0$, and the pair $(2, 2)$ gives, with $b := B(\Lambda_2, \cdot)$ and by polarization,
+\begin{equation}
+  \label{eq:gbv:theta-2}
+  \omega(b X, X)
+    = 0
+  \quad
+  \forall X \in \Hs_2
+  \qquad
+  \Longleftrightarrow
+  \qquad
+  \omega(b X, Y) + \omega(b Y, X)
+    = 0.
+\end{equation}
+The form $\omega$ is nondegenerate on $C_2$: if $c \in C_2$ has $\omega(c, \cdot) = 0$, then $\pair{Q_B c}{Y} = 0$ for every $Y$, so $Q_B c = 0$ and $c \in \operatorname{im} Q_B \cap C_2 = 0$.
+Taking $X = g \in \operatorname{im} Q_B$ and $Y = c \in C_2$ in~\eqref{eq:gbv:theta-2} gives $\omega(b g, c) = 0$ for every $c$, hence $b(\operatorname{im} Q_B) \subseteq \operatorname{im} Q_B$; taking $X, Y \in C_2$ gives that the block $b_{CC}$ is $\omega$-antisymmetric.
+Then:
+\begin{itemize}
+  \item the part of $b$ with values in $\operatorname{im} Q_B$ is $Q_B h b$, a gauge transformation $Q_B \kappa'(\Lambda_2, \Psi)$ with $\kappa' = h b$ of weight three, whose other terms lie outside the window or in $U$;
+  \item the block $b_{CC}$ is a trivial symmetry.
+    Split $\Hs_3 = Q_B(C_2) \oplus h \Hs_4$ and define $\mu \colon \Hs_3 \to \Hs_2$ by $\pair{\mu U}{V} := \omega\big( b_{CC} (Q_B|_{C_2})^{-1} U_Q, (Q_B|_{C_2})^{-1} V_Q \big)$, with $U_Q$ the component along $Q_B(C_2)$.
+    The map $\mu$ is graded antisymmetric because $b_{CC}$ is $\omega$-antisymmetric, and $\pair{\mu Q_B c - b_{CC} c}{Q_B c'} = 0$ for every $c'$, so that $\mu Q_B c - b_{CC} c \in \operatorname{im} Q_B$.
+    Hence $b_{CC} = \mu \circ Q_B$ modulo the previous item, and $\delta \Psi = \mu Q_B \Psi$ is the part at $W \le 4$ of the trivial symmetry $\mu^{\Psi \Psi} \mathcal E_\Psi$ with $\mu = \gs^2 \hat\mu(\Lambda_2)$.
+\end{itemize}
+
+The result is
+\begin{equation}
+  \label{eq:gbv:theta-result}
+  \delta \big\vert_{\Lambda_2}
+    \in G\big( \kappa(\Lambda_2), \kappa'(\Lambda_2, \Psi) \big)
+      + K
+      + T\big( \hat\mu(\Lambda_2) \big)
+      + U
+  \qquad
+  \text{at } W \le 4,
+  \text{ generic momentum}:
+\end{equation}
+the part linear in $\Lambda_2$ of every symmetry of the present field content at order $\gs^2$ is a gauge transformation with a parameter built from $\Lambda_2$, field independent or linear in $\Psi$, plus a kernel shift, plus a trivial symmetry, modulo the part the action at this order does not see.
+Generic momentum enters in~\eqref{eq:gbv:theta-1}, through $\ker Q_B = \operatorname{im} Q_B$ at ghost number two and momentum $K$, and in the decomposition at momenta $k$ and $k + K$.
+No invertibility of $\sprod{2}{2}$, no properness, no regularity hypothesis and no completeness theorem is used, and the argument holds for $\Sigma_2$ on any two-string space with $p$ symmetric.
+The finite-dimensional core, \eqref{eq:gbv:theta-1} and the decomposition of the solutions of~\eqref{eq:gbv:theta-2}, was checked on an acyclic graded model, with a cohomology direction as the case where it must fail.
+
+The physical reading is a statement of visibility.
+At order $\gs^2$ the present space exposes what $\Lambda_2$ does only through $\delta \Psi$ at shifts one and two and through a field-independent $\delta \Sigma_2$, and nothing nontrivial survives there.
+A nontrivial two-string parameter therefore needs a larger space for $\Sigma_2$, where a field-independent $D$ is visible at $W = 4$, or content at order $\gs^3$ on the present space, which lies in $U$ here.
+This is not evidence against the present space at order $\gs^3$.
+
+The ghost numbers of the building blocks say the same.
+We list the maps built from the products $\ell_n$, from $\sprod{2}{2}$, from the pairing and from the zero modes on the output strands, with at most two fields and at most linear in $L_0^-$ on the output strands, with no $\Lambda$, antifield or $Q_B$ in a block: the candidate operators $D$, gauge conditions $B_2$, transformations $\delta_{\Lambda_2} \Psi$ and single-string parameters $\Lambda(\Lambda_2, \Psi, \Sigma_2)$, of ghost numbers $4$, $3$, $2$, $1$ on their outputs.
+Of the $28$, $13$, $19$ and $12$ rows of the right total ghost number, $6$, $0$, $6$ and $4$ are level matched on the present field content.
+On level-matched strands there is no field-independent $D$ and no field-independent $B_2$, and on the present content no level-matched $B_2$ at all: the gauge conditions with one more field need a pair of strands of ghost numbers summing to five, absent among strands of ghost number two.
+Every level-matched $D$ is field dependent, and its $\delta \Sigma_2$ has shift at least one, so it lies in $U$ and is tested only at order $\gs^3$.
+The only field-independent $\delta_{\Lambda_2} \Psi$ is $\ell_2(\Lambda_2)$, excluded above, and every level-matched $\Lambda(\Lambda_2, \dots)$ is the strand of ghost number one of $\Lambda_2$ times the contraction of its strand of ghost number two with a state of ghost number three built from the fields, some of them pieces of the equation of motion of $\Psi$.
+
+\subsubsection{All symmetries at order \texorpdfstring{$\gs^2$}{gs2}}
+\label{sec:gauge-bv:all-symmetries}
+
+\status{Conditional(PH1, PH27, PH43) -- Argued}\record{102-gauge-unfixing-structure, node C4 (R109)}
+
+The statement extends to the single-string sector, the symmetries with a single-string parameter of ghost number one built from $\Lambda_2$ and the fields, under three assumptions.
+The class is the one above, closed string field theory at generic momentum at order $\gs^2$, with single-string parameters built from the products, $\sprod{2}{2}$, the pairing and the zero modes, without a fixed background state.
+The argument has four steps.
+\begin{enumerate}
+  \item \emph{Restriction.} By~\eqref{eq:gbv:restriction}, $\delta \Psi |_{\Sigma_2^*}$ is a symmetry of the truncated action $S_{\le 4}$ of the original theory.
+  \item \emph{Completeness.} If the gauge generators of $S_{\le 4}$ are complete, every symmetry of $S_{\le 4}$ is a gauge transformation with a field-dependent parameter $\Lambda''(\Psi)$ plus a trivial symmetry $\mu^{\Psi \Psi} \mathcal E^{\mathrm{el}}_\Psi$, with $\mathcal E^{\mathrm{el}}_\Psi = \partial S_{\le 4} / \partial \Psi = \mathcal E_\Psi |_{\Sigma_2^*}$~\cite{Henneaux:1994:QuantizationGaugeSystems, Gomis:1995:AntibracketAntifieldsGaugeTheory}.
+    This uses the properness of the master action at quartic order, established in the first block under the invertibility of the quartic form on its quotient and the consistency of the kept vertices, and the theorem that a proper solution has complete gauge generators up to trivial symmetries.
+    The theorem has two premises beyond properness: the regularity of the stationary surface, and an exactly gauge-invariant action, whereas $S_{\le 4}$ is invariant only to order $\gs^2$.
+  \item \emph{Lift.} Subtracting the composite law with parameter $\Lambda''(\Psi)$ and the trivial symmetry leaves a $\delta'$ with $\delta' \Psi |_{\Sigma_2^*} = 0$, so that $\delta' \Psi = B \cdot (\Sigma_2 - \Sigma_2^*)$ by division.
+    From $\mathcal E_{\Sigma_2} = - \tfrac{2 \gs^2}{4!} \, p(\Sigma_2 - \Psi^2)$,
+    \begin{equation}
+      \label{eq:gbv:lift}
+      \Sigma_2 - \Sigma_2^*
+        = - \frac{4!}{2 \gs^2} \, p^{-1} \mathcal E_{\Sigma_2},
+    \end{equation}
+    which needs $p$ invertible on the quotient.
+    This is the trivial symmetry $\mu^{\Psi \Sigma_2} = - \tfrac{4!}{2 \gs^2} B p^{-1}$, polynomial in $\gs$ because a term of $\delta' \Psi$ linear in $\Sigma_2$ has shift at least two; subtracting it with its partner $\delta \Sigma_2 = - (\mu^{\Psi \Sigma_2})^{\mathsf T} \mathcal E_\Psi$ leaves $\delta'' \Psi = 0$.
+  \item \emph{The $\Sigma_2$ sector.} With $\delta'' \Psi = 0$, $\delta'' \caction = \tfrac{2 \gs^2}{4!} \pair[2]{\delta'' \Sigma_2}{\sprod{2}{2}(\Psi^2 - \Sigma_2)} = 0$ identically.
+    In the variable $y = \Sigma_2 - \Psi^2$ on the quotient the components of $p(y)$ are linear and independent, a regular sequence, and Koszul acyclicity, level by level, gives $\delta'' \Sigma_2 = A(y) \, p(y)$ with $A$ antisymmetric, a trivial symmetry, up to the kernel directions, which are the kernel shifts.
+\end{enumerate}
+
+Hence every symmetry of the present field content with such a single-string parameter is the original gauge symmetry with a field-dependent parameter, the same orbits, plus a kernel shift, plus a trivial symmetry with $\mu$ graded antisymmetric over both equations of motion, modulo $U$, which contains every $\delta \Sigma_2$ of shift at least one and so the whole sector of level-matched $D$.
+Steps 1, 3 and 4 are algebraic, step 3 using the invertibility of $p$ on the quotient and step 4 holding level by level.
+The second step is the one link that is not proven, for three reasons.
+The theorem is cited here without a theorem number, not derived; it needs the regularity of the truncated stationary surface, which we assume: at generic momentum and order by order through $\gs^2$, every polynomial in finitely many components of $\Psi$ that vanishes on the shell of $S_{\le 4}$ is a combination of the components of $\mathcal E_\Psi$, and every Noether identity is generated by those of the gauge symmetry.
+The motivation is that at order $\gs^0$ the equations $Q_B \Psi = 0$ are linear and, at generic momentum, split into independent linear functions plus the Noether identities $Q_B^2 = 0$, a regular system, and that acyclicity of the Koszul--Tate differential of a deformation follows order by order from that of its free part~\cite{Barnich:2000:LocalBRSTCohomology}; a function vanishing on the shell that is not such a combination, or a symmetry of $S_{\le 4}$ outside gauge plus trivial, would falsify it.
+Finally the theorem is a statement about the full theory, while the use here is order by order in a truncation, and the truncated form is not established.
+The finite model does not test this step, since there the field-dependent parameters lie in $U$; a model with a kinetic term on every non-gauge field would test it, and it was not built.
+The assumptions concern the single-string sector only: in the two-string sector the level-matched parameters have weight at least four and enter beyond $W = 4$, and \cref{sec:gauge-bv:lambda2-sector} settles that sector without them.
+
+\subsubsection{What is left open}
+\label{sec:gauge-bv:unfixing-open}
+
+The results above are exclusions within classes, and the classes say where a two-string parameter could still be found.
+\begin{itemize}
+  \setlength{\itemsep}{1ex}
+
+  \item On the present field content, at order $\gs^3$: every level-matched $D$ is field dependent and enters only there, through the dressing and the gauge algebra.
+    A field-dependent $D$, or a $\Lambda_2$ that transforms $\Psi$, is outside the class of \cref{sec:gauge-bv:shift}, and it is what a nontrivial $\Lambda_2$ needs, on any space.
+  \item On a larger space: a field-independent $D$ that lowers the $c$-count, which needs the vertex on non-level-matched states to output states outside $\ker b_0^-$ (\cref{sec:gauge-bv:zero-modes}).
+  \item An enlargement whose extra directions are eliminated, with the source $q(\Sigma_2, \Psi^2)$ and a form $q$ that carries data beyond $\vertex{4}$ (\cref{sec:gauge-bv:projector}).
+  \item On-shell momenta, where the properness of the master action is not established and the argument of \cref{sec:gauge-bv:lambda2-sector} does not apply.
+  \item For the single-string sector, a failure of the invertibility of the quartic form on its quotient, of the regularity of the stationary surface or of the completeness theorem in truncated form.
+\end{itemize}
+The bar--cobar presentation has an independent two-string parameter, used up in reaching its canonical gauge; how it relates to these classes has not been worked out.

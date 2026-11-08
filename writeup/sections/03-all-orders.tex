@@ -1,0 +1,350 @@
+\section{All orders}
+\label{ch:all-orders}
+
+This chapter constructs the cubic action with the whole tower of auxiliary fields $\Sigma_2, \Sigma_3, \ldots$: the action and its equations of motion, the completed squares and the nested kinetic operators, the theorem that fixes the reduced vertices at every order and the collapse lemma behind it, the elimination of the auxiliary fields and the recovered action, the gauge transformations, and the kernel conditions under which the quotient prescription is consistent at every order.
+It expands the section of the paper on the all-order construction, which states the same results in condensed form.
+The text of that section before its condensation is reproduced in full, followed by the later wording of two of its subsections.
+Only this chapter contains the comparison of three bookkeepings of the all-orders problem, the proof of the theorem in the language of the earlier notes, and two complements written from the derivation records: the first orders of the solution of the auxiliary equations, and the converse of the statement that a kernel shift does not change the equation of motion of $\Psi$.
+The multiplier form of the action, which the section of the paper also discussed, is in \cref{ch:multiplier-hybrid}, and the reading of the elimination of $\Sigma_2$ as a homotopy transfer is in \cref{ch:ibl}.
+
+\paragraph{Assumptions.}
+
+Everything in this chapter is at tree level and is a statement about formal power series in $\gs$, exact and rational at every truncation of the tower; the convergence of the infinite tower is not addressed.
+The algebraic statements hold for symmetric multilinear forms on a finite-dimensional space, which for the string vertices is a level truncation with the momenta fixed or discretized.
+Applied to the string vertices, the matching theorem and the results that use it rest on four hypotheses, listed with their status in \cref{ch:hypotheses}.
+First, the quartic form $\sprod{2}{2}$ is invertible on the quotient of the level-truncated two-string space by its kernel, and the kernels are stable under the truncation.
+Second, the kernel of $\vertex{4}$ vanishes off shell at generic momentum, or, failing that, $\vertex{5}$ and $\vertex{6}$ annihilate it.
+Third, there is a presentation of the tower in which every null vector of the kinetic operator of $\Sigma_k$, $k \ge 3$, is a joint null vector of the vertices in which $\Sigma_k$ appears, and in which the reduced sextic vertex satisfies the second kernel clause at $k = 2$.
+Fourth, the feedback produced by the exchanges of auxiliary fields is not expressible through the diagonal values $\vertex{n}(\Psi^n)$ and boundary terms; the theorem needs this through the order $\gs^6$.
+The first two are supported by the computations at level~0; the last two are open.
+
+\paragraph{Notation across the blocks.}
+
+The blocks taken from the paper before its rewrite write the bare kinetic operator of $\Sigma_k$ as $\kin{k}{}{2 k - 2}$, and the two later blocks write it $\wprod{k}{k}$; the two are the same operator, with $\wprod{2}{2} = \sprod{2}{2}$.
+The complements of \cref{ch3:sec:complements} use $\wprod{k}{k}$.
+
+The first block is the section on the all-order construction of the paper as it stood before the condensation, without its last two subsections (the multiplier form and the homotopy transfer, which are in the chapters named above).
+Its references to the orders treated one at a time point to \cref{ch:order-by-order}.
+It holds the following results.
+
+The rule that $\Sigma_k$ enters at order $\gs^{2 k - 2}$ and its odd coupling at $\gs^{2 k - 1}$ is the definition of the construction, not a result.
+
+\noindent\status{Proven} The minimal count of auxiliary fields, $\Sigma_k$ needed only from $\vertex{3 k - 2}$ on ($k \le \lceil n / 3 \rceil$ for $\vertex{n}$), and the triangular structure of the action: a counting statement, which does not include the dynamical closure.\footnote{Ledger entry R12; its graded-symmetry clause is derived in \nolinkurl{agent/derivations/055-omega-k-graded-symmetry.md}.}
+
+\noindent\status{no ledger entry} The action with the infinite tower as a formal power series, its truncation at a generic order, the equations of motion of $\Psi$ and of every $\Sigma_k$, their order-by-order solution, and the stabilization of the coefficients of the nested operators as the tower grows; the algebra is unconditional, and its application to the string vertices uses the invertibility of the bare operators on their quotients and the kernel condition, and is checked in a finite-dimensional model with the tower $\Sigma_2, \Sigma_3, \Sigma_4$.\record{100-all-orders-action-eom}
+
+\noindent\status{Conditional(PH1, PH2 (b), PH5, PH14 [through $A_6$]) + R70 -- Proven} The matching theorem, the collapse lemma, the value of the action on the solution, the recovered action and the gauge transformations at all orders.
+The theorem is proven for generic symmetric tensors in a finite-dimensional space, within the class in which the action is jointly quadratic in the tower and each level enters through one completed square whose kinetic term and source are read off the same form; for the string vertices it holds under the four hypotheses above and the result on the nested kernels stated with the kernel conditions below.
+Couplings that break the joint Gaussian form, possible from the octic order on, are not covered, and cubic actions outside the class exist (\cref{ch:multiplier-hybrid,ch:partner-field}).\record{019-b7-allorders-fixed-point (R26)}
+
+\noindent\status{no ledger entry} The equation of motion of the recovered action: the $\Psi$-equation of the cubic action at the auxiliary solution is the equation of motion of the eliminated action, the same for every representative of the solution under the kernel condition; its explicit form is conditional as the matching theorem.\record{085-paper-gaps-3-4}
+
+\input{extracted/03/1-p}
+
+\medskip
+The next two blocks are the subsections on the recovered action and on the kernel conditions as the paper states them after its rewrite, which moved the kernel conditions from the octic order to this section and wrote them for every level.
+For these two statements the later wording is the authoritative one.
+The earlier wording of the recovered action, in the block above, is kept because it carries the elimination of the fields one at a time and the chain-rule argument for the equation of motion step by step.
+The first of the two blocks restates the recovered action~\eqref{p:eq:all:recovered}, its equation of motion and the kernel shift.
+
+\input{extracted/03/2-pc}
+
+\medskip
+The second block states the kernel conditions for every level.
+Its display is the condition~\eqref{p:eq:hs8:kernel-condition} of the octic order, written with the later notation; its first clause at $k = 2$ is the condition of the quintic order, and its second clause at $k = 2$ the condition~\eqref{p:eq:hs6:kernel-condition} of the sextic order.
+The footnote at its end summarizes the multiplier and hybrid forms, which are treated in full in \cref{ch:multiplier-hybrid}.
+
+\noindent\status{mixed} The quotient of the two-string space by the kernel of $\vertex{4}$ is compatible with the quintic vertex if and only if $\vertex{5}$ vanishes when one of its two-string arguments lies in that kernel; this is established in the finite-dimensional setting at the quintic order, its necessity needs a totally symmetric $\vertex{5}$ and an off-shell matching criterion, and the regularity of the kernel in infinite dimensions is open.\record{034-ker-v4-v5-compatibility (R38)}
+
+\noindent\status{Proven} The nested kernels of the dressed tower depend on $\gs \Psi$ only and reduce at $\gs = 0$ to the kernels of the bare operators, and a level at which the kernel condition fails is visible in the value of the action; in the finite-dimensional setting, at fixed truncation.\record{061-ph2a-nested-kernels (R70)}
+
+\noindent\status{Open} Whether the string vertices satisfy the kernel conditions for $k \ge 3$, in a suitable choice of the reduced vertices.\footnote{Ledger hypothesis PH2 (b).}
+
+\input{extracted/03/3-pc}
+
+\subsection{Two complements from the derivation records}
+\label{ch3:sec:complements}
+
+\noindent\status{no ledger entry} Both complements are pure algebra on top of the equations above, and both are checked in a finite-dimensional model by companion scripts.\record{100-all-orders-action-eom}\textsuperscript{,}\record{085-paper-gaps-3-4}
+
+\subsubsection{First orders of the solution through \texorpdfstring{$\Sigma_3$}{Sigma3}}
+\label{ch3:sec:first-orders}
+
+The order-by-order recursion~\eqref{p:eq:all:eom-orders} determines the solution of the auxiliary equations, but it is useful to see its first terms written out, since they show how a correction travels along the tower.
+We take the septic truncation, with the fields $\Psi$, $\Sigma_2$, $\Sigma_3$ and the action $\caction[\le 7]$ of the septic order, which is the series~\eqref{p:eq:all:action} truncated at $\gs^5$.
+The inverses below are those of the bare operators on their quotients, so that the solutions are defined modulo the bare kernels.
+
+\paragraph{The equations.}
+
+At $K = 3$ the general equations~\eqref{p:eq:all:eom-psi} and~\eqref{p:eq:all:eom-sigma} become:
+\begin{subequations}
+  \label{ch3:eq:eom-K3}
+  \begin{align}
+    \label{ch3:eq:eom-K3-psi}
+    \mathcal E_\Psi
+      &
+      = Q_B \Psi
+        + \frac{\gs}{2} \, \ell_2(\Psi^2)
+        + \frac{\gs^2}{3!} \, \ell_3(\Psi, \Sigma_2)
+        + \frac{\gs^3}{5!} \, \ell_4(\Sigma_2^2)
+      \notag
+      \\ &
+      \quad
+        + \frac{2 \gs^4}{6!} \, \dvertex{6}(\, \cdot \, \otimes \Sigma_2, \Sigma_3)
+        + \frac{\gs^5}{7!} \, \dvertex{7}(\Sigma_3, \Sigma_3, \, \cdot \,),
+    \\
+    \label{ch3:eq:eom-K3-sigma2}
+    \mathcal E_{\Sigma_2}
+      &
+      = \sprod{2}{2}(\Psi^2)
+        - \sprod{2}{2}(\Sigma_2)
+        + \frac{\gs}{5} \, \sprod{3}{2}(\Psi, \Sigma_2)
+        + \frac{\gs^2}{30} \, \dvertex{6}(\Psi \otimes \, \cdot \,, \Sigma_3),
+    \\
+    \label{ch3:eq:eom-K3-sigma3}
+    \mathcal E_{\Sigma_3}
+      &
+      = \wprod{3}{3}(\Psi \otimes \Sigma_2)
+        - \wprod{3}{3}(\Sigma_3)
+        + \frac{\gs}{7} \, \dvertex{7}(\, \cdot \,, \Sigma_3, \Psi)
+      = \wprod{3}{3}(\Psi \otimes \Sigma_2)
+        - \kin{3}{\Psi}{5}(\Sigma_3).
+  \end{align}
+\end{subequations}
+The first is the $\Psi$-equation of the sextic order with the septic term added, the second is the $\Sigma_2$-equation of the sextic order, and the third is the $\Sigma_3$-equation~\eqref{p:eq:hs7:saddle-3} of the septic order.
+In the second, the coefficient $\gs^2 / 30 = \gs^2 / (5 \cdot 6)$ is the factor $\gs^2 / ((2 k + 1) (2 k + 2))$ of~\eqref{p:eq:all:eom-sigma} at $k = 2$.
+At $k = 3 = K$ there is no heavier field, and the exchange term is absent from the third equation.
+
+\paragraph{The solutions.}
+
+We expand $\Sigma_k = \sum_m \gs^m \Sigma_k^{[m]}$ with $\Sigma_k^{[0]} = \Psi^k$, as in~\eqref{p:eq:all:eom-orders}.
+At order $\gs$, the recursion for $k = 2$ has no correction from the lighter field, since $\Sigma_1 = \Psi$ is not expanded, and no exchange term, which starts at order $\gs^2$; only the quintic term acts:
+\begin{equation}
+  \label{ch3:eq:sigma2-1}
+  \Sigma_2^{[1]}
+    = \frac{1}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \Psi^2).
+\end{equation}
+For $k = 3$ at the same order, the source carries the correction of $\Sigma_2$ and the septic vertex acts on the leading term $\Psi^3$:
+\begin{equation}
+  \label{ch3:eq:sigma3-1}
+  \Sigma_3^{[1]}
+    = \Psi \otimes \Sigma_2^{[1]}
+      + \frac{1}{7} \, \wprod{3}{3}^{-1} \circ \dvertex{7}(\, \cdot \,, \Psi^3, \Psi).
+\end{equation}
+Together:
+\begin{equation}
+  \label{ch3:eq:first-orders}
+  \begin{aligned}
+    \Sigma_2^*
+      &
+      = \Psi^2
+        + \frac{\gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \Psi^2)
+        + O(\gs^2),
+    \\
+    \Sigma_3^*
+      &
+      = \Psi^3
+        + \gs \Big[
+          \Psi \otimes \frac{1}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \Psi^2)
+          + \frac{1}{7} \, \wprod{3}{3}^{-1} \circ \dvertex{7}(\, \cdot \,, \Psi^3, \Psi)
+        \Big]
+        + O(\gs^2).
+  \end{aligned}
+\end{equation}
+The first line is the expansion of the quintic solution of \cref{ch:order-by-order}.
+At order $\gs^2$, the recursion for $k = 2$ receives two terms, the quintic term acting on $\Sigma_2^{[1]}$ and the exchange of $\Sigma_3$ evaluated at its leading term:
+\begin{equation}
+  \label{ch3:eq:sigma2-2}
+  \Sigma_2^{[2]}
+    = \frac{1}{25} \, \Big( \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \, \cdot \,) \Big)^2 \Psi^2
+      + \frac{1}{30} \, \sprod{2}{2}^{-1} \circ \dvertex{6}(\Psi \otimes \, \cdot \,, \Psi^3).
+\end{equation}
+The first term is the iterate of the quintic dressing, the second the $\Sigma_3$ exchange.
+
+\paragraph{What the first orders show.}
+
+The order-$\gs$ correction reaches $\Sigma_3$ by two routes: through its source, which carries the correction of the lighter field $\Sigma_2$ at the same order, and through its own odd vertex $\dvertex{7}$ acting on the leading term.
+The heavier field acts on the lighter one only through the exchange term, two orders later: the $\Sigma_3$ exchange is present in the $\Sigma_2$-equation from the sextic order on, and enters $\Sigma_2^*$ at order $\gs^2$, while $\dvertex{7}$ reaches $\Sigma_2^*$ only through $\Sigma_3^*$, at order $\gs^3$.
+This is the triangular structure of the recursion~\eqref{p:eq:all:eom-orders} in its smallest non-trivial case: corrections move up the tower at the same order, act on their own level one order later through the odd vertex, and move down the tower two orders later.
+
+\subsubsection{The converse of the kernel-shift statement}
+\label{ch3:sec:converse}
+
+The recovered-action blocks show that, under the kernel condition~\eqref{pc:eq:hs8:kernel-condition}, a shift of the auxiliary fields along the bare kernels changes neither the equations nor the value of the action.
+The converse also holds: asking only that the equation of motion of $\Psi$ be unchanged by every kernel shift, at arbitrary values of the auxiliary fields, already forces both clauses of the condition, in its field-space form (at the top level of a truncated tower, only the first clause).
+The argument is pure algebra and does not use the matching theorem.
+We work at a fixed level truncation with the momenta fixed or discretized, so that every space is finite-dimensional, with the tower truncated at $K$, the bare operators symmetric for the $k$-string pairing and the pairings nondegenerate.
+
+\paragraph{The shift of the action.}
+
+Write $a_k := \gs^{2 k - 2} / (2 k)!$ and $b_k := \gs^{2 k - 1} / (2 k + 1)!$, so that the action~\eqref{p:eq:all:action} truncated at $K$ is
+\begin{equation}
+  \label{ch3:eq:action-abc}
+  \begin{aligned}
+    \caction[\le 2 K + 1]
+      &
+      = S_{\le 3}
+        + \sum_{k = 2}^{K} \Big[
+          - a_k \, \pair[k]{\Sigma_k}{\wprod{k}{k}(\Sigma_k)}
+          + 2 a_k \, \pair[k]{\Sigma_k}{\wprod{k}{k}(\Psi \otimes \Sigma_{k - 1})}
+      \\ &
+      \qquad\qquad\qquad
+          + b_k \, \dvertex{2 k + 1}(\Sigma_k, \Sigma_k, \Psi)
+        \Big],
+  \end{aligned}
+\end{equation}
+with $\Sigma_1 := \Psi$.
+Shift $\Sigma_k \to \Sigma_k + N_k$ for $k = 2, \ldots, K$, with arbitrary $N_k \in \ker \wprod{k}{k}$, and leave $\Psi$ unshifted ($N_1 := 0$).
+By the symmetry of $\wprod{k}{k}$ and $\wprod{k}{k}(N_k) = 0$, the kinetic term of each level does not change, and the source of level $k$ changes only through the shift of its lighter field:
+\begin{equation}
+  \label{ch3:eq:shift-terms}
+  \begin{aligned}
+    \Delta \pair[k]{\Sigma_k}{\wprod{k}{k}(\Sigma_k)}
+      &
+      = 2 \, \pair[k]{N_k}{\wprod{k}{k}(\Sigma_k)}
+        + \pair[k]{N_k}{\wprod{k}{k}(N_k)}
+      = 0,
+    \\
+    \Delta \pair[k]{\Sigma_k}{\wprod{k}{k}(\Psi \otimes \Sigma_{k - 1})}
+      &
+      = \pair[k]{\Sigma_k}{\wprod{k}{k}(\Psi \otimes N_{k - 1})},
+    \\
+    \Delta \, \dvertex{2 k + 1}(\Sigma_k, \Sigma_k, \Psi)
+      &
+      = 2 \, \dvertex{2 k + 1}(N_k, \Sigma_k, \Psi)
+        + \dvertex{2 k + 1}(N_k, N_k, \Psi).
+  \end{aligned}
+\end{equation}
+In the second line, the part with $N_k$ in the slot of $\Sigma_k$ vanishes by symmetry, whatever the other argument.
+The total shift of the action, $D(\Psi; \Sigma, N) := \caction(\Psi, \Sigma + N) - \caction(\Psi, \Sigma)$, is then:
+\begin{equation}
+  \label{ch3:eq:D}
+  \begin{aligned}
+    D(\Psi; \Sigma, N)
+      &
+      = \sum_{k = 2}^{K - 1} 2 a_{k + 1} \, \pair[k + 1]{\Sigma_{k + 1}}{\wprod{k + 1}{k + 1}(\Psi \otimes N_k)}
+      \\ &
+      \quad
+        + \sum_{k = 2}^{K} b_k \Big[
+          2 \, \dvertex{2 k + 1}(N_k, \Sigma_k, \Psi)
+          + \dvertex{2 k + 1}(N_k, N_k, \Psi)
+        \Big].
+  \end{aligned}
+\end{equation}
+Every term of $D$ is linear in $\Psi$.
+The only term of the action quadratic in $\Psi$, the source of $\Sigma_2$, has dropped out: its shift is the pairing of $N_2$ with $\sprod{2}{2}(\Psi^2)$, which vanishes by the symmetry of $\sprod{2}{2}$, and $\Psi$ is not shifted.
+For a single level, \eqref{ch3:eq:D} is the shift~\eqref{pc:eq:all:kernel-shift}.
+
+\paragraph{The equivalence.}
+
+Since $N$ does not depend on $\Psi$, the change of the $\Psi$-equation under the shift is the derivative of $D$:
+\begin{equation}
+  \label{ch3:eq:delta-E}
+  \mathcal E_\Psi(\Psi, \Sigma + N) - \mathcal E_\Psi(\Psi, \Sigma)
+    = \frac{\delta D}{\delta \Psi},
+\end{equation}
+and the change of the equation of $\Sigma_k$ is, up to its normalization in~\eqref{p:eq:all:eom}, the derivative $\delta D / \delta \Sigma_k$.
+If the kernel condition holds, every term of~\eqref{ch3:eq:D} vanishes, the first clause with the arguments $(\Sigma_k, \Psi)$ and $(N_k, \Psi)$, the second with $B = \Psi$; then $D \equiv 0$ and all the equations are the same at $\Sigma$ and at $\Sigma + N$.
+This is the direction used in the paper.
+
+Conversely, suppose that $\mathcal E_\Psi(\Psi, \Sigma + N) = \mathcal E_\Psi(\Psi, \Sigma)$ for all $\Psi$, $\Sigma$ and $N$.
+Then $\delta D / \delta \Psi = 0$, and since $D$ is homogeneous of degree one in $\Psi$, Euler's relation gives:
+\begin{equation}
+  \label{ch3:eq:euler}
+  D(\Psi; \Sigma, N)
+    = \pair{\Psi}{\frac{\delta D}{\delta \Psi}}
+    = 0.
+\end{equation}
+Keep a single non-zero $N_k$ and rescale it, $N_k \to \lambda N_k$.
+The terms of order $\lambda^2$ and $\lambda$ of $D$ vanish separately:
+\begin{equation}
+  \label{ch3:eq:lambda}
+  \begin{gathered}
+    \dvertex{2 k + 1}(N_k, N_k, \Psi)
+      = 0,
+    \\
+    2 a_{k + 1} \, \pair[k + 1]{\Sigma_{k + 1}}{\wprod{k + 1}{k + 1}(\Psi \otimes N_k)}
+      + 2 b_k \, \dvertex{2 k + 1}(N_k, \Sigma_k, \Psi)
+      = 0.
+  \end{gathered}
+\end{equation}
+Since $\Sigma_k$, $\Sigma_{k + 1}$ and $N_k$ are independent variables, we can set $\Sigma_{k + 1} = 0$ in the second relation, which gives $\dvertex{2 k + 1}(N_k, A, \Psi) = 0$ for every $A$, the first clause, for $k \le K$.
+Setting $\Sigma_k = 0$ instead and using the nondegeneracy of the $(k + 1)$-string pairing gives $\wprod{k + 1}{k + 1}(\Psi \otimes N_k) = 0$, the second clause, for $k \le K - 1$.
+Both clauses are linear in the string field, which ranges over the field space, so they hold for every $B$ in its span.
+Hence:
+\begin{equation}
+  \label{ch3:eq:converse}
+  \begin{gathered}
+    \Big(
+      \mathcal E_\Psi(\Psi, \Sigma + N)
+        = \mathcal E_\Psi(\Psi, \Sigma)
+      \ \ \forall \, \Psi, \Sigma, N
+    \Big)
+    \iff
+    D \equiv 0
+    \\
+    \iff
+    \text{the kernel condition, in its field-space form}.
+  \end{gathered}
+\end{equation}
+
+\paragraph{Scope.}
+
+The converse is an off-shell statement.
+On the solution, $\Sigma_k^*$ and $\Sigma_{k + 1}^*$ are fixed functions of $\Psi$, and the order-$\lambda$ relation of~\eqref{ch3:eq:lambda} gives only one combination of the two clauses; moreover, without the condition, $\Sigma^* + N$ is in general not a solution, so that the set of representatives of the solution is not defined.
+At the top level $k = K$ there is no source of a heavier field, and only the first clause is obtained; in the even truncation the top odd coupling is absent, and the first clause at $k = K$ is not needed.
+The clauses obtained hold with $A$, $B$ and $N_k$ in the spaces of the fields, of ghost numbers $2 k$, $2$ and $2 k$.
+The condition~\eqref{pc:eq:hs8:kernel-condition}, written for all $A \in \Hn{k}$ and $B \in \Hs$, is a stronger sufficient condition: for $B$ of ghost number other than $2$, the term $\wprod{k + 1}{k + 1}(B \otimes N_k)$ is not removed by ghost-number counting.
+
+\paragraph{What the converse means.}
+
+Every term through which a kernel direction could reach the action is linear in $\Psi$, so the equation of motion of $\Psi$ alone already sees all of them.
+The kernel condition is therefore not only sufficient for the quotient prescription but forced, as soon as one asks that the equation of the string field not depend on how the auxiliary fields are represented on the quotients, off shell.
+The statement does not say whether the string vertices satisfy the condition, which remains open for $k \ge 3$.
+
+\subsection{Three bookkeepings and the fixed-point theorem}
+\label{ch3:sec:schemes}
+
+The last two blocks come from the earlier pedagogical notes on the construction and its algebraic formulation.
+They compare three ways of organizing the subtractions that the all-orders problem requires, and then prove the all-orders theorem in the bookkeeping that the paper adopts.
+They use the notation of those notes, which differs from the rest of this document as follows.
+
+\begin{quote}
+  \small
+  \textbf{Translation box.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+
+    \item $V_n$ is the elementary vertex $\vertex{n}$; $\tfrac12 V_2 + \tfrac{\gs}{3!} V_3$ is $S_{\le 3}$, the kinetic term and the cubic vertex of $\Psi$.
+
+    \item $V_4(\Sig, \Sig)$ as the kinetic term of $\Sig_2$ is $\vertex{4}(\Sigma_2, \Sigma_2) = \pair[2]{\Sigma_2}{\sprod{2}{2}(\Sigma_2)}$; $V_4^{-1}$ is $\sprod{2}{2}^{-1}$ on the quotient.
+
+    \item $\Sym^k$ is the $k$-string space $\Hn{k}$, and $P_k := \Psi^{\otimes k}$ (the Veronese element) is $\Psi^k$.
+
+    \item Scheme B (dressed, uniform) is the all-order action~\eqref{p:eq:all:action} of this chapter: its running effective vertices $V_{n, \rm eff}$ and $\tilde V_n$ are the reduced vertices $\dvertex{n}$; $\tilde M_k$ is the bare kinetic operator $\wprod{k}{k} = \kin{k}{}{2 k - 2}$; the source $\Mean{\tilde u_k(\Sig_{k - 1}), \Sig_k}$ is $\pair[k]{\Sigma_k}{\wprod{k}{k}(\Psi \otimes \Sigma_{k - 1})}$; $\hat M_k$ is the operator $\kin{k}{\Psi}{2 k - 1}$ dressed by the odd vertex~\eqref{p:eq:all:dressed-odd}; $L_k(\Psi)$ is the source map $\wprod{k}{k}(\Psi \otimes \, \cdot \,)$; $\hat H_k$ is the nested operator~\eqref{p:eq:all:nested}; the tensors $T_n$ of the theorem are the reduced vertices, whose diagonals the recursion~\eqref{ped:eq:diagrec} fixes as~\eqref{p:eq:all:diagonal} does.
+
+    \item Scheme A (minimal) is the presentation with the fewest auxiliary fields, $\Sigma_2$ alone through the sextic order; its $W_6$ is the reduced sextic vertex of the form whose sextic term is written with $\Sigma_2$ alone (\cref{ch:order-by-order}).
+
+    \item Scheme C (elementary, indefinite) is the partner form, and the wrong-sign partner $\chi$ is $\Upsilon_2$ (\cref{ch:partner-field}).
+
+    \item Route B is the order-by-order construction of \cref{ch:order-by-order}, which cubicizes the action one order at a time.
+
+    \item Reality: the notes impose $\Sig^\ddagger = \Sig$, which is $\Sigma_k^\star = (-1)^k \Sigma_k$ in the star convention of this document (\cref{ch:conventions}), since $\ddagger = (-1)^k \star$ on a $k$-string field; a reader who reads $\ddagger$ as $\star$ gets the sign wrong for odd $k$, in particular for $\Sigma_3$.
+      The condition does not appear in these two blocks.
+  \end{itemize}
+\end{quote}
+
+The first block describes the three schemes.
+The results it quotes for the individual orders are stated with their status where they are derived: the quartic to septic orders in \cref{ch:order-by-order}, the wrong-sign partner in \cref{ch:partner-field}.
+The partner bookkeeping beyond the order $\gs^4$, which the block describes as open, is taken up in \cref{ch:partner-field}.
+
+\input{extracted/03/4-ped}
+
+\medskip
+The second block proves the all-orders theorem in scheme B: the Jacobi form of the action in the tower, the continued-fraction kernel, the telescoping contact lemma, the theorem, the gauge laws at all orders, and the instance at order $\gs^6$ checked in a finite-dimensional model.
+Its continued fraction~\eqref{ped:eq:contfrac} is the nested operator~\eqref{p:eq:all:nested}, its telescoping contact lemma corresponds to the collapse lemma of the first block together with its statement that the data of level $k$ first enter the value of the action at the order at which they are introduced, and its gauge law~\eqref{ped:eq:dYall} is the law of the subsection on gauge transformations at all orders.
+
+\noindent\status{Conditional(PH1, PH2 (b), PH5, PH14 [through $A_6$]) + R70 -- Proven} The all-orders fixed-point theorem: within the jointly Gaussian class with a shared parent form for the kinetic term and the source of each level, a cubic action matching the original one exists at every order as a formal power series in $\gs$, with the diagonals of the reduced vertices forced and everything else presentation freedom.
+The scope stated at the end of the block binds: couplings of $(3, 3, 2)$ type at $n \ge 8$, the convergence of the continued fraction and the analytic properties of the nested operators for the string vertices are not covered.\record{019-b7-allorders-fixed-point (R26)}
+
+\input{extracted/03/5-ped}

@@ -1,0 +1,884 @@
+\section{Momentum space and the kinetic operator of $\Sigma_2$}
+\label{ch:momentum-space}
+
+This chapter treats the quadratic term of the auxiliary field $\Sigma_2$ as what it is in momentum space: at fixed total momentum, an integral operator in the relative momentum of the two strands.
+The first section writes the multilocal fields in Jacobi variables and shows that every quadratic term is diagonal in the total momentum.
+The second proves, at level zero and for the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed}, that this operator is Hilbert--Schmidt, strictly definite at every real squared momentum and trace class.
+The third studies the operator at a fixed mass level: it is an entire family of compact operators, analyticity alone does not make its singular set discrete, a Fredholm hypothesis and a hypothesis on the exchange of single-string states do, and none of the selection rules we know forces a null vector.
+The paper states the three assumptions on the propagator of $\Sigma_2$ and the heuristic argument behind the first one in a few paragraphs of its section on the quartic order, and the momentum-space form of the fields in its worldsheet section; both texts are reproduced here, and the proofs behind them, which the paper does not contain, are given in full.
+
+\subsection{Jacobi variables and the diagonal total momentum}
+\label{sec:mom:jacobi}
+
+\status{mixed}\record{072-momentum-space-auxiliaries (R78)}
+
+The definition of $\Sigma_n$ in momentum space, the change to Jacobi variables, the diagonal form of the quadratic term and the reduction of a translation-invariant configuration are exact.
+The level-zero form of the action, its equation of motion and the absence of a null function at level zero hold under the hypotheses of \cref{sec:mom:level-0}, from which they are transcribed; how far the level-zero kernel extends in the relative momentum is not settled.
+
+The text below is the momentum-space part of the paper's worldsheet section, in the paper's notation: $\sprod{2}{2}$ is the quadratic vertex of $\Sigma_2$, $\vertex{n}$ the $n$-point vertex, and $V_4(P; q', q)$ the level-zero kernel at total momentum $P$ between pairs of relative momenta $q'$ and $q$.
+\Cref{sec:mom:level-0} uses its relative momentum $q$, with $k_{1, 2} = P / 2 \pm q$, and its kernel~\eqref{p:eq:ws:level-0-kernel}.
+
+\input{extracted/04/1-p}
+
+\subsection{Level zero: a Hilbert--Schmidt, definite, trace-class kernel}
+\label{sec:mom:level-0}
+
+At level zero the pair kernel of $\Sigma_2$ is a single function of the two relative momenta, and its properties can be decided completely.
+Three inputs are used throughout this section, and we state them once.
+
+\emph{Euclidean relative momenta.}
+The relative momenta $q, q' \in \R^{26}$ of the two pairs are Wick-rotated, while the total momentum $P$ stays an unrotated external label, with $s = P^2$ of either sign.
+This is the prescription under which the off-shell Feynman rules of string field theory are defined (loop and relative momenta rotated, external momenta kept as labels), and we adopt it as part of the definition of the theory: string field theory is defined from the Euclidean theory and then rotated.
+The space of the tachyon-pair component $\sigma(P, q)$ at fixed $P$ is then $L^2_{\rm even}(\R^{26})$, the even functions of the Euclidean $q$.
+
+\emph{The vertex family.}
+We use the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed} at its declared section, with two of its properties: the mapping radii are given in closed form, $\rho_a = c(Z) \prod'_{b \ne a} \abs{z_{ab}}$ with $c(Z) = \beta^{-1} (\abs{Z} \abs{1 - Z})^{-1/2}$ the same at the four punctures, and the four-point contact term is the equivariant assembly of twelve tiles of equal weight.
+Under these two properties the four-tachyon contact term depends on the momenta only through the Mandelstam invariants, and with $S = s + t + u$ it reads
+\begin{equation}
+  \label{eq:mom:F}
+  F(s, t, u)
+    = 2 \beta^{8 - \alpha' S / 2} \sum_{(x, y, z) \in S_3(s, t, u)} J\Big( \frac{\alpha'}{4} (x - y - z), \frac{\alpha'}{4} (y - x - z) \Big),
+  \qquad
+  J(a, b)
+    = \int_R \abs{Z}^{a} \abs{1 - Z}^{b} \, \dd^2 Z,
+\end{equation}
+where the sum runs over the six orderings of $(s, t, u)$ and $R$ is the part of the vertex region $\mathcal V_{0, 4}$ in a fundamental domain of the cross-ratio, a fixed bounded region at positive distance from $Z = 0, 1, \infty$.
+Each $J$ is an entire function of exponential type of its two exponents.
+
+\emph{The stub parameter.}
+The parameter $\beta$ of the family sets the Gaussian decay of the kernel, and every statement of this section holds for $\beta > \sqrt{2}$, which covers both values $\beta = \tfrac{3}{2}$ and $\beta = 2$ considered in~\cite{Erbin:2026:SL2CVerticesClosed}.
+
+We write the level-zero kernel as
+\begin{equation}
+  \label{eq:mom:KP}
+  K_P(q', q)
+    := C \, F\big( P^2, (q + q')^2, (q - q')^2 \big),
+  \qquad
+  t
+    = \rho^2 + \lambda^2 + 2 \rho \lambda x,
+  \quad
+  u
+    = \rho^2 + \lambda^2 - 2 \rho \lambda x,
+\end{equation}
+with $\rho = \abs{q}$, $\lambda = \abs{q'}$, $x = \hat q \cdot \hat q'$, and $C$ a real nonzero constant that collects the normalization of the correlator (the overall constant of the vertex, the ghost normalization, the tachyon norm, the factors of $2\pi$); the vertex $V_4$ of~\eqref{p:eq:ws:level-0-kernel} is the case $C = 1$, up to the normalization conventions below.
+Such a constant rescales every eigenvalue by the same factor and moves no zero, no null vector and no convergence property, so the statements below hold for either sign of $C$; the definiteness theorem is stated for $\sign(C) \, K_P$.
+In the normalization of the action the level-zero kernel is $\tfrac{1}{2} \abs{C} F$, which is positive.
+The numerical values quoted below are at $C = 1$, in the normalization of the correlator in which they were computed in~\cite{Erbin:2026:SL2CVerticesClosed}; the normalization of \cref{ch:conventions} multiplies them by $\tfrac{1}{2}$.
+
+\subsubsection{The kernel as an operator}
+\label{sec:mom:hs}
+
+\status{mixed}\record{049-kp-pair-kernel (R51)}
+
+The operator properties below (symmetry, rotation invariance, Gaussian bound, Hilbert--Schmidt property, entire dependence on $s$, partial-wave reduction, constant pairing) are proven under the three inputs above.
+The spectrum quoted at the end of the section is numerical: s-wave only, at $\beta = \tfrac{3}{2}$ and $\alpha' P^2 \in \{4, \tfrac{16}{3}\}$.
+
+\paragraph{Evenness, symmetry and rotation invariance.}
+The kernel acts on the component $\sigma(q)$ of $\Sigma_2$ along the pair $T(\tfrac{P}{2} + q) \, T(\tfrac{P}{2} - q)$.
+That pair is invariant under $q \to - q$, so $\sigma$ is even.
+The kernel is consistent with this: $q' \to - q'$ exchanges $t$ and $u$, and $F$ is symmetric under every permutation of $(s, t, u)$, so $K_P(q', - q) = K_P(q', q)$ and $K_P$ annihilates the odd functions, which are not in $\Sym^2$ in the first place.
+For the same reason $K_P(q', q) = K_P(q, q')$, and $K_P$ is real at real $s$.
+By~\eqref{eq:mom:KP} the kernel depends on $(q, q')$ only through $\rho$, $\lambda$ and $x$: the total momentum has dropped out of the relative-momentum dependence, so the kernel is invariant under the full rotation group $\group{O}(26)$ although $P$ singles out a direction.
+Without the equality of the mapping radii, the individual $k_a^2$ would bring in $q \cdot P$ and $q' \cdot P$, and only the stabilizer $\group{O}(25)$ of $P$ would survive.
+
+\paragraph{The pairing is the BPZ pairing.}
+The BPZ pairing of two tachyon pairs is, with the momentum delta functions, proportional to $\delta(k_1 + k_3) \, \delta(k_2 + k_4) + \delta(k_1 + k_4) \, \delta(k_2 + k_3)$.
+At fixed total momentum this is $g_T^2 \, [\delta(q - q') + \delta(q + q')]$ in the relative momenta, $g_T$ being the norm of a single tachyon, that is $2 g_T^2$ times the identity on even functions.
+On the level-zero block the BPZ pairing is therefore a constant, the operator associated with $\sprod{2}{2}$ through it is a constant multiple of $K_P$, and the bilinear form $\int \sigma \sigma' \, \dd^{26} q$ on even functions is the restriction of the BPZ form.
+The inner product used below for compactness and self-adjointness is not auxiliary at level zero.
+It is sesquilinear while the BPZ form is bilinear, but the two coincide on real functions, and a real symmetric kernel at real $s$ has real eigenfunctions, so at real $s$ they give the same kernels, ranges and eigen-expansions.
+Above level zero the BPZ pairing is indefinite and this identification is lost (\cref{sec:mom:operator}).
+
+\paragraph{Gaussian bound.}
+On the quadrant $t, u \ge 0$ the contact term obeys $\abs{F} \le c_s \, \beta^{- \alpha' (t + u) / 2} \, 2^{\alpha' \abs{t - u} / 4}$, with $c_s$ depending on $s$ only.
+With~\eqref{eq:mom:KP}, $t + u = 2 (\rho^2 + \lambda^2)$ and $\abs{t - u} = 4 \rho \lambda \abs{x} \le 2 (\rho^2 + \lambda^2)$, so
+\begin{equation}
+  \label{eq:mom:gaussian-bound}
+  \abs{K_P(q', q)}
+    \le \abs{C} \, c_s \exp\Big[ - \alpha' (\rho^2 + \lambda^2) \Big( \ln \beta - \frac{1}{2} \ln 2 \Big) \Big].
+\end{equation}
+This is a Gaussian in $(q, q') \in \R^{52}$ if and only if $\beta > \sqrt{2}$; the rate is $0.0589$ at $\beta = \tfrac{3}{2}$ and $0.347$ at $\beta = 2$ (in units of $\alpha'$).
+Hence $\iint \abs{K_P}^2 \, \dd^{26} q \, \dd^{26} q' < \infty$: $K_P$ is Hilbert--Schmidt, so compact, and self-adjoint on $L^2_{\rm even}(\R^{26})$ at every real $s$, timelike included.
+Its spectrum is real and discrete and accumulates only at $0$.
+For complex $s$, $\abs{Z^{a}} = \abs{Z}^{\Re a} \e^{- \Im a \arg Z}$ with $\arg Z \in [0, \pi]$ on $R$, so the bound holds with $\Re s$ times a factor $\e^{\pi \alpha' \abs{\Im s} / 2}$ per tile, uniformly on compact sets.
+Since each $J$ is entire, $s \mapsto K_P(s)$ is an entire Hilbert--Schmidt-operator-valued function, complex-symmetric rather than self-adjoint off the real axis.
+The Gaussian bound gives Hilbert--Schmidt and no more; trace class follows from the definiteness of \cref{sec:mom:definite}, in \cref{sec:mom:trace}.
+
+\paragraph{Partial waves.}
+Since $K_P$ is $\group{O}(26)$-invariant it commutes with the decomposition $L^2(\R^{26}) = \bigoplus_n L^2(\lambda^{25} \dd \lambda) \otimes \mathcal Y_n$ into spherical harmonics of degree $n$ on $S^{25}$, of dimension $\dim \mathcal Y_n = \binom{n + 25}{25} - \binom{n + 23}{25}$.
+By the Funk--Hecke formula, for $f(q') = g(\lambda) \, Y_n(\hat q')$,
+\begin{equation}
+  \label{eq:mom:funk-hecke}
+  (K_P f)(q)
+    = Y_n(\hat q) \int_0^\infty \lambda^{25} \, k_n(\rho, \lambda) \, g(\lambda) \, \dd \lambda,
+  \qquad
+  k_n(\rho, \lambda)
+    = \abs{S^{24}} \int_{-1}^1 K_P(\rho, \lambda, x) \, \frac{C^{(12)}_n(x)}{C^{(12)}_n(1)} \, (1 - x^2)^{23/2} \, \dd x,
+\end{equation}
+with $C^{(12)}_n$ the Gegenbauer polynomials.
+The kernel is even in $x$, so $k_n = 0$ for odd $n$: only even partial waves occur, which is the evenness of $\sigma$ again.
+Each $k_n$ is a real symmetric kernel on $L^2([0, \infty), \lambda^{25} \dd \lambda)$, and the spectrum of $K_P$ is the union over even $n$ of the spectra of the $k_n$, each eigenvalue with multiplicity $\dim \mathcal Y_n$.
+The problem is thus one-dimensional, radial, per partial wave.
+
+\paragraph{What ``invertible on the quotient'' means for this operator.}
+The operator $K_P$ is compact, so the finite-dimensional notions must be replaced.
+The quotient by the kernel is $(\ker K_P)^\perp$; for a compact self-adjoint operator the algebraic quotient and the closure of the range coincide, so no choice is needed at level zero.
+On the quotient $K_P$ is injective with dense range, and its inverse is unbounded, since the eigenvalues accumulate at $0$.
+``Invertible on the quotient'' can then mean three things: injective on the quotient, which is automatic; injective with $\ker K_P = 0$ at the external $s$, which is the real content; or a bounded inverse, which is false for every compact operator and is not what the paper asks.
+A determinant $\det V_4(P^2)$ does not exist: the product of the eigenvalues of a compact operator is zero or undefined, and $K_P$ is not of the form identity plus trace class.
+Its stand-in is a zero of an eigenvalue branch $\mu_{n, j}(s)$, equivalently a nontrivial $\ker K_P(s)$, which is the same statement as the failure of $\ker K_P(s) = 0$.
+At complex $s$ a null vector produces a pole of the propagator only if it is non-isotropic in the bilinear form, $\int \lambda_0 \lambda_0 \, \dd^{26} q \ne 0$.
+Finally, the two-string sum over intermediate states, in the eigenbasis $\lambda_I$ of $K_P$ ($I = (n, m, j)$: partial wave, magnetic index, radial index), is the eigen-expansion of the kernel,
+\begin{equation}
+  \label{eq:mom:eigen-expansion}
+  \sum_I \mu_I \, \lambda_I(q_0) \, \lambda_I(q_0')
+    \longrightarrow K_P(q_0, q_0'),
+\end{equation}
+taken at the relative momenta of the external tachyons, which are momentum eigenstates and not $L^2$ functions.
+For an indefinite kernel this pointwise convergence is not guaranteed, so the question is the absolute convergence of~\eqref{eq:mom:eigen-expansion}, which \cref{sec:mom:trace} settles.
+
+\paragraph{The spectrum.}
+A Nyström discretization of the s-wave kernel $k_0$ at $\beta = \tfrac{3}{2}$, $\alpha' P^2 = \tfrac{16}{3}$ gives the leading eigenvalues $4.271166 \times 10^9$, $1.025805 \times 10^9$, $2.539275 \times 10^8$ (at $C = 1$), converged to $5 \times 10^{-7}$ under radial refinement; the five leading eigenvalues are positive at $C = 1$ at both $\alpha' P^2 = 4$ and $\tfrac{16}{3}$.
+Along the diagonal $\rho = \lambda$ the s-wave kernel decays at the rate $2 \ln \beta - \ln 2$ per unit of $\alpha' \rho^2$, set by the edge of the quadrant $t, u \ge 0$ rather than by its diagonal, and off the diagonal it is a narrow Gaussian ridge of width $(\alpha' \ln \beta)^{-1/2}$ along $\rho = \lambda$.
+A discretization must resolve that width: a radial spacing of at most $0.4$ and a cutoff $\Lambda \ge 12$ at $\beta = \tfrac{3}{2}$.
+At $\beta = 2$ the spectrum falls faster, the ratio of successive s-wave eigenvalues being about $0.11$ against $0.25$ at $\beta = \tfrac{3}{2}$, and the leading eigenvalue of the degree-$n$ wave decays geometrically in $n$, the ratio of the leading eigenvalues of the waves $n$ and $n - 2$ rising from $0.023$ ($n = 2$) to $0.080$ ($n = 30$).
+
+The physical content of this section is that the level-zero kinetic term of $\Sigma_2$ is a smooth Gaussian kernel in the relative momentum, not a local differential operator.
+Its Gaussian decay is the stub of the vertex, and it is what makes the operator compact.
+Compactness is also why its inverse, the propagator of $\Sigma_2$, is unbounded: the propagator is defined on the range of the kernel, and the question of which sources lie in that range is the second assumption of \cref{sec:mom:fixed-level}.
+
+\subsubsection{Definiteness at every real momentum}
+\label{sec:mom:definite}
+
+\status{Conditional(PH25, PH29, PH30) -- Proven}\record{050-kp-real-s (R53)}
+
+The theorem of this section is that $\sign(C) \, K_P(s)$ is strictly positive definite on $L^2_{\rm even}(\R^{26})$ at every real $s$, under the three inputs of \cref{sec:mom:level-0}.
+The proof is analytic; the Nyström spectra are spot-checks.
+Numerics cannot decide the question by themselves: the eigenvalues of a Hilbert--Schmidt operator accumulate at $0$, so every discretization has eigenvalues below any threshold, and a criterion must separate an exact zero from the accumulation point.
+
+\paragraph{The six terms as separable kernels.}
+By~\eqref{eq:mom:F} and~\eqref{eq:mom:KP}, at $C = 1$,
+\begin{equation}
+  \label{eq:mom:six-terms}
+  K_P(q', q)
+    = 2 \beta^{8 - \alpha' s / 2} \, \beta^{- \alpha' (\rho^2 + \lambda^2)} \sum_{(x, y, z) \in S_3(s, t, u)} \int_R \abs{Z}^{\alpha' (x - y - z) / 4} \, \abs{1 - Z}^{\alpha' (y - x - z) / 4} \, \dd^2 Z,
+  \qquad
+  t + u
+    = 2 (\rho^2 + \lambda^2),
+  \quad
+  t - u
+    = 4 \, q \cdot q'.
+\end{equation}
+Each exponent is linear in $s$, in $\rho^2 + \lambda^2$ and in $q \cdot q'$, and the coefficient of $\rho^2 + \lambda^2$ is the same for $\rho^2$ and for $\lambda^2$.
+Substituting $t$ and $u$ term by term therefore gives an integrand of the form $w_i(Z) \, \phi_{i, Z}(q) \, \phi_{i, Z}(q') \, \e^{c_i(Z) \, q \cdot q'}$:
+\begin{center}
+  \begin{tabular}{cccc}
+    \toprule
+    $(x, y, z)$ & $w_i(Z) / [2 \beta^{8 - \alpha' s / 2}]$ & $\phi_{i, Z}(q)$ & $c_i(Z)$ \\
+    \midrule
+    $(s, t, u)$ & $\abs{Z}^{\alpha' s / 4} \abs{1 - Z}^{- \alpha' s / 4}$ & $(\beta^2 \abs{Z})^{- \alpha' \rho^2 / 2}$ & $+ \alpha' \ln \abs{1 - Z}$ \\
+    $(s, u, t)$ & same & same & $- \alpha' \ln \abs{1 - Z}$ \\
+    $(t, s, u)$ & $\abs{Z}^{- \alpha' s / 4} \abs{1 - Z}^{\alpha' s / 4}$ & $(\beta^2 \abs{1 - Z})^{- \alpha' \rho^2 / 2}$ & $+ \alpha' \ln \abs{Z}$ \\
+    $(u, s, t)$ & same & same & $- \alpha' \ln \abs{Z}$ \\
+    $(t, u, s)$ & $\abs{Z (1 - Z)}^{- \alpha' s / 4}$ & $\beta^{- \alpha' \rho^2}$ & $+ \alpha' \ln \abs{Z / (1 - Z)}$ \\
+    $(u, t, s)$ & same & same & $- \alpha' \ln \abs{Z / (1 - Z)}$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+For instance, for $(s, t, u)$ the two exponents are $\alpha' (s - t - u) / 4 = \alpha' s / 4 - \alpha' (\rho^2 + \lambda^2) / 2$ and $\alpha' (t - s - u) / 4 = \alpha' q \cdot q' - \alpha' s / 4$.
+Every $w_i$ is positive on $R$ for every real $s$, every $\phi_{i, Z}$ is positive and every $c_i$ is real; in particular $K_P(q', q) > 0$ pointwise at $C = 1$.
+Pointwise positivity of a kernel does not make the operator positive, and the content of the theorem is in the next step.
+
+\paragraph{Lemma: the exponential kernel on even functions.}
+Let $g = \e^{- a \rho^2} f$ with $f \in L^2(\R^D)$ real and even, $a > 0$, and $c \in \R$ with $\abs{c} < 2 a$.
+Then
+\begin{equation}
+  \label{eq:mom:lemma}
+  Q_c[g]
+    := \iint g(q) \, g(q') \, \e^{c \, q \cdot q'} \, \dd^D q \, \dd^D q'
+    = \sum_{m \ge 0} \frac{c^{2 m}}{(2 m)!} \sum_{i_1, \ldots, i_{2 m}} \Big( \int g(q) \, q_{i_1} \cdots q_{i_{2 m}} \, \dd^D q \Big)^2
+    \ge 0,
+\end{equation}
+and if $c \ne 0$, $Q_c[g] = 0$ if and only if $g = 0$.
+To prove it, expand $\e^{c \, q \cdot q'} = \sum_m c^m (q \cdot q')^m / m!$.
+The sum commutes with the double integral by dominated convergence: the dominant $\abs{g(q)} \abs{g(q')} \e^{\abs{c} \rho \lambda}$ has integral at most $\|f\|_2^2 \, \|\e^{- a (\rho^2 + \lambda^2) + \abs{c} \rho \lambda}\|_{L^2(\R^{2D})}$ by Cauchy--Schwarz, which is finite if and only if the quadratic form $a (\rho^2 + \lambda^2) - \abs{c} \rho \lambda$ is positive definite, that is $2 a > \abs{c}$.
+The odd powers vanish by $q \to - q$, and $(q \cdot q')^{2 m} = \sum_I q^I q'^I$ over the multi-indices $I$ of length $2 m$ makes each even term a sum of squares.
+If $Q_c[g] = 0$ with $c \ne 0$, every even moment $\int g \, q^I$ vanishes, and the odd ones vanish by parity.
+The Fourier transform $\hat g(k) = \int g \, \e^{- \I k \cdot q} \, \dd^D q$ is entire on $\C^D$, since $\int \abs{g} \, \e^{b \abs{q}} < \infty$ for every $b$ by the same Cauchy--Schwarz, and its Taylor coefficients at $k = 0$ are the moments; so $\hat g \equiv 0$ and $g = 0$ almost everywhere.
+On even functions the sign of $c$ is irrelevant, because the odd powers drop out, and the equality case is moment determinacy, available because $g$ carries a Gaussian factor.
+
+\begin{theorem}[Definiteness of the level-zero kernel]
+  \label{thm:mom:definite}
+  Under the Euclidean prescription and the two properties of the vertex family stated above, for every real $s$, every $\beta > \sqrt{2}$ and $C \ne 0$,
+  \begin{equation}
+    \label{eq:mom:definite}
+    \ker K_P(s)
+      = \{0\}
+    \ \text{on } L^2_{\rm even}(\R^{26}),
+    \qquad
+    \sign(C) \, K_P(s)
+      > 0.
+  \end{equation}
+\end{theorem}
+
+\paragraph{Proof.}
+Let $f \in L^2_{\rm even}(\R^{26})$ be real, and take $C = 1$.
+By Tonelli,
+\begin{equation}
+  \label{eq:mom:form-decomposition}
+  \langle f, K_P f \rangle
+    = \int_R \dd^2 Z \sum_{i = 1}^6 w_i(Z) \, Q_{c_i(Z)}\big[ \phi_{i, Z} f \big],
+\end{equation}
+the integrand being $\abs{f} \abs{f'}$ times a positive function whose $Z$-integral is $K_P$ itself, with $\iint \abs{f} K_P \abs{f} \le \|f\|^2 \|K_P\|_{\rm HS} < \infty$.
+Each $\phi_{i, Z} f$ has the form of the lemma, with $2 a_i(Z) - \abs{c_i(Z)}$ equal to $\alpha' [2 \ln \beta + \ln \abs{Z} - \ln \abs{1 - Z}]$ for the first two terms, $\alpha' [2 \ln \beta + \ln \abs{1 - Z} - \ln \abs{Z}]$ for the next two, and $\alpha' [2 \ln \beta - \abs{\ln \abs{(1 - Z) / Z}}]$ for the last two.
+On $R$ one has
+\begin{equation}
+  \label{eq:mom:region}
+  1
+    \le \abs{Z}
+    \le \abs{1 - Z}
+    \le 2 \abs{Z}:
+\end{equation}
+the functions $\ln \abs{Z}$, $\ln \abs{1 - Z} - \ln \abs{Z}$ and $\ln \abs{1 - Z} - \ln \abs{Z} - \ln 2$ are harmonic on the bounded region $R$, so their extrema lie on its boundary, where the three inequalities are read off the four arcs (the real segment ending at the corner $Z = -1$, where $\abs{1 - Z} = 2 \abs{Z}$; the unit circle; the vertical segment $\Re Z = \tfrac{1}{2}$, where $\abs{1 - Z} = \abs{Z}$; the arc of the vertex region).
+Hence all six $2 a_i - \abs{c_i} \ge \alpha' (2 \ln \beta - \ln 2) > 0$ for $\beta > \sqrt{2}$, the worst case being the last term at the corner $Z = -1$; this is the same rate as in~\eqref{eq:mom:gaussian-bound}.
+Every $Q$ in~\eqref{eq:mom:form-decomposition} is then non-negative and every $w_i$ positive, so $\langle f, K_P f \rangle \ge 0$.
+If the form vanishes, all six $Q_{c_i(Z)}[\phi_{i, Z} f]$ vanish for almost every $Z \in R$.
+The fifth term has $c_5(Z) = \alpha' \ln \abs{Z / (1 - Z)} \ne 0$ off the line $\Re Z = \tfrac{1}{2}$, which has measure zero in the two-dimensional region $R$, so the lemma gives $\beta^{- \alpha' \rho^2} f = 0$, that is $f = 0$.
+Since $K_P$ is bounded, self-adjoint and non-negative, $K_P f = 0$ if and only if $\|K_P^{1/2} f\|^2 = \langle f, K_P f \rangle = 0$, which proves~\eqref{eq:mom:definite} at $C = 1$; a constant of either sign multiplies the form by its sign. \qed
+
+The proof uses the collapse of the contact term to the Mandelstam invariants, the positivity of the integrand of each $J$, the linearity of the exponents in $\rho^2 + \lambda^2$ and $q \cdot q'$, and evenness.
+It uses neither $D = 26$ nor the value of $s$ beyond its reality, nor any property of $R$ beyond positive measure off $\Re Z = \tfrac{1}{2}$.
+The reality of $s$ enters at the last step, where the form is a norm: at complex $s$ the weights $w_i$ are complex and nothing of the argument survives.
+
+\paragraph{Consequences.}
+Every eigenvalue $\mu_{n, j}(s)$ of every partial wave has the sign of $C$ at every real $s$, so no eigenvalue branch has a real zero: zeros of branches, if any, are strictly complex.
+A residual weight common to the four punctures, $\mu^{\alpha' (\rho^2 + \lambda^2)}$, multiplies each $\phi_{i, Z}$ by $\mu^{\alpha' \rho^2}$ and changes nothing as long as the kernel stays Hilbert--Schmidt, $\mu < \beta / \sqrt{2}$.
+The operator associated with $\sprod{2}{2}$ on the level-zero block is injective with dense range, so its inverse undoes it on its range and on all of $L^2_{\rm even}$ from the other side, which is what the propagator needs at level zero.
+The theorem excludes $0$ as an eigenvalue; it does not exclude a branch tending to $0$ with degenerating eigenvectors, and it says nothing about complex $s$, about the blocks above level zero, or about the rate at which the eigenvalues accumulate at $0$.
+As a spot-check, the Nyström spectra at $\beta = 2$ of every wave $n \le 30$ at $\alpha' P^2 \in \{4, \tfrac{16}{3}, -10\}$, and of every wave $n \le 16$ at eight real values of $s$ in $[-10, 8]$, have no eigenvalue below $-10^{-13}$ times the leading one, and their resolved eigenvalue ladders are stable under refinement.
+
+Physically, each point $Z$ of the vertex region contributes a positive kernel on even functions, $w \, \phi \otimes \phi \, \e^{c \, q \cdot q'}$, and the region is two-dimensional, so the exponent $c$ takes nonzero values on a set of positive measure and the sum is strictly positive.
+The tachyon pair cannot hide from the quartic vertex: at level zero and real momentum, every pair configuration has a nonzero quadratic term.
+What makes this work is specific to level zero, where the vertex at each point of the moduli space is a positive kernel; above level zero the oscillator polynomials change sign between components, and the mechanism fails (\cref{sec:mom:operator}).
+
+\subsubsection{Trace class and the eigen-expansion}
+\label{sec:mom:trace}
+
+\status{Conditional(PH25, PH29, PH30) -- Proven}\record{050-kp-real-s (R55)}
+
+The result is that the eigen-expansion of $K_P(s)$ converges absolutely at every pair of points, the external relative momenta included, and that $K_P(s)$ is trace class, for every real $s$, $\beta > \sqrt{2}$ and $C \ne 0$.
+It follows from \cref{thm:mom:definite} by Mercer's theorem.
+It concerns the sum over the relative momentum on the tachyon-pair block, in the eigenbasis of $K_P$; the sum over the levels of the strands, the levels above zero and complex $s$ remain open.
+We take $C = 1$; for $C < 0$ the same holds for $- K_P$.
+
+\paragraph{The hypotheses of Mercer's theorem.}
+Let $X = \R^{26}$ with Lebesgue measure, which is $\sigma$-finite and gives positive measure to every open set, and $K = K_P(s)$ at real $s$.
+(a) $K$ is continuous on $\R^{52}$: $F$ is entire in $(s, t, u)$ and $(q, q') \mapsto (t, u)$ is polynomial.
+(b) $K$ is symmetric, and positive semi-definite on all of $L^2(\R^{26})$: by \cref{thm:mom:definite} it is positive on the even sector, and it annihilates the odd sector, so $K = K|_{\rm even} \oplus 0$ and $\langle f, K f \rangle = \langle f_e, K f_e \rangle \ge 0$ for every $f$; for a continuous kernel and a measure of full support this is equivalent to $\sum_{a, b} c_a c_b K(q_a, q_b) \ge 0$ for every finite family of points.
+(c) The diagonal is integrable: at $q = q'$, $t = 4 \rho^2$, $u = 0$, and~\eqref{eq:mom:gaussian-bound} gives $0 < K(q, q) \le c_s \, \e^{- 2 \alpha' \rho^2 (\ln \beta - \ln 2 / 2)}$, so
+\begin{equation}
+  \label{eq:mom:trace}
+  \tr K
+    := \int K(q, q) \, \dd^{26} q
+    = \abs{S^{25}} \int_0^\infty F(s, 4 \rho^2, 0) \, \rho^{25} \, \dd \rho
+    < \infty.
+\end{equation}
+(d) $K$ is Hilbert--Schmidt (\cref{sec:mom:hs}), so compact and self-adjoint, with eigenvalues $\mu_k \ge 0$ (positive on the even sector, zero on the odd one) and orthonormal eigenfunctions $\psi_k$, each continuous when $\mu_k > 0$ by dominated convergence under the Gaussian bound.
+
+\paragraph{The expansion.}
+Mercer's theorem for a continuous, symmetric, positive semi-definite kernel with integrable diagonal on a $\sigma$-finite space of full support (I.~Steinwart and C.~Scovel, Constr.\ Approx.\ 35 (2012) 363--417) states
+\begin{equation}
+  \label{eq:mom:mercer}
+  K(q, q')
+    = \sum_k \mu_k \, \psi_k(q) \, \psi_k(q')
+  \quad
+  \text{absolutely at every } (q, q'), \text{ uniformly on compact sets},
+  \qquad
+  \sum_k \mu_k
+    = \tr K
+    < \infty.
+\end{equation}
+The two steps that carry the conclusion are short, and we give them.
+First, for every $N$ the remainder $K - \sum_{k \le N} \mu_k \psi_k \otimes \psi_k$ is a continuous positive semi-definite kernel, being $K$ restricted to the orthogonal complement of $\psi_1, \ldots, \psi_N$, so its diagonal is non-negative: $\sum_{k \le N} \mu_k \psi_k(q)^2 \le K(q, q)$ for every $q$ and $N$.
+The series $\sum_k \mu_k \psi_k(q)^2$ therefore converges, and by Cauchy--Schwarz
+\begin{equation}
+  \label{eq:mom:absolute}
+  \sum_k \mu_k \, \abs{\psi_k(q) \, \psi_k(q')}
+    \le \big( K(q, q) \, K(q', q') \big)^{1/2}
+    < \infty,
+\end{equation}
+which is the absolute convergence at every pair of points.
+Second, for fixed $q$ the function $K(q, \cdot) \in L^2(\R^{26})$ is orthogonal to $\ker K$, so $K(q, \cdot) = \sum_k \mu_k \psi_k(q) \psi_k(\cdot)$ in $L^2$; by the same Cauchy--Schwarz, with $\sum_{k > N} \mu_k \psi_k(q)^2 \to 0$, the series converges uniformly in $q'$ on compact sets, so its sum is continuous, equal to $K(q, q')$ almost everywhere and hence everywhere.
+In particular $\sum_k \mu_k \psi_k(q)^2 = K(q, q)$; Dini's theorem then makes the diagonal series converge uniformly on compact sets, and monotone convergence gives the trace formula.
+$K$ is positive with finite trace, hence trace class, which strengthens the Hilbert--Schmidt property of \cref{sec:mom:hs}.
+
+\paragraph{Partial waves and the external points.}
+The eigenfunctions are $\psi_{n, j}(\rho) \, Y(\hat q)$ with $Y \in \mathcal Y_n$ and $n$ even, and the addition theorem $\sum_{Y \in \mathcal Y_n} Y(\hat q) \, Y(\hat q') = \dim \mathcal Y_n \, P_n(x) / \abs{S^{25}}$, with $P_n = C^{(12)}_n / C^{(12)}_n(1)$, turns~\eqref{eq:mom:mercer} into
+\begin{equation}
+  \label{eq:mom:partial-wave-expansion}
+  K_P(q, q')
+    = \sum_{n \text{ even}} \frac{\dim \mathcal Y_n \, P_n(x)}{\abs{S^{25}}} \sum_j \mu_{n, j} \, \psi_{n, j}(\rho) \, \psi_{n, j}(\lambda),
+  \qquad
+  \tr K_P
+    = \sum_{n \text{ even}} \dim \mathcal Y_n \sum_j \mu_{n, j},
+\end{equation}
+both absolutely convergent.
+At the on-shell point $q' = q$ ($x = 1$, $P_n(1) = 1$) every term is positive, so absolute and plain convergence coincide and~\eqref{eq:mom:absolute} is saturated: this is the slowest point for the expansion.
+At generic $x$ the $P_n(x)$ alternate and are $O(n^{-12})$ for $\abs{x} < 1$, so the sum over $n$ converges faster.
+The multiplicity $\dim \mathcal Y_n$ grows like $n^{24}$ while the eigenvalues fall geometrically, so the product peaks at $n = 8$ and then decays with ratio, per step of two in $n$, approaching $0.27$ at $\beta = 2$: absolute convergence at $x = 1$ is a geometric tail after a polynomial prefactor.
+At $\beta = 2$ and $C = 1$ the trace~\eqref{eq:mom:trace} is $2.4572668 \times 10^9$ at $\alpha' P^2 = \tfrac{16}{3}$ and $4.8675173 \times 10^9$ at $\alpha' P^2 = 4$; the partial sums $\sum_n \dim \mathcal Y_n \tr M_n$ of the Nyström matrices reach the direct radial integral to $1.2 \times 10^{-8}$, and the number of terms needed for a fixed pointwise accuracy is stable under refinement of the discretization.
+These numbers are spot-checks; the result rests on~\eqref{eq:mom:mercer} and~\eqref{eq:mom:absolute}.
+
+\paragraph{What this gives for the two-string sum.}
+The completeness of two-string states and the convergence of their sum, in the form interchangeable with the propagator, is the statement that, for external states $\Phi, \Psi$, the partial sums of $\sum_I \sprod{2}{2}(\Phi, \lambda_I^\vee) \, \langle \lambda_I, \Psi \rangle$ converge to the quartic vertex, where $\lambda_I^\vee$ is the image of $\lambda_I$ under the inverse of the operator associated with $\sprod{2}{2}$.
+At level zero the BPZ pairing is a constant on the block, so in the eigenbasis of $K_P$ the inverse acts on $\lambda_I$ by $1 / \mu_I$ up to that constant, and each term is $\mu_I \langle \Phi, \lambda_I \rangle \langle \lambda_I, \Psi \rangle$: the interchange with the inverse is exact term by term.
+For external tachyon momentum eigenstates the partial sums are those of~\eqref{eq:mom:eigen-expansion}, which~\eqref{eq:mom:absolute} makes absolutely convergent and~\eqref{eq:mom:mercer} makes equal to $K_P(q_0, q_0')$; no ordering of the terms is needed.
+Completeness is the contribution of \cref{thm:mom:definite}: $\ker K_P = 0$ means that the eigenfunctions with $\mu > 0$ span the level-zero pair space, so the resolution of the identity inserted in the sum misses nothing.
+The paper writes the sum in the momentum basis, where at fixed level it is the integral $\int \dd^{26} q \, K_P(q_0, q) (\cdots)$, absolutely convergent at level zero by the Gaussian bound; the eigenbasis form proven here is sufficient for that statement, not equivalent to it.
+Above level zero the oscillator sum at each level is finite, but the BPZ pairing is indefinite and the sum over levels is the limit of the level truncation, which this section does not touch.
+
+% omitted: the corner asymptotics of the tile integral J (same records) goes to the appendix on the SL(2,C) vertex data.
+
+\subsection{Fixed level: analytic family, discreteness, mass sum, no forced null vector}
+\label{sec:mom:fixed-level}
+
+Above level zero the question is whether the kinetic operator of $\Sigma_2$, restricted to strand levels $\le L$, can have null vectors, and at which momenta.
+The text below is the paragraph of the paper's section on the quartic order that states the three assumptions on the propagator of $\Sigma_2$ and the heuristic argument for the first, in the paper's notation ($\sprod{2}{2}$ the quadratic vertex, $\Hn{2}$ the space of $\Sigma_2$).
+It starts in the middle of the paper's discussion of the propagator, right after the definition of the propagator as the inverse of $\sprod{2}{2}$ on the quotient by its kernel.
+The subsections that follow it prove what it states: the structure of the fixed-level operator (\cref{sec:mom:operator}), the Fredholm form and the dichotomy behind the first assumption (\cref{sec:mom:discreteness}), the stub change and the mass sum behind the heuristic argument (\cref{sec:mom:stub,sec:mom:mass-sum}), and the search for a forced null vector (\cref{sec:mom:forced}).
+
+\input{extracted/04/2-p}
+
+\subsubsection{The fixed-level operator}
+\label{sec:mom:operator}
+
+\status{Conditional(PH25, PH29, PH30) -- Proven}\record{104-kernel-analytic-structure (R94)}
+
+The results of this section hold at every level $L$ per strand: the operator is an entire family of Hilbert--Schmidt operators in the complexified total momentum, self-adjoint up to a fixed reflection at every real $P^2$, and its kernel reduces exactly to the kernel of a Schur complement over the level-zero block.
+They use the Euclidean prescription of \cref{sec:mom:level-0}, the compactness of the vertex region with bounded mapping radii, the reality of the vertex, and, for the Gaussian rate and the level-zero block, the two properties of the vertex family and $\beta > \sqrt{2}$ stated there.
+The regularity of the section of the vertex family across its tiles enters through the entire dependence: it is real-analytic in the modulus inside each of the twelve tiles and continuous, with a kink, across the arcs that separate them.
+Two questions stay open in this section: whether the sources of $\Sigma_2$ lie in the range of the operator, and whether the domain of the Schur complement is the whole space.
+
+\paragraph{The object.}
+We write the total momentum as $P = p \, n$, with $n$ a fixed unit vector of the Euclidean $\R^{26}$ in which the relative momentum lives and $p \in \C$.
+Real $p$ is a spacelike $P$ ($P^2 = p^2 > 0$), imaginary $p$ a timelike $P$ in its rest frame ($P^2 = p^2 < 0$), and complex $p$ the analytic continuation; every statement below is even under $p \to - p$, hence a statement in $P^2$.
+Let $W_L = \bigoplus_{l_1, l_2 \le L} F_{l_1} \otimes F_{l_2}$, with $F_l$ the finite-dimensional space of level-matched oscillator and ghost states of level $l$ at ghost number 2, so that $W_0 = \C \, TT$, and let $\tau$ be the exchange of the two strands on $W_L$.
+A two-string state of strand levels $\le L$ and total momentum $P$ is a function $\sigma: \R^{26} \to W_L$ of the relative momentum with the strand symmetry $\tau \, \sigma(- q) = \sigma(q)$, so the fibre space is
+\begin{equation}
+  \label{eq:mom:fibre}
+  \mathcal H^{(L)}
+    := \big\{ \sigma \in L^2(\R^{26}, \dd^{26} q) \otimes W_L :\ \tau \, \sigma(- q) = \sigma(q) \big\},
+\end{equation}
+which is $L^2_{\rm even}(\R^{26})$ at $L = 0$.
+The inner product on $W_L$ is an auxiliary positive one, used only to define $L^2$ and compactness; it is not the BPZ pairing, which is indefinite above level zero, and no statement below depends on it.
+At level $\le L$ and total momentum $P$ the quadratic form is
+\begin{equation}
+  \label{eq:mom:fixed-level-form}
+  \sprod{2}{2}(\Sigma, \Sigma') \big|_P
+    = \int \frac{\dd^{26} q' \, \dd^{26} q}{(2\pi)^{52}} \;
+      \sigma(- P, q')^{\alpha'} \, K^{(L)}_P(q', q)_{\alpha' \alpha} \, \sigma'(P, q)^{\alpha},
+  \qquad
+  K^{(L)}_P(q', q)_{\alpha' \alpha}
+    = \hat V_4^{\alpha' \alpha}\big( - \tfrac{P}{2} + q', - \tfrac{P}{2} - q';\ \tfrac{P}{2} + q, \tfrac{P}{2} - q \big),
+\end{equation}
+with $\hat V_4$ the vertex on basis states stripped of its momentum delta function and $\alpha, \alpha'$ indices of a basis of $W_L$.
+The fixed-level operator $\sprod{2}{2}^{(L)}(P)$ is the integral operator with this kernel on $\mathcal H^{(L)}$; it preserves the strand symmetry by the permutation symmetry of $\vertex{4}$.
+A state $N_2$ lies in the kernel of $\sprod{2}{2}$ if and only if $\sigma_N(P, \cdot) \in \ker K^{(L)}_P$ for almost every $P$, where
+\begin{equation}
+  \label{eq:mom:null-functions}
+  \ker K^{(L)}_P
+    := \big\{ \sigma \in \mathcal H^{(L)} :\ K^{(L)}_P \sigma = 0 \ \text{almost everywhere} \big\},
+\end{equation}
+since the $L^2$ pairing in $q$ is non-degenerate.
+This definition uses no inner product on $W_L$: a null function is a null function in any basis.
+The kernel question is a property of the bilinear form, and the $L^2$ structure is a tool for compactness, not part of the definition.
+
+\paragraph{Two self-adjoint structures.}
+Three identities hold exactly: the symmetry of $\vertex{4}$ gives $K^{(L)}_P(q', q)^\top = K^{(L)}_{-P}(q, q')$; the covariance of the vertex under the reflection $R \in \group{O}(26)$ with $R n = - n$, acting on the oscillator indices by $\mathcal R$, gives $K^{(L)}_{-P}(q', q) = \mathcal R \, K^{(L)}_P(R q', R q) \, \mathcal R$; and the reality of every coefficient of the integrand on the real vertex region gives $\overline{K^{(L)}_p} = K^{(L)}_{\bar p}$.
+With the involution $U := \mathcal R \circ (q \mapsto R q)$ on $\mathcal H^{(L)}$, the first two give $K_p^\top = U K_p U$, so
+\begin{equation}
+  \label{eq:mom:self-adjoint}
+  p \in \R:\quad
+  K_p U \ \text{is real symmetric},
+  \qquad
+  p \in \I \R:\quad
+  K_p^*
+    = \overline{K_p}^\top
+    = K_{-p}^\top
+    = K_p.
+\end{equation}
+In both cases $\dim \ker K_p$ is the dimension of the kernel of a compact self-adjoint operator, $U$ being invertible, and $K_{-p} = U K_p U$ gives $\ker K_{-p} = U \ker K_p$.
+At every real $P^2$, of either sign, the kernel question for the indefinite form at level $L$ is therefore the kernel question of a compact self-adjoint operator, although the BPZ pairing is indefinite: kernel and range are complementary up to the fixed unitary $U$.
+The covariance used is that of the vertex under the simultaneous reflection of all four momenta and oscillator indices; the kernel at fixed $P$ is not $\group{O}(26)$-invariant above level zero, and this is not needed.
+
+\paragraph{Invertibility on the quotient and the range clause.}
+The three readings of \cref{sec:mom:hs} carry over verbatim: on $\mathcal H^{(L)} / \ker K_p$ the operator is injective, its range is dense in $\overline{\operatorname{ran} K_p} = (\ker K_p^*)^\perp$, and its inverse is unbounded.
+``No null vector at the momentum $P$'' means $\ker K_p = 0$.
+The paper's first assumption, that the inverse exists on the quotient level by level, is for a compact operator the statement that the vectors on which the inverse acts lie in the range of $K_p$, not only in its closure.
+The source of $\Sigma_2$ at order $\gs^3$ is the function $v_p(q') = \sprod{3}{2}(A, B)|_P$ of the relative momentum of the pair.
+The kernel condition of the quintic order says $v_p \perp \ker K_p$, which for a compact operator gives $v_p \in \overline{\operatorname{ran} K_p^*}$ only.
+The saddle $\Sigma_2^* = K_p^{-1} v_p$ needs $v_p \in \operatorname{ran} K_p$, a strictly stronger statement: with the singular system $K_p = \sum_j \mu_j \, u_j \langle w_j, \cdot \rangle$, Picard's criterion says $v \in \operatorname{ran} K_p$ if and only if $\sum_j \abs{\langle u_j, v \rangle}^2 / \mu_j^2 < \infty$.
+Gaussian decay of the quintic vertex in $q'$ is not sufficient, and the comparison has two sides.
+In one dimension, the Mehler kernel $E_{a, c}(q', q) = \e^{- a (q'^2 + q^2) + c \, q q'}$ with $\abs{c} < 2 a$ has the Hermite functions at scale $\omega = \sqrt{4 a^2 - c^2}$ as eigenfunctions and the eigenvalues $\mu_j = \mu_0 r^j$ with $c / 2 a = 2 r / (1 + r^2)$.
+A Gaussian source $\e^{- b q^2}$ has coefficients $\abs{v_{2 n}} \asymp n^{-1/4} t^n$ in that basis, with $t = \abs{\omega - 2 b} / (\omega + 2 b)$, so Picard's series converges if and only if $t < r^2$, which is the window
+\begin{equation}
+  \label{eq:mom:mehler-window}
+  \e^{- b q^2} \in \operatorname{ran} E_{a, c}
+  \quad \Longleftrightarrow \quad
+  a - \frac{c^2}{4 a}
+    < b
+    < a.
+\end{equation}
+Directly, the Gaussian $f = \e^{- \gamma q^2}$ solves $E_{a, c} f = \e^{- b q^2}$ with $b = a - c^2 / 4 (a + \gamma)$, and $f \in L^2$ if and only if $\gamma > 0$.
+A source decaying faster than the diagonal rate of the kernel is outside the range, and so is one decaying too slowly.
+For the string operators the relevant comparison is the decay of the Hermite coefficients of $v_p$ in the eigenbasis of $K_p$ against the geometric decay of the eigenvalues of $K_p$, and no five-point data exist to make it; this range clause is open.
+Two remarks limit its weight.
+The value of the exchange term $\langle v_{-p}, K_p^{-1} v_p \rangle$, which is what the eliminated action needs, is finite under the weaker condition $v_p \in \operatorname{ran} \abs{K_p}^{1/2}$ (at real $p \ne 0$, with $K_p U$ in place of $K_p$), while the saddle in $L^2$ needs the full range.
+And the condition compares two decay rates with two edges, so a stub on the five-point vertex longer than on the four-point vertex pushes $v_p$ towards the fast-decay edge, against the intuition from ultraviolet finiteness.
+
+\paragraph{An entire family of Hilbert--Schmidt operators.}
+The vertex is the sphere correlator of the four states, each inserted through its local coordinate, integrated over $\mathcal V_{0, 4}$ with the antighost insertions of the section.
+For states $c \bar c \, \mathcal O_a \, \e^{\I k_a \cdot X}$, with $\mathcal O_a$ a polynomial of level $l_a$ in the derivatives of $X$ and the ghost modes, the matter correlator is the free-boson Wick expansion
+\begin{equation}
+  \label{eq:mom:wick}
+  \Big\langle \prod_a f_a \circ \big[ \mathcal O_a \e^{\I k_a \cdot X} \big] \Big\rangle
+    = \prod_{a < b} \abs{z_{ab}}^{\alpha' k_a \cdot k_b} \prod_a \abs{f_a'(0)}^{\alpha' k_a^2 / 2} \;\times\; \mathcal P^{(L)}(m; k_1, \ldots, k_4),
+\end{equation}
+where $\mathcal P^{(L)}$ is a polynomial in the momenta of total degree $\le 2 \sum_a l_a \le 8 L$: a level-matched state of level $l_a$ carries at most $2 l_a$ oscillators, each oscillator contracted with an exponential gives one momentum factor, oscillator--oscillator contractions give constants, and the weights $h_a \sim k_a^2$ in the transformation laws of non-primary states stay within this count.
+The coefficients are rational in the $z_{ab}$ with poles only at collisions, polynomial in finitely many Taylor coefficients of the local coordinates, and real on the real section.
+On the vertex region they are bounded continuous functions of the modulus $m$, and $\abs{z_{ab}}$, $\abs{f_a'(0)}$ are bounded above and away from $0$.
+Substituting $k_{1, 2} = \tfrac{P}{2} \pm q$, $k_{3, 4} = - \tfrac{P}{2} \pm q'$, the exponent is a real quadratic form in $(p, q, q')$, and
+\begin{equation}
+  \label{eq:mom:exp-poly}
+  K^{(L)}_P(q', q)
+    = \int_{\mathcal V_{0, 4}} \dd^2 m \; \e^{- \mathcal Q_m(p, q, q')} \, \Pi^{(L)}(m; p, q, q'),
+  \qquad
+  \mathcal Q_m
+    = a_m (q^2 + q'^2) - c_m \, q \cdot q' + \ell_m(p) \cdot (q, q') + e_m \, p^2,
+\end{equation}
+with $\Pi^{(L)}$ a $W_L \otimes W_L$-valued polynomial of degree $\le 8 L$.
+With equal mapping radii the linear term $\ell_m(p) \cdot (q, q')$ vanishes, and after the tile assembly $a_m$ and $c_m$ are the exponents of the table of \cref{sec:mom:definite}, with $2 a_m - \abs{c_m} \ge \alpha' (2 \ln \beta - \ln 2)$; without equal radii the linear term is bounded by $c \abs{p}$ and is dominated by the Gaussian.
+For each $m$ the integrand is entire in $(p, q, q') \in \C^{53}$ and, on a compact set, bounded uniformly in $m$, so $K^{(L)}_P(q', q)$ is entire in $(p, q, q')$ jointly, of order 2.
+Entireness does not fail at the boundary of the region, which does not depend on the momenta, nor at the kinks of the section, which the integral over $m$ absorbs, nor at the collisions, which are at positive distance.
+For real $(q, q')$ and $p$ in a compact $\Omega \subset \C$, with $2 a_m - \abs{c_m} \ge 2 a_* > 0$,
+\begin{equation}
+  \label{eq:mom:hs-bound}
+  \big\| K^{(L)}_P(q', q) \big\|_{W_L \otimes W_L}
+    \le C_L(\Omega) \, (1 + \abs{q} + \abs{q'})^{8 L} \, \e^{c_\Omega (\abs{q} + \abs{q'})} \, \e^{- a_* (q^2 + q'^2)},
+\end{equation}
+where the factor $\e^{c_\Omega (\abs{q} + \abs{q'})}$ comes from the linear term and is absent with equal radii.
+A Gaussian of any positive rate beats any polynomial, so the right-hand side is square integrable: $K^{(L)}_p$ is Hilbert--Schmidt on $\mathcal H^{(L)}$ for every $p \in \C$, locally uniformly, under the level-zero condition $a_* > 0$, that is $\beta > \sqrt{2}$, unchanged by the level.
+Together with the entire dependence, $p \mapsto K^{(L)}_p$ is an entire Hilbert--Schmidt-operator-valued function.
+At level zero the condition is also necessary, the integrand being positive; above level zero the integrand changes sign in $m$ and across oscillator components, and necessity is not argued.
+Trace class is not claimed above level zero, since the positivity that gave it in \cref{sec:mom:trace} is not available there.
+
+The level enters~\eqref{eq:mom:exp-poly} only through the polynomial $\Pi^{(L)}$ and the finite-dimensional $W_L$: the Gaussian factor, its cross term and its dependence on $p^2$ are those of level zero.
+At every level, the kinetic operator of $\Sigma_2$ is a finite matrix of polynomial-weighted Gaussian integral operators sharing the level-zero exponent.
+
+\paragraph{Schur reduction over the level-zero block.}
+Split $\mathcal H^{(L)} = \mathcal H_0 \oplus \mathcal H_{>0}$, with $\mathcal H_0 = L^2_{\rm even}(\R^{26}) \, TT$ the level-zero block and $\mathcal H_{>0}$ its complement, and write $K_{00}, K_{0L}, K_{L0}, K_{LL}$ for the blocks of $K = K^{(L)}_p$, with $K_{00} = K_P$ of \cref{sec:mom:level-0}.
+For $\sigma = (\sigma_0, \sigma_1) \in \ker K$,
+\begin{equation}
+  \label{eq:mom:schur-system}
+  K_{00} \sigma_0 + K_{0L} \sigma_1
+    = 0,
+  \qquad
+  K_{L0} \sigma_0 + K_{LL} \sigma_1
+    = 0.
+\end{equation}
+At real $P^2$, $K_{00}$ is injective by \cref{thm:mom:definite}, so the first equation says $K_{0L} \sigma_1 \in \operatorname{ran} K_{00}$ and determines $\sigma_0 = - K_{00}^{-1} K_{0L} \sigma_1$.
+With
+\begin{equation}
+  \label{eq:mom:schur}
+  \mathcal D_L
+    := \big\{ \sigma_1 \in \mathcal H_{>0} :\ K_{0L} \sigma_1 \in \operatorname{ran} K_{00} \big\},
+  \qquad
+  S_L
+    := K_{LL} - K_{L0} K_{00}^{-1} K_{0L} : \mathcal D_L \to \mathcal H_{>0},
+\end{equation}
+the map $\sigma_1 \mapsto (- K_{00}^{-1} K_{0L} \sigma_1, \sigma_1)$ is a linear bijection
+\begin{equation}
+  \label{eq:mom:schur-kernel}
+  \ker K^{(L)}_p
+    \cong \ker \big( S_L |_{\mathcal D_L} \big),
+\end{equation}
+with inverse $(\sigma_0, \sigma_1) \mapsto \sigma_1$, injective on $\ker K$ because $\sigma_1 = 0$ forces $K_{00} \sigma_0 = 0$, hence $\sigma_0 = 0$.
+The reduction is exact and needs no hypothesis on the range of $K_{0L}$, because a kernel vector supplies the range condition itself.
+At $L = 0$ it is \cref{thm:mom:definite}.
+Whether $\mathcal D_L$ is all of $\mathcal H_{>0}$ is the range question again, with both sides of the same exponent: for a single Mehler kernel, multiplication by a polynomial maps into the range the vectors whose Hermite coefficients decay geometrically with a margin, but the level-zero block is a positive superposition of Mehler kernels with different exponents, and the range of a sum of positive operators is not the sum of the ranges, so this does not transfer; the question is open and is not needed for~\eqref{eq:mom:schur-kernel}.
+
+\paragraph{The positivity route is closed near zero momentum above level zero.}
+At $p = 0$ and at imaginary $p$, where the level-zero block is positive and the form symmetric, completing the square gives, for $\sigma_1 \in \mathcal D_L$,
+\begin{equation}
+  \label{eq:mom:variational}
+  \langle \sigma_1, S_L \sigma_1 \rangle
+    = \inf_{\sigma_0 \in \mathcal H_0} \big\langle (\sigma_0, \sigma_1), K (\sigma_0, \sigma_1) \big\rangle,
+\end{equation}
+so that there $S_L > 0$ would give no null vector at level $L$.
+At real $p \ne 0$ the identity fails as an infimum: the level-zero block of $K_p U$ is $K_{00} U_0$ with $U_0: \sigma(q) \mapsto \sigma(R q)$, which has a $-1$ eigenspace (even functions odd under $q_n \to - q_n$), so the infimum over $\sigma_0$ is $- \infty$ and the completed square is only a stationary value.
+The positivity route must therefore be stated for the full symmetric form, and it is closed near $P^2 = 0$ above level zero, in two steps.
+First, the mechanism of \cref{thm:mom:definite} does not extend: at level $L$ the contribution of a point $m$ of the region is $\e^{- \mathcal Q_m} \Pi^{(L)}(m; \cdot)$, and the matrix polynomial $\Pi^{(L)}$ is not positive semi-definite pointwise; its diagonal entries change sign between oscillator components.
+Second, the full symmetric form is indefinite near $P^2 = 0$ at level $L \ge 1$.
+At $P = 0$, strand levels $(1, 1)$ and all momenta zero, the quartic vertex restricted to $\Sym^2 \{T, D\}$ ($T$ the tachyon, $D$ the ghost dilaton) is invertible with inertia $(2, 1)$ on $\{TT, TD, DD\}$, for the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed} (\cref{ch:solutions}); at $\beta = 2$ the diagonal of this block, divided by the overall constant of the vertex, is $(3.47 \times 10^4, -425.3, 37.65)$.
+By Haynsworth's inertia additivity with the positive $TT$ entry, the Schur complement on $\{TD, DD\}$ has inertia $(1, 1)$:
+\begin{equation}
+  \label{eq:mom:frozen-schur}
+  \begin{pmatrix}
+    -450.3 & 17.0 \\
+    17.0 & 32.4
+  \end{pmatrix}
+  \quad (\beta = 2),
+  \qquad
+  \begin{pmatrix}
+    -57.3 & 6.1 \\
+    6.1 & 9.7
+  \end{pmatrix}
+  \quad (\beta = \tfrac{3}{2}).
+\end{equation}
+For the operator, take $\sigma = c \otimes g$ with $c$ the negative direction of the zero-momentum form and $g$ an even Gaussian, normalized in $L^1$ and concentrated at $q = 0$; $g$ is even and $\mathcal R$ is trivial on $T$ and $D$, so $\sigma$ lies in the $U = + 1$ sector and $\langle \sigma, K_p U \sigma \rangle = \langle \sigma, K_p \sigma \rangle$.
+By continuity of the kernel, $\langle \sigma, K_0 \sigma \rangle$ tends to the negative value of the zero-momentum form as $g$ narrows, while $\langle TT \otimes g, K_0 \, TT \otimes g \rangle = \langle g, K_{00} g \rangle > 0$.
+So $K_0$ is indefinite at level 1, and by continuity in $p$ so is $K_p U$ on a real neighbourhood of $p = 0$ and $K_p$ on an imaginary one: the full symmetric form is indefinite near $P^2 = 0$, on both sides, at every level $L \ge 1$.
+An indefinite compact form is not prevented from having a kernel by definiteness, and this closes the positivity route to the absence of null vectors at all real $P^2$.
+This step rests on the zero-momentum level-$(1, 1)$ data of the vertex family, with their scope (the inertia $(2, 1)$ holds for the dilaton coupling $h_2$ in the window $- \sqrt{h_0 h_4} < h_2 < 0$), and on the identification of that block with $K^{(1)}_{P = 0}(0, 0)$ restricted to $\{T, D\}$.
+A positivity route on a range of real $P^2$ away from zero, at large spacelike momentum or in the timelike limit, is not touched.
+
+At fixed level the kernel question is therefore exactly the kernel question of the Schur complement on its natural domain, a finite block of integral operators over a positive reference $K_{00}$ with a known, geometrically decaying spectrum.
+It is not a positivity statement: the reduction removes the one block whose definiteness is known and leaves an indefinite compact problem with no identity part.
+
+\subsubsection{Discreteness of the singular set}
+\label{sec:mom:discreteness}
+
+\status{Conditional(PH35, PH25, PH29, PH30) -- Proven}\record{104-kernel-analytic-structure (R95)}
+
+Let $Z_L$ be the set of $p$ at which $\ker K^{(L)}_p \ne 0$, and call it discrete when it is closed and discrete in the domain considered, so that the exceptional set of real $P^2$ is locally finite.
+This section shows that the discreteness of $Z_L$ is not a consequence of analyticity and compactness, states a Fredholm hypothesis under which it holds at level $L$ as soon as one momentum has no null vector, and records what it gives.
+The exclusion covers every family with the properties of \cref{sec:mom:operator}; the conditional statement holds on the neighbourhood of the real and imaginary axes in the hypothesis, for each $L$; the reference momentum is known at $L = 0$ and open above.
+
+\paragraph{Analyticity and compactness do not give discreteness.}
+Let $(h_j)_{j \ge 0}$ be the Hermite functions, $0 < r < 1$, $(p_j)$ a sequence converging to $p_*$ with $p_0 := p_*$, and
+\begin{equation}
+  \label{eq:mom:counterexample}
+  K(p)
+    := \sum_{j \ge 0} (p - p_j) \, r^j \, h_j \langle h_j, \cdot \rangle
+    = p \, M_r - \sum_{j \ge 0} p_j r^j \, h_j \langle h_j, \cdot \rangle,
+\end{equation}
+with $M_r = \sum_j r^j h_j \langle h_j, \cdot \rangle$ the Mehler kernel.
+$K(p)$ is self-adjoint at real $p$, entire and Hilbert--Schmidt-valued, and its kernel function $\sum_j (p - p_j) r^j h_j(x) h_j(y)$ is entire in $(x, y)$ of order 2 with Gaussian decay on the real axes, the geometric weights dominating the growth $\abs{h_j(x)} \lesssim \e^{\sqrt{2 j} \abs{\Im x}}$ (weights $j^{-2}$ would give an $L^2$ kernel that is not entire).
+The family has every property of \cref{sec:mom:operator}.
+Yet $h_j \in \ker K(p_j)$ for every $j$, so the singular set $\{p_j\}$ accumulates at $p_* \in \{p_j\}$ and is not discrete in either sense.
+Any proof of discreteness needs an input beyond entire dependence and compactness.
+The reason is that the kernel question of a compact operator sits at $0$, the accumulation point of its spectrum: analytic perturbation theory controls isolated eigenvalues, so an eigenvalue branch is analytic only while it is nonzero, and the union over infinitely many branches is not controlled, as~\eqref{eq:mom:counterexample} shows.
+The analytic Fredholm theorem applies to $1 + C(p)$ with $C$ compact and analytic, where the identity part makes $\ker (1 + C(p)) \ne 0$ an isolated condition; $K^{(L)}_p$ has no identity part, and one must be supplied.
+
+\paragraph{Dividing out the level-zero Gaussian on both sides.}
+Two other formulations were tried and do not supply one: splitting the operator into its diagonal blocks in the strand levels and the rest needs the injectivity of every diagonal block, which is open above level zero (the zero-momentum level-$(1, 1)$ diagonal block is indefinite), and in a toy Hermite scaling polynomial weights are unbounded relative to a one-sided Gaussian reference, so the off-diagonal part is not compact; the Schur complement~\eqref{eq:mom:schur} is compact minus compact composed with unbounded, with no identity part.
+What works is to place the reference symmetrically.
+At a fixed reference momentum $p_{\rm ref}$ with $p_{\rm ref}^2$ real, let
+\begin{equation}
+  \label{eq:mom:fredholm-form}
+  \mathbb K_0
+    := \big( K_{00}(p_{\rm ref}) \, \Pi_{\rm even} + \abs{K_{00}(p_{\rm ref})} \, \Pi_{\rm odd} \big) \otimes 1_{W_L},
+  \qquad
+  K^{(L)}_p
+    = \mathbb K_0^{1/2} \, \mathcal T_L(p) \, \mathbb K_0^{1/2},
+  \qquad
+  \mathcal T_L(p)
+    := \mathbb K_0^{-1/2} K^{(L)}_p \, \mathbb K_0^{-1/2},
+\end{equation}
+with $\Pi_{\rm even / odd}$ the parity projectors in $q$ (functions odd in $q$ appear above level zero).
+$\mathbb K_0$ is positive and injective on the even sector by \cref{thm:mom:definite}; on the odd sector it is injective by assumption, since the mechanism of the theorem uses evenness.
+Because $p_{\rm ref}$ is fixed, $\mathcal T_L(p)$ makes sense for every complex $p$.
+Its level-zero block is controlled exactly.
+The level-zero kernel is $K_{00}(p) = \int \dd^2 m \, w_m(p^2) \, E_m$ with $E_m$ the pointwise positive semi-definite kernels of \cref{sec:mom:definite} and $w_m(s)$ a tile weight continuous in $(m, s)$, positive at real $s$ and nowhere zero on the compact region.
+For $s = p^2$ in a compact real interval $I$, $0 < c_I \le w_m(s) / w_m(s_{\rm ref}) \le C_I$, hence $c_I K_{00}(p_{\rm ref}) \le K_{00}(p) \le C_I K_{00}(p_{\rm ref})$, and by Douglas' lemma $\mathcal T_{00}(p)$ is bounded with bounded inverse at every real $P^2$.
+For complex $p$ in a compact set, $\abs{w_m(p^2)} \le C_\Omega \, w_m(s_{\rm ref})$ and Cauchy--Schwarz on the positive $E_m$ make $\mathcal T_{00}(p)$ bounded and holomorphic, and invertible on a neighbourhood of the axes.
+In the toy Hermite scaling the blocks of $\mathcal T_L$ with weights $x^{d_1} y^{d_2}$ become banded matrices with polynomially growing entries and no Gaussian factor left, the oscillator-basis matrices of differential operators with polynomial coefficients, which are Fredholm when globally elliptic.
+Global ellipticity fixes the Fredholm property and not the index (the annihilation operator is globally elliptic of index $+1$); the symmetric structure~\eqref{eq:mom:self-adjoint} does, since $U$ commutes with $\mathbb K_0$ and a closed symmetric Fredholm operator has index $0$ exactly when it is self-adjoint.
+This toy computation is a scaling statement, not a proof for the string kernel; it motivates the hypothesis and fixes its form.
+
+\paragraph{The Fredholm hypothesis.}
+For each $L$, with $\mathbb K_0$ as in~\eqref{eq:mom:fredholm-form} and $K_{00}(p_{\rm ref})$ injective on odd functions at $L \ge 1$, there is a connected open set $\Omega_L \subset \C$ containing $\R \cup \I \R$ on which $p \mapsto \mathcal T_L(p)$ is a holomorphic family, with a common domain $D \subseteq \operatorname{ran} \mathbb K_0^{1/2}$ mapped by $K^{(L)}_p$ into $\operatorname{ran} \mathbb K_0^{1/2}$, of closed Fredholm operators of index $0$, with $\ker \mathcal T_L(p) \subseteq \operatorname{ran} \mathbb K_0^{1/2}$ and $\mathbb K_0^{1/2} \ker K^{(L)}_p \subseteq D$, so that $\ker K^{(L)}_p = \mathbb K_0^{-1/2} \ker \mathcal T_L(p)$.
+It is exact at $L = 0$, by the bounds on $\mathcal T_{00}$ above.
+At every level all blocks share the level-zero Gaussian, and after dividing it out on both sides the toy scaling leaves a matrix of polynomial-coefficient differential operators, Fredholm under global ellipticity of mixed order, of index $0$ once $\mathcal T_L(p) U$ is self-adjoint at one point of $\Omega_L$.
+The known failure mode of discreteness,~\eqref{eq:mom:counterexample}, is a kernel escaping to high modes, which is what the Fredholm property forbids, and the hypothesis is sharp against it: there $\mathcal T(p) = p - \sum_j p_j h_j \langle h_j, \cdot \rangle$ is Fredholm exactly off the accumulation point.
+In the terms of the ultraviolet-finiteness proofs~\cite{deLacroix:2017:ClosedSuperstringField}, the stub Gaussian controls the high-momentum behaviour of every vertex, and the hypothesis says that the level dependence is a polynomial dressing of that Gaussian, controlled by it.
+It would be falsified by an accumulation point of $Z_L$ at finite $p$ in $\Omega_L$, equivalently a sequence of normalized near-null vectors with escaping momentum content; by a degenerate weighted principal-symbol matrix of $\mathcal T_L$; by a vector of the natural domain whose image leaves $\operatorname{ran} \mathbb K_0^{1/2}$; or by a null vector of $K_{00}(p_{\rm ref})$ on odd functions.
+It would be discharged by the symbolic computation of the polynomial $\Pi^{(1)}$ of the level-$(1, 1)$ block, the mixed-order global ellipticity of the resulting symbol matrix of $\mathcal T_1$, and the self-adjointness of $\mathcal T_1(p) U$ at one real $p$.
+
+\begin{theorem}[Dichotomy at fixed level]
+  \label{thm:mom:dichotomy}
+  Under the Fredholm hypothesis and the inputs of \cref{sec:mom:operator}, for each $L$, either $\ker K^{(L)}_p \ne 0$ for every $p \in \Omega_L$, or $Z_L \cap \Omega_L$ is discrete.
+  In particular
+  \begin{equation}
+    \label{eq:mom:reference-point}
+    \exists \, p_0 \in \Omega_L :\ \ker K^{(L)}_{p_0}
+      = 0
+    \quad \Longrightarrow \quad
+    Z_L \cap \Omega_L \ \text{is discrete}.
+  \end{equation}
+\end{theorem}
+
+\paragraph{Proof.}
+Equip the common domain $D$ with the graph norm of $\mathcal T_L(p_0)$ for one $p_0 \in \Omega_L$; it is then a Banach space, and $p \mapsto \mathcal T_L(p) \in B(D, \mathcal H^{(L)})$ is a holomorphic family of bounded Fredholm operators of index $0$ on a connected domain.
+For such a family the set where the kernel is nontrivial is either the whole domain or closed and discrete in it (the analytic Fredholm theorem in the form of Gohberg, Goldberg and Kaashoek, \emph{Classes of linear operators} I, XI.8; the textbook case $1 + C(p)$ is obtained when one member is invertible and the difference is compact).
+The kernel correspondence of the hypothesis transfers the dichotomy to $K^{(L)}_p$. \qed
+
+The first alternative is a kernel at every momentum, which is what a null vector forced by a selection rule would be.
+At $L = 0$ every real $P^2$ is a reference point, by \cref{thm:mom:definite}.
+Above level zero no reference point is known: a strand-level splitting at one real momentum is not Fredholm; the timelike limit $P^2 \to - \infty$, where the tile weights concentrate at the corner $Z = -1$ and the kernel tends to a single Mehler-type kernel dressed by the top power of $p$, is a simpler kernel question, still open; and a nonzero determinant of a discretized momentum does not qualify, a discretization not being the operator.
+
+\paragraph{What discreteness gives.}
+Given~\eqref{eq:mom:reference-point}, the set of real $P^2$ with a null vector at level $L$ is closed and has no finite accumulation point: this is the paper's ``no kernel at generic momentum'' at fixed level, with a locally finite exceptional set and not only one of measure zero.
+It allows real zeros, each isolated, and says nothing about the limit $L \to \infty$.
+At a simple real zero $p_*$, with $\ker K_{p_*}$ spanned by $N$, left null vector $U N$ and $\langle U N, \partial_p K_{p_*} N \rangle \ne 0$, the singular part of $K_p^{-1} v_p$ is
+\begin{equation}
+  \label{eq:mom:simple-zero}
+  \frac{N \, \langle U N, v_{p_*} \rangle}{(p - p_*) \, \langle U N, \partial_p K_{p_*} N \rangle},
+\end{equation}
+so the exchange vertex $\langle v_{-p}, K_p^{-1} v_p \rangle$ has a pole at $p_*$ unless $\langle U N, v_{p_*} \rangle = 0$.
+At a simple real zero the kernel condition of the quintic order is this single pairing, a property of the quintic vertex at $p_*$ that nothing in the analytic structure forces; at a higher-order zero or with a kernel of dimension $> 1$ the singular part involves $\partial_p v$ and the Jordan chain, and the condition at $p_*$ is only necessary.
+
+\subsubsection{The stub change at fixed level}
+\label{sec:mom:stub}
+
+\status{Conditional(PH25) -- Proven}\record{106-kernel-heuristic-mass-sum (R96)}
+
+This section makes precise the first sentences of the heuristic argument above: how a change of stub length acts on the fixed-level operator, and where the sum over intermediate masses enters.
+The statement holds at every level and every complex $p$, for the one-sided family obtained from the quartic vertex by adding the strip of exchanges of single-string states between two stub lengths.
+That family satisfies the geometric BV equation for any base vertex, the surfaces added to the vertex region being those removed from the three Feynman regions, so no property of the section of the vertex family beyond those of \cref{sec:mom:operator} is used.
+One standing input is cited: the sum over intermediate states in a surface made of two cubic vertices sewn at plumbing length $s > 0$ converges absolutely, uniformly on compact subsets of $\Re s > 0$, because the weight $\e^{- s h}$ beats the growth $\e^{c \sqrt{h}}$ of the number of states and, for the bosonic string, $h \ge -1$ at fixed momentum~\cite{deLacroix:2017:ClosedSuperstringField}.
+
+\paragraph{Two descriptions of the stub.}
+With a stub of length $s_0$ the propagator is $b_0^+ \e^{- s_0 L_0^+} (L_0^+)^{-1} b_0^- \delta_{L_0^-, 0}$, and on a level-matched state of momentum $k$ and level $l$ per chirality $L_0^+ = \tfrac{\alpha'}{2} k^2 + 2 (l - 1)$.
+The same theory has two descriptions: (A) fixed local coordinates, a propagator range $[s_0, \infty)$ and a vertex region growing with $s_0$; (B) the factor $\e^{- s_0 L_0^+ / 2}$ absorbed into every leg of every vertex, a rescaling of the local coordinates, with propagator range $[0, \infty)$.
+In description (B), for the pair $(k_1, k_2) = (\tfrac{P}{2} + q, \tfrac{P}{2} - q)$, $k_1^2 + k_2^2 = \tfrac{p^2}{2} + 2 q^2$, the cross terms cancelling, and the same holds for the other pair with $q'$.
+The four leg factors combine into
+\begin{equation}
+  \label{eq:mom:leg-factor}
+  \e^{- \alpha' s_0 p^2 / 4} \, \Lambda_{s_0}(q') \, \Lambda_{s_0}(q),
+  \qquad
+  \Lambda_{s_0}(q)
+    := \e^{- \alpha' s_0 q^2 / 2} \, \e^{- s_0 (\hat l - 2)},
+\end{equation}
+with $\hat l$ the total level of the pair on $W_L$.
+Let $K^{(L)}_P[s]$ be the fixed-coordinate operator of the family at stub length $s$, $\Pi_L$ the projector on pairs of level $\le L$, $\Pi_n$ the projector on single-string states of level $n$, and $\Delta_{[a, b]} = b_0^+ b_0^- \delta_{L_0^-, 0} \int_a^b \dd s \, \e^{- s L_0^+}$ the propagator of a finite strip.
+For $s, s_1$ in the family, at fixed level and total momentum,
+\begin{equation}
+  \label{eq:mom:strip}
+  K^{(L)}_P[s]
+    = K^{(L)}_P[s_1] + \sum_{{\rm ch} \in \{s, t, u\}} \Pi_L \, \vertex{3} \, \Delta_{[s_1, s]} \, \vertex{3} \, \Pi_L \big|_P,
+\end{equation}
+and with $\sigma = s - s_0$ the rescaled-coordinate form is
+\begin{equation}
+  \label{eq:mom:congruence}
+  K^{(L), B}_P[s_0 + \sigma]
+    = \e^{- \alpha' \sigma p^2 / 4} \; \Lambda_\sigma \Big( K^{(L)}_P[s_0] + \int_{s_0}^{s_0 + \sigma} \dd s \, \mathcal E^{(L)}_P[s] \Big) \Lambda_\sigma,
+  \qquad
+  K^{(L), B}_P[s_0]
+    = K^{(L)}_P[s_0].
+\end{equation}
+The stub dependence is thus a congruence by $\Lambda_\sigma$ of the fixed-coordinate operator, whose own stub dependence is the strip of the three exchange channels.
+The operator of the vertex family itself is the base point $s = s_0$, where the congruence is the identity, and every kernel statement below is made for it directly.
+
+\paragraph{The shell.}
+Differentiating~\eqref{eq:mom:strip}, the derivative of the fixed-coordinate operator is the surface of two sewn cubic vertices at plumbing length $s$, summed over the channels:
+\begin{equation}
+  \label{eq:mom:shell}
+  \partial_s K^{(L)}_P[s]
+    = \mathcal E^{(L)}_P[s]
+    := \sum_{\rm ch} \Pi_L \, \vertex{3} \, b_0^+ b_0^- \delta_{L_0^-, 0} \, \e^{- s L_0^+} \, \vertex{3} \, \Pi_L \big|_P.
+\end{equation}
+In the $s$-channel the intermediate state carries the pair momentum $P$, and
+\begin{equation}
+  \label{eq:mom:shell-s}
+  \big( \mathcal E^{s}_P[s] \sigma \big)(q')
+    = \sum_{n \ge 0} \e^{- s \, h_n(P)} \; \Pi_L \, \vertex{3} \, \Pi_n \, \vertex{3} \, \sigma,
+  \qquad
+  h_n(P)
+    = \frac{\alpha'}{2} P^2 + 2 (n - 1),
+\end{equation}
+where $\vertex{3} \sigma$ is the single-string functional $\phi \mapsto \int \dd^{26} q \, \vertex{3}(\phi; \tfrac{P}{2} + q, \tfrac{P}{2} - q) \, \sigma(q)$ and $\Pi_n \vertex{3} \sigma$ its component of level $n$, a vector of a finite-dimensional space.
+Each term is of finite rank, and the sum over $n$ converges by the standing input.
+In the $t$- and $u$-channels the intermediate momentum is $q \pm q'$, with exponents $h_n^{t, u} = \tfrac{\alpha'}{2} (q \pm q')^2 + 2 (n - 1)$, and the shell is an integral operator in $(q, q')$ with polynomial-weighted Gaussian kernels.
+All exponents are real on the Euclidean fibre, and the shell is entire in $s$ on $\Re s > 0$ and in $p$, with the transposition and reflection structure~\eqref{eq:mom:self-adjoint}.
+
+\paragraph{Kernels under the congruence.}
+For any operator $K$ on the fibre and $\Lambda$ bounded and injective with dense range, $\Lambda K \Lambda \sigma = 0$ if and only if $K \Lambda \sigma = 0$, so
+\begin{equation}
+  \label{eq:mom:congruence-kernel}
+  \ker (\Lambda K \Lambda)
+    = \Lambda^{-1} (\ker K),
+  \qquad
+  \Lambda : \ker (\Lambda K \Lambda) \xrightarrow{\ \cong\ } \ker K \cap \operatorname{ran} \Lambda.
+\end{equation}
+The level factor $\e^{- \sigma (\hat l - 2)}$ is a positive invertible matrix on $W_L$: it moves no kernel.
+The suppression of heavy states by the stub, which is what makes the sum over masses converge, is at fixed external level exactly this factor on the external legs, and it says nothing about the kernel through the congruence.
+The Gaussian factor acts only through the domain.
+At fixed $K$ the kernel of the congruence decreases as $\sigma$ grows: null vectors decaying faster than every Gaussian (with compact support, or like $\e^{- q^4}$) are kept at every $\sigma$, while a null vector of the form polynomial times $\e^{- a q^2}$ is lost once $\alpha' \sigma / 2 \ge a$, and Schwartz decay is not enough.
+This monotonicity concerns the congruence factor alone: the stub change also moves $K$ by the strip~\eqref{eq:mom:strip}, which can create or remove null vectors, and nothing is claimed about the stub change as a whole.
+
+The mass sum therefore acts at fixed level in one place only, the shell~\eqref{eq:mom:shell}: a convergent sum over intermediate states of every mass, each mass level contributing a finite-rank piece with its own exponent $h_n(P)$ in the stub length.
+The stub length resolves the tower of masses, and this is what the next section uses.
+
+\subsubsection{The mass sum and a kernel at every momentum}
+\label{sec:mom:mass-sum}
+
+\status{Conditional(PH36, PH35, PH25, PH29, PH30) -- Proven as an implication}\record{106-kernel-heuristic-mass-sum (R97)}
+
+The result has two layers.
+A theorem: under a decoupling hypothesis on the single-string exchanges, a kernel of the fixed-level operator at every momentum cannot be a conservation law of the vertex family.
+An implication: under that hypothesis and a second clause which names the form every kernel at every momentum would have to take, there is no kernel at every momentum at any level, and with the Fredholm hypothesis of \cref{sec:mom:discreteness} the singular set is discrete at every level.
+The second clause is, given the first and the proven steps, equivalent to the exclusion it is used for, so the second layer identifies what remains to be assumed rather than deriving it.
+Everything is stated at the stub of the vertex family, the base point of the one-sided family of \cref{sec:mom:stub}, for $\Sigma_2$; at $k \ge 3$ the same route is argued only, the lower vertices sewn in the shell of $\vertex{2 k}$ being themselves stub-dependent.
+
+\paragraph{The hypothesis.}
+Call a subspace of the fibre at total momentum $P$ a selection-rule sector if it is invariant under the per-leg stub factor $\e^{- \sigma L_0^+ / 2}$ and annihilated by $K^{(L)}_P[s]$ for every stub length $s$ of the family.
+Call a pair state $N$ exchange-decoupled if every map from it to the single-string mass tower and back annihilates it, $\Pi_L \vertex{3} \Pi_n \vertex{3} N = 0$ for every $n$, together with the shells of the crossed channels.
+The hypothesis has two clauses, for every level $L$ and the operator at the stub of the vertex family:
+\begin{itemize}
+  \setlength{\itemsep}{1ex}
+
+  \item (R$'$) if $K^{(L)}_P$ has a kernel at every real $P^2$, then at every real $P^2$ that kernel contains a nonzero selection-rule sector: a kernel at every momentum is a conservation law of the vertex family, not an accident of one stub length;
+
+  \item (S) no nonzero pair state of level $\le L$ at any real $P^2$ is exchange-decoupled: every pair state exchanges some single-string state of some mass with some pair, in at least one channel.
+\end{itemize}
+The first case of \cref{thm:mom:dichotomy} would be a whole spacetime field of two-string states with no quadratic term, a sector decoupled from the quartic vertex at every momentum, and we exclude it on physical grounds; the hypothesis is the form in which the mass-sum argument supports that exclusion.
+For (S): the whole stub dependence at fixed level beyond the congruence is the shell, a convergent sum over the mass tower, and (S) says that a pair state cannot hide from the whole tower at once, the conditions being infinitely many finite-rank conditions on one vector.
+At level zero (S) follows from the mechanism of \cref{thm:mom:definite}, the shell being, pointwise on the boundary arc of the region, a positive kernel of the same form (we state this as an argument: it identifies the moving boundary arc with the plumbing shell); above level zero definiteness fails and (S) keeps only the injectivity on the tower.
+For (R$'$): every mechanism known to produce a null direction of a string vertex at every momentum is a conservation law of the family (ghost-number mismatch, Lorentz covariance, momentum conservation, BRST exactness, the exchange of the strands, level matching); such a rule is a property of the cubic vertex, of the propagator and of the base vertex, hence of the whole family, and its sector is invariant under the stub factor, because the charges commute with $L_0^+$ strand by strand.
+Analyticity excludes a kernel at every momentum present at exactly the base stub length and absent for longer stubs, which would be a line component of an analytic singular set in the plane of $(p, s)$; it does not reach a kernel whose null vectors rotate with the stub, for which the only motivation is that no mechanism producing one is known.
+The hypothesis would be falsified by a null vector of the fixed-level operator at every real $P^2$ at the stub of the family; for (S) by a pair state of level $\le L$ annihilated by $\Pi_L \vertex{3} \Pi_n \vertex{3}$ for every mass level $n$ and by the crossed shells, testable level by level with the cubic vertex alone and cheapest at $L = 1$ in the ghost sector; for (R$'$) by a kernel at every real $P^2$ with no selection-rule sector.
+It would be discharged, for (S), by a proof that $N \mapsto (\Pi_L \vertex{3} \Pi_n \vertex{3} N)_{n \ge 0}$ is injective on the fibre at each momentum, for instance by the moment-determinacy argument of \cref{sec:mom:definite} component by component; for (R$'$), by a rigidity theorem stating that a kernel at every real $P^2$ of an analytic Hilbert--Schmidt family with the stub structure is generated by symmetries, or by a reference momentum at level $L$.
+
+\paragraph{Logical status.}
+Given (S) and the two proven steps below (the invariance of symmetry sectors and the Laplace separation), the conclusion of (R$'$) is contradictory, so (R$'$) and (S) imply that there is no kernel at every real $P^2$; conversely, without such a kernel (R$'$) holds vacuously.
+Given (S), (R$'$) is therefore logically equivalent to the absence of a kernel at every real $P^2$.
+What (R$'$) adds over assuming that absence is content and testability, not logical strength: it names the form a kernel at every momentum would have to take, a symmetry sector of the family, and its own falsifier is a distinct outcome, a kernel whose null vectors rotate with the stub.
+
+\paragraph{Laplace separation.}
+Let $N \ne 0$ with $K^{(L)}_P[s] N = 0$ for all $s$ in the one-sided family $[s_0, s_0 + \varepsilon)$.
+Differentiating~\eqref{eq:mom:strip}, $\mathcal E^{(L)}_P[s] N = 0$ on $(s_0, s_0 + \varepsilon)$, and since $s \mapsto \mathcal E^{(L)}_P[s] N$ is holomorphic on $\Re s > 0$ it vanishes for all $s > 0$.
+Fix $q'$ and pair with any $w \in W_L$; by~\eqref{eq:mom:shell-s} and the form of the crossed shells,
+\begin{equation}
+  \label{eq:mom:laplace}
+  0
+    = \sum_{n \ge 0} \e^{- s \, h_n(P)} \, \langle w, v_n(q') \rangle + \int_{-2}^\infty \e^{- s h} \, \dd \mu_{q', w}(h)
+  \quad \forall s > 0,
+  \qquad
+  v_n
+    := \Pi_L \, \vertex{3} \, \Pi_n \, \vertex{3} \, N,
+\end{equation}
+where $\mu_{q', w}$ is the image of the measures $\langle w, \pi^{t, u}_n(q, q') N(q) \rangle \, \dd^{26} q$ under $q \mapsto h^{t, u}_n(q, q')$, summed over $n$ and the two crossed channels ($\pi_n$ the kernels of the crossed shells).
+This measure is absolutely continuous in $h$, since an $L^2$ function of $q$ puts no mass on the spheres $(q \pm q')^2 = \text{const}$.
+The right-hand side is the Laplace--Stieltjes transform of the signed measure $\sum_n \langle w, v_n(q') \rangle \, \delta_{h_n(P)} + \mu_{q', w}$, identically zero for $s > 0$, so the measure vanishes by the uniqueness theorem for the Laplace transform (Widder, \emph{The Laplace transform}, ch.~II, §6).
+Its atoms sit at the distinct points $h_n(P)$, spaced by $2$, which the absolutely continuous part cannot cancel, so
+\begin{equation}
+  \label{eq:mom:decoupled}
+  \Pi_L \, \vertex{3} \, \Pi_n \, \vertex{3} \, N
+    = 0
+  \quad \forall n \ge 0,
+  \qquad
+  (\mathcal E^t_P[s] + \mathcal E^u_P[s]) N
+    = 0
+  \quad \forall s > 0:
+\end{equation}
+a null vector fixed along the stub family is exchange-decoupled.
+This is proven at real $P^2$ of both signs; at complex $p$ it holds for null-vector families holomorphic in $p$, by continuation from the real axis.
+The added stub length acts as a Laplace variable, and the mass levels separate.
+
+\paragraph{The theorem and its consequences.}
+Under (S), the Euclidean prescription and the convergence of the intermediate sum, no selection-rule sector and no stub-independent null vector exists at any real $P^2$, at any level: a selection-rule sector would contain a stub-independent null vector, which~\eqref{eq:mom:decoupled} makes exchange-decoupled and (S) forbids.
+A kernel at every momentum, if there is one, contains no null-vector family fixed along the stub family: it cannot be a conservation law of the vertex family, because a conserved sector would be blind to the whole tower of single-string exchanges.
+This statement does not use (R$'$).
+Under both clauses there is no kernel at every real $P^2$ at any level, by contradiction with the theorem; this exclusion is assumed through (R$'$), as the logical status says.
+With the Fredholm hypothesis at level $L$, \cref{thm:mom:dichotomy} then gives
+\begin{equation}
+  \label{eq:mom:d1-every-level}
+  Z_L \cap \Omega_L \ \text{closed and discrete for every } L,
+\end{equation}
+with a locally finite exceptional set of real $P^2$; the hypothesis plays the role of the reference momentum at every level without naming one.
+At $L = 0$, \cref{thm:mom:definite} gives this outright.
+The statement is for the operator at the stub of the vertex family; the lengthened operators of the family receive no claim.
+
+\paragraph{Isolated real zeros.}
+Nothing above excludes isolated real zeros, and the indefiniteness of the form near $P^2 = 0$ above level zero leaves a sign change of a branch of $K_p U$ along the real axis possible.
+Nor does anything indicate a range of real $P^2$ with a kernel.
+Under (S) alone, the Laplace separation at a single momentum shows that no real zero has a null vector that stays fixed, in fixed local coordinates, along the stub family.
+This excludes the non-generic case only: for a real-symmetric family analytic in $(P^2, s)$ a real zero generically lies on a curve $P_*^2(s)$ with a rotating null vector, which is not excluded.
+A real zero at level $L$, if one exists, is not a conserved sector of the vertex family: its null vector moves with the stub length, as a generic zero of an analytic family does.
+The criterion for a simple real zero with null vector $N$ to move under a change of stub, $\langle U N, \mathcal E[s_0] N \rangle \ne 0$, is formal (a first-order perturbation at a non-isolated eigenvalue), and (S) gives the nonvanishing of $\mathcal E[s] N$ for some $s$, not of this pairing.
+
+\subsubsection{No forced null vector}
+\label{sec:mom:forced}
+
+\status{mixed}\record{107-forced-kernel-search (R98)}
+
+This section tests whether a null vector of the fixed-level operator is forced by one of the mechanisms known to produce zeros of string vertices: the dilaton theorem with the ghost-number counting behind the cubic zeros, BRST exactness, and the universality of zero-momentum couplings, together with the worldsheet twist and one candidate direction, the non-dynamical direction of the zero-momentum level-$(1, 1)$ block of \cref{ch:solutions}.
+None is null.
+The statuses are mixed: the non-nullity at all-zero momenta is numerical, from the zero-momentum level-$(1, 1)$ couplings $h_k = V_4(T^{4 - k} D^k)$ of the vertex family at $\beta \in \{\tfrac{3}{2}, 2\}$ (the margin: $h_2$ lies at $0.37$ to $0.42$ of the edge of its window, with a spread of $1.8\,\%$ across sections); its persistence near $P = 0$ and away from a closed null set of real $P$ is proven given those values and the entire dependence of \cref{sec:mom:operator}, and, for the exact family below, the twist property on ghost legs at every momentum of~\cite{Erbin:2026:SL2CVerticesClosed}; the statements on the universality rule, on exactness and on the twist are structural and proven; the role of the dilaton theorem as the mechanism, and the non-vanishing of the on-shell boundary term of the exactness identity, are argued.
+The exclusion concerns these rules and this direction; the first alternative of \cref{thm:mom:dichotomy} is not excluded in general.
+
+\paragraph{Two senses of null vector.}
+In the $L^2$ sense of~\eqref{eq:mom:null-functions}, a null vector is a function $\sigma \in \mathcal H^{(L)}$ with $K^{(L)}_P \sigma = 0$; the dichotomy and discreteness are statements of this kind.
+In the plane-wave sense, a null vector is a state with sharp strand momenta, $\sigma(q) = \delta(q - q_0) \, w$ with $w \in W_L$, null if and only if $K^{(L)}_P(q', q_0) \, w = 0$ for every $q'$.
+A kernel forced by a selection rule is independent of $q$, hence null in both senses, so an exclusion of a rule in the plane-wave sense also tests the first alternative of the dichotomy.
+A nonzero pairing with any state refutes nullity; the block $\{T, D\}$ is not a closed sector of the vertex at any momentum, so a null vector of that block would not be a null vector of $\sprod{2}{2}$, but a nonzero pairing inside it refutes nullity without closedness.
+The space of $\Sigma_2$ is $\Sym^2 \mathcal H_0$, each strand at ghost number 2, with no Siegel-gauge condition, so BRST-exact states $Q_B \Lambda$ with $N_{\rm gh}(\Lambda) = 1$ lie in it at every momentum.
+
+\paragraph{The non-dynamical direction.}
+At all-zero momenta the level-$(1, 1)$ block $A$ of the quartic vertex on $\Sym^2 \{T, D\}$, in the basis $(TT, TD, DD)$, has $A e_2 = (h_1, h_2, h_3)^\top \ne 0$ and $\det A \ne 0$ at both values of $\beta$, and this survives with $h_1 = h_3 = 0$, where $\det A = h_2 (h_0 h_4 - h_2^2) \ne 0$ in the window of $h_2$.
+No vector of $\Sym^2 \{T, D\}$ is null at zero momentum, and ``constant direction'' means non-dynamical (no pole), not null.
+Since $A(k)$ is entire in the momenta, $\det A(0) \ne 0$ gives $\det A(k) \ne 0$ on a real neighbourhood of $k = 0$; beyond it there are no momentum-dependent level-$(1, 1)$ data, and a zero there would be a zero of a sub-block that is not closed.
+
+\paragraph{The ghost dilaton.}
+At all-zero momenta, $V_4(a \, D T + b \, D D, e_j) = 0$ for $j = 1, 2, 3$ forces $a = b = 0$, the second and third columns of $A$ being independent.
+For the plane-wave pairs at $P \ne 0$, $f(P, k_3) = V_4(D(0), T(P), T(k_3), T(- P - k_3))$ is entire with $f(0, 0) = h_1 \ne 0$, and the analogous function with $D(P)$ has value $h_2 \ne 0$ at the origin, so these pairs are non-null near $P = 0$ and away from a proper analytic subset of momenta.
+The dilaton theorem produces relations between couplings, not zeros.
+The ghost dilaton is $D = Q_B \chi$ with $\chi = c_0^- \ket{0}$, outside the space annihilated by $b_0^-$, so the exactness identity below does not apply to it.
+The cubic zeros $V_3(TTD) = V_3(DDD) = 0$ come from holomorphic ghost-number counting, which the antighost insertions of the moduli lift at four points and more.
+
+\paragraph{BRST-exact pairs.}
+Exactness forces a cyclic $L_\infty$ identity for the pairs $Q_B \Lambda \odot \Phi$, which reduces on shell to a boundary term, and this identity does not force nullity.
+A toy cyclic $L_\infty$ algebra with acyclic differential, vanishing two-product and ghost number 2 per strand satisfies the identity on every input and has $V_4(Q \lambda, t, Q \lambda, t) \ne 0$; it extends to a full cyclic $L_\infty$ algebra because its cohomology vanishes.
+The candidate that could exist at every momentum is the zero-momentum exact strand $E = Q_B c_0^+ \ket{0}$ and its family $E(0) \odot \Phi(P)$.
+The twist makes $E$ orthogonal to every content of $\{T, D\}$, but the holomorphic ghost-number counting gives the two-$E$ couplings exactly,
+\begin{equation}
+  \label{eq:mom:two-E}
+  V_4(T, T, E, E)
+    = - h_2,
+  \qquad
+  V_4(T, D, E, E)
+    = - \tfrac{1}{3} h_3,
+  \qquad
+  V_4(D, D, E, E)
+    = - \tfrac{1}{3} h_4,
+  \qquad
+  V_4(E^4)
+    = h_4,
+\end{equation}
+reproduced numerically by the level-$(1, 1)$ computation of the vertex family to $10^{-10}$.
+At all-zero momenta the twist-odd block on $\operatorname{span}(E \odot T, E \odot D)$ and the twist-even block on $(TT, TD, DD, EE)$ are non-singular, so no vector of $\Sym^2 \{T, D, E\}$ is null.
+The function $V_4(E(0), T(P), E(k_3), T(- P - k_3))$ is entire with value $- h_2 \ne 0$ at the origin, so the family $E(0) \odot \Phi(P)$ is non-null near $P = 0$ and away from a closed null set of real $P$: it is not a kernel at every momentum.
+Exact strands with a matter gauge parameter, which vanish at zero momentum, are open at nonzero momentum for lack of data.
+
+\paragraph{Zero total momentum.}
+The universality rule for zero-momentum couplings holds when every leg is at zero momentum.
+On the fibre this is the single point $q = q' = 0$, a set of measure zero, so in the $L^2$ sense it forces nothing.
+In the plane-wave sense, on the sector with all momenta zero, the grading by the number of strands outside the matter identity module gives a three-block form with exactly one forced zero block and no vanishing row, while Lorentz covariance adds only block-diagonality by isotypic component, with symmetric blocks.
+An accidental zero of one of the channel matrices of the matter sector at $P = 0$, level $(1, 1)$, is open for lack of data; it would be necessary but not sufficient for a plane-wave null vector, since the pairings with partners at $q' \ne 0$, all Taylor coefficients of an entire function, would have to vanish too, and such a null vector would be expected to be isolated.
+
+\paragraph{Scope.}
+The class excluded is the null vectors forced by the dilaton theorem, by BRST exactness, by the universality of zero-momentum couplings and by the twist, together with the non-dynamical direction of the zero-momentum block, in the plane-wave sense at the momenta stated and in the $L^2$ sense for the universality rule at $P = 0$.
+These are the rules known to force zeros of string vertices.
+Outside the class remain accidental kernels at any level $\ge 1$ and any real $P^2$, which the indefiniteness of \cref{sec:mom:operator} makes not implausible and no selection-rule search can reach; a common factorization map of all couplings of $\Sigma$, which would force a large inherited kernel and has no known realization for string vertices; charges of the matter CFT beyond the identity-module grading, absent in flat 26-dimensional space; and the twist on legs with matter oscillators, which is supported and not established.
+The weakest relaxation that evades the exclusion is an accidental zero of one channel matrix of the matter sector at $P = 0$, level $(1, 1)$, together with the vanishing of its Taylor conditions in $q'$; or, at $P \ne 0$, an accidental real zero of a branch of the level-$(1, 1)$ operator, which is the open question of isolated real zeros.
+None of the null vectors at every momentum, at $P^2 = 0$ or on shell that would be the forced types is realized, so the decoupling hypothesis of \cref{sec:mom:mass-sum} survives the candidates; this does not test its clause (S), since the search tests the quartic vertex and not the exchange shell, and it is silent on a kernel whose null vectors rotate with the stub.
+
+\subsubsection{What remains open}
+\label{sec:mom:open}
+
+At level zero, for the vertex family at $\beta > \sqrt{2}$, the kinetic operator of $\Sigma_2$ has no null vector at any real momentum and its eigen-expansion converges.
+Above level zero the singular set is discrete at every level under the Fredholm hypothesis and the decoupling hypothesis, which are open; without them one reference momentum per level would suffice, and none is known.
+Isolated real zeros above level zero are not excluded: the form is indefinite near zero momentum at level 1, and a zero whose null vector rotates with the stub is generic and invisible to every argument used here.
+Two further statements are open and stated as such in the paper's assumptions above: that every level-truncated pair block is invertible at real $P$ off a closed discrete set of $P^2$, which is the first assumption at $k = 2$ and follows, as an implication, from the two hypotheses; and that the sources lie in the form domain of the level-zero kernel, that the level truncations of the exchange converge at real $P$, and that both hold on a complex neighbourhood of the real domain, which concern the second and third assumptions.
+The range clause of \cref{sec:mom:operator} is the precise form of the second assumption, and no finite-level computation decides the third.

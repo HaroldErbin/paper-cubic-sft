@@ -1,0 +1,18 @@
+# LaTeX build outputs
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+!figures/*.pdf
+!**/figures/*.pdf
+
+# Python
+__pycache__/

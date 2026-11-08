@@ -1,0 +1,69 @@
+\section{QFT toys}
+\label{ch:qft-toys}
+
+This appendix collects three field-theory models in which the Hubbard--Stratonovich step of the construction can be done in a few lines, with every coefficient explicit.
+The first block is the paper's appendix on $N$ scalar fields with a quartic interaction, reproduced in full: the auxiliary field carries a pair of indices as $\Sigma_2$ carries two strings, and a degenerate coupling matrix shows how the kernel condition and the multiplier on the null directions arise in finite dimension.
+The second block, from the older overview note, gives the strictification of the quartic Yang--Mills vertex in the colour--kinematics-dual form and the open-string field theory with stubs, the closest string-theoretic precedent of an auxiliary field with a pole-free kinetic term, together with the list of what does and does not carry over to closed strings.
+The third block, from the companion note on pairings and gradings, redoes the Yang--Mills elimination step by step, adds a second, ultralocal, auxiliary field for the same quartic, and compares both with the closed-string $\Sigma_2$.
+Only the scalar model is in the paper; the Yang--Mills and stub material is only here.
+
+\paragraph{The scalar model.}
+The block below is the paper's appendix in the paper's notation.
+Its statements are elementary linear algebra of a model with constant couplings and are derived in full in the block; they carry no separate entry among the results of this document.
+The correspondence with the string construction is stated in the block itself, in the paragraph on the relation to the string field: the products $\phi_i \phi_j$ become $\Psi^2$, the tensor $V_{ijk\ell}$ becomes $\gs^2 \vertex{4}$, and the null vectors of $V_{IJ}$ play the role of the kernel of $\sprod{2}{2}$ (\cref{p:sec:hs:quartic}).
+
+\input{extracted/B/1-p}
+
+\subsection{Yang--Mills strictification and the open-string stub}
+\label{sec:qft:ov}
+
+The next block is taken from an earlier overview note.
+It contains two results, with the following status.
+\begin{itemize}
+  \item The Yang--Mills strictification toy: integrating out the rank-three auxiliary field $G$ reproduces the non-local quartic vertex of the colour--kinematics-dual form with the correct coefficient, $\frac{1}{4} J (1 / \square) J$.
+    \status{Verified}\record{001-cubic-sft-overview-note (R4)}
+    The check is done on the single-contraction scalar representative $\mathscr L(G) = - \frac{1}{2} G \square G - \frac{1}{\sqrt 2} G J$, with $\square$ invertible away from zero momentum; the index structure of the rank-three auxiliary field and the strictified Lagrangian are quoted from~\cite{Borsten:2021:DoubleCopyHomotopy}, not re-derived.
+  \item The open-string stub: the propagator of the auxiliary field of the stub theory, $(1 - \e^{- 2 \lambda L_0}) / L_0$ times $b_0$, is regular as $L_0 \to 0$, with limit $2 \lambda$, so that it has no on-shell pole.
+    \status{Verified}\record{001-cubic-sft-overview-note (R3)}
+    The check concerns the scalar factor of the propagator, with $b_0$ dropped.
+    The inference from the absence of a pole to the absence of physical states in the auxiliary sector is the one of~\cite{ErbinFirat2023}, quoted, not re-derived.
+    In that theory the auxiliary field lives in one copy of the open-string state space, not in a tensor product as $\Sigma_2$ does.
+\end{itemize}
+The remarks on the transfer to closed strings and the paragraph on the localization of the quartic potential in the superstring theory of~\cite{MaccaferriMerlano2019} are comparisons with the literature, not results, and carry no status.
+The note uses the older notation of the project, translated below.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: overview note $\to$ paper.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item The \enquote{HS step} is the Hubbard--Stratonovich step at the quartic order, \cref{p:sec:hs:quartic}; $\ell_3$ is the bracket of the $L_\infty$ algebra that encodes the quartic vertex $\vertex{4}$.
+    \item In the stub paragraph, $\Sig \in \Hilb$ is the auxiliary field of the open-string theory with stubs, a field in the open-string state space; it is not the paper's $\Sigma_2$.
+      The closing paragraph's \enquote{closed $\Sig \in \Hilb^{\otimes 2}$} is the paper's $\Sigma_2 \in \Hn{2}$; the $(\ker L_0)^c$ restriction there is the one of the stub theory, in which the auxiliary field lives outside the kernel of $L_0$.
+    \item $\Mean{\cdot, \cdot}$ is the open-string BPZ product and $g_o$ the open-string coupling; $*$ is Witten's star product.
+    \item $\phi_1$, $\phi_2$ are the first components of an $L_\infty$ quasi-isomorphism, and $\IBL$ is the involutive Lie bialgebra structure of \cref{ch:ibl}.
+    \item \emph{Reality.} The block uses no reality condition. The note's convention elsewhere is $\Sig^\ddagger = \Sig$; on a $k$-string tensor whose strands have ghost number two, $\ddagger = (-1)^k \star$, so that $\Sig_k^\ddagger = \Sig_k$ is the paper's $\Sigma_k^\star = (-1)^k \Sigma_k$: the two agree for $\Sigma_2$, while for odd $k$ the sign is explicit, $\Sigma_3^\star = - \Sigma_3$, and $\Psi^\ddagger = \Psi$ is $\Psi^\star = - \Psi$ (\cref{ch:conventions}).
+  \end{itemize}
+\end{quote}
+
+\input{extracted/B/2-ov}
+
+\paragraph{Two Yang--Mills mechanisms.}
+The last block is the corresponding section of a note on pairings and gradings.
+It repeats the colour--kinematic elimination of the previous block with the intermediate steps shown, then introduces an antisymmetric auxiliary field $h_{\mu\nu}$ with an algebraic kinetic term, whose elimination gives the Yang--Mills quartic $- \frac{1}{4} \tr([A_\mu, A_\nu] [A^\mu, A^\nu])$.
+The colour--kinematic part is the toy of the previous item (\status{Verified}, same record); the ultralocal mechanism has no entry of its own among the results, and its elimination is an algebraic identity shown in full in the block.
+The comparison table and the closing paragraphs are a discussion: they explain why the colour--kinematic mechanism is the better model for the invertibility of $\sprod{2}{2}$, and why the Yang--Mills analogy motivates, but does not prove, that the quartic form has no kernel on the symmetric square.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: pairing-grading note $\to$ paper.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item $\mc V_4$ read as a bilinear form on $2$-string states is the paper's $\vertex{4}(A, B) = \pair[2]{A}{\sprod{2}{2}(B)}$; $p_{2,2}$ is the paper's $\sprod{2}{2}$, the same symbol.
+    \item $\Sigma$ is $\Sigma_2$; $\Sym^2 \mc H_0$ is $\Hn{2}$ restricted to level-matched states, and $\Sym^2 \mc H_0 / \ker \mc V_4$ is the quotient $\Hn{2} / \ker \sprod{2}{2}$ of~\eqref{p:eq:hs4:quotient}.
+    \item \enquote{The string action's $- 1 + 2 = + 1$} refers to the coefficients $- \frac{\gs^2}{4!}$ and $\frac{2 \gs^2}{4!}$ of~\eqref{p:eq:hs4:S4tilde}.
+    \item \emph{Reality.} The block uses no reality condition; the note elsewhere writes $\Sigma^\ddagger = \Sigma$, which for $\Sigma_2$ is the paper's $\Sigma_2^\star = \Sigma_2$, and for odd $k$ the paper's condition carries the sign, $\Sigma_k^\star = - \Sigma_k$, with $\Psi^\star = - \Psi$ (\cref{ch:conventions}).
+  \end{itemize}
+\end{quote}
+
+\input{extracted/B/3-pg}

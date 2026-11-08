@@ -1,0 +1,415 @@
+\section{Conventions}
+\label{ch:conventions}
+
+This chapter collects the conventions on which every other chapter depends: the state space and the fields, the normalization of the sphere correlators, the pairings on one and several copies of the state space with their exchange signs, and the reality conditions on the string field and on the auxiliary fields.
+It expands the two convention appendices of the paper, which are reproduced first and in full.
+They are followed by four sections of an older companion note on the pairing and the grading, written in an earlier notation that the translation box before them relates to the paper's.
+The chapter ends with three sections that exist only here: the conversion between the two normalizations of the sphere correlator met in this project, the orientation of the off-shell measure, and the derivation of the symmetry type of the strands of a multi-string tensor, which the paper states without proof.
+
+\paragraph*{Reading note.}
+\status{Verified} The first section is the convention appendix of the paper.
+The normalization of the sphere correlator it fixes is the one of~\cite{Erbin:2021:StringFieldTheory}; how numbers computed in the other common normalization are converted is the subject of \cref{sec:conv:two-normalizations}.\record{041-convention-reconciliation (R43)}
+\status{mixed} The reality conditions and the equivariance signs in the star convention, at the end of the section, have different statuses.\record{075-star-conjugation-convention (R81)}
+The definition of the star conjugation, its relation to the conjugation used in the older notes, the table of reality conditions and the equivariance of the pairing and of the kinetic term are proven by hand.
+The reality of the vertices with three or more arguments, and with it the interaction part of the condition on the gauge parameter, rests on the standing assumption on the vertices stated in the section, and is argued rather than checked; the condition on the multipliers $\Theta_k$ is checked in a finite model at $k = 2, 3$ and argued in general.
+The matter sector is argued from the rule on the modes, the ghost zero-mode sector is checked explicitly.
+
+\input{extracted/01/1-p}
+
+\paragraph*{Reading note.}
+\status{Proven} The next section is the second convention appendix of the paper.
+It derives the exchange sign of the one-string pairing on explicit states and its extension to the $k$-string pairing: in the physical parity, $\pair[k]{Y}{X} = (-1)^{\abs{X} \abs{Y}} \pair[k]{X}{Y}$ for every $k$, the one-string pairing being symmetric on its support.\record{055-omega-k-graded-symmetry (R58)}
+\status{Verified} The case $k = 2$ is the statement that the pairing of the auxiliary field $\Sigma_2$ is graded symmetric, hence not an odd symplectic form, in the physical grading; it is checked on finite models.\record{002-omega2-construction (R7)}
+\status{mixed} The section ends with the reality of the auxiliary fields.\record{028-reality-tower (R35)}
+Given the reality of the vertices, the reality of the whole tower of auxiliary fields off shell, with its kinetic terms, couplings and sources, is proven; at the solution it is proven under the kernel and invertibility conditions on the quadratic operators stated in the chapters on the construction, one of which is open; for the partner field it is proven through $O(\gs^4)$ and argued beyond.
+The reality condition on $\Sigma_k$ is forced by the sources only up to the directions that no source reaches.
+
+\input{extracted/01/2-p}
+
+\paragraph*{Reading note.}
+The next four sections come from an older companion note on the pairing and the grading at the quartic order.
+They derive the same two-string exchange sign by a direct computation on product states (\cref{pg:sec:pairing}), explain why one degree shift, not two, turns the two-string pairing into a graded-antisymmetric form (\cref{pg:sec:grading}), derive the reality of the $\Sigma$ sector of the quartic action from the reality of the quartic vertex (\cref{pg:sec:reality}), and relate the suspended gradings of the homotopy-algebra literature to the physical one (\cref{pg:sec:suspension}).
+\status{Verified} The exchange sign and the count of shifts are the result on the two-string pairing quoted above.\record{002-omega2-construction (R7)}
+The note uses an earlier notation and a different reality conjugation, listed in the box below.
+
+\begin{quote}
+  \small
+  \textbf{Translation box: the companion note and the paper.}
+
+  \begin{itemize}
+    \setlength{\itemsep}{0.5ex}
+
+    \item $\mc H_0$, the level-matched space at every ghost number, is the space written $\Hs$ in the paper.
+      $\epsilon(A) = N_{\rm gh}(A) \bmod 2$ is the parity written $\abs{A}$.
+
+    \item $\braket{A, B}$ and $\braket{X, Y}_2$ are the pairings $\pair{A}{B}$ and $\pair[2]{X}{Y}$, with the same definitions and the same Koszul sign.
+
+    \item $\Sym^2 \mc H_0$ is $\Hn{2}$; the field $\Sigma \in \Sym^2 \mc H_0 / \ker \mc V_4$ is $\Sigma_2 \in \Hn{2} / \ker \sprod{2}{2}$.
+      The symbols $\mc V_n$ and $p_{2,2}$ are those of the paper.
+
+    \item The note imposes reality with a conjugation $\ddagger$ for which every field is real: $\Psi^\ddagger = \Psi$, $\Sigma^\ddagger = \Sigma$, and every vertex is equivariant without a sign, $\mc V_n(A_1, \ldots, A_n)^* = \mc V_n(A_1^\ddagger, \ldots, A_n^\ddagger)$.
+      On a one-string state of ghost number $N_{\rm gh}$ it is related to the star conjugation of the paper by
+      \begin{equation*}
+        A^\ddagger
+          = (-1)^{N_{\rm gh}(A) + 1} \, A^\star,
+      \end{equation*}
+      and both act strand by strand on tensors.
+      On a $k$-string tensor whose strands have ghost number two, $\ddagger = (-1)^k \star$.
+      Hence $\Psi^\ddagger = \Psi$ is $\Psi^\star = - \Psi$, and $\Sigma_k^\ddagger = \Sigma_k$ is $\Sigma_k^\star = (-1)^k \, \Sigma_k$: the two conventions agree for even $k$, and \emph{for odd $k$ the two conditions differ by a sign}.
+      A reader who reads $\ddagger$ as $\star$ gets the sign of every odd-$k$ condition wrong.
+      The verbal description of $\ddagger$ in \cref{pg:sec:reality:conj}, as the composition of BPZ and Hermitian conjugation, leaves this sign implicit.
+
+    \item The note took the exchange sign of the one-string pairing to be graded antisymmetric.
+      The sign derived in the paper's conventions makes it symmetric on its support, and the block below carries the corrected sign as a parameter $s = +1$.
+      The two-string results depend on $s^2$ only and are unchanged.
+      The graded-antisymmetric form obtained by one shift is even, not odd, and the block says so.
+
+    \item The note writes $g_s$ for $\gs$ and $N_{\rm gh}$ for $\Ngh$; its $\ell_n$ and ghost-number assignments are those of the paper.
+  \end{itemize}
+\end{quote}
+
+\input{extracted/01/3-pg}
+
+\paragraph*{Reading note.}
+The next section works out the grading of the two-string pairing.
+It shows that the two shifts one would expect from the two tensor factors are invisible to the statistics, and that a single shift of the whole field gives the graded-antisymmetric presentation.
+
+\input{extracted/01/4-pg}
+
+\paragraph*{Reading note.}
+\status{mixed} The next section is the reality argument of the companion note at the quartic order, in the $\ddagger$ convention of the translation box above.\record{028-reality-tower (R35)}
+It is the case $k = 2$ of the reality of the auxiliary tower, conditional on the equivariance of the quartic vertex, which the section states as a hypothesis where it is used.
+
+\input{extracted/01/5-pg}
+
+\paragraph*{Reading note.}
+The last section of the companion note relates the suspended gradings of Cieliebak, Fukaya and Latschev and of Münster and Sachs to the physical one.
+
+\input{extracted/01/6-pg}
+
+
+\subsection{The two normalizations of the sphere correlator}
+\label{sec:conv:two-normalizations}
+
+\status{Verified}\record{041-convention-reconciliation (R43)}\record{046-stage0-translation-check}\record{062-ph24-vs-normalisation}
+
+Two normalizations of the ghost correlator on the sphere are met in the literature.
+The paper and this write-up follow~\cite{Erbin:2021:StringFieldTheory}, with~\eqref{p:eq:conv:sphere}:
+\begin{equation}
+  \label{eq:conv:nu-book}
+  \nu
+    := \braket{c_{-1} \bar c_{-1} c_0^- c_0^+ c_1 \bar c_1}
+    = - \frac{1}{2}.
+\end{equation}
+The working normalization of Belopolsky and Zwiebach~\cite{Belopolsky:1995:OffshellClosedString} is $\nu = -1$, and it is the one in which the explicit quartic vertex with $\group{SL}(2, \C)$ local coordinates of \cref{ch:sl2c-vertex} was evaluated.
+This section shows that the two differ only by the normalization of the sphere vacuum, gives the conversion of every quantity used in the write-up, and states what the checks establish.
+
+\paragraph{The zero modes are the same.}
+The two normalizations use the same zero modes $c_0^\pm = \tfrac{1}{2} (c_0 \pm \bar c_0)$ and $b_0^\pm = b_0 \pm \bar b_0$, and the same ordering $c_0^- c_0^+$.
+Since $c_0^-$ and $c_0^+$ anticommute, the product of the two is
+\begin{equation}
+  c_0^- c_0^+
+    = \frac{1}{4} \, (c_0 - \bar c_0) (c_0 + \bar c_0)
+    = \frac{1}{4} \, (c_0 \bar c_0 - \bar c_0 c_0)
+    = \frac{1}{2} \, c_0 \bar c_0,
+\end{equation}
+in both, so that $\nu = \tfrac{1}{2} \braket{c_{-1} \bar c_{-1} c_0 \bar c_0 c_1 \bar c_1}$ in both.
+The opposite ordering $c_0^+ c_0^-$ would flip the sign of $\nu$, not its magnitude.
+The difference between $\nu = -1$ and $\nu = -\tfrac{1}{2}$ is therefore not a convention on the zero modes: it is the value of the base correlator, $\braket{c_{-1} \bar c_{-1} c_0 \bar c_0 c_1 \bar c_1} = -2$ against $-1$, that is the normalization of the sphere vacuum, with the same sign.
+
+\paragraph{The conversion.}
+Every sphere correlator computed with $\nu = -1$ is twice the same correlator computed with~\eqref{eq:conv:nu-book}.
+A quantity built from a net number $k$ of sphere correlators (negative when it contains an inverse) is therefore converted to the normalization of this write-up by the factor $2^{-k}$, and its sign is unchanged:
+\begin{itemize}
+  \setlength{\itemsep}{0.5ex}
+
+  \item the pairing, one correlator: $\times \tfrac{1}{2}$; for instance $\braket{T | c_0^- c_0^+ | T} = \nu$ for the tachyon $T = c_1 \bar c_1 \ket{0}$, $-\tfrac{1}{2}$ against $-1$;
+
+  \item the quartic vertex $\vertex{4}$ on two-string states, one four-punctured sphere although its arguments are two-string states: $\times \tfrac{1}{2}$;
+
+  \item the matrix of the two-string pairing, a product of two pairings: $\times \tfrac{1}{4}$;
+
+  \item the operator $\sprod{2}{2}$, which is the quartic vertex read through the inverse of the two-string pairing, and its eigenvalues: $\times 2$;
+
+  \item the constants of the three- and four-point tachyon couplings: $\times \tfrac{1}{2}$ each.
+\end{itemize}
+The last item is a check of the rule rather than a consequence: the cubic tachyon coupling of the $\group{SL}(2, \C)$ section, $\{T^3\}(\beta) = 2 \nu \beta^6$ at the vertex parameter $\beta$, was recomputed from~\eqref{eq:conv:nu-book} and the mapping radii of the cubic vertex, without using the factor $\tfrac{1}{2}$.
+It gives $-\beta^6$ against $-2 \beta^6$, that is $11.39$ against $22.78$ in magnitude at $\beta = \tfrac{3}{2}$ and $64$ against $128$ at $\beta = 2$, with equal signs.
+The constant of the quartic contact term, quoted on the potential side, is $-1/\pi$ against $-2/\pi$, the value in this normalization being fixed by the cubic vertex, the pairing and factorization; its sign depends on the orientation of the measure, \cref{sec:conv:measure}.
+
+\paragraph{The same theory.}
+The conversion is a rescaling of the field and of the coupling.
+Each term of the action~\eqref{p:eq:conv:action} is one sphere correlator, so the action computed with $\nu = -1$ is twice the action of this write-up at the same field and coupling.
+Writing $S_{\nu}[\Psi; \gs]$ for the action in the normalization $\nu$, the term with $n$ fields scales as $\gs^{n-2} \, \Psi^n$, and the factor two is absorbed by
+\begin{equation}
+  \label{eq:conv:rescaling}
+  S_{-1/2}[\Psi; \gs]
+    = S_{-1} \big[ \Psi / \sqrt{2}; \sqrt{2} \, \gs \big],
+\end{equation}
+since $2 \, (\sqrt{2} \, \gs)^{n-2} \, (\Psi / \sqrt{2})^n = \gs^{n-2} \, \Psi^n$ for every $n$.
+The field of this write-up is $\sqrt{2}$ times the field of the other normalization, and the coupling of the other normalization is $\sqrt{2}$ times the coupling here.
+Everything a field and coupling rescaling leaves alone is the same in the two normalizations: the sign of $\nu$, the tachyon mass $m_T^2 = - 4 / \alpha'$, the rank of $\vertex{4}$, the signature of the two-string pairing, the ratios of eigenvalues, and the zeros of the determinant of $\vertex{4}$ as a function of the total momentum.
+Only magnitudes are converted, and the conversion carries no physics.
+
+\paragraph{What is established.}
+The sign of the conversion is established by two independent routes: the normalization of~\cite{Erbin:2021:StringFieldTheory} with the mode algebra, and the kinetic term of the tachyon, which uses no vacuum normalization.
+The magnitude $\tfrac{1}{2}$ is established by the recomputation of the cubic coupling above.
+That no further factor enters (a different normalization of the matter correlator, a volume factor, a normalization of the coupling) is established up to four points by the uniform ratio two of the pairing, the cubic coupling and the quartic contact constant, which come from separately published constants.
+What remains a definition, and no computation can change, is the factor $\tfrac{1}{2}$ as the ratio of the two vacuum normalizations.
+The conversion is checked by the companion script on conventions, listed in the script table of \cref{ch:finite-models}.
+The orientation of the measure on the moduli space is a separate question, which a three-point function cannot probe; it is the subject of the next section.
+
+
+\subsection{Orientation of the off-shell measure}
+\label{sec:conv:measure}
+
+\status{Proven}\record{042-q2-measure-orientation (R47)}
+
+Two transcriptions of the genus-zero measure prefactor are in use.
+Belopolsky and Zwiebach write a factor $\I / 2\pi$ per complex modulus~\cite{Belopolsky:1995:OffshellClosedString}, while~\cite{Erbin:2021:StringFieldTheory} writes $(2\pi \I)^{-1} = - \I / 2\pi$.
+Read side by side, they differ by $(-1)^{N-3}$ for an $N$-point amplitude.
+A conflict between them would be physical: the ratio $C_4 / C_3^2$ of the quartic and cubic coupling constants and the sign of the eigenvalues of $\sprod{2}{2}$ flip with it, while the cubic constant is untouched.
+This section shows that the two transcriptions do not conflict.
+The prefactor enters the amplitude only multiplied by a second sign, the convention for the antiholomorphic contour integral, which neither formula displays; once each prefactor is read with the contour convention of its own source, the two agree.
+
+\paragraph{Genus zero and on-shell states.}
+We work at genus zero, with on-shell external states $\mathscr V_i = c \bar c V_i$, $V_i$ a matter primary of weight $(1, 1)$, trivial local coordinates (on shell the correlator does not depend on them), and the conventions of this chapter.
+The value of one overall sign, stated at the end, is taken as an input from a separate computation.
+
+\paragraph{Orientation conventions.}
+These are conventions, free and fixed once.
+A complex modulus is $m = m_r + \I m_i$ with $m_r, m_i$ real, and the pair $(m_r, m_i)$ is positively oriented, so that $\dd m \wedge \dd \bar m = - 2 \I \, \dd m_r \wedge \dd m_i$.
+The area element is $\dd^2 m := 2 \, \dd m_r \, \dd m_i$, the convention of~\cite{Erbin:2021:StringFieldTheory}.
+For several moduli $m^{(1)}, \ldots, m^{(N-3)}$, the positively oriented real frame is $(m^{(1)}_r, m^{(1)}_i, m^{(2)}_r, m^{(2)}_i, \ldots)$, real and imaginary parts kept adjacent.
+The contours around the punctures are anticlockwise, with the local coordinate patch on their left, so that $\oint \frac{\dd w}{2\pi \I} \, w^{-1} = 1$.
+
+\paragraph{Two signs.}
+We keep two signs free.
+The prefactor of the measure is $\kappa / 2\pi$ per complex modulus: Belopolsky and Zwiebach have $\kappa = + \I$, and~\cite{Erbin:2021:StringFieldTheory} has $\kappa = - \I$.
+The antiholomorphic contour integral is normalized by a sign $\zeta$,
+\begin{equation}
+  \label{eq:conv:zeta}
+  \oint_C \frac{\dd \bar w}{2\pi \I} \, \bar w^{-n-2}
+    =: \zeta \, \delta_{n,-1},
+  \qquad
+  \zeta
+    = \pm 1.
+\end{equation}
+The prefactor $\kappa$ is a transcription, a claim that can be wrong; $\zeta$ is a convention.
+Neither is fitted to a coupling constant: the anchor of the computation is the on-shell amplitude gauge-fixed by the Faddeev--Popov procedure, which is independent of both.
+
+\paragraph{Step 1: the value of $\zeta$ under the anticlockwise rule.}
+The book~\cite{Erbin:2021:StringFieldTheory} states that the contours run anticlockwise and writes the antiholomorphic part of the antighost insertion as $\oint_C \frac{\dd \bar z}{2\pi \I} \, \bar b(\bar z) \bar v(\bar z)$ along the same contour $C$.
+Taken literally, $\dd \bar w$ is the differential of $\bar w$ along the anticlockwise circle $w = r \e^{\I \theta}$, $\theta \colon 0 \to 2\pi$, so that $\bar w = r \e^{- \I \theta}$ and $\dd \bar w = - \I r \e^{- \I \theta} \dd \theta$.
+Then
+\begin{equation}
+  \label{eq:conv:zeta-literal}
+  \oint \frac{\dd \bar w}{2\pi \I} \, \bar w^{-n-2}
+    = \frac{1}{2\pi \I} \int_0^{2\pi} (- \I r \e^{- \I \theta}) \, r^{-n-2} \e^{\I (n+2) \theta} \, \dd \theta
+    = - \frac{r^{-n-1}}{2\pi} \int_0^{2\pi} \e^{\I (n+1) \theta} \, \dd \theta
+    = - \delta_{n,-1},
+\end{equation}
+and the literal reading gives $\zeta = -1$.
+The other common reading treats $\bar w$ as an independent variable with its own anticlockwise contour, so that $\oint \frac{\dd \bar w}{2\pi \I} = + \Res_{\bar w}$, and gives $\zeta = + 1$.
+Both are legitimate conventions, and they are not the same one.
+The literal reading is the one of~\cite{deLacroix:2017:ClosedSuperstringField}, which states, with the same rule on the orientation of the contours, that integration over antiholomorphic coordinates comes with a factor $(- 2\pi \I)^{-1}$: this is $\zeta = -1$.
+
+\paragraph{Step 2: the antighost insertions of one modulus.}
+At four points we fix the punctures $z_1, z_2, z_3$ and take as modulus the position $z_4 = x + \I y$ of the fourth puncture, with local coordinate $F_4(w) = z_4 + w$.
+The Schiffer vectors are $\pd F_4 / \pd x = 1$ and $\pd F_4 / \pd y = \I$, with conjugates $1$ and $- \I$.
+With $\oint \frac{\dd w}{2\pi \I} \, b(w) = b_{-1}$ and, by~\eqref{eq:conv:zeta}, $\oint \frac{\dd \bar w}{2\pi \I} \, \bar b(\bar w) = \zeta \, \bar b_{-1}$, the two insertions are
+\begin{equation}
+  \label{eq:conv:Bxy}
+  B_x
+    = b_{-1} + \zeta \, \bar b_{-1},
+  \qquad
+  B_y
+    = \I \, (b_{-1} - \zeta \, \bar b_{-1}).
+\end{equation}
+
+\paragraph{Step 3: their product.}
+In the order $B_x B_y$ fixed by the orientation, and with $b_{-1}^2 = \bar b_{-1}^2 = 0$ and $\bar b_{-1} b_{-1} = - b_{-1} \bar b_{-1}$:
+\begin{equation}
+  \label{eq:conv:BxBy}
+  B_x B_y
+    = \I \, (b_{-1} + \zeta \, \bar b_{-1}) (b_{-1} - \zeta \, \bar b_{-1})
+    = \I \, (- \zeta \, b_{-1} \bar b_{-1} + \zeta \, \bar b_{-1} b_{-1})
+    = - 2 \I \zeta \, b_{-1} \bar b_{-1}.
+\end{equation}
+This $- 2 \I$ is the factor of $\dd m \wedge \dd \bar m = - 2 \I \, \dd m_r \wedge \dd m_i$, appearing on the side of the ghosts instead of the side of the measure.
+The order of the two insertions and the sign $\zeta$ enter only through their product, and the sign of the Schiffer vector drops out because it appears twice.
+
+\paragraph{Step 4: the action on the fourth puncture.}
+The vertex operator $\mathscr V_4 = c \bar c V_4$ is the state $c_1 \bar c_1 \ket{V_4}$.
+With $\{ b_m, c_n \} = \delta_{m+n,0}$, $b_{-1} \ket{V_4} = \bar b_{-1} \ket{V_4} = 0$ and $\bar b_{-1}$ anticommuting with $c_1$,
+\begin{equation}
+  \label{eq:conv:ghost-strip}
+  \bar b_{-1} c_1 \bar c_1 \ket{V_4}
+    = - c_1 \bar b_{-1} \bar c_1 \ket{V_4}
+    = - c_1 \ket{V_4},
+  \qquad
+  b_{-1} \bar b_{-1} c_1 \bar c_1 \ket{V_4}
+    = - \ket{V_4}.
+\end{equation}
+The pair $B_x B_y$ and every $\mathscr V_i$ are Grassmann even, so moving the pair onto the fourth puncture costs no sign, and with~\eqref{eq:conv:BxBy}
+\begin{equation}
+  \label{eq:conv:four-point-correlator}
+  \Big\langle B_x B_y \prod_{i=1}^4 \mathscr V_i \Big\rangle
+    = (- 2 \I \zeta) (-1) \, \big\langle c \bar c V_1 \, c \bar c V_2 \, c \bar c V_3 \, V_4(z_4) \big\rangle
+    = 2 \I \zeta \, \big\langle c \bar c V_1 \, c \bar c V_2 \, c \bar c V_3 \, V_4(z_4) \big\rangle.
+\end{equation}
+
+\paragraph{Step 5: integration.}
+With the prefactor $\kappa / 2\pi$, the positive orientation $\int \dd x \wedge \dd y = \int \dd x \, \dd y$ and $\dd^2 z = 2 \, \dd x \, \dd y$, the four-point form integrates to
+\begin{equation}
+  \label{eq:conv:measure-N4}
+  \int_{\mc S_{0,4}} \omega_2 \Big\vert_{\text{on shell}}
+    = \frac{\kappa}{2\pi} \, 2 \I \zeta \int \dd x \, \dd y \, \big\langle \cdots V_4(z_4) \big\rangle
+    = \frac{\kappa \, \I \zeta}{2\pi} \int \dd^2 z_4 \, \big\langle \cdots V_4(z_4) \big\rangle
+    = \frac{\kappa \, \I \zeta}{2\pi} \, A^{\rm FP}_{0,4},
+\end{equation}
+where $A^{\rm FP}_{0,4} := \int \dd^2 z_4 \, \langle \prod_{i \le 3} c \bar c V_i \, V_4 \rangle$ is the on-shell four-point amplitude with three punctures fixed by the Faddeev--Popov procedure.
+
+\paragraph{The observable sign.}
+Only the product
+\begin{equation}
+  \label{eq:conv:xi}
+  \xi
+    := \kappa \, \I \zeta
+    \in \{ +1, -1 \}
+\end{equation}
+enters the amplitude.
+The four combinations of a prefactor and a contour convention give:
+\begin{center}
+  \begin{tabular}{lcccc}
+    \toprule
+    Prefactor & Contour reading & $\kappa$ & $\zeta$ & $\xi$ \\
+    \midrule
+    $\I / 2\pi$~\cite{Belopolsky:1995:OffshellClosedString} & literal, \eqref{eq:conv:zeta-literal} & $+ \I$ & $-1$ & $+1$ \\
+    $\I / 2\pi$~\cite{Belopolsky:1995:OffshellClosedString} & $+ \Res_{\bar w}$ & $+ \I$ & $+1$ & $-1$ \\
+    $(2\pi \I)^{-1}$~\cite{Erbin:2021:StringFieldTheory} & literal, \eqref{eq:conv:zeta-literal} & $- \I$ & $-1$ & $-1$ \\
+    $(2\pi \I)^{-1}$~\cite{Erbin:2021:StringFieldTheory} & $+ \Res_{\bar w}$ & $- \I$ & $+1$ & $+1$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+The four rows are not four claims about one quantity: they are two claims, $\xi = \pm 1$, reached by two independent binary choices.
+The factor $(-1)^{N-3}$ between the printed prefactors is reproduced by flipping either $\kappa$ or $\zeta$, so comparing the two prefactors without comparing the two contour conventions is not a well-posed comparison.
+The prefactor of~\cite{Erbin:2021:StringFieldTheory} read with its own anticlockwise rule (third row) and the prefactor of Belopolsky and Zwiebach read with the residue convention (second row), which is the reading used with their prefactor in the explicit evaluation of the quartic vertex with $\group{SL}(2, \C)$ local coordinates, give the same $\xi = -1$.
+
+\paragraph{Any number of points.}
+For $N$ punctures the moduli are the positions $z_4, \ldots, z_N$.
+In the frame $(x_4, y_4, x_5, y_5, \ldots)$, the top form has the component
+\begin{equation}
+  \omega_{2(N-3)}(\pd_{x_4}, \pd_{y_4}, \ldots)
+    = \Big( \frac{\kappa}{2\pi} \Big)^{N-3}
+      \Big\langle (B_{x_4} B_{y_4}) (B_{x_5} B_{y_5}) \cdots \prod_i \mathscr V_i \Big\rangle.
+\end{equation}
+Each pair $B_{x_j} B_{y_j}$ is a pair of contours around the puncture $j$ only and is Grassmann even, so it commutes with every other pair and every $\mathscr V_i$, and it contributes the factor $2 \I \zeta$ of~\eqref{eq:conv:four-point-correlator} on its own puncture.
+Hence
+\begin{equation}
+  \label{eq:conv:measure-N}
+  \int_{\mc S_{0,N}} \omega_{2(N-3)} \Big\vert_{\text{on shell}}
+    = \Big( \frac{\xi}{2\pi} \Big)^{N-3} A^{\rm FP}_{0,N},
+  \qquad
+  A^{\rm FP}_{0,N}
+    = \int \prod_{j=4}^N \dd^2 z_j \,
+      \Big\langle \prod_{i=1}^3 c \bar c V_i \prod_{j=4}^N V_j \Big\rangle.
+\end{equation}
+The sign is a pure power of $\xi$, with no further $N$-dependent sign from the reordering of the antighosts.
+Three checks support the formula.
+At $N = 3$ there is no modulus and no antighost insertion, the prefactor is one, and both transcriptions agree on the cubic amplitude, as they must.
+The amplitude and the integrated form are proportional by a real factor, since no convention introduces a stray phase, so $\xi$ must be real and $\kappa \in \{ \pm \I \}$ for $\zeta = \pm 1$: this is why both sources carry a factor $\I$, but it does not choose the sign.
+The prefactor is dimensionless in both transcriptions, and the dispute is a pure phase.
+
+\paragraph{The value of $\xi$.}
+The computation fixes $\int \omega$ in terms of $A^{\rm FP}$ up to the sign $\xi$ per modulus, and it fixes the magnitude $1 / 2\pi$ and the reality of $\xi$.
+It does not fix the sign: that requires the sign of the normalization of the string field theory amplitude relative to the Faddeev--Popov one, which is fixed by comparing the Feynman region of the four-point amplitude with the exchange term of the action, or by the residue of the four-tachyon amplitude at the tachyon pole.
+That comparison, made with the explicit quartic vertex, gives $\xi = -1$; we take it as an input here and do not repeat it.
+Everything else in this section is independent of it: the identity~\eqref{eq:conv:measure-N}, the reading of the table, the value $\zeta = -1$ of the anticlockwise rule, and the agreement of the two transcriptions.
+
+\paragraph{Consequences for the two references and for this write-up.}
+The two printed prefactors are not statements about the same quantity: a prefactor without a declared antiholomorphic contour convention determines no physics.
+Read with the contour rule it states, the measure of~\cite{Erbin:2021:StringFieldTheory} gives $\xi = -1$, the same value as the prefactor of Belopolsky and Zwiebach read with the residue convention, so the two references agree and neither needs a correction; what the first lacks is an explicit statement, next to the measure, that $\dd \bar z$ is the differential along the anticlockwise contour, so that $\oint_C \frac{\dd \bar z}{2\pi \I} \, \bar z^{-n-2} = - \delta_{n,-1}$.
+Without it, a reader who adopts the residue convention obtains the wrong sign per complex modulus.
+For this write-up, with $\xi = -1$, the constant of the quartic contact term is negative on the potential side, and the sign left open in the Schwinger representation of the inverse of the quadratic operator of $\Sigma_2$ (\cref{ch:worldsheet-dictionary}) is fixed: the representation without a sign condition applies.
+The identity~\eqref{eq:conv:measure-N} is checked by the companion script on the measure orientation: the contour integral~\eqref{eq:conv:zeta-literal} by numerical quadrature, the steps~\eqref{eq:conv:Bxy}--\eqref{eq:conv:ghost-strip} in explicit finite-dimensional representations of the ghost modes, and the pure power at $N = 5$; the value of $\xi$ is not checked there.
+
+
+\subsection{The symmetry type of the strands}
+\label{sec:conv:strands}
+
+\status{Verified in a finite model}\record{076-hwedge-convention}
+
+The paper states, in its convention appendix, that the components of a tensor in $\Hn{n}$ are graded symmetric in the parity of the strands for the arguments of vertices and products, and in the shifted parity for the strands that the $n$-string pairing sets against a field.
+This section derives that rule and shows that under it every pairing and product of the theory is well defined and nonzero where it must be, while the physical parity on every strand makes the multiplier term vanish.
+
+\paragraph{Input strands and output strands.}
+The one-string pairing is graded symmetric on its support, and the $n$-string pairing is its tensor power with Koszul signs,~\eqref{p:eq:conv:pairing-n}; the parity is $\varepsilon = \Ngh \bmod 2$.
+A strand is an \emph{input} when it is an argument of a vertex or a product: the strands of $\Psi^n$, $\Sigma_n$, the gauge parameters, the equations of motion.
+It is an \emph{output} when the $n$-string pairing sets it against an input strand: the outputs of the products $\sprod{m}{n}$ and the strands of the multipliers $\Theta_k$, which multiply $\Sigma_k - \Psi^k$ through the $k$-string pairing.
+The argument is finite linear algebra and needs no hypothesis.
+
+\paragraph{Input strands.}
+The literature fixes only the input strands.
+In~\cite{Erler:2014:NSNSSectorClosed} the degree of a closed string state is its Grassmann parity and the wedge product obeys $\Phi_1 \wedge \Phi_2 = (-1)^{\deg \Phi_1 \deg \Phi_2} \, \Phi_2 \wedge \Phi_1$; there, $\Hn{n}$ is only the domain of the multilinear products, and no map has several outputs.
+Münster and Sachs~\cite{Muenster:2012:HomotopyAlgebrasString-kn} build the graded symmetric algebra of the closed string field shifted by two degrees, an even shift, so it is again graded symmetric in the physical parity on every strand.
+On inputs the rule is therefore theirs: even strands have symmetric components, odd strands antisymmetric ones.
+Neither reference pairs a multi-string tensor against another, so neither assigns a symmetry type to output strands; that type is fixed by the pairing, as follows.
+
+\paragraph{Output strands are graded symmetric in the shifted parity.}
+Raising a leg of parity $\varepsilon_b$ of a vertex through the pairing gives an output of parity $\varepsilon_a = \varepsilon_b + 1$, since the pairing joins states of opposite parity.
+Exchanging two outputs $a_i \leftrightarrow a_j$ of $\sprod{m}{n}$ is exchanging the two corresponding legs $b_i \leftrightarrow b_j$ of the vertex, which costs $(-1)^{\varepsilon_{b_i} \varepsilon_{b_j}} = (-1)^{(\varepsilon_{a_i} + 1) (\varepsilon_{a_j} + 1)}$.
+The outputs are thus graded symmetric in the shifted parity, for inputs of any parity.
+At ghost number three every output strand is odd and the shifted parity is even: the outputs have plainly symmetric components.
+
+\paragraph{Only the symmetric part pairs with $\Sigma_k$.}
+Take $\Sigma \in \Hn{k}$ with strands of ghost number two and a tensor $\Theta$ with strands of ghost number three.
+Since the strands of $\Sigma$ are even, the Koszul sign of~\eqref{p:eq:conv:pairing-n} is one, and in components
+\begin{equation}
+  \label{eq:conv:strands-contraction}
+  \pair[k]{\Theta}{\Sigma}
+    = \sum \Theta^{b_1 \cdots b_k} \, \prod_{i=1}^k \pair{e_{b_i}}{e_{a_i}} \, \Sigma^{a_1 \cdots a_k}.
+\end{equation}
+The product of pairings is invariant when the same permutation acts on the $a$ and the $b$ indices.
+If $\Theta$ had antisymmetric components, which is the graded symmetry in the physical parity on odd strands, a transposition of two strands would change the sign of the sum while leaving $\Sigma^{a_1 \cdots a_k}$ unchanged: the sum would vanish identically, whatever the signs of the one-string pairing.
+The smallest instance is $k = 2$, with $\Theta = B_1 \otimes B_2 - B_2 \otimes B_1$ and $\Sigma = A_1 \otimes A_2 + A_2 \otimes A_1$:
+\begin{equation}
+  \pair[2]{\Theta}{\Sigma}
+    = \pair{B_1}{A_1} \pair{B_2}{A_2}
+      + \pair{B_1}{A_2} \pair{B_2}{A_1}
+      - \pair{B_2}{A_1} \pair{B_1}{A_2}
+      - \pair{B_2}{A_2} \pair{B_1}{A_1}
+    = 0.
+\end{equation}
+So the part of a ghost-number-three tensor that pairs with $\Sigma_k$ is the part with plainly symmetric components, which is the image of the raising above.
+With the physical parity on every strand, the multiplier term $\pair[k]{\Theta_k}{\Sigma_k - \Psi^k}$ would vanish identically and the cubic action would contain no constraint.
+The pairing thus forces the shifted parity on output strands.
+
+\paragraph{Two odd inputs.}
+The product $\ell_{n+2}$ is graded symmetric in the parity of its inputs.
+On two gauge parameters, both odd, it is antisymmetric,
+\begin{equation}
+  \ell_{n+2}(\Lambda_1, \Lambda_2, \Psi^n)
+    = - \ell_{n+2}(\Lambda_2, \Lambda_1, \Psi^n),
+\end{equation}
+generically nonzero, and zero at $\Lambda_1 = \Lambda_2$, as the commutator $[\delta_\Lambda, \delta_\Lambda] = 0$ of a transformation with itself requires.
+This is the rule on input strands of~\cite{Erler:2014:NSNSSectorClosed}.
+
+\paragraph{Mixed strands.}
+The two gradings give the exchange signs $(-1)^{\varepsilon_i \varepsilon_j}$ and
+\begin{equation}
+  (-1)^{(\varepsilon_i + 1) (\varepsilon_j + 1)}
+    = (-1)^{\varepsilon_i \varepsilon_j + \varepsilon_i + \varepsilon_j + 1},
+\end{equation}
+which are equal if and only if $\varepsilon_i + \varepsilon_j = 1$.
+A tensor whose two strands have opposite parities has the same symmetry type in both gradings, and its role need not be specified.
+On two strands of the same parity the two types are different subspaces, of dimensions $d (d + 1) / 2$ and $d (d - 1) / 2$ for a $d$-dimensional space of strands, and no re-signing $T^{ab} \mapsto (-1)^{f(a,b)} \, T^{ab}$ maps one onto the other, since on the diagonal $a = b$ it would need $(-1)^0 = -1$.
+The distinction between input and output strands is therefore a property of the arrays, which no choice of signs removes.
+
+\paragraph{The rule.}
+Components are graded symmetric in the physical parity on input strands, as in~\cite{Erler:2014:NSNSSectorClosed,Muenster:2012:HomotopyAlgebrasString-kn}, and in the shifted parity on output strands, which are the dual of the input strands under the multi-string pairing and the image of the raising of a vertex leg.
+At ghost number three the output strands have symmetric components; for mixed tensors the role is irrelevant; the outputs of the higher products of the IBL structure (\cref{ch:ibl}) are output strands of any ghost number and follow the same rule.
+One symbol, $\Hn{n}$, serves for both roles.
+The physical content is that a constraint imposed through the multi-string pairing is nontrivial only if the multiplier has the symmetry dual to that of the field it constrains.
+The statements on the raised outputs, on the vanishing~\eqref{eq:conv:strands-contraction} for antisymmetric multipliers, on the product of two gauge parameters and on the signs and dimensions of the last paragraph are checked in a finite model with three states at ghost number two and three at ghost number three, a random one-string pairing with the symmetry above and a random graded-symmetric quartic vertex; the vanishing check gives a nonzero pairing for a multiplier with symmetric components, so it can fail.
+The reading of the two references is not machine-checked.

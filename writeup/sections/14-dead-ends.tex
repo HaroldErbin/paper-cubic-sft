@@ -1,0 +1,103 @@
+\section{Superseded results and dead ends}
+\label{ch:dead-ends}
+
+This chapter lists the statements of the project that turned out wrong, or that a later result made obsolete, with one paragraph each: what was claimed and where, what replaced it, and why.
+None of the withdrawn statements is used anywhere else in this document, and nothing here is re-derived; the replacement, when there is one, is stated in full in the chapter named in the paragraph.
+The chapter exists because the derivation records, the results ledger and the older notes keep the withdrawn statements in their original wording, and a reader who meets them there should find the reason here.
+Each paragraph carries the standing the ledger gives it: \emph{withdrawn} when the statement, or its headline, is false; \emph{superseded} when a later result removed its premise or made it obsolete (\cref{ch:preamble}, status vocabulary); the two refuted hypotheses carry \emph{refuted}, and one valid result, the rank test at the vertex of the theory, is kept next to the superseded one it continues, with its own status.
+
+\subsection{The \texorpdfstring{$(2, 2, 0)$}{(2,2,0)} relation of the raised products}
+
+\paragraph{The raised products satisfy the augmented \texorpdfstring{$(2, 2, 0)$}{(2,2,0)} relation.}
+\status{withdrawn}\record{010-a4-220-relation; 026-linfty-to-ibl-repackaging, sections 3.1--3.3 (R16, headline)}
+The claim was that the operations obtained by raising one input of the cyclic \Loo{} products with the inverse of the odd pairing, the family $\{\sprod{k}{\ell}\}_{k, \ell \ge 1}$ of operations with at least one input and one output, with $\sprod{2}{2} = \Delta \circ \ell_3$, satisfy the genus-zero relation of Cieliebak, Fukaya and Latschev at signature $(2, 2, 0)$ as a consequence of the cyclic \Loo{} relations, on the sector of inputs of equal parity, which contains every field of the construction.
+The derivation split the relation into lemmas, each checked on generic data, and closed it with one use of the Jacobi identity; that last step was a hard-coded pass in the companion script, and the review that accepted the derivation checked the lemmas and the signs, not the vanishing.
+A later derivation showed the claim false.
+The relation at $(1, 2, 0)$ is equivalent to $\com{Q, \ell_2} = 0$, and every relation with one input or one output holds; at $(2, 2, 0)$ the relation fails by $\tfrac{1}{2} M_{2, 2}$, equivalently it needs an extra condition $P_{2, 2} = 0$, which the cyclic \Loo{} relations do not imply.
+A cyclic \Loo{} algebra built on the Chevalley--Eilenberg algebra of $\mathfrak{sl}_2$ is a counterexample, with a proof, and the same algebra violates every relation with $k, \ell \ge 2$, for the given products; the failure on inputs of ghost number two is seen numerically, on a generic finite model.
+Whether the products of closed string field theory satisfy the relation has not been evaluated.
+What replaced the claim is the corrected statement of \cref{ch:ibl}: without the operations of no input or no output, the relations hold at $\min(k, \ell) = 1$ and are not implied at $(2, 2, 0)$; with those operations included, the family satisfies every genus-zero relation, in generating-function form, if and only if the products form a cyclic \Loo{} algebra.
+The lemmas of the withdrawn derivation hold as identities and are reused in the corrected statement.
+
+\paragraph{The cobracket--bracket composition is \texorpdfstring{$Q$}{Q}-exact, with \texorpdfstring{$\sprod{2}{2}$}{p22} as homotopy.}
+\status{withdrawn}\record{001-cubic-sft-overview-note, revision F1; 026-linfty-to-ibl-repackaging, sections 3.3--3.4 (R6)}
+The overview note wrote the $(2, 2, 0)$ structure equation of Cieliebak, Fukaya and Latschev, $\hat p_{1, 1, 0} \circ \sprod{2}{2} + \sprod{2}{2} \circ \hat p_{1, 1, 0} + p_{1, 2, 0} \circ p_{2, 1, 0} + \hat p_{2, 1, 0} \circ \hat p_{1, 2, 0} = 0$, and read it for the raised products of the theory: the composition of the cobracket with the bracket would then be $Q$-exact, equal to $- \com{Q, \sprod{2}{2}}$, with $\sprod{2}{2}$ as the homotopy (the note does not claim that $\sprod{2}{2}$ itself is $Q$-exact).
+Its checks tested the form of the equation only: which products enter, their ordering by signature, which places $\ell_3 = p_{3, 1, 0}$ after $(2, 2, 0)$, and the degrees.
+That form is the one of Cieliebak, Fukaya and Latschev and stands.
+The inference that the raised products satisfy it was withdrawn with the previous paragraph, since for the products of a cyclic \Loo{} algebra the equation fails by $\tfrac{1}{2} M_{2, 2}$; the relation that holds is the one of the family with the operations of no input or no output included, stated in \cref{ch:ibl}.
+
+\subsection{The sextic order}
+
+\paragraph{The augmented relations at \texorpdfstring{$(3, 2, 0)$}{(3,2,0)} and \texorpdfstring{$(4, 2, 0)$}{(4,2,0)}.}
+\status{withdrawn}\record{015-b5-ogs4-gauge-eom-ibl, section 5.4 (R21, part (3b))}
+The derivation of the gauge laws at order $\gs^4$ in the dressed and the elementary presentations ended with an argued statement on the \IBL{} side: the relations at $(3, 2, 0)$ and $(4, 2, 0)$ would follow from the lemmas of the $(2, 2, 0)$ derivation, and the dressed product $\tilde p_{4, 2, 0}$ would add no new relation.
+The argument rested on the withdrawn $(2, 2, 0)$ claim.
+The $(3, 2, 0)$ relation of the family without the operations of no input or no output fails for a cyclic \Loo{} algebra on the physical sector, numerically on a generic model, and every such relation with $k, \ell \ge 2$ fails for some cyclic \Loo{} algebra; what holds are the relations with one input or one output and the relations of the family with those operations included (\cref{ch:ibl}).
+The rest of that result, the identity of the gauge laws in the two presentations and the dynamical nature of the failure of the elementary one, stands under the hypotheses stated there and is in \cref{sec:order:sextic:both-gauge}.
+
+\subsection{The worldsheet picture}
+
+\paragraph{The auxiliary channel as a neck without length modulus.}
+\status{superseded}\record{006-phase6-riemann-interpretation}
+The first Riemann-surface reading of the construction attributed the auxiliary nature of $\Sigma_2$ to a neck glued with its twist only, at zero length, with no length modulus.
+This was wrong, and the record corrected itself in a revision: the auxiliary propagator integrates the proper time over a bounded range, $\int_0^{2 \lambda} \dd s \, \e^{- s L_0} = (1 - \e^{- 2 \lambda L_0}) / L_0$, which tends to $2 \lambda$ as $L_0 \to 0$ and has no pole because the long-cylinder region is excluded, not because the length is frozen; the neck carries the full complex plumbing parameter, while a twist-only gluing at $\abs{q} = 1$ has one real modulus and reaches only the boundary of $\mc V_{0, 4}$.
+The record as a whole is superseded by the dictionary of \cref{ch:worldsheet-dictionary}, which was derived afresh and is the only worldsheet reading this document uses.
+
+\paragraph{Two clauses of the fixed-halves model of the inverse.}
+\status{superseded}\record{074-p22-inverse-circle-gluing; 080-dressed-ckv; 113-offshell-dressed-gluing (R80, annotations)}
+The fixed-halves model writes $\sprod{2}{2}$ on shell as a circle gluing of two rigid three-punctured spheres and inverts it in the model (\cref{ch:worldsheet-circle}).
+Two of its statements have been replaced.
+First, one clause stated that the dressed Gram operator of $\sprod{2}{2}$ has a block inverse on the circle states.
+The dressed antighost insertions contain modes $b_n$ with $n \neq 0$, so the dressed operator has no such block structure; what carries over from the model to $\sprod{2}{2}$ is the identity $G \Pi G = G$ on the circle states and the projector, not a block inverse.
+Second, one step, the identity between the measure of the rigid gluing and the on-shell measure, was held as argued, resting on an argued step of an earlier derivation.
+It is now proven by two independent routes and machine-checked at sample points of the region of the plumbing parameter, so the statement that used it is proven (\cref{sec:wscircle:measure}).
+In the same revision the phrase \enquote{in the model the inverse is not a gluing} was given its precise reading: the inverse is not a gluing over a region with the standard measure and is not a kernel of the standard local class, which does not mean that it is not built from two surfaces.
+
+\paragraph{The selection rule of the circle map at the rigid vertex.}
+\status{superseded}\record{078-ph31-rank; 083-ph31-rank-ext; 087-k3-count-d3 (R84)}
+At the vertex parameter $\alpha'_{\rm v} = 0$ of the family of asymmetric cubic vertices used by the fixed-halves model, the ordinary local maps are pure dilations, and the dilation of the sphere fixing the two ordinary punctures acts as $+ w \pd_w$ in one ordinary frame and $- w \pd_w$ in the other.
+The conservation law of its antighost and stress-tensor contours gives the identities $(b_1^- - z^2 b_{-1}^-) \Phi_2 = 0$ and $(L_1^- - z^2 L_{-1}^-) \Phi_2 = 0$ on the image of the circle map, for inputs of every level.
+The level-projected circle map then misses a proper subspace of the even block at every output level $K \ge 2$: $5$ of $73$ directions at $K = 2$, and at $K = 3$, $60$ of $487$ with two matter components and $107$ of $1447$ with three, in each case the joint span of the two identities.
+The surjectivity of the circle map, the hypothesis on which three clauses of the fixed-halves model rest, therefore fails for that vertex.
+The result is superseded for two reasons.
+The cubic vertex of the theory is not the rigid one: it is the member $\alpha'_{\rm v} = \tfrac{1}{2}$, $\gamma' = \beta$ of the same family (the refuted hypothesis below), at which no such rule holds.
+And the rule is an artefact of rigid dilation coordinates: a conformal Killing vector reads $\pm w \pd_w$ in a local frame if and only if the local map is Möbius with its pole at the partner puncture, which fails for the explicit quartic vertex on its vertex region except on the surface $Z = \tfrac{1}{2}$, the fold boundary of the region of the plumbing parameter (\cref{sec:wscircle:coordinates}).
+The identities themselves are proven and are used there.
+
+\paragraph{The rank test at the vertex of the theory.}
+\status{Verified (rank rows); Proven (the $45$ relations)}\record{093-ph31-rank-half (R84 status; a verification line of PH31)}
+The extension of the same rank test to the vertex parameter $\alpha'_{\rm v} = \tfrac{1}{2}$ is not superseded and is listed here only because it continues the previous paragraph.
+At that parameter the level-projected circle map is onto at $K = 3$ with inputs of level at most $2$ and four matter components, and at $K = 4$ with two matter components and inputs of level at most $3$.
+With inputs of level at most $2$, $45$ directions are missing at $K = 4$; they are exact relations, proven by hand, from the pole structure of the $c$-ghost correlator, valid at every $\alpha'_{\rm v}$, and inputs of level $3$ close the deficit.
+These full-rank rows are the finite-level support of the surjectivity hypothesis listed in \cref{ch:hypotheses}.
+
+\paragraph{The six-point composite in the rigid model.}
+\status{superseded}\record{082-ph31prime (R85)}
+In the fixed-halves model at $\alpha'_{\rm v} = 0$, the six-point composite of the model is the projected one, $\mc C = \mc C_{\rm sector} - \Delta$, and the five-point vector lies in the kernel of the selection identities only under a fine-tuned identity between the five-point and the four-point regions of the model, which nothing motivates; that the model's dressing violates it is argued, not shown.
+A weaker surjectivity hypothesis, onto the joint kernel of the two identities, would need that identity to restore the six-point formula of the model, and it was not adopted.
+The statement is an exclusion within the model at $\alpha'_{\rm v} = 0$, and the model is no longer used at that parameter, for the reasons of the previous paragraphs; its weakest relaxation, $\alpha'_{\rm v} \neq 0$, is the case in use.
+
+\paragraph{The section of the explicit quartic vertex is real-analytic on the vertex region.}
+\status{refuted}\record{080-dressed-ckv (PH32)}
+The hypothesis stated that the local coordinates of the explicit quartic vertex at the two punctures of one half depend real-analytically on the plumbing parameter over the vertex region; it fed the clause that the second-order coefficients of these coordinates vanish at almost no point.
+The section turned out to be real-analytic inside each of the twelve tiles of $\mc V_{0, 4}$ and across the real-axis walls and the line $\Re Z = \tfrac{1}{2}$ above $\abs{\Im Z} = \tfrac{\sqrt{3}}{2}$, but not across the six arcs joining $\e^{\pm \I \pi / 3}$ to $-1$, $\tfrac{1}{2}$ and $2$, where its second-order coefficients are $C^1$ and not $C^2$ and its mapping radii have a kink.
+The hypothesis as worded is therefore false, although its own falsifier, a non-analytic locus of positive measure, is not met.
+It was replaced by the piecewise statement, real analyticity on each tile, under which the almost-everywhere clause is stated in \cref{sec:wscircle:coordinates}.
+
+\paragraph{The cubic vertex of the theory is the rigid vertex.}
+\status{refuted}\record{080-dressed-ckv (PH33)}
+The earlier worldsheet computations took the cubic vertex whose plumbing with itself gives the Feynman region and the boundary $\abs{q} = 1$ of the quartic vertex region to be the asymmetric vertex at $\alpha'_{\rm v} = 0$, $\gamma' = 3$, $\beta = \tfrac{3}{2}$, so that the coordinates of the quartic vertex on that boundary would be the rigid ones.
+The cubic vertex of the family of~\cite{Erbin:2026:SL2CVerticesClosed} is instead the symmetric member $\alpha'_{\rm v} = \tfrac{1}{2}$, $\gamma' = \beta$: in the frame $(0, 1, \infty)$ its maps are $f_0 = 2 w / (2 \beta + w)$, $f_1 = (2 \beta - w) / (2 \beta + w)$, $1 / f_\infty = f_0$, a form forced by the stabilizer $z \mapsto z / (z - 1)$ of $0$; in the family $w / (\alpha'_{\rm v} w + \gamma')$ this is $\alpha'_{\rm v} = \tfrac{1}{2}$, $\gamma' = \beta$, and in any frame with two punctures at $0$ and $\infty$ the parameters of the maps at these two punctures satisfy $\alpha_0 \alpha_\infty = \tfrac{1}{4}$, so that $\alpha'_{\rm v} = 0$ is not this vertex in any such frame.
+The clauses that rested on the rigid vertex were restated at $\alpha'_{\rm v} = \tfrac{1}{2}$, where the bending parameter $\mu_i$ of the coordinates of a pair equals $\tfrac{1}{2 \beta}$ ($\tfrac{1}{3}$ at $\beta = \tfrac{3}{2}$), and the fixed-halves model is used at that parameter.
+
+\subsection{Abandoned computations}
+
+\paragraph{A discretization box for the pair kernel.}
+\status{superseded}\record{045-kp-discretisation-box}
+A box of total and relative momenta was fixed for a tabulation of the four-tachyon contact term from which the level-zero pair kernel would be discretized.
+It became obsolete when the tile integrals were evaluated here through their boundary representation (\cref{ch:sl2c-vertex}) and the level-zero kernel was discretized directly with converged quadrature designs (\cref{sec:mom:level-0}).
+
+\paragraph{An independent study of the inverse of the quartic form.}
+\status{superseded}\record{073-p22-inverse-worldsheet-independent}
+A study of the worldsheet meaning of $\sprod{2}{2}^{-1}$ independent of the earlier records was started and stopped with no content; nothing in the record is a result.
+It was dropped as asking the wrong question, and the circle picture of \cref{ch:worldsheet-circle} replaced it.

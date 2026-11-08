@@ -1,0 +1,101 @@
+\section{Hypotheses and their status}
+\label{ch:hypotheses}
+
+This appendix lists, in one table, the motivated hypotheses on which results of this document rest, with the identifiers that the status lines of the chapters use (\cref{ch:preamble}).
+Each row gives the statement in the notation of the paper, shortened to what a reader needs to recognize it, its status, and the chapters that use or discuss it; the chapter that uses a hypothesis states it in full at the point of use, with its motivation.
+The status words are those of hypotheses: \emph{open}, \emph{supported} (with the evidence that supports it and its scope), \emph{discharged} (proven or replaced by a result, named below the table), \emph{adopted} (taken as part of the definition of the theory) and \emph{refuted}.
+The table groups the rows by status: supported, then open, then adopted, discharged and refuted.
+The scope of each support, the falsifier of each hypothesis and the results that use it are in the entry of the results ledger under the same identifier.
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.56\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.1\linewidth}@{}}
+    \toprule
+    ID & Statement & Status & Chapters \\
+    \midrule
+    \recordref{PH1} &$\sprod{2}{2}$ descends to an injective map on $\Hn{2} / \ker \vertex{4}$, invertible there at each level of truncation; the kernels are stable as the level grows; near the external momenta used, the truncated determinant on the quotient has no zero that persists as the level grows. & supported at level zero (the pair kernel is strictly definite at every real momentum); a data point at level $(1, 1)$, zero momentum & \ref{ch:order-by-order}, \ref{ch:all-orders}, \ref{ch:momentum-space}, \ref{ch:gauge-bv}, \ref{ch:solutions}, \ref{ch:worldsheet-dictionary}, \ref{ch:ibl}--\ref{ch:finite-models} \\
+    \recordref{PH3} &Completeness and convergence, on the vectors $\sprod{2}{2} P$, of the sum over $2$-string states, strand levels and relative momentum, in the form that allows the sum to be exchanged with $\sprod{2}{2}^{-1}$ at the collapse of the exchange. & supported at level zero, for the momentum part & \ref{ch:order-by-order}, \ref{ch:all-orders}, \ref{ch:momentum-space} \\
+    \recordref{PH4} &The Feynman regions of the vertex family in use cover $\mc M_{0, 4}$ exactly once. & supported: one numerical check on shell for the explicit section, one boundary check & \ref{ch:order-by-order} \\
+    \recordref{PH5} &At generic momentum and off shell, $\ker \vertex{4} = 0$ on $\Hn{2}$ for a generic member of the vertex family; failing that, $\vertex{5}$ and $\vertex{6}$ annihilate the kernel in the sense the quotient needs. & supported at level zero (first clause) & \ref{ch:order-by-order}, \ref{ch:all-orders}, \ref{ch:momentum-space}, \ref{ch:gauge-bv}, \ref{ch:solutions}, \ref{ch:ibl}--\ref{ch:finite-models} \\
+    \recordref{PH6} &Every geometric vertex $\vertex{n}$ is real: equivariant under the reality conjugation, with the Koszul sign of its odd arguments. & supported: cited for general $n$~\cite{Zwiebach:1993:ClosedStringField}; checked at $n = 4$ for the explicit family & \ref{ch:conventions} \\
+    \recordref{PH8} &The homological-perturbation transfer along $\sprod{2}{2}^{-1}$ gives an \Loo{} quasi-isomorphism between the cubic and the quartic-truncated theory on the classical complex. & supported in a finite-dimensional model & \ref{ch:ibl} \\
+    \recordref{PH12} &At every order the gauge algebra of the cubic theory is the one of $\Psi$ pulled back: $\delta \Sigma_k$ is the variation of the saddle plus a homogeneous term, with no independent parameter. & supported for $\Sigma_2$ through order $\gs^4$ & \ref{ch:gauge-bv} \\
+    \recordref{PH16} &At each order the exchange feedback is cancelled by elementary geometric couplings of the partner field $\Upsilon_2$, with no composite vertex. & supported at order $\gs^4$, and at $\gs^5$ in a random-tensor model & \ref{ch:partner-field} \\
+    \recordref{PH21} &For the split of the quartic form on $2$-string states into its level-diagonal part $D$ and the rest $N$, the spectral radius of $D^{-1} N$ is below one at real off-shell momenta away from the zeros of the truncated determinant, so that the Neumann series of $\sprod{2}{2}^{-1}$ converges. & supported on one block (zero momentum, tachyon and dilaton), by cancellation, not by diagonal dominance & \ref{ch:worldsheet-dictionary} \\
+    \recordref{PH29} &The mapping radii of the explicit section are $\rho_a = c(Z) \prod'_{b \neq a} \abs{z_{ab}}$, with $c(Z) = \beta^{-1} (\abs{Z} \abs{1 - Z})^{-1/2}$ independent of the puncture. & supported: closed form imported with the package of the explicit section, checked against its packaged maps & \ref{ch:order-by-order}, \ref{ch:momentum-space}, \ref{ch:sl2c-vertex} \\
+    \recordref{PH30} &The four-point contact term of the explicit section is the equivariant assembly over twelve tiles, under $S_3 \times \{1, \mathrm{conj}\}$, each tile with the same weight. & supported: tile structure checked; equal weights checked on shell only & \ref{ch:order-by-order}, \ref{ch:momentum-space}, \ref{ch:sl2c-vertex} \\
+    \recordref{PH31} &At fixed total momentum, the circle map extended to symmetric tensors of unbounded level is onto the even-$L_0^-$ part of ghost number four of the space of circle states, modulo the kernel of its Gram operator. & supported at finite level (full rank through output level $K = 4$ at sampled momenta) at the vertex parameter $\alpha'_{\rm v} = \tfrac{1}{2}$ & \ref{ch:worldsheet-dictionary}, \ref{ch:worldsheet-circle} \\
+    \recordref{PH34} &The section of the explicit quartic vertex is real-analytic in the modulus on each of the twelve tiles of $\mc V_{0, 4}$; across the six arcs joining $\e^{\pm \I \pi / 3}$ to $-1$, $\tfrac{1}{2}$, $2$ its second-order coefficients are $C^1$ and not $C^2$ and its mapping radii have a kink; at $\pd \mc V_{0, 4}$ they join the channel maps $C^1$ and not $C^2$. & supported by the reviewed package of the explicit section (corners not tested) & \ref{ch:worldsheet-circle} \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.56\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.1\linewidth}@{}}
+    \toprule
+    ID & Statement & Status & Chapters \\
+    \midrule
+    \recordref{PH2 (b)} &For every $k \ge 3$ there is a presentation in which every null vector of the kinetic operator $\wprod{k}{k}$ of $\Sigma_k$ is annihilated by every block in which $\Sigma_k$ appears; if $\ker \vertex{4} \neq 0$, the same presentation also satisfies the six-point condition on that kernel. & open; its reduction to the other hypotheses, part (a), is proven & \ref{ch:order-by-order}, \ref{ch:all-orders}, \ref{ch:gauge-bv}, \ref{ch:finite-models} \\
+    \recordref{PH9} &The composite of the double-strand fixture with shared length and twist differs from $\vertex{4}$ on some on-shell four-tachyon configuration. & open & \ref{ch:worldsheet-dictionary} \\
+    \recordref{PH10} &In the single-strand route, the sewing converges on $\abs{q} > 1$ up to the maximal length $\sigma_{\max}$. & open & \ref{ch:worldsheet-circle} \\
+    \recordref{PH11} &A linear interpolation of the disc data across the collar keeps the four discs disjoint and embedded. & open & \ref{ch:worldsheet-dictionary}, \ref{ch:worldsheet-circle} \\
+    \recordref{PH13} &The anomaly under the gauge parameter of $\Psi$ of the action $S + \pair{\Pi}{\hat Q X}$, with a multiplier $\Pi$ imposing the constraint on the deviation $X$, is cancelled by the \Loo{}-covariantized constraint $\pair{\Pi}{\mc Q_\Psi X}$. & open & \ref{ch:gauge-bv} \\
+    \recordref{PH14} &For the string vertices, the feedback invariants of the exchange of auxiliary fields at each order from $\gs^4$ on (at $\gs^4$, $\vertex{5 \cdot 5}(\Psi^6)$) cannot be written through the contact terms $\vertex{n}(\Psi^n)$ and boundary terms. & open & \ref{ch:order-by-order}, \ref{ch:all-orders}, \ref{ch:partner-field}, \ref{ch:gauge-bv}, \ref{ch:ibl}, \ref{ch:finite-models} \\
+    \recordref{PH15} &The quadratic form of opposite sign of the partner field $\Upsilon_2$ has no physical consequence, since $\Upsilon_2$ is a contact auxiliary without propagating states. & open; evidence at tree level, order $\gs^5$, in a model & \ref{ch:partner-field} \\
+    \recordref{PH17} &The chains and coefficients of a worldsheet representation of the six-point composite do not depend on the external momenta (a restriction of the class searched). & open & \ref{ch:worldsheet-circle} \\
+    \recordref{PH18} &The composite at fixed level has a pole in the pair momentum off the plumbing lattice: a non-isotropic zero of the truncated determinant of $\vertex{4}$ there. & open; at level zero neither realized nor excluded & \ref{ch:worldsheet-circle}, \ref{ch:open-problems} \\
+    \recordref{PH19} &The zeros of the truncated determinant of $\vertex{4}$ converge, as the level grows, to finite points with non-isotropic null vectors. & open & \ref{ch:worldsheet-circle}, \ref{ch:open-problems} \\
+    \recordref{PH22} &A cusp-shaped region reproduces the composite at fixed level: every zero of the determinant, every residue with its rank, and analyticity elsewhere. & open (low prior) & \ref{ch:worldsheet-circle}, \ref{ch:open-problems} \\
+    \recordref{PH27} &The kept vertices $\vertex{3}, \dots, \vertex{k + 2}$ are the truncation of a consistent genus-zero \Loo{} family: the vertex regions and the Feynman graphs of lower vertices cover $\mc M_{0, n}$ once with matching local coordinates on the common boundary, for $n \le k + 2$, and the family admits a consistent $\vertex{k + 3}$. & open & \ref{ch:gauge-bv}, \ref{ch:solutions}, \ref{ch:ibl}, \ref{ch:finite-models} \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.56\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.1\linewidth}@{}}
+    \toprule
+    ID & Statement & Status & Chapters \\
+    \midrule
+    \recordref{PH35} &At every level, after the level-zero Gaussian is divided out on both sides, the kinetic operator of $\Sigma_2$ at fixed level is a holomorphic family of closed Fredholm operators of index zero on a connected open set containing the real and the imaginary axes of the momentum. & open & \ref{ch:momentum-space}, \ref{ch:open-problems} \\
+    \recordref{PH36} &A kernel of $\sprod{2}{2}$ at fixed level present at every real squared momentum contains a selection-rule sector of the vertex family, and no pair state of bounded level is annihilated by the exchange of single-string states at every mass level. & open & \ref{ch:momentum-space}, \ref{ch:open-problems} \\
+    \recordref{PH37} &$\vertex{5}$ is damped by a Gaussian in the Euclidean relative momentum of the pair. & open & \ref{ch:worldsheet-circle} \\
+    \recordref{PH38} &Every block of pairs truncated in level is invertible at real total momentum off a closed discrete set of values of $P^2$. & open (proven at level zero under \recordref{PH25}, \recordref{PH29}, \recordref{PH30}, with no exceptional value) & \ref{ch:momentum-space}, \ref{ch:worldsheet-circle} \\
+    \recordref{PH39} &At level zero a form-domain condition; at real momentum the convergence of the truncations in level of the exchange; and the same on a complex neighborhood. & open & \ref{ch:momentum-space}, \ref{ch:worldsheet-circle} \\
+    \recordref{PH40} &The exchange at fixed contour is meromorphic on a connected open set of complexified external momenta containing the real domain and the continuation path. & open & \ref{ch:worldsheet-circle} \\
+    \recordref{PH41} &The six-point vertex region is invariant under complex conjugation of the moduli. & open & \ref{ch:worldsheet-circle} \\
+    \recordref{PH42} &On the symmetric algebra graded by role, the single-contraction part of the composition of two genus-zero operations equals the lifted antibracket term by term, and is the square of one operator, so that the operator form of the genus-zero \IBL{} relations holds. & open & \ref{ch:ibl} \\
+    \recordref{PH43} &At generic momentum and through order $\gs^2$, the equations of motion of the truncated closed string field theory form a regular set (Koszul--Tate acyclicity at antifield numbers one and two). & open & \ref{ch:gauge-bv}, \ref{ch:solutions} \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.56\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.1\linewidth}@{}}
+    \toprule
+    ID & Statement & Status & Chapters \\
+    \midrule
+    \recordref{PH25} &Euclidean prescription: the level-zero statements are decided on the Wick-rotated space of relative momenta of the tachyon pair, with the total momentum an unrotated label. & adopted as part of the definition of the theory & \ref{ch:order-by-order}, \ref{ch:momentum-space}, \ref{ch:sl2c-vertex} \\
+    \midrule
+    \recordref{PH7} &The reality conjugation squares to one on Grassmann-odd states. & discharged (proven) & \ref{ch:conventions} \\
+    \recordref{PH20} &The virtual dimension $\hat d = 2 n - 6$ also holds in the unstable cases, $- 2$ for the sphere with two punctures and $+ 2$ for the cylinder. & discharged & \ref{ch:worldsheet-dictionary} \\
+    \recordref{PH23} &The source doublet of the pair $(\Sigma_2, \Upsilon_2)$ at order $\gs^2$ is timelike, so that a boost aligns the whole source with $\Sigma_2$. & discharged (derived, up to a choice of frame) & \ref{ch:partner-field} \\
+    \recordref{PH24} &The two normalizations of the sphere correlator strip the same matter normalization and momentum delta from the $n$-point coupling. & discharged for $n \le 4$ & \ref{ch:conventions} \\
+    \recordref{PH26} &No residual factor on the mapping radius $\rho_3$ beyond what the Klein relation gives. & discharged & \ref{ch:sl2c-vertex} \\
+    \recordref{PH28} &Every elementary vertex of the explicit section vanishes when exactly one leg is outside the matter identity module (zero momentum, level-matched, ghost number two). & discharged & \ref{ch:solutions} \\
+    \midrule
+    \recordref{PH32} &The section of the explicit quartic vertex is real-analytic in the plumbing parameter over the vertex region. & refuted; replaced by \recordref{PH34} & \ref{ch:dead-ends} \\
+    \recordref{PH33} &The cubic vertex of the theory is the rigid asymmetric vertex at $\alpha'_{\rm v} = 0$, $\gamma' = 3$, $\beta = \tfrac{3}{2}$. & refuted & \ref{ch:dead-ends} \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\paragraph{The discharged hypotheses.}
+The reality conjugation squares to one on every state, even or odd, for either sign and either ordering convention, as a statement on mode monomials; with Grassmann-odd coefficients this holds in the standard involutive convention for their conjugation, and the matter sector is argued, not machine-checked.\record{028-reality-tower, addendum (PH7)}
+The virtual dimensions of the unstable cases follow from the direct count of the modes of the BRST operator and of the propagator, and the calculus of negative moduli closes on them.\record{036-covering-m06-composite, addendum (PH20, R59)}
+The timelike source doublet is the matching condition at order $\gs^2$ itself, for every real presentation of the partner scheme, and aligning it with $\Sigma_2$ is a choice of frame, unique up to $\Upsilon_2 \to - \Upsilon_2$; the alignment holds at order $\gs^2$ only.\record{038-chi-scheme-ogs5-count, addendum (PH23)}
+The common stripping of the two normalizations is the conversion of \cref{sec:conv:two-normalizations}, checked on the pairing, the cubic tachyon couplings and the quartic contact constant.\record{041-convention-reconciliation; 046-stage0-translation-check; 062-ph24-vs-normalisation (PH24, R43)}
+The absence of a residual factor on $\rho_3$ follows from the equivariance of the symmetric quartic vertex and, independently, from the plumbing of two cubic vertices (\cref{sec:sl2c:rho3}).\record{052-rho3-residual-factor (PH26, R54)}
+The one-leg selection rule is the universality rule of Yang and Zwiebach, after Sen, at genus zero and zero momentum (\cref{ch:solutions}).\footnote{Ledger entries \recordref{PH28} and \recordref{R88}; a cited result, with no derivation record of its own.}

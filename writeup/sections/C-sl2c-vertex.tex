@@ -1,0 +1,532 @@
+\section{SL(2,C) vertex data used here}
+\label{ch:sl2c-vertex}
+
+This appendix collects the computations on the $\group{SL}(2, \C)$ quartic vertex~\cite{Erbin:2023:SL2CQuarticVertex} that the level-zero statements of \cref{ch:momentum-space} use: the tile integral $J(p, q)$ from which the off-shell four-tachyon contact term is built, the reduction of that contact term to the Mandelstam invariants, the mapping radius at the puncture at infinity, the asymptotics of $J$ at the corner of its region, and the invariance of the contact region under complex conjugation, which is the geometric input of the reality of the quartic vertex (\cref{ch:conventions}).
+None of this is in the paper; \cref{ch:momentum-space} uses only the resulting form~\eqref{eq:mom:F} of the contact term.
+The first part is a note on $J$, reproduced in full in the notation of~\cite{Erbin:2023:SL2CQuarticVertex}; the four sections after it are written for this document from the derivations behind them.
+Two properties of the explicit vertex family at its declared section, the closed form of the mapping radii and the assembly of the contact term from twelve tiles, come from the construction of the family in~\cite{Erbin:2026:SL2CVerticesClosed}; they are taken here as inputs and stated where they are used.
+The numerical values of the vertex family itself (its overall normalization and the couplings of the tachyon and the dilaton) are not reproduced here, and are to be given in~\cite{Erbin:2026:SL2CVerticesClosed}.
+
+\paragraph{The tile integral.}
+The first block is the note on the integral
+\begin{equation*}
+  J(p, q)
+    = \int_R \abs{Z}^p \abs{1 - Z}^q \, \dd^2 Z
+\end{equation*}
+over the fundamental domain $R$ of the vertex region, for real $(p, q)$ and $\beta \ge \beta_{04} = \frac{1}{2} + \frac{1}{\sqrt{2}}$, where the region has four boundary arcs.
+Its results have different statuses.\record{047-j-integral-closed-form (R50)}
+\begin{itemize}
+  \item The boundary representation $J = \frac{1}{2} \Im \oint_{\partial R} \overline{G} \, \dd G$, with $G$ an incomplete Beta function; the constant-phase criterion, by which an arc has a straight image under $G$, and then closes in endpoint values of $G$, exactly when the phase of $f \, \dd Z$ is constant on it, with the four loci it gives; the closed forms on the lines $p = 0$ and $q = 0$ and at the point $(-1, -1)$; the reduction of a generic curved arc to a Kampé de Fériet double series; the confocal trapezoid; and the $n^{-3}$ convergence of the nested quadrature: \status{Proven}.
+  \item That no closed form is reachable by the boundary route for generic $(p, q)$, off the lines $p = 0$, $q = 0$ and the point $(-1, -1)$: \status{Argued}.
+    This is a statement about one route, within the class of finite combinations of ${}_2F_1$ and Appell $F_1$, $F_2$ functions, not a proof that no closed form exists; the step on the ellipse arc, where the ${}_2F_1$ sits at a quadratic-rational argument, is an argument and was not machine-checked.
+  \item The evaluation by Chebyshev cumulative integration along $\partial R$ and its accuracy: \status{Numerical}, at $\abs{p} + \abs{q} \le 170$ and $\beta \in \{ \frac{3}{2}, 2 \}$, without a rigorous error bound.
+\end{itemize}
+The relevance of $J$ to the contact term, and to the pair kernel of \cref{ch:momentum-space}, rests on the two inputs of the vertex family named above (\cref{sec:sl2c:stu}).
+
+\begin{quote}
+  \small
+  \textbf{Translation box: tile-integral note $\to$ this document.}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3ex}
+    \item The note is written in the notation of~\cite{Erbin:2023:SL2CQuarticVertex}: $Z \equiv Z_4$ is the cross-ratio, $\beta$ the parameter of the family, $C_1$--$C_4$ the four boundary arcs, $a$ and $b$ the semi-axes of the $s$-channel ellipse; $R = \mathrm{FD} \cap \mc V_{0,4}$ is the region written $R$ in~\eqref{eq:mom:F}.
+    \item The measure is $\dd^2 Z = \dd x \, \dd y$ for $Z = x + \I y$, as in~\eqref{eq:mom:F} and in the sections below; the normalization of the measure only rescales the overall constant of the contact term.
+    \item The Mandelstam invariants are those of the mostly-plus metric with all momenta incoming, $s = (k_1 + k_2)^2$, $t = (k_1 + k_4)^2$, $u = (k_1 + k_3)^2$, with $s + t + u = \sum_a k_a^2$ and the tachyon shell at $\alpha' k_a^2 = 4$.
+      In the sections below the invariants are written as $s_{ab} = (k_a + k_b)^2$, so that $t = s_{14} = s_{23}$ and $u = s_{13} = s_{24}$.
+    \item In the section on numerics, $p$ and $q$ are the exponents of $J$; they are unrelated to the relative momenta $q, q'$ of \cref{ch:momentum-space}.
+    \item The note contains no string field. The overall normalization of the contact term, which differs by a factor $\frac{1}{2}$ per sphere correlator between the normalization of~\cite{Erbin:2023:SL2CQuarticVertex} and the one of this document (\cref{sec:conv:two-normalizations}), does not enter $J$.
+    \item \emph{Reality.} The conjugation $\ddagger$ of the section on conjugation invariance below is the one of the earlier notes: on a $k$-string tensor whose strands have ghost number two, $\ddagger = (-1)^k \star$, so that the conditions agree for $\Sigma_2$ and differ by a sign for odd $k$, $\Sigma_3^\star = - \Sigma_3$ and $\Psi^\star = - \Psi$ (\cref{ch:conventions}).
+  \end{itemize}
+\end{quote}
+
+\input{extracted/C/1-jb}
+
+\subsection{The contact term depends on the momenta only through \texorpdfstring{$(s, t, u)$}{(s, t, u)}}
+\label{sec:sl2c:stu}
+
+\status{Conditional(PH29, PH30) -- Verified}\record{044-stu-reduction-contact-term (R48)}
+The off-shell four-tachyon contact term of the declared section of the vertex family depends on the external momenta only through the Mandelstam invariants: the individual virtualities $k_a^2$ cancel pointwise in the modulus $Z$ and on each tile, using only momentum conservation and no mass-shell condition.
+This is what makes the level-zero pair kernel of \cref{ch:momentum-space} a function of two invariants at fixed total momentum.
+The derivation is exact; it was checked as a symbolic identity and numerically against an implementation of the local coordinates of the family.
+
+\paragraph{Setup and inputs.}
+All four momenta are incoming, $\sum_a k_a = 0$, and $s_{ab} := (k_a + k_b)^2$, so that
+\begin{equation}
+  k_a \cdot k_b
+    = \frac{1}{2} \, \big( s_{ab} - k_a^2 - k_b^2 \big).
+\end{equation}
+The punctures sit at $(z_1, z_2, z_3, z_4) = (0, 1, \infty, Z)$.
+The puncture at infinity is regularized by dropping every factor that carries the index $3$ as a puncture position, both in the mapping radii and in the Koba--Nielsen factor; the two removals must be the same prescription.
+The tachyon vertex operator has conformal weight $(\frac{\alpha' k^2}{4} - 1, \frac{\alpha' k^2}{4} - 1)$, so that the local-frame dressing of puncture $a$ is $\rho_a^{\alpha' k_a^2 / 2 - 2}$, with $\rho_a$ the mapping radius.
+The two inputs from the construction of the family~\cite{Erbin:2026:SL2CVerticesClosed} are the following.
+\begin{enumerate}
+  \item \emph{Closed form of the mapping radii.} On the declared section,
+    \begin{equation}
+      \label{eq:sl2c:radii}
+      \rho_a
+        = c(Z) \, P_a,
+      \qquad
+      c(Z)
+        = \frac{1}{\beta \, (\abs{Z} \abs{1 - Z})^{1/2}},
+      \qquad
+      P_a
+        := \sideset{}{'}\prod_{b \ne a} \abs{z_{ab}},
+    \end{equation}
+    where the prime removes the factors with the index $3$, and $c$ is the same at the four punctures.
+  \item \emph{Assembly from twelve tiles.} With $G = S_3 \times \{ 1, \mathrm{conj} \}$, of order $12$,
+    \begin{equation}
+      \label{eq:sl2c:tiles}
+      \{ T^4 \}_{\rm contact}
+        = C \sum_{g \in G} \int_R \bigg[ \prod_a \rho_a(Z)^{\alpha' k_{\sigma_g^{-1}(a)}^2 / 2 - 2} \bigg] \, \mathrm{KN}(\sigma_g^{-1} k; Z) \, \dd^2 Z,
+      \qquad
+      \mathrm{KN}(k; Z)
+        = \abs{Z}^{\alpha' k_1 \cdot k_4} \abs{1 - Z}^{\alpha' k_2 \cdot k_4},
+    \end{equation}
+    where $\sigma_g$ is the permutation of the momentum labels attached to the tile $g$ and $C$ is the overall constant of the vertex.
+\end{enumerate}
+The rest of the derivation uses nothing else.
+
+\paragraph{Pointwise cancellation.}
+With the punctures above, the regularized products are
+\begin{equation}
+  P_1
+    = \abs{Z},
+  \qquad
+  P_2
+    = \abs{1 - Z},
+  \qquad
+  P_3
+    = 1,
+  \qquad
+  P_4
+    = \abs{Z} \abs{1 - Z}.
+\end{equation}
+The momentum-dependent part of the dressing is then
+\begin{equation}
+  D(k; Z)
+    := \prod_a \rho_a^{\alpha' k_a^2 / 2}
+    = c(Z)^{\alpha' \sum_a k_a^2 / 2} \, \abs{Z}^{\alpha' (k_1^2 + k_4^2) / 2} \, \abs{1 - Z}^{\alpha' (k_2^2 + k_4^2) / 2},
+\end{equation}
+while the Koba--Nielsen factor reads, with the identity for $k_a \cdot k_b$,
+\begin{equation}
+  \mathrm{KN}(k; Z)
+    = \abs{Z}^{\alpha' (s_{14} - k_1^2 - k_4^2) / 2} \, \abs{1 - Z}^{\alpha' (s_{24} - k_2^2 - k_4^2) / 2}.
+\end{equation}
+In the product the virtualities cancel exponent by exponent, and identically in $Z$,
+\begin{equation}
+  \label{eq:sl2c:cancel}
+  D(k; Z) \, \mathrm{KN}(k; Z)
+    = c(Z)^{\alpha' \sum_a k_a^2 / 2} \, \abs{Z}^{\alpha' s_{14} / 2} \, \abs{1 - Z}^{\alpha' s_{24} / 2}.
+\end{equation}
+The mechanism is structural: each $P_a$ is built from the same factors $\abs{z_{ab}}$ that appear in the Koba--Nielsen product, and $k_a \cdot k_b$ contains $- \frac{1}{2} (k_a^2 + k_b^2)$, so the dressing carries each $k_a^2$ with the opposite power.
+The cancellation leaves a single power of $c$ only because $c$ does not depend on the puncture.
+The remaining dependence on the virtualities is through their sum, which momentum conservation fixes:
+\begin{equation}
+  \label{eq:sl2c:sum}
+  s + t + u
+    = (k_1 + k_2)^2 + (k_1 + k_3)^2 + (k_1 + k_4)^2
+    = 3 k_1^2 + k_2^2 + k_3^2 + k_4^2 + 2 k_1 \cdot (k_2 + k_3 + k_4)
+    = \sum_a k_a^2,
+\end{equation}
+since $k_2 + k_3 + k_4 = - k_1$.
+This is the off-shell form of the familiar on-shell identity; on the four-tachyon shell it gives $\alpha' (s + t + u) = 16$.
+The momentum-independent part of the dressing is constant on the region:
+\begin{equation}
+  \label{eq:sl2c:product}
+  \prod_a \rho_a
+    = c(Z)^4 \prod_a P_a
+    = \beta^{-4} \, (\abs{Z} \abs{1 - Z})^{-2} \, \abs{Z}^2 \abs{1 - Z}^2
+    = \beta^{-4},
+\end{equation}
+so that $\prod_a \rho_a^{-2} = \beta^8$.
+On the tile that carries the ordered pair $(x, y)$ of invariants in place of $(s_{14}, s_{24})$, the full integrand is therefore
+\begin{equation}
+  \label{eq:sl2c:tile-integrand}
+  \mathcal I_{(x, y)}(s, t, u; Z)
+    = \beta^8 \, c(Z)^{\alpha' (s + t + u) / 2} \, \abs{Z}^{\alpha' x / 2} \abs{1 - Z}^{\alpha' y / 2}.
+\end{equation}
+
+\paragraph{Tile sum and crossing.}
+A tile does not move the integration region; it permutes the momentum labels.
+Writing $(a, b, c, d) = (\sigma^{-1}(1), \sigma^{-1}(2), \sigma^{-1}(3), \sigma^{-1}(4))$, the computation above with $k \to \sigma^{-1} k$ gives~\eqref{eq:sl2c:tile-integrand} with $x = s_{ad}$ and $y = s_{bd}$.
+Since $a, b, c$ are the three labels other than $d$, the three invariants $s_{ad}, s_{bd}, s_{cd}$ are $\{ s, t, u \}$ in some order: $(x, y)$ is an ordered pair of distinct invariants, and $z := s_{cd}$ is the third.
+The permutations act on the cross-ratio with kernel the Klein group $V = \{ e, (12)(34), (13)(24), (14)(23) \}$, which fixes $s_{12} = s_{34}$, $s_{13} = s_{24}$ and $s_{14} = s_{23}$ each, and $S_4 / V \simeq S_3$ acts faithfully on $\{ s, t, u \}$.
+The $S_3$ factor of $G$ is a set of coset representatives of $V$, so as $g$ runs over it, $(x, y)$ runs over the six ordered pairs once each.
+The conjugation $Z \to \bar Z$ leaves~\eqref{eq:sl2c:tile-integrand} invariant and the momenta untouched, and contributes a factor $2$.
+Inserting $c(Z)^{\alpha' (s + t + u) / 2} = \beta^{- \alpha' (s + t + u) / 2} (\abs{Z} \abs{1 - Z})^{- \alpha' (x + y + z) / 4}$, the exponents of $\abs{Z}$ and $\abs{1 - Z}$ become
+\begin{equation}
+  \frac{\alpha' x}{2} - \frac{\alpha' (x + y + z)}{4}
+    = \frac{\alpha'}{4} (x - y - z),
+  \qquad
+  \frac{\alpha' y}{2} - \frac{\alpha' (x + y + z)}{4}
+    = \frac{\alpha'}{4} (y - x - z),
+\end{equation}
+and the contact term is
+\begin{equation}
+  \label{eq:sl2c:contact}
+  \{ T^4 \}_{\rm contact}(s, t, u)
+    = 2 C \, \beta^{8 - \alpha' (s + t + u) / 2} \sum_{(x, y, z) \in S_3 \cdot (s, t, u)} J\Big( \frac{\alpha'}{4} (x - y - z), \frac{\alpha'}{4} (y - x - z) \Big),
+\end{equation}
+which is~\eqref{eq:mom:F} with $C$ restored, and the exponents~\eqref{jb:eq:pq-mandelstam} of the note.
+The sum over the six orderings of a fixed function of $(x, y)$ is totally symmetric in $(s, t, u)$: given that the assembly~\eqref{eq:sl2c:tiles} sums over a transversal of $V$, total crossing symmetry is derived, not assumed separately.
+The region is compact and bounded away from $Z = 0$ and $Z = 1$ for $\beta > \beta_{04}$, so each $J$ is finite for all complex exponents and the contact term is an entire function of the momenta.
+
+\paragraph{Limits.}
+At equal virtualities $k_a^2 = k^2$ the dressing factorizes before any use of the cancellation, $\prod_a \rho_a^{\alpha' k^2 / 2 - 2} = \beta^{8 - 2 \alpha' k^2}$ by~\eqref{eq:sl2c:product}, and~\eqref{eq:sl2c:contact} agrees since $s + t + u = 4 k^2$ on that line; the residual exponents match the equal-mass Koba--Nielsen exponents term by term, for example $\frac{\alpha'}{4} (s_{14} - s_{24} - s_{12}) = \frac{\alpha'}{2} s_{14} - \alpha' k^2 = \alpha' k_1 \cdot k_4$.
+The equal-mass line cannot distinguish a function of $(s, t, u)$ from a function of the four virtualities, because on it the invariants fix $k^2$.
+At $k = 0$ the contact term reduces to $12 \, C \, \beta^8 \Vol(R)$.
+
+\paragraph{What the reduction uses.}
+Exactly one property of the section is load-bearing: that $c$ in~\eqref{eq:sl2c:radii} is the same at every puncture.
+With $\rho_a = c_a(Z) P_a$ and $c_a = c \, \e^{\gamma_a}$,~\eqref{eq:sl2c:cancel} acquires the factor
+\begin{equation}
+  \prod_a c_a(Z)^{\alpha' k_a^2 / 2}
+    = c(Z)^{\alpha' (s + t + u) / 2} \exp\Big[ \frac{\alpha'}{2} \sum_a \gamma_a(Z) \, k_a^2 \Big],
+\end{equation}
+which is a function of $(s, t, u)$ alone if and only if the $\gamma_a$ coincide.
+The reduction is thus an \emph{if and only if} statement about the section.
+It survives any change of the second-point map $S$ of the section, which enters the radii only through the common factor $c = \abs{S}$; the constant $\beta^8$ of~\eqref{eq:sl2c:product}, by contrast, is special to the declared map $S_0$.
+The weight of the interior point map of the section does not enter the radii, so the reduction does not depend on it.
+A different consistent regularization of the puncture at infinity, for example a common finite cutoff, changes $c$ by a factor common to all punctures and leaves the reduction intact.
+
+\paragraph{A residual weight on $\rho_3$.}
+Two deformations of the radii by a momentum-independent constant $\mu > 0$ behave differently.
+If only the radius at infinity is rescaled, $\rho_3 \to \mu \rho_3$, the tile $g$ acquires $\mu^{\alpha' k_{c_g}^2 / 2 - 2}$ with $c_g = \sigma_g^{-1}(3)$, and the deformed sum
+\begin{equation}
+  \{ T^4 \}^{\mu}_{\rm contact}
+    = \mu^{-2} \, 2 C \sum_{(x, y)} \mu^{\alpha' k_{c(x, y)}^2 / 2} \int_R \mathcal I_{(x, y)}(s, t, u; Z) \, \dd^2 Z
+\end{equation}
+depends on the individual virtualities: the reduction to $(s, t, u)$ detects such a weight.
+If all four radii are rescaled, $c \to \mu c$, the whole contact term is multiplied by
+\begin{equation}
+  \label{eq:sl2c:common-weight}
+  \mu^{\alpha' (s + t + u) / 2 - 8},
+\end{equation}
+by~\eqref{eq:sl2c:sum}: the result is still a crossing-symmetric function of $(s, t, u)$, and no test of the momentum structure can see the weight.
+On the four-tachyon shell, $\alpha' (s + t + u) = 16$, the exponent of~\eqref{eq:sl2c:common-weight} vanishes and the weight drops out for every $\mu$, so a test of this deformation must be run off that plane; the numerical check uses $\alpha' (s + t + u) = 6$.
+Whether the first deformation shows up as a violation of crossing depends on which momentum each tile places at infinity, which the assembly~\eqref{eq:sl2c:tiles} does not fix (the label $\sigma^{-1}(3)$ takes all four values across a coset of $V$); what does not depend on that choice is that the weight destroys the reduction.
+
+The implementation of the local coordinates against which the reduction was checked defines the map at infinity through the Klein relation $F_3 = Z / F_1$, so that its two routes to $\rho_3$ share that definition, and the check cannot by itself exclude a weight folded into it.
+The next section closes this point.
+
+\paragraph{Checks.}
+The cancellation~\eqref{eq:sl2c:cancel} was verified as an exact symbolic identity,~\eqref{eq:sl2c:sum} as a polynomial identity in the four momenta, and~\eqref{eq:sl2c:product} numerically against radii obtained by differentiating the local coordinate maps, at both $\beta = \frac{3}{2}$ and $\beta = 2$.
+The decisive test compares the integrand at two momentum configurations with the same invariants and different virtualities, in $D = 26$ with $\alpha' = 1$:
+\begin{center}
+  \small
+  \begin{tabular}{lccccccc}
+    \toprule
+    & $\alpha' k_1^2$ & $\alpha' k_2^2$ & $\alpha' k_3^2$ & $\alpha' k_4^2$ & $\alpha' s_{12}$ & $\alpha' s_{13}$ & $\alpha' s_{14}$ \\
+    \midrule
+    X & $4$ & $4$ & $4$ & $4$ & $2$ & $5$ & $9$ \\
+    Y & $-1$ & $7$ & $3$ & $7$ & $2$ & $5$ & $9$ \\
+    X$'$ & $1$ & $1$ & $2$ & $2$ & $-4$ & $5$ & $5$ \\
+    Y$'$ & $-1$ & $3$ & $0$ & $4$ & $-4$ & $5$ & $5$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+% NOTE: the derivation names the invariants t = s_13, u = s_14, the opposite of the note's convention; the columns are labelled by s_ab to avoid the clash.
+The configuration X is the equal-mass on-shell point, Y shares its invariants with every leg off shell, and the second pair lies off the plane $\alpha' (s + t + u) = 16$; all four were realized as explicit vectors in $\R^{1,25}$.
+The dressing and the Koba--Nielsen factor differ between X and Y pointwise in $Z$, only their product agrees, which is why the test is not vacuous.
+The integrands agree pointwise and after quadrature; deformations that break the cancellation, momentum conservation, the identity~\eqref{eq:sl2c:product}, the assignment of $t$ and $u$, and the radius at infinity were each confirmed to make the corresponding check fail.
+
+\paragraph{Scope.}
+The statement concerns four tachyons and the contact term only.
+For an excited external state the dressing exponent shifts with the level and the phase of the local frame enters, which the modulus $\rho_a$ does not see; the exchange contributions carry radii specific to the Feynman regions and are outside the assembly~\eqref{eq:sl2c:tiles}.
+The statement is about the integrand, not about the numerical tractability of the resulting function, and it does not establish the two inputs, which it inherits.
+
+\paragraph{Consequence for the pair kernel.}
+The level-zero pair kernel has external momenta $k_1 = k$, $k_2 = P - k$, $k_3 = - k'$, $k_4 = - (P - k')$, with virtualities that differ in general, which suggests a function of six parameters.
+By the reduction it depends on $(k, k')$ only through $(s, t, u)$, and $s = P^2$ is fixed: at fixed total momentum the kernel is a function of the two invariants $t$ and $u$, with $t + u = \sum_a k_a^2 - P^2$.
+Total crossing symmetry includes $t \leftrightarrow u$, the exchange of the two strands of one pair, which gives an exact check on any discretization.
+This is the form~\eqref{eq:mom:KP} used in \cref{sec:mom:level-0}.
+
+\subsection{No residual factor on the mapping radius at infinity}
+\label{sec:sl2c:rho3}
+
+\record{052-rho3-residual-factor (R54)}
+The radius at infinity carries no residual factor on the declared section, so the reduction of the previous section holds with no weight that depends on the tile.
+Two statements, with different statuses, establish this.
+\begin{itemize}
+  \item For any assignment of local coordinates symmetric under $S_4$, $\rho_3 = \rho_1 / \abs{Z}$, and the plumbing of two cubic vertices gives $\tilde F_3 = Z / \tilde F_1$: the Klein relation is the $(13)(24)$ symmetry of the vertex, not an additional input. \status{Proven}
+  \item $\abs{(1 / \tilde F_3)'(0)} = c(Z)$, the residual factor is $f \equiv 1$ on the declared section, and the reduction carries no tile-dependent weight on the twelve tiles. \status{Conditional(PH29, PH30) -- Proven}
+    The identification $\rho_1 = \abs{S_0} = c \abs{Z}$ uses the closed form~\eqref{eq:sl2c:radii}, and the tiles of the $t$- and $u$-channels are reached through the relabelling of the assembly~\eqref{eq:sl2c:tiles}, not computed separately.
+\end{itemize}
+
+\paragraph{The question.}
+Define on the region
+\begin{equation}
+  f(Z)
+    := \frac{\abs{(1 / F_3)'(0)}}{c(Z)},
+\end{equation}
+the ratio of the radius at infinity, read in the chart $t = 1 / z$, to its closed form.
+A nontrivial $f$ would multiply the integrand of the tile $\sigma$ by $f(Z)^{\alpha' k_{\sigma^{-1}(3)}^2 / 2 - 2}$.
+Each of $k_1, k_2, k_3$ sits at infinity on two tiles, so the weight is the same on all tiles only when $k_1^2 = k_2^2 = k_3^2$; otherwise the virtualities no longer cancel and the reduction fails.
+The maps $F_a$ carry no momentum, so $f$ depends only on $(Z, \beta)$ and one scan over the region decides the question for every assignment of masses.
+
+\paragraph{First route: symmetry of the vertex.}
+The element $(13)(24)$ of $V$ is realized by the Möbius map $M_{13}(z) = Z / z$, which exchanges $0 \leftrightarrow \infty$ and $1 \leftrightarrow Z$ and fixes the cross-ratio.
+Invariance of the vertex under this relabelling relates the local coordinates at the punctures $1$ and $3$ up to a rotation of the local coordinate, $M_{13} \circ F_1(W, Z) = F_3(\e^{\I \theta} W, Z)$, so that
+\begin{equation}
+  \frac{1}{F_3(W')}
+    = \frac{F_1(\e^{- \I \theta} W')}{Z},
+  \qquad
+  \abs{\Big( \frac{1}{F_3} \Big)'(0)}
+    = \frac{\abs{F_1'(0)}}{\abs{Z}}
+    = \frac{\abs{S}}{\abs{Z}}.
+\end{equation}
+The rotation $W \to \e^{\I \theta} W$, which a closed-string vertex allows at each puncture because of level matching, drops out of the modulus of the derivative.
+Hence $\rho_3 = \rho_1 / \abs{Z}$ for every $S_4$-symmetric choice of local coordinates, whatever the maps $S$ and $R$ of the section.
+With the declared map, $\abs{S_0}^2 = \abs{Z} / (\beta^2 \abs{1 - Z})$, and
+\begin{equation}
+  \rho_3
+    = \frac{1}{\beta \, \abs{Z}^{1/2} \abs{1 - Z}^{1/2}}
+    = c(Z).
+\end{equation}
+A residual factor on $\rho_3$ would therefore not be a property of a particular section: it would be a violation of the $(13)(24)$ symmetry of the vertex.
+
+\paragraph{Second route: plumbing of two cubic vertices.}
+The same relation follows from the plumbing construction of the $s$-channel maps, without using the Klein relation.
+In the cubic vertex of the family the local coordinate at the puncture at infinity is $w_\infty = 2 \beta / (2 z - 1)$, so that the plumbing $w^{(1)}_\infty w^{(2)}_\infty = q$ reads $(2 z^{(1)} - 1)(2 z^{(2)} - 1) = 4 \beta^2 / q$.
+With the assignment $W_1 = w^{(1)}_0$, $W_2 = w^{(1)}_1$, $W_3 = w^{(2)}_0$, $W_4 = w^{(2)}_1$, and the Möbius map $g_s(z) = (p_3 - 1) z / (p_3 - z)$ that sends $p_3 = F_3^{\rm pl}(0)$ to infinity and fixes $0$ and $1$,
+\begin{equation}
+  F_3^{\rm pl}(W)
+    = \frac{1}{2} \Big( 1 + \frac{4 \beta^2}{q} \, \frac{1}{2 f_0(W) - 1} \Big),
+  \qquad
+  \tilde F_a
+    = g_s \circ F_a^{\rm pl},
+  \qquad
+  Z
+    = \tilde F_4(0)
+    = \frac{(4 \beta^2 + q)^2}{16 \beta^2 q},
+\end{equation}
+where $f_0$ is the local coordinate map at $0$ of the cubic vertex.
+The relations
+\begin{equation}
+  \tilde F_3 - \frac{Z}{\tilde F_1}
+    = 0,
+  \qquad
+  \tilde F_4 - \frac{Z}{\tilde F_2}
+    = 0
+\end{equation}
+then hold as rational identities in $(W, q, \beta)$, and
+\begin{equation}
+  \Big( \frac{1}{\tilde F_3} \Big)'(0)
+    = \frac{16 \beta q}{(4 \beta^2 - q)(4 \beta^2 + q)}.
+\end{equation}
+Since $1 - Z = - (4 \beta^2 - q)^2 / (16 \beta^2 q)$,
+\begin{equation}
+  \abs{Z} \abs{1 - Z}
+    = \frac{\abs{4 \beta^2 + q}^2 \abs{4 \beta^2 - q}^2}{256 \beta^4 \abs{q}^2},
+  \qquad
+  c(Z)
+    = \frac{16 \beta \abs{q}}{\abs{4 \beta^2 + q} \abs{4 \beta^2 - q}}
+    = \abs{\Big( \frac{1}{\tilde F_3} \Big)'(0)},
+\end{equation}
+for every $q$, in particular for the root $q(Z)$ on the region.
+The Klein relation used by the implementation is therefore exactly what the plumbing gives.
+
+\paragraph{Checks.}
+The plumbing identities were verified symbolically, and the derivative against $c(Z)$ to $1.2 \times 10^{-14}$ at $80$ points of the region.
+A scan of the implemented maps against the closed form, on $250$ points of the region and $16$ boundary points for each $\beta$, gives $\max \abs{f - 1} = 6.4 \times 10^{-14}$ at $\beta = \frac{3}{2}$ and $1.7 \times 10^{-14}$ at $\beta = 2$; the residual decreases as $h^4$ with the step of the fourth-order difference stencil, down to a plateau at $1.2 \times 10^{-15}$.
+A test of the way $\rho_3$ enters the integrand was also run: moving the four maps by a random Möbius transformation, so that all punctures are finite and no regularization is needed, reproduces the regularized tile integrand at unequal masses to $1.1 \times 10^{-11}$, and fails by more than $7.7 \times 10^{-2}$ when $\rho_3$ is multiplied by $\abs{Z}$.
+This last test checks the chart and the regularization of the puncture at infinity, not the Klein relation.
+Deformations of the map at infinity, of the closed form, of the pairing of punctures and of $f$ were each confirmed to make the corresponding check fail; a deformation $F_3 (1 + \epsilon w)$ cannot be seen, since it is proportional to $1 / F_3(0) = 0$.
+
+\paragraph{Scope.}
+The first route uses only the $(13)(24)$ element of $V$, for any section symmetric under it; the declared section is one by its construction.
+The statement concerns the mapping radii only: the dressing of excited states, which involves the interior point map and the higher Taylor coefficients of the local coordinates, is not covered.
+
+\subsection{Corner asymptotics of the tile integral}
+\label{sec:sl2c:corner}
+
+\record{049-kp-pair-kernel (R52)}
+For $q \to + \infty$ at fixed $\delta \ge 0$,
+\begin{equation}
+  \label{eq:sl2c:corner}
+  J(- q - \delta, q)
+    = 2 \sqrt{2 \pi} \; 2^q \, q^{-3/2} \, \big[ 1 + O(1 / q) \big].
+\end{equation}
+\status{Proven} at leading order; the coefficient of the $1 / q$ correction is observed numerically, not derived.
+Its consequence for the decay of the diagonal of the pair kernel is \status{Conditional(PH25, PH29, PH30) -- Numerical}: it holds under the Euclidean prescription of \cref{sec:mom:level-0} and the two inputs of \cref{sec:sl2c:stu}.
+In this section $p$ and $q$ are the exponents of $J$.
+
+\paragraph{Where the integral concentrates.}
+For $p + q \le 0$ and $q$ large, $\abs{Z}^p \abs{1 - Z}^q$ is largest where $\abs{1 - Z}$ is large and $\abs{Z}$ small, which on $R$ is the corner $Z = - 1$, where the unit circle and the real segment of $\partial R$ meet; the region lies outside the unit circle there.
+Write $Z = - 1 + \epsilon$ with $\epsilon = \epsilon_1 + \I \epsilon_2$ and $\epsilon_2 \ge 0$.
+The constraint $\abs{Z} \ge 1$ reads $\epsilon_1 \le \frac{1}{2} (\epsilon_1^2 + \epsilon_2^2)$, that is $\epsilon_1 \le \frac{1}{2} \epsilon_2^2 + O(\epsilon_2^4)$.
+Expanding the logarithms,
+\begin{equation}
+  \ln \abs{Z}
+    = - \epsilon_1 - \frac{1}{2} (\epsilon_1^2 - \epsilon_2^2) + O(\abs{\epsilon}^3),
+  \qquad
+  \ln \abs{1 - Z}
+    = \ln 2 - \frac{\epsilon_1}{2} - \frac{1}{8} (\epsilon_1^2 - \epsilon_2^2) + O(\abs{\epsilon}^3),
+\end{equation}
+the exponent with $p = - q - \delta$ is
+\begin{equation}
+  \Phi
+    := p \ln \abs{Z} + q \ln \abs{1 - Z}
+    = q \ln 2
+      + \epsilon_1 \Big( \frac{q}{2} + \delta \Big)
+      + (\epsilon_1^2 - \epsilon_2^2) \Big( \frac{3 q}{8} + \frac{\delta}{2} \Big)
+      + O(q \abs{\epsilon}^3).
+\end{equation}
+$\Phi$ increases with $\epsilon_1$, so near the corner its maximum over the region lies on the circle $\epsilon_1 = \frac{1}{2} \epsilon_2^2$, where
+\begin{equation}
+  \Phi
+    = q \ln 2 - \frac{q}{8} \, \epsilon_2^2 + O(q \epsilon_2^4).
+\end{equation}
+The corner is a strict maximum, of width $\epsilon_2 \sim q^{-1/2}$ along the circle and $\xi := \epsilon_1 - \frac{1}{2} \epsilon_2^2 \sim - 1 / q$ across it.
+
+\paragraph{Laplace's method.}
+In the variables $(\xi, \epsilon_2)$, whose Jacobian is $1$, the terms in $\xi^2$ and $\xi \epsilon_2^2$ are of relative order $1 / q$ in this scaling, and
+\begin{equation}
+  J(- q - \delta, q)
+    = 2^q \int_0^\infty \dd \epsilon_2 \, \e^{- q \epsilon_2^2 / 8} \int_{- \infty}^0 \dd \xi \, \e^{\xi (q / 2 + \delta)} \, \big[ 1 + O(1 / q) \big]
+    = 2^q \cdot \frac{1}{q / 2 + \delta} \cdot \frac{1}{2} \sqrt{\frac{8 \pi}{q}} \, \big[ 1 + O(1 / q) \big],
+\end{equation}
+which is~\eqref{eq:sl2c:corner} at leading order: the exponent grows linearly across the unit circle, at rate $q / 2$, and quadratically along it, at rate $q / 8$, and the two widths give $q^{-1} \cdot q^{-1/2}$.
+Writing the correction as $1 + c_1(\delta) / q$, the numerical values at $q = 200, 400, 800$ are $c_1(0) \approx 4.8$ and $c_1(8/3) \approx - 0.58$, consistent with $c_1(\delta) = c_1(0) - 2 \delta$, the $- 2 \delta$ being the expansion of $1 / (q / 2 + \delta)$.
+The corner, and with it the leading asymptotics, does not depend on $\beta$: $J(-250, 250)$ agrees at $\beta = \frac{3}{2}$ and $\beta = 2$ to twelve digits, the rest of the region being exponentially suppressed.
+The check compares $J \, q^{3/2} / (2 \sqrt{2 \pi} \, 2^q) - 1$ with the bound $8 / q$ at the three values of $q$ and $\delta \in \{ 0, \frac{8}{3} \}$; the same criterion fails when the power $q^{-3/2}$ is replaced by $q^{-1}$.
+
+\paragraph{Consequence for the pair kernel.}
+On the diagonal of the level-zero kernel, at relative momenta of equal modulus $\rho$ and large $\alpha' \rho^2$, the tiles that dominate have $q$ of order $\alpha' \rho^2$, and the corner power $q^{-3/2}$ steepens the decay.
+The logarithmic slope of the symmetrized s-wave diagonal in $\alpha' \rho^2$ lies below the edge rate $- (2 \ln \beta - \ln 2)$ by $\frac{3}{2} / (\alpha' \rho^2)$, partly compensated by the angular average, which pulls the slope towards the edge rate.
+For one of the two dominant tiles the exponent $\delta$ is itself of order $q$ on the relevant angular window, and its corner factor is $2 \sqrt{2 \pi} \, 2^q q^{-1/2} (q / 2 + \delta)^{-1}$ rather than~\eqref{eq:sl2c:corner}; both corner factors are of order $\rho^{-3}$.
+At $\beta = \frac{3}{2}$ the measured slope is $- 0.123 \pm 0.001$ on $\alpha' \rho^2 \in [60, 250]$, against the edge rate $- 0.1178$; the model with the two corner factors and the exact angular average reproduces the five measured slopes to $1.05 \times 10^{-3}$, while a model with the angular average alone misses by $2.4 \times 10^{-2}$, on the wrong side.
+The kernel itself and its spectral properties are treated in \cref{sec:mom:level-0}.
+
+\subsection{Conjugation invariance of the contact region}
+\label{sec:sl2c:conj}
+
+\record{054-ph6-conjugation-invariance-n4 (R56)}
+The reality of the quartic vertex, $\vertex{4}(A_1, \ldots, A_4)^* = \vertex{4}(A_1^\ddagger, \ldots, A_4^\ddagger)$, follows from the reality of the conformal field theory correlators~\cite{Sonoda:1990:CovariantClosedString} together with the invariance of the vertex region and of its measure under complex conjugation of the moduli (\cref{ch:conventions}).
+This section checks the geometric inputs for the declared section of the family at four points, for $\beta \ge \beta_{04}$.
+Its statements have different statuses.
+\begin{itemize}
+  \item The conjugation invariance of the region, the consistency of its tiling by $G = S_3 \times \{ 1, \mathrm{conj} \}$, and the conjugation equivariance of the section data to first order: \status{Proven}.
+  \item The reality of the level-zero four-tachyon contact term at real off-shell momenta: \status{Conditional(PH29, PH30) -- Proven}.
+  \item The reality of each pair of conjugate tiles for primaries of integer spin: \status{Proven}, given the reality of plane correlators with real exponents taken from~\cite{Sonoda:1990:CovariantClosedString}.
+  \item That the measure $2$-form with its $b \bar b$ insertion is real and invariant under conjugation up to orientation beyond level zero: \status{Argued}.
+\end{itemize}
+That the region defined below is the contact region of the family is taken from its construction~\cite{Erbin:2023:SL2CQuarticVertex, Erbin:2026:SL2CVerticesClosed}.
+
+\paragraph{The region.}
+The fundamental domain is $\mathrm{FD} = \{ \Im Z \ge 0, \ \abs{Z} \ge 1, \ \Re Z \le \frac{1}{2} \}$, with walls $C_1$ (the real half-line $Z \le - 1$), $C_2$ ($\Re Z = \frac{1}{2}$) and $C_3$ ($\abs{Z} = 1$).
+$E_\beta$ is the closed ellipse centred at $\frac{1}{2}$ with semi-axes $a$ and $b$ of~\eqref{jb:eq:axes} along the real and imaginary axes; its boundary $C_4$ is the image of $\abs{q} = 1$ under $Z^{(s)}(q) = \frac{1}{2} + \beta^2 / q + q / 16 \beta^2$.
+The tile is $T := \mathrm{FD} \cap E_\beta$, and $S_3$ is the anharmonic group $\{ Z, 1 - Z, 1 / Z, Z / (Z - 1), 1 / (1 - Z), (Z - 1) / Z \}$.
+The $s$-channel Feynman region is the exterior of $E_\beta$, and the $t$- and $u$-channel regions are its images under the maps that send infinity to $0$ and to $1$, so the contact region has the definition, independent of the tiling,
+\begin{equation}
+  \label{eq:sl2c:region-ind}
+  \mc V_{0,4}
+    = \big\{ Z : \ Z \in E_\beta, \ 1 / Z \in E_\beta, \ 1 / (1 - Z) \in E_\beta \big\}.
+\end{equation}
+
+\paragraph{Invariance and tiling.}
+Every element of $S_3$ is a Möbius map with integer coefficients, so $\overline{h(Z)} = h(\bar Z)$ and
+\begin{equation}
+  \mathrm{conj} \circ h
+    = h \circ \mathrm{conj},
+  \qquad
+  h \in S_3:
+\end{equation}
+$G$ is a direct product of order $12$, and conjugation permutes the tiles, $\mathrm{conj}(h(T)) = (h \cdot \mathrm{conj})(T)$.
+The ellipse is symmetric under $Z \to \bar Z$, since its centre is real and its axes are along the real and imaginary directions, so each condition of~\eqref{eq:sl2c:region-ind} is invariant and $\overline{\mc V_{0,4}} = \mc V_{0,4}$.
+The domain $\mathrm{FD}$ is one of the twelve triangles cut out of the sphere by the real axis, the circles $\abs{Z} = 1$ and $\abs{Z - 1} = 1$ and the line $\Re Z = \frac{1}{2}$, with vertices $-1$, $\e^{\I \pi / 3}$ and $\infty$; these triangles are the orbit of $\mathrm{FD}$ under $G$, which acts simply transitively on them.
+Hence $\mathrm{conj}(T)$ is the tile of $g = \mathrm{conj}$, and $T \cap \mathrm{conj}(T) = C_1 \cap E_\beta$ has measure zero.
+
+The one input specific to the family is that the twelve tiles reproduce~\eqref{eq:sl2c:region-ind}.
+The conditions of~\eqref{eq:sl2c:region-ind} are permuted by $S_3$ and invariant under conjugation, so the region is invariant under $G$, and the statement reduces to $\mathrm{FD} \cap \mc V_{0,4} = \mathrm{FD} \cap E_\beta$.
+On $\mathrm{FD}$, $\abs{Z} \ge 1$ and $\abs{1 - Z} \ge 1$, so $1 / Z$ and $1 / (1 - Z)$ lie in the closed unit disc, and the reduction holds if and only if the unit disc lies in $E_\beta$.
+The squared distance from $0$ to the point $(\frac{1}{2} + a \cos \theta, b \sin \theta)$ of the ellipse is, with $u = \cos \theta$ and $c = \frac{1}{2}$,
+\begin{equation}
+  d^2(\theta)
+    = (a^2 - b^2) \, u^2 + 2 a c \, u + c^2 + b^2,
+\end{equation}
+a convex quadratic in $u$, since $a^2 - b^2 = \frac{1}{4}$, with vertex at $u^* = - a c / (a^2 - b^2) = - 2 a \le - 1$, since $a \ge \frac{1}{2}$.
+Its minimum on $[-1, 1]$ is at $u = -1$, the left vertex, where $d^2 = (a - c)^2$, so that
+\begin{equation}
+  \operatorname{dist}(0, \partial E_\beta)
+    = a - \frac{1}{2}
+\end{equation}
+exactly, for every $\beta > \frac{1}{2}$.
+The unit disc lies in $E_\beta$ if and only if $a \ge \frac{3}{2}$, that is $16 \beta^4 - 24 \beta^2 + 1 \ge 0$, that is $\beta \ge \beta_{04}$; for $\beta = \frac{3}{2}$ and $2$ the distance is $1.78$ and $3.52$.
+On the boundary, conjugation fixes $C_1$ pointwise and maps $C_2$, $C_3$, $C_4$ onto the corresponding arcs of $\partial(\mathrm{conj} \, T)$; with the Schwarz functions of the arcs (\cref{jb:sec:obstruction:schwarz}), each interior wall is the fixed set of an orientation-reversing element $\mathrm{conj} \circ h$.
+The group $G$ is generated by the reflections in the three walls of $\mathrm{FD}$, a spherical triangle group with angles $\frac{\pi}{2}$, $\frac{\pi}{3}$, $\frac{\pi}{2}$ at $-1$, $\e^{\I \pi / 3}$, $\infty$, and conjugation is the reflection in $C_1$.
+The region is therefore conjugation invariant, and conjugation permutes the twelve tiles in six pairs $\{ h(T), h(\bar T) \}$.
+
+\paragraph{The section data.}
+The data of the section are functions of $Z$ with real coefficients, or principal branches whose cuts lie on the real axis, and for such functions $f(\bar u) = \overline{f(u)}$ off the cut.
+The plumbing parameter $q(Z)$ is the root with $\abs{q} \le 1$ of $q^2 + 8 \beta^2 (1 - 2 Z) q + 16 \beta^4 = 0$, a quadratic with real coefficients; the maps $F_a$ are rational in $(w, q, \beta)$ with real coefficients, with $F_{3,4} = Z / F_{1,2}$; and $S_0 = \beta^{-1} \sqrt{Z / (Z - 1)}$ has its cut at $Z \in [0, 1)$, outside $\mathrm{FD} \cup \overline{\mathrm{FD}}$.
+Hence
+\begin{equation}
+  q(\bar Z)
+    = \overline{q(Z)},
+  \qquad
+  F_a(\bar w; \bar Z)
+    = \overline{F_a(w; Z)},
+  \qquad
+  \rho_a(\bar Z)
+    = \rho_a(Z),
+  \qquad
+  S_0(\bar Z)
+    = \overline{S_0(Z)},
+\end{equation}
+with $F_a'(0) = \kappa_a S_0$, $\kappa = (1, (1 - Z) / Z, 1 / Z, Z - 1)$.
+The interior point map $R$ of the section, which is not holomorphic in $Z$, is equivariant in the form $R(\bar Z, Z) = \overline{R(Z, \bar Z)}$, because its non-holomorphic dependence enters only through a real weight that is invariant under conjugation.
+The section on the tile $\bar T$ is the transport by conjugation of the section on $T$, and by these relations it is given by the same closed forms evaluated at $\bar Z$.
+It is continuous across the mirror $C_1$ if and only if the data are real there, which they are: for $Z \le - 1$, $Z / (Z - 1) \in (\frac{1}{2}, 1)$ and $q$, $S_0$, $R$ and $F_a(w)$ at real $w$ are real.
+On the two other walls the transport uses $\mathrm{conj} \circ (1 - Z)$ and $\mathrm{conj} \circ (1 / Z)$, and the corresponding conditions are the wall conditions of the section, which were re-checked.
+
+\paragraph{Measure and level zero.}
+With $\dd^2 Z$ a positive density and $Z \to \bar Z$ an isometry of Jacobian $- 1$,
+\begin{equation}
+  \int_{\bar T} f(Z) \, \dd^2 Z
+    = \int_T f(\bar Z) \, \dd^2 Z
+\end{equation}
+as densities.
+The reversal of orientation is absorbed by the $b \bar b$ insertion of the measure $2$-form, which at level zero is folded into the $- 2$ of the dressing exponent and is a positive density; beyond level zero this step is argued, not derived.
+The tile integrands of the assembly~\eqref{eq:sl2c:tiles} depend on $Z$ through $\abs{Z}$, $\abs{1 - Z}$ and the radii, so
+\begin{equation}
+  \mathcal I_g(k; \bar Z)
+    = \mathcal I_g(k; Z),
+  \qquad
+  \mathcal I_g(\bar k; Z)
+    = \overline{\mathcal I_g(k; Z)},
+  \qquad
+  \mathcal I_g(k; Z)
+    > 0
+  \quad
+  (k \text{ real}),
+\end{equation}
+and the six pairs of conjugate tiles add:
+\begin{equation}
+  \{ T(k_1) \cdots T(k_4) \}
+    = C \sum_{h \in S_3} \Big[ \int_T \mathcal I_h + \int_{\bar T} \mathcal I_{h \, \mathrm{conj}} \Big]
+    = 2 C \sum_{h \in S_3} \int_T \mathcal I_h(k; Z) \, \dd^2 Z.
+\end{equation}
+For real momenta every term is positive and $C$ is real, so the block is real.
+The tachyon state $T(k) = c_1 \bar c_1 \ket{k}$ has $T(k)^\ddagger = \varepsilon \, T(-k)$ for real $k$, with a fixed sign $\varepsilon = \pm 1$, and the integrand is even in $k$, so
+\begin{equation}
+  \{ T(k_1) \cdots T(k_4) \}^*
+    = \{ T(k_1) \cdots T(k_4) \}
+    = \varepsilon^4 \{ T(- k_1) \cdots T(- k_4) \}
+    = \{ T(k_1)^\ddagger \cdots T(k_4)^\ddagger \}.
+\end{equation}
+
+The level-zero block is real tile by tile: it would stay real with a tile removed, or with the map $S_0$ deformed by an imaginary term, since only $\abs{S}$ enters the radii.
+It therefore does not test the geometric inputs, and every level-zero number of this document is blind to them.
+To make them load-bearing, the check adds a probe sensitive to the phases: primaries of integer spin and real weights, inserted in the frames $F_a'(0) = \kappa_a S_0$, times a plane correlator of the compact-boson form with real exponents.
+For such states the reality of the correlator together with the equivariance of the frames makes each pair of conjugate tiles real; this is a corollary of the equivariance of the section data, not an independent test of the invariance of the region.
+The probe is real with the declared section and fails when the conjugate tile is dropped or when $S_0$ is deformed by $\I \eta \abs{Z} / \beta$, $\eta$ real.
+
+\paragraph{Checks.}
+The commutation with conjugation is exact, the group closes with twelve elements, the tiling reproduces~\eqref{eq:sl2c:region-ind} at $11\,980$ and $18\,035$ sample points of the region (out of $40\,000$ per $\beta$) with no mismatch and no double covering, and the data equivariance holds to rounding at $400$ random points.
+The checks fail as they should for a Möbius map with non-real coefficients, for $\beta = 0.9 < \beta_{04}$, with the conjugate tile removed, with the deformed $S_0$, and with a wrong assignment of the mirrors.
+
+\paragraph{Scope.}
+The statement is at four points.
+Excited states need the local coordinate maps of the section beyond first order, which differ from the plumbing maps through $R$; their equivariance is expected, since the construction from $(S_0, R)$ uses wall conditions with real coefficients and a real weight, but it was not checked.
+The ghost measure beyond level zero is argued, and the reality of the conformal field theory correlators is cited.
+For five or more points nothing is established here.

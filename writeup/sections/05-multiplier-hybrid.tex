@@ -1,0 +1,331 @@
+\section{Multiplier and hybrid forms}
+\label{ch:multiplier-hybrid}
+
+This chapter collects the presentations of the cubic action in which Lagrange multipliers replace, fully or in part, the Gaussian elimination of the auxiliary fields.
+The multiplier form is cubic at all orders as it stands and needs no inverse of any vertex; the hybrid keeps the Hubbard--Stratonovich elimination on a complement of the kernel of the quartic form and puts a multiplier on the kernel only.
+The paper keeps the multiplier form as a footnote of its all-orders section; its gauge transformations and its Batalin--Vilkovisky structure have not been worked out.
+The three blocks below are the text the paper carried before it was shortened: the multiplier form from the all-orders section, the hybrid from the sextic section, and the identification of the multiplier form with part of the bar--cobar equations from the bar--cobar section.
+Only here are the derivations behind them: the decoupling of the kernel at quartic order, the properties of the multiplier form that follow from its elimination, and the hybrid at order $\gs^4$ in a finite-dimensional model.
+
+\subsection{The multiplier form}
+\label{sec:mult:form}
+
+\status{Proven}\footnote{Ledger entry \recordref{R13}, with its annotations; no derivation record of its own.}
+The statement is classical and at the level of existence: the multiplier form reproduces the original action exactly once the multipliers and the auxiliary fields are eliminated, at every order.
+The ghost number of the multipliers and their reality, stated in the block, come from the analysis of the bar--cobar construction and of the reality of the tower (\cref{sec:mult:barcobar} and \cref{ch:conventions}).
+
+The following block is the subsection of the paper's all-orders section that introduced the form, in the paper's notation.
+
+\input{extracted/05/1-p}
+
+\subsubsection{Elimination and what it implies}
+\label{sec:mult:elimination}
+
+We spell out the properties of the multiplier form that follow from its elimination, since the block states them in one sentence each.
+Every term of~\eqref{p:eq:all:multiplier-action} has at most three fields: the vertex term $\vertex{n}(\Sigma_n)$ is linear in the single field $\Sigma_n$, which fills all the slots of the full vertex, and the multiplier term is bilinear in $\Theta_k$ and $\Sigma_k$ or trilinear in $\Theta_k$, $\Sigma_{k - 1}$ and $\Psi$.
+The equations of the multipliers are algebraic, the constraints~\eqref{p:eq:all:constraints}, and their solution $\Sigma_k = \Psi^k$ is obtained recursively from $\Sigma_1 = \Psi$.
+On this solution every multiplier term vanishes and the vertex terms become $\frac{\gs^{n - 2}}{n!} \vertex{n}(\Psi^n)$, so that the original non-polynomial action is recovered in one step, at all orders.
+
+The quadratic form of the auxiliary sector is the off-diagonal pairing between $\Theta_k$ and $\Sigma_k$.
+It is non-degenerate because the one-string pairing is, and the multi-string pairing is its $k$-th tensor power.
+No condition of the kind needed by the Hubbard--Stratonovich form, a quartic form invertible on a quotient and vertices vanishing on its kernel, ever arises.
+The propagator of a pair $(\Sigma_k, \Theta_k)$ is ultralocal: it contains no $L_0$, no modulus and no pole, so the pair carries no new degree of freedom.
+
+On the worldsheet, the constraint term pairs $k$ strands with $k$ strands, that is, it is a gluing by $k$ plumbings with no modulus.
+All the moduli of the theory remain inside the vertices $\vertex{n}$, which enter whole.
+This is the difference with the Hubbard--Stratonovich form, which builds the moduli of $\vertex{n}$ out of lower vertices joined by inverse kernels.
+The multiplier form is therefore the cheap existence statement and a clean formalism, at the price of doubling the tower of fields; the Hubbard--Stratonovich form carries the geometric content.
+In field-theory language, it is the familiar device of making any action cubic by Lagrange multipliers, made explicit on the worldsheet by the multi-string pairing.
+
+The gauge invariance of the multiplier form can be written down directly, without settling its gauge algebra.
+Let $\delta \Psi$ be a gauge transformation of the original action, and choose $\delta \Sigma_k$ so that the constraints $C_k := \Sigma_k - \Sigma_{k - 1} \otimes \Psi$ are invariant, $\delta C_k = 0$.
+The variation of the multiplier term is then $\sum_k \pair[k]{\delta \Theta_k}{C_k}$, and the transformation of the multipliers is fixed by
+\begin{equation}
+  \label{eq:mult:gauge-multiplier}
+  \pair[k]{\delta \Theta_k}{\,\cdot\,}
+    = - \sum_{n > k} \frac{\gs^{n - 2}}{n!} \, \vertex{n}\big( \,\cdot\, \otimes \delta(\Psi^{n - k}) \big),
+\end{equation}
+and the variation of the multiplier form equals the variation of the original action, exactly.
+The gauge parameter enters only through $\delta \Psi$, so the reality of the transformation follows from the one of $\delta \Psi$, and $\delta \Theta_k$ can be chosen real, consistently with $\Theta_k^\star = \Theta_k$, for a gauge parameter with $\Lambda^\ddagger = - \Lambda$ and a real, equivariant pairing.
+This shows that the action is invariant; the closure of the algebra of these transformations and the Batalin--Vilkovisky structure of the form have not been studied.
+% omitted: the comparison with the explicit gauge law of the bar--cobar identification, which the source says was not rechecked.
+
+\subsubsection{The kernel of the quartic form at quartic order}
+\label{sec:mult:kernel-decoupling}
+
+The multiplier form is the answer to a degenerate quartic form; at quartic order a degenerate form costs nothing, and we recall why.
+Let $N_2$ be in the kernel of $\sprod{2}{2}$ on $\Hn{2}$, and decompose $\Sigma_2 = \Sigma_2' + N_2$.
+Since the quartic vertex is graded symmetric, $N_2$ appears neither in the kinetic term $\vertex{4}(\Sigma_2^2)$ nor in the source term $\vertex{4}(\Sigma_2, \Psi^2)$ of the quartic action: the kernel direction is absent from the action, unsourced and non-interacting.
+Taking $\Sigma_2$ in the quotient $\Hn{2} / \ker \sprod{2}{2}$, equivalently on a complement of the kernel, makes $\sprod{2}{2}$ injective by construction; the equation of $\Sigma_2$ then has the unique solution $[\Psi^2]$, and the equivalence with the original action at this order is untouched, since completing the square never involves $N_2$.
+A kernel shift of $\Sigma_2$ is then a symmetry of zero action, and the quotient removes it.
+In a finite-dimensional model with a degenerate symmetric quartic form, a kernel direction is indeed a shift symmetry of zero action and drops out of the equation of $\Sigma_2$.
+
+Two qualifications go with this statement.
+First, the word auxiliary changes meaning: $\Sigma_2$ carries no coupled degree of freedom, its kernel component being a decoupled spectator, which is weaker than being uniquely determined by $\Psi$ on all of $\Hn{2}$.
+Second, in infinite dimensions the kernel must be closed and complemented, and for the elimination through a propagator the kernel must be stable; these regularity conditions parallel what every string field propagator assumes of $b_0$ and $L_0$, and they are where a real obstruction could still hide.
+
+The decoupling holds at quartic order only.
+From the quintic order on, the quotient is consistent if and only if the quintic vertex vanishes on the kernel, condition~\eqref{p:eq:hs5:kernel-condition}.
+When it fails, the hybrid of the next section, or the multiplier form itself, takes over.
+
+\subsection{The hybrid form at order \texorpdfstring{$\gs^4$}{gs4}}
+\label{sec:mult:hybrid}
+
+\status{Proven (finite-dimensional algebraic layer) -- Verified (finite model)}\record{068-multiplier-remedy-ogs4 (R75)}
+The statement is established in a finite-dimensional model with generic tensors; for the string vertices it holds under the conditions stated at the end of the block and in \cref{sec:mult:hybrid-derivation}.
+It applies when the quintic vertex does not vanish on the kernel of the quartic form, and it reduces to the quotient construction when it does.
+
+The following block was part of the paper's sextic section, after the kernel conditions; it uses the paper's notation, with $\Theta_2$ the multiplier of \cref{sec:mult:form}.
+
+\input{extracted/05/2-p}
+
+\subsubsection{Derivation in the finite-dimensional model}
+\label{sec:mult:hybrid-derivation}
+
+We give the computation behind the block in the finite-dimensional model where it was done.
+The one-string space is $\mathcal U = \mathbb{Q}^n$ and the $2$-string space is $\mathcal S = \operatorname{Sym}^2 \mathcal U$, of dimension $D = n (n + 1) / 2$.
+The quartic form is a symmetric bilinear form $V_4$ on $\mathcal S$ with a kernel $N := \ker V_4$ of dimension $r \ge 1$, the quintic vertex a tensor $V_5$ on $\mathcal S \times \mathcal S \times \mathcal U$ symmetric in its two $\mathcal S$ slots, and the sextic vertex a symmetric trilinear form $V_6$ on $\mathcal S$.
+No inner product on $\mathcal S$ is used.
+In the paper's notation, $V_4(A, B) = \vertex{4}(A, B)$, $V_5(A, B, \Psi) = \vertex{5}(A, B, \Psi)$, and we write $P := \Psi \otimes \Psi$, the analogue of $\Psi^2$.
+Total symmetry of $V_5$ and $V_6$ on $\mathcal U^{\otimes 5}$ and $\mathcal U^{\otimes 6}$ is not imposed and not used.
+The arithmetic is exact (rationals), and the classical values are truncated power series in $\gs$.
+
+The action, without the terms in $\Psi$ alone shared by both sides, and the target are:
+\begin{equation}
+  \label{eq:mult:hyb:action}
+  \begin{gathered}
+    S_4
+      = - \frac{\gs^2}{24} \, V_4(\Sigma, \Sigma)
+        + \frac{\gs^2}{12} \, V_4(\Sigma, P)
+        + \frac{\gs^3}{5!} \, V_5(\Sigma, \Sigma, \Psi)
+        + \frac{\gs^4}{6!} \, W_6(\Sigma^3),
+    \\
+    S_{\mathrm{eff}}
+      = \frac{\gs^2}{4!} \, V_4(P, P)
+        + \frac{\gs^3}{5!} \, V_5(P, P, \Psi)
+        + \frac{\gs^4}{6!} \, V_6(P, P, P),
+  \end{gathered}
+\end{equation}
+with $W_6$ a sextic vertex to be found.
+A complement $C$ of $N$ in $\mathcal S$ is encoded by a linear map $\mu \colon \mathcal S \to \mathbb{Q}^r$ with $\mu \, \Xi = 1_r$, where $\Xi$ is a $D \times r$ matrix whose columns span $N$: then $C = \ker \mu$, and $\Xi \mu$ is the projector on $N$ along $C$, the $\pi_N$ of the block.
+We write $B$ for a $D \times (D - r)$ matrix whose columns span $C$, $\pi_C := 1 - \Xi \mu$, and for a covector $w$, $w_C := B^{\mathrm{T}} w$ and $w_N := \Xi^{\mathrm{T}} w$.
+The quintic vertex enters through
+\begin{equation}
+  W_\Psi
+    := V_5(\cdot, \cdot, \Psi),
+  \qquad
+  v
+    := V_5(\cdot, P, \Psi)
+    = W_\Psi P,
+\end{equation}
+so that $v$ is the covector of $\sprod{3}{2}(\Psi^3)$ and $v_N$ its pairing with the kernel, nonzero exactly when the quintic vertex does not vanish on the kernel along $P$.
+
+\paragraph{Elimination of the multiplier.}
+The multiplier is put on the kernel directions only:
+\begin{equation}
+  \label{eq:mult:hyb:multiplier}
+  S^{(C)}(\Sigma, \lambda)
+    = S_4(\Sigma)
+      + \gs^2 \, \lambda^{\mathrm{T}} \mu (\Sigma - P),
+  \qquad
+  \lambda \in \mathbb{Q}^r,
+\end{equation}
+so that $\gs^2 \lambda$ plays the role of $\Theta_2$.
+The equation of $\lambda$ fixes the kernel component of $\Sigma$:
+\begin{equation}
+  \mu (\Sigma - P)
+    = 0
+  \quad \Longleftrightarrow \quad
+  \Sigma
+    = P + c,
+  \qquad
+  c
+    = B y
+    \in C.
+\end{equation}
+With $E := \partial_\Sigma S_4$, the equation of $\Sigma$ reads $E + \gs^2 \mu^{\mathrm{T}} \lambda = 0$.
+Contracting with $\Xi$ and using $\mu \Xi = 1$ isolates the multiplier, and what remains is the equation on $C$ only:
+\begin{equation}
+  \lambda
+    = - \gs^{-2} \, \Xi^{\mathrm{T}} E,
+  \qquad
+  B^{\mathrm{T}} E
+    = 0.
+\end{equation}
+The pair is therefore solved exactly by the stationary point of $S_4$ on the affine slice $P + C$, and the multiplier term vanishes on the solution:
+\begin{equation}
+  F^{(C)}(\Psi)
+    = \operatorname{ext}_{c \in C} S_4(P + c).
+\end{equation}
+Since $\Xi^{\mathrm{T}} V_4 = 0$, the kernel part of $E$ starts at order $\gs^3$, $\Xi^{\mathrm{T}} E = \frac{\gs^3}{60} \, v_N + O(\gs^4)$, and the classical multiplier is
+\begin{equation}
+  \lambda^*
+    = - \frac{\gs}{60} \, v_N + O(\gs^2).
+\end{equation}
+It is switched on exactly by $v_N \neq 0$, it has no piece in $\gs^{-1}$, and $\gs^2 \lambda^*$ starts at order $\gs^3$, as the block states for $\Theta_2$.
+
+\paragraph{The on-shell value.}
+On the slice, the two quartic terms combine through $V_4(P + c, P + c) - 2 V_4(P + c, P) = V_4(c, c) - V_4(P, P)$, and the quintic and sextic terms are expanded in $c$:
+\begin{equation}
+  \label{eq:mult:hyb:slice}
+  S_4(P + c)
+    = S_{\mathrm{eff}}
+      + \frac{\gs^4}{6!} \big[ W_6(P^3) - V_6(P^3) \big]
+      + \frac{\gs^3}{60} \, v_6(c)
+      - \frac{\gs^2}{24} \, K_6(c, c)
+      + \frac{\gs^4}{6!} \, W_6(c^3),
+\end{equation}
+with the dressed source and the dressed quadratic form
+\begin{equation}
+  v_6
+    := v + \frac{\gs}{4} \, W_6(\cdot, P, P),
+  \qquad
+  K_6
+    := V_4 - \frac{\gs}{5} \, W_\Psi - \frac{\gs^2}{10} \, W_6(\cdot, \cdot, P).
+\end{equation}
+The restriction $K_6^{CC} := B^{\mathrm{T}} K_6 B = B^{\mathrm{T}} V_4 B + O(\gs)$ is invertible for small $\gs$, since $B^{\mathrm{T}} V_4 B$ is: if $B^{\mathrm{T}} V_4 B x = 0$, then $V_4 B x$ vanishes on $C$ and on $N$, hence $B x \in N \cap C = 0$.
+The stationary point is $c^* = \frac{\gs}{5} \, B (K_6^{CC})^{-1} (v_6)_C + O(\gs^4)$, the cubic term feeding back at relative order $\gs^3$.
+The value of a quadratic-plus-linear function at its stationary point is half its linear term, $\frac{\gs^3}{120} \, v_6(c^*)$, so that
+\begin{equation}
+  F^{(C)}
+    = S_{\mathrm{eff}}
+      + \frac{\gs^4}{6!} \big[ W_6(P^3) - V_6(P^3) \big]
+      + \frac{\gs^4}{600} \, (v_6)_C^{\mathrm{T}} (K_6^{CC})^{-1} (v_6)_C
+      + \frac{\gs^4}{6!} \, W_6(c^{*3})
+      + O(\gs^{10}),
+\end{equation}
+where the last term is of order $\gs^7$.
+This is the exact rewriting of the quintic order with every inverse taken on $C$.
+To order $\gs^4$:
+\begin{equation}
+  \label{eq:mult:hyb:mismatch}
+  F^{(C)} - S_{\mathrm{eff}}
+    = \frac{\gs^4}{6!} \big[ W_6(P^3) - V_6(P^3) \big]
+      + \frac{\gs^4}{600} \, \braket{v, G_C v}
+      + O(\gs^5),
+  \qquad
+  G_C
+    := B \, (B^{\mathrm{T}} V_4 B)^{-1} B^{\mathrm{T}}.
+\end{equation}
+At orders $\gs^2$ and $\gs^3$ the mismatch vanishes for every complement.
+Without the multiplier, on the linear slice $\Sigma \in C$, the saddle at order $\gs^2$ is $\pi_C P$ and a mismatch $- \frac{\gs^3}{5!} \big[ V_5(P, P, \Psi) - V_5(\pi_C P, \pi_C P, \Psi) \big]$ remains already at order $\gs^3$.
+
+\paragraph{The generalized inverse.}
+The operator $G_C$ is the inverse of the quartic form restricted to $C$, extended by zero on the annihilator $C^0$ of $C$: the operator the block uses in $\vertex{5 \cdot 5}^{[C]}$.
+Since $B^{\mathrm{T}} V_4 x = B^{\mathrm{T}} V_4 \pi_C x$ for every $x$, it satisfies
+\begin{equation}
+  V_4 G_C V_4
+    = V_4,
+  \qquad
+  G_C V_4 G_C
+    = G_C,
+  \qquad
+  G_C V_4
+    = \pi_C,
+  \qquad
+  \operatorname{im} G_C
+    = C,
+  \qquad
+  \ker G_C
+    = C^0,
+  \qquad
+  G_C^{\mathrm{T}}
+    = G_C.
+\end{equation}
+The first two identities and the image alone do not fix it: the reflexive inverses with image $C$ form a family indexed by their kernel, and they give different values of $\braket{v, G v}$ exactly when $v_N \neq 0$.
+The kernel $C^0$ fixes $G_C$ in this family.
+In particular, the Moore--Penrose inverse of a coordinate representation is one member, for the coordinate-orthogonal complement, with no distinguished role: the string field carries no auxiliary inner product.
+
+\paragraph{The dressed vertex.}
+With the composite $\mathcal C^{(C)}$, the exchange vertex $\vertex{5 \cdot 5}$ of the paper with $V_4^{-1}$ replaced by $G_C$, we have $\mathcal C^{(C)}(P, P, P) = \braket{v, G_C v}$, and the matching condition~\eqref{eq:mult:hyb:mismatch} at order $\gs^4$ is solved by
+\begin{equation}
+  \label{eq:mult:hyb:W6C}
+  W_6^{(C)}
+    = V_6 - \frac{6}{5} \, \mathcal C^{(C)},
+\end{equation}
+the $\dvertex{6}^{[C]}$ of the block.
+As for the quotient construction, the condition fixes $W_6$ on the diagonal $P^3$ only, and~\eqref{eq:mult:hyb:W6C} is the choice with the strand structure of the exchange vertex.
+The model confirms that with $W_6^{(C)}$ the mismatch at order $\gs^4$ vanishes for every complement tried (two random complements and a one-parameter family), and that it does not vanish with a coefficient other than $\frac{6}{5}$, with $V_6$ alone, with the composite of another complement, or with the Moore--Penrose composite in a non-orthogonal complement; without the multiplier, the order $\gs^3$ fails even with $W_6^{(C)}$.
+For $r = 0$, $G_C = V_4^{-1}$ and the quotient construction is recovered verbatim.
+
+\paragraph{Complement dependence.}
+Fix a reference complement $C_0$ with basis $B_0$; every complement is $C_L$, spanned by the columns of $B_0 + \Xi L$, for a unique $L \in \operatorname{Hom}(C_0, N)$.
+Since $V_4 \Xi = 0$, the restricted form does not depend on $L$, and only the restricted covectors move:
+\begin{equation}
+  \label{eq:mult:hyb:L}
+  (B_0 + \Xi L)^{\mathrm{T}} V_4 (B_0 + \Xi L)
+    = B_0^{\mathrm{T}} V_4 B_0
+  \quad \Longrightarrow \quad
+  \braket{w, G_{C_L} w'}
+    = (w_{C_0} + L^{\mathrm{T}} w_N)^{\mathrm{T}} \, (V_4^{C_0 C_0})^{-1} \, (w'_{C_0} + L^{\mathrm{T}} w'_N).
+\end{equation}
+Hence $\braket{v, G_{C_L} v}$ is a quadratic polynomial in $L$, constant if and only if $v_N = 0$.
+For the converse, when $v_N \neq 0$, the covector $y := L^{\mathrm{T}} v_N$ sweeps all of $C_0^*$ as $L$ varies, and a non-degenerate quadratic form is not constant on an affine line $v_{C_0} + t y$ with $y$ non-null.
+As an identity in $\Psi$, the condition is $V_5(N, \Psi^{\otimes 2}, \Psi) \equiv 0$, which for a totally symmetric $V_5$ is the vanishing of the quintic vertex on the kernel, condition~\eqref{p:eq:hs5:kernel-condition}.
+Without total symmetry, the condition on the diagonal can hold while the full condition fails; then the diagonal is complement-independent and the off-diagonal tensor is not.
+
+When the quintic vertex vanishes on the kernel, the whole tensor $\mathcal C^{(C)}$ is complement-independent.
+Indeed, on the image of $V_4$, which is the annihilator of $N$, $\braket{V_4 x, G_C V_4 x'} = V_4(x, \pi_C x') = V_4(x, x')$, so $G_C$ restricted there is the inverse of the quartic form on the quotient $\mathcal S / N$ for every $C$, and the quotient construction is recovered.
+
+\paragraph{The next order.}
+Expanding $(K_6^{CC})^{-1}$ and $v_6$ one order further, the remainder at order $\gs^5$ with $W_6^{(C)}$ is
+\begin{equation}
+  [\gs^5] \big( F^{(C)} - S_{\mathrm{eff}} \big)
+    = \frac{1}{600} \Big[
+      \frac{1}{2} \, W_6^{(C)}(G_C v, P, P)
+      + \frac{1}{5} \, \braket{v, G_C W_\Psi G_C v}
+    \Big],
+\end{equation}
+the remainder of the quotient construction at this order with $V_4^{-1}$ replaced by $G_C$.
+It depends on $C$, until the next reduction.
+The reduction at order $\gs^5$ is therefore expected to proceed with the same replacement, but this has not been checked: it involves $\Sigma_3$ and its own kernel questions.
+
+\paragraph{Moving the complement dependence.}
+The vertex $W_6^{(C)}$ depends on the complement, and no complement-independent sextic vertex serves two complements with $\braket{v, (G_C - G_{C'}) v} \neq 0$, within the class $\mathsf K$ where the constraint is $\mu (\Sigma - P) = 0$ undeformed, $V_5(\Sigma, \Sigma, \Psi)$ is the only coupling at order $\gs^3$ and $W_6(\Sigma^3)$ the only one at order $\gs^4$.
+This class is the hybrid as proposed, continued from order $\gs^3$ with the only new coupling that order $\gs^4$ brings.
+Outside it, add the cubic coupling $\gs^3 \lambda^{\mathrm{T}} Z(\Sigma, \Psi)$, with $Z \colon \mathcal S \times \mathcal U \to N$ linear in $\Sigma$ and built from $V_5$ and an inverse on a complement.
+The constraint becomes $\mu (\Sigma - P) + \gs Z(\Sigma, \Psi) = 0$, and with $\Sigma = P + c + \Xi \eta$, $\eta = - \gs Z(P, \Psi) + O(\gs^2)$:
+\begin{equation}
+  S_4(P + c + \Xi \eta)
+    = S_4(P + c) + \eta^{\mathrm{T}} \Xi^{\mathrm{T}} E + O(\eta^2)
+  \quad \Longrightarrow \quad
+  F^{(C, Z)} - F^{(C)}
+    = - \frac{\gs^4}{60} \, v_N^{\mathrm{T}} Z(P, \Psi) + O(\gs^5),
+\end{equation}
+which leaves orders $\gs^2$ and $\gs^3$ untouched.
+By~\eqref{eq:mult:hyb:L} with a reference complement $C_a$ and $A_a := (B_a^{\mathrm{T}} V_4 B_a)^{-1}$, the difference $\braket{v, G_{C_L} v} - \braket{v, G_{C_a} v} = v_N^{\mathrm{T}} L A_a (2 B_a + \Xi L)^{\mathrm{T}} v$ is $v_N^{\mathrm{T}}$ against a covector linear in $v$, so the choice
+\begin{equation}
+  Z_L(\Sigma, \Psi)
+    = \frac{1}{10} \, L A_a (2 B_a + \Xi L)^{\mathrm{T}} \, V_5(\cdot, \Sigma, \Psi)
+\end{equation}
+makes the fixed vertex $W_6^{(C_a)}$ match every complement $C_L$ at order $\gs^4$; the model confirms it at corank one and two, and the same complements fail without $Z$.
+In general the matching condition at order $\gs^4$ reads
+\begin{equation}
+  W_6(P^3)
+    = V_6(P^3)
+      - \frac{6}{5} \, \braket{v, G_C v}
+      + 12 \, v_N^{\mathrm{T}} Z(P, \Psi).
+\end{equation}
+The complement dependence moves between the constraint and the vertex; it is not removed, since the reference complement is still a choice and no canonical one appears.
+The datum of the presentation is the triple of the constraint, the coupling $Z$ and the vertex, as the block says in words.
+What is complement-independent is the eliminated action through order $\gs^4$.
+
+One reading of the dependence: a change of complement moves the fixed kernel component $\Xi \mu P$ of $\Sigma$ together with the vertex.
+At quartic order kernel shifts of $\Sigma$ are an exact symmetry (\cref{sec:mult:kernel-decoupling}), and the constraint is its gauge fixing; when the quintic vertex does not vanish on the kernel, the shift is no longer a symmetry, and the vertex, or $Z$, has to move with the fixing.
+A canonical choice would need further structure, for example a complement adapted to $V_5$, which nothing in the construction singles out.
+
+\paragraph{Scope.}
+The model has $n = 3$, $D = 6$, kernels of dimension one and two and the case $r = 0$, generic $V_5$ and $V_6$, and the orders $\gs^2$ to $\gs^5$ exact; the dependence on the complement was sampled on a line and two random points, and~\eqref{eq:mult:hyb:L} covers the rest algebraically.
+For the string vertices, the statement needs the quartic form invertible on the quotient with a stable kernel, the kernel closed and complemented, and, for the exclusion within $\mathsf K$ only, exchange terms that are not linear combinations of the elementary vertices; the complement must also be chosen compatible with ghost number, level and momentum, which is possible since the quartic form is homogeneous and its kernel graded.
+Not covered: the gauge transformation of the hybrid, its Batalin--Vilkovisky pairing, and its closure at order $\gs^5$ and beyond.
+
+\subsection{Relation to the bar--cobar canonical equations}
+\label{sec:mult:barcobar}
+
+\status{mixed}\record{024-hs-vs-bar-cobar (R34)}
+The ghost number $3 k$ of the multipliers is proven by the saturation count of the multi-string pairing, for the pairing that is the $k$-th tensor power of the one-string pairing; that the multiplier form is the Lagrange-multiplier action of the chain part of the bar--cobar equations was checked numerically in finite-dimensional models with commuting fields; that it is not the action of their full system is shown term by term, the failing term being the split $(2, 2)$.
+
+The following block is the paragraph of the paper's bar--cobar section that identified the multiplier form, after the canonical equations of~\cite{Chiaffrino:2026:UniversalQuadraticField} were written in the variables of the cubic action (\cref{p:sec:barcobar:canonical}).
+In it, \enquote{their} refers to the construction of~\cite{Chiaffrino:2026:UniversalQuadraticField}, and the doubling by multipliers is the one mentioned at the end of \cref{p:sec:barcobar:canonical}.
+
+\input{extracted/05/3-p}

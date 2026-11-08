@@ -1,0 +1,279 @@
+\section{Finite-dimensional models and scripts}
+\label{ch:finite-models}
+
+Several algebraic statements of the construction use only the pairing, the vertices and the $\Loo$ relations, and they were tested, some of them established, in finite-dimensional models of this algebra.
+This chapter collects the description of these models and of the companion scripts.
+The first block is the appendix on finite-dimensional checks of the paper as it stood before the paper was shortened, a summary of one page that the shortened paper no longer carries.
+The second block is a separate note that gives the full description of the checks summarized there: the two kinds of models, and for each statement the model instance, the check performed, the script and the sizes or orders covered.
+The last section is written for this document: it lists every companion script of the project, with the statement it checks, the derivation it belongs to and the last result recorded for it.
+
+The statements whose checks the second block describes are stated and derived in other chapters; their status is the following.
+
+\begin{itemize}
+  \setlength{\itemsep}{1ex}
+
+  \item \emph{Master equation} (\cref{ch:gauge-bv}): the master action of the cubic theory solves the classical master equation to the truncation order.
+
+    \status{Conditional(PH1, PH2 (b) [level 3], PH5 [$k \ge 3$], PH14 [$O(\gs^4)$], PH27) + R38 [$k = 3$, when $\ker \vertex{4} \neq 0$] -- mixed}\record{058-bv-master-equation (R62)}
+
+  \item \emph{Contractible pair} (\cref{ch:gauge-bv}): the canonical transformation that brings the auxiliary sector to contractible pairs with constant coefficients.
+
+    \status{Conditional(PH1, PH5, PH14 [$O(\gs^4)$]) -- Proven}\record{056-gap3e-contractible-pair (R60)}
+
+  \item \emph{Affine Hessian and fold} (\cref{ch:solutions}): the Hessian of the cubic action is affine in the background, with the fluctuation counts and zero modes fixed by the low vertices; the fold of the one-field model is the locus excluded from it.
+
+    \status{Proven; C2.3 Verified (finite model)}\record{066-hessian-affine-background (R71)}
+
+  \item \emph{Congruence of the Hessians} (\cref{ch:solutions}): the joint Hessian of the cubic action is congruent to the Hessian of the eliminated theory plus the auxiliary block, by the Schur identity.
+
+    \status{Proven -- Verified (finite model)}\record{060-mean-field-fluctuations (R65)}
+
+  \item \emph{BRST operator around a background} (\cref{ch:gauge-bv}): similar to the shifted BRST operator of the original theory plus a contractible pair.
+
+    \status{mixed}\record{067-brst-around-background (R73)}
+
+    The classical auxiliary field is the direct channel, one third of the $\ell_3$ part of the shifted BRST operator, and the $\Psi$ block is nilpotent if and only if the anticommutator of $Q_B$ with $\ell_3(\Psi_0, \Psi_0, \cdot)$ vanishes.
+
+    \status{mixed}\record{060-mean-field-fluctuations (R66)}
+
+  \item \emph{Homotopy transfer} (\cref{ch:ibl}): on the classical complex, the elimination of $\Sigma_2$ at quartic order is a homological-perturbation transfer.
+
+    \status{Conditional(PH1) -- Verified (finite-dimensional model)}\record{037-hpt-transfer-sigma (R41)}
+
+  \item \emph{Nested kernels} (\cref{ch:all-orders}): the nested kernels of the dressed tower depend on $\gs \Psi$ only, reduce at $\gs = 0$ to the kernels of the bare operators, and a level at which the kernel condition fails is visible in the value of the action.
+
+    \status{Proven}\record{061-ph2a-nested-kernels (R70)}
+\end{itemize}
+
+The first block is the summary of the paper's appendix, in the paper's notation.
+
+\input{extracted/13/1-p}
+
+The second block is the note on finite-dimensional models, without its title page and abstract, beginning with its introduction.
+It uses the notation of the paper's conventions appendix, set out in its paragraph on notation, so that no translation box is needed; it calls the coupling $g$ inside the models, and the table at its end lists the nine scripts of these checks with their sizes and dates, which the table of the next section repeats in its shorter form among all the others.
+
+\input{extracted/13/2-fdm}
+
+\subsection{Script table}
+\label{sec:fm:script-table}
+
+\Cref{tab:fm:scripts} lists the $118$ companion scripts of the project in alphabetical order.
+Each script prints one line PASS or FAIL per named check and exits with a non-zero code on any failure.
+The columns are filled from the scripts and from the verification records, and the scripts were not re-run for this table.
+
+\begin{itemize}
+  \setlength{\itemsep}{0.5ex}
+
+  \item \emph{Claim}: the first sentence of the script's docstring, shortened to the statement checked.
+    For the $63$ scripts marked $\dagger$, the first sentence names only the derivation, and the claim is taken from the title of that derivation or from the next sentence of the docstring.
+
+  \item \emph{Derivation}: the derivation records the docstring names, the first being the one the script belongs to; where the docstring names none, the records that name the script.
+    At most two are listed; a third and further ones are marked by dots.
+    One script checks a result that has a ledger entry but no derivation record; its cell gives the entry.
+
+  \item \emph{Last result}: the count of the most recent recorded run, and its date, taken from the verification lines of the results ledger or, where these give no count, from those of the derivation records; counts are written as the record writes them (\enquote{$N/N$ PASS}, \enquote{$N$ checks}, \enquote{$N$ PASS, $0$ FAIL}), and a partial run or a failed auxiliary leg is said in the cell.
+    \enquote{no date} marks a count whose line carries no date.
+    For $5$ scripts no count was recorded, and for two the record says only that all checks passed.
+\end{itemize}
+
+The table lists every script, including those whose statements were later superseded or withdrawn (\cref{ch:dead-ends}); a PASS count says that the checks of the script passed, not that the statement they test is still held.
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-002-dictionary.py} & Exchange symmetry of the odd symplectic form of the Batalin--Vilkovisky formalism, on the one- and two-string spaces.$^\dagger$ & \recordref{002-omega2-construction} \newline \recordref{055-omega-k-graded-symmetry} & 35/35 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-220-relation.py} & The CFL $(2,2,0)$ and $(1,2,0)$ \IBL{} structure relations for the products built by $\Delta$-raising a cyclic $\Loo$ algebra. & \recordref{010-a4-220-relation} & all PASS \newline 2026-07-09 \\
+    \nolinkurl{verify-a1-telescoping.py} & Explicit amplitude-level telescoping of the $\Sigma$ exchange into the quartic contact term.$^\dagger$ & \recordref{007-a1-amplitude-telescoping} & 7/7 PASS \newline 2026-07-01 \\
+    \nolinkurl{verify-a2-schwinger.py} & The inverse of the quartic form: coloured grading and Schwinger representation.$^\dagger$ & \recordref{008-a2-v4-inverse-analysis} \newline \recordref{007-a1-amplitude-telescoping} & 8/8 PASS \newline 2026-07-02 \\
+    \nolinkurl{verify-a3-ibl-pedagogical.py} & Self-checks of the pedagogical note on the \IBL{} structure.$^\dagger$ & \recordref{009-a3-ibl-pedagogical} & 21/21 PASS \newline no date \\
+    \nolinkurl{verify-a4pt-chain.py} & The four-point amplitude chain: Feynman rules of the cubic action, telescoping, Virasoro--Shapiro.$^\dagger$ & \recordref{023-a4pt-virasoro-shapiro-chain} \newline \recordref{031-chain-surfaces-as-covers} \newline \dots & 6/6 PASS \newline 2026-09-21 \\
+    \nolinkurl{verify-all-orders-eom.py} & The cubic action at $K = \infty$ and the equations of motion of all fields.$^\dagger$ & \recordref{100-all-orders-action-eom} & 53/53 PASS \newline 2026-10-18 \\
+    \nolinkurl{verify-b1-quintic.py} & The quintic order $O(\gs^3)$ and the structural parts of the gauge tower. & \recordref{011-b1-quintic-milestone} \newline \recordref{012-t6-gauge-tower} & 9/9 PASS \newline 2026-07-03 \\
+    \nolinkurl{verify-b3-sextic.py} & The sextic order $O(\gs^4)$. & \recordref{013-b3-sextic-milestone} \newline \recordref{011-b1-quintic-milestone} & 7/7 PASS \newline 2026-07-03 \\
+    \nolinkurl{verify-b4-sigma3.py} & The sextic order in the presentation with $\Sigma_2$ and $\Sigma_3$ and elementary vertices.$^\dagger$ & \recordref{014-b4-sigma3-elementary} & 7/7 PASS \newline 2026-07-06 \\
+    \nolinkurl{verify-b5-ogs4-gauge-eom-ibl.py} & Gauge transformations, equations of motion and \IBL{} rewriting at $O(\gs^4)$.$^\dagger$ & \recordref{015-b5-ogs4-gauge-eom-ibl} & 6/6 PASS \newline 2026-07-06 \\
+    \nolinkurl{verify-b6-ogs5-septic.py} & The septic closure at $O(\gs^5)$ of the cubic tower, dressed presentation.$^\dagger$ & \recordref{018-b6-ogs5-septic-closure} & 8/8 PASS \newline 2026-07-07 \\
+    \nolinkurl{verify-b7-allorders.py} & The all-orders fixed-point theorem: the cubic action at all orders.$^\dagger$ & \recordref{019-b7-allorders-fixed-point} & 8/8 PASS \newline 2026-07-08 \\
+    \nolinkurl{verify-bare-operators.py} & Whether the bare operator of $\Sigma_k$ can be written $w_{k,k}$ without an order label.$^\dagger$ & \recordref{115-bare-operator-notation} \newline \recordref{100-all-orders-action-eom} & 21/21 PASS \newline 2026-11-07 \\
+    \nolinkurl{verify-brst-background.py} & The BRST operator of the cubic theory around a background: block form, contractible pair, quasi-isomorphism.$^\dagger$ & \recordref{067-brst-around-background} \newline \recordref{058-bv-master-equation} & 82/82 PASS \newline 2026-10-01 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-bv-master-equation.py} & The truncated classical master equation in a finite cyclic $\Loo$ model. & \recordref{058-bv-master-equation} \newline \recordref{056-gap3e-contractible-pair} & 76 PASS, 0 FAIL \newline 2026-09-26 \\
+    \nolinkurl{verify-bv-master-k4.py} & The truncated classical master equation at $k = 4$ in the same model. & \recordref{058-bv-master-equation} & 45 PASS, 0 FAIL \newline 2026-10-01 \\
+    \nolinkurl{verify-chain-surfaces-covers.py} & Chain surfaces of the auxiliary channel as branched covers.$^\dagger$ & \recordref{031-chain-surfaces-as-covers} & 59/59 PASS \newline 2026-09-14 \\
+    \nolinkurl{verify-cheung-remmen.py} & Cheung--Remmen cubic gravity against the cubic Hubbard--Stratonovich step. & \recordref{099-cheung-remmen-comparison} & 12/12 PASS \newline no date \\
+    \nolinkurl{verify-chi-ogs5-count.py} & The counting argument at $O(\gs^5)$ for the scheme with the partner field. & \recordref{038-chi-scheme-ogs5-count} & 63/63 PASS \newline 2026-09-21 \\
+    \nolinkurl{verify-chi-ogs5-matching.py} & The matching at $O(\gs^5)$ of the scheme with the partner field. & \recordref{048-chi-scheme-ogs5-matching} & 108+9 checks PASS; 2 auxiliary legs FAIL at one seed \newline 2026-09-22 \\
+    \nolinkurl{verify-chi-partner.py} & The wrong-sign, Liouville-type partner $\Upsilon_2$ at $O(\gs^4)$. & \recordref{017-chi-partner-liouville} \newline \recordref{038-chi-scheme-ogs5-count} \newline \dots & 10/10 PASS \newline 2026-07-07 \\
+    \nolinkurl{verify-circle-gluing-inverse.py} & $\sprod{2}{2}^{-1}$ as a circle gluing. & \recordref{074-p22-inverse-circle-gluing} \newline \recordref{032-v3prime-route-feasibility} \newline \dots & 21/21 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-circle-map.py} & The circle map $\Phi_n$ at $n = 2$, on a tachyon pair. & \recordref{071-circle-map-symn-to-h} & 20/20 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-conventions.py} & The reconciliation of the ghost-sector conventions. & \recordref{041-convention-reconciliation} & 42 checks, 0 FAIL \newline 2026-09-22 \\
+    \nolinkurl{verify-covering-m06.py} & What the composite $\vertex{5} \, \sprod{2}{2}^{-1} \, \vertex{5}$ covers in $\mathcal M_{0,6}$.$^\dagger$ & \recordref{036-covering-m06-composite} & 35/35 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-cubic-sft-overview.py} & Symbolic self-checks of the overview note. & \recordref{001-cubic-sft-overview-note} & 17/17 PASS \newline 2026-06-23 \\
+    \nolinkurl{verify-d5-five-field.py} & The term of order $d^5$ of the five-field truncation of the cubic theory. & \recordref{095-d5-five-field-truncation} \newline \recordref{059-tachyon-dilaton-quartic} & 58/58 PASS \newline 2026-10-06 \\
+    \nolinkurl{verify-dressed-ckv.py} & Whether the actual quartic vertex keeps the extra conformal Killing vector of the halves with $\alpha'_{\mathrm v} = 0$.$^\dagger$ & \recordref{080-dressed-ckv} & 25/25 PASS \newline no date \\
+    \nolinkurl{verify-dressing-test.py} & The dressed plumbing operator on level-$(1,1)$ legs at zero momentum against the contact densities: second stage of the direct test of the gluing recipe. & \recordref{098-dressing-test} \newline \recordref{096-gluing-recipe} \newline \dots & 18/18 PASS \newline 2026-10-10 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-exchange-real-momenta.py} & The six-point $\Sigma_2$ exchange at real momenta. & \recordref{105-exchange-real-momenta} & 10 PASS, 0 FAIL \newline 2026-10-18 \\
+    \nolinkurl{verify-fold-arc-convergence.py} & Convergence on the fold arc of the $(h, m)$ sector expansion of the fixed-halves gluing. & \recordref{079-fold-arc-convergence} \newline \recordref{074-p22-inverse-circle-gluing} & 14/14 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-fold-arc-excited.py} & The convergence threshold of the same expansion for excited inputs. & \recordref{084-fold-arc-excited} \newline \recordref{079-fold-arc-convergence} & 12/12 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-forced-kernel.py} & Forced kernels of $\sprod{2}{2}^{(L)}(P)$: the four candidates and the kernel conditions on them.$^\dagger$ & \recordref{107-forced-kernel-search} \newline \recordref{064-hs-action-level11} \newline \dots & 40/40 PASS \newline 2026-10-18 \\
+    \nolinkurl{verify-gap3c.py} & Whether the defect proportional to the $\Sigma$ equation of motion in the gauge algebra is removable by an admissible redefinition.$^\dagger$ & \recordref{043-gap3-representative-freedom} & 46/46 PASS \newline 2026-09-30 \\
+    \nolinkurl{verify-gap3e-contractible-pair.py} & The Batalin--Vilkovisky consequences of the flat representative: canonical transformation on $\Psi^+$ and the contractible pair.$^\dagger$ & \recordref{056-gap3e-contractible-pair} & 60 checks, 0 FAIL \newline 2026-09-26 \\
+    \nolinkurl{verify-gauge-algebra-ogs3.py} & The gauge algebra at $O(\gs^3)$. & \recordref{040-gauge-algebra-ogs3} \newline \recordref{043-gap3-representative-freedom} \newline \dots & 29 checks PASS \newline 2026-09-22 \\
+    \nolinkurl{verify-gauge-algebra-ogs4.py} & The gauge algebra at $O(\gs^4)$, in the finite model of the sextic order. & \recordref{053-gauge-algebra-ogs4} & 25 checks, 0 FAIL \newline 2026-09-26 \\
+    \nolinkurl{verify-gauge-unfixing-c1.py} & Gauge unfixing of $\Sigma_2$, first candidate, in a strand model. & \recordref{108-gauge-unfixing-c1-strand-model} \newline \recordref{102-gauge-unfixing-structure} & 10/10 PASS \newline 2026-10-22 \\
+    \nolinkurl{verify-gauge-unfixing-structure.py} & Gauge unfixing of $\Sigma_2$: its structure. & \recordref{102-gauge-unfixing-structure} & 10/10 PASS \newline 2026-10-22 \\
+    \nolinkurl{verify-geometric-inverse.py} & A geometric $\sprod{2}{2}^{-1}$, second look. & \recordref{030-geometric-inverse-second-look} & 113/113 PASS \newline 2026-09-08 \\
+    \nolinkurl{verify-gluing-recipe.py} & From an explicit quartic vertex to the off-shell asymmetric cubic vertex and plumbing operator.$^\dagger$ & \recordref{096-gluing-recipe} & 14/14 PASS \newline 2026-10-10 \\
+    \nolinkurl{verify-h1-error.py} & The error of the centroid approximation of the patch centre and its scale, against the section of the explicit quartic vertex.$^\dagger$ & \recordref{090-h1-error} \newline \recordref{081-npatch-n3} \newline \dots & 25/25 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-hessian-affine.py} & The Hessian of the cubic action is affine in the background: fluctuation spectra from the low vertices only.$^\dagger$ & \recordref{066-hessian-affine-background} \newline \recordref{057-finite-field-truncation} & 32 PASS, 0 FAIL \newline 2026-10-01 \\
+    \nolinkurl{verify-hpt-transfer.py} & Homological-perturbation transfer of the $\Sigma$ sector of the cubic theory. & \recordref{037-hpt-transfer-sigma} \newline \recordref{029-morphism-check} & 30 checks PASS \newline 2026-09-21 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-hs-bar-cobar.py} & The multiplier form against the canonical equations of the bar--cobar construction. & \recordref{024-hs-vs-bar-cobar} & 40/40 PASS \newline 2026-09-14 \\
+    \nolinkurl{verify-hs-gauge-invariance.py} & Exact off-shell gauge invariance of the cubic action at quartic order under the composite transformation.$^\dagger$ & \recordref{R11} (no derivation record) & 5/5 PASS \newline 2026-07-01 \\
+    \nolinkurl{verify-hs-level11.py} & The cubic action at level $(1,1)$ and zero momentum. & \recordref{064-hs-action-level11} \newline \recordref{057-finite-field-truncation} \newline \dots & 67/67 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-i2-ibl-action.py} & The \IBL{} action $S = \omega \circ \hat{\mathfrak p}(e^\Psi)$ against the equations of motion of the cubic action at $O(\gs^2)$.$^\dagger$ & \recordref{003-i2-ibl-action} \newline \recordref{004-i3-m2-invertibility} & 11/11 PASS \newline 2026-06-24 \\
+    \nolinkurl{verify-i3-m2-invertibility.py} & Invertibility of $\sprod{2}{2} = \mathfrak p_{2,2,0} = \Delta \circ \ell_3$ and the auxiliary character of $\Sigma$.$^\dagger$ & \recordref{004-i3-m2-invertibility} \newline \recordref{005-s6-integrate-out} & 10/10 PASS \newline 2026-06-28 \\
+    \nolinkurl{verify-ibl-gauge-components.py} & Component form of the \IBL{} gauge transformation: list of terms, fixed constants, falsifier.$^\dagger$ & \recordref{111-ibl-gauge-components} \newline \recordref{103-ibl-mc-conventions} & 31/31 PASS \newline 2026-10-22 \\
+    \nolinkurl{verify-ibl-generating-sign.py} & Which family the \IBL{} generating function encodes, and where the raising by $\Omega^{-1}$ enters the relations. & \recordref{086-paper-gap-7} \newline \recordref{088-ibl-generating-sign} & 20/20 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-ibl-mc-conventions.py} & Conventions, and the grading of the Maurer--Cartan equation of the raised family.$^\dagger$ & \recordref{103-ibl-mc-conventions} & 46/46 PASS \newline 2026-10-22 \\
+    \nolinkurl{verify-ibl-remarks.py} & Finite-model checks of a set of remarks on the \IBL{} section. & \recordref{114-ibl-remarks-check} & 11/11 PASS \newline 2026-11-07 \\
+    \nolinkurl{verify-j-closed-form.py} & Representations of the integral $J(p, q)$ over the intersection of the fundamental domain with $\mathcal V_{0,4}$. & \recordref{047-j-integral-closed-form} \newline \recordref{045-kp-discretisation-box} & 25/25 PASS \newline 2026-09-23 \\
+    \nolinkurl{verify-ker-v4-v5-compat.py} & Compatibility of the quotient by $\ker \vertex{4}$ with $\vertex{5}$.$^\dagger$ & \recordref{034-ker-v4-v5-compatibility} & 13 checks PASS \newline 2026-09-19 \\
+    \nolinkurl{verify-kernel-analytic-structure.py} & Analytic structure of the fixed-level kinetic operator $\sprod{2}{2}^{(L)}(P)$, in toy models. & \recordref{104-kernel-analytic-structure} & 19/19 PASS \newline 2026-10-18 \\
+    \nolinkurl{verify-kp-box.py} & The discretization box for the pair kernel $K_P$. & \recordref{045-kp-discretisation-box} \newline \recordref{044-stu-reduction-contact-term} & not recorded \\
+    \nolinkurl{verify-kp-complex-s.py} & The level-zero pair kernel at complex $s$: zeros at frozen momentum, Chebyshev tabulation, branches.$^\dagger$ & \recordref{051-kp-complex-s} \newline \recordref{044-stu-reduction-contact-term} \newline \dots & 8/9 PASS, 1 gap sentinel (subset run) \newline 2026-09-30 \\
+    \nolinkurl{verify-kp-kernel.py} & The level-zero s-wave pair kernel $K_P$. & \recordref{049-kp-pair-kernel} \newline \recordref{045-kp-discretisation-box} \newline \dots & 23/23 PASS \newline 2026-09-23 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-kp-real-s.py} & The level-zero pair kernel $K_P$ at real $s$. & \recordref{050-kp-real-s} \newline \recordref{049-kp-pair-kernel} & 32/32 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-linfty-ibl-repackaging.py} & The repackaging of an $\Loo$ algebra as a genus-zero \IBL{} algebra. & \recordref{026-linfty-to-ibl-repackaging} \newline \recordref{010-a4-220-relation} & 99/99 PASS \newline 2026-09-14 \\
+    \nolinkurl{verify-mc-cubic-coupling.py} & The coupling $c \, \gs \, \vertex{3}(\Sigma_2, \Psi)$ required by the Maurer--Cartan components.$^\dagger$ & \recordref{109-mc-cubic-coupling} \newline \recordref{103-ibl-mc-conventions} & 14/14 PASS \newline 2026-10-18 \\
+    \nolinkurl{verify-mean-field-decomposition.py} & The mean-field decomposition in the manner of Weinberg, in a finite model. & \recordref{069-mean-field-decomposition} & 22/22 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-mean-field-fluctuations.py} & Mean-field fluctuations: Schur identity, deformation of the BRST operator, degenerate branch. & \recordref{060-mean-field-fluctuations} \newline \recordref{058-bv-master-equation} & 51 PASS, 0 FAIL \newline 2026-10-01 \\
+    \nolinkurl{verify-mean-field-gap-level11.py} & The gap equation at level $(1,1)$ and zero momentum on the symmetric products of the tachyon and the dilaton.$^\dagger$ & \recordref{070-mean-field-level11-gap} & 110/110 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-mean-field-level11.py} & The joint fluctuation Hessian at level $(1,1)$ at the critical points of the tachyon--dilaton potential.$^\dagger$ & \recordref{063-mean-field-level11} \newline \recordref{064-hs-action-level11} \newline \dots & 120/120 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-momentum-space.py} & Auxiliary fields in momentum space. & \recordref{072-momentum-space-auxiliaries} & 7 checks PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-morphism-check.py} & The $\Loo$-morphism identities for the comparison map $\Psi \mapsto (\Psi, c \, \Psi^{\otimes 2})$ from the quartic-truncated cyclic $\Loo$ algebra to the enlarged algebra on $\Hs_0 \oplus \mathrm{Sym}^2 \Hs_0$. & \recordref{029-morphism-check} & 16/16 PASS \newline 2026-09-14 \\
+    \nolinkurl{verify-mu-segment-cert.py} & Certification of the segment criterion for the second-order coefficients $\mu_i$.$^\dagger$ & \recordref{092-segment-cert} \newline \recordref{089-mu-table} & 30/30 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-mu-table.py} & The second-order coefficients $\mu_i(q)$ of the actual quartic vertex over its region $Q_V$.$^\dagger$ & \recordref{089-mu-table} \newline \recordref{080-dressed-ckv} \newline \dots & 56/56 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-multiplier-ogs4.py} & The multiplier remedy on $\ker \vertex{4}$ at $O(\gs^4)$.$^\dagger$ & \recordref{068-multiplier-remedy-ogs4} & 52/52 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-negative-moduli.py} & Calculus with negative moduli, and the necessary conditions for $\vertex{5} \, \sprod{2}{2}^{-1} \, \vertex{5}$ to be a chain in $\mathcal M_{0,6}$.$^\dagger$ & \recordref{035-negative-moduli-composite} \newline \recordref{013-b3-sextic-milestone} \newline \dots & 20 checks PASS (parts 2--3) \newline 2026-09-21 \\
+    \nolinkurl{verify-neumann-chain.py} & Support for the Neumann chain from the level-$(1,1)$ blocks at zero momentum of the explicit quartic vertex. & \recordref{045-kp-discretisation-box} & not recorded \\
+    \nolinkurl{verify-npatch-atlas.py} & The $n$-puncture patch in the atlas picture of closed string field theory: counts, ghost numbers, limits, generalized tree.$^\dagger$ & \recordref{077-npatch-atlas} & 27/27 PASS \newline 2026-10-04 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-npatch-n3.py} & The patch at $n = 3$: $\mathcal V_4'$ from the symmetric quartic vertex, the two-patch map to $\mathcal M_{0,6}$, the covering condition.$^\dagger$ & \recordref{081-npatch-n3} & 15/15 PASS \newline 2026-10-10 \\
+    \nolinkurl{verify-offshell-gluing.py} & The dressed gluing off shell, the measure identity of the rigid gluing on shell, the Sonoda--Zwiebach square point. & \recordref{113-offshell-dressed-gluing} \newline \recordref{074-p22-inverse-circle-gluing} \newline \dots & 7/7 PASS \newline no date \\
+    \nolinkurl{verify-omega-k.py} & Graded exchange symmetry of the $k$-string pairing for general $k$.$^\dagger$ & \recordref{055-omega-k-graded-symmetry} \newline \recordref{002-omega2-construction} & 89/89 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-omega2-construction.py} & Symbolic self-checks for the antisymmetric two-output symplectic form. & \recordref{002-omega2-construction} & 14/14 PASS \newline no date \\
+    \nolinkurl{verify-omega2-physical.py} & The two-output form in the physical grading. & \recordref{002-omega2-construction} \newline \recordref{003-i2-ibl-action} \newline \dots & 12/12 PASS \newline 2026-06-24 \\
+    \nolinkurl{verify-p22-inverse-sewing.py} & $\sprod{2}{2}^{-1}$ as a sewing. & \recordref{110-p22-inverse-sewing} & 3/3 PASS \newline 2026-10-18 \\
+    \nolinkurl{verify-paper-gap-7.py} & The two forms of the $(2,2)$ relation of the raised family, their configurations and weights.$^\dagger$ & \recordref{086-paper-gap-7} & not recorded \\
+    \nolinkurl{verify-paper-gaps-3-4.py} & The recovered equation of motion and the closure under the universality rule.$^\dagger$ & \recordref{085-paper-gaps-3-4} & 20/20 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-partner-closure.py} & Whether the couplings of $\Upsilon_2$ close the structures with $\sprod{2}{2}^{-1}$ of the eliminated elementary action at $O(\gs^6)$ and $O(\gs^7)$.$^\dagger$ & \recordref{101-partner-count} & 25/25 PASS \newline 2026-10-18 \\
+    \nolinkurl{verify-partner-count.py} & The catalogue of tree structures at orders $\gs^6$ to $\gs^8$ and the count of partner fields.$^\dagger$ & \recordref{101-partner-count} & 10/10 PASS \newline no date \\
+    \nolinkurl{verify-partner-octic.py} & The same closure at $O(\gs^8)$, with $\Sigma_4$ in the model.$^\dagger$ & \recordref{101-partner-count} & 9/9 and 8/8 PASS \newline 2026-10-18 \\
+    \nolinkurl{verify-per-tile.py} & The zero set of $\mu_i$ in $\mathcal V_{0,4}$ is null: the step tile by tile.$^\dagger$ & \recordref{091-per-tile} \newline \recordref{080-dressed-ckv} & 25/25 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-ph20-virtual-dim.py} & The genus-zero virtual dimension $n - 3$ for every $n \ge 0$, by Riemann--Roch on the sphere.$^\dagger$ & \recordref{036-covering-m06-composite} \newline \recordref{030-geometric-inverse-second-look} & 9/9 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-ph23-doublet.py} & The source doublet $(\Sigma_2, \Upsilon_2)$ on the two-string space is timelike.$^\dagger$ & \recordref{038-chi-scheme-ogs5-count} & 54/54 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-ph24-vs.py} & The normalization of the four-tachyon amplitude against Virasoro--Shapiro.$^\dagger$ & \recordref{062-ph24-vs-normalisation} \newline \recordref{046-stage0-translation-check} \newline \dots & 20/20 PASS \newline 2026-09-26 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-ph2a.py} & The nested-kernel conditions of the dressed tower.$^\dagger$ & \recordref{061-ph2a-nested-kernels} \newline \recordref{019-b7-allorders-fixed-point} & 57/57 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-ph31-actual.py} & The circle states of the actual $\sprod{2}{2}$ at a plumbing parameter: first stage of the test of the surjectivity of the circle map. & \recordref{094-ph31-actual} \newline \recordref{089-mu-table} \newline \dots & 35/35 PASS \newline 2026-10-05 \\
+    \nolinkurl{verify-ph31-rank-ext.py} & Extensions of the rank test. & \recordref{083-ph31-rank-ext} \newline \recordref{078-ph31-rank} & 24/24 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-ph31-rank-half.py} & The rank rows at $\alpha'_{\mathrm v} = \tfrac{1}{2}$ beyond $K \le 3$ and $d_{\mathrm{eff}} \le 3$.$^\dagger$ & \recordref{093-ph31-rank-half} \newline \recordref{078-ph31-rank} \newline \dots & not recorded \\
+    \nolinkurl{verify-ph31-rank-k3d3.py} & The cokernel of the rank test at $K = 3$ and $d_{\mathrm{eff}} = 3$.$^\dagger$ & \recordref{087-k3-count-d3} \newline \recordref{078-ph31-rank} \newline \dots & 19/19 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-ph31-rank.py} & Joint rank of the level-projected circle map against the dimension of the even block.$^\dagger$ & \recordref{078-ph31-rank} \newline \recordref{074-p22-inverse-circle-gluing} & 19/19 PASS \newline 2026-10-04 \\
+    \nolinkurl{verify-ph31prime.py} & Whether the five-point vector obeys the selection identities, in the fixed-halves model.$^\dagger$ & \recordref{082-ph31prime} & 11/11 PASS \newline no date \\
+    \nolinkurl{verify-ph6-conjugation-n4.py} & Conjugation invariance of the $\group{SL}(2, \C)$ family at $n = 4$.$^\dagger$ & \recordref{054-ph6-conjugation-invariance-n4} & 45/45 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-ph7-ddagger.py} & Reality of the whole auxiliary tower: $\Sigma_k$, $\Upsilon_2$ and the multipliers.$^\dagger$ & \recordref{028-reality-tower} & 35/35 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-phase6-riemann.py} & Consistency self-checks of the note on the geometric interpretation. & \recordref{006-phase6-riemann-interpretation} & 8/8 PASS \newline no date \\
+    \nolinkurl{verify-q2-orientation.py} & The orientation of the off-shell measure.$^\dagger$ & \recordref{042-q2-measure-orientation} & 16 checks PASS \newline 2026-09-22 \\
+    \nolinkurl{verify-r16-scope.py} & Repackaging of an $\Loo$ algebra as an \IBL{} algebra: conventions, comparison with the literature, toy generator.$^\dagger$ & \recordref{026-linfty-to-ibl-repackaging} & 183/183 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-r29-onshell.py} & The on-shell limit of the level-zero $\Sigma$ exchange. & \recordref{050-kp-real-s} \newline \recordref{049-kp-pair-kernel} & 7/7 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-reality-tower.py} & Reality of the whole auxiliary tower: $\Sigma_k$, $\Upsilon_2$ and the multipliers.$^\dagger$ & \recordref{028-reality-tower} \newline \recordref{039-reality-ogs3} & 55/55 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-rho3-residual.py} & Whether there is a residual factor on $\rho_3$ in the declared section of the $\group{SL}(2, \C)$ family.$^\dagger$ & \recordref{052-rho3-residual-factor} & 23/23 PASS \newline 2026-09-26 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \footnotesize
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+    \toprule
+    Script & Claim & Derivation & Last result \\
+    \midrule
+    \nolinkurl{verify-riemann-m2-geometry.py} & Riemann-surface meaning of $\sprod{2}{2}^{-1}$, coloured gluing and the $\Sigma_k$ tower, in finite-dimensional structural checks. & \recordref{020-riemann-m2-geometric} & 8/8 PASS \newline 2026-07-09 \\
+    \nolinkurl{verify-rs4-sewing-fixtures.py} & The ghost-zero-mode fixtures of the sewing. & \recordref{021-rs4-sewing-fixtures} & 27/27 PASS \newline 2026-07-09 \\
+    \nolinkurl{verify-rs5-no-local-kernel.py} & The absence of a local worldsheet kernel for $\sprod{2}{2}^{-1}$. & \recordref{022-rs5-no-local-kernel-theorem} \newline \recordref{021-rs4-sewing-fixtures} & 14/14 PASS \newline 2026-07-09 \\
+    \nolinkurl{verify-s6-integrate-out.py} & Integrating out $\Sigma$ returns the quartic term with $\ell_3$, $q^{\mathrm{transf}}_{3,1,0} = \ell_3$.$^\dagger$ & \recordref{005-s6-integrate-out} & 12/12 PASS \newline 2026-06-28 \\
+    \nolinkurl{verify-sigma-effective.py} & Integrating out $\Psi$: the classical action of $\Sigma$ alone. & \recordref{065-sigma-effective-action} & 17/17 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-st4-bv-xtilde.py} & Batalin--Vilkovisky classification of the homogeneous rotation law of the auxiliary field.$^\dagger$ & \recordref{016-st4-bv-homogeneous-law} & 6/6 PASS \newline 2026-07-06 \\
+    \nolinkurl{verify-st6-ngh-formula.py} & The two-parameter physical ghost-number formula $\Ngh(\mathfrak p_{k,\ell,g}) = 3 \ell - 2 k + g$ of the \IBL{} structure maps. & \recordref{009-a3-ibl-pedagogical} & 16/16 PASS \newline 2026-07-09 \\
+    \nolinkurl{verify-stage0-translation.py} & The three-tachyon coupling as a function of $\beta$ in the normalization of this document.$^\dagger$ & \recordref{046-stage0-translation-check} & not recorded \\
+    \nolinkurl{verify-stu-reduction.py} & The four-tachyon contact term depends on $(s, t, u)$ alone. & \recordref{044-stu-reduction-contact-term} \newline \recordref{046-stage0-translation-check} \newline \dots & 32/32 PASS \newline 2026-09-21 \\
+    \nolinkurl{verify-tachyon-dilaton-quartic.py} & The tachyon--dilaton potential of the cubic theory at quartic order. & \recordref{059-tachyon-dilaton-quartic} \newline \recordref{057-finite-field-truncation} & 51/51 PASS \newline 2026-10-01 \\
+    \nolinkurl{verify-transformation-law.py} & Direct test of the gluing recipe: transformation law against the four-point vertex.$^\dagger$ & \recordref{097-transformation-law-test} \newline \recordref{096-gluing-recipe} \newline \dots & 38/38 PASS \newline 2026-10-11 \\
+    \nolinkurl{verify-truncation-structure.py} & The algebra of finite-field truncations of the cubic theory. & \recordref{057-finite-field-truncation} & 81/81 PASS \newline 2026-09-26 \\
+    \nolinkurl{verify-v3prime-route.py} & The route through $\mathcal V_3'$: covering, operator identity, seams.$^\dagger$ & \recordref{032-v3prime-route-feasibility} & all PASS \newline 2026-09-14 \\
+    \bottomrule
+  \end{tabular}
+  \captionof{table}{The companion scripts of the project, with the statement each checks, its derivation and the last recorded result.}
+  \label{tab:fm:scripts}
+\end{center}
