@@ -50,3 +50,12 @@ uv run python verify-<name>.py
 
 - Some records, ledger entries and scripts refer to files that are not published (agent reports, notes, the paper sources); these links are dead.
 - Numbers from a companion project on the explicit SL(2,C) quartic vertex are not included until that work is public; the records and scripts that depend on them are withheld, and the places where they were used say so.
+
+## License and reuse
+
+You are free to reuse, adapt and build on this material.
+
+- The code in `codes/` is released under the MIT License (`codes/LICENSE`).
+- Everything else (the write-up, the derivation records, the ledgers and the conventions) is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0, `LICENSE`).
+
+If you use it in your work, please cite the paper *A cubic closed string field theory* by Harold Erbin.
