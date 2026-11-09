@@ -1,0 +1,143 @@
+\subsection{The two-string pairing}
+\label{pg:sec:pairing}
+
+The kinetic term of $\Sigma$ is a bilinear form on two-string states.
+This section builds the pairing that carries it out of the one-string pairing, and computes its exchange sign.
+The result is that the two-string pairing is graded \emph{symmetric} in the physical grading, and that the exchange sign of the one-string pairing enters it squared, so that the result does not depend on that sign.
+We first record the exchange sign of the one-string pairing, since the two-string computation reuses it slot by slot.
+
+\subsubsection{The one-string pairing and its exchange sign}
+\label{pg:sec:pairing:one}
+
+The exchange sign of the one-string pairing is derived in the conventions of the paper, \eqref{p:eq:conv:pairing-symmetry}.
+On the support of the pairing we write it as
+\begin{equation}
+  \label{pg:eq:pairing:one-antisym}
+  \braket{A, B}
+    = s \, (-1)^{\epsilon(A) \epsilon(B)} \, \braket{B, A},
+  \qquad
+  s
+    = + 1,
+\end{equation}
+and we keep the sign $s$ explicit below, to show that the two-string result does not depend on it.
+Since $\epsilon(A) \epsilon(B) = 0$ on the support, the one-string pairing is symmetric there.
+It pairs states of opposite parity: on its support $N_{\rm gh}(A)+N_{\rm gh}(B)=5$, hence
+\begin{equation}
+  \label{pg:eq:pairing:one-support}
+  \epsilon(A) + \epsilon(B)
+    \equiv 1 \pmod 2 .
+\end{equation}
+In particular $\braket{\Psi,\Psi}=0$: the string field at $N_{\rm gh}=2$ pairs with the $N_{\rm gh}=3$ sector.
+
+\subsubsection{Two copies}
+\label{pg:sec:pairing:two}
+
+For product states $X=x_1\otimes x_2$ and $Y=y_1\otimes y_2$ in $\mc H_0^{\otimes2}$ we define the two-string pairing as the tensor square of the one-string pairing,
+\begin{equation}
+  \label{pg:eq:pairing:two-def}
+  \boxed{\;
+  \braket{X, Y}_2
+    := (-1)^{\epsilon(x_2) \epsilon(y_1)} \,
+      \braket{x_1 | c_0^- | y_1} \, \braket{x_2 | c_0^- | y_2}
+  \;}
+\end{equation}
+extended bilinearly.
+The sign is the Koszul sign for moving $x_2$ past $y_1$, so that the first copy of the pairing acts on the first slots and the second copy on the second slots; with the two $c_0^-$ written out, the pairing is $\braket{\cdot|c_0^-|\cdot}\otimes\braket{\cdot|c_0^-|\cdot}$.
+It is non-zero only when both slots saturate, so on its support
+\begin{equation}
+  \label{pg:eq:pairing:two-support}
+  \epsilon(y_i)
+    = \epsilon(x_i) + 1
+  \quad (i = 1, 2),
+  \qquad\text{hence}\qquad
+  \epsilon(Y)
+    = \epsilon(X),
+\end{equation}
+where $\epsilon(X)=\epsilon(x_1)+\epsilon(x_2)$: opposite parity in each slot, same total parity.
+Off the support both $\braket{X,Y}_2$ and $\braket{Y,X}_2$ vanish, so the exchange relation derived below holds trivially there and we only need to consider the support.
+
+\subsubsection{The exchange sign}
+\label{pg:sec:pairing:sign}
+
+Let's exchange $X$ and $Y$ in \eqref{pg:eq:pairing:two-def} and apply \eqref{pg:eq:pairing:one-antisym} in each slot:
+\begin{align}
+  \braket{Y, X}_2
+    &
+    = (-1)^{\epsilon(y_2) \epsilon(x_1)} \,
+      \braket{y_1, x_1} \, \braket{y_2, x_2}
+  \notag
+  \\ &
+    = (-1)^{\epsilon(y_2) \epsilon(x_1)} \,
+      \Big[ s \, (-1)^{\epsilon(x_1) \epsilon(y_1)} \braket{x_1, y_1} \Big]
+      \Big[ s \, (-1)^{\epsilon(x_2) \epsilon(y_2)} \braket{x_2, y_2} \Big]
+  \notag
+  \\ &
+    = s^2 \, (-1)^{\epsilon(y_2) \epsilon(x_1) + \epsilon(x_1) \epsilon(y_1) + \epsilon(x_2) \epsilon(y_2)} \,
+      \braket{x_1, y_1} \, \braket{x_2, y_2}.
+  \label{pg:eq:pairing:exchange-raw}
+\end{align}
+The two factors $s$ have multiplied to $s^2 = 1$, whichever sign the one-string pairing carries.
+It is not yet the exchange sign of the two-string pairing, which still has to be compared with the Koszul sign of \eqref{pg:eq:pairing:two-def}.
+Dividing \eqref{pg:eq:pairing:exchange-raw} by \eqref{pg:eq:pairing:two-def},
+\begin{equation}
+  \braket{Y, X}_2
+    = (-1)^{\Xi} \, \braket{X, Y}_2,
+  \qquad
+  \Xi
+    = \epsilon(y_2) \epsilon(x_1)
+      + \epsilon(x_1) \epsilon(y_1)
+      + \epsilon(x_2) \epsilon(y_2)
+      - \epsilon(x_2) \epsilon(y_1).
+\end{equation}
+On the support we substitute $\epsilon(y_i)=\epsilon(x_i)+1$ from \eqref{pg:eq:pairing:two-support}.
+Writing $a_i=\epsilon(x_i)$ and using $a_i^2=a_i$ modulo two,
+\begin{equation}
+  \begin{aligned}
+    \epsilon(y_2) \epsilon(x_1)
+      &
+      = (a_2 + 1) a_1
+      = a_1 a_2 + a_1,
+    \\
+    \epsilon(x_1) \epsilon(y_1)
+      &
+      = a_1 (a_1 + 1)
+      = 2 a_1
+      \equiv 0,
+    \\
+    \epsilon(x_2) \epsilon(y_2)
+      &
+      = a_2 (a_2 + 1)
+      \equiv 0,
+    \\
+    - \epsilon(x_2) \epsilon(y_1)
+      &
+      \equiv a_2 (a_1 + 1)
+      = a_1 a_2 + a_2 .
+  \end{aligned}
+\end{equation}
+The two cross terms $a_1a_2$ cancel, and
+\begin{equation}
+  \Xi
+    \equiv a_1 + a_2
+    = \epsilon(X)
+    \pmod 2 .
+\end{equation}
+Since $\epsilon(Y)=\epsilon(X)$ on the support, $\epsilon(X)=\epsilon(X)^2=\epsilon(X)\epsilon(Y)$, and we obtain the exchange relation:
+\begin{equation}
+  \label{pg:eq:pairing:symmetric}
+  \boxed{\;
+  \braket{Y, X}_2
+    = (-1)^{\epsilon(X) \epsilon(Y)} \, \braket{X, Y}_2 .
+  \;}
+\end{equation}
+The two-string pairing is graded symmetric in the physical grading: $+1$ when at least one argument is even, a genuine $-1$ when both are odd.
+The exchange sign of the one-string pairing enters squared, so the result holds for either sign $s$.
+The opposite-parity support \eqref{pg:eq:pairing:two-support} only serves to cancel the cross terms; the same symmetric verdict is obtained on a model with even saturation, so it does not hinge on the precise value of the sphere anomaly.
+
+Two further facts about $\braket{\cdot,\cdot}_2$ are used later.
+It is non-degenerate whenever the one-string pairing is, on a finite-dimensional model, where $\det\braket{\cdot,\cdot}_2=(\det\braket{\cdot,\cdot})^{2\dim\mc H_0}$; on the level-matched space one expects the same to follow from the non-degeneracy of $\braket{\cdot,\cdot}$ on $\mc H_0$, but the infinite-dimensional statement is not established.
+And it is the pairing fixed by the kinetic term: since $\mc V_4$ and $p_{2,2}$ are related through \eqref{p:eq:conv:sprod}, the kinetic term $\mc V_4(\Sigma,\Sigma)=\braket{\Sigma,p_{2,2}\Sigma}_2$ singles out this pairing as the natural one.
+Whether it is the unique pairing with respect to which $p_{2,2}$ is cyclic is not established.
+
+The exchange sign \eqref{pg:eq:pairing:symmetric} and the support statements were checked symbolically on a four-state model with ghost numbers $(2,3,2,3)$, graded by the physical parity only.
+

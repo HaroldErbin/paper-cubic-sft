@@ -1,0 +1,45 @@
+\subsubsection{Necessary as well as sufficient}
+\label{q:sec:quotient:necessary}
+
+Condition \eqref{p:eq:hs5:kernel-condition} might look stronger than what the matching needs, which only ever evaluates $\mc V_5$ on $\Psi^2$.
+For a totally symmetric $\mc V_5$ it is not: the diagonal condition
+\begin{equation}
+  \label{q:eq:quotient:diagonal}
+  \mc V_5(\Xi, \Psi^2, \Psi) = 0
+  \quad\text{for all } \Xi \in \ker \mc V_4,\ \Psi \in \mc H_0
+\end{equation}
+is equivalent to it, by polarization.
+Fix $\Xi\in N$ and let
+\begin{equation}
+  T_\Xi(\Psi_1, \Psi_2, \Psi_3)
+    := \mc V_5(\Xi, \Psi_1, \Psi_2, \Psi_3),
+\end{equation}
+a symmetric trilinear form on $\mc H_0$ since $\mc V_5$ is symmetric.
+Condition \eqref{q:eq:quotient:diagonal} says that its diagonal $T_\Xi(\Psi,\Psi,\Psi)$ vanishes identically, and a symmetric multilinear form is determined by its diagonal,
+\begin{equation}
+  T_\Xi(\Psi_1, \Psi_2, \Psi_3)
+    = \frac{1}{3!} \sum_{S \subseteq \{1, 2, 3\}} (-1)^{3 - |S|} \, T_\Xi(\Psi_S, \Psi_S, \Psi_S),
+  \qquad
+  \Psi_S := \sum_{i \in S} \Psi_i ,
+\end{equation}
+so $T_\Xi\equiv0$.
+Since $\Sym^2\mc H_0$ is spanned by the symmetrized products $\Psi_1\otimes\Psi_2+\Psi_2\otimes\Psi_1$, this is $\mc V_5(\Xi,A,\Psi)=0$ for all $A$ and $\Psi$, which is \eqref{p:eq:hs5:kernel-condition}.
+The symmetry of $\mc V_5$ is what makes the step work; for a non-symmetric five-form the two conditions differ (this is the falsifier of the step in the symbolic check).
+
+Necessity for the matching now follows.
+If \eqref{p:eq:hs5:kernel-condition} fails, the quotient is not a theory and one must pick representatives, that is, a complement $C$ and $\Sigma_2\in C$.
+On $C$ the action has exactly the form of \cref{q:sec:square} with $(\mc V_4,\mc V_5(\cdot,\cdot,\Psi),\Psi^2)$ replaced by their restrictions and projections $(\mc V_4|_C,\mc V_5(\cdot,\cdot,\Psi)|_C,\pi_C\Psi^2)$, and $\mc V_4|_C$ is non-degenerate for every complement.
+Completing the square as before, the on-shell value is $\frac{g_s^2}{4!}\mc V_4(\Psi^4)+\frac{g_s^3}{5!}\mc V_5(\pi_C\Psi^2,\pi_C\Psi^2,\Psi)+O(g_s^4)$ (the quartic term is unchanged because $\mc V_4$ does not see $\pi_N\Psi^2$), so the mismatch is
+\begin{equation}
+  \label{q:eq:quotient:mismatch}
+  \boxed{\;
+  \Delta_C
+    := \widetilde S_{\le 5}\big|_{C, \text{on shell}} - S_{\le 5}
+    = - \frac{g_s^3}{5!} \Big[ \mc V_5(\Psi^2, \Psi^2, \Psi) - \mc V_5(\pi_C \Psi^2, \pi_C \Psi^2, \Psi) \Big] + O(g_s^4),
+  \;}
+\end{equation}
+a five-point term at order $g_s^3$, a genuine contamination of the five-point tree and not a higher-point spill-over, and it depends on the complement through $\pi_N\Psi^2$.
+Requiring $\Delta_C=0$ for every complement forces \eqref{q:eq:quotient:diagonal}, hence \eqref{p:eq:hs5:kernel-condition}: as $C$ varies, $\pi_N\Psi^2$ ranges over all of $N$, and rescaling it separates the terms linear and quadratic in it.
+Requiring it for one fixed complement is a $C$-dependent statement and not a property of the theory; there is no distinguished complement, the pairing being indefinite.
+The alternative of keeping all of $\Sym^2\mc H_0$ and relying on the dressed kernel, whose quintic part gives the kernel directions a quadratic form $W_{NN}$ proportional to $\Psi$, is worse: when $W_{NN}$ is invertible the kernel components of the saddle are not small, the mismatch is $-\frac{g_s^3}{5!}v_N(W_{NN}^{-1}v_N)$ with $v_N$ the restriction of $v$ to $N$, a rational function of $\Psi$ of degree five, the kernel modes have no propagator at $\Psi=0$, and the expansion around the vacuum does not exist; when $W_{NN}$ is singular the contamination starts one order earlier, at $g_s^2$.
+

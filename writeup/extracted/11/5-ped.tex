@@ -1,0 +1,415 @@
+\subsection{Two presentations of one classical structure}
+\label{ped:sec:two}
+
+\subsubsection{Presentation (a): the genus-zero \texorpdfstring{$\IBL$}{IBL} algebra on
+\texorpdfstring{$\Hilb_0$}{H}}
+\label{ped:sec:two:ibl}
+
+An $\IBL$-algebra of degree $d$ \cite{Cieliebak:2015:HomologicalAlgebraRelated} is a graded module $C$ with operations
+$\pklg:E_kC\to E_\ell C$ ($k,\ell\ge1$, $g\ge0$), where $E_kC$ is the degree-$k$ part of the
+reduced symmetric algebra, satisfying the master equation $\hat{\mathfrak p}\circ
+\hat{\mathfrak p}=0$. The operations relevant at genus zero are
+\begin{equation}
+	\underbrace{\mathfrak p_{1,1,0}=Q}_{\text{differential}},\qquad
+	\underbrace{\mathfrak p_{k,1,0}=\ell_k}_{\Loo\ \text{brackets}},\qquad
+	\underbrace{\mathfrak p_{1,2,0}}_{\text{cobracket}},\qquad
+	\underbrace{\mathfrak p_{2,2,0}=\mtwo}_{\text{HS product}}.
+	\label{ped:eq:ops}
+\end{equation}
+Although the individual operations act on tensor powers of $C=\Hilb_0$, the $\IBL$-algebra
+itself is a structure on the (reduced) \emph{symmetric algebra} $S\Hilb_0=\bigoplus_k E_k
+\Hilb_0$: the $\pklg$ assemble into a single coderivation $\hat{\mathfrak p}$ on
+$S\Hilb_0$, and the master field is accordingly a sum over multi-string components,
+\begin{equation}
+	\Psi=\sum_{n\ge1}\Psi_n,\qquad \Psi_n\in\Sym^n\Hilb_0,
+	\label{ped:eq:masterfield}
+\end{equation}
+exactly as in the Münster--Sachs coderivation expansion $\mathfrak D=\sum_n x^{n-1}D^{(n)}$
+\cite[\S IV.B]{MunsterSachs2013}. In this presentation the HS auxiliary is \emph{not} a new
+field: $\Sig\equiv\Psi_2$ is the two-string component of the one master field
+\eqref{ped:eq:masterfield}.
+
+The string bracket $\ell_3:\Hilb_0^{\otimes3}\to\Hilb_0$ of the quartic
+vertex, $V_4(A_1,A_2,A_3,A_4)=\Mean{A_1|\ell_3(A_2,A_3,A_4)}$ (the $c_0^-$-inserted
+pairing, cf.\ Conventions), gives rise to the
+\emph{two-output} product by raising one index with the inverse symplectic form
+$\Delta=\omega_1^{-1}$:
+\begin{equation}
+	\mtwo\equiv\mathfrak p_{2,2,0}=\Delta\circ\ell_3:\ \Hilb_0^{\otimes2}\to\Hilb_0^{\otimes2},
+	\qquad \Ngh(\mtwo)=+2,
+	\label{ped:eq:mtwo}
+\end{equation}
+equivalently $V_4(A_1,A_2,A_3,A_4)=G_2\big(A_1\otimes A_2,\,\mtwo(A_3\otimes A_4)\big)$ with
+the product pairing $G_2=\omega_1\otimes\omega_1$, which is the definition~\eqref{p:eq:conv:sprod} of $p_{2,2}$. (The ghost number $\Ngh(\mtwo)=+2$ is derived in \cref{ped:sec:grading:ngh}.) The point of presentation (a) is that $\mtwo$ has \emph{two} inputs and
+\emph{two} outputs; it is not an $\Loo$ bracket, and no \emph{independent} auxiliary field
+is in sight. The schematic $\IBL$ action pairs the
+codifferential with the symplectic data,
+\begin{equation}
+	S=\omega\circ\hat{\mathfrak p}(\e^\Psi)
+	\qquad\text{(schematic: action/EOM consistency established at $O(\gs^2)$;
+	the abstract form is open)},
+	\label{ped:eq:iblaction}
+\end{equation}
+and the cubic action at quartic order, \eqref{p:eq:hs4:action-tilde}, is what \eqref{ped:eq:iblaction} produces at $O(\gs^2)$ once the $\ell_3$
+quartic is traded by the Hubbard--Stratonovich transformation.
+
+\subsubsection{Presentation (b): the cyclic \texorpdfstring{$\Loo$}{L} algebra on
+\texorpdfstring{$\Hilb_0\oplus\Sym^2\Hilb_0$}{the enlarged space}}
+\label{ped:sec:two:loo}
+
+Enlarge the field space to $\Hilb_0\oplus\Sym^2\Hilb_0$, with fields $(\Psi,\Sig)$. Now every
+product is \emph{single-output}: the two outputs of $\mtwo$ are re-read as one output valued
+in the new summand $\Sym^2\Hilb_0$, i.e. the second output becomes the $\Sig$-slot. The
+products are read off the vertices of \eqref{p:eq:hs4:action-tilde}:
+\begin{equation}
+	W_3(A_2,B_1,C_1):=\Mean{A_2\,|\,\mtwo(B_1,C_1)},\qquad
+	W_2(A_2,B_2):=\Mean{A_2\,|\,\mtwo(B_2)},
+	\label{ped:eq:W3W2}
+\end{equation}
+with $A_2,B_2\in\Sym^2\Hilb_0$ and $B_1,C_1\in\Hilb_0$: $W_3$ is the asymmetric cubic vertex
+coupling one $\Sig$ leg to two $\Psi$ legs, and $W_2$ is the $\Sig$ kinetic vertex. Together
+with the ordinary $\Psi$-sector data $(Q,\ell_2)$ these are the brackets of an
+$\Loo$-structure on $\Hilb_0\oplus\Sym^2\Hilb_0$; \eqref{p:eq:hs4:action-tilde} is its cyclic action
+(cyclicity holding with respect to the shifted pairing, \cref{ped:sec:two:caveat}). This
+is the theory that is manifestly cubic and that one quantises.
+
+\subsubsection{The dictionary: what is established at \texorpdfstring{$O(\gs^2)$}{O(gs2)},
+and two candidate \texorpdfstring{$\Loo\Leftrightarrow\IBL$}{L-IBL} correspondences}
+\label{ped:sec:two:dict}
+
+It is tempting to summarise the relation between (a) and (b) as \enquote{the classical
+$\Loo\Leftrightarrow\IBL$ correspondence}. This note deliberately does \emph{not} do so:
+no such correspondence exists as a theorem --- for $\Loo$-algebras strictification is a
+theorem \cite{Borsten:2021:DoubleCopyHomotopy}, but its $\IBL$ counterpart, in either direction, is precisely
+what the programme wants to establish. What is actually available is (i) a set of
+$O(\gs^2)$ facts, listed below, and (ii) two candidate general correspondences,
+each with a sharply stated open core.
+
+\subparagraph{Established at $O(\gs^2)$.}
+\begin{itemize}[leftmargin=*]
+	\setlength{\itemsep}{0.6ex}
+
+	\item \textbf{(a)$\to$(b): integrating $\Sig$ in.} Trading the two-output
+	$\mathfrak p_{2,2,0}$ for a single-output product on the enlarged space, at the cost of
+	promoting $\Psi_2$ to an independent field, \emph{is} the HS step itself
+	(\cref{p:sec:hs:quartic}). This direction is unconditional and explicit.
+
+	\item \textbf{(b)$\to$(a): integrating $\Sig$ out.} Eliminating $\Sig$ by its algebraic
+	equation of motion (below) collapses the enlarged theory back to the data on $\Hilb_0$
+	with the $\ell_3$ quartic restored: at $O(\gs^2)$ this is the Gaussian elimination
+	(saddle substitution $=$ propagator transfer) and, at the amplitude
+	level, the telescoping $V_4\circ V_4^{-1}\circ V_4=V_4$. It is
+	\emph{conditional}: it needs $\mtwo$ injective on $\Sym^2\Hilb_0$ (open
+	at CFT level; defused by the kernel quotient $\Sig\in\Sym^2\Hilb_0/\ker V_4$), and the diagrammatic route additionally needs
+	the inverse of $V_4$ on the quotient, level by level in a truncation with stable kernels; a bounded inverse is not needed.
+\end{itemize}
+
+\subparagraph{What CFL actually provide (and what they do not).} CFL Theorem~1.3/6.1
+\cite{Cieliebak:2015:HomologicalAlgebraRelated} is the \emph{minimal-model} theorem: every $\IBL$-algebra
+$(C,\{\pklg\})$ over a field of characteristic $0$ carries an $\IBL$-structure on its
+\emph{homology} $H(C,\mathfrak p_{1,1,0})$, homotopy equivalent to the original, with an
+explicit recursive transfer formula built from a Hodge splitting $C=H\oplus B\oplus A$.
+It is a statement about passing to $Q$-homology --- it is \emph{not} a strictification
+theorem, and it is \emph{not} the $\Sig$-elimination: integrating $\Sig$ out keeps $\Psi$
+fully off-shell. The analogue for the latter is Corollary~6.2 (transfer of an
+$\IBL$-structure along any \emph{chain homotopy equivalence}), applied to $\Loo$ algebras, since the cubic action is not known to carry an $\IBL$ structure: when $\mtwo$ is invertible
+on the quotient of $\Sym^2\Hilb_0$ by its kernel, the pair formed by $\Sig$ and its equation of motion is contractible on the classical complex, and
+the $\Loo$ transfer along that contraction is the algebraic home of \enquote{integrating out the auxiliary
+field} (\cref{ch11:sec:transfer}). The hypothesis is the invertibility of $\mtwo$ on that quotient, level by level; it does not follow from Theorem~6.1.
+
+\subparagraph{Candidate correspondence 1 (restricted: auxiliary field via HS).} Integrating
+a single auxiliary field in/out through the HS transformation produces a specific,
+constrained form of $\IBL$ data: for example, the gauge transformation of $\Sig$ is
+completely determined by that of $\Psi$ (the composite law of
+\cref{p:sec:hs:quartic}), and $\Sig$ couples only through $V_4$. This direction is operationally
+straightforward. Its core question --- whether the product $\mtwo=\Delta\circ\ell_3$
+obtained from HS actually \emph{satisfies the $\IBL$ relations}, in particular the
+$(2,2,0)$ structure equation \eqref{ped:eq:rel220}, as a consequence of the $\Loo$ relations
+of the $\ell_n$ --- has a two-part answer at genus zero.
+With the operations of CFL's definition only, at least one input and one output, the $(1,2,0)$ relation holds, $(1,2,0)\Leftrightarrow[Q,\ell_2]=0$, and so does every relation with one input or one output, but the $(2,2,0)$ relation is \emph{not implied} by the $\Loo$ relations: a cyclic $\Loo$ algebra built on $\mathfrak{sl}_2$ violates it.
+With the operations with no input or no output included, the raised family satisfies every genus-zero relation if and only if the $\ell_n$ form a cyclic $\Loo$ algebra (\cref{p:sec:ibl:general}).
+An earlier version of this paragraph stated that the $(2,2,0)$ relation follows from the $\Loo$ relations; that statement is withdrawn (\cref{ch:dead-ends}).
+
+\subparagraph{Candidate correspondence 2 (general: repackaging, no auxiliary field).} Given
+$\Loo$ products $\ell_n=:\mathfrak p_{n,1}$, applying $\Delta$ once produces two-output
+products $\mathfrak p_{n-1,2}:=\Delta\circ\ell_n$; iterating $\Delta$ produces an entire
+family $\{\mathfrak p_{m,n}\}$ built from the $\ell_n$ \emph{alone}. Nothing is
+integrated in or out --- this is pure repackaging, and the question applies whether there
+is a single field or several. The \textbf{open core}: do the $\Loo$ relations of the
+$\ell_n$ imply the $\IBL$ relations for $\{\mathfrak p_{m,n}\}$? One may then enlarge:
+introduce fields $\Psi_n\in\Sym^n\Hilb_0$ and ask the \emph{reverse} --- given a family
+of $\IBL$ products, can one write $\Loo$ products on the enlarged vector space
+$\bigoplus_n\Sym^n\Hilb_0$, and do the $\IBL$ relations imply the $\Loo$ relations there?
+This general correspondence is related to the HS mechanism but plausibly more general;
+its goal is not necessarily a cubic action but more general classes of SFT actions.
+
+\subparagraph{The morphism data at $O(\gs^2)$.} The expected comparison morphism has leading
+components $\phi_1=$ the inclusion $\Hilb_0\hookrightarrow\Hilb_0\oplus\Sym^2\Hilb_0$ and
+$\phi_2=\cdot^{\otimes2}$ mapping into the $\Sym^2$ summand, $\Psi\mapsto\Psi^{\otimes2}$
+--- the Yang--Mills-toy pattern (\cref{ov:sec:explicit:YM}). Its gauge-map component is the composite law (\cref{p:sec:hs:quartic}).
+On the classical complex, the fields and their equations of motion, $(\phi_1,\phi_2)$ is the transfer map of a cyclic $\Loo$ quasi-isomorphism, under the invertibility of $\mtwo$ on the quotient (\cref{p:sec:all:homotopy-transfer}); off the classical complex it fails the morphism identity with two inputs, so it is not an $\Loo$ morphism of the full algebras.
+
+\subparagraph{The equation of motion and the auxiliarity criterion.} Varying \eqref{p:eq:hs4:action-tilde} in
+$\Sig$ gives, using that the kinetic bilinear $V_4$ is graded-symmetric on the even sector
+(\cref{p:eq:conv:sprod}),
+\begin{equation}
+	\mtwo(\Sig)=\mtwo(\Psi^{\otimes2}),
+	\label{ped:eq:Sigeom}
+\end{equation}
+which is solved by $\Sig=\Psi^{\otimes2}$. The solution is \emph{unique} iff
+$\ker\mtwo=0$ on the level-matched $\Sym^2\Hilb_0$; any symmetric kernel
+component of $V_4$ decouples --- it appears in neither the kinetic nor the source term --- so
+defining $\Sig\in\Sym^2\Hilb_0/\ker V_4$ makes $\mtwo$ injective by construction. Then $\Sig$ is purely auxiliary and (b)$\to$(a) is exact.
+
+\subsubsection{The caveat that must be carried: cyclicity needs the shifted
+\texorpdfstring{$\omega_2^{\rm symp}$}{omega-2}}
+\label{ped:sec:two:caveat}
+
+The word \enquote{cyclic} in presentation (b) is not free. A cyclic $\Loo$-algebra requires
+an \emph{odd, graded-antisymmetric} (symplectic) form on the enlarged space. On the
+$\Psi$-sector this is the usual $\omega_1=(\cdot,c_0^-\cdot)_{\rm bpz}$. On the $\Sig$-sector,
+however, the naive candidate $\omega_1^{\otimes2}$ is graded \emph{symmetric} in physical
+statistics (\cref{ped:sec:omega2}), so it is \emph{not} a symplectic form on
+$\Sym^2\Hilb_0$. The antisymmetric symplectic partner is the one-unit-shifted object
+\begin{equation}
+	\omega_2^{\rm symp}=\omega_1^{\otimes2}\circ(s\otimes s)
+	\qquad\text{on }\big(\Sym^2\Hilb_0\big)[1],
+	\label{ped:eq:omega2symp}
+\end{equation}
+in the Batalin--Vilkovisky (BV) presentation. Thus presentation (b), read as a genuinely
+\emph{cyclic} $\Loo$-algebra, takes the shifted form \eqref{ped:eq:omega2symp} as a
+prerequisite: it does not obviate the open question of the two-output symplectic form,
+it presupposes its resolution in the BV presentation.
+
+\subparagraph{Everything is CFT data; the shift is bookkeeping, not input.} A construction
+that needed the suspension as an \emph{ingredient} would be suspect: if the theory is
+well defined, every object must be expressible in worldsheet CFT data alone. It is. The
+complete list of CFT inputs of this note is: the $c_0^-$-inserted overlap
+$\omega_1(A,B)=\bra{A}c_0^-\ket{B}_{\rm bpz}$ with the normalisation
+$\mean{c_{-1}\bar c_{-1}c_0^-c_0^+c_1\bar c_1}=-\tfrac12$ (Conventions); its two-strand
+product $G_2=\omega_1^{\otimes2}$, i.e.\ the double overlap with one $c_0^-$ per strand;
+the geometric vertices $V_3,V_4$ (surface states integrated over their vertex regions);
+and the level-matched projection defining $\Hilb_0$. Every operation is built from these:
+$\ell_3$ from $V_4$ by \eqref{ped:eq:mtwo}'s dual, $\Delta$ as the inverse overlap, $\mtwo=
+\Delta\circ\ell_3$. The shifted $\omega_2^{\rm symp}$ of \eqref{ped:eq:omega2symp} is
+\emph{not a new CFT object}: it is the \emph{same} double overlap $G_2$, evaluated on the
+same states --- the suspension $s$ changes no correlator, no state and no operation. What
+it changes is a single declaration of \emph{bookkeeping parity}: in the BV complex, $\Sig$
+is assigned Grassmann parity $\epsilon(\Sig)+1$ instead of the physical
+$\epsilon(\Sig)=\Ngh(\Sig)\bmod2$, and with that assignment the \emph{same} $G_2$
+is graded antisymmetric, though even as an operation (the exchange \emph{sign convention} flips,
+\cref{ped:eq:cs}). The BV presentation therefore buys a uniform language (cyclicity, master
+equation) at the price of a bookkeeping parity that differs from the physical one by one
+unit on the $\Sig$-sector; the physics --- correlators, action values, EOM --- is
+presentation-independent. \Cref{ped:sec:omega2} spells out the mechanism (why the two
+$c_0^-$'s make $G_2$ symmetric, and why exactly one shift unit flips it).
+
+\subsection{Physical ghost-number grading: undoing the suspension}
+\label{ped:sec:grading}
+
+A standing objection to the suspension is that it hides the physics. This section
+determines whether the two source frameworks suspend (they do), and then states every
+$\IBL$ component relation in the physical ghost-number grading, which is unambiguous and is
+the grading of all final objects.
+
+\subsubsection{Do CFL and Münster--Sachs suspend? Yes --- fields and structure maps}
+\label{ped:sec:grading:susp}
+
+\begin{itemize}[leftmargin=*]
+	\setlength{\itemsep}{0.6ex}
+
+	\item \textbf{Cieliebak--Fukaya--Latschev \cite{Cieliebak:2015:HomologicalAlgebraRelated}.} The symmetric algebra $E_kC$
+	is built on the \emph{suspension} $C[1]$, so their degree $|c|$ is the physical degree
+	minus one: $|c|=\deg c-1$. The structure maps carry the suspended degree
+	\begin{equation}
+		|\pklg|=-2d(k+g-1)-1,
+		\label{ped:eq:cfldeg}
+	\end{equation}
+	with $d$ a fixed integer (for SFT on a $(2n-1)$-dimensional contact target,
+	$d=n-3$). This is a \emph{homological} grading: the differential $\mathfrak p_{1,1,0}$
+	has $|\mathfrak p_{1,1,0}|=-1$, i.e. it \emph{lowers} the CFL degree, opposite to the
+	BRST operator which \emph{raises} ghost number.
+
+	\item \textbf{Münster--Sachs \cite{MunsterSachs2013,Muenster:2014:HomotopyClassificationBosonic}.} The closed-string
+	field is placed in degree zero after the shift $A_c=s^{-2}\tilde A_c$; the open field
+	after $A_o=s^{-1}\tilde A_o$. The odd symplectic form is
+	$\omega_c=(\cdot,c_0^-\cdot)_{\rm bpz}\circ(s^2\otimes s^2)$: it is odd and graded
+	antisymmetric \emph{by construction of the degree shift} --- \enquote{the apparent
+	symmetry of the BPZ product is removed by the suspension}. The physical
+	ghost-number grading of $\tilde A_c$ is separate and kept implicit.
+\end{itemize}
+So both frameworks suspend, and both fold the load-bearing sign of the odd symplectic form
+into the shift. This is exactly the bookkeeping to be removed for the final
+statements.
+
+\subsubsection{Physical ghost numbers of the fields and structure maps}
+\label{ped:sec:grading:ngh}
+
+In the physical grading the fields carry $\Ngh(\Psi)=2$ and $\Ngh(\Sig)=4$, fixed so that
+the couplings saturate the sphere ghost anomaly. The ghost numbers of the structure maps
+follow from the sphere anomaly ($\Ngh=6$; one $c_0^-$ makes $\omega_1$ pair states with
+$\Ngh$ sum $5$; the genus-zero $n$-point vertex saturates at $\sum_i\Ngh(A_i)=2n$):
+\begin{equation}
+	V_n(A_1,\dots,A_n)=\omega_1\big(A_1,\ell_{n-1}(A_2,\dots,A_n)\big)
+	\ \Longrightarrow\
+	\Ngh(\ell_n)=3-2n.
+	\label{ped:eq:ellngh}
+\end{equation}
+Raising one input of $\ell_3$ into an output with $\Delta=\omega_1^{-1}$ shifts the ghost
+number by $+5$, \emph{not} by $+1$: since $\omega_1$ saturates at $\Ngh$ sum $5$, its
+inverse is a bivector $\Delta=\sum_\alpha u_\alpha\otimes v_\alpha$ with
+$\Ngh(u_\alpha)+\Ngh(v_\alpha)=5$, so
+\begin{equation}
+	\mtwo(A\otimes B)=\sum_\alpha \ell_3(u_\alpha,A,B)\otimes v_\alpha
+	\quad\Longrightarrow\quad
+	\Ngh(\mtwo)=\Ngh(\ell_3)+5=+2.
+	\label{ped:eq:Deltashift}
+\end{equation}
+Equivalently, by \eqref{ped:eq:mtwo}'s defining relation $V_4=G_2(\,\cdot\,,\mtwo\,\cdot\,)$:
+the two outputs of $\mtwo$ each pair via one $\omega_1$ of $G_2$ with an external
+$\Ngh=2$ state, so each output sits at $\Ngh=3$, and
+$\Ngh(\mtwo)=(3+3)-(2+2)=+2$ --- the same out-minus-in rule that gives
+$\Ngh(Q)=3-2=+1$ and $\Ngh(\ell_n)=3-2n$. The same raising applied to $\ell_2$ gives
+$\Ngh(\mathfrak p_{1,2,0})=\Ngh(\ell_2)+5=+4$, which we confirm independently below by
+ghost-number balance. The physical grading is collected in \cref{ped:tab:ngh}.
+
+\begin{table}[htp]
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		object & signature $(k,\ell,g)$ & role & $\Ngh$ \\
+		\midrule
+		$\Psi$ & --- & dynamical field & $+2$ \\
+		$\Sig$ & --- & auxiliary field & $+4$ \\
+		$Q=\mathfrak p_{1,1,0}$ & $(1,1,0)$ & BRST differential & $+1$ \\
+		$\ell_2=\mathfrak p_{2,1,0}$ & $(2,1,0)$ & bracket & $-1$ \\
+		$\mathfrak p_{1,2,0}$ & $(1,2,0)$ & cobracket & $+4$ \\
+		$\ell_3=\mathfrak p_{3,1,0}$ & $(3,1,0)$ & higher bracket & $-3$ \\
+		$\mtwo=\mathfrak p_{2,2,0}$ & $(2,2,0)$ & HS two-output product & $+2$ \\
+		$\mathfrak p_{1,1,1}$ & $(1,1,1)$ & genus-1 involutivity homotopy & $+2$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{Physical ghost numbers of the fields and low-signature $\IBL$ structure maps.
+		The map $\Ngh(\ell_n)=3-2n$ is \eqref{ped:eq:ellngh}; every $\ell\ge2$ (multi-output)
+		map picks up $+5$ per $\Delta$-raising \eqref{ped:eq:Deltashift}.
+		$\Ngh(\mathfrak p_{1,2,0})=+4$ and $\Ngh(\mathfrak p_{1,1,1})=+2$ are also forced by
+		ghost-number balance of the $(2,2,0)$ and $(1,1,1)$ relations
+		(\cref{ped:sec:grading:rels}; checked, \texttt{Hq4}).}
+	\label{ped:tab:ngh}
+\end{table}
+
+\subparagraph{The two-parameter physical formula.} Collecting the two rules above --- every
+output at $\Ngh=3$, every input at $\Ngh=2$ (out-minus-in), and $+1$ per handle --- the
+physical ghost number of the general $\IBL$ structure map is the two-parameter (three, with
+genus) count
+\begin{equation}
+  \boxed{\;\Ngh(\pklg)=3\ell-2k+g\;.}
+  \label{ped:eq:ngformula}
+\end{equation}
+The genus-zero backbone $\Ngh(\mathfrak p_{k,\ell,0})=3\ell-2k$ is out-minus-in; its
+$\ell=1$ slice is $\Ngh(\ell_k)=3-2k$ \eqref{ped:eq:ellngh}, and each extra output is a
+$\Delta$-raising, $+5=(+3\text{ output})-(-2\text{ input})$ \eqref{ped:eq:Deltashift}. The genus
+coefficient is fixed by $\Ngh$-homogeneity of the loop relations: the first relation
+carrying genus, \eqref{ped:eq:rel111}, forces $\Ngh(\mathfrak p_{1,1,1})=+2=3-2+1$, so the
+per-handle shift is $+1$ --- each handle is an operadic self-gluing that identifies one
+output leg ($\Ngh=3$) with one input leg ($\Ngh=2$), and the ghost excess $(3-2)=+1$ is what
+it costs.\footnote{The \emph{geometric} vertex $V_{g,k+\ell}$ saturates at
+$\sum_i\Ngh(A_i)=2(k+\ell)$ for \emph{all} $g$ (the anomaly $6-6g$ exactly cancels the
+$6g-6+2(k+\ell)$ moduli $b$-insertions), so the genus dependence resides in the algebraic
+loop-operation normalisation; the loop relations pin its coefficient to $+1$. See
+\cref{ped:tab:ngh} for every value used here.} Formula \eqref{ped:eq:ngformula} reproduces the whole
+of \cref{ped:tab:ngh}: $\ell_2\!=\!-1$, $\ell_3\!=\!-3$, $\mathfrak p_{1,2,0}\!=\!+4$,
+$\mtwo\!=\!+2$, $\mathfrak p_{1,1,1}\!=\!+2$.
+
+\subparagraph{The suspended \texorpdfstring{$\to$}{->} physical bridge is \emph{per slot}.}
+The CFL degree \eqref{ped:eq:cfldeg} is \emph{independent of the output number} $\ell$, whereas the physical grading \eqref{ped:eq:ngformula} \emph{grows} with $\ell$.
+There is therefore no uniform per-map offset $|\pklg|=\pm\Ngh(\pklg)+\text{const}$ valid across $(k,\ell)$ at fixed $d$ --- and this absence is \emph{expected, not a defect}.
+It is the ordinary consequence of the maps being multilinear ($k$ inputs) \emph{and} multi-output ($\ell$ outputs), each slot carrying its own suspension.
+The mechanism is exactly the $L_\infty$ one \cite{Hohm:2017:LinftyAlgebrasField}: in the $\ell$-picture $\deg\ell_n=n-2$ grows with the number of inputs, while in the suspended $b$-picture $\deg b_n=-1$ is \emph{constant}, the two related by a per-slot suspension $s$ that puts one unit on the output and one on each input (\cite{Hohm:2017:LinftyAlgebrasField}, \S 3.1--3.2).
+For the $\IBL$ maps the same per-slot shift acts on \emph{every} strand, the $k$ inputs as well as the $\ell$ outputs, as CFL's suspension $C[1]$ does.
+Concretely, give a strand of ghost number $n$ the CFL degree $3-n$, with the sign reversed because the CFL grading is homological (\cref{ped:sec:grading:susp}).
+The degree of a map is the degree of its outputs minus that of its inputs, so
+\begin{equation}
+  |\pklg|
+    = \sum_{\text{out}}(3-n_{\rm out})-\sum_{\text{in}}(3-n_{\rm in})
+    = 3\ell-3k-\Ngh(\pklg)
+    = 3\ell-3k-(3\ell-2k+g)
+    = -(k+g),
+  \label{ped:eq:cflmatch}
+\end{equation}
+where the second step uses $\Ngh(\pklg)=\sum n_{\rm out}-\sum n_{\rm in}$ and the third \eqref{ped:eq:ngformula}.
+Comparing with \eqref{ped:eq:cfldeg}, $-2d(k+g-1)-1=-(k+g)$ holds for every $(k,\ell,g)$ exactly when $d=\tfrac12$.
+For example, $\ell_2$ has $\Ngh=-1$ and gets degree $3-6+1=-2$, and $\mtwo$ has $\Ngh=+2$ and gets $6-6-2=-2$, both equal to $-(k+g)$ with $(k,g)=(2,0)$.
+The value is unique: allowing a general affine strand degree $\sigma n+\alpha$, with separate constants $\alpha$ on inputs and outputs, and matching \eqref{ped:eq:cfldeg} for all $k,\ell\ge1$, $g\ge0$ forces $\sigma=-1$, both constants equal to $3$, and $d=\tfrac12$; the $k$-slope, the $g$-slope and the constant term each give $d=\tfrac12$ separately, and without the sign reversal no $d$ works.
+The match therefore holds for the degree, at $d=\tfrac12$, with three qualifications.
+First, $d=\tfrac12$ lies outside CFL's hypotheses, which take $d$ integer ($|\hbar|=2d=1$ is odd here); it is not CFL's $d=n-3$ for any contact target, and CFL's integer-$d$ results (homotopy theory, Weyl-algebra correspondence) do not apply as stated.
+Second, the regrading matches integer degrees, not slot symmetries: the strand degree $3-\Ngh$ has parity $\epsilon+1$ on every strand, so CFL's $E_kC$ would be graded symmetric in $\epsilon+1$ on the inputs, whereas the physical $\pklg$ are graded symmetric in $\epsilon$ on the inputs and in $\epsilon+1$ on the outputs (the physical $\Psi$, with $\Ngh=2$, gets the odd CFL degree $1$); the symmetries still need the per-slot parity dictionary.
+Third, the $g$-slope of the match uses the $+g$ of \eqref{ped:eq:ngformula}, which is the ghost number of the self-gluing operation and is anchored by an independent computation only at $g=1$ (the $(1,1,1)$ relation); for $g\ge2$ it is the uniform ghost-additive self-gluing convention, consistent but not independently re-derived.
+At genus zero the $k$-slope and the constant already fix $d=\tfrac12$ without it.
+A non-integer $d$ is thus the correct outcome of the per-slot dictionary, not a symptom of a wrong one.
+The upshot for the reader: the physical statements need no $d$; they are the $\Ngh$-balanced
+operator equations of the next subsection.
+
+\subsubsection{The component relations in physical ghost numbers}
+\label{ped:sec:grading:rels}
+
+Each $\IBL$ component relation is a homogeneous operator equation of a definite ghost number;
+every term must carry the same $\Ngh$. We list the genus-zero chain up to $(2,2,0)$ and
+verify homogeneity (all checked in \texttt{Hq4}).
+\begin{subequations}
+	\label{ped:eq:rels}
+	\begin{align}
+		\label{ped:eq:rel110}
+		\text{(1,1,0):}\qquad
+		&
+		Q^2=0,
+		&&\Ngh=+2;
+		\\
+		\label{ped:eq:rel210}
+		\text{(2,1,0):}\qquad
+		&
+		Q\circ_1\ell_2+\ell_2\circ_1\hat Q=0,
+		&&\Ngh=0;
+		\\
+		\label{ped:eq:rel120}
+		\text{(1,2,0):}\qquad
+		&
+		\hat Q\circ_1\mathfrak p_{1,2,0}+\mathfrak p_{1,2,0}\circ_1\hat Q=0,
+		&&\Ngh=+5;
+		\\
+		\label{ped:eq:rel310}
+		\text{(3,1,0):}\qquad
+		&
+		Q\circ_1\ell_3+\ell_2\circ_1\ell_2+\ell_3\circ_1\hat Q=0,
+		&&\Ngh=-2.
+	\end{align}
+\end{subequations}
+The $(2,2,0)$ structure equation --- the one that governs $\mtwo$ --- is, in physical ghost
+numbers,
+\begin{equation}
+	\boxed{\;
+	\hat Q\circ_1\mathfrak p_{2,2,0}
+	+\mathfrak p_{2,2,0}\circ_1\hat Q
+	+\mathfrak p_{1,2,0}\circ_1\ell_2
+	+\hat\ell_2\circ_1\hat{\mathfrak p}_{1,2,0}=0,
+	\qquad \Ngh=+3,
+	\;}
+	\label{ped:eq:rel220}
+\end{equation}
+where $\circ_1$ feeds one output into one input. Ghost-number balance of \eqref{ped:eq:rel220}
+is not automatic: the first two terms have $\Ngh=1+2=+3$, and demanding the last two match
+\emph{forces} $\Ngh(\mathfrak p_{1,2,0})=+4$ (then $\mathfrak p_{1,2,0}\circ\ell_2$ and
+$\ell_2\circ\mathfrak p_{1,2,0}$ both have $\Ngh=4+(-1)=+3$) --- in agreement with the
+direct values $\Ngh(\ell_2)+5$ from \eqref{ped:eq:Deltashift} and out-minus-in
+$(3+3)-2=+4$. This is a genuine, physically
+transparent determination of the cobracket's ghost number, reproduced by \texttt{Hq4}
+without any suspension input. The genus-1 relation
+\begin{equation}
+	\text{(1,1,1):}\qquad
+	Q\circ_1\mathfrak p_{1,1,1}+\mathfrak p_{1,1,1}\circ_1 Q
+	+\ell_2\circ_2\mathfrak p_{1,2,0}=0,
+	\qquad \Ngh=+3,
+	\label{ped:eq:rel111}
+\end{equation}
+then forces $\Ngh(\mathfrak p_{1,1,1})=+2$ (the entry of \cref{ped:tab:ngh}).
+

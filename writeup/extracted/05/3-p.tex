@@ -1,0 +1,26 @@
+In these variables, we recognize the multiplier form of the cubic action, treated in \cref{p:sec:all:multiplier}:
+\begin{equation}
+  \label{p:eq:barcobar:multiplier-action}
+  \caction[\mathrm{mult}]
+    = \frac{1}{2} \, \pair{\Psi}{Q_B \Psi}
+      + \sum_{n \ge 3} \frac{\gs^{n-2}}{n!} \, \vertex{n}(\Sigma_n)
+      + \sum_{k \ge 2} \pair[k]{\Theta_k}{\Sigma_k - \Sigma_{k-1} \otimes \Psi},
+\end{equation}
+with multipliers $\Theta_k \in \Hn{k}$ (\cref{p:sec:all:multiplier}) of ghost number $3 k$ (\cref{p:app:conventions}).
+Its equations of motion map onto the canonical equations~\eqref{p:eq:barcobar:canonical-eqs} as follows.
+The $\Theta_k$ equations impose the conditions $\Sigma_k = \Sigma_{k-1} \otimes \Psi$, which we call the chain: these are the splits $(k - 1, 1)$ of the factorization condition, in their part symmetric under all strands.
+The $\Psi$ equation, once the multipliers are eliminated through the $\Sigma_n$ equations, is the original equation $\mathcal E_\Psi = 0$, that is, the one-output component of $B \Phi_1 = 0$.
+The $\Sigma_n$ equations themselves have no counterpart in their system. They are linear in the multipliers and, for the tower truncated at a finite length, determine them from the top down.
+
+Conversely, three groups of their equations have no Euler--Lagrange counterpart.
+The first two are the splits with $2 \le i \le n - 2$, the first of which is $\Sigma_4 = \Sigma_2 \otimes \Sigma_2$, and the symmetry conditions on the right-hand sides of~\eqref{p:eq:barcobar:factorization}.
+The third group is the components of $B \Phi_1 = 0$ with two or more output strands.
+All of them hold identically on the diagonal $\Sigma_k = \Psi^k$, to which the chain reduces: this solution satisfies every split and reduces every component of $B \Phi_1 = 0$ to the one-output one.
+
+Hence, for the multiplier form truncated at a finite length, the solutions of its equations of motion, modulo the values of the multipliers, are in one-to-one correspondence with their canonical solutions truncated at the same length.
+The correspondence follows from the triangular form of the chain, which fixes $\Sigma_k = \Psi^k$ once $\Psi$ is given.
+We have checked the term-by-term map in finite-dimensional models with commuting fields, of the kind described in \cref{p:app:finite-models}.
+
+In short, the multiplier form is the Lagrange-multiplier action of the universal part of their system only, namely the chain.
+The theory enters through the kinetic term of $\Psi$ and the vertices $\vertex{n}(\Sigma_n)$, which are linear in the auxiliary fields.
+The dual tower $\Theta_k$ supplies a non-degenerate pairing where their space has none, while $\Psi$ keeps its own; it does so by enlarging the field space, as the doubling by multipliers above does, restricted to the chain. It therefore does not answer their question of an action on their field space itself.

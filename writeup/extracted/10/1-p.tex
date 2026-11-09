@@ -1,0 +1,579 @@
+\subsubsection{The circle picture}
+\label{p:sec:ws:circle}
+
+We look for a mechanism behind this counting.
+The inverse carries two $c$ insertions and no modulus, and the identity $\vertex{4} \, \sprod{2}{2}^{-1} \, \vertex{4} = \vertex{4}$ cancels two antighosts and two moduli of its neighbors.
+We now describe a model in which this is realized by cutting the four-punctured sphere of the vertex region along a circle that encloses the two punctures of one $\Sigma_2$ slot.
+The model reproduces the quartic form exactly on-shell at four points, modulo a measure identity argued by hand, and everything we say about the inverse is a statement about the model.
+
+
+
+
+
+
+\paragraph{Halves and circle states}
+\label{p:sec:ws:halves}
+
+Take two copies of a rigid three-punctured sphere with ordinary punctures at $z = 0, \infty$ and a special puncture at $z = 1$, whose local coordinate $w$ is
+\begin{equation}
+  \label{p:eq:ws:half}
+  z
+    = \frac{2 \beta - w}{2 \beta + w},
+\end{equation}
+with $\beta > 0$ the stub parameter~\cite{Erbin:2026:SL2CVerticesClosed}, and the numbers are computed at $\beta = 3 / 2$ and $2$.
+In the $w$-plane the ordinary punctures sit at $w = \pm 2 \beta$.
+We write $\vertex{3}'$ for this cubic vertex, asymmetric for generic coordinates at its ordinary punctures, and return to it in the outlook.
+At one value of the parameters introduced below it is the cubic vertex of the theory itself.
+Glue the two copies at their special punctures by $w_1 w_2 = q$, with $q = \e^{- s + \I \theta}$ the plumbing parameter, $s$ the neck length and $\theta$ the twist.
+Any circle $\abs{w_1} = r$ with $\abs{q} / (2 \beta) < r < 2 \beta$ separates the two punctures of the first copy from those of the second, and a symmetric cut $r = \sqrt{\abs{q}}$ exists if and only if $\abs{q} < 4 \beta^2$.
+
+The state that one copy puts on the circle is created by its two transported vertex operators on the vacuum,
+\begin{equation}
+  \label{p:eq:ws:circle-map}
+  \varphi_{2,1}(A_1, A_2)
+    := f_1 \circ A_1(0) \; f_2 \circ A_2(0) \, \ket{0},
+\end{equation}
+with $f_i$ the local coordinate maps and the product radially ordered.
+Its level expansion is the repeated operator product expansion of the two operators.
+The same construction with $n$ punctures inside one circle defines a map $\varphi_{n,1} \colon \Hn{n} \to \Hs$, which we call the circle map.
+On an $n$-string field it produces one string state of ghost number $2 n$, whose zero mode carries the total momentum $P$ and whose level content encodes the $n - 1$ relative momenta of~\eqref{p:eq:ws:jacobi}.
+The relative momenta are not lost in the merging, being recoverable from the level content, and at $n = 2$ the map is injective on inputs of finite level.
+The circle state is exact for inputs of finite level, when the coordinate discs lie inside the disc of the circle.
+Its extension to the infinite level sums of a string field is not established.
+
+It is not level matched, because the configuration of punctures inside the circle is not rotation invariant.
+At $n = 2$ the failure is present for every momentum of a tachyon pair, the ghost contribution to the $L_0^- = \pm 2$ components never vanishing.
+With $f_2 = - f_1$, which holds for the halves above, the exchange of the two punctures acts as $(-1)^{L_0^-}$ up to the Grassmann sign, so that on a graded-symmetric $\Sigma_2$ only the even-$L_0^-$ components of the circle state survive.
+The merged state enters a sewing with a closed string only through the level-matching bivector $b_0^- \delta_{L_0^-, 0}$ of the strands, which discards its components with $L_0^- \neq 0$; the part it loses is structural, not an artifact of a choice.
+
+
+In their no-go theorem, Sonoda and Zwiebach allow for propagating states that are not level matched~\cite[pp.~188--189]{Sonoda:1990:CovariantClosedString}.
+Their external states are level matched, but the off-shell states running in the propagator may form a larger set when the propagator is not the standard one.
+Since their proof examines only amplitudes whose external states are level matched, its conclusion holds as long as the set of all off-shell states contains the level-matched ones.\footnotemark{}
+\footnotetext{
+  Considering different sets of the on-shell and off-shell states can be seen in different instances~\cite{Pius:2016:CutkoskyRulesSuperstring,Bautista:2019:QuantumGravityTimelike,Bautista:2020:BRSTCohomologyTimelike}.
+}
+The circle state belongs to such a larger set.
+The gluing defined below propagates it over a region of the $q$-plane that is not a disc, so that on-shell the circle picture of the quartic form realizes the enlargement they contemplate.
+We compare the circle picture with their sewing once the gluing has been defined, and we find that this enlargement is not what lets the theory evade the theorem.
+Constructions of closed string field theory without level matching have been considered in~\cite{Okawa:2022:ClosedStringField,Erbin:2023:ClosedStringTheory}.
+
+\begin{quote}
+  \small
+  \emph{Note added in this write-up.}
+  The paragraph below, and the opening of this subsection, state the exactness of the model on-shell ``modulo a measure identity argued by hand''.
+  The measure identity is now proven, by two independent routes, and the off-shell statement is stronger than the paragraph says: on its vertex region and on finite-level inputs the quartic form itself, for any vertex given as a section of local coordinates continuously differentiable on each tile (for the explicit section, under the hypothesis that it is real-analytic on each tile), is a gluing of two fixed halves over $Q_V$, with input operators and dressed antighosts, and the rigid gluing is its on-shell value.
+  The derivations, and the Sonoda--Zwiebach sewing that follows from the measure identity, are in \cref{sec:wscircle:offshell}.
+\end{quote}
+
+\paragraph{Gluing over the vertex region}
+\label{p:sec:ws:gluing}
+
+With the halves kept fixed, the only deformation of the glued surface is that of $q$, a dilation or a rotation of the circle, and the antighost insertions that go with the two moduli are the zero modes in the frame of the circle,
+\begin{equation}
+  \label{p:eq:ws:schiffer}
+  b(\pd_s)
+    = - b_0^+,
+  \qquad
+  b(\pd_\theta)
+    = \I \, b_0^-.
+\end{equation}
+Gluing over a region $Q$ of the $q$-plane defines the bilinear form
+\begin{equation}
+  \label{p:eq:ws:p-circ}
+  \sprod{2}{2}^{\mathrm{circ}}(\Sigma_2, \Sigma_2')
+    := - \I \kappa \int_Q \dd s \, \dd\theta \;
+      \big\langle \varphi_{2,1}(\Sigma_2') \big| \, b_0^+ b_0^- \, \e^{- s L_0^+} \e^{\I \theta L_0^-} \, \big| \varphi_{2,1}(\Sigma_2) \big\rangle
+\end{equation}
+in the BPZ inner product, with $\kappa$ the normalization of the measure, fixed by the propagator and cancelling in every statement about the inverse.
+The map from $q$ to the cross-ratio of the glued sphere is injective on $\abs{q} < 4 \beta^2$, the disc $\abs{q} \le 1$ being the $s$-channel Feynman region.
+The pre-image of the vertex region is an annulus with an angle-dependent outer radius,
+\begin{equation}
+  \label{p:eq:ws:region}
+  Q_V
+    = \{\, 1 < \abs{q} < \e^{\tau_V(\theta)} \,\},
+\end{equation}
+mapped bijectively up to measure zero onto $\mathcal V_{0,4}$, the outer annulus $\e^{\tau_V} \le \abs{q} < 4 \beta^2$ covering the $t$- and $u$-channel Feynman regions.
+That the region has this star-shaped form with a single-valued cutoff is a numerical finding at $\beta = 3 / 2$, for the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed}.
+The cutoff $\tau_V$ is $\pi$-periodic, with $\tau_V(\pi) = \ln \tfrac94$ in closed form, and reaches $\ln 4 \beta^2$, the largest admissible value, on two arcs where the circle passes through the ordinary punctures.
+The cutoff is determined by the vertex: the one circle that $\sprod{2}{2}$ prescribes reaches all of $\mathcal V_{0,4}$, and there is no freedom of splitting the region among three channels.
+
+
+Nothing collides on the two arcs.
+The singularities of the integrand are the cross-channel collisions, at the two points $\theta = 0, \pi$ of the fold circle $\abs{q} = 4 \beta^2$, which lie outside the closure of $Q_V$.
+They set the decay of the coefficients of the expansion of the integrand in eigenstates of $L_0^\pm$.
+For four tachyons the integrand is $\abs{y}^{h_0} \abs{1 - y}^{2 a_-} \abs{1 + y}^{2 a_+}$ with $y = q / 4 \beta^2$, the exponents $a_\mp$ being set by the $t$- and $u$-channel momenta.
+  The coefficient at level $h$ in a sector of fixed $L_0^-$ scales as $h^{- 2 \alpha - 2}$, with $\alpha = \min (a_-, a_+)$.
+The statements below about the transform of the region, its closed forms, its real zeros and the identity it satisfies sector by sector involve no sum over sectors and do not depend on the arcs.
+The arcs, where $\abs{y} = 1$, decide instead whether a matrix element of the form, an integral over $Q_V$, may be computed as a sum of sector contributions.
+For four tachyons the sector decomposition converges in every order of summation if and only if $\alpha > - 1$, which on-shell is the condition that both cross channels sit below their tachyon pole, $\alpha' t, \alpha' u < - 4$.
+In level order it converges under the weaker condition that both sit below their massless pole, with $\alpha' s > - 10$, by an endpoint analysis that we have checked numerically.
+At every momentum the region integral is the Abel sum of the level series, by the same analysis.
+
+For inputs with matter oscillators the exponent $\alpha$ drops by at most the total level, and by exactly that for generic polarizations.
+On-shell the drop cancels against the masses, so that the every-order condition $\alpha' t, \alpha' u < - 4$ holds for all matter-oscillator inputs and is sharp for generic polarizations.
+The reading of the real zeros of the transform as poles, below, is accordingly a statement about the remainder of the level-ordered sum, not about sums over sectors.
+
+For four on-shell primaries the integrand of $\vertex{4}$ does not depend on the local coordinates.
+  We have argued by hand that the measure of the gluing family is the pull-back of the canonical one.
+Injectivity then gives $\sprod{2}{2}^{\mathrm{circ}} = \sprod{2}{2}$ with $Q = Q_V$: the model is exact on-shell at four points, for inputs of finite level.
+On-shell the quartic form is thus the matrix element, between the two circle states, of the operator $b_0^+ b_0^- \, \e^{- s L_0^+ + \I \theta L_0^-}$ that gives the string propagator~\eqref{p:eq:ws:propagator-psi} with its twist, integrated over the region~\eqref{p:eq:ws:region} instead of the unit disc.
+  The inverse of the model is explicit sector by sector, as~\eqref{p:eq:ws:inverse-circle} below: the pair $c_0^- c_0^+$ dual to the two antighosts, times the reciprocal of the transform of the region, up to a projector discussed there.
+
+\paragraph{Seams with the Feynman regions}
+\label{p:sec:ws:seams}
+
+Off-shell this simple form cannot hold, and the reason is more than a difference of coordinates: with rigid halves the gluing is not consistent with the cubic exchanges at the boundary of its region.
+The region $Q_V$ has two seams with the Feynman regions.
+On the inner one, $\abs{q} = 1$, the glued surface is the $s$-channel exchange built from the same halves, and the local coordinates at the four external punctures match identically.
+On the outer one, $\abs{q} = \e^{\tau_V(\theta)}$, the same surface is the $t$- or $u$-channel exchange at unit plumbing modulus, and the coordinates that the two descriptions put at the external punctures must agree up to a phase for the vertex and the exchanges to fit together off-shell, with the standard antighost insertions and level-matched external states.
+They disagree already at first order.
+At $\theta = \pi$ the logarithms of the mapping radii differ, at all four punctures, by
+\begin{equation}
+  \label{p:eq:ws:seam-mismatch}
+  \ln \frac{4 \beta^2 - 1}{4 \beta},
+\end{equation}
+exactly, for every $\beta$ above $(1 + \sqrt 2) / 2$, the value at which this vanishes and the region pinches at $\theta = \pi$, below which the $s$- and $u$-channel regions overlap there; at the eleven other seam points we sampled, at $\beta = 3 / 2$, the mismatch is of the same size.
+On the two fold arcs, an internal seam where the two sheets of the plumbing covering meet, the coordinates agree to first order and, for the halves of the cubic vertex of the theory, differ at second order by $1 / (4 \beta)$ in the second-order coefficient of the coordinate map normalized by the square of the first; they agree there only for halves whose coordinates at the ordinary punctures are pure rescalings, which those of the cubic vertex are not.
+The first-order mismatch does not depend on the coordinates of the halves at their ordinary punctures, and the range is fixed by the vertex, so no gluing of rigid halves over any region reaching the outer seam, whichever member of the family of halves is used, is the quartic form off-shell, nor any quartic vertex consistent with the cubic exchanges.
+About the actual $\sprod{2}{2}$, whose coordinates move, this says nothing.
+
+This failure has the form of the obstruction in the theorem of Sonoda and Zwiebach~\cite{Sonoda:1990:CovariantClosedString}, which we meet here in a configuration next to the class their proof covers.
+At the parameters of the theory, $\gamma' = \beta$ and $\lambda = 1 / 2$ in~\eqref{p:eq:ws:half-ordinary}, where the halves are two copies of its cubic vertex, the vertex at each end of the gluing belongs to the class their theorem assumes: it is their symmetric Hermitian $\group{SL}(2, \C)$ vertex, with Möbius local coordinates and the parameter $a = 2 \beta$~\cite[eq.~(2.18)]{Sonoda:1990:CovariantClosedString}.
+On-shell and for inputs of finite level, the $s$-channel exchange and the quartic form together are then their sewing of that vertex over a domain that is not a disc, the union of the unit disc and $Q_V$, with propagating states that are not level matched.
+One clause of their sewing hypothesis fails here, however: their sewing domain is common to the three channels, whereas here the extended domain is attached to the $s$-channel plumbing alone, the $t$- and $u$-channel exchanges keeping their unit discs.
+The asymmetry has a reason that is itself outside their framework: the theory does not satisfy their assumption that the three channels cover $\mathcal M_{0,4}$ once, since the three Feynman regions of the cubic vertex leave $\mathcal V_{0,4}$ uncovered.
+The extension over $Q_V$ describes that region: it is not a fourth channel of the cubic theory but the quartic vertex of the original theory.
+The requirement that the coordinates agree up to a phase at the seams is their condition for the BRST invariance of the four-point amplitude~\cite[eq.~(3.49)]{Sonoda:1990:CovariantClosedString}.
+Its failure here is consistent with their conclusion that no symmetric Hermitian vertex, sewn by the plumbing fixture over a sewing domain common to the three channels that makes them cover the moduli space once, has coordinates that agree up to a phase at the seams, but their proof does not imply it.
+Their proof runs through the point of the moduli space where the four punctures form a square, the cross-ratio $-1$, which lies on a seam between two Feynman regions.
+For the gluing of the halves above and for every $\beta$ above $(1 + \sqrt{2}) / 2$, this point and its two images $\tfrac{1}{2}$ and $2$ under the permutations of the punctures are not the image of any $q$ in the three Feynman discs, real or not: they lie inside $\mathcal V_{0,4}$, and they reach its seams only at the pinch value.
+The seam between the vertex region and a Feynman region, which their construction does not have, is therefore out of reach of their argument.
+We conclude that the theory evades the theorem neither through the enlargement of the space of propagating states nor through the vertex at the ends of the gluing.
+The off-shell quartic form is not that gluing: its coordinate maps move with $q$ inside $Q_V$, as~\eqref{p:eq:ws:dressing} below records, and the line of $\Sigma_2$ is the inverse of the quartic form, an operator with no modulus to integrate over, which in the fixed-halves model is not a gluing, as we show below.
+In their terms the four-$\Psi$ amplitude contains the elementary quartic interaction they call necessary, here written as the exchange of $\Sigma_2$, a state of two closed strings and not a closed string field, so that the coupling of $\Sigma_2$ to two string fields is not a symmetric vertex of three closed string fields.
+
+The seam condition determines, in principle, the off-shell form.
+A vertex consistent with the cubic exchanges carries, on the boundary of its region, the coordinates of the exchange diagrams.
+  Over $Q_V$ the vertex prescribes its own local coordinates, which the transported ones do not reproduce: they differ at second order in the expansion around the puncture, the second-order coefficients of the actual coordinates varying over $Q_V$ while those of rigid halves are constant.
+The quartic form is still a gluing over the same region, but the coordinate maps $f_i$ at the external punctures move with $q$ inside $Q_V$, and their motion dresses the two antighosts~\eqref{p:eq:ws:schiffer} by contour insertions inside the discs:
+\begin{equation}
+  \label{p:eq:ws:dressing}
+  b(\pd_s)
+    = - b_0^+ + \sum_{i} B_i[\pd_s f_i],
+  \qquad
+  b(\pd_\theta)
+    = \I \, b_0^- + \sum_{i} B_i[\pd_\theta f_i],
+\end{equation}
+with $B_i[\pd f_i]$ the antighost contour inside the $i$-th disc weighted by the vector field that the variation of $f_i$ induces: the count of two antighosts is kept, their zero-mode form is not.
+For the explicit section of~\cite{Erbin:2026:SL2CVerticesClosed} the motion has a simple description, which we give below once the family of halves is parametrized: at each $q$ the circle state of the quartic vertex is that of a rigid half with a parameter that varies with $q$, up to a rescaling of the inputs, so that pointwise questions about the actual form reduce to the rigid family.
+After that description we give the construction behind it, a four-step recipe which applies to any explicit vertex, Möbius or not, and produces the halves, the input operators and the dressed plumbing operator.
+We do not obtain the inverse of the actual form, which depends on the form on all of $\Hn{2}$, in closed form.
+  We state what is known about it after~\eqref{p:eq:ws:inverse-circle}.
+Everything explicit below is derived for the \emph{fixed-halves model} $\sprod{2}{2}^{\mathrm{circ}}$ with $Q = Q_V$, and the inverse and its singularities are properties of the model.
+
+\paragraph{Inverse in the fixed-halves model}
+\label{p:sec:ws:model-inverse}
+
+In the model the inverse is not a gluing.
+\begin{quote}
+  \small
+  \emph{Note added in this write-up.}
+  ``Not a gluing'' is meant in the sense the paragraph derives: the inverse is not a gluing over any region of the $q$-plane with the standard measure and antighost insertions, and, by the ghost-number count of the no-kernel theorem, not a kernel of the standard sewing class.
+  It is not the statement that the inverse cannot be built from two surfaces: the tower of necks below is a signed sum of cylinders with $\delta'$ weights.
+  The model itself equals the quartic form on-shell, the measure identity being proven (\cref{sec:wscircle:measure}); every off-shell statement about its inverse is a statement about the model.
+\end{quote}
+In the eigenbasis $\ket{h, m}$ of $(L_0^+, L_0^-)$ the operator of~\eqref{p:eq:ws:p-circ} is $G = - \I \kappa \, b_0^+ b_0^- \hat F$ with $\hat F$ diagonal, $\hat F \ket{h, m} = \hat f_m(h) \ket{h, m}$, where
+\begin{equation}
+  \label{p:eq:ws:transform}
+  \hat f_m(h)
+    := \int_{Q_V} \dd s \, \dd\theta \; \e^{- s h + \I m \theta}
+\end{equation}
+is the Laplace transform in the neck length and the Fourier transform in the twist of the region.
+The form lives on the block $W := c_0^+ c_0^- \Hs^\downarrow$, with $\Hs^\downarrow := \ker b_0^+ \cap \ker b_0^-$, and is non-degenerate wherever $\hat f_m(h) \neq 0$.
+Three factors make up the inverse.
+The first is the pair of ghost zero modes dual to the two antighosts~\eqref{p:eq:ws:schiffer}, since $b_0^+ b_0^- \, c_0^- c_0^+ = 1$ on $\Hs^\downarrow$.
+They are dual to the conformal Killing vectors of the circle, a dilation and a rotation, and they are the pair of $c$'s that the counting requires.
+The second is the reciprocal $1 / \hat f_m(h)$ of the region's transform.
+The third is the projector onto the states the circle can produce, which enters because $\sprod{2}{2}^{-1}$ is defined on $\Hn{2}$ and pushed to $\Hs$ through the circle map, and which is invisible between two circle states.
+Together,
+\begin{equation}
+  \label{p:eq:ws:inverse-circle}
+  \varphi_{2,1} \, \big( \sprod{2}{2}^{\mathrm{circ}} \big)^{-1} \, \transp{\varphi_{2,1}}
+    = P_{\mathcal I} \; \frac{\I}{\kappa} \; c_0^- c_0^+ \; \hat F^{-1},
+\end{equation}
+with $\transp{\varphi_{2,1}}$ the transpose of the circle map for the pairings and $P_{\mathcal I}$ the projector onto the image of the circle states.
+
+\paragraph{Rank of the circle map}
+\label{p:sec:ws:rank}
+
+
+The statements about poles below rest on the question whether the projector acts as the identity on the whole even-$L_0^-$, ghost-number-four part of the block at fixed total momentum, modulo the kernel of $G$.
+  The matter part of the map is triangular in level with an invertible leading term, so we expect the answer to be decided in the ghost sector, as it is, by a symmetry of the halves.
+The halves~\eqref{p:eq:ws:half} carry at their ordinary punctures local coordinates of Möbius form,
+\begin{equation}
+  \label{p:eq:ws:half-ordinary}
+  z
+    = \frac{v}{\gamma' + \lambda v}
+\end{equation}
+at $z = 0$ in terms of a local coordinate $v$, and its mirror image at $z = \infty$, with a scale $\gamma'$ and a parameter $\lambda$.
+Unless another value is stated, the numbers quoted in this section were computed at $\lambda = 0$, where the two maps are pure rescalings and the circle states obey the exact selection rule derived next.
+The cubic vertex of the theory sits at $\lambda = 1 / 2$, as explained below.
+The region $Q_V$ and the transform do not depend on $\lambda$, only the circle states do.
+At $\lambda = 0$ the dilation of the sphere that fixes the two ordinary punctures reads exactly $+ v \pd_v$ in one ordinary frame and $- v \pd_v$ in the other.
+In the coordinate $u$ of the circle state, in which the punctures sit at $u = \pm u_0$ with $u_0 = 1 / (2 \beta)$, it is the conformal Killing vector $\beta (u^2 - u_0^2) \pd_u$.
+The conservation law of its antighost and stress-tensor contours, deformed from the circle onto the two coordinate discs, picks up $b_0^-$ and $L_0^-$ on the inputs, which annihilate level-matched states.
+There remains a pair of identities on the output, valid for inputs of every level:
+\begin{equation}
+  \label{p:eq:ws:selection-rule}
+  \big( b_1^- - u_0^2 \, b_{-1}^- \big) \, \varphi_{2,1}(\Sigma_2)
+    = 0,
+  \qquad
+  \big( L_1^- - u_0^2 \, L_{-1}^- \big) \, \varphi_{2,1}(\Sigma_2)
+    = 0,
+\end{equation}
+with $b_n^- := b_n - \bar b_n$ and $L_n^- := L_n - \bar L_n$.
+The circle states therefore lie in a proper subspace of the even block, and from output level two on the level-projected circle map misses part of the block.
+With the matter truncated to two flat components, it misses $5$ of the $73$ directions of the block through output level two and $60$ of $487$ through level three, and the two identities together account for the missing directions exactly.
+The count through level two is the same with three components, while the count through level three depends on the matter content.
+In the model at $\lambda = 0$ the projector is not the identity, however large the level of the inputs.
+
+The rule is a property of that vertex, not of the quartic form.
+For $\lambda \neq 0$ the vector field acquires a $v^2 \pd_v$ term in the local frames, the contours pick up $b_1^-$ and $L_1^-$ on the inputs, which do not annihilate them, and no selection rule follows.
+The cubic vertex of the theory is a member of the family with $\lambda \neq 0$.
+For $\gamma' = \beta$ and $\lambda = 1 / 2$, the coordinate~\eqref{p:eq:ws:half-ordinary} at $z = 0$, its mirror image at $z = \infty$ and the coordinate~\eqref{p:eq:ws:half} at $z = 1$ are the three local coordinates of the cubic vertex of~\cite{Erbin:2026:SL2CVerticesClosed} in the frame where its punctures sit at $0$, $1$ and $\infty$, so that at these values the halves are two copies of it.
+The value $1 / 2$ is determined by the symmetry $z \mapsto z / (z - 1)$ of the vertex, which fixes the puncture at $z = 0$ and exchanges the other two.
+In any frame with two of the punctures at $0$ and $\infty$, the coordinates there take the form~\eqref{p:eq:ws:half-ordinary}, in the chart $1 / z$ at $\infty$, with parameters $\lambda_0$ and $\lambda_\infty$ that obey $\lambda_0 \lambda_\infty = 1 / 4$, so that no such frame brings the cubic vertex to $\lambda = 0$.
+Equivalently, the dilation $z \pd_z$ reads $\pm (v + v^2 / (2 \beta)) \pd_v$ at both punctures, never $\pm v \pd_v$, and the selection rule does not hold for the cubic vertex of the theory.
+At $\lambda = 1 / 2$, with the matter truncated to two flat components and also with three, the map is onto the block through level three for inputs of level up to two, at every $\gamma'$, which only rescales $v$.
+Since the entries are rational in $\lambda$, the same holds at all but finitely many $\lambda$.
+
+For the quartic vertex itself the local coordinates move with $q$ inside $Q_V$.
+Its symmetry under relabeling of the punctures is incompatible with coordinates that are dilations about the pair at every $q$.
+The rule therefore fails at least on an open set of the vertex region for inputs with ghost excitations.
+Analytic dependence on the modulus would carry the failure to almost every point, but the coordinates of the quartic vertex of~\cite{Erbin:2026:SL2CVerticesClosed} are at most piecewise real-analytic: the vertex region is tiled by the twelve images of a fundamental domain under relabeling of the punctures and complex conjugation, and the second-order coefficients are once but not twice continuously differentiable across six arcs where tiles meet.
+Assuming, as the explicit section indicates, that the coordinates are real-analytic on each tile, the failure reaches almost every point: on the boundary with the $s$-channel region the coordinates are those of the glued cubic vertices, whose poles sit at none of the punctures, continuity carries this into the tile that touches that boundary, and the symmetry under relabeling and complex conjugation carries it to the other eleven.
+For the explicit section of~\cite{Erbin:2026:SL2CVerticesClosed} the second-order coefficients of the two coordinates of a pair vanish at no point of the vertex region other than a single surface, at $q = \pm 4 \I \beta^2$ on its boundary, where the symmetry under the exchange of the pairs requires them to vanish.
+For that section the rule fails everywhere else in the region, with no assumption on analyticity.
+On inputs whose ghost part is $c_1 \bar c_1$ the first identity holds for every choice of coordinates and every $q$.
+Over the $s$-channel Feynman region the coordinates are those of two glued copies of the cubic vertex of the theory, and on the boundary $\abs{q} = 1$ of the vertex region the coordinates of the quartic vertex agree with them.
+Since the cubic vertex sits at $\lambda = 1 / 2$, the rule does not hold there either.
+The cubic vertex does not have the dilation coordinates on which the rule rests, and neither does the quartic vertex, on the boundary $\abs{q} = 1$ of its region and, for the explicit section, at every point of the region but the one surface above.
+The value $\lambda = 0$ is therefore not representative of the quartic form off-shell, and the selection rule is a property of rigid halves at that value.
+For questions about the rank of the circle map we use the model at $\lambda = 1 / 2$, the value of the cubic vertex of the theory, whose constant second-order coefficient stands in for the varying one of the quartic vertex.
+For the explicit section this is the motion of the coordinates announced above: at each $q$ in the vertex region the circle state of the quartic vertex is that of the rigid halves~\eqref{p:eq:ws:half-ordinary} at $\gamma' = \beta$ and a parameter $\lambda(q)$, with $\overline{\lambda(q)}$ in the antiholomorphic sector, composed with an invertible rescaling of the inputs, diagonal in the level, so that pointwise questions about the actual circle map reduce to the rigid family.
+The parameter $\lambda(q)$ equals $1 / 2$ on the boundary $\abs{q} = 1$, vanishes on the single surface $q = \pm 4 \I \beta^2$ above and nowhere else in the region.
+The rank of the pointwise map follows: through output level two, for inputs of level up to two with two flat matter components, at $\beta = 3 / 2$ and generic total momentum, the map at $q$ is onto the block near $\abs{q} = 1$ and at almost every point of the vertex region, numerically at every point of its interior, and at the surface $q = \pm 4 \I \beta^2$ it misses $5$ of the $73$ directions.
+This pointwise statement is necessary for the inverse of the integrated form, and not sufficient.
+The model at $\lambda = 0$ remains the case in which the selection rule holds exactly, and the numbers computed there are statements about that model.
+On-shell the local coordinates drop out and the model is exact for every $\lambda$.
+
+\paragraph{Recipe for an explicit vertex}
+\label{p:sec:ws:recipe}
+
+For a given explicit quartic vertex, Möbius or not, the asymmetric cubic vertex, the input operators and the plumbing operator off-shell are obtained as follows.
+\begin{enumerate}
+  \setlength{\itemsep}{0.5ex}
+
+  \item \emph{Read the vertex in the frame of the halves.}
+    The vertex is a section of local coordinates: at each point $Z$ of $\mathcal V_{0, 4}$, four maps $f_i(\cdot \,; Z)$ from the unit disc to the sphere with punctures at $0$, $1$, $\infty$ and $Z$.
+    The glued sphere at $q$ carries the coordinate $u$ of the circle state, with the punctures of the first copy at $\pm u_0$ and those of the second at $\pm 2 \beta / q$, and its cross-ratio $Z(q)$ runs over $\mathcal V_{0, 4}$ as $q$ runs over $Q_V$.
+    The Möbius map that sends the first three punctures to $0$, $1$, $\infty$ is unique and sends the fourth to $Z(q)$.
+    Its inverse transports the four coordinates of the vertex at $Z(q)$ to germs $F_i(\cdot \,; q)$ at the four punctures of the glued sphere.
+    Nothing is chosen at this step: the frame is fixed by the special coordinate $w$ of the half, the germs by the vertex.
+
+  \item \emph{Split each germ into a fixed coordinate of the half and an input operator.}
+    Choose at each ordinary puncture a coordinate $h_i$ independent of $q$ that sends $0$ to the puncture, and write $F_i = h_i \circ g_i$ with $g_i(q)$ a germ fixing $0$.
+    By the transformation law of a vertex operator under a change of local coordinate, $F_i \circ A_i(0) = h_i \circ (U_{g_i} A_i)(0)$, with $U_{g_i}$ the exponential of the $L_{n \geq 0}$ and $\bar L_{n \geq 0}$ that represents $g_i$, so that the state on the special leg at $q$ is the circle state of the fixed half with coordinates $h_1, h_2$ on the inputs $U_{g_1} A_1$ and $U_{g_2} A_2$.
+    The split is exact for every admissible choice of the $h_i$, and this choice, together with the placement of the inner antighost contours discussed below, is the freedom of the construction: the glued surface and its region, the measure $\dd s \, \dd\theta$ and the total antighost insertion of each tangent vector are fixed by the vertex; the coordinates of the halves, and with them the input operators, are not.
+    The canonical choice is the coordinates of the cubic vertex of the theory, $\lambda = 1 / 2$ and $\gamma' = \beta$ in~\eqref{p:eq:ws:half-ordinary}.
+    For a section whose coordinates on $\abs{q} = 1$ are those of the $s$-channel exchange, the input operators are trivial on level-matched inputs at that seam if and only if the $h_i$ are these, up to a phase rotation.
+    The half of the $\Sigma_2$ exchange is then $\vertex{3}$ itself, and the plumbing operator reduces at the seam to the undressed $b_0^+ b_0^-$ of the model once the derivatives of the germs vanish there as well, as they do for the explicit section.
+    This choice is canonical but not required: the surface states are the same for every split, and another choice of the $h_i$ moves a $q$-independent factor into the plumbing operator.
+
+    For the section of~\cite{Erbin:2026:SL2CVerticesClosed} the germs are Möbius, and relative to the canonical half $g_i(W) = \rho W / (1 + \nu W)$ with $\nu = \rho \, (\lambda(q) - 1 / 2) / \beta$, so that
+    $U_{g_i} = \rho^{L_0} \bar\rho^{\bar L_0} \, \e^{- \nu L_1 - \bar\nu \bar L_1}$,
+    where $\lambda(q)$ is the parameter above, read off the position of the pole of the germ, and $\rho(q) = F_i'(0; q) / h_i'(0)$ is the mapping radius of the coordinate of the vertex relative to that of the half.
+    One pair $(\lambda, \rho)(q)$ serves the four legs, by the symmetry of the section under relabeling of the punctures.
+    Taking instead the half at $q$ to be the member $\lambda(q)$ of the family, with the rescaling alone as input operator, is the description given above.
+    The two are the same surface states with the same total antighost insertion, and only the fixed half extends to sections that are not Möbius.
+    For such a section, minimal area or known numerically, $U_{g_i}$ is $\rho^{L_0} \bar\rho^{\bar L_0}$ times an exponential of the $L_{n \geq 1}$ and $\bar L_{n \geq 1}$ whose coefficients follow order by order from the Taylor coefficients of $g_i / \rho$, the first few of which are tabulated in~\cite{LeClair:1989:StringFieldTheory-1,Rastelli:2001:TachyonPotentialsStar}.
+    On inputs of level at most $L$ only the $L_n$ with $n \leq L$ act, so the $(L + 1)$-jet of the germ at $q$ determines $U_{g_i}$ there exactly.
+    A numerical section has to supply this jet, with its first derivatives in $s$ and $\theta$.
+
+  \item \emph{Assemble the plumbing operator.}
+    The contribution of the vertex region, in the coordinate $q$, is the integral of the form of the section on the tangent vectors $\pd_s$ and $\pd_\theta$, with the four inputs inserted through the germs $F_i$ and the antighosts~\eqref{p:eq:ws:dressing}:
+    \begin{multline}
+      \label{p:eq:ws:recipe-plumbing}
+      \sprod{2}{2}(A_1 \otimes A_2, A_3 \otimes A_4)
+        = \kappa \int_{Q_V} \dd s \, \dd\theta \;
+      \\
+          \big\langle \varphi_{2,1}(U_{g_3} A_3, U_{g_4} A_4) \big| \, b(\pd_s) \, b(\pd_\theta) \, \e^{- s L_0^+} \e^{\I \theta L_0^-} \, \big| \varphi_{2,1}(U_{g_1} A_1, U_{g_2} A_2) \big\rangle,
+    \end{multline}
+    with $\varphi_{2,1}$ the circle map of the fixed half and the same normalization as in~\eqref{p:eq:ws:p-circ}.
+    The dressing $B_i[\pd_s f_i]$ acts on its input as $A_i \mapsto U_{g_i} \, b^{(i)}[v_i] \, A_i$, where $b^{(i)}[v_i]$ is the antighost contour in the frame of the input weighted by the vector field $v_i(W) = \pd_s g_i(W) / g_i'(W)$ of the variation, and the input operator is applied after it.
+    Since $v_i$ vanishes at the puncture, the contour contains the modes $b_k$ with $k \geq 0$ only, and on inputs of level at most $L$ only those with $k \leq L$.
+    For the Möbius section the dressing on level-matched inputs is explicit, $B_i[\pd_s f_i] = (\pd_s \ln \abs{\rho}) \, b_0^{+ (i)} - (\rho / \beta) \, \pd_s \lambda \; b_1^{(i)} - (\bar\rho / \beta) \, \pd_s \bar\lambda \; \bar b_1^{(i)}$, and the same with $\pd_\theta$: the extra modes are $b_1$ and $\bar b_1$ on each input, with coefficients that are real-analytic on each tile of the vertex region, on the assumption stated above, and not smooth across the arcs where tiles meet.
+    At the outer seam the logarithm of $\abs{\rho}$ is minus the mismatch~\eqref{p:eq:ws:seam-mismatch}, numerically at $\theta = \pi$ for $\beta = 3 / 2$ and $2$: the input operators carry the first-order mismatch that rigid halves miss.
+
+    The dressing cannot be moved from the inputs to the neck as a change of the special coordinate: the surface states with coordinates $(h_1 \circ g_1, h_2 \circ g_2, w)$ and $(h_1, h_2, w \circ x)$ coincide only if a Möbius map of the sphere fixing the three punctures relates the two triples, and that map is the identity.
+    On level-matched inputs the phase rotations of the ordinary coordinates are the only further identifications, and they act trivially.
+    Level by level it can: the conservation law of the half for a polynomial vector field with a pole at the special puncture, whose jets at the two ordinary punctures match those of $v_1$ and $v_2$, trades the two inner contours, and by exponentiation the two input operators, for an insertion on the special leg, which on inputs of level at most $L$ carries creation modes $b_{-n}$ and $L_{-n}$ of the special coordinate with $n$ up to $2 L + 2$ and coefficients depending on $q$.
+    We have argued this and not checked it.
+    Whether a level-uniform operator on the special leg exists, other than a change of its coordinate, is open.
+
+  \item \emph{Evaluate on primaries.}
+    On inputs $A_i = c_1 \bar c_1 V_i$ with $V_i$ a matter primary of any momentum, every mode $b_{k \geq 0}$ and every $L_{n \geq 1}$ annihilates $A_i$, so the dressings drop out and the input operators reduce to the weights $\abs{\rho}^{h_i}$, with $h_i$ the eigenvalue of $L_0^+$ on $A_i$, $\alpha' k_i^2 / 2 - 2$ for a tachyon:
+    \begin{multline}
+      \label{p:eq:ws:recipe-primaries}
+      \sprod{2}{2}(A_1 \otimes A_2, A_3 \otimes A_4)
+        = - \I \kappa \int_{Q_V} \dd s \, \dd\theta \; \abs{\rho(q)}^{h_1 + h_2 + h_3 + h_4}
+      \\
+          \times \big\langle \varphi_{2,1}(A_3, A_4) \big| \, b_0^+ b_0^- \, \e^{- s L_0^+} \e^{\I \theta L_0^-} \, \big| \varphi_{2,1}(A_1, A_2) \big\rangle,
+    \end{multline}
+    the integrand of the model, which on such inputs does not depend on $\lambda$, times one function of $q$.
+    For a section that is not Möbius the weight is $\prod_i \abs{\rho_i(q)}^{h_i}$ with the four mapping radii $\rho_i = F_i'(0; q) / h_i'(0)$, which need not be equal.
+    The whole off-shell content of the vertex on such inputs is thus the mapping radii of its coordinates relative to those of the half, as a function of $q$.
+    On-shell the weights are one, and the formula is the exactness stated above.
+\end{enumerate}
+We have checked the recipe numerically on the section of~\cite{Erbin:2026:SL2CVerticesClosed}.
+At $\beta = 3 / 2$, on inputs that are not primary, with matter descendants at complex momentum and ghost excitations, the input operators reproduce the four-point surface states of the vertex to machine precision at three points of the vertex region, and the sum over intermediate states converges to them at the two points with $\abs{y} = 0.12$ and $0.22$, $y = q / 4 \beta^2$.
+At $\abs{y} = 0.36$ the truncated sum is consistent with them but not conclusive.
+On the zero-momentum tachyon $c_1 \bar c_1 \ket{0}$ and ghost dilaton, the dressed integrand of~\eqref{p:eq:ws:recipe-plumbing} agrees with the integrand of the vertex on these states in~\cite{Erbin:2026:SL2CVerticesClosed}, to $10^{-9}$, at three points of the region for $\beta = 3 / 2$ and one for $\beta = 2$.
+These states are annihilated by the $b_0^{(i)}$, whose coefficients in the dressing are therefore not tested.
+
+Three statements of this section rest on the projector acting as the identity: the inverse~\eqref{p:eq:ws:inverse-circle} with the projector dropped, the reading of the real zeros of the transform as poles, and the description of the six-point exchange as a signed density, given in the six-point paragraph below.
+In the model at $\lambda = 1 / 2$ they hold under that hypothesis, under which $\sprod{2}{2}^{-1}$ acts on fields of unbounded level.
+The hypothesis has finite-level support there, as at all but finitely many $\lambda$.
+In the model at $\lambda = 0$ they are replaced by their projected forms, stated at each place, and the reading of the zeros as poles becomes an open criterion.
+The identification of the two $c$'s with the zero modes of the circle frame is a fixed-halves statement: for $\sprod{2}{2}$ itself the dressed antighosts~\eqref{p:eq:ws:dressing} contain modes $b_n$, $n \neq 0$, and only the ghost-number count transfers.
+The circle states of $\sprod{2}{2}$ depend on $q$ as well, so that the form does not factor through a single circle map and a single gluing operator as in~\eqref{p:eq:ws:p-circ}.
+Once the circle map is allowed to vary with $q$, the part of this linear algebra that uses only the factorization of the form through the circle states, the inverse on them with its projector and the identity $G \Pi G = G$ there, with $\Pi := \varphi_{2,1} \, (\sprod{2}{2}^{\mathrm{circ}})^{-1} \, \transp{\varphi_{2,1}}$ the left-hand side of~\eqref{p:eq:ws:inverse-circle}, holds for $\sprod{2}{2}$ itself with $G$ the dressed gluing operator.
+The block form of the inverse does not, since the dressed operator has no block structure: the inverse of $\sprod{2}{2}$ off-shell is not obtained in closed form by this route, and whether a closed form of another shape exists is open.
+The pointwise rank of the actual circle map stated above is what we know, and it does not decide this.
+
+\paragraph{Tower of necks}
+\label{p:sec:ws:necks}
+
+
+The reciprocal of the transform is a tower of necks.
+For a rotation-independent cutoff $\tau$, which the actual region does not have, the twist integral gives $2 \pi \delta_{m, 0}$ and
+\begin{equation}
+  \label{p:eq:ws:tower}
+  \hat f_0(h)
+    = 2 \pi \, \frac{\e^{\tau h} - 1}{h},
+  \qquad
+  \frac{1}{\hat f_0(h)}
+    = \frac{h}{2 \pi} \sum_{n \ge 1} \e^{- n \tau h}
+  \quad (\Re h > 0),
+\end{equation}
+the Laplace transform of $\sum_{n \ge 1} \delta'(s - n \tau)$: a discrete tower of necks of lengths $n \tau$, each carrying one derivative in its length, in operator form $c_0^- c_0^+ L_0^+ \e^{- n \tau L_0^+}$.
+This is the zero-mode part of the kinetic operator $c_0^- Q_B$ on a cylinder of length $n \tau$, and the derivative acts on whatever is glued to the cylinder.
+It is not the integral over a reversed region: the transform of a slab and that of its mirror image multiply to $(\e^{\tau h} - 1)(1 - \e^{- \tau h}) / h^2 \neq 1$, and only a point inverts to a point.
+Up to $c_0^- c_0^+$ in place of $Q_B$, the tower is the kinetic operator of an auxiliary field with one string leg obtained by gluing over the reversed plumbing range, $\abs{q} > 1$, that is, necks of negative length $s$, the range in which the region~\eqref{p:eq:ws:region} lies.
+Between the $2$-string formulation and a single-string one the roles of region and tower are exchanged.
+In the level-matched sector the reciprocal is regular at $h = 0$, so that the $\Sigma_2$ line has no mass-shell pole, as for the open-string auxiliary of~\cite{Erbin:2024:OpenStringStub}.
+Its poles sit at complex momenta.
+For the actual cutoff $\tau_V(\theta)$ the odd Fourier coefficients vanish, consistently with the circle states, and the level-matched reciprocal is again a tower, on the reversed branch $\Re h < 0$.
+The transform $\hat f_0$ has no real zero, so the reciprocal has no real pole.
+In the even sectors $m \neq 0$, however, $\hat f_m$ is real for real $h$, with asymptotic signs fixed by the geometry of the arcs and of the minima of $\tau_V$, and $\hat f_4$ has an odd number of real zeros.
+Numerically at $\beta = 3 / 2$ it has one, at $h_* \approx - 2.36$, and $\hat f_6$ has two.
+These are zeros of the block operator at real timelike momentum through the circle, $\tfrac{\alpha'}{2} (- P^2) = N + \bar N - 2 - h_*$, in sectors that contain no level-matched state and are never reached at real Euclidean momentum.
+In the model at $\lambda = 1 / 2$, under the hypothesis on the circle states, they are poles of $\sprod{2}{2}^{-1}$, a statement about the remainder of the level-ordered sum, as noted above.
+At $\lambda = 0$ the inverse is the compression of $\hat F$ to the circle states, and its poles are the zeros of the determinant of that compression, in a level truncation.
+A real zero of $\hat f_4$ or $\hat f_6$ is one of them if the circle states contain a vector supported in that single sector, and generically only then.
+Otherwise the zero moves to a momentum that depends on the compression, possibly again real and timelike, rather than disappearing.
+We do not know whether the circle states contain such a vector, nor where the moved zeros sit.
+The counts through level three do not reach the sectors $m = 4, 6$.
+Their fate in the composite vertex at six points is discussed in \cref{p:sec:ws:six-point}.
+
+\paragraph{Telescoping and trinion couplings}
+\label{p:sec:ws:telescoping}
+
+The identity $\vertex{4} \, \sprod{2}{2}^{-1} \, \vertex{4} = \vertex{4}$ is now a telescoping.
+With $\vertex{4}(\Psi^2, \Sigma_2) = \sprod{2}{2}(\Psi \otimes \Psi, \Sigma_2)$ the chain is $\langle \varphi_{2,1}(\Psi \Psi) | G \Pi G | \varphi_{2,1}(\Psi \Psi) \rangle$, and $G \Pi G = G$ on the circle states settles it at the operator level.
+Sector by sector on the block,
+\begin{equation}
+  \label{p:eq:ws:identity-sectors}
+  b_0^+ b_0^- \, \hat f \;\cdot\; c_0^- c_0^+ \, \hat f^{-1} \;\cdot\; b_0^+ b_0^- \, \hat f
+    = b_0^+ b_0^- \, \hat f,
+\end{equation}
+which realizes the counting: the $c_0^\pm$ cancel the $b_0^\pm$ of one neighbor's gluing, and one factor $\hat f$, one two-dimensional modulus integral as a number per sector, is cancelled by $\hat f^{-1}$.
+In the neck length, for a constant cutoff, the product $\hat f \hat f^{-1} \hat f$ is the convolution of the indicator $\mathbf 1_\tau$ of the slab $[- \tau, 0]$ with the tower and with $\mathbf 1_\tau$ again,
+\begin{equation}
+  \label{p:eq:ws:telescoping}
+  \mathbf 1_\tau * \Big( \sum_{n \ge 1} \delta'_{n \tau} \Big) * \mathbf 1_\tau
+    = \sum_{n \ge 1} \pd_S (\mathbf 1_\tau * \mathbf 1_\tau)(S - n \tau)
+    = \mathbf 1_\tau(S),
+\end{equation}
+with $S$ the total neck length: $\mathbf 1_\tau * \mathbf 1_\tau$ is a tent of base $2 \tau$, its derivative is $+ 1$ on one half and $- 1$ on the other, and the shifted copies cancel slab by slab, leaving the original slab.
+The $c$'s differentiate the convolved neck modulus of the neighbors, and the composition is an alternating sum of shifted slabs rather than a product of regions.
+For the actual cutoff the identity holds sector by sector as an identity of numbers, the slab picture existing only on the reversed branch.
+
+The trinion couplings of the cubic action have the same reading.
+Pointwise in the moduli of a vertex region, the integrand of a coupling of three fields $\Sigma_{k_1}, \Sigma_{k_2}, \Sigma_{k_3}$ factorizes as a three-punctured-sphere vertex composed with the circle states of the three clusters, each dressed by the antighosts of its cluster.
+This holds surface by surface, with the choice of the three circles over the region as the non-canonical part, and does not give a single rigid three-vertex over the whole region.
+In this sense the couplings of the cubic action are cubic vertices on circle states, at the level of the integrand.
+The picture is not a map between the cubic action and a single-string theory: the circle state of $\Sigma_2$ is not the auxiliary field of the single-strand route of the outlook.
+The two quadratic forms differ off-shell for a constant stub length.
+For a stub length varying along a seam symmetric in the three channels, a family we describe in the outlook at the end of this section, they agree on-shell under conditions stated there.
+We expect, without having shown it, that they differ off-shell.
+
+The zero-mode identities, the closed forms and the telescoping are exact and have been checked numerically, and the real zeros of $\hat f_{4,6}$ are found numerically, the existence of one for $m = 4$ following from the asymptotics.
+Under the hypothesis on the circle states the model has poles at real timelike momentum, so the hypothesis is not harmless.
+None of this contradicts the exclusion~\eqref{p:eq:ws:ghost-obstruction}: the tower is infinite and discrete, it is the auxiliary field's own kinetic operator, and the $c$'s are not insertions on a surface but the duals of the neighbors' antighosts.
+
+\subsubsection{Patches in the atlas picture}
+\label{p:sec:ws:atlas}
+
+The halves of the circle picture are the first case of a general construction, and the counting of moduli determines what the general case must contain.
+In the atlas picture of closed string field theory, a sphere with $N$ punctures in a Feynman region is covered by $N$ puncture discs and $N - 2$ three-punctured spheres as charts.
+The charts are joined by $N - 3$ transition functions $w_a w_b = q_{ab}$ whose parameters are the moduli, each carrying the two antighosts of its dilation and rotation.
+At genus zero a global coordinate exists, and the three-punctured spheres are dispensable as charts but not as vertices: their local coordinates are what fixes the coordinates at the punctures.
+A patch containing $n$ punctures is, as a surface, an $(n + 1)$-punctured sphere with a distinguished leg, the boundary of the chart, on which the state read is the circle state $\varphi_{n,1}$ of the $n$ inserted states.
+Two such patches joined by one transition function give the $2 n$-punctured sphere of the kinetic term of $\Sigma_n$.
+  This description is redundant by four complex parameters: the Möbius freedom of the global coordinate and the rescaling of one chart coordinate against $q$.
+The dilation that fixes the two chart centers is the seam: it moves the collar circle and re-splits the surface between the two patches without changing it.
+The two circle states change by opposite dilations that cancel in the pairing.
+
+The counts decide what a patch must contain.
+Two rigid patches and one transition function give one complex modulus, against the $2 n - 3$ of the $2 n$-punctured sphere, and the two agree only at $n = 2$.
+There the patches are the halves above, and the region of the transition function is the region~\eqref{p:eq:ws:region}, which covers $\mathcal V_{0,4}$ once with the qualifications stated there.
+For $n \geq 3$ each patch must carry $n - 2$ internal moduli, the full moduli of an $(n + 1)$-punctured sphere.
+The patch then has the moduli and antighosts of the chart of a higher vertex with one distinguished leg: an asymmetric vertex region with its own local coordinates.
+We do not know whether the symmetric vertex region, with the coordinate of one leg made special, is suitable.
+The region of the transition function must be fibered over the internal moduli so that the three together cover the vertex region of the kinetic sphere once.
+This is a necessary condition on an object we have not constructed.
+
+The dressed state on the boundary of a patch, the circle state with the antighosts of the internal moduli, has ghost number $2 n - 2 (n - 2) = 4$ for every $n \geq 2$, and two of them joined by a transition function give the six of the sphere.
+The trinion couplings of the auxiliary fields are a rigid three-punctured sphere with three patches attached, each patch leg contributing $n - 1$ complex moduli, and the count closes for every triple of cluster sizes.
+The resulting tree has two kinds of edges.
+The gluing edges of the transition functions each add one complex modulus and two antighosts.
+The contraction edges of the $\Sigma_k$ lines each remove the $2 k - 3$ complex moduli of the kinetic sphere they sit on, and trade its $4 k - 6$ antighosts for as many ghosts.
+For any such tree the number of moduli is the number of punctures minus three, as for the ordinary trivalent trees, so counting cannot distinguish the two expansions.
+The difference lies in the regions and in the local coordinates.
+
+\subsubsection{The six-point exchange and the covering question}
+\label{p:sec:ws:six-point}
+
+
+The composite vertex $\vertex{5 \cdot 5}$ enters the reduced sextic vertex~\eqref{p:eq:hs6:dressed-vertex}.
+  The six-point amplitude is the same integral over all of $\mathcal M_{0,6}$ in both theories.
+On one side it is the sum of the Feynman regions of the string field and of the vertex region $\mathcal V_{0,6}$~\cite{Zwiebach:1993:ClosedStringField}; on the other, the same Feynman regions, the reduced vertex $\dvertex{6}$ and $\tfrac{6}{5} \vertex{5 \cdot 5}$.
+We conjecture that the two sides agree region by region on $\mathcal V_{0,6}$: $\tfrac{6}{5} \vertex{5 \cdot 5}$ is the integral of the standard measure over a sub-region of $\mathcal V_{0,6}$ and $\dvertex{6}$ the integral over its complement, so that together they cover $\mathcal V_{0,6}$ once, the composite vertex covering a definite part of it.
+  Another possibility could be that the composite vertex the whole region with a constant weight, and we have a construction similar to generalized sections from~\cite{Sen:2015:OffshellAmplitudesSuperstring,deLacroix:2017:ClosedSuperstringField}.
+
+  The first statements concern the poles of the composite vertex at a fixed level of truncation.
+The plumbing lattice of a channel is the set of poles $P^2 = - \tfrac{2}{\alpha'} (N + \bar N - 2)$ of the plumbing fixture.
+  It is twice as dense as the mass shells of the string field since, over a sector of twist angles narrower than a full turn, the intermediate states need not be level matched.
+If the composite vertex has a pole in the pair momentum away from the plumbing lattice of the channels of the amplitude, which we have neither established nor excluded, it is not a compact sub-region with momentum-independent boundary and the standard measure.
+Nor is it then a momentum-dependent region of sector type with bounded multiplicity, depending real-analytically on the momenta.
+  By this we mean a region, possibly signed, whose points are counted at most a fixed number of times, and which meets the collar of each degeneration in a sector, the set $r < \epsilon(\theta)$ over a range of angles in the plumbing parameter $q = r \e^{\I \theta}$ of the collar, with a width $\epsilon$ bounded away from zero, as the Feynman regions do.
+If it has a pole off the mass shells, on the plumbing lattice or not, or no pole at all, it is not a union of Feynman regions either, modulo the standard factorization theorem.
+  We have not settled the case of poles on the mass shells only.
+
+To prove the conjecture, we could read the composite vertex as a family of glued surfaces with a weight, which requires $\sprod{2}{2}^{-1}$ to act as a gluing on the off-shell $\Sigma_2$ legs of the two quintic vertices.
+  Within a class of gluings we have shown that it does not, for the explicit section of~\cite{Erbin:2026:SL2CVerticesClosed}.
+  The class consists of gluings with a weight on the plumbing parameter that does not depend on the inputs, with the circle map of a fixed half whose coordinate at the special puncture is Möbius, and with a gluing operator that acts trivially on the multiplicity spaces, spanned by quasi-primaries, of the matter $\mathfrak{sl}(2)$ algebras generated by $L_{0, \pm 1}$ and $\bar L_{0, \pm 1}$: the ghost zero modes dual to the conformal Killing vectors of the circle, any ghost dressing, and any change of the cut coordinate by Möbius maps, depending on $q$ or not.
+  On pairs of tachyons the quartic form is the gluing of the fixed halves over $Q_V$ with the weight $\abs{\rho(q)}^{h_1 + h_2 + h_3 + h_4}$ of~\eqref{p:eq:ws:recipe-primaries}, which depends on the squares of the relative momenta of the two pairs, while the rest of the integrand depends on them only through their scalar product.
+  A gluing of the inverse, summed over levels, in this class and on any class of pair states that represents the form on tachyon pairs and separates the even-$L_0^-$ part of the block $W$, would give the form a dependence on the two squares that factorizes.
+  The integral over $Q_V$ with this weight factorizes in this way only if $\ln \abs{\rho}$ is constant on $Q_V$, while it vanishes on the inner seam and equals minus the mismatch~\eqref{p:eq:ws:seam-mismatch} at the outer seam at $\theta = \pi$.
+  The obstruction therefore appears already at first order in the expansion of the local coordinates.
+  Gluings whose cut coordinate is not Möbius, which is how the coordinates of an off-shell vertex move, are outside the class.
+  Whether one of them inverts the form is open, as is a reading of the composite vertex as a chain that does not go through a gluing of the inverse.
+
+  A gluing reading needs, in addition, a property of the quintic vertex: that its local coordinates at the two legs of the $\Sigma_2$ pair, in the frame normalized by the circle of the half, are those of the cubic vertex, so that the state on the cut is that of a half.
+  It is the second assumption of the circle model below.
+  With the quartic vertex of the explicit section, this property fails at first order, in the mapping radii, on an open subset of each face of $\mathcal V_{0,5}$ that borders a Feynman region made of a cubic vertex, a propagator and a quartic vertex, with a pair of punctures other than the $\Sigma_2$ pair pinching off.
+  On such a face a vertex consistent with the cubic exchanges carries the coordinates of the exchange diagram~\cite{Zwiebach:1993:ClosedStringField}, so that at the two legs of the pair the quintic vertex has those of the quartic vertex, the coordinates of the half dressed by the input operators of the recipe above, with $\abs{\rho} \neq 1$ near the outer seam of $Q_V$.
+  No datum of the quintic vertex enters, and the failure holds for every section consistent with the cubic exchanges, symmetric in its five punctures or not.
+
+  The conjecture can be tested at real momenta, where the composite vertex is a Feynman diagram.
+  On six on-shell tachyons at real momenta, the integral of the standard measure over any momentum-independent region of $\mathcal V_{0,6}$ is, up to a constant common to all regions, the Laplace transform of a positive measure in the invariants $p_i \cdot p_j$.
+  We define the composite vertex there as the limit of its level truncations, assuming that the quintic vertex is damped as a Gaussian in the Euclidean relative momentum of the pair, that the truncated blocks of the quartic form on pairs are invertible at real momentum off a discrete set, and that the truncations converge.
+  A sub-region implies that the ratio of $\vertex{5 \cdot 5}$ to $\vertex{6}$ lies between $0$ and $\tfrac{5}{6}$, and a constant weight implies that this ratio is constant.
+  Both imply that the logarithm of $\abs{\vertex{5 \cdot 5}}$ is convex in the invariants and that its growth along a real direction is bounded by the extrema of $\alpha' \ln \abs{z_{ij}}$ over $\mathcal V_{0,6}$.
+  A sub-region also implies that the matrices of the values of $\vertex{5 \cdot 5}$, and of $\dvertex{6}$, at the midpoints of finitely many points are semi-definite, with the sign of $\vertex{6}$.
+  This is a stronger form of the convexity, which in the slab illustration below separates the cases with a positive measure from the generic one, where the measure is signed.
+  These conditions are necessary and not sufficient: a failure refutes the conjecture once the distance between the truncation and its limit is bounded below the margin of the failure, and a pass at sampled points establishes the inequalities at those points only.
+  If $\mathcal V_{0,6}$ is invariant under complex conjugation of the moduli, a region holding one point of each conjugate pair carries half of $\vertex{6}$ on tachyons, so that a constant weight $\tfrac{5}{12}$ on the composite vertex is also a covering of the conjectured form.
+  The tests need a quintic vertex with its momentum dependence on tachyons.
+  In the family of~\cite{Erbin:2026:SL2CVerticesClosed} the region $\mathcal V_{0,5}$ is fixed as a set by the lower vertices, but the vertex is not constructed in its interior, and no local coordinate at a leg is known.
+
+A cusp-shaped region, pinched at a boundary point, can carry a simple pole off the plumbing lattice, and it is a case, simple to draw, of what remains: a momentum-weighted density on a region rather than a region.
+We do not know whether a region of this kind reproduces the composite vertex.
+
+The circle picture gives a model of the generic situation, at the price of a second assumption: that the $\Sigma_2$ pair of each quintic vertex is again a rigid half carrying the same circle state.
+This is a toy, with no on-shell exactness behind it, and, as shown above, it fails off-shell for every quintic vertex consistent with the cubic exchanges.
+We also assume that each quintic vertex is cut along such a circle with a single-valued neck region, which depends on the moduli of the three other punctures; this parametrization is not checked, and the region is not computed.
+Under these assumptions, in the model at $\lambda = 1 / 2$ and under the hypothesis on the circle states, the composite vertex is a signed density on the surfaces cut along a circle separating three punctures from three.
+In the level-matched sector, for a constant cutoff and quintic neck regions independent of the twist, its measure in the length of the final neck is the derivative of the convolution of the two quintic neck regions.
+This derivative is replicated at the shifts $n \tau$ of the tower~\eqref{p:eq:ws:tower}.
+
+For two slabs of widths $\tau_5, \tau_5'$, an illustration, three cases occur.
+The measure is a single slab if and only if one width equals $\tau$, and it is then the slab of the other width.
+It has compact support if and only if one width is a multiple of $\tau$.
+Otherwise it carries signed weight on arbitrarily long necks, with alternating signs, reaching into the Feynman region.
+Nothing places a width of the quintic region, which depends on the cluster moduli, on the lattice of a cutoff that is not even constant, so the generic case is the last.
+In the first case the composite vertex is a bounded plumbing region in the final neck; in the other two it is neither a union of Feynman regions nor a sub-region with the standard measure, and in the generic case the reduction removes from the sextic vertex a signed density of long-neck surfaces.
+
+At $\lambda = 0$, where the circle states do not fill the block, the exact statement is the projected one.
+The sector formula applies to the component of the five-point state that lies in the span of the circle states, and the composite vertex is the sector formula minus a correction carried by the projector,
+\begin{equation}
+  \label{p:eq:ws:projected-composite}
+  \vertex{5 \cdot 5}
+    = \vertex{5 \cdot 5}^{\mathrm{sector}} - \vertex{5 \cdot 5}^{\perp},
+\end{equation}
+where the first term is the signed density above and $\vertex{5 \cdot 5}^{\perp}$ is the gluing form evaluated on the component of the five-point state that the circle states do not reach, the split being exact where both terms converge.
+The correction vanishes if the five-point state lies in the span of the circle states, which requires it to obey the selection rule~\eqref{p:eq:ws:selection-rule}.
+It is not expected to: the Killing vector behind the rule does not vanish at the three string-field punctures, and already three tachyons give a non-zero component before the reduction by the quintic region and by the inverse of the transform.
+That the reduction does not cancel it is argued, not computed; the correction is then expected to be non-zero, nothing in the model making it vanish.
+Weakening the hypothesis to the statement that the circle states reach everything the selection rule allows, which the counts through level three support exactly, is therefore not expected to restore the sector formula, since the five-point side is not expected to obey such a rule.
+The size of the correction and the position of the poles of the projected composite vertex are open.
+The zeros of the compressed determinant move with the compression, as said above, and need not sit at the real zeros of the transform.
+
+The poles of the model at real timelike channel momentum, where their residue does not vanish, are carried by $\dvertex{6}$ and invisible in the amplitude, since $\dvertex{6} + \tfrac{6}{5} \vertex{5 \cdot 5} = \vertex{6}$ is free of them.
+All this concerns the untruncated model, and it is not evidence for a pole of the level-truncated composite vertex at the actual vertices.
+The position of the density relative to $\mathcal V_{0,6}$, a region defined with the sextic vertex's own coordinates, is not determined by the model.
+Whether the coordinate dressing of $\sprod{2}{2}$ projects out the sectors with $L_0^- \neq 0$ of the $\Sigma_2$ line, and with them the real zeros, is open.
+Within the model the fate of the real zeros has a precise criterion, whether the circle states contain a vector of a single sector at the zero, but we have not decided it.
+The conjecture therefore stays open.
+A proof needs a structural argument, a reading of the composite vertex as a chain or a closed form of it, or, if the composite vertex is real-analytic on an open set of invariants, the exact inverse Laplace transform of $\tfrac{6}{5} \vertex{5 \cdot 5}$ in the invariants, compared with the indicator of a region symmetrized under complex conjugation.
+
+\subparagraph{The level-zero kernel.}
+
+The level-zero kernel~\eqref{p:eq:ws:level-0-kernel} is real and symmetric.
+For the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed} at the sections of the family considered there with $\beta > \sqrt{2}$, we find that it is moreover strictly positive definite up to an overall sign on the even functions of the relative momentum $q$ at every real value of $P^2$.
+The saddle~\eqref{p:eq:ws:level-0-saddle} then has no null function at real $P^2$, and the eigenfunction expansion of the kernel converges absolutely, the operator being trace class.
+At complex $P^2$, where a pole of the composite vertex off the plumbing lattice would sit if there is one, the determinant of the discretized kernel vanishes, at $\beta = 2$, at a point off the plumbing lattice.
+The zero is found numerically and is stable under the discretization.
+We do not know whether the kernel has a null function there, so that, at level zero, a pole off the plumbing lattice is neither realized nor excluded.
+
+\subsubsection{Outlook on a single-strand route}
+\label{p:sec:ws:single-strand}
+
+
+
+The halves of the circle picture suggest a different cubic theory, with one asymmetric cubic vertex $\vertex{3}'$, with two ordinary punctures and one special puncture, and an auxiliary field with a single string leg.
+Such a theory would obtain the quartic vertex by exchanging the auxiliary field between two copies of $\vertex{3}'$ after a change of its kinetic term, as the open-string stub does~\cite{Erbin:2024:OpenStringStub}, and we close with what is established about this route and what is not.
+At tree level and four points, ghost and moduli counting allows the quartic vertex to factor through an auxiliary channel in this way only with a rigid cubic vertex and either a tube of bounded length on each strand or the two strands merged into one string leg carrying a single tube.
+With two strands on the line the sewing produces four-punctured tori with the genus-one antighost measure rather than $\mathcal V_{0,4}$.
+With Möbius discs for the local coordinates the quotient collar of that fixture is numerically not $\mathcal V_{0,4}$ at the parameters sampled.
+With a single strand and the reversed plumbing range every count passes with sphere topology, provided the local discs of $\vertex{3}'$ extend beyond the unit circle.
+This fails for tangent discs, those of the Sonoda–Zwiebach type as well as those of the cubic vertex of the theory at $\beta = 3 / 2$, and holds for the halves above when the discs at their ordinary punctures are small enough.
+
+Gluing two copies of $\vertex{3}'$ at $\abs{q} = 1$ with the twist alone reproduces the boundary of $\mathcal V_{0,4}$ and not its interior.
+At the parameters sampled, the plumbing family covers the interior exactly once when the stub length varies along a seam symmetric under the permutations of the three channels, the seam family, and never for a constant stub length.
+This is numerical, and the seam is under-determined.
+On-shell, under the condition on the discs above and provided the sewing converges over the reversed plumbing range, the corresponding operator identity reduces to this covering, modulo a measure identity argued by hand.
+We have checked the identity numerically at two generic momenta.
+The local coordinates transported across the seam agree to first order but not to second, the discs differing by about $15 \, \%$ of their radius.
+The strictly cubic single-strand theory is therefore expected, though not shown, to fail gauge invariance off-shell at second order in the seam data on non-primary external states.
+A quartic term supported on the collar of the seam would restore it under an embedding condition that we have not checked.
+
+The circle picture also gives the relation between the two formulations.
+Up to $c_0^- c_0^+$ in place of $Q_B$, the tower~\eqref{p:eq:ws:tower} that is the inverse of the $2$-string form is the kinetic operator of a single-string auxiliary field glued over the reversed plumbing range, and the gluing region is its propagator.
+Neither a cubic theory of this kind with a geometric auxiliary channel, nor the statement that its strictly cubic version is an on-shell coincidence, is established.
+In the theory, the cubic vertex fixes the parameter $\lambda$ of the halves at $\lambda = 1 / 2$.
+The circle picture is exact on-shell for every $\lambda$, and off-shell it remains a model, in which rigid halves stand in for local coordinates that move with the modulus.
+Off-shell, $\lambda$ decides whether the circle states obey the selection rule~\eqref{p:eq:ws:selection-rule}.

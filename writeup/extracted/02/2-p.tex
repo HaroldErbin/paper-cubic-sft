@@ -1,0 +1,129 @@
+\subsubsection{The non-polynomial action}
+\label{p:sec:hs:action}
+
+The classical action of closed string field theory~\cite{Zwiebach:1993:ClosedStringField} is a sum of a kinetic term and of one interaction per number of strings:
+\begin{equation}
+  \label{p:eq:hs1:action}
+  S
+    = \frac{1}{2} \, \pair{\Psi}{Q_B \Psi}
+      + \sum_{n \ge 3} \frac{\gs^{n-2}}{n!} \, \vertex{n}(\Psi^n),
+\end{equation}
+where $\gs$ is the string coupling and $\Psi^n := \Psi^{\otimes n}$.
+
+The string field $\Psi \in \Hs$ is an element of the space of states of the matter--ghost CFT satisfying the level-matching conditions
+\begin{equation}
+  \label{p:eq:hs1:level-matching}
+  b_0^- \ket{\Psi}
+    = 0,
+  \qquad
+  L_0^- \ket{\Psi}
+    = 0,
+\end{equation}
+and carrying ghost number
+\begin{equation}
+  \label{p:eq:hs1:ghost-psi}
+  \Ngh(\Psi)
+    = 2.
+\end{equation}
+The pairing is the BPZ inner product with one insertion of $c_0^-$:
+\begin{equation}
+  \label{p:eq:hs1:pairing}
+  \pair{A}{B}
+    := \braket{A | c_0^- | B}.
+\end{equation}
+
+The maps $\vertex{n} \colon \Hn{n} \to \C$ are the genus-zero string vertices.
+They are obtained by integrating the correlation function of the $n$ states over the vertex region $\mathcal V_{0,n} \subset \mc M_{0,n}$ of the moduli space of the $n$-punctured sphere, with the appropriate antighost insertions.
+The string products $\ell_n \colon \Hn{n} \to \Hs$ are the maps they define through the pairing:
+\begin{equation}
+  \label{p:eq:hs1:vertex-product}
+  \vertex{n}(A_1, \ldots, A_n)
+    =: \pair{A_1}{\ell_{n-1}(A_2, \ldots, A_n)},
+  \qquad
+  \ell_1
+    := Q_B.
+\end{equation}
+We follow the conventions of~\cite{Erbin:2021:StringFieldTheory} for the vertices and the products.
+They are collected in \cref{p:app:conventions}, together with the normalization of the sphere correlators, the ghost numbers and the reality condition.
+
+Here $\Hn{n}$ denotes the space of $n$-string states whose components are graded-symmetric under permutations of the strands.
+For the Grassmann-even strands of $\Psi^n$ and $\Sigma_n$, it is the $n$-th tensor power of $\Hs$ symmetrized with the Grassmann signs~\cite{Erler:2014:NSNSSectorClosed, Erbin:2020:ClassicalAlgebraicStructures}.
+The odd strands of the outputs of the products are treated in \cref{p:app:conventions}.
+The vertices are graded-symmetric in their arguments.
+Ghost-number conservation on the sphere requires the insertions to total $\Ngh = 6$, which fixes
+\begin{equation}
+  \label{p:eq:hs1:ghost-vertices}
+  \Ngh(\vertex{n})
+    = 6 - 2n,
+  \qquad
+  \Ngh(\ell_n)
+    = 3 - 2n.
+\end{equation}
+The vertices and products are extended by multilinearity to tensor arguments, by expanding a tensor on a basis of $\Hn{n}$ built from a basis of $\Hs$.
+We write the tensors in the slots they fill, as in $\vertex{4}(\Sigma_2, \Psi^2)$ for $\Sigma_2, \Psi^2 \in \Hn{2}$.
+
+We write the vertices, maps $\Hn{n} \to \C$, with a capital letter, $\vertex{n}$, and the string products with a lowercase one.
+A product with $m$ inputs and $n$ outputs, $\Hn{m} \to \Hn{n}$, carries both numbers as subscripts, $\sprod{m}{n}$, except when they equal $0$ or $1$: the products $\ell_n = \sprod{n}{1}$ have one output, the vertices $\vertex{n} = \sprod{n}{0}$ have none, while the surface states $\bra{\mc V_n}$ have no input.
+An object that changes from one order in $\gs$ to the next carries the highest power of $\gs$ kept in the action as a parenthesized superscript.
+A field living in $\Hn{n}$ carries the index $n$.
+
+The construction of this section rests on reading a vertex with some of its slots as outputs.
+The simplest instance is the quartic vertex read as a bilinear form on $2$-string states.
+We define the product $\sprod{2}{2} \colon \Hn{2} \to \Hn{2}$ by
+\begin{equation}
+  \label{p:eq:hs1:p22}
+  \vertex{4}(A_1, A_2, A_3, A_4)
+    =: \pair[2]{A_1 \otimes A_2}{\sprod{2}{2}(A_3, A_4)},
+  \qquad
+  \pair[2]{\cdot}{\cdot}
+    := \pair{\cdot}{\cdot}^{\otimes 2},
+\end{equation}
+where the $2$-string pairing has one $c_0^-$ insertion per strand.
+The product $\sprod{2}{2}$ raises the ghost number by two, $\Ngh(\sprod{2}{2}) = 2$.
+Since $\vertex{4}$ is symmetric, the product $\sprod{2}{2}$ is symmetric with respect to the $2$-string pairing:
+\begin{equation}
+  \label{p:eq:hs1:p22-symmetric}
+  \pair[2]{A}{\sprod{2}{2}(B)}
+    = \pair[2]{\sprod{2}{2}(A)}{B}.
+\end{equation}
+In the same way, $\ell_3 = \sprod{3}{1}$ is the quartic vertex read with one output.
+The general case $\sprod{m}{n}$, its ghost number $3n - 2m$ for $n \ge 1$ (a vertex $\sprod{m}{0}$ keeps the ghost number $6 - 2m$ of~\eqref{p:eq:hs1:ghost-vertices}), and the transposition identity relating $\sprod{m}{n}$ to $\sprod{n}{m}$ are given in \cref{p:app:conventions}.
+
+We denote by $S_n$ the term of order $\gs^{n-2}$ in~\eqref{p:eq:hs1:action}, $S_2$ being the kinetic term, and by
+\begin{equation}
+  \label{p:eq:hs1:truncation}
+  S
+    = \sum_{n \ge 2} S_n,
+  \qquad
+  S_{\le N}
+    := \sum_{n = 2}^N S_n,
+\end{equation}
+the truncation of the action at order $\gs^{N-2}$.
+The construction proceeds truncation by truncation: at each order we look for an action, cubic in the fields, which reproduces $S_{\le N}$ once the auxiliary fields are eliminated.
+
+We write the variation of the action through the pairing, $\delta S = \pair{\delta \Psi}{\mathcal E_\Psi}$, so that the equation of motion of the original theory is $\mathcal E_\Psi = 0$, with:
+\begin{equation}
+  \label{p:eq:hs1:eom-psi}
+  \mathcal E_\Psi
+    := Q_B \Psi
+      + \sum_{n \ge 2} \frac{\gs^{n-1}}{n!} \, \ell_n(\Psi^n),
+\end{equation}
+the term of order $\gs^{n-1}$ being the variation of $S_{n+1}$.
+
+The action~\eqref{p:eq:hs1:action} is invariant, order by order in $\gs$, under the gauge transformation~\cite{Zwiebach:1993:ClosedStringField}
+\begin{equation}
+  \label{p:eq:hs1:gauge-psi}
+  \delta_\Lambda \Psi
+    = Q_B \Lambda
+      + \sum_{n \ge 2} \frac{\gs^{n-1}}{(n-1)!} \, \ell_n(\Psi^{n-1}, \Lambda),
+\end{equation}
+with $\Lambda \in \Hs$ of ghost number one.
+This invariance is the content of the $\Loo$ relations satisfied by the products $\ell_n$, which we take as given with the vertices.
+
+The string field satisfies the reality condition
+\begin{equation}
+  \label{p:eq:hs1:reality-psi}
+  \Psi^\star
+    = - \Psi,
+\end{equation}
+where $\star$ is the star conjugation, the composition of the BPZ and Hermitian conjugations, $A^\star := \adj{\transp{A}}$, as recalled in \cref{p:app:conventions}.

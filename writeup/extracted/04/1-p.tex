@@ -1,0 +1,108 @@
+\subparagraph{The fields in momentum space.}
+
+In \cref{p:sec:hs:quartic} we wrote $\Sigma_2$ as a bilocal field, with components $\sigma_{\alpha_1 \alpha_2}(k_1, k_2)$ symmetric under the joint exchange of the two strands, and we saw that its quadratic term is diagonal in the total momentum~\eqref{p:eq:hs4:diagonal}.
+The same holds at every $n$, and the variables that make it manifest are the Jacobi coordinates of the $n$ momenta.
+The $n$-string field is the general $n$-string state:
+\begin{equation}
+  \label{p:eq:ws:sigma-n}
+  \Sigma_n
+    = \sum_{\alpha_1, \ldots, \alpha_n} \int \prod_{i = 1}^n \frac{\dd^d k_i}{(2\pi)^d} \;
+      \sigma_{\alpha_1 \ldots \alpha_n}(k_1, \ldots, k_n) \,
+      \ket{\phi_{\alpha_1}(k_1)} \otimes \cdots \otimes \ket{\phi_{\alpha_n}(k_n)},
+\end{equation}
+whose components are symmetric, with the Grassmann signs, under the joint exchange of a label $\alpha_i$ and its momentum $k_i$ with another.
+The symmetry under the exchange of the labels at fixed momenta alone is not a property of $\Sigma_n$.
+We trade the $n$ momenta for the total momentum and $n - 1$ relative momenta:
+\begin{equation}
+  \label{p:eq:ws:jacobi}
+  P
+    := \sum_{i = 1}^n k_i,
+  \qquad
+  q_j
+    := \sqrt{\frac{j}{j + 1}} \Big( k_{j + 1} - \frac{1}{j} \sum_{i \le j} k_i \Big),
+  \qquad
+  j
+    = 1, \ldots, n - 1,
+\end{equation}
+normalized so that the change of variables is orthogonal up to a constant:
+\begin{equation}
+  \label{p:eq:ws:jacobi-measure}
+  \prod_{i = 1}^n \dd^d k_i
+    = n^{-d/2} \, \dd^d P \prod_{j = 1}^{n - 1} \dd^d q_j,
+  \qquad
+  \sum_{i = 1}^n k_i^2
+    = \frac{P^2}{n} + \sum_{j = 1}^{n - 1} q_j^2.
+\end{equation}
+At $n = 2$, $q_1 = (k_2 - k_1) / \sqrt 2$ is the relative momentum of~\eqref{p:eq:hs4:momenta} up to the factor $- \sqrt 2$.
+At $n = 1$ there is no relative momentum, $\Sigma_1 = \Psi$ being a function of $k = P$ alone.
+At level zero below, $q$ denotes the relative momentum of~\eqref{p:eq:hs4:momenta}, $k_{1,2} = \tfrac{P}{2} \pm q$, for which $\dd^d k_1 \, \dd^d k_2 = \dd^d P \, \dd^d q$.
+
+Every vertex conserves only the sum of the momenta of all its strands.
+The quadratic term of $\Sigma_n$, which is the vertex $\vertex{2n}$ on two $n$-string states, is therefore diagonal in the total momentum at every $n$:
+\begin{equation}
+  \label{p:eq:ws:diagonal-n}
+  \vertex{2n}(\Sigma_n, \Sigma_n')
+    = \int \frac{\dd^d P}{(2\pi)^d}
+      \int \dd\mu_n(q') \, \dd\mu_n(q) \;
+      \sigma(- P, q') \, K^{(n)}_P(q', q) \, \sigma'(P, q),
+\end{equation}
+with the oscillator labels suppressed, $\dd\mu_n$ the measure in the $n - 1$ relative momenta read off~\eqref{p:eq:ws:jacobi-measure}, and $K^{(n)}_P$ an integral kernel in the relative momenta at each $P$.
+A cubic coupling of three auxiliary fields, by contrast, is constrained only by one delta function in the sum of their three total momenta.
+A translation-invariant configuration of $\Sigma_n$, an eigenvector of the total translation generator with eigenvalue zero, has its components supported at $P = 0$:
+\begin{equation}
+  \label{p:eq:ws:translation-invariant}
+  \sigma_{\alpha}(k_1, \ldots, k_n)
+    = (2\pi)^d \, \delta^d(P) \; \tilde\sigma_{\alpha}(q_1, \ldots, q_{n - 1}).
+\end{equation}
+It depends on the $n - 1$ relative momenta: translation invariance fixes only the total momentum, and a fluctuation of $\Sigma_n$ keeps all $n$ momenta.
+This is the precise form of the statement in \cref{p:sec:hs:quartic} that a translation-invariant configuration of $\Sigma_n$ lives on $n$ points modulo an overall translation.
+
+
+At level zero the statement becomes explicit.
+The string field reduces to the tachyon,
+\begin{equation}
+  \label{p:eq:ws:level-0-tachyon}
+  \Psi
+    = \int \frac{\dd^d k}{(2\pi)^d} \, t(k) \, c_1 \bar c_1 \ket{k},
+\end{equation}
+and $\Sigma_2$ to its tachyon-pair component $\sigma(P, q)$, which is even in $q$ by the strand symmetry.
+The kernel is the quartic vertex on four tachyons.
+For the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed}, whose mapping radii are equal at the four punctures for every modulus, the individual momenta squared enter only through their sum, and the kernel is a function of the three invariants of the two pairs:
+\begin{equation}
+  \label{p:eq:ws:level-0-kernel}
+  V_4(P; q', q)
+    = F\big( P^2, (q + q')^2, (q - q')^2 \big).
+\end{equation}
+The function $F$ is the four-tachyon correlator integrated over the vertex region $\mathcal V_{0,4}$ with its antighost insertions.
+Its explicit form depends on the vertex family, and for this family it is computed in~\cite{Erbin:2026:SL2CVerticesClosed}.
+The level-zero part of the cubic action~\eqref{p:eq:hs4:action-tilde} then reads, with the tachyon kinetic term in the convention~\eqref{p:eq:conv:tachyon-quadratic}:
+\begin{equation}
+  \label{p:eq:ws:level-0-action}
+  \begin{aligned}
+    \caction[\le 4] \Big|_{\text{level } 0}
+      = {} & \frac{1}{2} \int \frac{\dd^d k}{(2\pi)^d} \, t(- k) \Big( 1 - \frac{\alpha'}{4} \, k^2 \Big) t(k)
+        + \frac{\gs}{3!} \, \vertex{3}(\Psi^3)
+      \\ &
+        - \frac{\gs^2}{4!} \int \frac{\dd^d P}{(2\pi)^d} \int \frac{\dd^d q' \, \dd^d q}{(2\pi)^{2 d}} \;
+          \sigma(- P, q') \, V_4(P; q', q) \, \sigma(P, q)
+      \\ &
+        + \frac{2 \gs^2}{4!} \int \frac{\dd^d P}{(2\pi)^d} \int \frac{\dd^d q' \, \dd^d q}{(2\pi)^{2 d}} \;
+          \sigma(- P, q') \, V_4(P; q', q) \, t\Big( \frac{P}{2} + q \Big) \, t\Big( \frac{P}{2} - q \Big),
+  \end{aligned}
+\end{equation}
+where $\vertex{3}(\Psi^3)$ stands for the cubic vertex on three tachyons and the $\Psi^4$ term of the original action is absent.
+The quadratic term is diagonal in $P$ and an integral operator in $q$ at each $P$.
+The source is the pair of tachyons of total momentum $P$, every relative momentum $q$ of the pair being weighted by the same kernel.
+The equation of motion of $\sigma$ is the momentum-space form of~\eqref{p:eq:hs4:saddle}:
+\begin{equation}
+  \label{p:eq:ws:level-0-saddle}
+  \int \frac{\dd^d q}{(2\pi)^d} \, V_4(P; q', q) \Big[ \sigma(P, q) - t\Big( \frac{P}{2} + q \Big) \, t\Big( \frac{P}{2} - q \Big) \Big]
+    = 0,
+\end{equation}
+whose solution is $\sigma(P, q) = t(\tfrac{P}{2} + q) \, t(\tfrac{P}{2} - q)$ wherever the kernel has no null function.
+
+As in \cref{p:sec:hs:quartic}, the relative momenta $q, q'$ are Euclidean and the total momentum $P$ is a real label, on which the kernel depends through $P^2$, of either sign.
+The kernel is a smooth function of the relative momenta, since the vertex region is compact and avoids the collisions of the punctures.
+For the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed}, at the sections of the family considered there, it is moreover square integrable, so that the integral operator in~\eqref{p:eq:ws:level-0-action} has a convergent eigenfunction expansion.
+We discuss the spectral properties of this kernel in \cref{sec:mom:level-0}.
+

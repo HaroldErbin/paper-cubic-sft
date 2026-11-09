@@ -1,0 +1,102 @@
+\subsection{Reality}
+\label{pg:sec:reality}
+
+The action must be real.
+For the $\Psi$ sector this is standard: with the closed-string reality condition $\Psi^\ddagger=\Psi$, the kinetic term $\frac12\braket{\Psi|c_0^-Q_B|\Psi}$ is real \cite{Erbin:2021:StringFieldTheory}.
+This section does the same for the $\Sigma$ sector of the quartic action~\eqref{p:eq:hs4:S4tilde}: the conjugation of the pairing, of the vertex and of $p_{2,2}$, the condition on $\Sigma$ that follows, and the sense in which that condition is forced rather than chosen.
+The argument is algebraic and rests on one hypothesis about the vertex, stated where it is used.
+
+\subsubsection{The conjugation}
+\label{pg:sec:reality:conj}
+
+The conjugation $\ddagger$ is the composition of BPZ and Hermitian conjugation.
+It is an antilinear involution of $\mc H_0$ preserving the ghost number: $(aA+bB)^\ddagger=a^*A^\ddagger+b^*B^\ddagger$ and $(A^\ddagger)^\ddagger=A$.
+A state is \emph{real} if $A^\ddagger=A$; every state splits as $A=A_r+\I A_i$ with $A_r=\frac12(A+A^\ddagger)$ and $A_i=\frac1{2\I}(A-A^\ddagger)$ both real, so the real states span $\mc H_0$ over $\C$.
+On two-string states we extend it componentwise,
+\begin{equation}
+  (A_1 \otimes A_2)^\ddagger
+    := A_1^\ddagger \otimes A_2^\ddagger,
+\end{equation}
+with no reordering sign.
+For $\Sigma$ this is unambiguous: both strands sit at $N_{\rm gh}=2$, even, so the alternative convention with reversed order, which differs by $(-1)^{k(k-1)/2}$ on tensors all of whose strands are odd, agrees with it.
+$\Sym^2\mc H_0$ is $\ddagger$-stable, and $(\Psi^2)^\ddagger=\Psi^\ddagger\otimes\Psi^\ddagger=\Psi^2$.
+
+A multilinear form $F$ is \emph{real} if it takes real values on real arguments.
+This is equivalent to \emph{equivariance},
+\begin{equation}
+  \label{pg:eq:reality:equiv}
+  F(A_1, \ldots, A_n)^*
+    = F(A_1^\ddagger, \ldots, A_n^\ddagger)
+  \quad\text{for all } A_i ,
+\end{equation}
+since both sides of \eqref{pg:eq:reality:equiv} are antilinear in each slot and agree on real arguments, which span.
+We use the two formulations interchangeably.
+
+\subsubsection{Conjugation of the ingredients}
+\label{pg:sec:reality:ingredients}
+
+\emph{The pairing.}
+In the normalization $\braket{c_{-1}\bar c_{-1}c_0^-c_0^+c_1\bar c_1}=-\frac12$, real and without a factor of $\I$, the pairing $\braket{A,B}=\braket{A|c_0^-|B}$ is real on real states.
+The only structural input is that Hermitian conjugation of $c_0^-$ and of the BPZ product introduces no phase, which is what the normalization fixes; it is the same choice that makes the $\Psi$ kinetic term real, and the reality of the $\Psi$ kinetic term already pairs $N_{\rm gh}=2$ with $N_{\rm gh}=3$.
+One caveat: Hermitian conjugation reverses the order of $A$ and $B$, so for two odd arguments the equivariance of $\braket{\cdot,\cdot}$ may carry a relative sign $(-1)^{\epsilon(A)\epsilon(B)}$ that the even--odd case does not probe.
+Every pairing below has one even argument, so the odd--odd case is never needed.
+The two-string pairing is then real too: on product states $\braket{X,Y}_2$ is a product of two real pairings, both sides of the equivariance identity are antilinear in each argument, and product states span.
+
+\emph{The vertex.}
+The hypothesis the whole section rests on is that the quartic vertex is equivariant,
+\begin{equation}
+  \label{pg:eq:reality:V4}
+  \mc V_4(A_1, A_2, A_3, A_4)^*
+    = \mc V_4(A_1^\ddagger, A_2^\ddagger, A_3^\ddagger, A_4^\ddagger).
+\end{equation}
+This is the standard reality of a closed-string vertex, the one that makes the non-polynomial action real: it follows from the Hermiticity of the vertex operators and plumbing data, $\mc O(t^*)=\mc O(t)^*$ in the language of Sonoda and Zwiebach \cite{Sonoda:1990:CovariantClosedString}, together with the invariance of the moduli region of the vertex and of its measure under complex conjugation of the moduli.
+We take \eqref{pg:eq:reality:V4} from the literature and do not re-derive it; everything below is conditional on it.
+
+\emph{The product.}
+Since $\braket{\cdot,\cdot}_2$ is real and non-degenerate, \eqref{pg:eq:reality:V4} says that $p_{2,2}$ is a real operator, $p_{2,2}(Y^\ddagger)=(p_{2,2}Y)^\ddagger$.
+Indeed, conjugating \eqref{p:eq:conv:sprod} in two ways,
+\begin{equation}
+  \begin{aligned}
+    \braket{X^\ddagger, (p_{2,2} Y)^\ddagger}_2
+      &
+      = \braket{X, p_{2,2} Y}_2^*
+      = \mc V_4(X, Y)^*
+    \\ &
+      = \mc V_4(X^\ddagger, Y^\ddagger)
+      = \braket{X^\ddagger, p_{2,2}(Y^\ddagger)}_2
+    \quad\text{for all } X,
+  \end{aligned}
+\end{equation}
+and non-degeneracy gives the claim.
+A real operator has a $\ddagger$-stable kernel and image, and its inverse, where it exists, is real; in particular $\ker\mc V_4=\ker p_{2,2}$ is $\ddagger$-stable, so the quotient~\eqref{p:eq:hs4:quotient} inherits the conjugation and a reality condition on the class of $\Sigma$ makes sense.
+
+\subsubsection{The reality condition on \texorpdfstring{$\Sigma$}{Sigma}}
+\label{pg:sec:reality:condition}
+
+Impose
+\begin{equation}
+  \label{pg:eq:reality:Sigma}
+  \boxed{\;
+  \Sigma^\ddagger = \Sigma .
+  \;}
+\end{equation}
+Then both $\Sigma$ terms of \eqref{p:eq:hs4:S4tilde} are real: by \eqref{pg:eq:reality:V4}, $\mc V_4(\Sigma,\Sigma)^*=\mc V_4(\Sigma^\ddagger,\Sigma^\ddagger)=\mc V_4(\Sigma,\Sigma)$, and $\mc V_4(\Sigma,\Psi^2)^*=\mc V_4(\Sigma,\Psi^2)$ likewise, the coefficients being real.
+The on-shell value $\Sigma=\Psi^2$ is real, and the class of a real solution in the quotient is real.
+Reality is thus conditional on \eqref{pg:eq:reality:V4} and on nothing else; the two $c_0^-$ of $\braket{\cdot,\cdot}_2$ play no role beyond the reality of the pairing, and if a convention had attached a phase $\lambda$ to the single $c_0^-$ of $\braket{\cdot,\cdot}$, it would enter the $\Sigma$ kinetic term as $\lambda^2$.
+
+Let's now ask whether \eqref{pg:eq:reality:Sigma} is forced.
+The kinetic term alone does not force it: for $\Sigma=\I\Sigma_r$ with $\Sigma_r$ real, $\mc V_4(\Sigma,\Sigma)=-\mc V_4(\Sigma_r,\Sigma_r)$ is real as well, so $\Sigma^\ddagger=-\Sigma$ would also do.
+The source term removes this freedom.
+It is linear in $\Sigma$, and for $\Sigma=\Sigma_r+\I\Sigma_i$,
+\begin{equation}
+  \mc V_4(\Sigma, \Psi^2)
+    = \mc V_4(\Sigma_r, \Psi^2)
+      + \I \, \mc V_4(\Sigma_i, \Psi^2),
+\end{equation}
+which is real for all real $\Psi$ if and only if $\mc V_4(\Sigma_i,\Psi^2)=0$ for all real $\Psi$.
+For a generic symmetric vertex the covectors $\mc V_4(\,\cdot\,,\Psi^2)$ span the dual of $\Sym^2\mc H_0$ and $\Sigma_i=0$; for the actual vertex, the directions annihilated by every $\mc V_4(\,\cdot\,,\Psi^2)$ are directions absent from the dynamics, and \eqref{pg:eq:reality:Sigma} is forced up to them.
+A relative phase $\Sigma^\ddagger=\e^{\I\theta}\Sigma$ is excluded in the same way, and $\Sigma\to-\Sigma$ is a field redefinition that flips the sign of the source term, not a different reality condition.
+So \eqref{pg:eq:reality:Sigma} is the unique condition compatible with a real $\Psi$, which is how the quartic step reads it off the equation of motion.
+
+The argument was checked on a finite-dimensional model with a non-trivial antilinear involution, a random real reflection composed with complex conjugation, so that the real subspace is not the coordinate one, including a degenerate kernel and the two failure modes (a non-real component in a vertex, a relative phase on $\Sigma$).
+

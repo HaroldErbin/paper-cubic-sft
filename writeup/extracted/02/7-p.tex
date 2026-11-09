@@ -1,0 +1,137 @@
+
+
+\paragraph{Gauge transformation}
+\label{p:sec:hs:sextic:gauge}
+
+Under the gauge transformation~\eqref{p:eq:hs1:gauge-psi} the truncated action is invariant up to the order of the truncation, $\delta_\Lambda S_{\le 6} = O(\gs^5)$, which should be reproduced by the cubic action.
+The two auxiliary fields enter $\caction[\le 6]$ through two completed squares, and we read off their transformation laws by demanding that each square be invariant, as at the quintic order.
+
+The $3$-string field enters only through $\Delta S_6$, which is the square of the fluctuation:
+\begin{equation}
+  \label{p:eq:hs6:deviation-3}
+  \sigma_3^{(4)}
+    := \Sigma_3 - \Sigma_3^{(4)*}
+    = \Sigma_3 - \Psi \otimes \Sigma_2,
+  \qquad
+  \Delta S_6
+    = - \frac{\gs^4}{6!} \, \pair[3]{\sigma_3^{(4)}}{\wprod{3}{3}(\sigma_3^{(4)})},
+\end{equation}
+with the field-independent kinetic operator~\eqref{p:eq:hs6:kinetic}.
+Its variation is:
+\begin{equation}
+  \label{p:eq:hs6:square-variation-3}
+  \delta_\Lambda \Delta S_6
+    = - \frac{2 \gs^4}{6!} \, \pair[3]{\delta_\Lambda \sigma_3^{(4)}}{\wprod{3}{3}(\sigma_3^{(4)})},
+\end{equation}
+with no term from the operator.
+It vanishes for all $\sigma_3^{(4)}$ when $\delta_\Lambda \sigma_3^{(4)}$ lies in the kernel of $\wprod{3}{3}$, that is, when it vanishes on the quotient~\eqref{p:eq:hs6:quotient}.
+We take this transformation law.
+As for $\Sigma_2$ below, it is unique up to the trivial symmetries of \cref{p:sec:gauge}.
+
+The solution~\eqref{p:eq:hs6:saddle-sigma3} and the propagator of $\Sigma_3$ rest on the invertibility of $\wprod{3}{3}$ on the quotient, assumed in~\eqref{p:eq:hs6:invertibility-3}.
+We thus take the fluctuation of the $3$-string field inert, and $\Sigma_3$ transforms as its solution:
+\begin{equation}
+  \label{p:eq:hs6:gauge-sigma3}
+  \delta_\Lambda \sigma_3^{(4)}
+    = 0,
+  \qquad
+  \delta_\Lambda \Sigma_3
+    = \delta_\Lambda \Psi \otimes \Sigma_2 + \Psi \otimes \delta_\Lambda \Sigma_2.
+\end{equation}
+There is no rotation term: the rotation at quintic order compensated the variation of the dressed operator, which depends on $\Psi$, and $\wprod{3}{3}$ does not depend on $\Psi$.
+This is the quartic mechanism one level up, with $\Psi \otimes \Sigma_2$ in place of $\Psi^2$.
+
+Once $\Sigma_3$ is eliminated, the action~\eqref{p:eq:hs6:eliminate-sigma3} is quadratic in $\Sigma_2$, and its quadratic part defines the dressed kinetic operator of $\Sigma_2$ at this order:
+\begin{equation}
+  \label{p:eq:hs6:dressed-2}
+  \pair[2]{A}{\kin{2}{\Psi}{4}(B)}
+    := \pair[2]{A}{\kin{2}{\Psi}{3}(B)}
+      - \frac{\gs^2}{30} \, \dvertex{6}(\Psi \otimes A, \Psi \otimes B),
+\end{equation}
+for $A, B \in \Hn{2}$, so that the terms of $\caction[\le 6] |_{\Sigma_3 = \Sigma_3^{(4)*}}$ quadratic in $\Sigma_2$ read
+\begin{equation}
+  - \frac{\gs^2}{4!} \, \pair[2]{\Sigma_2}{\kin{2}{\Psi}{4}(\Sigma_2)},
+\end{equation}
+as in~\eqref{p:eq:hs5:F-dressed}.
+The correction is the $\Sigma_3$ exchange between two of the cubic couplings $\dvertex{6}(\Psi \otimes \Sigma_2, \Sigma_3)$, collapsed to a contact term by the elimination of $\Sigma_3$.
+The operator is symmetric with respect to the $2$-string pairing and depends on $\Psi$ through both terms.
+The solution and the fluctuation are defined as at the quintic order:
+\begin{equation}
+  \label{p:eq:hs6:saddle-sigma2}
+  \Sigma_2^{(4)*}
+    := \big( \kin{2}{\Psi}{4} \big)^{-1} \circ \sprod{2}{2}(\Psi^2),
+  \qquad
+  \sigma_2^{(4)}
+    := \Sigma_2 - \Sigma_2^{(4)*},
+\end{equation}
+the inverse being a Neumann series in $\gs$ around $\sprod{2}{2}^{-1}$ with one more kind of insertion, the order-$\gs^2$ term of~\eqref{p:eq:hs6:dressed-2}.
+Completing the square as in~\eqref{p:eq:hs5:square}, we find that the cubic action is quadratic in $\sigma_2^{(4)}$ with the operator $\kin{2}{\Psi}{4}$.
+We demand that this quadratic form be invariant.
+Its variation has a term from the fluctuation and one from the $\Psi$ inside the operator, and it vanishes for:
+\begin{equation}
+  \label{p:eq:hs6:gauge-sigma2}
+  \delta_\Lambda \sigma_2^{(4)}
+    = - \frac{1}{2} \, \big( \kin{2}{\Psi}{4} \big)^{-1} \circ \big( \delta_\Lambda \kin{2}{\Psi}{4} \big) (\sigma_2^{(4)}),
+  \qquad
+  \delta_\Lambda \Sigma_2
+    = \delta_\Lambda \Sigma_2^{(4)*} + \delta_\Lambda \sigma_2^{(4)},
+\end{equation}
+where $\delta_\Lambda \kin{2}{\Psi}{4}$ is the variation of the operator~\eqref{p:eq:hs6:dressed-2} through its argument $\Psi$, by the symmetry of the operator.
+At order $\gs$ the variation of the operator is $\sprod{3}{2}(\delta_\Lambda \Psi, \cdot)$, and~\eqref{p:eq:hs6:gauge-sigma2} is the transformation law~\eqref{p:eq:hs5:gauge-deviation} of the quintic order.
+The order-$\gs^2$ term is the variation of the sextic correction.
+This is the transformation law of \cref{p:sec:gauge}, written there as~\eqref{p:eq:gauge:law-quintic} with the dressed operator of the order at hand.
+It has the structure of the quintic one: the auxiliary field transforms as its solution, plus a rotation of the fluctuation which is linear in it, carries no parameter of its own and vanishes on-shell.
+The transformation law is unique up to the trivial symmetries of \cref{p:sec:gauge}.
+
+With the transformation laws~\eqref{p:eq:hs6:gauge-sigma3} and~\eqref{p:eq:hs6:gauge-sigma2}, both squares are exactly invariant.
+The off-shell identity behind~\eqref{p:eq:hs6:eliminate}, the analogue of~\eqref{p:eq:hs5:identity}, reads:
+\begin{equation}
+\caction[\le 6]
+  = S_{\le 6}
+    + (\text{exchange terms of order } \gs^5)
+    + (\text{squares}).
+\end{equation}
+It gives:
+\begin{equation}
+  \label{p:eq:hs6:delta-S-equal}
+  \delta_\Lambda \caction[\le 6] - \delta_\Lambda S_{\le 6}
+    = O(\gs^5),
+\end{equation}
+identically, off-shell, for any $\delta_\Lambda \Psi$: the cubic action is invariant to the order of the truncation it reproduces, as at the two previous orders.
+The algebra of these transformations is that of closed string field theory through this order (\cref{p:sec:gauge}).
+
+
+\paragraph{A second \texorpdfstring{$2$}{2}-string field}
+\label{p:sec:hs:sextic:partner}
+
+\subparagraph{Localizing the action.}
+
+The reduced vertex is one way of subtracting the exchange term.
+  Another way keeps every vertex elementary, at the price of a second $2$-string field.
+  We give a field $\Upsilon_2 \in \Hn{2} / \ker \sprod{2}{2}$, with the ghost number and the parity of $\Sigma_2$, a quadratic term and a single elementary coupling, with coefficients $a$ and $b$:
+  \begin{equation}
+  \label{p:eq:hs6:partner}
+  S_\Upsilon
+    := \frac{\gs^2}{4!} \, a \, \vertex{4}(\Upsilon_2^2)
+      + \frac{\gs^3}{5!} \, b \, \vertex{5}(\Upsilon_2, \Sigma_2, \Psi),
+  \qquad
+  \frac{b^2}{a}
+    = 4.
+\end{equation}
+  Since $\Upsilon_2$ has no source at order $\gs^2$, its classical value starts at order $\gs$.
+  Its own exchange, two quintic vertices joined by an $\Upsilon_2$ line, is $- b^2 / (4 a)$ times the exchange term of $\Sigma_2$.
+  The two cancel for $b^2 / a = 4$, and we take $(a, b) = (1, 2)$, the $1 : 2$ ratio of the quadratic and source terms of $\Sigma_2$ in~\eqref{p:eq:hs4:S4tilde}, so that the quadratic form of $\Upsilon_2$ has the sign opposite to that of $\Sigma_2$.
+  The action
+  \begin{equation}
+  \caction[\le 5] + S_\Upsilon + \frac{\gs^4}{6!} \, \vertex{6}(\Sigma_2^3)
+\end{equation}
+  then reproduces $S_{\le 6}$ through order $\gs^4$ with the fields $(\Psi, \Sigma_2, \Upsilon_2)$, elementary vertices only, and no $\Sigma_3$.
+  This holds at tree level, for generic off-shell $\Psi$, under the same assumptions as the construction with $\Sigma_3$, and it was checked in the finite-dimensional models of \cref{p:app:finite-models} with generic vertices.
+  For a real field the opposite sign of the quadratic form is required, and the sign is harmless at tree level.
+  We leave open whether the sign has a physical consequence beyond tree level, $\Upsilon_2$ being an auxiliary field without propagating states, as well as the gauge transformation of $\Upsilon_2$ and the completed-square form of its sector.
+  We give the construction in \cref{p:app:wrong-sign}.
+
+A same-sign field $\Xi_2$ can instead absorb the inverse of $\sprod{2}{2}$ in the kinetic term of $\Sigma_3$, as the Liouville field makes the induced gravitational action local.
+It cannot do the same in the coupling of $\Sigma_3$ to $(\Psi, \Sigma_2)$ at the same time: one field cannot serve two terms without producing a cross term.
+A fully local action would need several of them, as in the intermediate-field decompositions of~\cite{Rivasseau:2010:LoopVertexExpansion,Lionni:2018:NoteIntermediateField}.
+This too is in \cref{p:app:wrong-sign}.

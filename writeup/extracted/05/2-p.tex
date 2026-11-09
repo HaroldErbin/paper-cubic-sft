@@ -1,0 +1,29 @@
+Between the quotient and the multiplier form there is a hybrid, in which the multiplier acts on the kernel directions only and the elimination on the rest.
+  We choose a complement $C$ of $\ker \sprod{2}{2}$ in $\Hn{2}$, write $\pi_N$ for the projection on the kernel along $C$ and $\vertex{5 \cdot 5}^{[C]}$ for the composite vertex~\eqref{p:eq:hs5:exchange-vertex} with $\sprod{2}{2}^{-1}$ replaced by the inverse of $\sprod{2}{2}$ restricted to $C$, extended by zero on the annihilator of $C$.
+  Since the values of $\sprod{3}{2}$ no longer lie in the image of $\sprod{2}{2}$ when~\eqref{p:eq:hs5:kernel-condition} fails, this extension is where the complement enters.
+  We take $\Sigma_2$ on the whole of $\Hn{2}$, with the multiplier $\Theta_2$ of \cref{p:app:conventions} paired with its kernel component only:
+  \begin{equation}
+  \label{p:eq:hs6:dressed-vertex-C}
+  \begin{aligned}
+    \dvertex{6}^{[C]}
+      &
+      := \vertex{6} - \frac{6}{5} \, \vertex{5 \cdot 5}^{[C]},
+    \\
+    \caction[\le 6]^{[C]}
+      &
+      := \caction[\le 5]
+        + \frac{\gs^4}{6!} \, \dvertex{6}^{[C]}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2)
+    \\ &
+    \quad
+        - \frac{\gs^4}{6!} \, \dvertex{6}^{[C]}(\Sigma_3 - \Psi \otimes \Sigma_2, \Sigma_3 - \Psi \otimes \Sigma_2)
+        + \pair[2]{\Theta_2}{\pi_N(\Sigma_2 - \Psi^2)}.
+  \end{aligned}
+\end{equation}
+  Once $\Theta_2$, $\Sigma_3$ and $\Sigma_2$ are eliminated, this action reproduces $S_{\le 6}$ through order $\gs^4$ for every choice of complement, as an identity in $\Psi$ off-shell.
+  The classical value of the multiplier starts at order $\gs^3$, and it is nonzero exactly when the quintic vertex does not vanish on the kernel.
+  The vertex $\dvertex{6}^{[C]}$ depends on the complement (\cref{p:sec:all:multiplier} and \cref{sec:mult:hybrid-derivation} discuss how a coupling of the multiplier can carry this dependence instead), but the eliminated action does not, through order $\gs^4$; the remainder of order $\gs^5$ does, until the next reduction.
+  We established this in the finite-dimensional models of \cref{p:app:finite-models} for the form with $\Sigma_2$ alone, in which the two sextic terms above are replaced by the single term $\dvertex{6}^{[C]}(\Sigma_2^3)$ with the coefficient of the first one, with a kernel of dimension one and two.
+
+  It holds for the string vertices if the exchange terms are not linear combinations of the elementary vertices and the quartic form is invertible on $C$.
+  When the quintic vertex vanishes on the kernel, the inverse on $C$ agrees with the inverse on the quotient on all the values of $\sprod{3}{2}$, the dependence on $C$ disappears, and the quotient form above is recovered.
+  We have not worked out the gauge transformation of the hybrid, its Batalin--Vilkovisky structure or its closure at order $\gs^5$.

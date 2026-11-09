@@ -1,0 +1,117 @@
+\subsection{The inverse}
+\label{icg:sec:inverse}
+
+\subparagraph{Block structure and the projector.}
+Write $\mc H^\downarrow := \ker b_0^+ \cap \ker b_0^-$ and $W := c_0^+ c_0^- \mc H^\downarrow$, with $c_0^\pm = \tfrac12 (c_0 \pm \bar c_0)$, so that $\mc H = \mc H^\downarrow \oplus c_0^+ \mc H^\downarrow \oplus c_0^- \mc H^\downarrow \oplus W$.
+In the eigenbasis $\ket{h, m}$ of $(L_0^+, L_0^-)$ the operator of~\eqref{p:eq:ws:p-circ} is
+\begin{gather}
+  \label{icg:eq:G}
+  G
+    := - \I \kappa \, b_0^+ b_0^- \, F,
+  \qquad
+  F \ket{h, m}
+    = \hat f_m(h) \ket{h, m},
+  \\
+  \label{icg:eq:fhat}
+  \hat f_m(h)
+    := \hat f_{Q_V}(h, m),
+  \qquad
+  \hat f_R(h, m)
+    := \int_{R} \dd s \, \dd\theta \; \e^{-s h + \I m \theta},
+\end{gather}
+the Laplace transform in the neck length and Fourier transform in the twist of the region.
+$G$ maps $W$ to $\mc H^\downarrow$ and annihilates the other three summands, so the form $\braket{\cdot, G \, \cdot}$ lives on $W \times W$, non-degenerate wherever $\hat f_m(h) \neq 0$; as a form on $\mc H^{\wedge 2}$, $p = \Phi_2^\dagger G \Phi_2$ with $\Phi_2^\dagger$ the transpose of the circle map for the pairing.
+
+\subparagraph{The projector.}
+The inverse $p^{-1}$ is defined on $\mc H^{\wedge 2} / \ker p$; pushing it back to $\mc H$ requires a choice of section, and this is where the kernel of $p$ enters.
+With such a choice, $\Pi := \Phi_2\, p^{-1} \Phi_2^\dagger$.
+From $p = \Phi_2^\dagger G \Phi_2$ one line gives $G \Pi G = G$ on the image $\mc I$ of the circle states, when paired against $\mc I$.
+Moreover, $P_{\mc I} := \Pi G$ is the $G$-orthogonal projector onto $\mc I$, modulo $\mc I \cap \mc I^{\perp_G}$.
+Since $G$ sees only the $W$-components of the circle states,
+\begin{equation}
+  \label{icg:eq:Pi}
+  \Pi
+    = P_{\mc I} \, G_W^{-1},
+\end{equation}
+with $G_W^{-1}$ the inverse of $G$ on the block, $\mc H^\downarrow \to W$: the inverse of the restricted form is the block inverse followed by a projection, and the projection is the whole difference.
+It is invisible when both neighbors are circle states (\cref{p:sec:ws:telescoping}).
+
+\subparagraph{The hypothesis.}
+$G P_{\mc I} = G$ on all of $W$ – the projector is invisible to the gluing – only under a hypothesis: that the projection of the circle states onto $W$, extended to $\Sigma_2$ of unbounded level (the space in which the field lives), reaches the whole even-$L_0^-$, ghost-number-4 part of $W$ at fixed total momentum, modulo $\ker G$.
+It would be falsified by a persistent rank deficit of the projected circle map, level by level, against the dimension of the even block.
+This is motivated – at fixed $P$ the inputs include arbitrary functions of the relative momentum and all oscillator states at both punctures while each level subspace of $W$ is finite-dimensional, and the matter part of the map is triangular in level with an invertible leading part – but the ghost sector is the expected failure mode, since $c(x) c(-x)$ starts at $c \pd c$.
+Under the hypothesis $p^{-1}$ acts on $\Sigma_2$ of unbounded level, outside the finite-level setting in which every pairing of circle states is a finite correlator; density of the finite-level image would not suffice, because $\Phi_2^\dagger$ sums over all levels.
+
+\subparagraph{The two $c$'s are the circle's zero modes.}
+On $\mc H^\downarrow$, with $\{b_0^\pm, c_0^\pm\} = 1$, $\{b_0^\pm, c_0^\mp\} = 0$ and $b_0^\pm \ket{\downarrow} = 0$,
+\begin{equation}
+  \label{icg:eq:zero-modes}
+  b_0^+ b_0^- \, c_0^- c_0^+ \ket{\downarrow}
+    = b_0^+ (1 - c_0^- b_0^-) c_0^+ \ket{\downarrow}
+    = \ket{\downarrow},
+  \qquad
+  c_0^- c_0^+ \, b_0^+ b_0^- \big|_W
+    = 1,
+\end{equation}
+so $(b_0^+ b_0^-)^{-1} = c_0^- c_0^+$ between $W$ and $\mc H^\downarrow$, and in the fixed-halves model
+\begin{equation}
+  \label{icg:eq:inverse}
+  \Phi_2 \, (p^{\rm circ}_{2,2})^{-1} \, \Phi_2^\dagger
+    = P_{\mc I} \; \frac{\I}{\kappa} \; c_0^- c_0^+ \; F^{-1},
+  \qquad
+  F^{-1} \ket{h, m}
+    = \frac{1}{\hat f_m(h)} \ket{h, m}.
+\end{equation}
+The two $c$'s of $p^{-1}$ are the zero modes dual to the two Schiffer antighosts of the gluing, i.e. to the dilation and the rotation of the circle: the residual $\C^*$ of the two-punctured sphere, the pair of conformal Killing directions the counting asks for.
+This identification is a fixed-halves statement: the dressed antighosts~\eqref{p:eq:ws:dressing} contain $b_n$ with $n \neq 0$ in the circle frame, and for $p_{2,2}$ itself only the ghost-number count transfers.
+
+\subparagraph{Not a gluing over a reversed region.}
+The group law $q^{L_0} \bar q^{\bar L_0} \, q'^{L_0} \bar q'^{\bar L_0} = (qq')^{L_0} (\bar q \bar q')^{\bar L_0}$ holds pointwise, but the $b$-dressed gluings $\mc G_R = \int_R \dd s \, \dd\theta \, b_0^+ b_0^- \e^{-s L_0^+} \e^{\I\theta L_0^-}$ compose to $\mc G_R \mc G_{R'} \propto (b_0^+ b_0^-)^2 = 0$: a gluing absorbs two units of ghost number through its two antighosts, an inverse must supply them, so it carries $c$'s rather than a reversed parameter.
+At the level of the modulus, the inverse of an integral over a region is not the integral over the inverse region: for one sector and a constant cutoff $\sigma$,
+\begin{equation}
+  \label{icg:eq:no-inverse-region}
+  \hat f_{[-\sigma, 0]}(h) \; \hat f_{[0, \sigma]}(h)
+    = \frac{(\e^{\sigma h} - 1)(1 - \e^{-\sigma h})}{h^2}
+    \neq 1 .
+\end{equation}
+Only a point inverts to a point (a frozen neck to the frozen neck of opposite length), and a two-form has no point to invert.
+
+\subparagraph{The reciprocal of the region's transform.}
+For a rotation-independent cutoff, $Q = \{1 < \abs{q} < \e^{\sigma}\}$, the twist integral gives $2\pi \delta_{m,0}$ and the neck integral the transform of the slab $[-\sigma, 0]$,
+\begin{equation}
+  \label{icg:eq:tower}
+  \hat f_m(h)
+    = 2\pi \, \delta_{m,0} \, \frac{\e^{\sigma h} - 1}{h},
+  \qquad
+  \frac{1}{\hat f_0(h)}
+    = \frac{1}{2\pi} \, \frac{h}{\e^{\sigma h} - 1}
+    = \frac{h}{2\pi} \sum_{n \ge 1} \e^{-n \sigma h}
+  \quad (\Re h > 0),
+\end{equation}
+the other branch, $\Re h < 0$, being the one we call reversed.
+Since $h \, \e^{-n\sigma h} = \int \dd s \, \delta'(s - n\sigma) \, \e^{-sh}$, the reciprocal is the Laplace transform of $\sum_{n \ge 1} \delta'(s - n\sigma)$: a discrete tower of necks of positive lengths $n\sigma$, each carrying one derivative in its length.
+In operator form each term is $c_0^- c_0^+ L_0^+ \e^{-n\sigma L_0^+}$ with $L_0^+ = \{Q_B, b_0^+\}$, the zero-mode part of the $\Psi$ kinetic operator $c_0^- Q_B$ on a cylinder of length $n\sigma$; the $L_0^+$ is $-\pd_s$ of the plumbing family, a derivative in the neck length acting on whatever is glued to the cylinder.
+
+Up to $c_0^- c_0^+$ in place of $Q_B$ this is the kinetic operator $Q_B L_0^+ / (\e^{\sigma L_0^+} - 1)$ of an auxiliary field with one string leg, obtained by gluing over the reversed plumbing range: between the $\Sigma_2$ formulation and the single-string one the roles of region and tower are exchanged, the tower being the kinetic operator there and the region its propagator.
+The same exchange appears for the string field itself: the zero-mode part of the $\Psi$ kinetic form is $c_0^- c_0^+ L_0^+$, the point $s = 0$ with a $\delta'$ (transform $h$), and its inverse is the half-line $[0, \infty)$ (transform $1/h$); the half-line inverts to a single $\delta'$ because it is closed under addition, while a bounded slab inverts to the $\delta'$ at one endpoint convolved with the geometric series generated by the other – that series is the whole difference between $Q_B^{-1}$ and $(p^{\rm circ}_{2,2})^{-1}$ at constant cutoff.
+
+In the level-matched sector the reciprocal~\eqref{icg:eq:tower} is regular at $h = 0$ (value $1/(2\pi\sigma)$): the $\Sigma_2$ line has no mass-shell pole, as for the open-string auxiliary of~\cite{ErbinFirat2023}.
+Its poles sit at $h = 2\pi \I k / \sigma$, $k \neq 0$, the zeros of $\hat f_0$: complex momenta, zeros of the block operator $G_W$ on that sector, and poles of $p^{-1}$ only under the hypothesis above (one sector vanishing does not make $\det p$ vanish, every level of a circle state being populated).
+
+The actual cutoff $\sigma_V(\theta)$ is not constant; then $\hat f_m(h)$ is the $m$-th Fourier coefficient of $(\e^{\sigma_V(\theta) h} - 1)/h$, and odd $m$ vanish by $\pi$-periodicity, consistently with the circle states having no odd-$L_0^-$ component.
+In the level-matched sector, with $\nu$ the distribution of $\sigma_V(\theta)$ for $\theta$ uniform on $[0, 2\pi)$, a probability measure on $[\ln\tfrac94, \ln 9]$ at $\beta = 3/2$, and $\hat\nu(h) := \int \dd\nu(\sigma) \, \e^{\sigma h}$,
+\begin{equation}
+  \label{icg:eq:tower-sigmaV}
+  \frac{1}{\hat f_0(h)}
+    = \frac{1}{2\pi} \, \frac{h}{\hat\nu(h) - 1}
+    = - \frac{h}{2\pi} \sum_{n \ge 0} \hat\nu(h)^n
+  \quad (\Re h < 0),
+\end{equation}
+a tower of cylinders whose lengths are sums of $n$ draws from the seam distribution, on the reversed branch only (on the other branch there is a tower only if $\nu$ is a point mass); none of its zeros is real, since $(\hat\nu(h) - 1)/h > 0$ for real $h$.
+In the even sectors $m \neq 0$, however, $\hat f_m(h) = \frac1h \int_0^{2\pi} \e^{\I m\theta} \e^{\sigma_V(\theta) h} \, \dd\theta$ is real for real $h$ (the profile is even in $\theta$), and its asymptotic signs are fixed by the geometry: as $h \to +\infty$ the flat fold arcs $(\theta_1, \theta_2)$ dominate, with sign $\operatorname{sgn}[\sin m\theta_2 - \sin m\theta_1]$, positive for $m = 4$, while as $h \to -\infty$ the minima at $\theta = 0, \pi$ dominate and every even $\hat f_m$ is negative.
+So $\hat f_4$ has an odd number of real zeros.
+Numerically (at $\beta = 3/2$, from the computed profile, three digits, scanning $h \in [-10, 10]$), $\hat f_4$ has one, at $h_* \approx -2.36$, $\hat f_6$ has two, at $-4.89$ and $-1.91$, and $\hat f_2$ has none.
+Since $h$ is the $L_0^+$ eigenvalue of the circle state, $h = \tfrac{\alpha'}{2} P^2 + N + \bar N - 2$ with $P$ the momentum through the circle, these are zeros of $G_W$ at \emph{real timelike} momentum through the circle, $\tfrac{\alpha'}{2} (-P^2) = N + \bar N - 2 - h_*$ (at six points, in the channel invariant $s_{123}$ of \cref{icg:sec:six-points}), in sectors $N - \bar N = m \neq 0$ that contain no level-matched state; they are never reached at real Euclidean momentum, where $h \ge N + \bar N - 2$, which is $\ge 2$ in the $m = 4$ sector.
+Under the hypothesis they are poles of $p^{-1}$; their fate in the composite is open (\cref{icg:sec:six-points}).
+
+

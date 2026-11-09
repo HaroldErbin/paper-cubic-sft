@@ -1,0 +1,48 @@
+\subsubsection{Hyperbolic local-coordinate data}
+\label{ov:sec:explicit:hyp}
+
+A second, fully explicit coordinate scheme is the hyperbolic one of F{\i}rat--Valdes-Meller
+\cite{FiratValdesMeller2024}, where all SFT vertices are recursively determined by a
+generalised hyperbolic three-vertex $\Mean{\Sigma_{0,3}(L_1,L_2,L_3)}$. The elementary vertex
+regions are systolic subsets $\widetilde{\mc{V}}^L_{g,n}(L_i)=\{\Sigma:\sys(\Sigma)\ge L\}$,
+with the threshold $0<L\le L_*=2\sinh^{-1}1\approx1.763$ fixed by the collar lemma, and local
+coordinates obtained by grafting semi-infinite flat cylinders onto each geodesic border. The
+three-punctured sphere has punctures at $z=0,1,\infty$; the local coordinate around $z=0$ is
+\begin{equation}
+	w_1(z;L_1,L_2,L_3)=\frac{1}{\rho_1}\Big[z+\frac{1+\lambda_1^2+\lambda_2^2-\lambda_3^2}
+	{2(1+\lambda_1^2)}\,z^2+\cdots\Big],\qquad L_i=2\pi\lambda_i,
+	\label{ov:eq:hypcoord}
+\end{equation}
+the full closed form involving a ratio of Gauss hypergeometric functions ${}_2F_1$
+(quoted from F{\i}rat \cite{Firat2021}; Costello--Zwiebach \cite{CostelloZwiebach2022}). The
+mapping radius is the $\Gamma$-function product
+\begin{equation}
+	\rho(L_1,L_2,L_3)=\e^{-\pi/(2\lambda_1)}\!\left[
+	\frac{\Gamma(1-\I\lambda_1)^2}{\Gamma(1+\I\lambda_1)^2}\,
+	\frac{\gamma\!\big(\tfrac{1+\I\lambda_1+\I\lambda_2+\I\lambda_3}{2}\big)\,
+	\gamma\!\big(\tfrac{1+\I\lambda_1-\I\lambda_2+\I\lambda_3}{2}\big)}
+	{\gamma\!\big(\tfrac{1-\I\lambda_1-\I\lambda_2+\I\lambda_3}{2}\big)\,
+	\gamma\!\big(\tfrac{1-\I\lambda_1+\I\lambda_2+\I\lambda_3}{2}\big)}\right]^{\I/(2\lambda_1)},
+	\quad \gamma(x)=\frac{\Gamma(x)}{\Gamma(1-x)}.
+	\label{ov:eq:rho}
+\end{equation}
+ A suggestive point for the HS programme is that the hyperbolic seam is, at \emph{fixed}
+seam length, a pure phase: the sewing parameter is $w_L\,w_R=\e^{2\pi\I\tau_i/\ell_i}$ with
+$|q|=1$, the Fenchel--Nielsen twist $\tau_i$ running over $[0,\ell_i)$. This is structurally
+parallel to twist-only plumbing at $|q|=1$, as in \eqref{ov:eq:twistonly}, which is how each strand of the line of $\Sig$ is sewn,
+but the parallel is not literal: in the hyperbolic vertex the Fenchel--Nielsen length $\ell_i$
+remains a modulus that \emph{is} integrated over (the full twist integral
+$\int_0^{\ell_i}\dd\tau_i/\ell_i$ produces the level-matched Poisson bivector
+$\ket{\omega^{-1}}$), whereas a strand has \emph{no} length modulus, and the line of $\Sig$, which carries in addition the inverse of the quartic form, has no modulus at all.
+The match is therefore structural (a pure-phase seam) rather than an identity of
+sewing prescriptions. The explicit four-vertex Weil--Petersson volume is
+\begin{equation}
+	V\mc{V}^L_{0,4}(L_i)=2\pi^2+\tfrac12\sum_{i=1}^4 L_i^2-\tfrac32 L^2,
+	\label{ov:eq:VV04}
+\end{equation}
+the $\tfrac32 L^2$ counting the three Feynman strips $0<\ell\le L$ removed per $s,t,u$ channel;
+$\partial\mc{V}^L_{0,4}$ consists of surfaces with one simple closed geodesic of length $L$,
+the hyperbolic analogue of the Strebel Feynman-region boundary.
+A hyperbolic three-vertex with border lengths $(L_\sigma,L,L)$, $L_\sigma\ne L$, e.g. with the coordinate $w_1(z;L_\sigma,L,L)$ at the unequal border, has the symmetry type of $\mc{V}_3'$: one special puncture, and symmetry under exchange of the other two.
+It is a candidate, not examined here, for the asymmetric vertex of the single-strand route of Section~\ref{ov:sec:explicit:V3}.
+

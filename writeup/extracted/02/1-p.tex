@@ -1,0 +1,23 @@
+\subsection{Hubbard–Stratonovich transformation order by order}
+\label{p:sec:hs}
+
+A Hubbard--Stratonovich transformation~\cite{Stratonovich:1957:MethodCalculatingQuantum,Hubbard:1959:CalculationPartitionFunctions} trades an interaction that is the square of some composite, such as $\lambda f(\phi)^2$, for a Gaussian integral over an auxiliary field coupled linearly to that composite.
+For example, the quartic vertex $\lambda \phi^4$ becomes a cubic coupling $\sigma \phi^2$ plus a quadratic term for the auxiliary field, and integrating the auxiliary field out gives back the original interaction exactly (see \cref{p:app:scalar-hs}).
+In closed string field theory the interaction at order $\gs^{n-2}$ is the vertex $\vertex{n}$ evaluated on $n$ copies of the string field.
+The natural composites are thus the tensor powers $\Psi^k := \Psi^{\otimes k}$, and the auxiliary fields replacing them are $k$-string fields $\Sigma_k \in \Hn{k}$.
+This section carries out the transformation order by order in $\gs$, introducing one auxiliary field at a time.
+The purpose is to describe the different ingredients which are needed for rewriting the action at all orders (\cref{p:sec:all-orders}).
+
+\Cref{p:sec:hs:action} recalls the action of closed string field theory and fixes the notations.
+The quartic order (\cref{p:sec:hs:quartic}) introduces $\Sigma_2$ and is worked out in full.
+At the quintic order (\cref{p:sec:hs:quintic}), $\Sigma_2$ alone is still sufficient, but its saddle-point solution and its gauge transformation receive corrections.
+At the sextic order (\cref{p:sec:hs:sextic}), a $3$-string field $\Sigma_3$ is introduced, together with the reduced sextic vertex: the sextic vertex minus the exchange diagram induced by $\Sigma_2$.
+The septic and octic orders (\cref{p:sec:hs:septic,p:sec:hs:octic}) make the general pattern visible.
+
+We treat the quartic order in more detail than its simplicity requires, because every ingredient of the construction already appears there.
+We start by describing the equation of motion which identifies the saddle-point of the auxiliary field with the tensor power $\Psi^2$, and the kernel of the quartic vertex with the quotient on which the auxiliary field lives.
+We then show in detail how to eliminate the auxiliary field by completing a square.
+We describe different properties of the field: its gauge transformation, its reality condition and its spacetime content.
+Last come the Feynman rules through which the exchange of the auxiliary field reproduces the quartic vertex.
+Each of these points returns, with corrections in $\gs$, at every higher order.
+

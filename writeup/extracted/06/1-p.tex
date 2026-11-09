@@ -1,0 +1,223 @@
+\subsection{A partner field for the exchange term}
+\label{p:app:wrong-sign}
+
+
+
+This appendix gives the construction announced in \cref{p:sec:hs:sextic}: a second $2$-string auxiliary field $\Upsilon_2$ which makes the action at order $\gs^4$ local, with elementary vertices only, that is, the vertices $\vertex{n}$ of the original action with fields in their slots.
+  Eliminating $\Sigma_2$ from the quintic-order action produces at order $\gs^4$ the exchange term $\vertex{5 \cdot 5}(\Psi^6)$ of~\eqref{p:eq:hs5:eliminate}, which the original action does not contain.
+  For generic vertices, in which the exchange term is not a linear combination of the elementary vertices, the elementary vertices alone cannot cancel it, since it contains $\sprod{2}{2}^{-1}$.
+  With the fields $(\Psi, \Sigma_2, \Sigma_3)$, each sextic coupling, $\vertex{6}(\Sigma_2^3)$, $\vertex{6}(\Sigma_3, \Sigma_2, \Psi)$ or $\vertex{6}(\Sigma_3^2)$, reduces on the classical values of the auxiliaries to a multiple of $\vertex{6}(\Psi^6)$ at this order.
+    One structure is available to match two, the contact term $\vertex{6}(\Psi^6)$ and the exchange term, and no choice of coefficients closes the matching.
+  The triangular form of \cref{p:sec:hs:sextic} places it inside the reduced vertex $\dvertex{6}$.
+
+
+\subsubsection{Localizing inverse vertices}
+
+
+In field theory, inverse operators arise in effective actions, and we know how to make them local: by the Gaussian identity, a field $X$ entering the action as $- K(X, X) + 2 J(X)$, with $K$ a quadratic form and $J$ a linear form, integrates out to $J K^{-1} J$.
+  At tree level, integrating out $X$ amounts to replacing it by its classical value $X^* = K^{-1} J$.
+  Read backwards, the identity writes a non-local term $J K^{-1} J$ as a local action with one more field.
+
+An explicit example is two-dimensional gravity~\cite{Polyakov:1981:QuantumGeometryBosonic}.
+  The Coulomb gas action and its value on the solution $\phi^* = - \square^{-1} R$ are:
+  \begin{equation}
+  \label{p:eq:wsp:coulomb}
+  S
+    = \int \dd^2 x \, \sqrt{g} \, \left(
+      \frac{1}{2} \, \phi \square \phi
+      + R \phi
+    \right),
+  \qquad
+  S[\phi^*]
+    = - \frac{1}{2} \int \dd^2 x \, \sqrt{g} \, R \square^{-1} R,
+\end{equation}
+  where $R[g]$ is the Ricci scalar of the metric $g$ and $\square$ its Laplacian.
+  The second expression is the non-local induced gravitational action, and the first one makes it local by introducing $\phi$.
+
+
+\subsubsection{Partner field at order \texorpdfstring{$\gs^4$}{gs4}}
+
+We can apply the same procedure to decompose the composite vertex $\vertex{5 \cdot 5}$.
+  At this point, we have two choices: either we decompose it after introducing $\Sigma_3$, or before.
+  We start with the second option, which needs a single new field.
+
+We add a $2$-string field $\Upsilon_2 \in \Hn{2} / \ker \sprod{2}{2}$, with $\Ngh(\Upsilon_2) = 4$ and the parity of $\Sigma_2$, since it fills two slots of the quartic vertex; it is a field in its own right, distinct from the partner field of ghost number five of \cref{p:sec:gauge}.
+  We take $X = \Upsilon_2$ in the identity, with:
+  \begin{equation}
+  K(\Upsilon_2, \Upsilon_2)
+    := - \frac{\gs^2}{4!} \, \vertex{4}(\Upsilon_2^2),
+  \qquad
+  J(\Upsilon_2)
+    := \frac{\gs^3}{5!} \, \vertex{5}(\Upsilon_2, \Sigma_2, \Psi).
+\end{equation}
+  This gives the action:
+  \begin{equation}
+  \label{p:eq:wsp:partner-action}
+  S_{\Upsilon}
+    := \frac{\gs^2}{4!} \, \vertex{4}(\Upsilon_2^2)
+      + \frac{2 \gs^3}{5!} \, \vertex{5}(\Upsilon_2, \Sigma_2, \Psi).
+\end{equation}
+  We write $\vertex{4}(\Upsilon_2, \Upsilon_2) = \pair[2]{\Upsilon_2}{\sprod{2}{2}(\Upsilon_2)}$ and $\vertex{5}(\Upsilon_2, \Sigma_2, \Psi) = \pair[2]{\Upsilon_2}{\sprod{3}{2}(\Sigma_2, \Psi)}$.
+  The equation of motion of $\Upsilon_2$, normalized as the one of $\Sigma_2$ in \cref{p:sec:hs:quartic}, and its solution then read:
+  \begin{equation}
+  \label{p:eq:wsp:saddle}
+  \mathcal{E}^{(4)}_{\Upsilon_2}
+    := \frac{\gs}{5} \, \sprod{3}{2}(\Sigma_2, \Psi)
+      + \sprod{2}{2}(\Upsilon_2)
+    = 0,
+  \qquad
+  \Upsilon_2^{(4)*}
+    = - \frac{\gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Sigma_2, \Psi).
+\end{equation}
+  There is no source $\vertex{4}(\Upsilon_2, \Psi^2)$, so the classical value of $\Upsilon_2$ starts at order $\gs$.
+  Inserting it, we get $J K^{-1} J$:
+  \begin{equation}
+  \label{p:eq:wsp:eliminated}
+  S_{\Upsilon}(\Upsilon_2^{(4)*})
+    = - \frac{\gs^4}{600} \, \vertex{5}\big(\Sigma_2, \Psi, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Sigma_2, \Psi)\big).
+\end{equation}
+  On the classical value $\Sigma_2 = \Psi^2 + O(\gs)$ of~\eqref{p:eq:hs5:saddle}, this is $- \frac{\gs^4}{600} \, \vertex{5 \cdot 5}(\Psi^6) + O(\gs^5)$, the exchange term with coefficient $- 1$.
+  In the Feynman rules of \cref{p:sec:hs:quartic}, an $\Upsilon_2$ line carries the propagator $- \frac{12}{\gs^2} \, \sprod{2}{2}^{-1}$, opposite in sign to the one of a $\Sigma_2$ line.
+
+The action through order $\gs^4$ is then:
+  \begin{equation}
+  \label{p:eq:wsp:action}
+  \begin{aligned}
+    \caction[\le 6]^{\Upsilon}
+      &
+      = \frac{1}{2} \, \pair{\Psi}{Q_B \Psi}
+        + \frac{\gs}{3!} \, \vertex{3}(\Psi^3)
+        - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+        + \frac{2 \gs^2}{4!} \, \vertex{4}(\Sigma_2, \Psi^2)
+        + \frac{\gs^3}{5!} \, \vertex{5}(\Sigma_2^2, \Psi)
+      \\ &
+      \qquad
+        + \frac{\gs^2}{4!} \, \vertex{4}(\Upsilon_2^2)
+        + \frac{2 \gs^3}{5!} \, \vertex{5}(\Upsilon_2, \Sigma_2, \Psi)
+        + \frac{\gs^4}{6!} \, \vertex{6}(\Sigma_2^3).
+  \end{aligned}
+\end{equation}
+  For the action explicit through order $\gs^4$, the reality condition of $\Upsilon_2$ has the sign of the one of $\Sigma_2$, whose strands it shares (\cref{p:app:reality}):
+  \begin{equation}
+  \Upsilon_2^\star
+    = \Upsilon_2.
+\end{equation}
+  The action is cubic in the fields $(\Psi, \Sigma_2, \Upsilon_2)$, every vertex is elementary, and there is neither a reduced vertex nor a $\Sigma_3$ at this order.
+  With $\Sigma_2$ and $\Upsilon_2$ at their classical values, it reproduces $S_{\le 6}$ through order $\gs^4$: the exchange term is cancelled by~\eqref{p:eq:wsp:eliminated}, and the sextic contact term is carried by $\vertex{6}(\Sigma_2^3)$.
+  This holds at tree level, for generic off-shell $\Psi$, when $\sprod{2}{2}$ is invertible on the quotient and the quintic and sextic vertices vanish on its kernel.
+  We checked it in a finite-dimensional model with generic symmetric tensors in place of the vertices (\cref{p:app:finite-models}).
+
+
+\subsubsection{Partner of the kinetic term of \texorpdfstring{$\Sigma_3$}{Sigma3}}
+
+In the first option, $\Sigma_3$ is introduced first, and the sextic action~\eqref{p:eq:hs6:S6tilde-explicit} contains two non-local terms:
+  \begin{equation}
+  \frac{\gs^4}{600} \, \vertex{5}\big(\Sigma_3, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Sigma_3)\big)
+    - \frac{2 \gs^4}{600} \, \vertex{5}\big(\Sigma_3, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \Sigma_2)\big).
+\end{equation}
+  The first one, in the kinetic term of $\Sigma_3$, has the form $J K^{-1} J$ and is made local by a field $\Xi_2$:
+  \begin{equation}
+  \label{p:eq:wsp:local-kinetic}
+  - \frac{\gs^4}{600} \, \vertex{4}(\Xi_2^2)
+    + \frac{2 \gs^4}{600} \, \vertex{5}(\Xi_2, \Sigma_3),
+  \qquad
+  \Xi_2^*
+    = \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Sigma_3).
+\end{equation}
+  The second one, in the coupling of $\Sigma_3$, cannot be made local by the same field: coupling $\Xi_2$ to $\Sigma_3 - \Psi \otimes \Sigma_2$ would produce, after elimination, the term $\vertex{5}\big(\Psi, \Sigma_2, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \Sigma_2)\big)$, quartic in the fields, which the completed square has removed.
+This option therefore needs more new fields than the second one, as do the intermediate-field representations of~\cite{Rivasseau:2010:LoopVertexExpansion,Lionni:2018:NoteIntermediateField}, which need about $3 n$ auxiliary fields to decompose an interaction of degree $2 n$.
+  Decomposing the exchange term before introducing $\Sigma_3$ has the further advantage that the kinetic term of $\Sigma_3$ contains only $\vertex{6}$.
+  Below, with a single partner field and a choice of couplings, the exchange terms with a $\sprod{2}{2}^{-1}$ line cancel exactly at every order, and the finite-dimensional model confirms that every term of the action, the kinetic terms of $\Sigma_3$ and $\Sigma_4$ included, remains an elementary vertex through order $\gs^8$.
+
+
+\subsubsection{Higher orders}
+
+Consider a coupling built on $\vertex{n}$ with fields of $s_1, \dots, s_m$ strands in its slots, where $s = 1$ for $\Psi$ and $s = k$ for a $k$-string field.
+  By ghost-number saturation, it exists only for $\sum_i s_i = n$, and it carries $\gs^{n - 2}$.
+Once the auxiliary fields are eliminated, it contributes first at the order:
+  \begin{equation}
+  \label{p:eq:wsp:order}
+  \Big( \sum_i s_i - 2 \Big)
+    + \sum_i o_i,
+\end{equation}
+  where $o_i$ is the power of $\gs$ at which the classical value of the field in slot $i$ starts: $o = 0$ for $\Psi$, $\Sigma_2$ and $\Sigma_3$, and $o = 1$ for $\Upsilon_2$ by~\eqref{p:eq:wsp:saddle}.
+  At the order given by~\eqref{p:eq:wsp:order}, a coupling with $o = 0$ in every slot gives a contact term, since these fields reduce to powers of $\Psi$.
+  A field with $o = 1$ brings one $\sprod{2}{2}^{-1}$ per slot and one extra power of $\gs$.
+  On $(\Psi, \Sigma_2, \Upsilon_2)$, a cubic coupling with $o = 0$ in every slot fills at most six strands, so no coupling produces the contact term $\vertex{7}(\Psi^7)$ at order $\gs^5$.
+  Hence $\Sigma_3$ is needed.
+  The sextic contact term can then be shared between $\vertex{6}(\Sigma_2^3)$ and the quadratic and source terms of $\Sigma_3$, and the sextic terms of~\eqref{p:eq:wsp:action} become:
+  \begin{equation}
+  \label{p:eq:wsp:sextic-split}
+  \frac{\gs^4}{6!} \, c_6 \, \vertex{6}(\Sigma_2^3)
+    + \frac{\gs^4}{6!} \, (1 - c_6) \Big[
+      - \vertex{6}(\Sigma_3^2)
+      + 2 \, \vertex{6}(\Sigma_3, \Sigma_2, \Psi)
+    \Big].
+\end{equation}
+  The split does not change the eliminated action at order $\gs^4$, but it enters at order $\gs^5$.
+
+At order $\gs^5$, the eliminated action must contain $\vertex{7}(\Psi^7)$ and cancel the two exchange terms generated by the lower orders, $\mathcal{I}_1$ with three quintic vertices joined by two $\Sigma_2$ lines and $\mathcal{I}_2$ with a sextic and a quintic vertex joined by one:
+  \begin{equation}
+  \label{p:eq:wsp:S12}
+  \mathcal{I}_1
+    := \vertex{5}\big(\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3), \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3), \Psi\big),
+  \qquad
+  \mathcal{I}_2
+    := \vertex{6}\big(\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3), \Psi^4\big),
+\end{equation}
+  On the classical values, the action with the sextic terms~\eqref{p:eq:wsp:sextic-split} differs from $S_{\le 7}$ at this order by a deficit:
+  \begin{equation}
+  \label{p:eq:wsp:deficit}
+  7! \, \Big[ \caction^{\Upsilon}(\text{classical values}) - S_{\le 7} \Big]_{\gs^5}
+    = - \vertex{7}(\Psi^7)
+      - \frac{42}{25} \, \mathcal{I}_1
+      + \frac{7 (2 + c_6)}{5} \, \mathcal{I}_2.
+\end{equation}
+  By~\eqref{p:eq:wsp:order}, three couplings are available at this order up to the choice of slots, and each produces exactly one of the three structures:
+  \begin{center}
+    \begin{tabular}{lll}
+      \hline
+      structure            & coupling                                                      & coefficient   \\
+      \hline
+      $\vertex{7}(\Psi^7)$ & $\frac{\gs^5}{7!} \, a_7 \, \vertex{7}(\Sigma_3^2, \Psi)$     & $a_7 = 1$     \\
+      $\mathcal{I}_1$      & $\frac{\gs^3}{5!} \, c \, \vertex{5}(\Upsilon_2^2, \Psi)$     & $c = 1$       \\
+      $\mathcal{I}_2$      & $\frac{\gs^4}{6!} \, d \, \vertex{6}(\Upsilon_2, \Sigma_2^2)$ & $d = 2 + c_6$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+  The couplings $\vertex{7}(\Sigma_3, \Sigma_2^2)$ and $\vertex{6}(\Upsilon_2, \Sigma_3, \Psi)$ produce the same structures and can replace the first and the third one.
+  The system is diagonal and none of the three couplings acts at order $\gs^4$, so the matching closes.
+  The coupling $\vertex{5}(\Upsilon_2, \Sigma_3)$, allowed by the counting, must be absent: once $\Sigma_3$ has its kinetic term, it gives the quadratic form of $\Upsilon_2$ a term through the inverse of $\sprod{3}{3}$ at order $\gs^4$, which spoils the cancellation at that order.
+  The deficit~\eqref{p:eq:wsp:deficit}, with no further structure in it, and the coefficients of the table were obtained in the finite-dimensional model, on three random draws.
+  With these coefficients, the residual scales as $\gs^6$.
+  One partner field thus suffices through order $\gs^5$, at the price of two couplings, one quadratic in $\Upsilon_2$ and one quadratic in $\Sigma_2$.
+  The price is also structural: with $\vertex{6}(\Upsilon_2, \Sigma_2^2)$, eliminating $\Upsilon_2$ leaves an action quartic in $\Sigma_2$, and the auxiliary fields are no longer eliminated one at a time by exact Gaussian integrals.
+
+The couplings of $\Upsilon_2$ in~\eqref{p:eq:wsp:action} and in the table follow a rule: replace $\Sigma_2$ by $\Sigma_2 + \Upsilon_2$ in every coupling with a $\Sigma_2$ leg, and keep the quadratic terms, with $+ \vertex{4}(\Upsilon_2^2)$ beside $- \vertex{4}(\Sigma_2^2)$ and no $\vertex{4}(\Upsilon_2, \Psi^2)$.
+  It gives the coefficient $2$ of~\eqref{p:eq:wsp:partner-action} and $c = 1$, and at order $\gs^4$ the couplings $2 (1 - c_6) \, \vertex{6}(\Upsilon_2, \Sigma_3, \Psi)$, $3 c_6 \, \vertex{6}(\Upsilon_2, \Sigma_2^2)$, $3 c_6 \, \vertex{6}(\Upsilon_2^2, \Sigma_2)$ and $c_6 \, \vertex{6}(\Upsilon_2^3)$.
+  By bilinearity of $\vertex{4}$, the action obtained in this way from an action $S[\Psi, \Sigma_2, \Sigma_3, \ldots]$ with elementary vertices and no partner is exactly:
+  \begin{equation}
+  \label{p:eq:wsp:rule}
+  \caction^{\Upsilon}
+    = S[\Psi, \Sigma_2 + \Upsilon_2, \Sigma_3, \ldots]
+      + \frac{2 \gs^2}{4!} \, \vertex{4}(\Upsilon_2, \Sigma_2 + \Upsilon_2 - \Psi^2).
+\end{equation}
+  In the variables $\Sigma_2 + \Upsilon_2$ and $\Upsilon_2$, the partner field enters linearly, and the last term is the multiplier term of~\eqref{p:eq:all:multiplier-action} for $k = 2$, with $\Theta_2 = \frac{2 \gs^2}{4!} \, \sprod{2}{2}(\Upsilon_2)$.
+  The partner field is thus the multiplier $\Theta_2$ of the all-orders form, written in the variables $(\Sigma_2, \Upsilon_2)$ of~\eqref{p:eq:wsp:partner-action}.
+  Its elimination sets $\Sigma_2 + \Upsilon_2 = \Psi^2$ exactly, so every exchange term with a $\sprod{2}{2}^{-1}$ line cancels, at every order, for every $c_6$ and every choice of the couplings of $\Sigma_3, \Sigma_4, \ldots$.
+
+The remaining action is the action of $\Sigma_3, \Sigma_4, \ldots$ at $\Sigma_2 = \Psi^2$.
+  Its exchange terms contain no $\sprod{2}{2}^{-1}$ and are reached by no coupling of $\Upsilon_2$, and they decide how many partner fields are needed.
+  At order $\gs^6$, the order of $\vertex{8}$, there is one such term, the exchange of $\Sigma_3$ between two couplings on $\vertex{7}$, with a coefficient proportional to $(2 a_7 + b_7)^2$ for the couplings $a_7 \, \vertex{7}(\Sigma_3^2, \Psi) + b_7 \, \vertex{7}(\Sigma_3, \Sigma_2^2)$.
+  With the coupling of the table, $a_7 = 1$, a partner $\Upsilon_3$ of $\Sigma_3$ is needed from this order on, with the quadratic term $\vertex{6}(\Upsilon_3^2)$ and the source $2 \, \vertex{7}(\Upsilon_3, \Sigma_3, \Psi)$.
+  If the field with the most strands is squared at the next orders as well, in $\vertex{8}(\Sigma_4, \Sigma_3, \Psi)$ and $\vertex{9}(\Sigma_4^2, \Psi)$, an $\Upsilon_4$ follows at order $\gs^8$, and the partners form a tower which is the multiplier form itself, one strand at a time.
+  With couplings whose terms linear in $\Sigma_3 - \Psi^3$ and $\Sigma_4 - \Psi^4$ at the classical point do not contribute before order $\gs^8$, the remaining exchange terms vanish through that order and no other partner is needed.
+  These couplings are $- \vertex{7}(\Sigma_3^2, \Psi) + 2 \, \vertex{7}(\Sigma_3, \Sigma_2^2)$ at order $\gs^5$, a completed square on $\Sigma_2 = \Psi^2$; $- \vertex{8}(\Sigma_4^2) + 2 \, \vertex{8}(\Sigma_4, \Sigma_2^2)$ at order $\gs^6$, which brings in $\Sigma_4$ at that order, as in \cref{p:sec:hs:octic}; $\lambda \, [\vertex{9}(\Sigma_4^2, \Psi) - 2 \, \vertex{9}(\Sigma_4, \Sigma_3, \Sigma_2) - \vertex{9}(\Sigma_3^3)] + \vertex{9}(\Sigma_3^3)$ at order $\gs^7$, whose term linear in $\Sigma_3 - \Psi^3$, proportional to $3 + \lambda$, contributes first at order $\gs^{10}$, so that $\lambda$ is free through order $\gs^8$; and $\rho \, \vertex{10}(\Sigma_4^2, \Sigma_2) + (1 - \rho) \, \vertex{10}(\Sigma_4, \Sigma_3^2)$ at order $\gs^8$.
+  Through order $\gs^8$, the fields are then $\Psi$, $\Sigma_2$, $\Sigma_3$, $\Sigma_4$ and the single partner $\Upsilon_2$.
+  The finite-dimensional model confirms this through order $\gs^8$ at $c_6 = 0$, and at the values of the rule also for $c_6 = \frac{1}{3}$: with $\Upsilon_2$ alone and these couplings the matching closes, and the only couplings of $\Upsilon_2$ that close it are those of the rule, up to splits between couplings producing the same exchange terms; the model detects the one it reaches, the departure of $d$ from the rule discussed below, at order $\gs^8$.
+  Carrying the results of this subsection over to the string vertices requires, besides tree level and the invertibility of $\sprod{2}{2}$, $\sprod{3}{3}$ and $\sprod{4}{4}$ on their quotients, that the exchange terms are not linear combinations of the elementary vertices.
+
+For $c_6 \neq 1$, the coupling $d \, \vertex{6}(\Upsilon_2, \Sigma_2^2)$ of the table, $d = 2 + c_6$, differs from the value $3 c_6$ of the rule.
+  With the couplings above at $c_6 = 0$, it still closes the orders $\gs^5$ to $\gs^7$, since at order $\gs^5$ only the sum of the coefficients of $\vertex{6}(\Upsilon_2, \Sigma_2^2)$ and $\vertex{6}(\Upsilon_2, \Sigma_3, \Psi)$ enters, but it leaves at order $\gs^8$ a residue proportional to $d^2$ and $d^3$ on two exchange terms that no cubic coupling reaches.
+  With the couplings of the table and their $\Upsilon_3$, order $\gs^8$ was not computed.
+  Since such an $\Upsilon_3$ sets $\Sigma_3 = \Sigma_2 \otimes \Psi$ and the term in $d^3$, three $\Sigma_2$ lines on a single $\vertex{7}$, contains no $\Sigma_3$ line, we expect the same residue there.

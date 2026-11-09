@@ -1,0 +1,1567 @@
+\subsection{Introduction}
+\label{jb:sec:intro}
+
+
+An off-shell four-point amplitude computed from the $\group{SL}(2, \C)$ quartic vertex of
+\cite{Erbin:2023:SL2CQuarticVertex} ends with an integral over the fundamental domain of the vertex
+region $\mc V_{0,4}$ in the moduli space of the four-punctured sphere.
+For four tachyons the integrand is a power of the distance to each of the two punctures at $0$ and
+$1$, as in the Virasoro--Shapiro integral, so what has to be computed is
+\begin{equation}
+  \label{jb:eq:J-def}
+  J(p, q)
+    := \int_{R} \abs{Z}^{p} \, \abs{1 - Z}^{q} \, \dd^2 Z,
+\end{equation}
+with $R$ the fundamental domain of the vertex region and $\dd^2 Z = \dd x \, \dd y$ for
+$Z = x + \I y$.
+Throughout we abbreviate $Z \equiv Z_4$ for the cross-ratio coordinate on $\mc M_{0,4}$.
+The exponents $p$ and $q$ are linear in the Mandelstam invariants: in the application to the cubic
+reformulation of the closed-string action (\cref{sec:sl2c:stu}), the off-shell four-tachyon contact term is
+a sum of six copies of \eqref{jb:eq:J-def}, one per ordering $(x, y, z)$ of $(s, t, u)$, at
+\begin{equation}
+  \label{jb:eq:pq-mandelstam}
+  (p, q)
+    = \frac{\alpha'}{4} \, (x - y - z, \ y - x - z).
+\end{equation}
+The invariants are those of the mostly-plus metric with all momenta incoming, $s = (k_1 + k_2)^2$,
+$t = (k_1 + k_4)^2$, $u = (k_1 + k_3)^2$, so that $s + t + u = \sum_a k_a^2$ and the tachyon shell
+is $\alpha' k_a^2 = 4$; a reader using the opposite sign for the invariants should translate
+\eqref{jb:eq:pq-mandelstam} accordingly.
+A single amplitude point therefore costs six evaluations of \eqref{jb:eq:J-def}, and a scan over
+momenta costs thousands.
+Done by two-dimensional quadrature this is slow and, worse, not very accurate: the exclusion of the
+unit disk gives the natural nested quadrature a square-root branch point in its inner limits, and
+the convergence is only algebraic (\cref{jb:sec:numerics}).
+
+This note establishes that \eqref{jb:eq:J-def} is exactly a one-dimensional integral along
+$\partial R$, and analyzes how far that reduction can be pushed towards a closed form.
+The result is a property of the vertex region of \cite{Erbin:2023:SL2CQuarticVertex}, not of the
+application that prompted it, which is why it is written up here in the notation of that paper.
+Three things come out of it.
+
+First, an exact identity.
+Because the integrand $\abs{Z}^p \abs{1 - Z}^q$ is the squared modulus of the holomorphic function
+$f = Z^{p/2} (1 - Z)^{q/2}$, Stokes' theorem turns \eqref{jb:eq:J-def} into a contour integral, and
+$J(p, q)$ becomes the area swept by the image of $R$ under an antiderivative $G$ of $f$ -- which is
+an incomplete Beta function, hence a Gauss ${}_2F_1$.
+This is \cref{jb:sec:stokes}, and it is the whole content of the note in one line.
+
+Second, an arc-by-arc analysis (\cref{jb:sec:arcs,jb:sec:obstruction}).
+The real segment contributes exactly zero for all $(p, q)$.
+Each of the other three arcs has a straight image under $G$, and then closes in endpoint values of
+$G$, on one locus of the $(p, q)$ plane: the vertical segment $\Re Z = \tfrac12$ on $p = q$, the
+unit circle on $2p + q = -4$ (where it contributes exactly zero), the ellipse only at the point
+$p = q = -1$.
+The two curved arcs -- the unit circle and the ellipse -- therefore do not collapse for generic
+$(p, q)$, and it is worth knowing why, because the reason is not the one a first look suggests.
+It is \emph{not} the absence of a symmetry: each arc carries an algebraic Schwarz function, so
+complex conjugation of $G$ along the arc is the restriction of a holomorphic function and every arc
+contribution is an honest contour integral of a holomorphic integrand.
+Nor is it the awkward endpoints $\e^{\I \pi/3}$, $\tfrac12 + \I b$, which are not special points of
+the hypergeometric function.
+What blocks the evaluation is that the resulting integrand carries \emph{two} algebraic powers
+against the ${}_2F_1$, with exponents unrelated to its parameters; the antiderivative of such a
+product is a double series, and it collapses to a single hypergeometric series when Euler's
+transformation can absorb one of the powers -- a sufficient condition, met on a few lines, and one
+that closes the circle arc only.
+On the lines $p = 0$ and $q = 0$, where $G$ is elementary, the vertex integral does close, and we
+give $J(0, q)$ and $J(p, 0)$ with every coefficient, in incomplete Beta functions and Appell $F_1$,
+checked numerically to $10^{-15}$; at the single point $p = q = -1$ all four arcs close at once and
+$J$ is a combination of ${}_2F_1$ endpoint values and one ${}_3F_2$.
+Everywhere else the honest statement is: an exact one-dimensional integral of a ${}_2F_1$, no
+closed form found by this route.
+This is a scoped negative statement about one route, not a proof that no closed form exists.
+
+Third, a structural observation about the vertex region itself (\cref{jb:sec:confocal}), independent of
+the boundary reduction.
+The semi-axes of the $s$-channel ellipse satisfy $a^2 - b^2 = \tfrac14$, which is exactly the
+statement that the foci sit at the punctures $0$ and $1$.
+Consequently $\partial \mc V_{0,4}$ is a level set of $\abs{Z} + \abs{1 - Z}$, and in the variables
+$u = \abs{Z} + \abs{1 - Z}$, $v = \abs{1 - Z} - \abs{Z}$ the fundamental domain of the vertex region
+is a trapezoid with an elementary algebraic weight.
+Three of its four sides are coordinate lines; the exception is the unit circle.
+This isolates the unit-circle constraint $\abs{Z} \ge 1$ -- not the vertex boundary -- as the
+single feature of the region that obstructs separation of variables.
+
+\Cref{jb:sec:numerics,jb:sec:use} are practical: the boundary identity evaluated by cumulative Chebyshev
+integration needs no hypergeometric function at all, costs a few thousand elementary evaluations,
+and reproduces the two-dimensional quadrature to its own accuracy at exponents as large as
+$\abs{p} + \abs{q} \approx 170$.
+That is the form in which we recommend the result be used.
+
+
+
+\subsection{The region and the integral}
+\label{jb:sec:setup}
+
+
+\subparagraph{The region.}
+We work inside the $S_4$ fundamental domain of the vertex region, defined in
+\cite{Erbin:2023:SL2CQuarticVertex} by
+\begin{equation}
+  \label{jb:eq:region}
+  R
+    = \Acom{
+      \Im Z \ge 0,
+      \quad
+      \abs{Z} \ge 1,
+      \quad
+      \Re Z \le \tfrac12,
+      \quad
+      \frac{(x - \tfrac12)^2}{a^2} + \frac{y^2}{b^2} \le 1
+    },
+\end{equation}
+the last condition being the interior of the $s$-channel boundary curve, an ellipse centered at
+$z_c = \tfrac12$ with semi-axes
+\begin{equation}
+  \label{jb:eq:axes}
+  a
+    = \beta^2 + \frac{1}{16 \beta^2},
+  \qquad
+  b
+    = \beta^2 - \frac{1}{16 \beta^2},
+  \qquad
+  a^2 - b^2
+    = \frac14 .
+\end{equation}
+Here $\beta$ is the vertex parameter of \cite{Erbin:2023:SL2CQuarticVertex}, related to the stub
+length; we take $\beta \ge \beta_{04} := \tfrac12 + \tfrac{1}{\sqrt2} \approx 1.207$ throughout,
+the range on which the four-arc description of $\partial R$ below holds: it is exactly the
+condition $a \ge \tfrac32$ that the ellipse meets the real axis at or to the left of $-1$, and it
+implies $b \ge \tfrac{\sqrt3}{2}$, so that the vertical side reaches above $\e^{\I \pi/3}$.
+Every numerical check uses the test values $\beta = \tfrac32$ and $\beta = 2$.
+The relation $a^2 - b^2 = \tfrac14$ is not an extra input: it is the value $c = \tfrac12$ of the
+focal distance already recorded with the ellipse parameters in
+\cite{Erbin:2023:SL2CQuarticVertex}.
+\Cref{jb:sec:confocal} is nothing but the consequence of reading it as a statement about the foci.
+
+The boundary $\partial R$ consists of the four curves $C_1$--$C_4$ of
+\cite{Erbin:2023:SL2CQuarticVertex}.
+We orient it positively, interior on the left, and start at $Z = -1$:
+\begin{enumerate}
+  \setlength{\itemsep}{0.3ex}
+
+  \item the unit circle $C_3$ from $-1$ to $\e^{\I \pi/3}$ (traversed clockwise on the circle,
+    $\theta : \pi \to \pi/3$);
+
+  \item the vertical segment $C_2$, $\Re Z = \tfrac12$, from $\e^{\I \pi/3}$ up to
+    $\tfrac12 + \I b$;
+
+  \item the elliptic quarter $C_4$ from $\tfrac12 + \I b$ to $\tfrac12 - a$
+    ($\theta : \tfrac{\pi}{2} \to \pi$ in the eccentric-anomaly parametrization);
+
+  \item the real segment $C_1$ from $\tfrac12 - a$ rightwards to $-1$.
+\end{enumerate}
+$R$ is compact, simply connected, contained in the closed upper half plane, and avoids the
+punctures $Z = 0$ and $Z = 1$; on it $1 \le \abs{Z} \le a$ and $1 \le \abs{1 - Z} \le a + \tfrac12$,
+so $J(p, q)$ is an entire function of $(p, q)$.
+Note that $R$ touches the negative real axis along $C_1$, which is the only delicate point in what
+follows.
+
+\subparagraph{Branches.}
+The integrand of \eqref{jb:eq:J-def} is the squared modulus of
+\begin{equation}
+  \label{jb:eq:f-def}
+  f(Z)
+    := Z^{p/2} \, (1 - Z)^{q/2},
+\end{equation}
+and everything below depends on choosing the two powers so that $f$ is single-valued and continuous
+on all of $R$, including on the negative axis.
+On the closed upper half plane minus $\{0, 1\}$ we set
+\begin{subequations}
+  \label{jb:eq:branches}
+\begin{align}
+  Z^{p/2}
+    &
+    := \abs{Z}^{p/2} \, \e^{\I p \theta_0 / 2},
+  \qquad
+  \theta_0
+    = \arg Z
+    \in [0, \pi],
+  \\
+  (1 - Z)^{q/2}
+    &
+    := \abs{1 - Z}^{q/2} \, \e^{\I q \theta_1 / 2},
+  \qquad
+  \theta_1
+    = \arg(1 - Z)
+    \in [-\pi, 0].
+\end{align}
+\end{subequations}
+Both are the principal branches, with cuts on $(-\infty, 0]$ and $[1, \infty)$ respectively; the
+first is taken as its boundary value \emph{from above} on the negative axis.
+So defined, $f$ is holomorphic in the open upper half plane, continuous up to its boundary away from
+$0$ and $1$, and
+\begin{equation}
+  \label{jb:eq:modulus}
+  f \bar f
+    = \abs{Z}^{p} \abs{1 - Z}^{q},
+\end{equation}
+the phases canceling identically.
+The reason to belabor this is that $R$ has a boundary arc \emph{on} the cut of $Z^{p/2}$: the
+boundary value from above must be used consistently in $f$ and in its antiderivative, or the
+reduction below is off by a phase on that arc.
+
+\subparagraph{Exponents.}
+We take $p, q$ real, and exclude $p \in \{-2, -4, \dots\}$, where the normalization of the
+antiderivative used below has a pole.
+The identity extends to those values by continuity, since $J$ is entire; see the remark after
+\eqref{jb:eq:G-def}.
+
+
+\subsection{The tile integral as a swept area}
+\label{jb:sec:stokes}
+
+
+This section proves the one identity everything else rests on: the two-dimensional integral
+\eqref{jb:eq:J-def} equals a contour integral along $\partial R$, and has a geometric reading as an
+area in the image plane of an antiderivative of $f$.
+
+\subparagraph{Setup.}
+Assume \eqref{jb:eq:region}--\eqref{jb:eq:branches}.
+Write
+\begin{equation}
+  \label{jb:eq:alpha-gamma}
+  \alpha
+    := \frac{p}{2} + 1,
+  \qquad
+  \gamma
+    := \frac{q}{2} + 1,
+\end{equation}
+and let $G$ be any holomorphic antiderivative of $f$ on the open upper half plane $\mathbb{H}$,
+$G' = f$.
+
+\subparagraph{Derivation.}
+Consider the $1$-form $\omega = f \, \overline{G} \, \dd Z$ on $\mathbb{H}$.
+It is not closed, and its failure to be closed is exactly the integrand we want: since $f$ is
+holomorphic, only the $\bar Z$-derivative of $\overline{G}$ survives,
+\begin{equation}
+  \label{jb:eq:domega}
+  \dd \omega
+    = \pd_{\bar Z} \bigl( f \overline{G} \bigr) \, \dd \bar Z \wedge \dd Z
+    = f \, \overline{G'} \, \dd \bar Z \wedge \dd Z
+    = 2 \I \, \abs{f}^2 \, \dd x \wedge \dd y,
+\end{equation}
+where we used $\dd \bar Z \wedge \dd Z = 2 \I \, \dd x \wedge \dd y$ and, in the last step,
+\eqref{jb:eq:modulus}.
+The region $R$ is compact and simply connected with piecewise-smooth boundary, and $\omega$ is
+continuous up to that boundary, so Stokes' theorem applies and gives the identity we are after:
+\begin{equation}
+  \label{jb:eq:stokes}
+  J(p, q)
+    = \frac{1}{2 \I} \oint_{\partial R} f \, \overline{G} \, \dd Z
+    = \frac12 \, \Im \oint_{\partial R} \overline{G} \, \dd G .
+\end{equation}
+The second form follows from $\dd \abs{G}^2 = \overline{G} \, \dd G + G \, \overline{\dd G}$: the
+combination $\overline{G} \, \dd G$ splits into $\tfrac12 \dd \abs{G}^2$ plus $\I$ times its own
+imaginary part, and the exact piece integrates to zero around a closed curve.
+
+The second form of \eqref{jb:eq:stokes} is the useful one, because it is manifestly real and has a
+geometric meaning: $\tfrac12 \Im \int \overline{G} \, \dd G$ over a curve is the area swept from the
+origin by the moving radius vector of the image curve.
+Hence
+\begin{quote}
+  \emph{$J(p, q)$ is the area of the image $G(R)$, counted with multiplicity.}
+\end{quote}
+In particular the contribution of each boundary arc is the area it sweeps in the $G$-plane,
+\begin{equation}
+  \label{jb:eq:per-arc}
+  J
+    = \sum_k J_k,
+  \qquad
+  J_k
+    = \frac12 \int_{t_0^{(k)}}^{t_1^{(k)}}
+      \Im \bigl( \overline{G} \, G'(Z) \, Z'(t) \bigr) \, \dd t,
+\end{equation}
+for any parametrization $t \mapsto Z(t)$ of arc $k$.
+The differential $\dd Z$ is complex on three of the four arcs, so it must stay inside the imaginary
+part.
+It is the swept area \eqref{jb:eq:per-arc}, and not the naive per-arc piece of the first form of
+\eqref{jb:eq:stokes}, that is the meaningful quantity arc by arc: splitting
+$\tfrac{1}{2\I} \int f \overline{G} \, \dd Z$ leaves on each arc a spurious \emph{imaginary}
+contribution $\tfrac{1}{4\I} [\abs{G}^2]$, real bracket times imaginary prefactor, which telescopes
+to zero only around the full loop.
+The additive constant in $G$ drops out of \eqref{jb:eq:stokes} by Cauchy's theorem
+($\oint_{\partial R} f \, \dd Z = 0$); we fix it by
+\begin{equation}
+  \label{jb:eq:base-point}
+  G(-1)
+    = 0 .
+\end{equation}
+
+\subparagraph{The antiderivative.}
+An antiderivative of $Z^{\alpha - 1} (1 - Z)^{\gamma - 1}$ with the branches \eqref{jb:eq:branches} is
+the incomplete Beta function,
+\begin{equation}
+  \label{jb:eq:incomplete-beta}
+  B_Z(\alpha, \gamma)
+    = \frac{Z^{\alpha}}{\alpha} \, {}_2F_1(\alpha, 1 - \gamma; \alpha + 1; Z),
+  \qquad
+  \frac{\dd}{\dd Z} B_Z(\alpha, \gamma)
+    = Z^{\alpha - 1} (1 - Z)^{\gamma - 1},
+\end{equation}
+so that, with the normalization \eqref{jb:eq:base-point},
+\begin{equation}
+  \label{jb:eq:G-def}
+  G(Z)
+    = B_Z(\alpha, \gamma) - B_{-1}(\alpha, \gamma)
+    = \int_{-1}^{Z} f,
+\end{equation}
+the integral being along any path in the closed upper half plane avoiding $0$ and $1$.
+The hypergeometric representation \eqref{jb:eq:incomplete-beta} is standard \cite{Nist:DLMF}; the point
+to check is that it is compatible with our branch choice.
+The ${}_2F_1$ continued outside the unit disk has its cut on $[1, \infty)$, the same as
+$(1 - Z)^{\gamma - 1}$, and on $(-\infty, 0]$ we take its boundary value from above, matching
+\eqref{jb:eq:branches}; with that reading \eqref{jb:eq:incomplete-beta} is an identity of analytic
+functions wherever $\alpha \notin \{0, -1, -2, \dots\}$.
+
+Two remarks on the exceptional exponents.
+For $p \le -2$ the right-hand side of \eqref{jb:eq:incomplete-beta} is no longer the convergent integral
+$\int_0^Z w^{\alpha - 1} (1 - w)^{\gamma - 1} \dd w$, but it is still an antiderivative of $f$, which
+is all \eqref{jb:eq:stokes} needs.
+At $\alpha \in \{0, -1, -2, \dots\}$ the normalization $Z^\alpha / \alpha$ has a pole; the difference
+\eqref{jb:eq:G-def} has a finite limit there, and $J$ is entire, so nothing is lost.
+
+\subparagraph{Checks.}
+Three independent numerical checks confirm this section.
+The identity \eqref{jb:eq:incomplete-beta} was verified by differentiating $G$ numerically at $30$-digit
+precision at eight interior points with $\abs{p}, \abs{q} < 30$ (agreement to $\sim 10^{-26}$ or
+better), and $G$ from \eqref{jb:eq:G-def} was compared to the direct path integral $\int_{-1}^Z f$
+(agreement to $5 \times 10^{-30}$).
+Around the closed boundary, $\Re \oint f \overline{G} \, \dd Z$ vanishes and $G$ returns to zero to
+$7 \times 10^{-15}$, which tests the orientation, the arc parametrizations, and the branch
+bookkeeping at once.
+The global accuracy of \eqref{jb:eq:stokes} against two-dimensional quadrature is reported in
+\cref{jb:sec:numerics}.
+
+
+\subsection{The four arcs}
+\label{jb:sec:arcs}
+
+
+We now evaluate the four contributions \eqref{jb:eq:per-arc} one at a time.
+The organizing idea is elementary.
+The image of an arc under $G$ is traced by $\dd G = f \, \dd Z$, so it is a straight segment if
+and only if the \emph{direction} of $\dd G$, that is $\arg(f \, \dd Z)$, is constant along the arc.
+On the two straight arcs $\dd Z$ has a fixed phase and the criterion reduces to a constant
+$\arg f$; on the two curved arcs the phase of $\dd Z$ turns with the arc and must be counted.
+A straight image sweeps an area that is elementary to write down: \emph{no} area when its line
+passes through the base point $G(-1) = 0$, and otherwise the triangle
+$\tfrac12 \Im \bigl( \overline{G(Z_0)} \, G(Z_1) \bigr)$ spanned by the origin and the two
+endpoint values, $Z_0$ and $Z_1$ being the start and the end of the arc in the orientation of
+$\partial R$.
+Call this the \emph{constant-phase mechanism}.
+It closes the real segment for every $(p, q)$, and each of the other three arcs on one locus in the
+$(p, q)$ plane -- the vertical segment on the line $p = q$, the unit circle on the line
+$2 p + q = -4$, the ellipse at the single point $p = q = -1$.
+At generic $(p, q)$ it therefore closes one arc, and the failure on the other three is instructive.
+
+
+\subsubsection{The real segment: exactly zero}
+\label{jb:sec:arcs:real}
+
+On $C_1$ we have $Z = x \in [\tfrac12 - a, -1]$, hence $\theta_0 = \pi$ and $\theta_1 = 0$ in
+\eqref{jb:eq:branches}, and $\dd Z = \dd x$ is real.
+The phase of $f \, \dd Z$ is therefore that of $f$, and it is constant along the whole segment:
+\begin{equation}
+  \label{jb:eq:f-real}
+  f(x)
+    = \e^{\I \pi p / 2} \, \phi(x),
+  \qquad
+  \phi(x)
+    = \abs{x}^{p/2} (1 - x)^{q/2}
+    > 0 .
+\end{equation}
+Integrating from the base point, $G(x) = - \e^{\I \pi p/2} \Phi(x)$ with
+$\Phi(x) = \int_x^{-1} \phi$ real and positive.
+The image of $C_1$ is thus the radial ray $\{ - \e^{\I \pi p/2} \Phi \}$ emanating from
+$G(-1) = 0$, on which $\overline{G} \, G'$ is real pointwise, and
+\begin{equation}
+  \label{jb:eq:J-real}
+  J_{\text{real}}
+    = 0 .
+\end{equation}
+This is the arc that sits on the cut of $Z^{p/2}$; it is precisely the branch prescription
+\eqref{jb:eq:branches} that makes its image a straight ray, and the contribution vanishes for all
+$(p, q)$.
+Note that the vanishing is an artifact of the base point, not of the arc: with a different
+normalization the segment would contribute
+$\tfrac12 \Im \bigl( \overline{G(-1)} \, \e^{\I \pi p/2} \bigr) \Phi(\tfrac12 - a)$ with
+$\Phi(\tfrac12 - a) = \int_1^{a - 1/2} t^{p/2} (1 + t)^{q/2} \, \dd t$ a real incomplete Beta
+function -- closed either way, but the choice \eqref{jb:eq:base-point} makes it free.
+Numerically the swept area of this arc relative to $J$ is $2 \times 10^{-34}$.
+
+
+\subsubsection{The vertical segment: a straight image exactly when $p = q$}
+\label{jb:sec:arcs:vertical}
+
+On $C_2$, parametrize $Z = \tfrac12 + \I y$ with $y \in [\tfrac{\sqrt3}{2}, b]$.
+This is the line equidistant from the two punctures, so $1 - Z = \bar Z$ and
+\begin{equation}
+  \label{jb:eq:f-vert}
+  f
+    = \abs{Z}^{(p + q)/2} \, \e^{\I (p - q) \theta_0 / 2},
+  \qquad
+  \theta_0
+    = \arctan 2y
+    \in \Bigl[ \frac{\pi}{3}, \frac{\pi}{2} \Bigr).
+\end{equation}
+Here $\dd Z = \I \, \dd y$, so $\arg(f \, \dd Z) = \tfrac{(p - q) \theta_0}{2} + \tfrac{\pi}{2}$
+is constant along the segment if and only if $p = q$, and the mechanism of
+\cref{jb:sec:arcs:real} then applies in rotated form.
+For $p = q$ the function $f = \abs{Z}^p$ is real, so $G$ moves vertically in the image plane:
+$G(Z) = G_1 + \I \Psi(y)$ with $G_1 = G(\e^{\I \pi/3})$ the value at the lower endpoint and
+$\Psi$ real.
+Then $\overline{G} \, \dd G = (\overline{G_1} - \I \Psi) \, \I \abs{Z}^p \, \dd y$, whose imaginary
+part is $\Re(G_1) \abs{Z}^p \dd y$, and
+\begin{equation}
+  \label{jb:eq:J-vert}
+  J_{\text{vert}} \big|_{p = q}
+    = \frac12 \, \Re (G_1) \, \Psi(b),
+  \qquad
+  \Psi(b)
+    = \int_{\sqrt3/2}^{b} \Bigl( \frac14 + y^2 \Bigr)^{p/2} \dd y,
+\end{equation}
+the remaining integral being a Gauss ${}_2F_1$.
+For $p \ne q$ the phase $\e^{\I (p - q) \theta_0 / 2}$ varies along the segment, the image is a
+curved arc, and \eqref{jb:eq:J-vert} is simply wrong.
+The segment then still closes, as an incomplete Beta function, on the three lines where $G$
+itself is elementary -- $p = 0$, $q = 0$ and $p + q = -4$ (\cref{jb:sec:obstruction}) -- but off
+those lines no reduction of
+$\int \Im \bigl( \overline{G} \, G'(Z) \, Z'(t) \bigr) \dd t$ below a one-dimensional integral of a
+${}_2F_1$ was found on this arc.
+Both statements about \eqref{jb:eq:J-vert} are checked numerically: it holds to $2 \times 10^{-17}$ at
+$p = q$, and applying it at $p \ne q$ produces a relative deviation of at least $0.47$.
+
+
+\subsubsection{The curved arcs: constant phase on a line, and at a point}
+\label{jb:sec:arcs:curved}
+
+On the unit circle $C_3$, write $Z = \e^{\I \theta}$ with $\theta \in [\pi/3, \pi]$.
+Using $1 - \e^{\I \theta} = 2 \sin \tfrac{\theta}{2} \, \e^{\I (\theta - \pi)/2}$, which gives
+$\theta_1 = \tfrac{\theta - \pi}{2} \in [-\tfrac{\pi}{3}, 0]$, consistent with
+\eqref{jb:eq:branches}, we get
+\begin{equation}
+  \label{jb:eq:f-circle}
+  f
+    = \Bigl( 2 \sin \frac{\theta}{2} \Bigr)^{q/2} \,
+      \e^{\I [ 2 p \theta + q (\theta - \pi) ] / 4},
+  \qquad
+  \dd Z
+    = \I \e^{\I \theta} \, \dd \theta ,
+\end{equation}
+the factor $\tfrac{q}{4}$ being the $\tfrac{q}{2}$ of $(1 - Z)^{q/2}$ applied to
+$\theta_1 = \tfrac{\theta - \pi}{2}$.
+The phase of $f$ is linear in $\theta$ with slope $\tfrac{p}{2} + \tfrac{q}{4}$, and the factor
+$\dd Z$ adds a further $\e^{\I \theta}$, so
+\begin{equation}
+  \label{jb:eq:phase-circle}
+  \arg (f \, \dd Z)
+    = \theta \Bigl( \frac{p}{2} + \frac{q}{4} + 1 \Bigr)
+      + \frac{\pi}{2}
+      - \frac{\pi q}{4} .
+\end{equation}
+This is constant along the arc if and only if $2 p + q = -4$.
+On that line the image of $C_3$ is a straight segment starting at $G(-1) = 0$, so its line passes
+through the origin and
+\begin{equation}
+  \label{jb:eq:J-circle-line}
+  J_{\text{circle}} \big|_{2 p + q = -4}
+    = 0
+\end{equation}
+exactly, for every $\beta$.
+Note that the phase is \emph{not} constant at $(p, q) = (0, 0)$, where the slope in
+\eqref{jb:eq:phase-circle} is $1$: the factor $\dd Z$ alone turns the image.
+Numerically, the spread of the unit phase $f \, \dd Z / \abs{f \, \dd Z}$ along the arc is below
+$2 \times 10^{-16}$ at seven points on the line $2 p + q = -4$, with $\abs{J_{\text{circle}} / J}$
+below $4 \times 10^{-17}$; off the line, at $(-1, -1)$ and $(0, 0)$ for instance, the spread is
+$0.47$ and $1.62$ and the circle contributes $-0.13 \, J$ and $-0.23 \, J$.
+
+On the elliptic quarter $C_4$ the natural parametrization is the one adapted to the foci.
+Write $Z = \cosh^2 \tfrac{\zeta}{2}$ with $\zeta = \xi_0 + \I \eta$ and $\xi_0 = 2 \ln 2 \beta$
+fixed: this is the ellipse \eqref{jb:eq:axes} with foci at $0$ and $1$, and the quarter $C_4$
+corresponds to $\tfrac{\eta}{2} \in [\tfrac{\pi}{4}, \tfrac{\pi}{2}]$.
+Then $1 - Z = - \sinh^2 \tfrac{\zeta}{2}$ and
+$\dd Z = \I \sinh \tfrac{\zeta}{2} \cosh \tfrac{\zeta}{2} \, \dd \eta$.
+On this range of $\eta$ both $\cosh \tfrac{\zeta}{2}$ and $\sinh \tfrac{\zeta}{2}$ lie in the
+closed first quadrant, so the principal branches \eqref{jb:eq:branches} give
+$Z^{p/2} = \cosh^p \tfrac{\zeta}{2}$ and $(1 - Z)^{q/2} = \e^{- \I \pi q/2} \sinh^q \tfrac{\zeta}{2}$,
+and
+\begin{equation}
+  \label{jb:eq:phase-ellipse}
+  f \, \dd Z
+    = \I \e^{- \I \pi q / 2} \, \cosh^{p + 1} \frac{\zeta}{2} \, \sinh^{q + 1} \frac{\zeta}{2} \,
+      \dd \eta,
+  \qquad
+  \arg (f \, \dd Z)
+    = (p + 1) \arctan \Bigl( \tanh \frac{\xi_0}{2} \tan \frac{\eta}{2} \Bigr)
+      + (q + 1) \arctan \Bigl( \coth \frac{\xi_0}{2} \tan \frac{\eta}{2} \Bigr)
+      + \text{const}.
+\end{equation}
+The $\eta$-derivative of this phase is a rational function of $T = \tan \tfrac{\eta}{2}$, which
+vanishes on the interval $T \in [1, \infty)$ only if it vanishes identically; its values at $T = 0$
+and $T \to \infty$ give the homogeneous system
+$(p + 1) \tanh x + (q + 1) \coth x = 0$, $(p + 1) \coth x + (q + 1) \tanh x = 0$ with
+$x = \tfrac{\xi_0}{2} > 0$, whose determinant $\tanh^2 x - \coth^2 x$ is negative.
+So the phase is constant on the ellipse if and only if
+\begin{equation}
+  \label{jb:eq:ellipse-point}
+  p
+    = q
+    = -1,
+\end{equation}
+a single point, where $f \, \dd Z = - \dd \eta$ is real.
+There the image is the straight segment from $G(\tfrac12 + \I b)$ to $G(\tfrac12 - a)$, which does
+not pass through the origin, and the arc contributes the triangle
+\begin{equation}
+  \label{jb:eq:J-ellipse-point}
+  J_{\text{ellipse}} \big|_{p = q = -1}
+    = \frac12 \, \Im \Bigl( \overline{G(\tfrac12 + \I b)} \, G(\tfrac12 - a) \Bigr),
+\end{equation}
+elementary in two endpoint values of $G$, each a ${}_2F_1$.
+Numerically, at $(-1, -1)$ and $\beta = \tfrac32$ the phase spread is $1.5 \times 10^{-16}$ and
+\eqref{jb:eq:J-ellipse-point} agrees with the swept area to better than $10^{-15}$; at the nearby
+points $(-1, -1.3)$ and $(-0.7, -1)$ the spread is $0.18$ and $0.24$ and the formula is off by
+$14 \%$ and $15 \%$.
+
+The count is therefore as follows.
+At generic $(p, q)$ the constant-phase mechanism closes one arc, the real segment.
+On each of the loci $p = q$, $2 p + q = -4$ and $p = q = -1$ it closes a second one; at the
+intersections $(-\tfrac43, -\tfrac43)$ and $(-1, -1)$ it closes three; it never closes all four,
+since $p = q = -1$ and $2 p + q = -4$ are incompatible.
+None of these loci closes $J$ by itself.
+The one point where $J$ does close entirely, $(-1, -1)$, needs one more ingredient for the circle
+arc, given in \cref{jb:sec:obstruction:powers}.
+
+This is where one would look for a second mechanism, and there is one -- reflection.
+It works, and it still does not produce a closed form; the next section explains both halves of that
+statement.
+
+
+\subsection{Reflection, and what actually obstructs a closed form}
+\label{jb:sec:obstruction}
+
+
+The obstruction to closing $C_3$ and $C_4$ is easy to misdiagnose.
+The natural guess is that $\overline{G}$, being anti-holomorphic, cannot be handled by contour
+methods, so one needs a symmetry of the region that $\mathbb{C} \setminus \{0, 1\}$ does not have.
+That guess is wrong.
+Every arc of $\partial R$ admits a Schwarz function, complex conjugation along each arc \emph{is}
+the restriction of a holomorphic map, and after using it each arc contribution becomes an ordinary
+contour integral of a holomorphic integrand.
+The obstruction lies one step further on, in the integrand that results.
+
+
+\subsubsection{Schwarz functions of the four arcs}
+\label{jb:sec:obstruction:schwarz}
+
+The \emph{Schwarz function} of an analytic arc is the analytic function $S$ that agrees with
+$Z \mapsto \bar Z$ on that arc and nowhere else \cite{Davis:1974:SchwarzFunction}.
+It exists and is algebraic for lines, circles and conics.
+For our four arcs,
+\begin{subequations}
+  \label{jb:eq:schwarz}
+\begin{gather}
+  S(Z)
+    = \frac{1}{Z} \ (C_3),
+  \qquad
+  S(Z)
+    = 1 - Z \ (C_2),
+  \qquad
+  S(Z)
+    = Z \ (C_1),
+  \\
+  S(Z)
+    = \frac12 + 4 (a^2 + b^2) \Bigl( Z - \frac12 \Bigr) + 8 a b \sqrt{Z (Z - 1)} \ (C_4).
+\end{gather}
+\end{subequations}
+The last is two-valued; the sign written is the sheet selected by the principal square root along
+the open quarter from $\tfrac12 - a$ to $\tfrac12 + \I b$.
+At the endpoint $\tfrac12 + \I b$ the argument $Z(Z - 1) = -a^2$ lands on the cut of the principal
+root and the value must be taken as the limit along the arc; this is a single point and plays no
+role.
+It is worth pausing on the square root in \eqref{jb:eq:schwarz}: its branch points sit at $Z = 0$ and
+$Z = 1$, the two punctures, and they do so \emph{because} $a^2 - b^2 = \tfrac14$.
+The same identity reappears, in a different guise, in \cref{jb:sec:confocal}.
+
+Now use the reflection property of the incomplete Beta function: for real $p, q$ one has
+$\overline{B_{\bar w}(\alpha, \gamma)} = B_w(\alpha, \gamma)$ on the cut plane.
+Combining this with $\bar Z = S(Z)$ on the arc gives
+\begin{equation}
+  \label{jb:eq:reflection}
+  \overline{G(Z)}
+    = G \bigl( S(Z) \bigr) + \text{const}
+  \qquad \text{on each curved arc,}
+\end{equation}
+the right-hand side being holomorphic in $Z$ in a neighborhood of the arc -- on the two-sheeted
+algebraic curve of $S$, in the elliptic case.
+Every arc contribution to \eqref{jb:eq:stokes} is therefore a contour integral of a holomorphic
+integrand.
+Identity \eqref{jb:eq:reflection} has been verified on all three curved arcs: the difference
+$\overline{G(Z)} - G(S(Z))$ is constant along each arc to a relative spread of $6 \times 10^{-29}$,
+and feeding an arc the Schwarz function of a \emph{different} arc destroys the constancy, as it
+must.
+
+One arc is an exception, and it is the one on the cut.
+On the real segment $C_1$ the Schwarz function is $S(Z) = Z$, and \eqref{jb:eq:reflection} holds only
+if $G(S(Z))$ is read as the boundary value of $B_w$ from \emph{below} the cut,
+$B_x^{\text{below}} = \overline{B_x^{\text{above}}}$.
+Our branch choice \eqref{jb:eq:branches} fixes $G$ by its value from above, and the two differ there by
+the phase $\e^{-\I \pi p}$, which is not a constant of the required kind.
+Nothing rests on this: $C_1$ is closed exactly by \eqref{jb:eq:J-real}.
+
+
+\subsubsection{The reduced circle integral}
+\label{jb:sec:obstruction:circle}
+
+Apply \eqref{jb:eq:reflection} to the circle, substituting $w = S(Z) = 1/Z$ in
+$f \, \overline{G} \, \dd Z$.
+Two simplifications occur.
+The powers recombine: with $Z = \e^{\I \theta}$, $\theta \in (\tfrac{\pi}{3}, \pi)$, one has
+$\arg w = -\theta \in (-\pi, -\tfrac{\pi}{3})$, still principal, and both
+$Z^{p/2} Z^{-\alpha} = Z^{-1}$ and $w^{-q/2} (w - 1)^{q/2} = (1 - Z)^{q/2}$ hold with all branches
+principal.
+The Jacobian is $\dd Z = - \dd w / w^2$, whence the overall sign.
+The result is
+\begin{equation}
+  \label{jb:eq:circle-reduced}
+  \frac{1}{2 \I} \int_{C_3} f \, \overline{G} \, \dd Z
+    = - \frac{1}{2 \I \alpha} \int_{-1}^{\e^{- \I \pi/3}}
+      w^{- q/2 - 1} (w - 1)^{q/2} \,
+      {}_2F_1(\alpha, 1 - \gamma; \alpha + 1; w) \, \dd w
+      - \frac{\overline{B_{-1}(\alpha, \gamma)}}{2 \I}
+      \bigl[ G \bigr]_{-1}^{\e^{\I \pi/3}},
+\end{equation}
+all branches principal, the second term a pure endpoint value.
+The left-hand side is the circle piece of the \emph{first} form of \eqref{jb:eq:stokes}, and, as
+noted after \eqref{jb:eq:per-arc}, it is not the swept area of the arc: splitting
+$\overline{G} \, \dd G = \tfrac12 \dd \abs{G}^2 + \I \Im(\overline{G} \, \dd G)$ on the arc gives
+\begin{equation}
+  \label{jb:eq:circle-first-form}
+  \frac{1}{2 \I} \int_{C_3} f \, \overline{G} \, \dd Z
+    = J_{\text{circle}}
+      + \frac{1}{4 \I} \bigl[ \abs{G}^2 \bigr]_{-1}^{\e^{\I \pi/3}}
+    = J_{\text{circle}}
+      - \frac{\I}{4} \, \abs{G(\e^{\I \pi/3})}^2,
+\end{equation}
+since $G(-1) = 0$.
+The circle's swept area is thus the real part of \eqref{jb:eq:circle-reduced}; the imaginary
+remainder telescopes around the loop and nothing in $J$ depends on it.
+This is checked at two points, $(-3.4, 2.1)$ and $(1.7, -5.3)$ at $\beta = \tfrac32$: the
+right-hand side of \eqref{jb:eq:circle-reduced} by quadrature along $w = \e^{-\I\theta}$ differs from
+the swept area by a purely imaginary number (real part of the difference below
+$2 \times 10^{-16}$) equal to $- \tfrac{\I}{4} \abs{G(\e^{\I \pi/3})}^2$ to the digits shown,
+$-3.12795 \, \I$ and $-0.103872 \, \I$.
+The same manipulation on the vertical segment, integrating by parts, gives
+$J_{\text{vert}} = \tfrac{1}{2 \I} ( [G \tilde G] - \int G \, \tilde f \, \dd Z + c \, [G] )$, where
+$\tilde G(Z) = B_{1 - Z}(\alpha, \gamma)$ is the antiderivative with $p$ and $q$ exchanged,
+$\tilde f = \tilde G' = - Z^{q/2} (1 - Z)^{p/2}$, and $c$ is the constant in \eqref{jb:eq:reflection}.
+The elliptic arc works the same way through the two-valued $S$ of \eqref{jb:eq:schwarz}.
+
+So the reduction runs to completion: the curved arcs are contour integrals of
+(algebraic powers) $\times$ ${}_2F_1$.
+The question is whether such an integral has an antiderivative in the classes we are willing to
+accept -- finite combinations of Gauss ${}_2F_1$ and Appell $F_1$, $F_2$.
+
+
+\subsubsection{What obstructs: a pair of powers, not the endpoints}
+\label{jb:sec:obstruction:powers}
+
+It is tempting to blame the endpoints of \eqref{jb:eq:circle-reduced}, which are $-1$ and
+$\e^{-\I\pi/3}$ rather than the hypergeometric function's natural $0$, $1$, $\infty$.
+They are not the problem.
+A \emph{single} power against a ${}_2F_1$ integrates term by term to a ${}_3F_2$ at an arbitrary
+endpoint,
+\begin{equation}
+  \label{jb:eq:one-power}
+  \int_0^z w^{\lambda} \, {}_2F_1(A, B; C; w) \, \dd w
+    = \frac{z^{\lambda + 1}}{\lambda + 1} \,
+      {}_3F_2(A, B, \lambda + 1; C, \lambda + 2; z),
+\end{equation}
+which is a closed form at any $z$.
+The obstruction in \eqref{jb:eq:circle-reduced} is the \emph{second} power, $(w - 1)^{q/2}$.
+With both powers present, expanding the hypergeometric series and the binomial and integrating term
+by term gives
+\begin{equation}
+  \label{jb:eq:two-powers}
+  \int_0^z w^{\lambda} (1 - w)^{\mu} \, {}_2F_1(A, B; C; w) \, \dd w
+    = \frac{z^{\lambda + 1}}{\lambda + 1} \sum_{m, n \ge 0}
+      \frac{(\lambda + 1)_{m + n}}{(\lambda + 2)_{m + n}} \,
+      \frac{(- \mu)_m \, (A)_n (B)_n}{(C)_n \, m! \, n!} \, z^{m + n},
+\end{equation}
+a double series in the \emph{single} variable $z$; at $\mu = 0$ only $m = 0$ survives and it
+reduces to \eqref{jb:eq:one-power}.
+This is a Kampé de Fériet function, not an Appell function
+\cite{Srivastava:1985:MultipleGaussianHypergeometric}: the Pochhammer factor
+$(A)_n (B)_n / (C)_n$ carries one summation index only, so the series does not factorize into the
+Appell pattern, and the two indices are locked together by $(\lambda + 1)_{m+n}/(\lambda+2)_{m+n}$.
+It collapses to a single hypergeometric series when Euler's transformation absorbs the extra
+power: rearranging
+${}_2F_1(A, B; C; w) = (1 - w)^{C - A - B} \, {}_2F_1(C - A, C - B; C; w)$ gives
+\begin{equation}
+  \label{jb:eq:euler-condition}
+  (1 - w)^{\mu} \, {}_2F_1(A, B; C; w)
+    = {}_2F_1(C - A, C - B; C; w)
+  \qquad \text{for} \quad
+  \mu
+    = A + B - C,
+\end{equation}
+after which \eqref{jb:eq:one-power} applies.
+(With the opposite sign, $\mu = C - A - B$, the product is
+$(1 - w)^{2 \mu} {}_2F_1(C - A, C - B; C; w)$ and nothing is absorbed.)
+Absorption is a sufficient condition for a single series, not a necessary one: we know of no
+necessary condition, and the degenerate case below closes the arc without absorbing anything.
+
+Apply \eqref{jb:eq:euler-condition} to the integrand
+$I(w) \, \dd w = w^{-\gamma} (w - 1)^{\gamma - 1} {}_2F_1(\alpha, 1 - \gamma; \alpha + 1; w) \, \dd w$
+of \eqref{jb:eq:circle-reduced}.
+There are three ways to do so, one per representative of the ${}_2F_1$.
+Under the Pfaff substitution $x = w / (w - 1)$, that is $w = - x / (1 - x)$, $1 - w = (1 - x)^{-1}$,
+$\dd w = - \dd x / (1 - x)^2$, the arc $w = \e^{-\I\theta}$, $\theta \in (\tfrac{\pi}{3}, \pi)$,
+becomes $x = \e^{\I (\pi - \theta)/2} / (2 \sin \tfrac{\theta}{2})$, which lies in the upper half
+plane with $\tfrac12 \le \abs{x} \le 1$ while $1 - x$ lies in the lower half plane; with all
+branches principal, $w^{-\gamma} = \e^{\I \pi \gamma} x^{-\gamma} (1 - x)^{\gamma}$ and
+$(w - 1)^{\gamma - 1} = \e^{-\I \pi (\gamma - 1)} (1 - x)^{1 - \gamma}$, the constant phases
+combining with the sign of the Jacobian to $+1$.
+The two Pfaff transformations of the ${}_2F_1$ then give two representatives of the same
+integrand,
+\begin{subequations}
+  \label{jb:eq:pfaff}
+\begin{align}
+  \label{jb:eq:pfaff-a}
+  I \, \dd w
+    &
+    = x^{-\gamma} (1 - x)^{\alpha - 1} \,
+      {}_2F_1(\alpha, \alpha + \gamma; \alpha + 1; x) \, \dd x,
+  \\
+  \label{jb:eq:pfaff-b}
+  I \, \dd w
+    &
+    = x^{-\gamma} (1 - x)^{-\gamma} \,
+      {}_2F_1(1, 1 - \gamma; \alpha + 1; x) \, \dd x,
+\end{align}
+\end{subequations}
+and these must not be mixed: the powers of one against the hypergeometric function of the other
+is neither.
+On \eqref{jb:eq:pfaff-a} the condition \eqref{jb:eq:euler-condition} reads
+$\alpha - 1 = \alpha + (\alpha + \gamma) - (\alpha + 1)$, that is $\gamma = 0$, that is $q = -2$.
+On \eqref{jb:eq:pfaff-b} it reads $-\gamma = 1 + (1 - \gamma) - (\alpha + 1)$, that is $\alpha = 1$,
+that is $p = 0$.
+Applied directly to $I$ without the Pfaff step, where the power is $(1 - w)^{\gamma - 1}$ up to a
+constant phase, it reads $\gamma - 1 = \alpha + (1 - \gamma) - (\alpha + 1)$, that is
+$\gamma = \tfrac12$, that is $q = -1$.
+So Euler absorption reduces the circle integrand to a single hypergeometric series on the three
+lines
+\begin{equation}
+  \label{jb:eq:circle-lines}
+  p
+    = 0,
+  \qquad
+  q
+    = -1,
+  \qquad
+  q
+    = -2,
+\end{equation}
+and there is a fourth line, $p + q = -4$, that is $\gamma = - \alpha$, where the ${}_2F_1$ itself
+degenerates, ${}_2F_1(\alpha, 1 + \alpha; \alpha + 1; w) = (1 - w)^{-\alpha}$, so that
+$G = \alpha^{-1} (Z / (1 - Z))^{\alpha} + \text{const}$ is elementary and every arc integrand is
+algebraic: an incomplete Beta function on the circle and on the vertical segment, and on the
+ellipse a product of four linear factors in the uniformizing variable of
+\cref{jb:sec:obstruction:closure}, a Lauricella $F_D^{(3)}$ rather than an Appell function.
+Each of these lines closes the circle arc only; that $J$ closes on them is not claimed: on
+$q = -1$ and $q = -2$ the ellipse arc is untouched, except at the point $(-1, -1)$ below.
+
+The line $q = -1$ is worth making explicit, since it is the one that will close a point.
+With $\gamma = \tfrac12$, Euler's transformation on $I$ gives
+$I \, \dd w = \I \, w^{-1/2} \, {}_2F_1(1, \alpha + \tfrac12; \alpha + 1; w) \, \dd w$, the phase
+$\I$ coming from $(w - 1)^{-1/2} (1 - w)^{1/2}$ on the lower arc, and \eqref{jb:eq:one-power} then
+integrates it:
+\begin{equation}
+  \label{jb:eq:circle-q-minus-one}
+  \int I \, \dd w
+    = 2 \I \, w^{1/2} \,
+      {}_3F_2 \bigl( 1, \alpha + \tfrac12, \tfrac12; \alpha + 1, \tfrac32; w \bigr)
+      \Big|_{-1}^{\e^{- \I \pi/3}},
+\end{equation}
+the value at $-1$ being taken from below, $w^{1/2} = - \I$.
+Both endpoints lie on $\abs{w} = 1$, where this ${}_3F_2$ series converges absolutely for every
+$\alpha$, its parameter excess being
+$(\alpha + 1 + \tfrac32) - (1 + \alpha + \tfrac12 + \tfrac12) = \tfrac12 > 0$; the endpoint values
+are values of the series itself, not analytic continuations.
+Against quadrature of $I$ along the arc at $p \in \{-3.4, 1.7, 0.4\}$,
+\eqref{jb:eq:circle-q-minus-one} agrees to $3.2 \times 10^{-17}$ on values of size $1.4$ to $2.6$.
+
+\subparagraph{The point $(-1, -1)$.}
+Put together, $J(-1, -1)$ is a closed form.
+The real segment gives $0$; the vertical segment is on $p = q$ and gives \eqref{jb:eq:J-vert}; the
+ellipse is at its one constant-phase point and gives the triangle \eqref{jb:eq:J-ellipse-point}; and
+the circle is on $q = -1$, so its swept area is the real part of \eqref{jb:eq:circle-reduced} with the
+integral evaluated by \eqref{jb:eq:circle-q-minus-one}.
+The result is a combination of ${}_2F_1$ endpoint values and one ${}_3F_2$.
+Through \eqref{jb:eq:pq-mandelstam} the point is a codimension-two locus in the ordered Mandelstam
+triple, so it has no bearing on the application;
+it is recorded because it is the only point off the lines $p = 0$, $q = 0$ where the boundary
+route closes.
+
+The conclusion is therefore about the \emph{exponents}, not about the geometry of the region and
+not about the endpoints.
+For generic $(p, q)$ the arc integrals are (two powers) $\times$ ${}_2F_1$ with exponents unmatched
+to the hypergeometric parameters, and no antiderivative in the classes considered was found for
+them.
+The elliptic arc gives the same verdict, with two extra complications.
+Its Schwarz function is two-valued.
+And in the uniformizing variable $w$ of \cref{jb:sec:obstruction:closure}, with $c = 4 \beta^2$ and
+$x = w / c$, the factor $f \, \dd Z$ is a product of powers of linear factors while
+$\overline{G} = G(\bar Z) + \text{const}$ places the ${}_2F_1$ of \eqref{jb:eq:incomplete-beta} at the
+argument $\bar Z = (1 + x)^2 / 4 x$ -- the quadratic-rational argument of Gauss's quadratic
+transformations.
+Pulling the hypergeometric equation back through $z = (1 + x)^2 / 4x$, which is ramified over
+$z = 0$ and $z = 1$ only, gives a Fuchsian equation in $x$ with four singular points; it is again a
+three-point equation, so that the ${}_2F_1$ in $x$ could be reduced by a quadratic transformation,
+only when one ramified point becomes ordinary, which for the parameters
+$(\alpha, 1 - \gamma; \alpha + 1)$ means $p \in \{-1, -3\}$ or $q \in \{-1, -3\}$.
+This is an argument about where a reduction of the ellipse arc could come from, not a checked
+result; what it says is that the ellipse arc is more obstructed than the circle, not equally.
+
+\subparagraph{Verdict of the boundary route.}
+For generic $(p, q)$, $J(p, q)$ is an exact one-dimensional integral of a Gauss ${}_2F_1$ times its
+derivative, and no closed form for it was found by this route.
+Two caveats attach to this statement and should travel with it.
+It is a statement about \emph{this route}: it says that reducing each arc contribution to endpoint
+values of ${}_2F_1$ and Appell functions does not work, not that no closed form for $J$ exists.
+And it is a statement about \emph{generic} $(p, q)$: the next subsection exhibits two lines where
+the route does close, and the point $(-1, -1)$ above is a third locus.
+The negative part of it is not machine-checkable, since what it asserts is that a route fails,
+not that no antiderivative exists; what is machine-checked are its two ingredients, the failure of
+the constant-phase mechanism off the loci of \cref{jb:sec:arcs} and the validity of
+\eqref{jb:eq:reflection}.
+
+
+\subsubsection{The lines $p = 0$ and $q = 0$, where the route does close}
+\label{jb:sec:obstruction:closure}
+
+On each of the two lines one of the two powers in $f$ is absent, $G$ is elementary, and every arc
+of $\partial R$ closes: the real segment gives zero as always, the vertical segment gives an
+incomplete Beta function, the unit circle gives an incomplete Beta function on $p = 0$ and an
+elementary term on $q = 0$, and the elliptic quarter gives two Appell $F_1$ functions once it is
+written in the uniformizing variable of the vertex boundary.
+We give every coefficient, phase and branch, one line at a time, and then the checks.
+The two lines are treated separately because no symmetry of $R$ maps one to the other; the reason
+is spelled out at the end of the subsection.
+
+\subparagraph{Notation.}
+Write $c := 4 \beta^2$, so that $a = \tfrac{c^2 + 1}{4c}$, $b = \tfrac{c^2 - 1}{4c}$, and
+$c \ge 3 + 2\sqrt2 \approx 5.83$ for $\beta \ge \beta_{04}$ ($c = 9$ at the test value $\beta = \tfrac32$).
+The elliptic quarter $C_4$ is parametrized by the uniformizer of the vertex boundary,
+\begin{equation}
+  \label{jb:eq:uniformizer}
+  Z
+    = \frac{(c w + 1)^2}{4 c w}
+    = \frac12 + \beta^2 w + \frac{1}{16 \beta^2 w},
+  \qquad
+  w
+    = \e^{\I t},
+  \quad
+  t : \tfrac{\pi}{2} \to \pi,
+\end{equation}
+so that $w$ runs from $\I$ (at $Z = \tfrac12 + \I b$) to $-1$ (at $Z = \tfrac12 - a$), in the
+orientation of $\partial R$.
+On the arc,
+\begin{equation}
+  \label{jb:eq:uniformizer-aux}
+  \begin{aligned}
+    1 - Z
+      &
+      = - \frac{(c w - 1)^2}{4 c w},
+    &
+    \bar Z
+      &
+      = \frac{(w + c)^2}{4 c w},
+    \\
+    1 - \bar Z
+      &
+      = - \frac{(c - w)^2}{4 c w},
+    &
+    \dd Z
+      &
+      = \frac{(c w - 1)(c w + 1)}{4 c w^2} \, \dd w,
+  \end{aligned}
+\end{equation}
+and powers of $w$ are taken with $\arg w = t \in [\tfrac{\pi}{2}, \pi]$, so $w^s = \e^{\I \pi s}$
+at $w = -1$.
+The Appell function enters through the one-parameter family for which it is an antiderivative in
+its own base point: with third parameter $a + 1$, the Euler integral \cite{Nist:DLMF} reads
+\begin{equation}
+  \label{jb:eq:appell-antiderivative}
+  \mc F_a(w; b_1, b_2; x, y)
+    := \frac{w^a}{a} \, F_1(a; b_1, b_2; a + 1; x, y)
+    = \int_0^w s^{a - 1}
+      \Bigl( 1 - \frac{x}{w} \, s \Bigr)^{-b_1}
+      \Bigl( 1 - \frac{y}{w} \, s \Bigr)^{-b_2}
+      \dd s ,
+\end{equation}
+valid for $\Re a > 0$ and continued analytically in $a$ (simple poles at $a \in \Z_{\le 0}$, which cancel in every endpoint
+difference below) and in $x$ off the cut $[1, \infty)$.
+Below, $x$ is $\pm c w$ and $y$ is $\pm w / c$: the first argument has $\abs{x} = c \ge 3 + 2\sqrt2$, outside
+the unit disk, and needs the continuation of $F_1$; the second has $\abs{y} \le 3 - 2\sqrt2 \approx 0.17$
+($\tfrac19$ at $\beta = \tfrac32$).
+A form convenient for evaluation follows by expanding the last factor of
+\eqref{jb:eq:appell-antiderivative} in $y$,
+\begin{equation}
+  \label{jb:eq:appell-single-sum}
+  F_1(a; b_1, b_2; a + 1; x, y)
+    = \sum_{m \ge 0} \frac{(a)_m (b_2)_m}{(a + 1)_m \, m!} \, y^m \,
+      {}_2F_1(a + m, b_1; a + m + 1; x),
+\end{equation}
+a geometrically convergent series in $y$ whose terms need only a ${}_2F_1$ at $\abs{x} = c$.
+
+\subparagraph{The line $p = 0$.}
+Here $f = (1 - Z)^{q/2}$ and, for $\gamma \ne 0$, the antiderivative normalized by
+\eqref{jb:eq:base-point} is
+\begin{equation}
+  \label{jb:eq:G-p-zero}
+  G(Z)
+    = \frac{2^{\gamma} - (1 - Z)^{\gamma}}{\gamma},
+  \qquad
+  \gamma
+    = \frac{q}{2} + 1 .
+\end{equation}
+Since $\overline{(1 - Z)^{\gamma}} \, (1 - Z)^{q/2} = \abs{1 - Z}^{q + 1} \e^{-\I \theta_1}
+= \abs{1 - Z}^{q} (1 - \bar Z)$, the swept-area integrand splits into an exact part and a part
+without $G$,
+\begin{equation}
+  \label{jb:eq:reduction-p-zero}
+  \overline{G} \, \dd G
+    = \frac{2^{\gamma}}{\gamma} \, \dd G
+      - \frac{1}{\gamma} \, \abs{1 - Z}^{q} \, (1 - \bar Z) \, \dd Z ,
+\end{equation}
+so that per arc
+\begin{equation}
+  \label{jb:eq:per-arc-p-zero}
+  \begin{aligned}
+    J_k
+      &
+      = \frac{2^{\gamma}}{2 \gamma} \, \Im \bigl[ G \bigr]_k
+        - \frac{1}{2 \gamma} \, \Im I_k,
+    \qquad
+    I_k
+      := \int_k \abs{1 - Z}^{q} \, (1 - \bar Z) \, \dd Z,
+    \\
+    J(0, q)
+      &
+      = - \frac{1}{q + 2} \, \Im \sum_k I_k,
+  \end{aligned}
+\end{equation}
+the endpoint terms $[G]_k$ telescoping around the closed boundary.
+(They are kept in the per-arc formula so that each $J_k$ can be compared separately with the swept
+area of \cref{jb:sec:stokes} evaluated by quadrature; the totals do not need them.)
+What remains is to write $\abs{1 - Z}^{q} (1 - \bar Z)$ holomorphically on each arc through its
+Schwarz function \eqref{jb:eq:schwarz}, and at each step the point to check is that the principal
+arguments of the factors add up to the argument of the product without a $2\pi$ defect.
+
+On the unit circle, $\bar Z = 1/Z$ gives $\abs{1 - Z}^2 = (1 - Z)(1 - 1/Z)$.
+With $\theta_1 = \tfrac{\theta - \pi}{2}$ one has $\arg(Z - 1) - \arg Z = \tfrac{\pi - \theta}{2}
+\in [0, \tfrac{\pi}{3}]$, so the principal powers compose, $(1 - 1/Z)^{q/2} = \e^{\I \pi q/2}
+Z^{-q/2} (1 - Z)^{q/2}$, and
+\begin{equation}
+  \label{jb:eq:closure-circle}
+  \begin{aligned}
+    \abs{1 - Z}^{q} \, (1 - \bar Z) \, \dd Z
+      &
+      = - \e^{\I \pi q/2} \, Z^{-q/2 - 1} (1 - Z)^{q + 1} \, \dd Z,
+    \\
+    I_{\text{circle}}
+      &
+      = - \e^{\I \pi q/2} \Bigl[ B_Z \bigl( - \tfrac{q}{2}, \ q + 2 \bigr) \Bigr]_{-1}^{\e^{\I \pi/3}} .
+  \end{aligned}
+\end{equation}
+On the vertical segment, $\bar Z = 1 - Z$ and $\theta_1 = - \theta_0$ give
+$\abs{1 - Z}^{q} = Z^{q/2} (1 - Z)^{q/2}$ exactly, hence
+\begin{equation}
+  \label{jb:eq:closure-vert}
+  \begin{aligned}
+    \abs{1 - Z}^{q} \, (1 - \bar Z) \, \dd Z
+      &
+      = Z^{q/2 + 1} (1 - Z)^{q/2} \, \dd Z,
+    \\
+    I_{\text{vert}}
+      &
+      = \Bigl[ B_Z \bigl( \tfrac{q}{2} + 2, \ \tfrac{q}{2} + 1 \bigr) \Bigr]_{\e^{\I \pi/3}}^{\frac12 + \I b} .
+  \end{aligned}
+\end{equation}
+On the real segment the integrand $(1 - x)^{q + 1} \dd x$ and $G(x)$ are real, and
+$J_{\text{real}} = 0$ as in \cref{jb:sec:arcs:real}.
+
+The elliptic quarter is the only arc needing work.
+Put $A := c w - 1$ and $B := c - w$; on $\abs{w} = 1$ one has $\bar A = B / w$, so the positive
+real number $\abs{1 - Z} = \abs{A}^2 / 4c$ is the rational function $A B / 4 c w$ of $w$, and the
+principal arguments satisfy $\arg A + \arg B - \arg w = 0$ exactly on the arc ($\arg A \in
+(\tfrac{\pi}{2}, \pi]$, $\arg B = t - \arg A$, checked at both ends).
+Therefore
+\begin{equation}
+  \label{jb:eq:closure-ellipse-integrand}
+  \abs{1 - Z}^{q} \, (1 - \bar Z) \, \dd Z
+    = - (4 c)^{-q - 2} \, A^{q + 1} \, B^{q + 2} \, (c w + 1) \, w^{-q - 3} \, \dd w .
+\end{equation}
+To bring this to the Appell form \eqref{jb:eq:appell-antiderivative}, note that $1 - c w = - A$ has
+argument in $(- \tfrac{\pi}{2}, 0]$, so $A^{q + 1} = \e^{\I \pi (q + 1)} (1 - c w)^{q + 1}$ with
+both powers principal, and $B^{q + 2} = c^{q + 2} (1 - w / c)^{q + 2}$ with $\abs{w / c} \le
+\tfrac19$.
+The constants combine into $- (4 c)^{-q - 2} c^{q + 2} \e^{\I \pi (q + 1)} = 4^{-q - 2} \e^{\I \pi q}$,
+and the linear factor splits as $(c w + 1) w^{-q - 3} = w^{-q - 3} + c \, w^{-q - 2}$, two terms of
+the shape $w^{a - 1}$ with $a = -q - 2$ and $a = -q - 1$:
+\begin{equation}
+  \label{jb:eq:closure-ellipse}
+  \begin{aligned}
+    I_{\text{ell}}
+      &
+      = 4^{-q - 2} \, \e^{\I \pi q}
+        \Bigl[ \mc F_{-q - 2}(w) + c \, \mc F_{-q - 1}(w) \Bigr]_{w = \I}^{w = -1},
+    \\
+    \mc F_a(w)
+      &
+      := \frac{w^a}{a} \, F_1 \bigl( a; \ - q - 1, \ - q - 2; \ a + 1; \ c w, \ \tfrac{w}{c} \bigr) .
+  \end{aligned}
+\end{equation}
+That the endpoint difference of the straight-path integrals \eqref{jb:eq:appell-antiderivative}
+equals the integral along the arc is Cauchy's theorem on the quarter disk $\{ \Re w \le 0, \
+\Im w \ge 0, \ \abs{w} \le 1 \}$ for $\Re a > 0$: the integrand is holomorphic inside, the cuts of
+$(1 - c w)^{q + 1}$ and $(1 - w / c)^{q + 2}$ lie on $[1/c, \infty)$ and $[c, \infty)$, outside the
+disk, and $w^{a - 1}$ carries its boundary value from above on the negative axis, where the path
+$0 \to -1$ runs.
+For all other $a$ the identity extends by analytic continuation, both sides being meromorphic in
+$a$ with the same poles.
+The first Appell argument $x = c w \in \{ c \I, - c \}$ stays off the cut of $F_1$.
+
+Summing the three arcs, with the endpoint terms of \eqref{jb:eq:per-arc-p-zero} telescoping,
+\begin{equation}
+  \label{jb:eq:J-p-zero}
+  \boxed{\
+  \begin{aligned}
+    J(0, q)
+      &
+      = - \frac{1}{q + 2} \, \Im \Bigl\{
+        - \e^{\I \pi q/2} \Bigl[ B_Z \bigl( - \tfrac{q}{2}, \ q + 2 \bigr) \Bigr]_{-1}^{\e^{\I \pi/3}}
+        + \Bigl[ B_Z \bigl( \tfrac{q}{2} + 2, \ \tfrac{q}{2} + 1 \bigr) \Bigr]_{\e^{\I \pi/3}}^{\frac12 + \I b}
+      \\
+      &
+      \qquad\qquad\qquad
+        + 4^{-q - 2} \, \e^{\I \pi q}
+          \Bigl[ \mc F_{-q - 2} + c \, \mc F_{-q - 1} \Bigr]_{\I}^{-1}
+      \Bigr\}
+  \end{aligned}
+  \ }
+\end{equation}
+valid as written for $q \notin \{ 0, -2 \} \cup \{ -4, -6, -8, \dots \} \cup \Z_{\ge -1}$: the
+normalization $Z^{\alpha'} / \alpha'$ of the circle term has a pole at $q \in \{ 0, 2, 4, \dots \}$
+and that of the vertical term at $q \in \{ -4, -6, \dots \}$, the prefactor has one at $q = -2$,
+and $F_1$ has third parameter $a + 1 \in \Z_{\le 0}$ at integer $q \ge -1$.
+All of these are removable, $J$ being entire in $q$ (\cref{jb:sec:setup}), and the formula extends to
+the excluded values by continuity.
+
+\subparagraph{The line $q = 0$.}
+Here $f = Z^{p/2}$ and, for $\alpha \ne 0$,
+\begin{equation}
+  \label{jb:eq:G-q-zero}
+  G(Z)
+    = \frac{Z^{\alpha} - \e^{\I \pi \alpha}}{\alpha},
+  \qquad
+  \alpha
+    = \frac{p}{2} + 1,
+\end{equation}
+with $(-1)^{\alpha} = \e^{\I \pi \alpha}$ the boundary value from above of \eqref{jb:eq:branches}.
+Now $\overline{Z^{\alpha}} \, Z^{p/2} = \abs{Z}^{p + 1} \e^{-\I \theta_0} = \abs{Z}^{p} \bar Z$, and
+\begin{equation}
+  \label{jb:eq:reduction-q-zero}
+  \begin{aligned}
+    \overline{G} \, \dd G
+      &
+      = \frac{1}{\alpha} \, \abs{Z}^{p} \, \bar Z \, \dd Z
+        - \frac{\e^{-\I \pi \alpha}}{\alpha} \, \dd G,
+    \\
+    J_k
+      &
+      = \frac{1}{2 \alpha} \, \Im K_k
+        - \frac{1}{2 \alpha^2} \, \Im \Bigl( \e^{-\I \pi \alpha} \bigl[ Z^{\alpha} \bigr]_k \Bigr),
+    \qquad
+    K_k
+      := \int_k \abs{Z}^{p} \, \bar Z \, \dd Z,
+  \end{aligned}
+\end{equation}
+so that $J(p, 0) = \tfrac{1}{2 \alpha} \Im \sum_k K_k$, the endpoint terms telescoping because
+$Z^{\alpha}$ is single-valued on $\partial R$ with the boundary value from above.
+(The endpoint term carries $\alpha^{-2}$, from $\dd G = \dd Z^{\alpha} / \alpha$; writing
+$\alpha^{-1}$ there leaves the total intact but breaks the per-arc comparison.)
+
+On the unit circle $\abs{Z} = 1$ and $\bar Z \, \dd Z = Z^{-1} \dd Z$, so the arc is elementary,
+with no hypergeometric function at all:
+\begin{equation}
+  \label{jb:eq:closure-circle-q-zero}
+  K_{\text{circle}}
+    = \bigl[ \ln Z \bigr]_{-1}^{\e^{\I \pi/3}}
+    = - \frac{2 \pi \I}{3} .
+\end{equation}
+(The incomplete Beta function one would write by analogy with \eqref{jb:eq:closure-circle}
+degenerates: its exponents are $(-1, 0)$.)
+On the vertical segment, $\abs{Z}^{p} = Z^{p/2} (1 - Z)^{p/2}$ exactly and $\bar Z = 1 - Z$, so
+\begin{equation}
+  \label{jb:eq:closure-vert-q-zero}
+  \abs{Z}^{p} \, \bar Z \, \dd Z
+    = Z^{p/2} (1 - Z)^{p/2 + 1} \, \dd Z,
+  \qquad
+  K_{\text{vert}}
+    = \Bigl[ B_Z (\alpha, \ \alpha + 1) \Bigr]_{\e^{\I \pi/3}}^{\frac12 + \I b} .
+\end{equation}
+On the real segment $\abs{x}^{p} x \, \dd x$ and $\e^{-\I \pi \alpha} Z^{\alpha} = \abs{x}^{\alpha}$
+are real, and $J_{\text{real}} = 0$.
+
+On the elliptic quarter, $\overline{c w + 1} = (c + w) / w$ gives $\abs{Z} = (c w + 1)(w + c) /
+4 c w$, the principal arguments composing exactly ($\arg(c w + 1) + \arg(w + c) - \arg w = 0$ on
+the arc: $\pi + 0 - \pi$ at $w = -1$ and $\arctan c + \arctan \tfrac1c - \tfrac{\pi}{2}$ at
+$w = \I$).
+With $(w + c)^{p + 2} = c^{p + 2} (1 + w / c)^{p + 2}$, $c w - 1 = - (1 - c w)$ and
+$(4 c)^{-p - 2} c^{p + 2} = 4^{-p - 2}$,
+\begin{equation}
+  \label{jb:eq:closure-ellipse-integrand-q-zero}
+  \begin{aligned}
+    \abs{Z}^{p} \, \bar Z \, \dd Z
+      &
+      = - 4^{-p - 2} \, (1 + c w)^{p + 1} (1 + w / c)^{p + 2} (1 - c w) \, w^{-p - 3} \, \dd w
+      \\
+      &
+      = - 4^{-p - 2} \bigl[ w^{-p - 3} - c \, w^{-p - 2} \bigr]
+        (1 + c w)^{p + 1} (1 + w / c)^{p + 2} \, \dd w,
+  \end{aligned}
+\end{equation}
+and therefore
+\begin{equation}
+  \label{jb:eq:closure-ellipse-q-zero}
+  \begin{aligned}
+    K_{\text{ell}}
+      &
+      = - 4^{-p - 2}
+        \Bigl[ \widetilde{\mc F}_{-p - 2}(w) - c \, \widetilde{\mc F}_{-p - 1}(w) \Bigr]_{w = \I}^{w = -1},
+    \\
+    \widetilde{\mc F}_a(w)
+      &
+      := \frac{w^a}{a} \, F_1 \bigl( a; \ - p - 1, \ - p - 2; \ a + 1; \ - c w, \ - \tfrac{w}{c} \bigr) .
+  \end{aligned}
+\end{equation}
+One prescription is needed here that the line $p = 0$ did not need.
+The power $(1 + c w)^{p + 1}$ is principal with $\Im(1 + c w) = c \sin t \ge 0$, and at $w = -1$ it
+is the boundary value from above of the cut of $(1 + c w)^{p + 1}$ at $w = - 1/c$.
+This is the cut of $Z^{p/2}$ at $Z = 0$, which $\partial R$ touches along the real segment; the
+line $p = 0$ has no such cut, which is why \eqref{jb:eq:closure-ellipse} needed nothing of the kind.
+Correspondingly the first Appell argument $x = - c w$ is $c - \I 0$ at $w = -1$ -- on the cut
+$[1, \infty)$ of $F_1$, approached from $\Im x < 0$ -- and $- c \I$ at $w = \I$.
+The Cauchy argument given for \eqref{jb:eq:closure-ellipse} applies with the branch point $w = - 1/c$
+on the boundary of the quarter disk; the identity holds for $\Re a > 0$, $\Re (p + 1) > -1$, and
+extends analytically in $(a, b_1)$ to all $p$.
+A prescription-free form, used by the second evaluator below, follows from substituting
+$u = 1 + c w$ in each term of \eqref{jb:eq:appell-single-sum}:
+\begin{equation}
+  \label{jb:eq:closure-ellipse-q-zero-u}
+  \int_{\I}^{-1} w^{a + m - 1} (1 + c w)^{p + 1} \, \dd w
+    = c^{-a - m} \, \e^{\I \pi (a + m - 1)}
+      \Bigl[ B_u (p + 2, \ a + m) \Bigr]_{u = 1 + c \I}^{u = 1 - c},
+\end{equation}
+where $u^{p + 2}$ at $u = 1 - c < 0$ carries the boundary value from above and the ${}_2F_1$
+argument $1 - c$ is off its cut.
+
+Summed,
+\begin{equation}
+  \label{jb:eq:J-q-zero}
+  \boxed{\
+  \begin{aligned}
+    J(p, 0)
+      &
+      = \frac{1}{p + 2} \Bigl\{
+        - \frac{2 \pi}{3}
+        + \Im \Bigl[ B_Z (\alpha, \ \alpha + 1) \Bigr]_{\e^{\I \pi/3}}^{\frac12 + \I b}
+      \\
+      &
+      \qquad\qquad
+        - 4^{-p - 2} \, \Im \Bigl[ \widetilde{\mc F}_{-p - 2} - c \, \widetilde{\mc F}_{-p - 1} \Bigr]_{\I}^{-1}
+      \Bigr\},
+    \qquad
+    \alpha
+      = \frac{p}{2} + 1,
+  \end{aligned}
+  \ }
+\end{equation}
+valid as written for $p \notin \{ -2, -4, -6, \dots \} \cup \Z_{\ge -1}$ (the prefactor at $p = -2$
+and the normalization $Z^{\alpha} / \alpha$ of the vertical term at $p \in \{ -2, -4, \dots \}$, as for
+\eqref{jb:eq:J-p-zero}; $F_1$ with $a + 1 \in \Z_{\le 0}$ at integer $p \ge -1$), the poles removable and
+the formula extended by continuity.
+
+\subparagraph{The limits $q \to 0$ and $p \to 0$.}
+At $q = 0$ the three arc integrals of \eqref{jb:eq:J-p-zero} are elementary and
+\eqref{jb:eq:per-arc-p-zero} reads $J(0, 0) = \tfrac12 \Im \oint \bar Z \, \dd Z$, the area of $R$:
+\eqref{jb:eq:J-p-zero} reproduces the area of $R$ in the limit, and so does \eqref{jb:eq:J-q-zero} at
+$p = 0$, where \eqref{jb:eq:closure-circle-q-zero} is the circle's share of the area.
+Numerically the poles of $B_Z$ and $F_1$ at these points cancel between endpoints rather than
+term by term, so the limit is taken symmetrically, $\tfrac12 [J(0, \epsilon) + J(0, - \epsilon)]
+= J(0, 0) + O(\epsilon^2)$.
+
+\subparagraph{The two lines are not mirror images.}
+The map $Z \mapsto 1 - \bar Z$ exchanges $\abs{Z}$ and $\abs{1 - Z}$ and preserves the full
+confocal ellipse, but it sends $R$ -- which has $\abs{Z} \ge 1$ and $\Re Z \le \tfrac12$ -- to
+$\{ \abs{1 - Z} \ge 1, \ \Re Z \ge \tfrac12 \} \cap \mc V_{0,4} \ne R$.
+The symmetry group of $R$ is trivial, no element of it relates the two lines, and indeed
+$J(0, e) \ne J(e, 0)$: at $\beta = \tfrac32$, $J(0, 1.3) = 7.2777$ while $J(1.3, 0) = 4.7719$.
+The structural asymmetry is the cut: $\partial R$ touches the cut of $Z^{p/2}$ along the real
+segment and never that of $(1 - Z)^{q/2}$.
+This is where the $c - \I 0$ prescription of \eqref{jb:eq:closure-ellipse-q-zero} comes from, and its
+absence in \eqref{jb:eq:closure-ellipse}, and it is why the circle is elementary on $q = 0$
+(\eqref{jb:eq:closure-circle-q-zero}, $\abs{Z}^p \equiv 1$ there) and an incomplete Beta function on
+$p = 0$.
+Note that on $q = 0$ the circle does not close by the constant-phase mechanism of
+\cref{jb:sec:arcs:curved} -- the line $2p + q = -4$ meets $q = 0$ only at the excluded point
+$(-2, 0)$ -- but for this other reason, which is also why $J(p, 0)$ is only algebraically
+suppressed at large $\abs{p}$.
+
+\subparagraph{Checks.}
+Both closed forms were compared with the boundary representation \eqref{jb:eq:stokes} evaluated arc
+by arc by quadrature, at sixteen points: $q$ or $p$ in $\{ -21.7, -3.3, 1.3, 20.3 \}$ on each
+line, $\beta \in \{ \tfrac32, 2 \}$.
+The worst relative difference is $1.4 \times 10^{-15}$ on the totals and $1.1 \times 10^{-15}$ arc
+by arc, which is the double-precision floor of the reference's arc parametrizations.
+Multiplying the largest arc term by $1 + 10^{-3}$ makes the comparison fail at all sixteen points,
+and so does multiplying the ellipse term at the twelve points where it carries more than $10^{-4}$
+of $J$ (at $q = -21.7$ it carries about $10^{-9}$ of it, the weight sitting at $\e^{\I \pi/3}$), so
+the check is sensitive to each piece.
+The Appell functions were evaluated in two ways sharing no code beyond the ${}_2F_1$: a library
+continuation of $F_1$ in its first argument, with $c - \I 0$ realized as $c (1 - 10^{-40} \I)$,
+and the single-sum form \eqref{jb:eq:appell-single-sum} -- on $q = 0$ in its incomplete-Beta version
+\eqref{jb:eq:closure-ellipse-q-zero-u}.
+They agree to $1.2 \times 10^{-26}$ at all sixteen points, which fixes both the continuation and
+the side of the cut: taking $c + \I 0$ instead changes the result at order one (relative
+difference $0.94$).
+The symmetric limits above reproduce the exact area of $R$ to $6.8 \times 10^{-13}$ at
+$\epsilon = 10^{-6}$ (a one-sided limit is off by $1.1 \times 10^{-6}$, as it should be).
+Two things are not checked: the formulas at the excluded integer exponents, which are taken by
+continuity, and the continuation of $F_1$ beyond the mutual agreement of the two evaluators -- no
+third, direct evaluation of the Euler integral at $\Re a \le 0$ was run.
+
+\subparagraph{What the closure means.}
+It does not help the application: through \eqref{jb:eq:pq-mandelstam}, $p = 0$ and $q = 0$ are the
+codimension-one loci $x = y + z$ and $y = x + z$ in the ordered Mandelstam triple, a measure-zero
+subset of any grid one would want to scan.
+But the two lines lie inside the class the negative statement of \cref{jb:sec:obstruction:powers}
+covers, which is why that statement must be qualified as holding for generic $(p, q)$, and they
+give two exact anchors against which a series representation could be calibrated.
+
+
+
+\subsubsection{A lead not followed}
+\label{jb:sec:obstruction:lead}
+
+One consequence of \eqref{jb:eq:reflection} deserves recording, since it may be worth more than it
+looks.
+Because the circle integrand is holomorphic after the reflection, the contour may be deformed off
+$\abs{Z} = 1$ into $\abs{Z} > 1$, staying clear of $Z = 1$.
+This is exactly what an expansion in $1/Z$ would want, since the expansion is marginal on the unit
+circle itself.
+The catch is that the endpoints $-1$ and $\e^{\I \pi/3}$ are fixed and stay on $\abs{Z} = 1$, with
+$-1$ additionally sitting on the cut of $B_{1/Z}$.
+The deformation therefore improves the interior of the contour and not its ends, and whether it
+rescues a $1/Z$ expansion of this piece is not examined here.
+
+
+\subsection{The confocal structure of the vertex region}
+\label{jb:sec:confocal}
+
+
+This section is independent of everything above.
+It records a property of the vertex region itself which, once seen, changes which approximation
+schemes look promising -- and which identifies the boundary curve responsible for the difficulty.
+
+\subparagraph{The vertex boundary is a confocal ellipse.}
+Start from $a^2 - b^2 = \tfrac14$ in \eqref{jb:eq:axes}, equivalently $c = \tfrac12$ for the focal
+distance of the $s$-channel ellipse, which is centered at $z_c = \tfrac12$.
+Its foci therefore sit at $\tfrac12 \pm \tfrac12$, that is at $0$ and $1$: exactly the two
+punctures, exactly the two branch points of the integrand.
+By the focal definition of an ellipse,
+\begin{equation}
+  \label{jb:eq:confocal}
+  \pd \mc V_{0,4}
+    = \Acom{ \abs{Z} + \abs{1 - Z} = 2a } .
+\end{equation}
+The vertex boundary is a level set of the sum of the distances to the punctures.
+This is not an approximation valid at large stub length; it is exact for every $\beta$.
+
+\subparagraph{Bipolar coordinates.}
+The natural coordinates are then the two distances themselves,
+\begin{equation}
+  \label{jb:eq:uv-def}
+  r
+    := \abs{Z},
+  \qquad
+  \rho
+    := \abs{1 - Z},
+  \qquad
+  u
+    := r + \rho,
+  \qquad
+  v
+    := \rho - r .
+\end{equation}
+From $\rho^2 = 1 - 2x + r^2$ one gets $x = \tfrac12 (r^2 - \rho^2 + 1)$ and $y = \sqrt{r^2 - x^2}$ on
+the sheet $y \ge 0$, so that
+\begin{equation}
+  \label{jb:eq:jacobian-1}
+  \frac{\pd (x, y)}{\pd (r, \rho)}
+    = \frac{r \rho}{y},
+  \qquad
+  4 y^2
+    = \bigl( (r + \rho)^2 - 1 \bigr) \bigl( 1 - (\rho - r)^2 \bigr)
+    = (u^2 - 1)(1 - v^2).
+\end{equation}
+The factorization of $4y^2$ is not an accident: $y$ is twice the area of the triangle with vertices
+$0$, $1$, $Z$, whose sides are $1$, $r$, $\rho$, and the middle expression in
+\eqref{jb:eq:jacobian-1} is Heron's formula for it.
+Using $\dd r \, \dd \rho = \tfrac12 \dd u \, \dd v$ and $r \rho = \tfrac14 (u^2 - v^2)$,
+\begin{equation}
+  \label{jb:eq:jacobian-2}
+  \dd x \, \dd y
+    = \frac{(u^2 - v^2) \, \dd u \, \dd v}{4 \sqrt{(u^2 - 1)(1 - v^2)}}
+  \qquad (y \ge 0).
+\end{equation}
+
+\subparagraph{The region becomes a trapezoid.}
+Each of the four conditions \eqref{jb:eq:region} is now simple.
+The vertex boundary is $u = 2a$ by \eqref{jb:eq:confocal}; the condition $\Re Z \le \tfrac12$ says that
+$Z$ is at least as far from $1$ as from $0$, that is $v \ge 0$; the condition $\abs{Z} \ge 1$ reads
+$u - v \ge 2$; and the triangle inequality on $0$, $1$, $Z$ gives $v \le 1$ automatically, with
+equality on the negative real axis.
+Hence
+\begin{equation}
+  \label{jb:eq:trapezoid}
+  R
+    \ \longleftrightarrow \
+    D
+    = \Acom{ 0 \le v \le 1, \ 2 + v \le u \le 2a },
+\end{equation}
+and \eqref{jb:eq:J-def} becomes
+\begin{equation}
+  \label{jb:eq:J-uv}
+  J(p, q)
+    = 2^{-p-q-2} \int_0^1 \frac{\dd v}{\sqrt{1 - v^2}}
+      \int_{2+v}^{2a} \frac{\dd u}{\sqrt{u^2 - 1}} \,
+      (u - v)^{p+1} (u + v)^{q+1} .
+\end{equation}
+The four corners of $D$ are $(2, 0) \leftrightarrow \e^{\I \pi/3}$,
+$(3, 1) \leftrightarrow -1$, $(2a, 1) \leftrightarrow \tfrac12 - a$ and
+$(2a, 0) \leftrightarrow \tfrac12 + \I b$.
+The sides $v = 0$, $v = 1$ and $u = 2a$ are respectively the vertical segment, the real segment and
+the elliptic arc -- all three are coordinate lines.
+The slanted side $u = 2 + v$ is the unit circle, and it is the only one that is not.
+
+\subparagraph{Physical reading.}
+The vertex boundary, which is the complicated-looking curve in the $Z$ plane, is the \emph{easy}
+side of the region in these coordinates; the unit circle, which is the simple-looking curve, is the
+hard one.
+The obstruction to separating variables in \eqref{jb:eq:J-uv} is the constraint $\abs{Z} \ge 1$
+inherited from the $S_4$ fundamental domain, not the stub-dependent vertex boundary.
+Any scheme that tries to compute $J$ by expanding around the region's geometry should be built
+around that fact.
+
+\subparagraph{Check: the full Virasoro--Shapiro integral.}
+The same Jacobian on the whole plane -- both sheets $y \gtrless 0$, hence $v \in [-1, 1]$ and
+$u \ge 1$ -- turns the unrestricted integral into
+$2 \cdot 2^{-p-q-2} \int_{-1}^{1} \! \int_1^{\infty}$ of the same integrand, which must reproduce the
+closed-form Virasoro--Shapiro result
+\begin{equation}
+  \label{jb:eq:VS}
+  \int_{\C} \abs{Z}^p \abs{1 - Z}^q \, \dd^2 Z
+    = \pi \,
+      \frac{\Gamma(1 + \tfrac{p}{2}) \, \Gamma(1 + \tfrac{q}{2}) \,
+        \Gamma(- 1 - \tfrac{p+q}{2})}
+        {\Gamma(- \tfrac{p}{2}) \, \Gamma(- \tfrac{q}{2}) \,
+        \Gamma(2 + \tfrac{p+q}{2})}
+\end{equation}
+in the convergence window $p, q > -2$, $p + q < -2$.
+It does, to $4 \times 10^{-11}$ at three test points.
+This is the cleanest available test of \eqref{jb:eq:jacobian-2}, since it compares against a formula
+derived by completely different means.
+
+\subparagraph{A series, and why it is not finished here.}
+In \eqref{jb:eq:J-uv} the ratio $w = v/u = (\rho - r)/(\rho + r)$ satisfies $0 \le w \le \tfrac13$ on
+all of $R$, with the maximum attained at $Z = -1$.
+Expanding,
+\begin{equation}
+  \label{jb:eq:series}
+  (u - v)^{p+1} (u + v)^{q+1}
+    = u^{p+q+2} \sum_{n \ge 0} c_n(p, q) \, w^n,
+  \qquad
+  c_n
+    = \sum_{j=0}^{n} (-1)^j \binom{p+1}{j} \binom{q+1}{n-j},
+\end{equation}
+which converges geometrically at ratio $\le \tfrac13$, uniformly in $Z$ on $R$.
+This is a genuine improvement over an expansion in $1/Z$, which is marginal on the unit circle.
+It is, however, \emph{not} uniform in $(p, q)$: the coefficients $c_n$ grow like
+$\binom{\abs{p} + n}{n}$, so the geometric decay only sets in after $n \gtrsim \abs{p}/2$, and the
+number of terms needed for a given accuracy grows with $\abs{p} + \abs{q}$.
+
+Each term splits over the region in the obvious way.
+On the rectangle $[3, 2a] \times [0, 1]$ the two variables separate and the term factorizes into
+$\tfrac12 B(\tfrac{n+1}{2}, \tfrac12)$ times $\int_3^{2a} u^{p+q+2-n} (u^2-1)^{-1/2} \dd u$, a
+${}_2F_1$ in $1/u^2$.
+On the triangle $\{ 2 \le u \le 3, \ 0 \le v \le u - 2 \}$ the lower limit depends on $v$ and the
+variables stay coupled.
+That triangle is the neighborhood of the unit-circle arc, and it is where a closed form for the
+individual terms would have to come from.
+Neither the term integrals over the triangle nor a rigorous tail bound for \eqref{jb:eq:series} are
+established here.
+
+The representation \eqref{jb:eq:J-uv} has been checked against the boundary representation
+\eqref{jb:eq:stokes} and against two-dimensional quadrature at random $(p, q)$, agreeing to
+$2 \times 10^{-15}$ with the former and to $5 \times 10^{-11}$ with the latter.
+
+
+\subsection{Numerical evaluation}
+\label{jb:sec:numerics}
+
+
+The identity \eqref{jb:eq:stokes} is exact, so its numerical value is limited only by how well the four
+arc integrals are done.
+Two evaluations were implemented, deliberately sharing as little as possible.
+
+\subparagraph{The hypergeometric route.}
+Take $G$ from \eqref{jb:eq:G-def}, with the ${}_2F_1$ evaluated at $30$-digit precision, and do each
+arc integral by adaptive one-dimensional quadrature.
+This is the definitional route and it is accurate to essentially arbitrary precision, but it is
+slow: up to $20$ seconds per value of $J$ at $\abs{p} + \abs{q} \sim 170$, dominated by the
+hypergeometric evaluations.
+
+\subparagraph{The Chebyshev route, which is the one to use.}
+No hypergeometric function is needed at all, because $G$ is only ever required \emph{along the
+contour}.
+On each arc set $h(t) = f(Z(t)) \, Z'(t)$, which involves only powers and elementary functions.
+Interpolate $h$ by a Chebyshev series of degree $600$ in the arc parameter, integrate the
+interpolant in closed form -- Chebyshev series have exact term-by-term antiderivatives -- and
+accumulate the result from arc to arc starting at $G(-1) = 0$.
+This produces $G$ along the whole boundary.
+Then take $\tfrac12 \Im \int \overline{G} \, h \, \dd t$ on each arc by Gauss--Legendre quadrature
+with the same number of points.
+The total cost is about $2400$ elementary evaluations of $f$ per value of $J$, in double precision.
+
+One caveat on the word ``exactly'' above: the cumulative integration of the interpolant is exact,
+but the final quadrature is applied to the \emph{product} $\overline{G} h$, whose Chebyshev degree
+is roughly twice that of $h$, while Gauss--Legendre with $N$ points is exact only to degree
+$2N - 1$.
+The tail coefficients are below the working precision, which is why this is harmless, and the
+agreement with the hypergeometric route is the evidence for that.
+
+\subparagraph{Accuracy.}
+The two routes were compared against each other and against a direct two-dimensional quadrature of
+\eqref{jb:eq:J-def}.
+
+\begin{table}[htp]
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    What is compared & Conditions & Agreement \\
+    \midrule
+    \eqref{jb:eq:stokes} at $p = q = 0$ vs.\ the area of $R$ & both $\beta$, ${}_2F_1$ route & $3 \times 10^{-18}$ \\
+    the same, Chebyshev route & both $\beta$ & $10^{-15}$ \\
+    \eqref{jb:eq:stokes} (${}_2F_1$) vs.\ 2D quadrature & 12 random $(p,q)$, both $\beta$ & $5 \times 10^{-10}$ \\
+    \eqref{jb:eq:stokes} (Chebyshev) vs.\ 2D quadrature & same 12 points & $5 \times 10^{-10}$ \\
+    the two evaluations against each other & same 12 points & $6 \times 10^{-11}$ \\
+    the same, at moderate exponents & & $10^{-15}$ \\
+    \eqref{jb:eq:J-uv} vs.\ \eqref{jb:eq:stokes} & 4 random points & $2 \times 10^{-15}$ \\
+    \eqref{jb:eq:VS} vs.\ the bipolar Jacobian on $\C$ & 3 points in the window & $4 \times 10^{-11}$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{
+    Worst relative agreement over the test points.
+    The twelve random points comprise six per value of $\beta \in \{ \tfrac32, 2 \}$, of which two
+    per $\beta$ have $\abs{p} + \abs{q} > 100$, reaching $(p, q) = (-91, -82)$ and $(-86, +82)$;
+    the values of $J$ there span $10^{-5}$ to $10^{22}$.
+  }
+  \label{jb:tab:accuracy}
+\end{table}
+
+Two remarks on \cref{jb:tab:accuracy}.
+
+The $5 \times 10^{-10}$ figure in the third and fourth rows is \emph{the reference's} accuracy, not
+the representation's.
+The two-dimensional quadrature converges only as $n^{-3}$ in its panel count: its inner limits
+$\mp \sqrt{1 - y^2}$ put a square-root branch point at the panel endpoint $y = 1$, where both inner
+segments lose length like $\sqrt{2(1-y)}$; the outer parametrization $y = b \sin t$ has nonzero
+slope there, so the branch point survives in the integration variable.
+Gauss--Legendre against an endpoint singularity $x^{s}$ converges as $n^{-2(s+1)}$, which is
+$n^{-3}$ at $s = \tfrac12$.
+The measured error ratios between $n = 160$, $320$ and $640$ are close to $8$, confirming the
+exponent.
+At a typical working value $n = 40$ the two-dimensional quadrature carries about $2 \times 10^{-6}$
+relative error for moderate negative exponents, and about $10^{-8}$ at $n = 160$.
+The boundary representation is the more accurate of the two sides, and the fifth row
+($6 \times 10^{-11}$, and $10^{-15}$ at moderate exponents) is the better estimate of what it
+delivers.
+
+The comparisons are falsifiable: multiplying the boundary value by $1 + 10^{-3}$ makes the
+agreement test fail, as it must, and the reflection identity \eqref{jb:eq:reflection} fails when an arc
+is fed the Schwarz function of a different arc.
+
+\subparagraph{What is not established.}
+The error of the Chebyshev route decays geometrically, because $f(Z(t)) Z'(t)$ is analytic in a
+neighborhood of each closed arc parameter interval -- $R$ avoids both punctures -- so the standard
+Bernstein-ellipse estimate applies \cite{Trefethen:2013:ApproximationTheoryPractice}.
+The Bernstein parameter of each arc is computable, but it has not been computed, so there is
+\emph{no rigorous error bound} here; what is available is the measured figure of
+\cref{jb:tab:accuracy}.
+Separately, the bipolar check \eqref{jb:eq:VS} excludes the point $(p, q) = (-0.5, -1.9)$, where the
+corner singularity $r^{-0.8}$ at $Z = 1$ leaves the nested tanh--sinh quadrature at
+$4 \times 10^{-3}$; that is a limitation of the check, not of \eqref{jb:eq:J-uv}.
+
+
+\subsection{How to use this}
+\label{jb:sec:use}
+
+
+For any real $(p, q)$ and any $\beta \ge \beta_{04}$, evaluate
+\begin{equation*}
+  J(p, q)
+    = \frac12 \, \Im \oint_{\pd R} \overline{G} \, \dd G
+\end{equation*}
+by walking once around the four arcs of $\partial R$, accumulating $G$ from $G(-1) = 0$ by
+cumulative Chebyshev integration of $f(Z(t)) Z'(t)$, and taking the swept area on each arc.
+Degree $600$ suffices; the cost is a few thousand evaluations of elementary functions in double
+precision, milliseconds in practice, and the accuracy is about $10^{-10}$ in the worst tested case
+and $10^{-15}$ at moderate exponents.
+Three points of implementation matter and are easy to get wrong:
+
+\begin{itemize}
+  \setlength{\itemsep}{0.5ex}
+
+  \item the branch prescription \eqref{jb:eq:branches}, in particular the boundary value \emph{from
+    above} on the negative real axis, which is where the region touches the cut;
+
+  \item the orientation of $\partial R$ and the base point $G(-1) = 0$, which together make the real
+    segment contribute exactly zero;
+
+  \item the running accumulation of $G$ across arcs -- $G$ is a single function on the whole
+    boundary, not four independent ones.
+\end{itemize}
+A cheap self-test is available at no extra cost: after the full loop, $G$ must return to zero, and
+the real part of $\oint f \overline{G} \, \dd Z$ must vanish.
+Both hold to $7 \times 10^{-15}$ in our implementation and both catch orientation and branch errors
+immediately.
+
+For the four-tachyon contact term this replaces a two-dimensional quadrature by six boundary walks
+per momentum point, through \eqref{jb:eq:pq-mandelstam}.
+The gain is not only speed: it also removes the $n^{-3}$ convergence of the surface integral, which
+is the accuracy bottleneck of the direct method at its usual settings.
+
+What this does \emph{not} give is a closed form.
+For generic $(p, q)$ we found none by the boundary route, and \cref{jb:sec:obstruction} says precisely
+what stands in the way; on the two lines $p = 0$ and $q = 0$ a closed form in ${}_2F_1$ and Appell
+$F_1$ is given with all its coefficients in \cref{jb:sec:obstruction:closure} and checked to
+$10^{-15}$, and at the point $p = q = -1$ one in ${}_2F_1$ and ${}_3F_2$.
+If a closed form is wanted for the general case, the two openings we would pursue are the series of
+\cref{jb:sec:confocal}, whose only hard piece is the triangle adjacent to the unit-circle arc, and the
+contour deformation of \cref{jb:sec:obstruction:lead}.
+
+

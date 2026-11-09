@@ -1,0 +1,120 @@
+\subsection{The two internal kernels}
+\label{rs:sec:kernels}
+
+The whole geometric story turns on keeping apart two objects that both look like
+``an internal line'' in a Feynman graph but are worldsheet-geometrically
+opposite. This section defines them and gives the sharp diagnostic --- one
+$b$-ghost per real modulus --- that tells them apart.
+
+\subparagraph{Vertices are moduli integrals; ghost saturation is the bookkeeping.}
+A closed-string vertex is an integral over a vertex region of a fixed-surface
+correlator with one $b$-ghost insertion per real modulus,
+\begin{equation}
+	V_4(A_1,\dots,A_4)
+	= \int_{\mc{V}_{0,4}}\!\dd^2 m\;
+	\Bra{\Sig_{0,4}(m)}\,b(v_m)\,b(\bar v_m)\,
+	\ket{A_1}\otimes\cdots\otimes\ket{A_4},
+	\label{rs:eq:V4integral}
+\end{equation}
+where $\Bra{\Sig_{0,4}(m)}$ is the four-punctured-sphere surface state at moduli
+point $m$ with its chosen local coordinates, and each $b$ soaks up one real
+modulus. A sphere correlator is non-zero only when the total ghost number
+saturates the background charge: it needs $\Ngh=6$, and each $b$ costs one unit,
+so a genus-zero $n$-point vertex on its region ($\dim_\R=2(n-3)$) is non-zero iff
+\begin{equation}
+	\sum_i \Ngh(A_i) \;=\; 6 + 2(n-3).
+	\label{rs:eq:saturation}
+\end{equation}
+This is the precise sense in which \emph{one $b$-insertion per real modulus} is
+the sharp diagnostic for ``is this parameter a modulus''. Every elementary vertex
+of the construction saturates \eqref{rs:eq:saturation} identically, at every level
+of the tower; \Cref{rs:tab:saturation} lists them. \emph{(Terminology note, sharpened
+by the comparison with the closed-string sewing conventions of~\cite{Erbin:2021:StringFieldTheory}: the $b(v_m),b(\bar v_m)$ here are the Schiffer-vector
+insertions soaking up a \emph{vertex-region} modulus $m$; they are distinct from
+the propagator zero-modes $b_0^\pm$ of \Cref{rs:sec:frozen}. The two diagnostics
+agree on the discriminant that matters: only a \emph{length}-type modulus needs a
+compensating $b$; the level-matching $b_0^-\delta_{L_0^-,0}$ retained by every
+frozen-neck contraction is not itself a modulus and needs no partner.)}
+
+\begin{table}[htp]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		vertex & fields ($\Ngh$ each) & $\sum\Ngh$ & $\#b = \dim_\R$ region & $\sum\Ngh-\#b$ \\
+		\midrule
+		$V_4(\Sig,\Sig)$ & $4,4$ & $8$ & $2$ & $6$ \\
+		$V_4(\Sig,\Psi,\Psi)$ & $4,2,2$ & $8$ & $2$ & $6$ \\
+		$\tilde V_{2k}(\Sig_k,\Sig_k)$ & $2k,2k$ & $4k$ & $2(2k-3)$ & $6$ \\
+		$\tilde V_{2k+1}(\Sig_k,\Sig_k,\Psi)$ & $2k,2k,2$ & $4k+2$ & $2(2k-2)$ & $6$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{Ghost saturation \eqref{rs:eq:saturation} for every elementary vertex of
+	the construction (the $\Ngh$ assignments are the physical ghost numbers of the products; the region
+	dimensions are the standard $\dim_\R\mc{V}_{0,n}=2(n-3)$). Each row balances to
+	$6$: the vertices are \emph{bona fide} moduli integrals with exactly the right
+	number of $b$-insertions. This table is the diagnostic used repeatedly below:
+	an internal line carries a modulus iff adding it would spoil the balance unless
+	accompanied by its own $b$.}
+	\label{rs:tab:saturation}
+\end{table}
+
+\subparagraph{Kernel 1: the worldsheet sewing kernel (colour-1 line).} An ordinary
+closed-string internal line sews two surface states by inserting a complete set
+of states weighted by the plumbing factor and integrated with the $b$-ghost
+measure:
+\begin{equation}
+	\mathsf P
+	= \int_0^\infty\!\dd s\int_0^{2\pi}\!\frac{\dd\theta}{2\pi}\;
+	b_0^+\,b_0^-\;\e^{-sL_0^+ + \I\theta L_0^-}
+	= \frac{b_0^+\,b_0^-}{L_0^+}\,\delta_{L_0^-,0}
+	= \frac{b_0^+}{L_0^+}\,\omega_1^{-1}
+	\label{rs:eq:sewing}
+\end{equation}
+(normalisation \textbf{verified exact} against Erbin's conventions \cite{Erbin:2021:StringFieldTheory}
+including the plumbing-integral prefactor; the
+factorised form separates the length-modulus factor $b_0^+/L_0^+$ from the
+level-matching sewing measure $\omega_1^{-1}=b_0^-\delta_{L_0^-,0}$, identified
+precisely in \Cref{rs:sec:frozen}). The point is geometric, not formal: the operator
+$e^{-sL_0^+}$ \emph{is} a surface --- the CFT path integral on a flat cylinder of
+length $s$ and twist $\theta$ --- and \emph{each} value of $(s,\theta)$ is a
+\emph{different} surface. The double integral sweeps a two-real-parameter family
+inside moduli space, and correspondingly the kernel carries exactly two
+$b$-insertions, $b_0^+$ and $b_0^-$. This is how the $s$-, $t$- and $u$-channel
+Feynman graphs sweep out the three propagator regions
+$\mc{M}_s,\mc{M}_t,\mc{M}_u\subset\mc{M}_{0,4}$.
+
+\subparagraph{Kernel 2: the colour-2 contraction (colour-2 edge).} Between two
+$V_4(\,\cdot\,;\Psi,\Psi)$ vertices the HS Feynman rules (\cref{p:sec:hs:quartic}) insert the
+\emph{state-space} kernel
+\begin{equation}
+	\mathsf S
+	= \frac{12}{\gs^2}\,\big(V_4|_{\Sym^2}\big)^{-1}
+	= \frac{12}{\gs^2}\,\mtwo^{-1}\,G_2^{-1},
+	\label{rs:eq:Skernel}
+\end{equation}
+where $V_4|_{\Sym^2}$ is the restriction of the quartic vertex to the symmetric
+square and the inverse is taken with respect to the symmetric identity. Read it
+against \eqref{rs:eq:sewing}: there is \textbf{no} plumbing parameter $q$, \textbf{no}
+$s$-integral, \textbf{no} \emph{length-modulus} insertion $b_0^+/L_0^+$, and
+\textbf{no} $L_0^+$ (the level-matching sewing measure
+$\omega_1^{-1}=b_0^-\delta_{L_0^-,0}$ \emph{per strand} is retained --- see
+\Cref{rs:sec:frozen} --- it is not a length modulus). It is the inverse
+of an object \eqref{rs:eq:V4integral} whose moduli have \emph{already} been
+integrated. That single fact --- an inverse of an already-integrated vertex,
+rather than an integral over a surface family --- is the entire geometric content
+of ``$\Sig$ is auxiliary'', and everything below unpacks it.
+
+\medskip
+\noindent\emph{Physical meaning.} The distinction is not bookkeeping pedantry.
+Kernel 1 is a \emph{generator} of geometry: sliding $s$ deforms the worldsheet
+continuously, and the pole at $L_0^+=0$ (from $\int_0^\infty\dd s\,\e^{-sL_0^+}$)
+is an on-shell propagating state. Kernel 2 is a \emph{finished, rigid} object: it
+appends no length, deforms no surface, and has no $s\to\infty$ degeneration to
+produce a pole. The exchanged $\Sig$ therefore never goes on-shell --- it is
+auxiliary --- and the reason is the \emph{absence of a length modulus}
+($b_0^+/L_0^+$) on its line, not the boundedness of one; the retained
+$b_0^-\delta_{L_0^-,0}$ is the universal level-matching measure common to every
+closed-string line, propagating or contact, and does not by itself signal a
+modulus. \emph{(The kernel \eqref{rs:eq:Skernel} is the $\Sig$ line of the Feynman rules; the open-string stub mechanism of \cref{ch:qft-toys} belongs to a different construction and does not apply here; the length-vs-level-matching
+distinction is checked against the closed-string sewing conventions of~\cite{Erbin:2021:StringFieldTheory}.)}
+

@@ -1,0 +1,166 @@
+\subsection{Exchange sign of the pairing and reality of the auxiliary fields}
+\label{p:app:reality}
+
+
+This appendix checks the exchange sign~\eqref{p:eq:conv:pairing-symmetry} of the pairing on explicit states, with its consequences for the multi-string pairings, and derives the reality of the vertices, of the products and of the auxiliary fields.
+We use throughout the normalization~\eqref{p:eq:conv:sphere} and the BPZ rules~\eqref{p:eq:conv:bpz-modes}.
+
+
+\subsubsection{Exchange sign of the pairing}
+
+The pairing $\pair{A}{B} = \braket{A | c_0^- | B}$ differs from the plain BPZ product $\braket{A | B}$, which is graded-symmetric in the parity of its arguments, by the odd insertion $c_0^-$.
+Its exchange sign comes from moving the insertion from one argument to the other.
+Moving an operator $O$ from the ket to the bra gives the sign of passing $O$ through $A$:
+\begin{equation}
+\braket{A | O B}
+  = (-1)^{\abs{O} \abs{A}} \, \braket{\transp{O} A | B}.
+\end{equation}
+Applied to $O = c_0^-$, with $\transp{(c_0^-)} = - c_0^-$ from~\eqref{p:eq:conv:bpz-modes}, we get:
+\begin{equation}
+  \label{p:eq:rea:exchange-general}
+  \begin{aligned}
+    \pair{A}{B}
+      &
+      = \braket{A | c_0^- B}
+      = (-1)^{\abs{A} (1 + \abs{B})} \, \braket{c_0^- B | A}
+    \\
+      &
+      = - (-1)^{\abs{A} (1 + \abs{B})} \, (-1)^{\abs{B}} \, \pair{B}{A}
+      = (-1)^{(1 + \abs{A}) (1 + \abs{B})} \, \pair{B}{A}.
+  \end{aligned}
+\end{equation}
+The first sign comes from exchanging $A$ with the state $c_0^- B$, of parity $\abs{B} + 1$, in the plain product.
+In the second step, we move $c_0^-$ into the bra, which costs the sign $(-1)^{\abs{B}}$ of passing the insertion through $B$ and the minus sign of its BPZ conjugate.
+This is~\eqref{p:eq:conv:pairing-symmetry}.
+The in-place rule~\eqref{p:eq:conv:bpz-word} brings no further sign: it is the action of the graded anti-involution on a set of creation operators, and a rule reversing the order without a graded sign would be inconsistent beyond the zero modes.
+
+We check~\eqref{p:eq:rea:exchange-general} on the tachyon state $\ket{A} = c_1 \bar c_1 \ket{0}$ and its partner at ghost number three $\ket{B} = c_0^+ c_1 \bar c_1 \ket{0}$.
+Their bras follow from~\eqref{p:eq:conv:bpz-modes} and~\eqref{p:eq:conv:bpz-word}, $\bra{A} = \bra{0} c_{-1} \bar c_{-1}$ and $\bra{B} = - \bra{0} c_0^+ c_{-1} \bar c_{-1}$.
+  With the normalization~\eqref{p:eq:conv:sphere}, we get:
+\begin{equation}
+  \label{p:eq:rea:check-values}
+  \begin{aligned}
+    \pair{A}{B}
+      &
+      = \braket{c_{-1} \bar c_{-1} c_0^- c_0^+ c_1 \bar c_1}
+      = - \frac{1}{2},
+    \\
+    \pair{B}{A}
+      &
+      = - \braket{c_0^+ c_{-1} \bar c_{-1} c_0^- c_1 \bar c_1}
+      = \braket{c_{-1} \bar c_{-1} c_0^- c_0^+ c_1 \bar c_1}
+      = - \frac{1}{2}.
+  \end{aligned}
+\end{equation}
+In the second value, $c_0^+$ passes the even pair $c_{-1} \bar c_{-1}$ without a sign and then anticommutes with $c_0^-$.
+The two values agree, as~\eqref{p:eq:conv:pairing-symmetry} requires for an even $A$ and an odd $B$.
+  With $\transp{(c_0^\pm)} = + c_0^\pm$, the bra $\bra{B}$ would change sign and the two values would differ.
+On the same pair, we have $A^\star = - A$, from the reversal of the two odd modes $c_1 \bar c_1$, and $B^\star = + B$, from the sign $- 1$ of $\transp{(c_0^+)}$ and the reversal sign $- 1$ of three odd modes.
+  Hence $\pair{A^\star}{B^\star} = + \tfrac{1}{2} = - \pair{A}{B}^*$, as the equivariance~\eqref{p:eq:conv:pairing-equivariance} requires.
+
+The $n$-string pairing~\eqref{p:eq:conv:pairing-n} inherits the symmetry strand by strand.
+We write $X = x_1 \otimes \cdots \otimes x_n$ and $Y = y_1 \otimes \cdots \otimes y_n$.
+Exchanging the two tensors exchanges the roles of the $x_i$ and the $y_j$ in the Koszul sign of the definition, and the arguments of every strand pairing:
+\begin{equation}
+  \label{p:eq:rea:exchange-n}
+  \begin{aligned}
+    \pair[n]{Y}{X}
+      &
+      = (-1)^{\sum_{i < j} \abs{x_i} \abs{y_j}} \, \prod_i \pair{y_i}{x_i}
+      \\ &
+      = (-1)^{\sum_{i < j} \abs{x_i} \abs{y_j} + \sum_i \abs{x_i} \abs{y_i} + \sum_{i < j} \abs{y_i} \abs{x_j}} \, \pair[n]{X}{Y}
+      \\ &
+      = (-1)^{\abs{X} \abs{Y}} \, \pair[n]{X}{Y}.
+  \end{aligned}
+\end{equation}
+The three sums cover every pair $(i, j)$ exactly once, so the exponent is $\sum_{i, j} \abs{x_i} \abs{y_j} = \abs{X} \abs{Y}$.
+This is~\eqref{p:eq:conv:pairing-n-symmetry}, on every pair of homogeneous tensors and by bilinearity on all of $\Hs^{\otimes n}$.
+
+The same bookkeeping fixes the space that the auxiliary fields pair with.
+Permuting the strands of both tensors by the same permutation $\pi$, each with the Koszul sign of the physical parity, multiplies the pairing on its support by $\sign(\pi)$.
+Indeed, regrouped by pairs of strands, each inversion of $\pi$ exchanges two pairs of total parity $\abs{x_i} + \abs{y_i} = 1$ and costs one sign.
+We take $X = \Sigma_n$, with even strands and symmetric components, and $Y$ with strands of ghost number three, all odd.
+Then $\pair[n]{\Sigma_n}{Y} = \sign(\pi) \, \pair[n]{\Sigma_n}{\pi Y}$, and only the part of $Y$ with $\pi Y = \sign(\pi) \, Y$ pairs with $\Sigma_n$.
+On all-odd strands, the Koszul action of $\pi$ is the plain permutation of the components times $\sign(\pi)$.
+The part of $Y$ that pairs with $\Sigma_n$ is thus the part with plainly symmetric components, that is the graded-symmetric tensors in the shifted parity of \cref{p:app:conventions}.
+
+The odd symplectic form~\eqref{p:eq:conv:odd-symplectic}, $\Omega(A, B) = (-1)^{\abs{A}} \, \pair{A}{B}$, is then graded-antisymmetric on every homogeneous pair by~\eqref{p:eq:rea:exchange-general}: the twist $(-1)^{\abs{A}}$ changes sign under the exchange of arguments of opposite parity.
+
+
+\subparagraph{Reality of the vertices.}
+
+For $n = 2$, the reality~\eqref{p:eq:conv:vertex-reality} follows from the equivariance~\eqref{p:eq:conv:pairing-equivariance} and the star of the BRST operator~\eqref{p:eq:conv:QB-star}:
+\begin{equation}
+  \label{p:eq:rea:V2-star}
+  \begin{aligned}
+    \vertex{2}(A^\star, B^\star)
+      &
+      = \pair{A^\star}{Q_B B^\star}
+      = (-1)^{\abs{B} + 1} \, \pair{A^\star}{(Q_B B)^\star}
+    \\
+      &
+      = (-1)^{\abs{B}} \, \pair{A}{Q_B B}^*
+      = (-1)^{\abs{A} \abs{B}} \, \vertex{2}(A, B)^*,
+  \end{aligned}
+\end{equation}
+since on the support $\abs{A} = \abs{B}$, so that $\abs{A} \abs{B} = \abs{B}$ modulo two.
+Read term by term on the coefficients, with the reality condition~\cite[eq.~(3.6)]{Zwiebach:1993:ClosedStringField} on each of the $n$ fields, the reality of the vertices gives the factor $(-1)^n$ from the sign of that condition and the Koszul factor from reordering the coefficients.
+We obtain the reality of the products by stripping the first argument of~\eqref{p:eq:conv:vertex} with~\eqref{p:eq:conv:pairing-equivariance}, since the pairing is non-degenerate on the level-matched space.
+In $\vertex{m + 1}(A, B_1, \ldots, B_m) = \pair{A}{\ell_m(B_1, \ldots, B_m)}$, the output has parity $1 + \sum_i \abs{B_i}$.
+On the support of the pairing, we thus have $\abs{A} = \sum_i \abs{B_i}$ modulo two, and the rule for arguments of any parity reads:
+\begin{equation}
+\label{p:eq:rea:product-star}
+\ell_m(B_1^\star, \ldots, B_m^\star)
+  = (-1)^{m + \sum_i \abs{B_i} + \sum_{i < j} \abs{B_i} \abs{B_j}} \, \ell_m(B_1, \ldots, B_m)^\star.
+\end{equation}
+On even arguments the sign is $(-1)^m$, and with one odd argument $(-1)^{m + 1}$.
+
+\subparagraph{Reality of the string field.}
+
+The reality condition of the string field~\cite[eq.~(3.6)]{Zwiebach:1993:ClosedStringField}, $\adj{\Psi} = - \bra{\Psi}$, reads $\Psi^\star = - \Psi$ by~\eqref{p:eq:rea:star-bras}.
+On the tachyon component
+\begin{equation}
+\int \frac{\dd^d p}{(2 \pi)^d} \, \phi(p) \, c_1 \bar c_1 \ket{0, p},
+\end{equation}
+it is the reality condition of a scalar field, $\phi(- p)^* = \phi(p)$, the minus sign coming from the reversal of the two odd modes $c_1 \bar c_1$.
+The condition $\Lambda^\star = - \Lambda$ is the one under which every gauge transformation~\eqref{p:eq:conv:gauge} preserves $\Psi^\star = - \Psi$: the free term by the star of $Q_B$,~\eqref{p:eq:conv:QB-star} with $\abs{\Lambda} = 1$, which gives $(Q_B \Lambda)^\star = Q_B \Lambda^\star$ and fixes $\Lambda^\star = - \Lambda$ up to the kernel of $Q_B$, and the interaction terms by the reality of the vertices~\eqref{p:eq:conv:vertex-reality}, through the product rule~\eqref{p:eq:rea:product-star} with one odd argument.
+
+\subparagraph{Reality of the auxiliary fields.}
+
+Every vertex term of the cubic action is a real multiple of a vertex on a tensor whose $N$ strands all have ghost number two.
+On even arguments, the reality of the vertices carries the sign $(-1)^N$.
+On the slice $\Psi^\star = - \Psi$, $\Sigma_k^\star = (-1)^k \, \Sigma_k$, the strand signs multiply to $(-1)^N$ as well, and we get:
+\begin{equation}
+\label{p:eq:rea:cubic-real}
+\begin{aligned}
+  \vertex{N}(\Sigma_k, \Sigma_\ell, \Psi^n)^*
+    &
+    = (-1)^N \, \vertex{N}\big( \Sigma_k^\star, \Sigma_\ell^\star, (\Psi^\star)^n \big)
+  \\
+    &
+    = (-1)^{N + k + \ell + n} \, \vertex{N}(\Sigma_k, \Sigma_\ell, \Psi^n)
+    = \vertex{N}(\Sigma_k, \Sigma_\ell, \Psi^n),
+\end{aligned}
+\end{equation}
+with $N = k + \ell + n$.
+The nonpolynomial action is the case without auxiliary fields, $N = n$.
+The cubic action is thus real on the slice~\eqref{p:eq:conv:reality-fields} because every strand of ghost number two is star-odd: the field replacing $\Psi^k$ must carry the sign $(-1)^k$ of $(\Psi^\star)^k$.
+The sign in the reality condition of $\Sigma_k$ therefore alternates with $k$, and $\Sigma_k$ is not real in a uniform sense.
+
+The source of $\Sigma_k$ is linear in $\Sigma_k$, with a real coefficient once the lower fields are fixed.
+It is therefore real exactly when $\Sigma_k$ carries the sign $(-1)^k$ on every direction the source reaches.
+For generic vertices, the sources reach every direction and the sign is fixed on the whole field.
+For the vertices of a given conformal field theory, the source map need not be surjective.
+The directions of $\Sigma_k$ it misses are absent from the dynamics, and on them the condition~\eqref{p:eq:conv:reality-fields} is a choice.
+
+The conditions~\eqref{p:eq:conv:reality-fields} collect these results.
+They follow one rule when read on strands: the string field $\Psi$ and the gauge parameter $\Lambda$ are star-odd, and a tensor is star-odd exactly when it has an odd number of star-odd strands.
+The strands of ghost number three that occur, those of the outputs of the products on the slice, are star-even, by the same stripping argument as for $\ell_m$.
+
+\subparagraph{Reality of the solution.}
+
+We eliminate the auxiliary fields by inverting their dressed kinetic operators on the sources.
+A map built from the vertices commutes with the star on the real slice, by the reality of the vertices, and so does its inverse on a star-stable quotient.
+The solution therefore satisfies~\eqref{p:eq:conv:reality-fields} level by level, as a formal series in $\gs$ and wherever the dressed operators are invertible.
+Where one of them is degenerate and the source lies in its range, the class of the solution in the quotient is real.
+\Cref{p:sec:hs:quintic} works this out at the first order where an inverse appears, with the kernel of $\sprod{2}{2}$ quotiented.

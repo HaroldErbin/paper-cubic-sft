@@ -1,0 +1,136 @@
+
+\subsubsection{The Hubbard--Stratonovich action as a truncation}
+\label{p:sec:barcobar:truncation}
+
+The cubic action of \cref{p:sec:hs} keeps a finite number of auxiliary fields at each order, $\Sigma_k$ for $2 k \le n$ at order $\gs^{n-2}$, and carries no multipliers.
+We relate it to~\eqref{p:eq:barcobar:multiplier-action} at quartic order, where the relation is an identity.
+We keep $\Psi$, $\Sigma_2$ and $\Theta_2$, and we replace $\Sigma_3$ in the cubic vertex by its value $\Psi^3$ on the diagonal, so that $\Theta_3$ never appears.
+We also replace $\Sigma_4$ in the quartic vertex by $\Sigma_2 \otimes \Sigma_2$, the split $(2, 2)$ of~\eqref{p:eq:barcobar:factorization}, so that this vertex becomes quadratic in $\Sigma_2$:
+\begin{equation}
+  \label{p:eq:barcobar:chain-action}
+  \caction[\mathrm{chain}]
+    := S_2 + S_3
+      + \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+      + \pair[2]{\Theta_2}{\Sigma_2 - \Psi^2}.
+\end{equation}
+The multiplier form does not impose this split, so that~\eqref{p:eq:barcobar:chain-action} is not simply~\eqref{p:eq:barcobar:multiplier-action} truncated to $k \le 2$.
+The $\Sigma_2$ equation of~\eqref{p:eq:barcobar:chain-action} fixes the multiplier:
+\begin{equation}
+  \label{p:eq:barcobar:composite-multiplier}
+  \pair[2]{\Theta_2}{\cdot}
+    = - \frac{\gs^2}{12} \, \vertex{4}(\Sigma_2, \cdot).
+\end{equation}
+Substituting this value back into the action, off-shell in $(\Psi, \Sigma_2)$, we get:
+\begin{equation}
+  \label{p:eq:barcobar:identity}
+  \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+    - \frac{\gs^2}{12} \, \vertex{4}(\Sigma_2, \Sigma_2 - \Psi^2)
+    = - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+      + \frac{2 \gs^2}{4!} \, \vertex{4}(\Sigma_2, \Psi^2)
+    = \caction[4],
+\end{equation}
+the quartic term of the cubic action of \cref{p:sec:hs:quartic}, with its ratio $2 : 1$ between the source and the quadratic term.
+The ratio follows from the structure alone.
+For any term $F(\Sigma_2)$ quadratic in $\Sigma_2$, the multiplier fixed by the $\Sigma_2$ equation turns $F(\Sigma_2) + \pair[2]{\Theta_2}{\Sigma_2 - \Psi^2}$ into the completed square $F(\Psi^2) - F(\Sigma_2 - \Psi^2)$.
+For $F = \tfrac{\gs^2}{4!} \, \vertex{4}$ this is $S_4 + \Delta S_4$ of~\eqref{p:eq:hs4:S4tilde}.
+The chain action~\eqref{p:eq:barcobar:chain-action} and $S_2 + S_3 + \caction[4]$ have the same solutions for $\Psi$, and for $\Sigma_2$ modulo $\ker \sprod{2}{2}$.
+They are not related by a field redefinition, since $\Theta_2$ is an independent field in the first and absent from the second.
+
+The identity~\eqref{p:eq:barcobar:identity} shows where the cubic action finds the pairing that their space lacks.
+The multiplier form adds a dual tower. The Hubbard--Stratonovich action instead uses the quartic vertex itself, a Grassmann-even symmetric form on the $2$-string space supplied by the theory.
+This form needs no odd symplectic structure, because $\Sigma_2$ has no $Q_B$ kinetic term, and it is degenerate exactly on $\ker \sprod{2}{2}$, which is why $\Sigma_2$ lives on the quotient of \cref{p:sec:hs:quartic}.
+
+Their scalar field example shows the difference with the string case.
+There the quartic vertex is the contact term $\int \phi^4$, which vanishes on every off-diagonal component of a bilocal field $\Sigma_2(x, y)$.
+The quotient therefore reduces $\Sigma_2$ to the local field $\Sigma_2(x, x)$ of the usual Hubbard--Stratonovich transformation.
+In string field theory the quartic vertex integrates over a region of moduli space, its kernel is the one of \cref{p:sec:hs:quartic}, and $\Sigma_2$ remains a genuine $2$-string field.
+
+At quintic order the only rewriting of $\vertex{5}(\Sigma_5)$ which is cubic in $\Psi$ and $\Sigma_2$ is $\vertex{5}(\Sigma_2^2, \Psi)$, with the coefficient $\gs^3 / 5!$ of \cref{p:sec:hs:quintic}.
+The price is visible there.
+From the quintic order on, we assume, as in \cref{p:sec:hs:quartic,p:sec:hs:quintic}, that the quadratic form $\vertex{4}$ is invertible on the quotient by its kernel, level by level, and that the quintic vertex vanishes on that kernel.
+The kinetic operator of $\Sigma_2$ is replaced by the dressed operator $\kin{2}{\Psi}{3}$, the solution $\Sigma_2^{(3)*} = \Psi^2 + O(\gs)$ leaves the diagonal, and the eliminated action reproduces $S_{\le 5}$ up to a term of order $\gs^4$ which the next order absorbs.
+In their construction the conditions $\Sigma_k = \Psi^k$ are exact equations at every order and $B$ acts by the elementary products on the strands.
+The truncation trades this exactness for a cubic action in a finite number of fields, and re-absorbs the mismatch order by order through the reduced vertices $\dvertex{n}$ of \cref{p:sec:all-orders}, under the assumptions stated there.
+
+We can now list the parts of their structure that are kept and those that are dropped.
+The type-II fields are dropped altogether, which costs nothing for canonical solutions by their theorem.
+The type-I fields of length above $n / 2$ at order $\gs^{n-2}$ are replaced by tensor products of lower-order fields, $\Psi$ included, given by the factorization conditions~\eqref{p:eq:barcobar:factorization}, rather than set to zero, so that every vertex becomes quadratic or cubic in the fields kept.
+The multiplier tower is replaced by the quadratic forms of the $\Sigma_k$, built from $\vertex{2k}$ and reduced by the lower-order fields and exchanges (\cref{p:sec:all-orders}).
+The factorization condition for $\Sigma_2$ becomes the equation of motion $\sprod{2}{2}(\Sigma_2 - \Psi^2) = O(\gs)$, so $\Sigma_2 = \Psi^2$ holds only modulo $\ker \sprod{2}{2}$ and at leading order.
+The components of $B \Phi_1 = 0$ with several output strands are not imposed.
+
+In this precise sense, the cubic action is not a consistent truncation of their equations.
+Fields are substituted rather than set to zero, the pairing is changed, and the solution for $\Sigma_2$ leaves the diagonal at order $\gs$, while the original action is recovered order by order.
+Conversely their theory is not a truncation of ours, which has an action, no type-II fields and a finite number of auxiliary fields at each order.
+The cubic action has the field content of their canonical type-I sector up to the largest length kept at each order.
+Its equations of motion have the same solutions for $\Psi$ as theirs in the canonical gauge $\Phi_{f \ge 2} = 0$, order by order in $\gs$ and modulo the kernels of the quadratic form and of the nested operators of the auxiliaries, under the assumptions of \cref{p:sec:all-orders}. The auxiliary fields agree with $\Sigma_k = \Psi^k$ only at leading order and modulo these kernels.
+Indeed, our equations of motion reproduce the original one in this sense, their canonical equations reduce to it as shown above, and their theorem is needed only to reach the canonical gauge.
+
+\subsubsection{Gauge symmetry}
+\label{p:sec:barcobar:gauge}
+
+Their gauge transformation,
+\begin{equation}
+  \label{p:eq:barcobar:gauge}
+  \delta \Phi
+    = (B + \Delta_c) \hat\Lambda + [\Phi, \hat\Lambda],
+\end{equation}
+has one parameter $\hat\Lambda_{f, r}$ for every factor number $f$ and every length $r$.
+In particular it contains an independent $2$-string parameter $\hat\Lambda_{1, 2} \in \Hn{2}$ of ghost number three, of the same degree as the parameter $\Lambda_2$ of \cref{p:sec:gauge}.
+  Within the classes examined there, every theory of which the cubic action is a gauge-fixed form is a trivial enlargement; we have not worked out how $\hat\Lambda_{1, 2}$ relates to these classes.
+Restricted to the canonical sector and to parameters of factor number one, the transformation preserves the canonical form only for
+\begin{equation}
+  \label{p:eq:barcobar:canonical-parameters}
+  \hat\Lambda_{1, r}
+    = \frac{1}{(r - 1)!} \, \Lambda \otimes \Psi^{r - 1},
+\end{equation}
+symmetrized over the strands, with a single-string $\Lambda$, by the symmetric form of their result quoted above.
+Within the canonical sector, the $2$-string parameter is therefore fixed by the single-string one.
+An independent $\hat\Lambda_{1, 2}$ generates type-II components and leaves the canonical sector.
+On $\Psi$ the transformation is the gauge transformation of the original theory, and on $\Sigma_2$ it reads:
+\begin{equation}
+  \label{p:eq:barcobar:gauge-sigma}
+  \delta_\Lambda \Sigma_2
+    = 2 \, \delta_\Lambda \Psi \otimes \Psi
+      + 2 \, \mathcal E_\Psi \otimes \Lambda,
+\end{equation}
+where $\mathcal E_\Psi$ is the equation of motion of the original theory and the products are understood inside a symmetric vertex as in \cref{p:sec:hs:quartic}.
+We have fixed the relative sign of the second term only in finite-dimensional models with commuting fields, of the kind described in \cref{p:app:finite-models}, where no Grassmann sign arises.
+The first term is the composite law of \cref{p:sec:hs:quartic}.
+The second term vanishes on-shell, and it has to be there: their transformation is a symmetry of their equations, which have no action, and preserves the diagonal $\Sigma_2 = \Psi^2$ on-shell only, whereas the composite law preserves it off-shell.
+  The two laws differ by $2 \, \mathcal E_\Psi \otimes \Lambda$, a term proportional to the equation of motion of the original theory, so that they agree on-shell.
+
+The independent parameter $\hat\Lambda_{1, 2}$ exists in their theory, where it is used up in reaching the canonical gauge.
+By their theorem, under the same assumptions, the type-II components of any solution can be set to zero by a gauge transformation, after which only the single-string parameters remain.
+The gauge symmetry of the cubic action is thus the residue of theirs in the canonical gauge.
+
+\subsubsection{Additional structure of the cubic action}
+\label{p:sec:barcobar:structure}
+
+Their quadratic equation is universal. The cubic action, instead, is built from the vertices of the theory, needs its quartic form to be invertible on the quotient by its kernel, and adds two things.
+First, it is an action. Its equations of motion are quadratic in the fields, like theirs, but they derive from a variational principle.
+It comes with the Feynman rules in which the exchange of $\Sigma_2$ reproduces the quartic vertex, with a Gaussian integral over the auxiliary fields, with a Batalin--Vilkovisky master action and a spectrum (\cref{p:sec:gauge}), and with classical solutions.
+Second, it is gauge invariant to the order of the truncation, with a transformation of the auxiliary fields induced by that of $\Psi$.
+This is the composite law at quartic order, corrected from the quintic order on by a rotation of the fluctuation (\cref{p:sec:gauge}).
+Closing the symmetry at each order requires the reduced vertices, with a finite number of auxiliary fields at each order rather than their whole tower.
+
+We now return to their two obstructions.
+In our grading, their counting argument does not apply as such, since the state space contains every ghost number.
+The part that survives is that the $r$-string pairing $\pair[r]{\cdot}{\cdot}$ has, in their grading, the length-dependent degree $- r - 2$. For $r = 1$, this is the value $- 3$ of the single-string pairing, which they describe as a form of degree three.
+Therefore, none of these pairings can serve as a cyclic form on the whole tower. This does not exclude another form.
+
+The cubic action evades the first obstruction at the classical level, by pairing each auxiliary field with a multiplier in the multiplier form, or by using the even forms $\vertex{2k}$, reduced, on the quotient by their kernels.
+It does not supply an odd symplectic form of uniform degree on the multi-string space, which would present the tower as a cyclic $\Loo$ algebra on the fields alone. A formulation which requires such a form meets their first obstruction unchanged.
+
+The second obstruction does not arise for the cubic action: there are no type-II fields, and the equations of motion are the gradients of an action.
+The $\Psi$ equation contains $\vertex{4}(\Sigma_2, \Psi, \cdot)$ and the $\Sigma_2$ equation contains $\vertex{4}(\cdot, \Psi^2)$, whose derivatives with respect to $\Sigma_2$ and to $\Psi$ are transposes of each other.
+We have checked in finite-dimensional models, of the kind described in \cref{p:app:finite-models}, that their canonical equations on $(\Psi, \Sigma_2)$ alone are the gradient of no action for any constant non-degenerate form.
+An action is obtained either by enlarging the field space, as the multipliers do, or by changing the equations off the diagonal on the same fields, as the quartic vertex does in the cubic action.
+
+\subsubsection{Limits of the comparison}
+\label{p:sec:barcobar:limits}
+
+The comparison is classical.
+The formulation of the quantum theory on their enlarged space is left open in their paper, and we have not compared the loop expansions of the two constructions.
+Their construction is algebraic and, under their assumptions, applies to any $\Loo$ field theory.
+We carry out our transformation for the bosonic closed string, and we do not examine here whether the kernels of the vertices and the reality conditions carry over to the superstring.

@@ -1,0 +1,202 @@
+\subsection{Frozen-neck sewing and the chain surfaces}
+\label{rs:sec:frozen}
+
+We now ask what surface, if any, sits behind a single colour-2 contraction, and
+what a chain of them looks like. The answer is a legitimate but measure-zero
+surface, and a chain is a \emph{discrete} family, in sharp contrast to the
+continuous family swept by \eqref{rs:eq:sewing}.
+
+\subparagraph{A single bare contraction is frozen-neck sewing.} Before inverting
+anything, consider the bare pairing $G_2^{-1}=\omega_1^{-1}\otimes\omega_1^{-1}$
+inserted between two surface states. The sewing theorem says that inserting a
+complete set $\sum_a\ket{\phi_a}\bra{\phi^a}$ at a pair of punctures, dressed with
+the plumbing weight $q^{L_0}\bar q^{\bar L_0}$ and integrated with the $b$-ghost
+measure, glues the two surfaces into one with neck modulus $q$ and reproduces the
+family \eqref{rs:eq:sewing}. Dropping the \emph{length}-modulus weight --- fixing
+$s=0$ (equivalently $|q|=1$), with no $s$-integration and no $b_0^+$ --- still
+glues the surfaces, but into a \emph{single point} of the larger moduli space
+rather than a family. In words: \emph{ordinary} plumbing sews two punctures and
+then \emph{lets the neck stretch}, sweeping out a whole family of surfaces as $s$
+varies; a \emph{frozen-neck} contraction sews the same two punctures but the neck
+never stretches --- $s$ is pinned at $0$, so exactly one surface comes out, not a
+family. \textbf{Checked against the closed-string sewing conventions of~\cite{Erbin:2021:StringFieldTheory}}:
+the sum $\sum_a\ket{\phi_a}\bra{\phi^a}$, with the $\omega_1$-dual $\bra{\phi^a}$,
+is \emph{exactly} the bivector $\omega_1^{-1}=b_0^-\delta_{L_0^-,0}$ --- since
+$\omega_1(A,B)=\Mean{A|c_0^-|B}$ and $\{c_0^-,b_0^-\}=1$ on $\ker b_0^-$, so
+$b_0^-c_0^-=\id$ there. This retains \emph{one} $b$-ghost ($b_0^-$) plus the
+level-matching projector; what is genuinely dropped relative to the full
+propagator \eqref{rs:eq:sewing} is only the length-modulus factor $b_0^+/L_0^+$.
+Hence:
+\begin{definition}[Frozen-neck contraction]
+	\label{rs:def:frozenneck}
+	A \emph{frozen-neck contraction} between two punctures is the gluing obtained
+	from the ordinary plumbing construction \eqref{rs:eq:sewing} by fixing the length
+	modulus at $s=0$ (equivalently $|q|=1$) instead of integrating over it, and
+	omitting the length-modulus factor $b_0^+/L_0^+$ (the $b_0^+$ ghost and the
+	Schwinger integral $\int\dd s\,\e^{-sL_0^+}$), while retaining the
+	level-matching sewing measure $b_0^-\delta_{L_0^-,0}$. Concretely, it is
+	insertion of the bivector
+	$\omega_1^{-1}=\sum_a\ket{\phi_a}\bra{\phi^a}=b_0^-\delta_{L_0^-,0}$ at the two
+	punctures, with \emph{no} $q^{L_0}\bar q^{\bar L_0}$ length weight and
+	\emph{no} $\int\dd s$.
+\end{definition}
+\begin{quote}
+	\textbf{Frozen-neck identification.} \emph{One $\omega_1^{-1}=b_0^-\delta_{L_0^-,0}$ contraction
+	between two punctures is plumbing with the \textbf{length} modulus frozen
+	(\Cref{rs:def:frozenneck}, no $b_0^+/L_0^+$), retaining the level-matching
+	sewing measure: a legitimate CFT surface, of measure zero in its moduli
+	space.} \emph{(Checked against the sewing conventions of~\cite{Erbin:2021:StringFieldTheory}
+	--- cross-checked two independent ways [operator factorisation
+	of Erbin's $K\Delta=1$, and explicit ghost zero-mode matrices] plus a
+	finite-dimensional check. The discriminant between a colour-1
+	(propagating) and colour-2 (contact) line is the \emph{length}-modulus
+	$b_0^+/L_0^+$, not the presence of any $b$-ghost whatsoever --- the retained
+	$b_0^-\delta_{L_0^-,0}$ is common to both. Remaining open item: $|q|=1$
+	sewing for the \emph{stubbed} vertex local coordinates converges via the
+	stub's $\e^{-\frac{s_0}2 L_0^+}$ suppression at an effective neck $s_0>0$,
+	consistent-with the book's plumbing range, not independently re-derived from
+	scratch here.)}
+\end{quote}
+A colour-2 edge (\Cref{rs:def:colour2edge} below) is built from \emph{two} such
+contractions at once, one per puncture of the pair; a chain (\Cref{rs:def:chain}
+below) is built by iterating them along a sequence of vertex regions. Both
+inherit the frozen-neck identification above: they are honest, CFT-verified surfaces at
+the level of the sewing formalism, with the length-frozen,
+level-matching-retained fixture just established.
+
+\subparagraph{A colour-2 edge is two contractions at once; it fixes the genus.}
+\begin{definition}[Colour-2 edge]
+	\label{rs:def:colour2edge}
+	A \emph{colour-2 edge} between two $V_4(\Sig,\Psi,\Psi)$ vertex regions is a
+	pair of simultaneous frozen-neck contractions (\Cref{rs:def:frozenneck}), one at
+	each of the two punctures carrying the $\Sig\in\Sym^2\Hilb_0$ leg. Equivalently,
+	it is insertion of the bivector
+	$G_2^{-1}=\omega_1^{-1}\otimes\omega_1^{-1}
+	=(b_0^-\delta_{L_0^-,0})^{\otimes2}$ between the two vertices'
+	$\Sig$-punctures: two $b_0^-$'s (one per strand), no $b_0^+/L_0^+$.
+\end{definition}
+The Euler characteristic is additive under sewing.
+Gluing two four-punctured spheres ($\chi=-2$ each, total $\chi=-4$) over two
+puncture pairs leaves $n_{\rm ext}=4$ external punctures, so from
+$\chi=2-2g-n_{\rm ext}$,
+\begin{equation}
+	-4 = 2-2g-4 \quad\Longrightarrow\quad g=1.
+	\label{rs:eq:g1}
+\end{equation}
+The resolved surface behind one colour-2 edge is therefore a \emph{genus-one}
+surface, frozen at a point of its neck moduli.
+
+\begin{definition}[Length-$k$ chain]
+	\label{rs:def:chain}
+	A \emph{length-$k$ chain} is the surface obtained by joining $k$ copies of the
+	four-punctured-sphere vertex region $\mc{V}_{0,4}$ in series with $k-1$
+	colour-2 edges (\Cref{rs:def:colour2edge}): vertex $1$'s $\Sig$-pair is
+	frozen-neck-contracted to vertex $2$'s, vertex $2$'s remaining $\Sig$-pair to
+	vertex $3$'s, and so on, leaving the $4$ punctures at the two ends of the chain
+	(one $\Sig$-pair from vertex $1$, one from vertex $k$) uncontracted as the
+	external legs. Equivalently, a length-$k$ chain is the surface underlying one
+	term of the operator $\mtwo^{k-1}$ (\Cref{rs:eq:m2squared} below spells out
+	$k=2$).
+\end{definition}
+\emph{Worked example.} A length-$2$ chain is a single colour-2 edge joining two
+$\mc{V}_{0,4}$'s: by \eqref{rs:eq:g1}, $g=1$, a once-punctured-torus-like handle
+frozen at one point of its neck modulus, with $4$ external legs ($2$ from each
+vertex) and $1$ unfrozen modulus \emph{per vertex} ($2$ complex moduli total,
+i.e.\ $m$ and $m'$ each ranging over $\mc{V}_{0,4}$). A length-$3$ chain adds one
+more vertex and one more colour-2 edge: $\chi=-2-2-2=-6$, $n_{\rm ext}=4$, so
+$2-2g-4=-6\Rightarrow g=2$; three unfrozen vertex moduli, two frozen necks. In
+general, for a chain of $k$ vertices joined by $k-1$ colour-2 edges the same
+count gives $\chi=-2k$, $n_{\rm ext}=4$, hence
+\begin{equation}
+	g=k-1,
+	\label{rs:eq:chaingenus}
+\end{equation}
+this is the two-gradings statement of \cref{sec:ws1:grading}, now with its surface identified. The
+chain is a family of genus-$(k-1)$ surfaces whose only unfrozen moduli are the
+$k$ vertex-region moduli (a measure-zero slice of $\mc{M}_{k-1,4}$, whose complex
+dimension is $3k-2$, for $k\ge2$: at $k=2$ that slice is $2$ real dimensions out
+of $3\cdot2-2=4$ complex $=8$ real). See \Cref{rs:fig:chain}.
+
+\subparagraph{Why the genus is formal: the three-grading table.} The physical
+gradings all follow the \emph{coloured} graph (edge = one edge), not the resolved
+surface. \Cref{rs:tab:grading} tabulates the mismatch for a chain of $k$ vertices. In
+every row the resolved-surface prediction would attach a cost --- a $\gs$-power, a
+$b$-insertion, a modulus --- to a handle that the amplitude never pays for,
+because the neck is frozen and never integrated. This is the 't~Hooft double-line
+situation \cite{tHooft1974} run in reverse: the ribbon (resolved) genus exists as
+Euler-characteristic bookkeeping, but no coupling is attached to it. In the
+physical (coloured) grading the chain is a \emph{tree}, $L_c=E-V+1=0$.
+
+\begin{table}[htp]
+	\centering
+	\begin{tabular}{p{0.16\linewidth}p{0.37\linewidth}p{0.37\linewidth}}
+		\toprule
+		grading & resolved-surface prediction (chain of $k$) & actual (HS Feynman rules) \\
+		\midrule
+		coupling
+		& $\gs^{2g}=\gs^{2(k-1)}$ relative suppression at genus $g=k-1$
+		& uniform $\gs^{2}$: $k$ vertices ($\gs^2$ each) $\times$ $(k{-}1)$ propagators ($\gs^{-2}$ each) \\
+		moduli / $b$-count
+		& $2(3k-2)$ real moduli, $2(3k-2)$ $b$'s
+		& $2k$ real moduli ($k$ vertex regions), $2k$ $b$'s; the $2(2k-2)$ neck moduli and their $b$'s are absent \\
+		ghost number
+		& ---
+		& $\Ngh(\pklg)=3\ell-2k+g$ on the coloured tree \\
+		\bottomrule
+	\end{tabular}
+	\caption{The three physical gradings of a length-$k$ chain follow the coloured
+	graph, not the resolved genus-$(k-1)$ surface. The
+	discrepancy is the double-line phenomenon \cite{tHooft1974}: the resolved
+	handle exists as $\chi$-bookkeeping but carries no coupling because its neck
+	moduli are never integrated.}
+	\label{rs:tab:grading}
+\end{table}
+
+\subparagraph{$\mtwo$ as an integral operator; $\mtwo^n$ as a discrete family.}
+Raising the indices of \eqref{rs:eq:V4integral} with the frozen-neck bivectors,
+$\mtwo=G_2^{-1}V_4$ is the integral operator
+\begin{equation}
+	\mtwo = \int_{\mc{V}_{0,4}}\!\dd^2 m\; K(m),
+	\qquad
+	K(m) = \big(\omega_1^{-1}\otimes\omega_1^{-1}\big)\,
+	\Bra{\Sig_{0,4}(m)}\,b\,\bar b,
+	\label{rs:eq:m2integral}
+\end{equation}
+one fixed surface per moduli point. Composition uses the frozen-neck identification: the product of two
+such operators is the frozen-neck gluing of their surfaces,
+\begin{equation}
+	\mtwo^2
+	= \int_{\mc{V}_{0,4}}\!\!\int_{\mc{V}_{0,4}}\!\dd^2 m\,\dd^2 m'\;
+	K(m)\,K(m'),
+	\qquad
+	K(m)\,K(m') = \big[\,\Sig(m)\,\#_{q=1}\,\Sig(m')\,\big]^{\sharp},
+	\label{rs:eq:m2squared}
+\end{equation}
+a genus-one frozen-neck surface, and generally $\mtwo^n$ is the integral over the
+$n$ vertex moduli of the genus-$(n-1)$ frozen-neck chain. The key structural fact:
+\begin{quote}
+	\textbf{Discrete chains.} \emph{$\{\mtwo^n\}_{n\ge0}$ is a \textbf{discrete} semigroup of
+	(families of) surfaces, graded by chain length $n$, with
+	$\mtwo^n\,\mtwo^{n'}=\mtwo^{n+n'}$ realised by frozen-neck concatenation.
+	Contrast $\{e^{-sL_0^+}\}_{s\ge0}$: a \textbf{continuous} semigroup, graded by
+	cylinder length, with $s+s'$ realised by cylinder concatenation.}
+\end{quote}
+This is the precise content of the word ``contact''. The operator $L_0^+$ is the
+\emph{generator} of a geometric flow --- each instant of Schwinger time $s$
+deforms the surface --- whereas $\mtwo$ is a \emph{finished surface}: each
+application appends one complete, already-integrated vertex region through a rigid
+neck. There is no operator whose exponential flow grows $\mc{V}_{0,4}$ out of a
+point; the vertex region is an input of the construction, not an orbit.
+
+\medskip
+\noindent\emph{Physical meaning and a $b$-ghost check.} In
+$e^{-t\mtwo}=\sum_n\frac{(-t)^n}{n!}\mtwo^n$ the parameter $t$ multiplies
+\emph{fixed} chains by scalar weights: varying $t$ re-weights the discrete family
+and deforms no geometry. Thus $t$ is Laplace-dual to the interaction data
+$\spec(\mtwo)$, exactly as $s$ is Laplace-dual to the worldsheet energies
+$\spec(L_0^+)$. The diagnostic of \Cref{rs:tab:saturation} confirms the reading: the
+$s$-integral of \eqref{rs:eq:sewing} carries $b_0^+$, whereas a $t$-integral carries
+no $b$; were $t$ a modulus, the saturation \eqref{rs:eq:saturation} would fail by one
+unit on every $\Sig$-exchange. \emph{(See \cref{sec:ws1:schwinger}; the reading is structural,
+resting on the frozen-neck identification.)}
+

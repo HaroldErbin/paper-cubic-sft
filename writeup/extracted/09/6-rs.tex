@@ -1,0 +1,60 @@
+\subsection{The open-string \texorpdfstring{$KBc$}{KBc} dictionary}
+\label{rs:sec:osft}
+
+We now compare with Witten's open-string product and with the analytic
+($KBc$) solution technology. The analogy is tight and entry-by-entry, and it does
+useful work: it shows that manipulating a non-geometric object like $\mtwo^{-1}$
+is exactly the closed-string counterpart of the wedge-algebra bookkeeping that
+makes analytic solutions well-defined, and it locates the one genuinely open
+question on the closed side.
+
+\subparagraph{The $KBc$ algebra in one paragraph.} The analytic-solution technology
+of open SFT \cite{Schnabl2005,ErlerSchnabl2009,Erler2019} is built on the algebra
+$K,B,c$: $K$ \emph{generates} worldsheet strips, so $e^{-tK}$ is a wedge of width
+$t$ (one surface per $t$, a continuous semigroup); $B$ is its $b$-ghost partner;
+$c$ a boundary insertion. \Cref{rs:tab:osft} gives the entry-by-entry
+correspondence.
+
+\begin{table}[htp]
+	\centering
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{p{0.42\linewidth}p{0.42\linewidth}}
+		\toprule
+		open string ($KBc$) & closed HS \\
+		\midrule
+		$K$: strip \emph{generator}; $e^{-tK}$ = one surface per $t$ (continuous semigroup)
+		& $L_0^+$: cylinder generator; $e^{-sL_0^+}$ = one surface per $s$ (both geometric) \\
+		Witten $*$: half-string overlap, moduli-free vertex; covers $\mc{M}$ with $1/K$ alone \cite{GiddingsMartinecWitten1986}
+		& vertex regions $\mc{V}_{0,n}$: moduli-free \emph{as vertices} (moduli pre-integrated); do \textbf{not} cover $\mc{M}$ alone (Sonoda--Zwiebach) --- hence the tower \\
+		wedge algebra $e^{-t_1K}e^{-t_2K}=e^{-(t_1+t_2)K}$: width additive, continuous
+		& chain monoid $\mtwo^{n}\mtwo^{n'}=\mtwo^{n+n'}$: length additive, \textbf{discrete} (\cref{rs:sec:frozen}) --- the central structural analogy \\
+		$\dfrac{1}{1+K}=\int_0^\infty\!\dd t\,e^{-t}e^{-tK}$: geometric, every fibre an honest positive-width strip
+		& $\mtwo^{-1}=\sum_n (D^{-1}N)^nD^{-1}$ \eqref{p:eq:ws:neumann}: ``geometric'', every term an honest frozen-neck chain \\
+		inverse wedge $e^{+K}$ (``negative width''): formal, non-geometric; legal only with net positive width, $e^{K}e^{-2K}=e^{-K}$
+		& $\mtwo^{-1}$ bare: formal, non-surface (\cref{p:sec:ws:inverse}); legal sandwiched, $V_4V_4^{-1}V_4=V_4$ \eqref{p:eq:hs4:telescoping} \\
+		$1/K$ dangerous: $\spec(K)$ reaches $0$ (sliver); needs the security strip / phantom terms
+		& $1/\mtwo$ conditional: $\spec(\mtwo)$ bounded from $0$ (\cref{ch:momentum-space}); kernel quotiented \\
+		\bottomrule
+	\end{tabular}
+	\caption{The open-SFT $KBc$ dictionary. Left column: literature
+	\cite{Schnabl2005,ErlerSchnabl2009,Erler2019,GiddingsMartinecWitten1986}.
+	Right column: results of \cref{p:sec:hs:quartic,p:sec:ws:inverse,sec:ws1:schwinger}. The correspondence itself is an
+	organising analogy, not a theorem.}
+	\label{rs:tab:osft}
+\end{table}
+
+\subparagraph{Two uses of the dictionary.} \emph{(a)} It says exactly what an
+analytic-solution practitioner means by manipulating non-geometric elements: what
+the telescoping~\eqref{p:eq:hs4:telescoping} licenses --- formal inverses are permitted whenever the full expression
+telescopes to net-geometric objects, and the amplitude identity \eqref{eq:ch2:amp:sum}
+is the closed-string counterpart of the wedge-width bookkeeping that makes
+solutions of the type $\psi=\frac{1}{1+K}c(1+K)Bc\frac{1}{1+K}$ well-defined.
+\emph{(b)} It locates the genuinely open question: Erler-style control of
+$1/(1+K)$ rests on $\spec(K)\ge0$; the closed analogue --- positivity or a gap of
+$\mtwo$ on $\Sym^2\Hilb_0$ --- is the question of \cref{ch:momentum-space}, and the dictionary suggests
+importing the OSFT toolkit (resolvent estimates, level-truncated spectral density)
+rather than seeking a worldsheet representation of $\mtwo^{-1}$ that, by
+\cref{p:sec:ws:inverse}, does not exist in the class of local kernels defined there. \emph{(Interpretive: the OSFT-side facts are
+literature, the closed-side facts are the results cited in the table, the correspondence is an
+analogy.)}
+

@@ -1,0 +1,58 @@
+\subsection{The \texorpdfstring{$\Sig_k$}{Sigma_k} tower}
+\label{rs:sec:tower}
+
+The all-orders construction (\cref{ch:all-orders}) adds, per level $k$: a kinetic
+vertex $\tilde V_{2k}(\Sig_k,\Sig_k)$, an odd coupling
+$\tilde V_{2k+1}(\Sig_k,\Sig_k,\Psi)$, and a source $L_k$ coupling $\Sig_{k-1}$ to
+$\Sig_k$. Everything in \cref{rs:sec:kernels,rs:sec:frozen,p:sec:ws:inverse,rs:sec:operad,rs:sec:osft}, and in the three-channel collapse of \cref{sec:order:amplitude},
+extends verbatim with the colour set $\{C_k\}$. See \Cref{rs:fig:cable,rs:fig:tower}.
+
+\begin{itemize}[leftmargin=*]
+	\setlength{\itemsep}{1ex}
+
+	\item \textbf{Edges are $k$-strand cables.} A colour-$k$ edge contracts
+	$G_k^{-1}$, i.e. $k$ simultaneous frozen-neck sewings; by \eqref{rs:eq:genus} it
+	adds $k-1$ to the resolved genus and $0$ to the physical one. A single $\Sig_3$
+	edge already hides a frozen genus-$2$ surface (\Cref{rs:fig:cable}). The
+	coloured-tree cubic action thus resums, at order $\gs^{2K}$, frozen
+	configurations of resolved genus up to $\sum_e(k_e-1)$ --- with no $\gs$-cost,
+	no neck moduli, no $b$'s: the three-grading table certifies the coloured
+	reading at every $k$.
+
+	\item \textbf{Vertex regions.} $\tilde V_{2k}$ lives on a (dressed) region
+	$\mc{V}_{0,2k}$ with $\dim_\R=2(2k-3)$, and the saturation
+	\eqref{rs:eq:saturation} holds identically at every $k$ (last two rows of
+	\Cref{rs:tab:saturation}): the tower is ghost-consistent as a family of
+	\emph{bona fide} elementary vertex regions.
+
+	\item \textbf{Dressing = amputated colour-2 subtrees.} The dressed kernel
+	$\tilde V_{2k}=V_{2k}+(\text{terms containing }V_4^{-1},\dots)$ is, in coloured-graph
+	language, the bare $2k$-punctured region \emph{minus} its colour-reducible
+	parts --- ``vertex $=$ amplitude minus exchanges'', now at the level of kernels
+	with frozen necks, which is why no moduli bookkeeping accompanies the
+	subtraction (\cref{ch:all-orders}).
+
+	\item \textbf{The continued fraction is nested telescoping.} The recursion of the matching theorem (\cref{ch:all-orders})
+	\begin{equation}
+		\hat H_k
+		= \hat M_k
+		- \gs^2\,\frac{(2k)!}{(2k+2)!}\,L_{k+1}^\top\,\hat H_{k+1}^{-1}\,L_{k+1}
+		\label{rs:eq:cfrac}
+	\end{equation}
+	reads geometrically as: the effective colour-2 kernel at level $k$ is the
+	level-$k$ vertex region corrected by chains passing through ever-higher strand
+	numbers. Every $\hat H_{k+1}^{-1}$ appears sandwiched between $L_{k+1}$'s, so
+	the whole fraction telescopes to contact support --- the all-orders version of
+	\eqref{eq:ch2:amp:sum}. Convergence in $\gs$ of the infinite fraction (an open
+	item) is the tower analogue of the spectral condition of \Cref{rs:sec:osft}(b).
+\end{itemize}
+
+\medskip
+\noindent\emph{Physical meaning.} The tower does not introduce any new
+\emph{geometric} ingredient: each new level is another colour, another rigid
+cable, another frozen-neck contraction. The entire content of ``a cubic action
+exists at every order'' is that all the higher-genus \emph{resolved}
+surfaces it silently resums are frozen and unpaid-for --- the physical expansion
+stays a coloured tree. \emph{(The geometric reading is
+structural, inheriting the frozen-neck identification at every $k$.)}
+

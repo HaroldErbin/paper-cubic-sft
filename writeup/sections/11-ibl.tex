@@ -24,7 +24,7 @@ It holds the following results.
 
 \noindent\status{Proven} The raised family with the operations with no input or no output included satisfies every genus-zero \IBL{} relation if and only if the $\ell_n$ form a cyclic \Loo{} algebra; the degree bookkeeping needs $d = \tfrac{1}{2}$, outside the integer values of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}.\record{026-linfty-to-ibl-repackaging (R31)}
 
-\noindent\status{mixed} Without those operations the relation at signature $(1, 2)$ holds, and so does every relation with one input or one output, but the relation at $(2, 2)$ is not implied by the \Loo{} relations, as a statement on general cyclic \Loo{} algebras: one cyclic \Loo{} algebra violates every relation with $k, \ell \ge 2$; whether the closed-string products satisfy it is not evaluated.\record{026-linfty-to-ibl-repackaging (R16)}
+\noindent\status{mixed} Without those operations the relation at signature $(1, 2)$ holds, and so does every relation with one input or one output, but the relation at $(2, 2)$ is not implied by the \Loo{} relations, as a statement on general cyclic \Loo{} algebras: one cyclic \Loo{} algebra violates every relation with $k, \ell \ge 2$ for its given products, the violation at $(k, \ell) \neq (2, 2)$ being removed by a cyclic \Loo{} isomorphism; whether the closed-string products satisfy it is not evaluated.\record{026-linfty-to-ibl-repackaging (R16)}
 
 \noindent\status{mixed} The braces of a parity-inhomogeneous differential operator $\mathcal D$ form a curved \Loo{} algebra if and only if the brace criterion~\eqref{p:eq:ibl:brace-criterion} holds; the family with two or more outputs is not the brace structure of any such operator within the hosts considered.\record{026-linfty-to-ibl-repackaging (R32)}
 
@@ -37,7 +37,7 @@ A later check of this section corrects several of its wordings, and the paragrap
   \setlength{\itemsep}{0.3ex}
 
   \item The loop homotopy algebras of~\cite{Markl:2001:LoopHomotopyAlgebras} are \Loo{} algebras with a second-order operator of Batalin--Vilkovisky type; they are not presented as \IBL{} algebras, and the inverse pairing alone does not make them one.
-    For \IBL{} structures in string field theory the references are~\cite{Cieliebak:2015:HomologicalAlgebraRelated, Markl:2015:MVFormalismIBL} and Münster--Sachs~\cite{Muenster:2013:QuantumOpenClosedHomotopy}.
+    For \IBL{} structures in string field theory the references are~\cite{Cieliebak:2015:HomologicalAlgebraRelated, Markl:2017:MVFormalismIBL} and Münster--Sachs~\cite{Muenster:2013:QuantumOpenClosedHomotopy}.
 
   \item The first of the two \enquote{features} is correct in its facts and misleading in its framing.
     The statement it should make is the ghost-number balance of \cref{ch11:sec:transfer}: the kinetic operator of the $n$-string component, of ghost number $2 n$, has ghost number $n$, and no operator acting strand by strand with ghost number one can appear; in an \IBL{} algebra, by contrast, the differential acts on every strand of a multi-string state, so the auxiliary fields of the cubic action are not the multi-string components of an \IBL{} field.
@@ -53,6 +53,14 @@ A later check of this section corrects several of its wordings, and the paragrap
   \item The statement that the raised family is not an \IBL{} algebra in the sense of the definition of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} means first that its relations include the operations with no input or no output, which that definition excludes; the degree $d = \tfrac{1}{2}$ is a second point.
     That value is forced: the strand degree $3 - \Ngh$ is the only one affine in the ghost number that reproduces the degrees of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, and it gives $d = \tfrac{1}{2}$, for which their genus-counting variable would be odd (the derivation is~\eqref{ped:eq:cflmatch} of the pedagogical note below).
 \end{itemize}
+
+\noindent\status{no ledger entry} The value $d = \tfrac{1}{2}$ is a property of the raised family, not of closed string field theory.\record{120-muenster-degree-dictionary}
+Münster and Sachs~\cite{Muenster:2013:QuantumOpenClosedHomotopy} use no integer $d$ and give the loop parameter no degree: they shift the closed string space by two, so that the string field has degree zero and the odd symplectic form degree $-1$, and every structure map of their loop homotopy algebra, the products $l_n^g$ and the inverse symplectic form, has degree one.
+In the bookkeeping of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} this is $d = 0$ with the cohomological sign of the grading, and the operations with no input place their algebra in the extension of section~8 of that reference, not in its Definition~2.3.
+They never read a vertex with several outputs: in their grading the product $\sprod{m}{n}$ has degree $n$, the degree of $l_{m + n - 1}$ composed with $n - 1$ copies of the inverse symplectic form.
+No strand degree affine in the ghost number makes the degree of $\sprod{m}{n}$ independent of both $m$ and $n$, so a family that contains the vertices read with several outputs cannot have a uniform degree, and matching the form of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, independent of the outputs and linear in the inputs, forces $d = \tfrac{1}{2}$.
+Their shift by two is even and brings no Koszul sign, their odd form is the form $\Omega$ of the first block up to an overall sign that their text does not fix, and their raising by its inverse is the family $p^{\Omega}_{m, n}$, equal to $\sprod{m}{n}$ on inputs of even parity.
+The two sentences of the first block on $d = \tfrac{1}{2}$ are statements about~\cite{Cieliebak:2015:HomologicalAlgebraRelated} and stand; the degree count is machine-checked, including a check that no integer $d$ fits.
 
 \input{extracted/11/1-p}
 

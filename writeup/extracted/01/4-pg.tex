@@ -1,0 +1,118 @@
+\subsection{One shift, not two}
+\label{pg:sec:grading}
+
+The natural expectation runs as follows.
+The symplectic form of closed string field theory is graded antisymmetric and odd, and in the homotopy-algebra literature this is arranged by a degree shift of the string field.
+The auxiliary field $\Sigma$ has two tensor factors; each factor is a string field; so one expects two degree-shift units, one per factor, in the symplectic partner of $\braket{\cdot,\cdot}_2$.
+The correct count is one.
+This section writes the two-unit expectation down, shows where it fails, and identifies the single shift that does the job.
+The short version is that the \enquote{two} of the two tensor factors is real but counts $c_0^-$ insertions, and that count fixes the operation parity, not the suspension.
+
+\subsubsection{The naive count, and where it fails}
+\label{pg:sec:grading:naive}
+
+Let's write the expectation as a formula.
+A degree shift $s\colon\mc H_0\to\mc H_0[1]$ applied to each tensor factor changes the parity of a product state by
+\begin{equation}
+  \epsilon(x_1 \otimes x_2)
+    \longmapsto
+    \big( \epsilon(x_1) + 1 \big) + \big( \epsilon(x_2) + 1 \big)
+    = \epsilon(X) + 2
+    \equiv \epsilon(X) \pmod 2 .
+\end{equation}
+Two shift units add up to an even integer and do nothing to the $\Z_2$ parity of $X$.
+A parity relabelling that changes nothing cannot change an exchange sign: after the shift the pairing satisfies exactly the same relation \eqref{pg:eq:pairing:symmetric} as before and is still graded symmetric.
+The two-unit count therefore fails, not because the count of factors is wrong, but because an even shift is invisible to the statistics.
+The same remark applies to the shift $A_c=s^{-2}\tilde A_c$ by which Münster and Sachs place the closed string field in degree zero \cite{Muenster:2012:HomotopyAlgebrasString-kn,Muenster:2013:HomotopyAlgebrasQuantum}: it is an integer shift by $-2$, even, and it does not touch the parity \eqref{p:eq:conv:parity}.
+
+\subsubsection{The single shift}
+\label{pg:sec:grading:single}
+
+Now let's ask directly which relabelling $\epsilon\mapsto\epsilon+c_s$ turns \eqref{pg:eq:pairing:symmetric} into a graded-antisymmetric relation,
+\begin{equation}
+  \label{pg:eq:grading:antisym-demand}
+  \braket{Y, X}_2
+    \overset{?}{=}
+    - (-1)^{(\epsilon(X) + c_s)(\epsilon(Y) + c_s)} \, \braket{X, Y}_2 .
+\end{equation}
+Comparing with \eqref{pg:eq:pairing:symmetric}, the requirement is
+\begin{equation}
+  (-1)^{\epsilon(X) \epsilon(Y)}
+    = - (-1)^{(\epsilon(X) + c_s)(\epsilon(Y) + c_s)}
+  \quad\text{on the support.}
+\end{equation}
+With $a=\epsilon(X)$, $b=\epsilon(Y)$ and $a=b$ on the support \eqref{pg:eq:pairing:two-support}, the exponent on the right is $(a+c_s)^2\equiv a+c_s$, and the left exponent is $a^2\equiv a$; the relation holds if and only if $c_s\equiv1$.
+So exactly one odd shift unit is required, and one is consistent:
+\begin{equation}
+  \label{pg:eq:grading:symp}
+  \boxed{\;
+  \begin{aligned}
+    \braket{\cdot, \cdot}_2^{\rm symp}
+      &
+      := \braket{\cdot, \cdot}_2 \circ (s \otimes s)
+      \quad\text{on}\quad
+      \big( \mc H_0^{\otimes 2} \big)[1],
+    \\
+    \braket{Y, X}_2^{\rm symp}
+      &
+      = - (-1)^{\epsilon_s(X) \epsilon_s(Y)} \, \braket{X, Y}_2^{\rm symp},
+  \end{aligned}
+  \;}
+\end{equation}
+where $\epsilon_s=\epsilon+1$ is the shifted parity.
+The notation $s\otimes s$ deserves one sentence, because it is the trap: the two factors of $s\otimes s$ act on the two \emph{arguments} $X$ and $Y$ of the bilinear form, each argument being one element of $\mc H_0^{\otimes2}$ shifted once as a whole.
+They do not act on the two tensor factors $x_1$, $x_2$ of a single argument.
+The shift is per field, not per strand, because $\Sigma$ is one element of the enlarged complex $\Sym^2\mc H_0$, one entry of the form, hence one $C\to C[1]$, irrespective of how many single-string factors build it.
+
+\subsubsection{The two counts reconciled}
+\label{pg:sec:grading:reconcile}
+
+The two $\Z_2$ data are now separated.
+The number of $c_0^-$ insertions, two, is the number of tensor factors of $\Sigma$; it fixes the operation parity of $\braket{\cdot,\cdot}_2$, even, hence its graded symmetry.
+The number of suspension units, one, is the number of fields; it is the shift that produces the graded-antisymmetric presentation \eqref{pg:eq:grading:symp}.
+This form is even, not odd: $\braket{\cdot,\cdot}_2$ pairs states of equal total parity, so it is even in every grading whose parity is a function of the ghost number, and an odd pairing for $\Sigma$ needs a grading of another kind.
+The expected \enquote{two} is real, but it makes the pairing symmetric, the opposite of what a naive count suggests.
+The shift itself is a choice of presentation, not a fact about $\Sigma$: in the physical grading the two-string pairing is graded symmetric, full stop, and the antisymmetric object exists only in the shifted presentation.
+Nothing downstream depends on the label: the entries of $\braket{\cdot,\cdot}_2$, of $\mc V_4$ and of $p_{2,2}$ are the same in both presentations, and so are the kernel of $p_{2,2}$ and its cyclicity.
+
+\subsubsection{The smallest instance}
+\label{pg:sec:grading:example}
+
+Take four states of definite ghost number, $x_1,x_2$ at $N_{\rm gh}=2$ and $y_1,y_2$ at $N_{\rm gh}=3$, so that each slot saturates.
+Then $\epsilon(x_i)=0$, $\epsilon(y_i)=1$, $\epsilon(X)=\epsilon(Y)=0$.
+The Koszul sign in \eqref{pg:eq:pairing:two-def} is $(-1)^{\epsilon(x_2)\epsilon(y_1)}=(-1)^{0}=+1$, and
+\begin{align}
+  \braket{X, Y}_2
+    &
+    = \braket{x_1, y_1} \braket{x_2, y_2},
+  \\
+  \braket{Y, X}_2
+    &
+    = (-1)^{\epsilon(y_2)\epsilon(x_1)} \braket{y_1, x_1} \braket{y_2, x_2}
+    = s^2 \braket{x_1, y_1} \braket{x_2, y_2}
+    = + \braket{X, Y}_2,
+\end{align}
+using $\braket{y_i,x_i}=s\,(-1)^{0}\braket{x_i,y_i}=s\braket{x_i,y_i}$ in each slot, with $s = +1$ from \eqref{pg:eq:pairing:one-antisym}.
+The prediction of \eqref{pg:eq:pairing:symmetric} is $(-1)^{0\cdot0}=+1$: correct.
+Graded antisymmetry in the physical grading would predict $-(-1)^{0}=-1$: wrong.
+With one shift, $\epsilon_s(X)=\epsilon_s(Y)=1$, the shifted rule \eqref{pg:eq:grading:symp} predicts $-(-1)^{1\cdot1}=+1$: correct again.
+
+For the other sign, take $x_1$ at $N_{\rm gh}=2$, $x_2$ at $3$, $y_1$ at $3$, $y_2$ at $2$, so that $\epsilon(X)=\epsilon(Y)=1$.
+Now the Koszul sign is $(-1)^{\epsilon(x_2)\epsilon(y_1)}=(-1)^{1}=-1$, and
+\begin{align}
+  \braket{X, Y}_2
+    &
+    = - \braket{x_1, y_1} \braket{x_2, y_2},
+  \\
+  \braket{Y, X}_2
+    &
+    = (-1)^{\epsilon(y_2)\epsilon(x_1)} \braket{y_1, x_1} \braket{y_2, x_2}
+    = (+1) \, s^2 \braket{x_1, y_1} \braket{x_2, y_2}
+    = - \braket{X, Y}_2,
+\end{align}
+since $\epsilon(x_1)\epsilon(y_1)=0\cdot1=0$ and $\epsilon(x_2)\epsilon(y_2)=1\cdot0=0$ in the two slot exchanges.
+The prediction of \eqref{pg:eq:pairing:symmetric} is $(-1)^{1\cdot1}=-1$: correct, and a genuine minus sign on the odd--odd sector.
+Graded antisymmetry would predict $-(-1)^{1}=+1$: wrong.
+With one shift, $\epsilon_s(X)=\epsilon_s(Y)=0$, the shifted rule predicts $-(-1)^{0}=-1$: correct.
+The two instances together show that $c_s=1$ is not fitted to one sector: it flips the relation consistently on both.
+

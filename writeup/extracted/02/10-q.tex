@@ -1,0 +1,225 @@
+\subsection{Completing the square with the dressed kernel}
+\label{q:sec:square}
+
+The whole content of the quintic step is one exact identity: $\widetilde S_{\le5}$ equals $S_{\le5}$ plus a quadratic form in a shifted deviation, which vanishes on shell, plus an explicit $\Sigma_2$-independent term of order $g_s^4$.
+This section derives it line by line, then reads off the saddle and shows that it is the resummation of the recursion \eqref{p:eq:hs5:recursion}.
+Throughout, $\mc V_4$ is invertible on $\Sym^2\mc H_0/\ker\mc V_4$, and $\mc V_5$ is assumed compatible with the quotient in the sense of the kernel condition \eqref{p:eq:hs5:kernel-condition}; the inverse of the dressed kernel below then exists for small $g_s$ as a Neumann series, and the note assumes it exists at the level of the conformal field theory.
+
+\subsubsection{Collecting the \texorpdfstring{$\Sigma_2$}{Sigma2} terms}
+\label{q:sec:square:collect}
+
+The terms of $\caction[\le 4]$ plus \eqref{p:eq:hs5:S5tilde} that contain $\Sigma_2$ are
+\begin{equation}
+  \label{q:eq:square:F}
+  F(\Sigma_2)
+    := - \frac{g_s^2}{4!} \, \mc V_4(\Sigma_2, \Sigma_2)
+      + \frac{2 g_s^2}{4!} \, \mc V_4(\Sigma_2, \Psi^2)
+      + \frac{g_s^3}{5!} \, \mc V_5(\Sigma_2, \Sigma_2, \Psi);
+\end{equation}
+the kinetic and cubic terms of $\Psi$ are common to $\widetilde S_{\le5}$ and $S_{\le5}$ and drop out of every difference below.
+$F$ is a quadratic polynomial in $\Sigma_2$: a quadratic form (the two terms with two $\Sigma_2$) and a linear form (the source).
+
+\subsubsection{Absorbing the coupling into the kernel}
+\label{q:sec:square:kernel}
+
+The two quadratic terms combine into a single bilinear form once the coefficients are aligned.
+Since $4!/5!=1/5$,
+\begin{equation}
+  \frac{g_s^3}{5!}
+    = \frac{g_s^2}{4!} \cdot \frac{g_s}{5},
+\end{equation}
+so that
+\begin{equation}
+  \label{q:eq:square:absorb}
+  - \frac{g_s^2}{4!} \, \mc V_4(\Sigma_2, \Sigma_2)
+    + \frac{g_s^3}{5!} \, \mc V_5(\Sigma_2, \Sigma_2, \Psi)
+    = - \frac{g_s^2}{4!} \, K_\Psi(\Sigma_2, \Sigma_2),
+\end{equation}
+where
+\begin{equation}
+  \label{q:eq:square:K}
+  \boxed{\;
+  \begin{aligned}
+    K_\Psi(A, B)
+      &
+      := \mc V_4(A, B) - \frac{g_s}{5} \, \mc V_5(A, B, \Psi)
+      = \braket{A, k_\Psi(B)},
+    \\
+    k_\Psi
+      &
+      := p_{2,2} - \frac{g_s}{5} \, p_{3,2}(\Psi, \cdot).
+  \end{aligned}
+  \;}
+\end{equation}
+We call $K_\Psi$ the \emph{dressed kernel}: it is the kinetic form of $\Sigma_2$ with the quintic coupling absorbed, so that $\Sigma_2$ propagates in the background of $\Psi$.
+It is a small perturbation of $\mc V_4$, symmetric because $\mc V_4$ and $\mc V_5$ are, and linear in $\Psi$ at order $g_s$.
+Its inverse on the quotient is
+\begin{equation}
+  \label{q:eq:square:neumann}
+  k_\Psi^{-1}
+    = \sum_{n \ge 0} \Big( \frac{g_s}{5} \, p_{2,2}^{-1} \, p_{3,2}(\Psi, \cdot) \Big)^n \, p_{2,2}^{-1},
+\end{equation}
+a Neumann series which converges for small $g_s$ whenever $p_{2,2}^{-1}$ is bounded: for the order-by-order statements no new invertibility condition arises at this order beyond the one on $p_{2,2}$, while the statements at finite $g_s$ below assume that $K_\Psi$ itself is invertible on the quotient.
+
+\subsubsection{The source through the dressed kernel}
+\label{q:sec:square:source}
+
+The source term of \eqref{q:eq:square:F} is still built from the bare $\mc V_4$.
+To complete the square with $K_\Psi$ we rewrite it through $K_\Psi$, using \eqref{q:eq:square:K} with $B=\Psi^2$:
+\begin{equation}
+  \label{q:eq:square:source}
+  \mc V_4(\Sigma_2, \Psi^2)
+    = K_\Psi(\Sigma_2, \Psi^2) + \frac{g_s}{5} \, \mc V_5(\Sigma_2, \Psi^2, \Psi)
+    = K_\Psi(\Sigma_2, \Psi^2) + \frac{g_s}{5} \, v(\Sigma_2),
+\end{equation}
+where
+\begin{equation}
+  \label{q:eq:square:v}
+  v(A)
+    := \mc V_5(A, \Psi^2, \Psi)
+    = \braket{A, p_{3,2}(\Psi^3)}
+\end{equation}
+is a linear form on $\Sym^2\mc H_0$, cubic in $\Psi$ (two powers through $\Psi^2$, one explicit).
+Inserting \eqref{q:eq:square:absorb} and \eqref{q:eq:square:source} into \eqref{q:eq:square:F},
+\begin{equation}
+  \label{q:eq:square:F-dressed}
+  F(\Sigma_2)
+    = - \frac{g_s^2}{4!} \Big[
+        K_\Psi(\Sigma_2, \Sigma_2)
+        - 2 K_\Psi(\Sigma_2, \Psi^2)
+        - \frac{2 g_s}{5} \, v(\Sigma_2)
+      \Big].
+\end{equation}
+
+\subsubsection{The shifted saddle and the square}
+\label{q:sec:square:saddle}
+
+The two linear terms in the bracket of \eqref{q:eq:square:F-dressed} are both of the form $2K_\Psi(\Sigma_2,\cdot)$, since $v(\Sigma_2)=K_\Psi(\Sigma_2,K_\Psi^{-1}v)$ by definition of $K_\Psi^{-1}v$:
+\begin{equation}
+  2 K_\Psi(\Sigma_2, \Psi^2) + \frac{2 g_s}{5} \, v(\Sigma_2)
+    = 2 K_\Psi(\Sigma_2, \Sigma_2^*),
+\end{equation}
+where the shifted saddle is
+\begin{equation}
+  \label{q:eq:square:saddle}
+  \boxed{\;
+  \Sigma_2^*
+    := \Psi^2 + \frac{g_s}{5} \, K_\Psi^{-1} v
+    = \Psi^2 + \frac{g_s}{5} \, k_\Psi^{-1} \, p_{3,2}(\Psi^3).
+  \;}
+\end{equation}
+Let's complete the square.
+With the shifted deviation
+\begin{equation}
+  \label{q:eq:square:Xtilde}
+  \tilde X
+    := \Sigma_2 - \Sigma_2^*
+    = X - \frac{g_s}{5} \, K_\Psi^{-1} v,
+\end{equation}
+the symmetry of $K_\Psi$ gives
+\begin{equation}
+  \label{q:eq:square:square}
+  K_\Psi(\Sigma_2, \Sigma_2) - 2 K_\Psi(\Sigma_2, \Sigma_2^*)
+    = K_\Psi(\tilde X, \tilde X) - K_\Psi(\Sigma_2^*, \Sigma_2^*).
+\end{equation}
+The variation of $F$ is now $\delta F=-\frac{2g_s^2}{4!}K_\Psi(\delta\Sigma_2,\tilde X)$, so the equation of motion of $\Sigma_2$ is exactly
+\begin{equation}
+  \tilde X = 0,
+  \qquad\text{i.e.}\qquad
+  \Sigma_2 = \Sigma_2^* .
+\end{equation}
+
+\subsubsection{Reassembling the effective vertices}
+\label{q:sec:square:reassemble}
+
+The constant term $K_\Psi(\Sigma_2^*,\Sigma_2^*)$ contains the target.
+Expanding \eqref{q:eq:square:saddle} and using $K_\Psi(\Psi^2,K_\Psi^{-1}v)=v(\Psi^2)$ and $K_\Psi(K_\Psi^{-1}v,K_\Psi^{-1}v)=v(K_\Psi^{-1}v)$,
+\begin{equation}
+  \label{q:eq:square:const}
+  K_\Psi(\Sigma_2^*, \Sigma_2^*)
+    = K_\Psi(\Psi^2, \Psi^2)
+      + \frac{2 g_s}{5} \, v(\Psi^2)
+      + \frac{g_s^2}{25} \, v(K_\Psi^{-1} v).
+\end{equation}
+The first two terms reassemble the quartic and quintic vertices with their coefficients.
+From \eqref{q:eq:square:K} and \eqref{q:eq:square:v}, $K_\Psi(\Psi^2,\Psi^2)=\mc V_4(\Psi^4)-\frac{g_s}{5}\mc V_5(\Psi^5)$ and $v(\Psi^2)=\mc V_5(\Psi^5)$, hence
+\begin{equation}
+  K_\Psi(\Psi^2, \Psi^2) + \frac{2 g_s}{5} \, v(\Psi^2)
+    = \mc V_4(\Psi^4) + \frac{g_s}{5} \, \mc V_5(\Psi^5),
+\end{equation}
+and multiplying by the prefactor $\frac{g_s^2}{4!}$,
+\begin{equation}
+  \frac{g_s^2}{4!} \, \mc V_4(\Psi^4) + \frac{g_s^2}{4!} \cdot \frac{g_s}{5} \, \mc V_5(\Psi^5)
+    = \frac{g_s^2}{4!} \, \mc V_4(\Psi^4) + \frac{g_s^3}{5!} \, \mc V_5(\Psi^5),
+\end{equation}
+which are exactly the quartic and quintic terms of $S_{\le5}$.
+This is how the normalization $1/5!$ of \eqref{p:eq:hs5:S5tilde} is forced: the quintic coefficient of the target is produced by the cross term $\frac{2g_s}{5}v(\Psi^2)$ of the square minus the $-\frac{g_s}{5}\mc V_5(\Psi^5)$ inside $K_\Psi(\Psi^2,\Psi^2)$, and the two combine to $+\frac{g_s}{5}$ only if the coupling carries $1/5!$.
+The last term of \eqref{q:eq:square:const} carries the prefactor
+\begin{equation}
+  \frac{g_s^2}{4!} \cdot \frac{g_s^2}{25}
+    = \frac{g_s^4}{600},
+  \qquad
+  600 = 4! \cdot 25,
+\end{equation}
+the square of the shift $\frac{g_s}{5}$ against the $\frac{g_s^2}{4!}$ of the kinetic term.
+
+\subsubsection{The identity}
+\label{q:sec:square:identity}
+
+Putting \eqref{q:eq:square:F-dressed}, \eqref{q:eq:square:square} and \eqref{q:eq:square:const} together, and adding back the common $\Psi$ terms,
+\begin{equation}
+  \label{q:eq:square:identity}
+  \boxed{\;
+  \widetilde S_{\le 5}
+    = S_{\le 5}
+      - \frac{g_s^2}{4!} \, K_\Psi(\tilde X, \tilde X)
+      + \frac{g_s^4}{600} \, v(K_\Psi^{-1} v).
+  \;}
+\end{equation}
+This is an identity in the fields $(\Psi,\Sigma_2)$, valid at every order in $g_s$; it has been checked symbolically as such.
+The three terms are the target, a quadratic form in the shifted deviation, and a term independent of $\Sigma_2$.
+We call the last one the \emph{feedback}: it is the surplus that the Gaussian elimination of $\Sigma_2$ produces beyond the vertex it was introduced to reproduce.
+It is of order $g_s^4$ and of degree six in $\Psi$ ($v$ is cubic and appears twice), so it is a six-point interaction; it does not affect the matching at order $g_s^3$, and it is the exact form of the statement that the auxiliary field feeds back into the action only one order later.
+
+On shell, $\tilde X=0$ and
+\begin{equation}
+  \label{q:eq:square:onshell}
+  \widetilde S_{\le 5}\big(\Psi, \Sigma_2^*\big)
+    = S_{\le 5}(\Psi) + \frac{g_s^4}{600} \, v(K_\Psi^{-1} v),
+\end{equation}
+which is \eqref{p:eq:hs5:eliminate} with the remainder made explicit.
+All tree amplitudes of $\widetilde S_{\le5}$ therefore agree with those of $S_{\le5}$ through order $g_s^3$; \cref{p:fig:hs5:five-point} shows the mechanism diagram by diagram.
+
+\subsubsection{The saddle and the recursion}
+\label{q:sec:square:recursion}
+
+The saddle \eqref{q:eq:square:saddle} is the resummed form of the recursive solution \eqref{p:eq:hs5:recursion}.
+The equation of motion \eqref{p:eq:hs5:eom-sigma}, up to an overall sign $0=p_{2,2}(\Sigma_2)-p_{2,2}(\Psi^2)-\frac{g_s}{5}p_{3,2}(\Psi,\Sigma_2)$, is $k_\Psi(\Sigma_2)=p_{2,2}(\Psi^2)$ in the notation \eqref{q:eq:square:K}, so that
+\begin{equation}
+  \label{q:eq:square:saddle-R}
+  \Sigma_2^*
+    = k_\Psi^{-1} \, p_{2,2}(\Psi^2).
+\end{equation}
+To see that this agrees with \eqref{q:eq:square:saddle}, apply \eqref{q:eq:square:K} to $\Psi^2$: $p_{2,2}(\Psi^2)=k_\Psi(\Psi^2)+\frac{g_s}{5}p_{3,2}(\Psi,\Psi^2)$, and $p_{3,2}(\Psi,\Psi^2)=p_{3,2}(\Psi^3)$ by symmetry; applying $k_\Psi^{-1}$ gives $\Sigma_2^*=\Psi^2+\frac{g_s}{5}k_\Psi^{-1}p_{3,2}(\Psi^3)$.
+Expanding $k_\Psi^{-1}$ with the Neumann series \eqref{q:eq:square:neumann},
+\begin{equation}
+  \label{q:eq:square:recursion}
+  \Sigma_2^*
+    = \Psi^2
+      + \frac{g_s}{5} \, p_{2,2}^{-1} \, p_{3,2}(\Psi^3)
+      + \frac{g_s^2}{25} \, p_{2,2}^{-1} \, p_{3,2}\Big( \Psi, p_{2,2}^{-1} \, p_{3,2}(\Psi^3) \Big)
+      + O(g_s^3),
+\end{equation}
+which is the recursion \eqref{p:eq:hs5:recursion} iterated once: each iteration inserts one more $p_{3,2}(\Psi,\cdot)$ between two $p_{2,2}^{-1}$, with one more factor $\frac{g_s}{5}$.
+The dressed-kernel inverse is thus the closed form of the recursion: what looks like interactions at all orders generated by $\Sigma_2$ is the geometric series of the self-energy insertions $p_{3,2}(\Psi,\cdot)$ on the $\Sigma_2$ line.
+The same series, read in the action rather than in the saddle, expands the feedback as
+\begin{equation}
+  \frac{g_s^4}{600} \, v(K_\Psi^{-1} v)
+    = \frac{g_s^4}{600} \Big[
+      v(\mc V_4^{-1} v)
+      + \frac{g_s}{5} \, v\big(\mc V_4^{-1} W_\Psi \mc V_4^{-1} v\big)
+      + O(g_s^2)
+    \Big],
+\end{equation}
+with $W_\Psi:=\mc V_5(\cdot,\cdot,\Psi)$, where $\mc V_4^{-1}W_\Psi\mc V_4^{-1}v$ is shorthand for $p_{2,2}^{-1}p_{3,2}(\Psi,p_{2,2}^{-1}p_{3,2}(\Psi^3))$.
+

@@ -1,0 +1,319 @@
+\subsection{\IBL{} perspective}
+\label{p:sec:ibl}
+
+The construction of \cref{p:sec:hs} reads the string vertices with several of their slots as outputs.
+Operations with several inputs and several outputs are the defining data of an \IBL{} algebra, the homotopy version of an involutive Lie bialgebra: a bracket and a cobracket with their higher homotopies, involutive meaning that the bracket composed with the cobracket vanishes~\cite{Cieliebak:2015:HomologicalAlgebraRelated, Markl:2017:MVFormalismIBL}.
+  In string field theory it appears in the loop homotopy algebra of the quantum theory~\cite{Markl:2001:LoopHomotopyAlgebras, Muenster:2013:QuantumOpenClosedHomotopy}, whose only operation with two outputs is the inverse pairing, as discussed below.
+
+In this section, we write the cubic action in that language.
+After studying the lowest product $p_{2,2}$ in detail to gain some intuition, we generalize to higher orders.
+In particular, from the products $\ell_n$ alone, one builds a whole family $\sprod{m}{n}$ by applying the inverse pairing to some of their slots.
+We ask whether the $\Loo$ relations of the $\ell_n$ imply the \IBL{} relations for that family, and, conversely, whether such a family defines an $\Loo$ structure on the space of multi-string fields.
+Note that we write everything in terms of the CFT data of \cref{p:app:conventions}, with physical ghost numbers and without suspension.
+
+
+\subsubsection{Operations with several outputs}
+\label{p:sec:ibl:operations}
+
+An $\Loo$ algebra is a set of operations $\ell_n$ with $n$ inputs and one output, the string products of the original theory (\cref{p:sec:hs:action}).
+The cubic action contains instead the product $\sprod{2}{2} \colon \Hn{2} \to \Hn{2}$ of~\eqref{p:eq:hs1:p22}, with two inputs and two outputs, as the kinetic operator of $\Sigma_2$.
+At higher orders the construction uses $\sprod{3}{2}$, $\sprod{3}{3}$ and the products built in the same way from the reduced vertices.
+The structure whose operations $\sprod{m}{n}$ have $m$ inputs and $n$ outputs, with one master equation relating all of them, is an \IBL{} algebra~\cite{Cieliebak:2015:HomologicalAlgebraRelated}.
+The single-output operations form an $\Loo$ algebra, the operation with one input and two outputs is a cobracket, and the operations with more outputs are their higher homotopies.
+
+Such a structure also acts on multi-string states.
+Each operation $\sprod{m}{n}$ is extended to the symmetric algebra $\bigoplus_{n \ge 1} \Hn{n}$ by acting on every subset of $m$ strands of a multi-string state and leaving the other strands untouched.
+The master equation is an identity between operators on that algebra~\cite{Cieliebak:2015:HomologicalAlgebraRelated, Muenster:2013:QuantumOpenClosedHomotopy}.
+The field of the theory is accordingly a sum of components with any number of strands~\cite[sec.~9]{Cieliebak:2015:HomologicalAlgebraRelated}.
+This is the field content of the cubic action: one component per number of strands, $\Psi$ with one strand and the auxiliary field $\Sigma_n$ with $n$ strands.
+We use the total field $\boldsymbol{\Psi} = \sum_{n \ge 1} \gs^{n-1} \, \Psi_n$ of~\eqref{p:eq:all:total-field}, with $\Psi_1 = \Psi$ and $\Psi_n = \Sigma_n$ for $n \ge 2$, in terms of which every cubic term of the action carries one power of $\gs$ and every kinetic term none (\cref{p:sec:all-orders}).
+  The powers of $\gs$ are the rescaling of the auxiliary field met at quartic order, $\Sigma_2 \to \Sigma_2 / \gs$, extended to the whole tower (compare the expansion parameter of~\cite[sec.~IV.B]{Muenster:2013:QuantumOpenClosedHomotopy}).
+
+\subsubsection{Cubic action on the symmetric algebra}
+\label{p:sec:ibl:symmetric-algebra}
+
+Each $n$-string space carries the pairing $\pair[n]{\cdot}{\cdot}$, with one $c_0^-$ per strand, which is graded-symmetric for every $n$ and non-degenerate.
+The products $\sprod{m}{n}$ are defined from the vertices by reading $n$ slots through it, as in~\eqref{p:eq:conv:sprod}.
+The sphere correlator saturates at ghost number six and each pairing at five.
+Hence an output strand of a product sits at ghost number three and an input strand at two, and we get:
+\begin{equation}
+  \label{p:eq:ibl:ghost-numbers}
+  \Ngh(\sprod{m}{n})
+    = 3 n - 2 m,
+\end{equation}
+where in particular $\Ngh(\sprod{2}{2}) = 2$.
+Reading one more slot of the same vertex as an output raises the ghost number by five: an input slot at ghost number two becomes an output slot at ghost number three.
+Here the physical grading differs from the one of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}, in which the degree of an operation does not depend on its number of outputs.
+Assigning the degree $3 - \Ngh$ to every strand turns the ghost number of $\sprod{m}{n}$ into the degree of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} with $d = \tfrac{1}{2}$, a value their definition excludes.
+We use that dictionary only to compare with their definition below, and otherwise work with the self-contained ghost-number balance~\eqref{p:eq:ibl:ghost-numbers}.
+At this stage, the question of whether these products satisfy the $\IBL$ relations is still open.
+
+The cubic action is a function on the symmetric algebra.
+At quartic order, with the components $\Psi_1 = \Psi$ and $\Psi_2 = \Sigma_2$ of~\eqref{p:eq:all:total-field}, the action~\eqref{p:eq:hs4:action-tilde} reads:
+\begin{equation}
+  \label{p:eq:ibl:action-components}
+  \begin{aligned}
+    \caction[\le 4]
+      &
+      = \frac{1}{2} \, \pair{\Psi_1}{Q_B \Psi_1}
+        - \frac{1}{4!} \, \pair[2]{\gs \Psi_2}{\sprod{2}{2}(\gs \Psi_2)}
+      \\ &
+      \quad
+      + \frac{\gs}{3!} \, \pair{\Psi_1}{\ell_2(\Psi_1^2)}
+        + \frac{2 \gs}{4!} \, \pair[2]{\gs \Psi_2}{\sprod{2}{2}(\Psi_1^2)},
+  \end{aligned}
+\end{equation}
+using the definition of $\sprod{2}{2}$ (\cref{p:sec:hs:action}).
+Every term is the pairing, on some $\Hn{n}$, of one component $\gs^{n-1} \Psi_n$ of $\Psi_{\mathrm{tot}}$ with a product applied to other components: this is the form of an action built from the operations $\sprod{m}{n}$ and the multi-string pairings.
+Two features distinguish it from the actions of the \IBL{} type found in the literature.
+
+First, the kinetic operator of the $2$-string component is $\sprod{2}{2}$, of ghost number two, and not the BRST operator: a term $\pair[2]{\Sigma_2}{\hat Q_B \Sigma_2}$, with $\hat Q_B$ the BRST operator acting on either strand, vanishes by ghost-number conservation: the $2$-string pairing is nonzero only when the ghost numbers paired on each strand add up to five, ten in total, while $\Sigma_2$ and $\hat Q_B \Sigma_2$ carry $4 + 5 = 9$.
+In the loop homotopy algebra of closed string field theory~\cite{Markl:2001:LoopHomotopyAlgebras, Muenster:2013:QuantumOpenClosedHomotopy, Muenster:2014:HomotopyClassificationBosonic}, by contrast, the differential on every component of the symmetric algebra is the extension $\hat Q_B$ of the BRST operator.
+The only object with two outputs in that algebra is the inverse pairing itself, which enters at one loop and carries no vertex.
+The genus-zero part of its master equation is the $\Loo$ relations together with the invariance of the inverse pairing, and no product with two outputs built from a vertex appears in it.
+The cubic action is a classical action with such a product, and it is a different object.
+
+Second, the $2$-string component is auxiliary.
+Its equation of motion, $\sprod{2}{2}(\Sigma_2) = \sprod{2}{2}(\Psi^2)$, is a field equation built from $\sprod{2}{2}$ alone, and it fixes $\Sigma_2 = \Psi^2$ at this order on the quotient~\eqref{p:eq:hs4:quotient} because $\sprod{2}{2}$ is injective there.
+The two sectors differ in their Batalin--Vilkovisky structure.
+The single-string pairing has the odd counterpart $\Omega$ of~\eqref{p:eq:conv:odd-symplectic}, which defines the antibracket.
+With the parity given by the ghost number modulo two, the $2$-string pairing between $\Sigma_2$ and the tensors of ghost number six is even, so that no single odd symplectic form covers both sectors (\cref{p:app:conventions}).
+  The master action of \cref{p:sec:gauge} nevertheless pairs $\Sigma_2$ with an odd antifield $\Sigma_2^+$, because there the Grassmann parity is read from the target-space ghost number, not from the worldsheet ghost number modulo two.
+The symmetry of the $\Sigma_2$ kinetic term under the exchange of its two arguments is the pair-exchange symmetry of the quartic vertex, a property of the vertex rather than of the pairing.
+This symmetry makes the completion of the square of \cref{p:sec:hs:quartic} possible.
+
+\subsubsection{General correspondence}
+\label{p:sec:ibl:general}
+
+We forget for now the auxiliary fields and ask what the products $\ell_n$ of the original theory determine by themselves.
+Let
+\begin{equation}
+  \label{p:eq:ibl:inverse-pairing}
+  \Delta
+    := \pair{\cdot}{\cdot}^{-1}
+\end{equation}
+be the inverse pairing, an element of $\Hn{2}$ whose two strands have ghost numbers adding up to five.
+Feeding one strand of $\Delta$ into an input of $\ell_n$ and keeping the other strand as a second output defines
+\begin{equation}
+  \label{p:eq:ibl:raising}
+  \sprod{n-1}{2}
+    = \Delta \circ \ell_n,
+\end{equation}
+and iterating produces every $\sprod{m}{n}$ from the $\ell_n$ alone.
+This is the content of the definition~\eqref{p:eq:conv:sprod}: reading $n$ slots of $\vertex{m+n}$ through the $n$-string pairing is raising $n$ indices with $\Delta$.
+
+The raising that closes the antibracket uses instead the inverse of the odd symplectic form $\Omega$ of~\eqref{p:eq:conv:odd-symplectic}, which differs from $\Delta$ by a sign $-1$ on every slot of the vertex that holds an odd state.
+Raising every slot in this way defines the family $p^{\Omega}_{m, n}$:
+\begin{equation}
+  \label{p:eq:ibl:raised-family}
+  \vertex{m+n}(A_1, \ldots, A_n, B_1, \ldots, B_m)
+    =: \Omega_n \bigl( A_1 \otimes \cdots \otimes A_n, p^{\Omega}_{m, n}(B_1, \ldots, B_m) \bigr),
+\end{equation}
+where $\Omega_n(X, Y) := (-1)^{\abs{X}} \, \pair[n]{X}{Y}$ for $X$ of definite parity, extended by linearity.
+We take $\Omega_n$ as the $n$-th tensor power of $\Omega$, with the Koszul sign of~\eqref{p:eq:conv:pairing-n}.
+Here $\abs{X}$ is the parity of the states, not of their coefficients, so that on a string field of unrestricted ghost number the sign acts component by component.
+We write the relations below for this family.
+  Since the pairing joins states of opposite parity and the vertices are even, this family differs from the family of~\eqref{p:eq:conv:sprod} by the parity of the inputs:
+\begin{equation}
+  \label{p:eq:ibl:raised-vs-sprod}
+  p^{\Omega}_{m, n}(B_1, \ldots, B_m)
+    = (-1)^{\abs{B_1} + \cdots + \abs{B_m}} \, \sprod{m}{n}(B_1, \ldots, B_m).
+\end{equation}
+The two families coincide on inputs whose states have even total parity, whatever the number of outputs, in particular on the classical string field, of ghost number two, and on the auxiliary fields $\Sigma_k$, of ghost number $2k$.
+On inputs of odd total parity, such as a single gauge parameter, they differ by a sign, already for one output.
+On the string fields of unrestricted ghost number used below, whose components carry both parities, the sign changes from component to component, and the two families are different maps.
+We include in the family the vertices themselves, $p^{\Omega}_{m, 0} = \sprod{m}{0} = \vertex{m}$, read with no output, and the fully raised vertices $p^{\Omega}_{0, n} = \sprod{0}{n} \in \Hn{n}$, with no input.
+The whole family is encoded in the action evaluated at the sum of two string fields $\Psi$ and $\Psi'$ of unrestricted ghost number:
+\begin{equation}
+  \label{p:eq:ibl:generating}
+  \begin{aligned}
+    S(\Psi + \Psi')
+      &
+      = \sum_{\substack{m, n \ge 0 \\ m + n \ge 2}} \frac{\gs^{m+n-2}}{m! \, n!} \, \Omega_n \bigl( \Psi'^n, p^{\Omega}_{m, n}(\Psi^m) \bigr)
+    \\
+      &
+      = \sum_{\substack{m, n \ge 0 \\ m + n \ge 2}} \frac{\gs^{m+n-2}}{m! \, n!} \, \pair[n]{\Psi'^n}{\sprod{m}{n}(\Psi^m)},
+  \end{aligned}
+\end{equation}
+where each family is read through its own form and the two sums agree term by term, each term being $\tfrac{\gs^{m+n-2}}{m! \, n!} \, \vertex{m+n}(\Psi'^n, \Psi^m)$.
+Here the terms with $n = 0$ are the vertices, $\tfrac{\gs^{m-2}}{m!} \, \vertex{m}(\Psi^m)$, those with $m = 0$ are $\tfrac{\gs^{n-2}}{n!} \, \vertex{n}(\Psi'^n)$, and the three terms with $m + n = 2$ are built from $\vertex{2}(A, B) = \pair{A}{Q_B B}$, with $\sprod{1}{1} = Q_B$.
+Up to the factor $\gs^{m+n-2} / n!$, the product $\sprod{m}{n}$ is the $m$-th derivative at $\Psi = 0$ of the term of order $n$ in $\Psi'$, and the sum of these terms over $n$ is the $m$-point function in the background $\Psi'$.
+In the framework of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} an $\Loo$ algebra is an \IBL{} algebra whose operations with two or more outputs, and those of higher genus, vanish.
+This embedding says nothing about the raised family, and the question is whether the raised family is an \IBL{} algebra as well.
+
+The $\Loo$ relations of the $\ell_n$ are equivalent to the classical master equation $(S, S) = 0$ for the action $S(\Psi)$~\cite{Zwiebach:1993:ClosedStringField}, with the bracket on the string field defined by the inverse of $\Omega$.
+Applied to $S(\Psi + \Psi')$, with the bracket contracting a derivative with respect to $\Psi$ against a derivative with respect to $\Psi'$, the same equation reads:
+\begin{equation}
+  \label{p:eq:ibl:polarized-master}
+  \frac{\pd^r S(\Psi + \Psi')}{\pd \Psi^a} \, (\Omega^{-1})^{ab} \, \frac{\pd^l S(\Psi + \Psi')}{\pd \Psi'^b}
+    = 0,
+\end{equation}
+where $\Psi = \Psi^a e_a$ and $\Psi' = \Psi'^a e_a$ in a basis $e_a$ of $\Hs$.
+In this subsection $\Psi$ and $\Psi'$ are string fields of unrestricted ghost number, whose coefficients carry the Grassmann parity that makes each of them even.
+Products and forms are evaluated on them with the coefficients moved to the left, each coefficient passing only the basis states to its left.
+For an odd map, this differs from the standard Koszul extension, in which the map also passes each coefficient and picks up its parity.
+On fields of ghost number two alone the contraction with $\Omega^{-1}$ vanishes identically, and~\eqref{p:eq:ibl:polarized-master} would hold for any products.
+Since $S(\Psi + \Psi')$ depends on the sum only, \eqref{p:eq:ibl:polarized-master} is the master equation at the point $\Psi + \Psi'$, and it holds if and only if the $\ell_n$ form a cyclic $\Loo$ algebra.
+Sorting~\eqref{p:eq:ibl:polarized-master} by the degrees $(m, n)$ in $(\Psi, \Psi')$ gives one relation per pair $(m, n)$.
+In each of its terms the derivative with respect to $\Psi'$ frees an output strand of one product, $\Omega^{-1}$ carries it into an input of another product, freed by the derivative with respect to $\Psi$, and the remaining strands stay paired with $\Psi'$.
+Read through the first form of~\eqref{p:eq:ibl:generating}, the strand enters the second product as the output of the first, since $\Omega^{-1}$ inverts $\Omega$.
+The relation at $(m, n)$ is then, up to an overall sign common to all $(m, n)$, the sum of the compositions of two products of the family $p^{\Omega}_{m, n}$.
+Read through the second form, the same relation joins the products $\sprod{m}{n}$ by $\Omega^{-1}$, and we write the configurations below in this form.
+The relation at $(m, n)$ states that the sum over all ways of composing two products of the family through one contracted strand, with $m$ inputs and $n$ outputs in total, each ordered configuration counted once, vanishes.
+These are the genus-zero \IBL{} relations in the form of~\cite[sec.~8]{Cieliebak:2015:HomologicalAlgebraRelated}, where operations with no input or no output are allowed, written in the generating-function language of their section~7.
+With $\Delta$ in place of $\Omega^{-1}$, a configuration and its mirror image, in which the two products exchange their roles, would enter with opposite signs, and every relation would hold identically.
+
+Equation~\eqref{p:eq:ibl:polarized-master} can therefore be read as follows: \emph{the family $p^{\Omega}_{m, n}$ obtained from the vertices by raising every index with $\Omega^{-1}$, with $m + n \ge 2$, satisfies the genus-zero \IBL{} relations at every $(m, n)$, in the generating-function form above, if and only if the products $\ell_n$ form a cyclic $\Loo$ algebra, in the standard Koszul convention for the odd maps $\ell_n$.}
+The proof, in both directions, is the observation that~\eqref{p:eq:ibl:polarized-master} is the master equation at the point $\Psi + \Psi'$.
+The argument is finite-dimensional, and for the string field it holds in the same formal sense as the master equation itself, since the inverse pairing $\Delta$ is a sum over a basis of $\Hs$.
+The relations contain nothing beyond the master equation of the original theory, since the family is its Taylor expansion about a second field.
+
+The family is not an \IBL{} algebra in the sense of~\cite[Def.~2.3]{Cieliebak:2015:HomologicalAlgebraRelated}, for two reasons.
+That definition requires at least one input and one output for every operation.
+Its degree bookkeeping, with an integer $d$, corresponds here to $d = \tfrac{1}{2}$ in the physical ghost number, with one suspension sign per slot when the slots of an operation are permuted.
+The relations of~\cite[Def.~2.3]{Cieliebak:2015:HomologicalAlgebraRelated}, among the operations with at least one input and one output only, are a different statement.
+For $\min(m, n) = 1$, read in the same generating-function form, they coincide with the ones above, and both hold.
+At $(m, 1)$ they are the $\Loo$ relations.
+At $(1, n)$ they are the relations among the operations with one input, which at $(1, 2)$ state that $p^{\Omega}_{1, 1}$ and the cobracket $p^{\Omega}_{1, 2}$, equal to $Q_B$ and $\sprod{1}{2}$ on inputs of even parity, are compatible.
+At $(2, 2)$ they do not coincide.
+
+The relation~\eqref{p:eq:ibl:polarized-master} at degree $(2, 2)$ is the relation $[Q_B, \ell_3] + \ell_2 \circ \ell_2 = 0$ of the $\ell_n$, written with two fields.
+It involves four configurations, up to the exchange of the two products:
+\begin{equation}
+  \label{p:eq:ibl:configurations-22}
+  \begin{aligned}
+    T_1
+      &
+      = \tfrac{1}{2} \, \Omega(Q_B \Psi', \ell_3(\Psi, \Psi, \Psi')),
+    &
+    T_2
+      &
+      = \tfrac{1}{2} \, \Omega(\ell_3(\Psi, \Psi', \Psi'), Q_B \Psi),
+    \\
+    T_3
+      &
+      = \tfrac{1}{4} \, \Omega(\ell_2(\Psi', \Psi'), \ell_2(\Psi, \Psi)),
+    &
+    T_4
+      &
+      = \Omega(\ell_2(\Psi, \Psi'), \ell_2(\Psi, \Psi')),
+  \end{aligned}
+\end{equation}
+where the numerical factors are those of the Taylor expansion of $S(\Psi + \Psi')$.
+The part of degree $(2, 2)$ of~\eqref{p:eq:ibl:polarized-master}, divided by $2 \gs^2$, is:
+\begin{equation}
+  \label{p:eq:ibl:polarized-22}
+  T_1 + T_2 + T_3 + \tfrac{1}{2} \, T_4
+    = 0.
+\end{equation}
+Here the products and $\Omega$ are evaluated on $\Psi$ and $\Psi'$ with the coefficients moved to the left, each coefficient passing only the basis states to its left.
+For two odd fields $L = L^a e_a$ and $K = K^b e_b$, this gives $\Omega(L, K) = \pair{e_a}{e_b} \, L^a K^b$, which is symmetric in $L$ and $K$.
+The four terms are the configurations in which an output of $\sprod{2}{2}$ enters $Q_B$, an output of $Q_B$ enters $\sprod{2}{2}$, an output of $\ell_2$ enters $\sprod{1}{2}$ and an output of $\sprod{1}{2}$ enters $\ell_2$, the joined strand being raised with $\Omega^{-1}$, each written as the pairing of the two products joined by the contracted strand.
+In~\eqref{p:eq:ibl:polarized-master} each of $T_1$, $T_2$, $T_3$ also appears with the roles of the two products exchanged, an output of $\sprod{0}{2}$ entering $\ell_3$, of $\sprod{1}{3}$ entering $\sprod{2}{0}$ and of $\sprod{0}{3}$ entering $\sprod{3}{0}$, with the same value, whereas $T_4$ is its own mirror image and appears once.
+After this division, $T_4$ therefore enters~\eqref{p:eq:ibl:polarized-22} with half the weight of $T_1$, $T_2$, $T_3$.
+The same contraction restricted to the operations with at least one input and one output contains none of the mirror terms, and the relation it imposes at degree $(2, 2)$ gives the four configurations the same weight:
+\begin{equation}
+  \label{p:eq:ibl:io-22}
+  T_1 + T_2 + T_3 + T_4
+    = 0.
+\end{equation}
+The difference of the left-hand sides of~\eqref{p:eq:ibl:io-22} and~\eqref{p:eq:ibl:polarized-22},
+\begin{equation}
+  \label{p:eq:ibl:residual-22}
+  \frac{1}{2} \, \Omega(\ell_2(\Psi, \Psi'), \ell_2(\Psi, \Psi')),
+\end{equation}
+does not vanish for a general cyclic $\Loo$ algebra.
+The cyclic Lie algebra $\alg{sl}_2 \oplus \alg{sl}_2^*$, placed at ghost numbers one and four, is a counterexample.
+A cyclic differential graded Lie algebra satisfies the relation at $(2, 2)$ only when $\ell_2(\ell_2(A, B), C) = 0$ for all $A$, $B$, $C$, a condition much stronger than the Jacobi identity.
+
+At every $(m, n)$ with $m, n \ge 2$ the relation without the operations $\sprod{k}{0}$ and $\sprod{0}{k}$ is likewise not implied by the $\Loo$ relations.
+We have not evaluated whether the residual vanishes for the closed-string vertices.
+It plays no role in the construction, which uses only the relations with $\min(m, n) = 1$, as we explain below.
+
+For the converse direction, the question is which $\Loo$ structures on the symmetric algebra, with a field $\Psi_{\mathrm{tot}}$ as in~\eqref{p:eq:all:total-field}, a family of this kind produces.
+Extending each $\sprod{m}{n}$ of~\eqref{p:eq:conv:sprod} to an operator $\hat{p}_{m, n}$ on the symmetric algebra, as for an \IBL{} algebra, and summing them with a formal parameter,
+\begin{equation}
+  \label{p:eq:ibl:D}
+  \mathcal D
+    := \sum_{m, n} \hbar^{m-1} \, \hat{p}_{m, n},
+\end{equation}
+we obtain an operator whose components have both parities, since $\hat Q_B$ is odd and $\sprod{2}{2}$ is even.
+The higher derived brackets of a differential operator of finite order on a graded-commutative algebra are obtained by nesting graded commutators of the operator with the multiplications by the arguments~\cite{Akman:1997:GeneralizationsBatalinVilkoviskyAlgebras, Bering:1996:AlgebraHigherAntibrackets}.
+They are the standard way of producing an $\Loo$ algebra on the symmetric algebra from a higher-order coderivation~\cite{Muenster:2013:QuantumOpenClosedHomotopy, Muenster:2014:HomotopyClassificationBosonic}.
+For an odd operator they form an $\Loo$ algebra if and only if $\mathcal D^2 = 0$.
+
+For the parity-inhomogeneous $\mathcal D$ at hand this criterion is not the right one: there are operators with $\mathcal D^2 \neq 0$ whose brackets form a curved $\Loo$ algebra.
+The correct criterion requires $\mathcal D$ to act as a differential operator of finite order on a graded-commutative algebra.
+Writing $F_{\mathcal D}(a)$ for its action on the exponential of an even element $a$, the brackets form a curved $\Loo$ algebra if and only if
+\begin{equation}
+  \label{p:eq:ibl:brace-criterion}
+  \e^{-a} \mathcal D^2(\e^{a})
+    = F_{\mathcal D}(a)^2,
+  \qquad
+  F_{\mathcal D}(a)
+    := \e^{-a} \mathcal D(\e^{a}),
+\end{equation}
+for every even $a$, auxiliary Grassmann parameters allowed.
+On single-string inputs the brackets reduce to sums of the $\sprod{n}{k}$ over the number $k$ of outputs.
+For the single-output components, which we have checked with up to three inputs, the criterion then reduces at leading order in $\hbar$ to the statement above.
+We have not tested the components with no output.
+
+On multi-string inputs we do not know whether the statement above implies the criterion.
+The family with two or more outputs admits no realization as a differential operator on a polynomial algebra in the strand variables, at least when the raised slots are treated alike, by maps of definite parity, and $\hbar$ is even: on a graded-commutative algebra the outputs and the inputs are symmetrized with the same parity, whereas the single contraction by the inverse pairing requires them to be symmetrized with opposite parities.
+The brace construction in that form therefore cannot settle the question, and we have not tested other realizations.
+We leave it open.
+It is the general form of the question whether a multi-string field $\Psi_{\mathrm{tot}}$ carries an $\Loo$ structure determined by the $\ell_n$.
+
+\subsubsection{Restricted correspondence}
+\label{p:sec:ibl:restricted}
+
+
+We return to the cubic action.
+Its $2$-string product is the raised quartic vertex, $\sprod{2}{2} = \Delta \circ \ell_3$, and the question is which \IBL{} relations it satisfies.\footnote{The Maurer--Cartan equation of the raised family requires one more coupling, $\tfrac{\gs}{6} \, \vertex{3}(\Sigma_2, \Psi)$, which supplies the term $\gs \, \sprod{1}{2}(\Psi)$ that the original closed string field theory does not satisfy either. The factor $1/6$ is the normalization of the $2$-string component of the Maurer--Cartan element, $\Sigma_2/6$ rather than the $\Psi_2 = \Sigma_2$ of the total field: in the term with $\vertex{4}$, this component and two copies of $\Psi$, the exponential gives the coefficient $\tfrac12$ where the action has $\tfrac{2}{4!}$. Being a mixing of order $\gs$ with a field whose propagator is of order $\gs^{-2}$, this coupling changes the eliminated action already at order $\gs^0$ by the nonlocal quadratic term $\tfrac{1}{6} \pair[2]{\sprod{1}{2}(\Psi)}{\sprod{2}{2}^{-1} \sprod{1}{2}(\Psi)}$ whenever that term is finite and nonzero; we do not include it.}
+At $(2, 2)$ the answer is the one found above: the relation holds with the operations with no input or no output, and without them it is not implied by the $\Loo$ relations.
+
+In the gauge invariance of the cubic action only the relations with $\min(m, n) = 1$ enter.
+The transformation of $\Sigma_2$ is that of $\Psi^2$, and the invariance to $O(\gs^3)$ is the $\Loo$ relations of the $\ell_n$ through quartic order (\cref{p:sec:hs:quartic}).
+The $(2, 2)$ relation without the operations $\sprod{k}{0}$ and $\sprod{0}{k}$ never enters.
+The relation with them enters only through its content, the $\Loo$ relation $[Q_B, \ell_3] + \ell_2 \circ \ell_2 = 0$ of the original theory, which the gauge invariance uses at order $\gs^2$.
+Nor is any \IBL{} relation needed for $\Sigma_2$ to be a contact field.
+As shown in \cref{p:sec:hs:quartic}, its auxiliary nature rests on the injectivity of $\sprod{2}{2}$ on the quotient, which is a property of the quartic form and not a relation among products.
+
+These statements are limited to the quartic order and to the product read from the quartic vertex.
+From quintic order on, the kinetic operator of $\Sigma_2$ is dressed by a background-dependent term:
+  \begin{equation}
+  \kin{2}{\Psi}{3}
+    = \sprod{2}{2}
+      - \frac{\gs}{5} \, \sprod{3}{2}(\Psi, \cdot).
+\end{equation}
+The quadratic terms of the higher-order auxiliary fields involve the reduced vertices $\dvertex{n}$ of \cref{p:sec:all-orders}, and the products of the construction are those vertices read with several outputs.
+Whether the products of the cubic action satisfy the relations without the operations $\sprod{k}{0}$ and $\sprod{0}{k}$ is open already at $(2, 2)$.
+Whether these products of the higher orders satisfy the relations, with or without these operations, is open as well.
+We regard these as the main questions of the restricted correspondence.
+
+
+\subparagraph{Homotopy transfer.}
+
+Theorem~6.1 of~\cite{Cieliebak:2015:HomologicalAlgebraRelated} states that every \IBL{} algebra over a field of characteristic zero is homotopy equivalent to an \IBL{} structure on its homology with respect to the differential $\sprod{1}{1}$.
+The transferred operations are given by an explicit recursion built from a splitting of the space into the homology, the image of the differential and a complement, together with a contracting homotopy.
+The recursion is of the type of the homological perturbation lemma.
+This is a transfer to a smaller space, the minimal model (the canonical model of~\cite{Cieliebak:2015:HomologicalAlgebraRelated}), in which every off-shell mode is integrated out, with the contracting homotopy as propagator; its genus-zero operations are the tree-level on-shell amplitudes (\cite{Kajiura:2007:NoncommutativeHomotopyAlgebras} for $A_\infty$ algebras; the construction is the same for the closed-string $\Loo$ algebra).
+It is not the inverse of a strictification, which trades operations for a larger space: that inverse is the elimination of the auxiliary fields, a transfer back onto the original theory, and the minimal model is a further transfer, reached from either theory.
+For $\Loo$ algebras strictification is a classical result~\cite{Loday:2012:AlgebraicOperads}, realized for closed string field theory by the construction of \cref{p:sec:bar-cobar}.
+For \IBL{} algebras we know of no analogous theorem.
+
+The map $\Psi \mapsto (\Psi, \Psi^2)$ relates the cubic action and the original theory as homotopy algebras, and its status depends on the complex on which it is considered.
+Integrating $\Sigma_2$ out is a transfer of this kind for $\Loo$ algebras rather than an instance of Theorem~6.1.
+The cubic action is not known to carry an \IBL{} structure, and the target, the quartic-truncated theory with its differential $Q_B$, is not a minimal model.
+The transfer contracts the pair formed by $\Sigma_2$ and its equation of motion, closer to a transfer along a chain homotopy equivalence than to the passage to homology.
+
+On the classical complex, the fields and their equations of motion, with $\Psi$ at ghost numbers two and three and $\Sigma_2$ at four and six, the elimination of $\Sigma_2$ is the homological-perturbation transfer of \cref{p:sec:all-orders}, with the transfer map $\Psi \mapsto (\Psi, \Psi^2)$, a cyclic $\Loo$ quasi-isomorphism from the quartic-truncated theory to the cubic one under the assumptions stated there.
+  Off the classical complex, the same map fails the morphism identity with two inputs by~\eqref{p:eq:all:morphism-fails}.
+  Both facts reflect the ghost number of $\sprod{2}{2}$.
+  The map sends $\Psi$, at ghost number two, to $\Psi^2$, at ghost number four, and its linearization sends $Q_B \Psi$, at ghost number three, to $Q_B \Psi \otimes \Psi + \Psi \otimes Q_B \Psi$, at ghost number five.
+  A differential on the $2$-string slot compatible with the map would therefore need ghost number one, whereas $\Ngh(\sprod{2}{2}) = 2$.
+  On the classical complex there is no $2$-string state at ghost number five, so the failing term is absent and the transfer exists.
+  With the brackets read off the cubic action and any grading by the total ghost number, the map does not extend to gauge parameters, at ghost number one, nor to antifields.
+  It says nothing about the gauge algebra or the BRST spectrum, which are the subject of \cref{p:sec:gauge}.
+  A factorization of $\sprod{2}{2}$ through an operator of ghost number $-1$ would evade the obstruction, and whether one exists is open.
+

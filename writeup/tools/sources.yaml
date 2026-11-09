@@ -1,0 +1,563 @@
+# Reused blocks of the complete write-up, in chapter order.
+# Specification: agent/task-plans/dist-writeup-2026-11-07.md, Part 2 (table of
+# contents) and Part 3 (assembly recipe).  Read by tools/extract.py, which
+# accepts only the YAML subset used here: top-level keys holding lists of flat
+# mappings; scalar values plain or single-quoted (no escapes, '' is a quote).
+#
+# documents: one entry per source tag, the files whose \label definitions make
+#   up that source document (a reference is prefixed only when its label is
+#   defined in the same document).  rev: a git revision, or 'worktree'.
+#   path: a file, or a directory (all .tex files below it).
+# chapters: number, slug (sections/<number>-<slug>.tex), title, appendix.
+# blocks: chapter, order (k), source (path from the project root), rev, tag,
+#   and one range:
+#     whole: 'yes'                  the whole file;
+#     lines: 'a-b'                  lines a to b, both included (1-based);
+#     heading: '<text>'             from the heading line containing <text>
+#                                   (optionally level: section, subsection,
+#                                   subsubsection, paragraph) to the line
+#                                   before the next heading of the same or a
+#                                   higher level, \appendix,
+#                                   \printbibliography or \end{document};
+#     heading + to: '<text>'        from the heading to the line before the
+#                                   first later line containing <text>.
+
+documents:
+  - tag: p
+    rev: d6a0391
+    path: paper/sections
+  - tag: pc
+    rev: 4096d3f
+    path: paper/sections
+  - tag: ov
+    rev: worktree
+    path: knowledge/notes/cubic-sft-overview/cubic-sft-overview.tex
+  - tag: ped
+    rev: worktree
+    path: knowledge/notes/cubic-sft-ibl-pedagogical/cubic-sft-ibl-pedagogical.tex
+  - tag: rs
+    rev: worktree
+    path: knowledge/notes/cubic-sft-riemann-surfaces/cubic-sft-riemann-surfaces.tex
+  - tag: ibk
+    rev: worktree
+    path: knowledge/notes/companion-ibl-bookkeeping/companion-ibl-bookkeeping.tex
+  - tag: pg
+    rev: worktree
+    path: knowledge/notes/companion-pairing-grading/companion-pairing-grading.tex
+  - tag: q
+    rev: worktree
+    path: knowledge/notes/companion-quintic/companion-quintic.tex
+  - tag: icg
+    rev: worktree
+    path: knowledge/notes/cubic-sft-inverse-circle-gluing/cubic-sft-inverse-circle-gluing.tex
+  - tag: fdm
+    rev: worktree
+    path: knowledge/notes/finite-dimensional-models/finite-dimensional-models.tex
+  - tag: jb
+    rev: worktree
+    path: knowledge/notes/j-boundary-representation/j-boundary-representation.tex
+
+chapters:
+  - number: '00'
+    slug: preamble
+    title: Preamble and reading guide
+  - number: '01'
+    slug: conventions
+    title: Conventions
+  - number: '02'
+    slug: order-by-order
+    title: Construction order by order
+  - number: '03'
+    slug: all-orders
+    title: All orders
+  - number: '04'
+    slug: momentum-space
+    title: 'Momentum space and the kinetic operator of $\Sigma_2$'
+  - number: '05'
+    slug: multiplier-hybrid
+    title: Multiplier and hybrid forms
+  - number: '06'
+    slug: partner-field
+    title: The partner field
+  - number: '07'
+    slug: gauge-bv
+    title: Gauge structure and BV
+  - number: '08'
+    slug: solutions
+    title: Solutions and fluctuations
+  - number: '09'
+    slug: worldsheet-dictionary
+    title: 'Worldsheet I: dictionary, inverse, moduli'
+  - number: '10'
+    slug: worldsheet-circle
+    title: 'Worldsheet II: circle picture and covering'
+  - number: '11'
+    slug: ibl
+    title: IBL and homotopy transfer
+  - number: '12'
+    slug: bar-cobar
+    title: Bar--cobar construction
+  - number: '13'
+    slug: finite-models
+    title: Finite-dimensional models and scripts
+  - number: '14'
+    slug: dead-ends
+    title: Superseded results and dead ends
+  - number: '15'
+    slug: open-problems
+    title: Open problems
+  - number: A
+    slug: hypotheses
+    title: Hypotheses and their status
+    appendix: 'yes'
+  - number: B
+    slug: qft-toys
+    title: QFT toys
+    appendix: 'yes'
+  - number: C
+    slug: sl2c-vertex
+    title: 'SL(2,C) vertex data used here'
+    appendix: 'yes'
+
+blocks:
+  # ---- 1 Conventions
+  - chapter: '01'
+    order: 1
+    source: paper/sections/A-conventions.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  - chapter: '01'
+    order: 2
+    source: paper/sections/B-exchange-sign-reality.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  - chapter: '01'
+    order: 3
+    source: knowledge/notes/companion-pairing-grading/companion-pairing-grading.tex
+    rev: worktree
+    tag: pg
+    heading: '{The two-string pairing}'
+    level: section
+  - chapter: '01'
+    order: 4
+    source: knowledge/notes/companion-pairing-grading/companion-pairing-grading.tex
+    rev: worktree
+    tag: pg
+    heading: '{One shift, not two}'
+    level: section
+  - chapter: '01'
+    order: 5
+    source: knowledge/notes/companion-pairing-grading/companion-pairing-grading.tex
+    rev: worktree
+    tag: pg
+    heading: '{Reality}'
+    level: section
+  - chapter: '01'
+    order: 6
+    source: knowledge/notes/companion-pairing-grading/companion-pairing-grading.tex
+    rev: worktree
+    tag: pg
+    heading: '{Suspended versus physical grading}'
+    level: section
+  # ---- 2 Construction order by order
+  - chapter: '02'
+    order: 1
+    source: paper/sections/02-hs-order-by-order.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  - chapter: '02'
+    order: 2
+    source: paper/sections/02-1-action.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  # 02-2 l. 325-376 (propagator assumptions) goes to chapter 4
+  - chapter: '02'
+    order: 3
+    source: paper/sections/02-2-quartic.tex
+    rev: d6a0391
+    tag: p
+    lines: '1-324'
+  - chapter: '02'
+    order: 4
+    source: paper/sections/02-2-quartic.tex
+    rev: d6a0391
+    tag: p
+    lines: '377-408'
+  - chapter: '02'
+    order: 5
+    source: paper/sections/02-3-quintic.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  # 02-4 l. 356-393 (hybrid form) goes to chapter 5
+  - chapter: '02'
+    order: 6
+    source: paper/sections/02-4-sextic.tex
+    rev: d6a0391
+    tag: p
+    lines: '1-355'
+  - chapter: '02'
+    order: 7
+    source: paper/sections/02-4-sextic.tex
+    rev: d6a0391
+    tag: p
+    lines: '394-534'
+  - chapter: '02'
+    order: 8
+    source: paper/sections/02-5-septic.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  - chapter: '02'
+    order: 9
+    source: paper/sections/02-6-octic.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  - chapter: '02'
+    order: 10
+    source: knowledge/notes/companion-quintic/companion-quintic.tex
+    rev: worktree
+    tag: q
+    heading: 'Completing the square with the dressed kernel'
+    level: section
+  - chapter: '02'
+    order: 11
+    source: knowledge/notes/companion-quintic/companion-quintic.tex
+    rev: worktree
+    tag: q
+    heading: 'Orders: why the corrected saddle'
+    level: section
+  - chapter: '02'
+    order: 12
+    source: knowledge/notes/companion-quintic/companion-quintic.tex
+    rev: worktree
+    tag: q
+    heading: 'Necessary as well as sufficient'
+    level: subsection
+  - chapter: '02'
+    order: 13
+    source: knowledge/notes/cubic-sft-ibl-pedagogical/cubic-sft-ibl-pedagogical.tex
+    rev: worktree
+    tag: ped
+    heading: 'presentations of the sextic'
+    level: subsection
+  # ---- 3 All orders (P:03 3.6 to chapter 5, 3.7 to chapter 11)
+  - chapter: '03'
+    order: 1
+    source: paper/sections/03-all-orders.tex
+    rev: d6a0391
+    tag: p
+    lines: '1-695'
+  - chapter: '03'
+    order: 2
+    source: paper/sections/03-all-orders.tex
+    rev: 4096d3f
+    tag: pc
+    heading: '{Recovered action and equations of motion}'
+    level: subsection
+  - chapter: '03'
+    order: 3
+    source: paper/sections/03-all-orders.tex
+    rev: 4096d3f
+    tag: pc
+    heading: '{Kernel conditions}'
+    level: subsection
+  - chapter: '03'
+    order: 4
+    source: knowledge/notes/cubic-sft-ibl-pedagogical/cubic-sft-ibl-pedagogical.tex
+    rev: worktree
+    tag: ped
+    heading: 'Scheme A (minimal)'
+    level: subsection
+    to: 'check: closure'
+  - chapter: '03'
+    order: 5
+    source: knowledge/notes/cubic-sft-ibl-pedagogical/cubic-sft-ibl-pedagogical.tex
+    rev: worktree
+    tag: ped
+    heading: 'The all-orders theorem'
+    level: subsection
+  # ---- 4 Momentum space
+  - chapter: '04'
+    order: 1
+    source: paper/sections/06-worldsheet.tex
+    rev: d6a0391
+    tag: p
+    heading: '{The fields in momentum space.}'
+    level: paragraph
+  - chapter: '04'
+    order: 2
+    source: paper/sections/02-2-quartic.tex
+    rev: d6a0391
+    tag: p
+    lines: '325-376'
+  # ---- 5 Multiplier and hybrid forms
+  - chapter: '05'
+    order: 1
+    source: dist/removed-2026-11-07/03-all-orders-multiplier-form.tex
+    rev: worktree
+    tag: p
+    whole: 'yes'
+  - chapter: '05'
+    order: 2
+    source: paper/sections/02-4-sextic.tex
+    rev: d6a0391
+    tag: p
+    lines: '356-393'
+  - chapter: '05'
+    order: 3
+    source: dist/removed-2026-11-07/08-bar-cobar-multiplier-identification.tex
+    rev: worktree
+    tag: p
+    whole: 'yes'
+  # ---- 6 The partner field
+  - chapter: '06'
+    order: 1
+    source: paper/sections/E-wrong-sign-partner.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  - chapter: '06'
+    order: 2
+    source: knowledge/notes/cubic-sft-ibl-pedagogical/cubic-sft-ibl-pedagogical.tex
+    rev: worktree
+    tag: ped
+    heading: 'The Liouville analogy and the wrong-sign partner'
+    level: subsection
+  # ---- 7 Gauge structure and BV
+  - chapter: '07'
+    order: 1
+    source: dist/removed-2026-11-07/04-gauge-bv-spectrum.tex
+    rev: worktree
+    tag: p
+    whole: 'yes'
+  - chapter: '07'
+    order: 2
+    source: paper/sections/07-ibl.tex
+    rev: d6a0391
+    tag: p
+    heading: 'string gauge parameters.}'
+    level: paragraph
+  # ---- 8 Solutions and fluctuations
+  - chapter: '08'
+    order: 1
+    source: dist/removed-2026-11-07/05-solutions.tex
+    rev: worktree
+    tag: p
+    whole: 'yes'
+  - chapter: '08'
+    order: 2
+    source: dist/removed-2026-11-07/D-truncation-lemma.tex
+    rev: worktree
+    tag: p
+    whole: 'yes'
+  # ---- 9 Worldsheet I (P:06 momentum paragraph to chapter 4)
+  - chapter: '09'
+    order: 1
+    source: paper/sections/06-worldsheet.tex
+    rev: d6a0391
+    tag: p
+    lines: '1-75'
+  - chapter: '09'
+    order: 2
+    source: paper/sections/06-worldsheet.tex
+    rev: d6a0391
+    tag: p
+    heading: '{The inverse of the quartic form}'
+    level: subsection
+    to: '\subsection{The circle picture}'
+  - chapter: '09'
+    order: 3
+    source: knowledge/notes/cubic-sft-riemann-surfaces/cubic-sft-riemann-surfaces.tex
+    rev: worktree
+    tag: rs
+    heading: '{The two internal kernels}'
+    level: section
+  - chapter: '09'
+    order: 4
+    source: knowledge/notes/cubic-sft-riemann-surfaces/cubic-sft-riemann-surfaces.tex
+    rev: worktree
+    tag: rs
+    heading: '{Frozen-neck sewing'
+    level: section
+  - chapter: '09'
+    order: 5
+    source: knowledge/notes/cubic-sft-riemann-surfaces/cubic-sft-riemann-surfaces.tex
+    rev: worktree
+    tag: rs
+    heading: '{A coloured operad'
+    level: section
+  - chapter: '09'
+    order: 6
+    source: knowledge/notes/cubic-sft-riemann-surfaces/cubic-sft-riemann-surfaces.tex
+    rev: worktree
+    tag: rs
+    heading: 'KBc'
+    level: section
+  - chapter: '09'
+    order: 7
+    source: knowledge/notes/cubic-sft-riemann-surfaces/cubic-sft-riemann-surfaces.tex
+    rev: worktree
+    tag: rs
+    heading: '{Sigma_k} tower}'
+    level: section
+  - chapter: '09'
+    order: 8
+    source: knowledge/notes/cubic-sft-overview/cubic-sft-overview.tex
+    rev: worktree
+    tag: ov
+    heading: '{The asymmetric vertex'
+    level: subsection
+  - chapter: '09'
+    order: 9
+    source: knowledge/notes/cubic-sft-overview/cubic-sft-overview.tex
+    rev: worktree
+    tag: ov
+    heading: '{Hyperbolic local-coordinate data}'
+    level: subsection
+  # appendix "Figures" of N-rs: defines fig:chain, fig:kernels, fig:cable,
+  # fig:tower, which blocks 09/4, 09/5 and 09/7 reference
+  - chapter: '09'
+    order: 10
+    source: knowledge/notes/cubic-sft-riemann-surfaces/cubic-sft-riemann-surfaces.tex
+    rev: worktree
+    tag: rs
+    heading: '\section{Figures}'
+    level: section
+  # ---- 10 Worldsheet II (P:06 6.4-6.7, every X:06-* block inside)
+  - chapter: '10'
+    order: 1
+    source: paper/sections/06-worldsheet.tex
+    rev: d6a0391
+    tag: p
+    lines: '360-979'
+  - chapter: '10'
+    order: 2
+    source: knowledge/notes/cubic-sft-inverse-circle-gluing/cubic-sft-inverse-circle-gluing.tex
+    rev: worktree
+    tag: icg
+    heading: '{The inverse}'
+    level: section
+  - chapter: '10'
+    order: 3
+    source: knowledge/notes/cubic-sft-inverse-circle-gluing/cubic-sft-inverse-circle-gluing.tex
+    rev: worktree
+    tag: icg
+    heading: '{Six points}'
+    level: section
+  # ---- 11 IBL and homotopy transfer (P:07 last paragraph to chapter 7)
+  - chapter: '11'
+    order: 1
+    source: paper/sections/07-ibl.tex
+    rev: d6a0391
+    tag: p
+    lines: '1-348'
+  - chapter: '11'
+    order: 2
+    source: paper/sections/03-all-orders.tex
+    rev: d6a0391
+    tag: p
+    heading: '{Integrating out as a homotopy transfer}'
+    level: subsection
+  - chapter: '11'
+    order: 3
+    source: knowledge/notes/companion-ibl-bookkeeping/companion-ibl-bookkeeping.tex
+    rev: worktree
+    tag: ibk
+    heading: '{One vertex, many maps'
+    level: section
+    to: '\printbibliography'
+  - chapter: '11'
+    order: 4
+    source: knowledge/notes/cubic-sft-overview/cubic-sft-overview.tex
+    rev: worktree
+    tag: ov
+    heading: '{IBL-infinity} structure}'
+    level: section
+  - chapter: '11'
+    order: 5
+    source: knowledge/notes/cubic-sft-ibl-pedagogical/cubic-sft-ibl-pedagogical.tex
+    rev: worktree
+    tag: ped
+    heading: '{Two presentations of one classical structure}'
+    level: section
+    to: '\subsection{Reading of'
+  - chapter: '11'
+    order: 6
+    source: knowledge/notes/cubic-sft-ibl-pedagogical/cubic-sft-ibl-pedagogical.tex
+    rev: worktree
+    tag: ped
+    heading: 'one unit, not two}'
+    level: section
+  # ---- 12 Bar-cobar (P:08 l. 122-148 = X:08 multiplier identification, to chapter 5)
+  - chapter: '12'
+    order: 1
+    source: paper/sections/08-bar-cobar.tex
+    rev: d6a0391
+    tag: p
+    lines: '1-121'
+  - chapter: '12'
+    order: 2
+    source: paper/sections/08-bar-cobar.tex
+    rev: d6a0391
+    tag: p
+    lines: '149-290'
+  # ---- 13 Finite-dimensional models
+  - chapter: '13'
+    order: 1
+    source: dist/removed-2026-11-07/C-finite-models.tex
+    rev: worktree
+    tag: p
+    whole: 'yes'
+  - chapter: '13'
+    order: 2
+    source: knowledge/notes/finite-dimensional-models/finite-dimensional-models.tex
+    rev: worktree
+    tag: fdm
+    heading: '\section{Introduction}'
+    level: section
+    to: '\printbibliography'
+  # ---- 15 Open problems
+  - chapter: '15'
+    order: 1
+    source: paper/sections/09-discussion.tex
+    rev: d6a0391
+    tag: p
+    heading: '{Open problems.}'
+    level: paragraph
+  # ---- B QFT toys
+  - chapter: B
+    order: 1
+    source: paper/sections/F-scalar-hs.tex
+    rev: d6a0391
+    tag: p
+    whole: 'yes'
+  - chapter: B
+    order: 2
+    source: knowledge/notes/cubic-sft-overview/cubic-sft-overview.tex
+    rev: worktree
+    tag: ov
+    heading: '{The Yang--Mills strictification toy}'
+    level: subsection
+    to: '\section{Open questions}'
+  - chapter: B
+    order: 3
+    source: knowledge/notes/companion-pairing-grading/companion-pairing-grading.tex
+    rev: worktree
+    tag: pg
+    heading: '{Two auxiliary-field mechanisms in Yang'
+    level: section
+  # ---- C SL(2,C) vertex data
+  - chapter: C
+    order: 1
+    source: knowledge/notes/j-boundary-representation/j-boundary-representation.tex
+    rev: worktree
+    tag: jb
+    heading: '\section{Introduction}'
+    level: section
+    to: '\printbibliography'

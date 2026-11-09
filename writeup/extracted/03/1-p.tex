@@ -1,0 +1,669 @@
+\subsection{All-order construction}
+\label{p:sec:all-orders}
+
+
+
+The orders treated one at a time in \cref{p:sec:hs} follow one pattern, and this section states it for every order.
+We first say which auxiliary field enters at which order, then write the general form of the cubic action with all the auxiliary fields, its truncation at a generic order and its equations of motion, and explain how it generalizes the squares of \cref{p:sec:hs:quartic,p:sec:hs:sextic,p:sec:hs:octic} and the reduced vertices of \cref{p:sec:hs:sextic,p:sec:hs:septic}.
+We then state the theorem that fixes the reduced vertices at every order, and the lemma behind it, that an exchange diagram of auxiliary fields whose sources all lie on the diagonal (i.e.\ the leading order $\Sigma_k \sim \Psi^k$) collapses to a contact term.
+The second half of the section eliminates the auxiliary fields one at a time and recovers the original action, gives the gauge transformations and the multiplier form of the action, and reads the elimination of $\Sigma_2$ as a homotopy transfer.
+Throughout, we work at tree level and with formal power series in $\gs$: at every truncation of the tower the identities are exact and rational in $\gs$, and we do not address the convergence of the infinite tower.
+
+\subsubsection{Cubic action at all orders}
+\label{p:sec:all:action}
+
+\subparagraph{Tower of auxiliary fields.}
+
+The construction of \cref{p:sec:hs} introduces one $k$-string auxiliary field $\Sigma_k \in \Hn{k}$ at each even order: $\Sigma_2$ at order $\gs^2$, $\Sigma_3$ at order $\gs^4$, $\Sigma_4$ at order $\gs^6$.
+The rule is that $\Sigma_k$ enters at order $\gs^{2 k - 2}$, through its kinetic term, and that the odd order which follows adds its coupling to $\Psi$:
+\begin{equation}
+  \label{p:eq:all:counting}
+  \Sigma_k
+    \;\longleftrightarrow\;
+  \Big( \frac{\gs^{2 k - 2}}{(2 k)!} \, \dvertex{2 k}, \; \frac{\gs^{2 k - 1}}{(2 k + 1)!} \, \dvertex{2 k + 1} \Big),
+  \qquad
+  k \ge 2,
+\end{equation}
+where $\dvertex{2 k}$ and $\dvertex{2 k + 1}$ are the reduced vertices of these two orders, $\dvertex{4} = \vertex{4}$ and $\dvertex{5} = \vertex{5}$.
+The reason is the one given at the septic order.
+The only quadratic term available for a $k$-string field is $\dvertex{2 k}(\Sigma_k, \Sigma_k)$, a vertex with $2 k$ strands, and it comes with $\gs^{2 k - 2}$.
+Conversely, the even vertex $\vertex{2 k}$ is the first whose square, split $k + k$, has $k$ strands per slot.
+Introducing $\Sigma_k$ there is the rule of the construction, one auxiliary field per completed square, and it keeps the action in the triangular form of \cref{p:sec:hs:septic}.
+
+The odd vertex $\dvertex{2 k + 1}$ is then written with the partition $2 k + 1 = k + k + 1$, two slots for $\Sigma_k$ and one for $\Psi$, which keeps the action quadratic in $\Sigma_k$.
+It dresses the kinetic operator of $\Sigma_k$ by the background, as the quintic vertex did for $\Sigma_2$ in \cref{p:sec:hs:quintic}.
+
+We call $k$ the level of $\Sigma_k$ in the tower, and keep ``mass level'' for the level of the level truncation.
+Each level thus has one pair of consecutive vertices, and the tower of auxiliary fields grows by one field every two orders.
+Asking only for a cubic action, not for auxiliary fields eliminated by Gaussian integrals, a cubic action built from the elementary vertices alone could do with fewer fields.
+A vertex $\vertex{n}$ can be split as $n = a + b + c$ with $\Sigma_a$, $\Sigma_b$, $\Sigma_c$ on its three legs, so that $\Sigma_k$ is needed only from $\vertex{3 k - 2}$ on, that is $k \le \lceil n / 3 \rceil$ for the vertex $\vertex{n}$.
+This count is not the rule of the construction, which introduces $\Sigma_k$ through the completed square~\eqref{p:eq:all:square} at order $\gs^{2 k - 2}$.
+The data of level $k$ first enter the value of the action on the solution at the order they are introduced: the even vertex at $\gs^{2 k - 2}$, the odd one at $\gs^{2 k - 1}$, as we show below.
+
+\subparagraph{General form of the action.}
+
+With all the auxiliary fields $\Sigma_2, \Sigma_3, \ldots$, the cubic action is:
+  \begin{equation}
+  \label{p:eq:all:action}
+  \begin{aligned}
+    \caction[\infty]
+      &
+      := S_{\le 3}
+        + \sum_{k \ge 2} \Big[
+          - \frac{\gs^{2 k - 2}}{(2 k)!} \, \pair[k]{\Sigma_k}{\kin{k}{}{2 k - 2}(\Sigma_k)}
+          + \frac{2 \gs^{2 k - 2}}{(2 k)!} \, \pair[k]{\Sigma_k}{\kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1})}
+      \\ &
+      \qquad\qquad\quad
+          + \frac{\gs^{2 k - 1}}{(2 k + 1)!} \, \dvertex{2 k + 1}(\Sigma_k, \Sigma_k, \Psi)
+        \Big],
+    \qquad
+    \Sigma_1
+      := \Psi,
+  \end{aligned}
+\end{equation}
+where $S_{\le 3}$ is the kinetic term and the cubic vertex of $\Psi$, untouched by the construction, and where the kinetic operator $\kin{k}{}{2 k - 2} \colon \Hn{k} \to \Hn{k}$ of $\Sigma_k$ is read off the reduced even vertex:
+\begin{equation}
+  \label{p:eq:all:kinetic}
+  \begin{gathered}
+    \dvertex{2 k}(A, B)
+      =: \pair[k]{A}{\kin{k}{}{2 k - 2}(B)},
+    \qquad
+    A, B \in \Hn{k},
+    \\
+    \kin{2}{}{2}
+      = \sprod{2}{2},
+    \qquad
+    \kin{3}{}{4}
+      = \wprod{3}{3}.
+  \end{gathered}
+\end{equation}
+The pairing is the one of \cref{p:sec:hs:action}, $\pair{A}{B} = \braket{A | c_0^- | B}$,~\eqref{p:eq:hs1:pairing}, and $\pair[k]{\cdot}{\cdot}$ is its $k$-th tensor power, one $c_0^-$ per strand, with the Koszul sign of~\eqref{p:eq:conv:pairing-n}.
+For the even tensors met in this section it is the plain product of the pairings of the strands, and it is symmetric.
+The auxiliary fields live on the quotients $\Hn{k} / \ker \kin{k}{}{2 k - 2}$.
+Each level $k$ of the sum contributes three terms: a kinetic term for $\Sigma_k$, a source for $\Sigma_k$ which is linear in $\Sigma_{k - 1}$ and in $\Psi$, and the odd coupling of $\Sigma_k$ to itself and to $\Psi$.
+At $k = 2$ the three terms are those of~\eqref{p:eq:hs4:S4tilde} and~\eqref{p:eq:hs5:S5tilde}, at $k = 3$ those of~\eqref{p:eq:hs7:action-6} and~\eqref{p:eq:hs7:S7tilde}, at $k = 4$ the first two are those of~\eqref{p:eq:hs8:S8tilde} and the third is the coupling $\dvertex{9}(\Sigma_4, \Sigma_4, \Psi)$ named there.
+The action is cubic in the fields: apart from $S_{\le 3}$, every term contains two auxiliary fields and at most one $\Psi$, except the quartic source, which contains $\Sigma_2$ and two $\Psi$.
+
+The sum over $k$ is infinite, but~\eqref{p:eq:all:action} is well defined as a formal power series in $\gs$:
+  \begin{equation}
+  \caction[\infty]
+    = \sum_{m \ge 0} \gs^m \, \widetilde{S}_{[m]},
+\end{equation}
+  whose coefficients are:
+  \begin{equation}
+  \label{p:eq:all:orders}
+  \begin{gathered}
+    \widetilde{S}_{[2 k - 2]}
+      = \frac{1}{(2 k)!} \Big[
+        2 \, \pair[k]{\Sigma_k}{\kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1})}
+        - \pair[k]{\Sigma_k}{\kin{k}{}{2 k - 2}(\Sigma_k)}
+      \Big],
+    \\
+    \widetilde{S}_{[2 k - 1]}
+      = \frac{1}{(2 k + 1)!} \, \dvertex{2 k + 1}(\Sigma_k, \Sigma_k, \Psi),
+    \qquad
+    k \ge 2,
+    \\
+    \widetilde{S}_{[0]}
+      = \frac{1}{2} \, \pair{\Psi}{Q_B \Psi},
+    \qquad
+    \widetilde{S}_{[1]}
+      = \frac{1}{3!} \, \vertex{3}(\Psi^3).
+  \end{gathered}
+\end{equation}
+  Each order has finitely many terms, two at every even order from $\gs^2$ on and one at every odd order, and each coefficient is a polynomial of degree at most three in finitely many fields.
+  The field $\Sigma_k$ enters first at order $\gs^{2 k - 2}$, and the coefficient of $\gs^m$ involves $\Psi$, $\Sigma_{\lfloor m / 2 \rfloor + 1}$ and, for even $m$, $\Sigma_{m / 2}$ only.
+
+We truncate the action at a generic order by truncating this series.
+The action with the auxiliary fields $\Sigma_2, \ldots, \Sigma_K$ is the series truncated at order $\gs^{2 K - 1}$, and truncating at the even order $\gs^{2 K - 2}$ instead drops the odd coupling of $\Sigma_K$ alone, as in \cref{p:sec:hs:octic}:
+\begin{equation}
+\label{p:eq:all:truncation}
+\begin{gathered}
+  \caction[\le 2 K + 1]
+    := \sum_{m = 0}^{2 K - 1} \gs^m \, \widetilde{S}_{[m]},
+  \\
+  \caction[\le 2 K]
+    := \sum_{m = 0}^{2 K - 2} \gs^m \, \widetilde{S}_{[m]}
+    = \caction[\le 2 K + 1] - \frac{\gs^{2 K - 1}}{(2 K + 1)!} \, \dvertex{2 K + 1}(\Sigma_K, \Sigma_K, \Psi).
+\end{gathered}
+\end{equation}
+On the solution of the auxiliary equations they reproduce $S_{\le 2 K + 1}$ up to $O(\gs^{2 K})$ and $S_{\le 2 K}$ up to $O(\gs^{2 K - 1})$, the remainder being the order of the first term left out, as we show in~\eqref{p:eq:all:recovered} below.
+
+The action is quadratic in each auxiliary field separately.
+The two terms quadratic in $\Sigma_k$ combine into one kinetic operator dressed by the background, the generalization of~\eqref{p:eq:hs5:dressed} and~\eqref{p:eq:hs7:dressed-3}:
+\begin{equation}
+  \label{p:eq:all:dressed-odd}
+  \pair[k]{A}{\kin{k}{\Psi}{2 k - 1}(B)}
+    := \pair[k]{A}{\kin{k}{}{2 k - 2}(B)}
+      - \frac{\gs}{2 k + 1} \, \dvertex{2 k + 1}(A, B, \Psi),
+  \qquad
+  A, B \in \Hn{k},
+\end{equation}
+an operator affine in $\Psi$ and symmetric with respect to the $k$-string pairing.
+The action is also quadratic in the tower as a whole, since the sources are bilinear in two consecutive fields.
+Collecting the tower in $(\Sigma_2, \ldots, \Sigma_K)$, the truncated action~\eqref{p:eq:all:truncation} reads:
+\begin{equation}
+  \label{p:eq:all:tridiagonal}
+  \caction[\le 2 K + 1]
+    = S_{\le 3}
+      + \frac{2 \gs^2}{4!} \, \pair[2]{\Sigma_2}{\sprod{2}{2}(\Psi^2)}
+      - \sum_{k, l = 2}^{K} \pair[k]{\Sigma_k}{\mathcal K_{k, l; \Psi}(\Sigma_l)},
+\end{equation}
+with the blocks:
+\begin{equation}
+  \label{p:eq:all:blocks}
+  \begin{gathered}
+    \mathcal K_{k, k; \Psi}
+      := \frac{\gs^{2 k - 2}}{(2 k)!} \, \kin{k}{\Psi}{2 k - 1},
+    \quad
+    k = 2, \ldots, K,
+    \\
+    \mathcal K_{k, k - 1; \Psi}
+      := - \frac{\gs^{2 k - 2}}{(2 k)!} \, \kin{k}{}{2 k - 2}(\Psi \otimes \, \cdot \,),
+    \quad
+    k = 3, \ldots, K,
+  \end{gathered}
+\end{equation}
+with $\mathcal K_{k - 1, k; \Psi}$ the transpose of $\mathcal K_{k, k - 1; \Psi}$ with respect to the pairings,~\eqref{p:eq:conv:transpose}, and $\mathcal K_{k, l; \Psi} = 0$ for $\abs{k - l} \ge 2$.
+For the whole series~\eqref{p:eq:all:action} the sum runs over all $k, l \ge 2$, and each coefficient in $\gs$ involves finitely many blocks.
+The operator $\mathcal K_\Psi$ is block-tridiagonal: each auxiliary field couples to itself and to its two neighbors only, and the only term linear in the tower is the quartic source of $\Sigma_2$.
+Together with sources that depend on the lower-order fields only, this is the triangular form of the action named in \cref{p:sec:hs:septic}, now for the whole tower.
+
+\subparagraph{Equations of motion.}
+
+We normalize the equations of motion as in~\eqref{p:eq:hs8:eom-normalization} of \cref{p:sec:hs:octic}:
+\begin{equation}
+\delta \caction
+  = \pair{\delta \Psi}{\mathcal E_\Psi}
+    + \sum_{k} \frac{2 \gs^{2 k - 2}}{(2 k)!} \, \pair[k]{\delta \Sigma_k}{\mathcal E_{\Sigma_k}},
+\end{equation}
+so that each equation of an auxiliary field has coefficient one on its source, up to the overall normalization of the term in the action.
+Varying~\eqref{p:eq:all:action}, or its truncation~\eqref{p:eq:all:truncation}, gives:
+\begin{subequations}
+\label{p:eq:all:eom}
+\begin{align}
+  \label{p:eq:all:eom-psi}
+  \mathcal E_\Psi
+    &
+    = Q_B \Psi
+      + \frac{\gs}{2} \, \ell_2(\Psi^2)
+      + \frac{\gs^2}{3!} \, \ell_3(\Psi, \Sigma_2)
+      + \frac{\gs^3}{5!} \, \ell_4(\Sigma_2^2)
+  \notag
+  \\ &
+  \quad
+      + \sum_{k = 3}^{K} \Big[
+        \frac{2 \gs^{2 k - 2}}{(2 k)!} \, \dvertex{2 k}(\, \cdot \, \otimes \Sigma_{k - 1}, \Sigma_k)
+        + \frac{\gs^{2 k - 1}}{(2 k + 1)!} \, \dvertex{2 k + 1}(\Sigma_k, \Sigma_k, \, \cdot \,)
+      \Big],
+  \\
+  \label{p:eq:all:eom-sigma}
+  \mathcal E_{\Sigma_k}
+    &
+    = \kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1})
+      - \kin{k}{}{2 k - 2}(\Sigma_k)
+      + \frac{\gs}{2 k + 1} \, \dvertex{2 k + 1}(\, \cdot \,, \Sigma_k, \Psi)
+  \notag
+  \\ &
+  \quad
+      + \frac{\gs^2}{(2 k + 1) (2 k + 2)} \, \dvertex{2 k + 2}(\Psi \otimes \, \cdot \,, \Sigma_{k + 1}),
+  \qquad
+  2 \le k \le K,
+\end{align}
+\end{subequations}
+for every $K$, the whole series being $K = \infty$, and where the dot denotes the state paired with the open slot, as in~\eqref{p:eq:hs6:eom}.
+At $k = 2$ the source is $\sprod{2}{2}(\Psi^2)$ and the odd term is $\tfrac{\gs}{5} \sprod{3}{2}(\Psi, \Sigma_2)$.
+The terms of level $2$ in the equation of $\Psi$ are $\ell_3$ and $\ell_4$, the odd term of level $2$.
+At $k = K < \infty$ the last term of~\eqref{p:eq:all:eom-sigma} is absent, and in the even truncation the odd term of level $K$ is absent from both equations.
+At $K = 2$ this is the $\ell_4$ term, which the quartic equation~\eqref{p:eq:hs4:eom-psi} does not have.
+With the dressed operator~\eqref{p:eq:all:dressed-odd}, the equation of $\Sigma_k$ is:
+\begin{equation}
+\label{p:eq:all:eom-sigma-dressed}
+\mathcal E_{\Sigma_k}
+  = \kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1})
+    - \kin{k}{\Psi}{2 k - 1}(\Sigma_k)
+    + \frac{\gs^2}{(2 k + 1) (2 k + 2)} \, \dvertex{2 k + 2}(\Psi \otimes \, \cdot \,, \Sigma_{k + 1}),
+\end{equation}
+the row $k$ of the block-tridiagonal system~\eqref{p:eq:all:tridiagonal}.
+
+The equations of the auxiliary fields are linear in the tower.
+The equation of $\Sigma_k$ couples it to the lower-order field $\Sigma_{k - 1}$ through its source, to itself through the operator dressed by the odd vertex, and to the higher-order field $\Sigma_{k + 1}$ through the transpose of the next source, with $\gs^2$.
+At finite $K$ the last equation has no higher-order field and closes the chain.
+The equation of $\Psi$ is the only non-linear one and the only one that involves every field.
+With the tower eliminated, it is the equation of motion of the recovered action,~\eqref{p:eq:all:eom-recovered} below.
+Under the condition~\eqref{p:eq:hs8:kernel-condition} the equations are statements on the quotients: $\mathcal E_{\Sigma_k}$ does not depend on the kernel components of the fields and pairs to zero with every kernel direction.
+At $K = 4$, with the odd coupling of $\Sigma_4$ dropped, these are the equations~\eqref{p:eq:hs8:eom} of the octic order, written there term by term.
+
+At $K = \infty$, we solve the system order by order in $\gs$.
+With
+\begin{equation}
+  \Sigma_k
+    = \sum_m \gs^m \, \Sigma_k^{[m]}
+\end{equation}
+and $\Sigma_k^{[0]} = \Psi^k$, the coefficient of $\gs^m$ of~\eqref{p:eq:all:eom-sigma} gives:
+\begin{equation}
+\label{p:eq:all:eom-orders}
+\begin{aligned}
+  \kin{k}{}{2 k - 2}\big( \Sigma_k^{[m]} \big)
+    &
+    = \kin{k}{}{2 k - 2}\big( \Psi \otimes \Sigma_{k - 1}^{[m]} \big)
+      + \frac{1}{2 k + 1} \, \dvertex{2 k + 1}\big( \, \cdot \,, \Sigma_k^{[m - 1]}, \Psi \big)
+  \\ &
+  \quad
+      + \frac{1}{(2 k + 1) (2 k + 2)} \, \dvertex{2 k + 2}\big( \Psi \otimes \, \cdot \,, \Sigma_{k + 1}^{[m - 2]} \big),
+\end{aligned}
+\end{equation}
+a finite recursion in $(m, k)$, solved on the quotients: each coefficient needs the lower-order field at the same order in $\gs$, the field itself one order down, and the higher-order field two orders down.
+
+\subsubsection{Completed squares}
+\label{p:sec:all:squares}
+
+\subparagraph{Nested operators.}
+
+We diagonalize the block-tridiagonal quadratic form by eliminating one field at a time from the top, and each elimination inverts one block.
+The operators so obtained are the dressed kinetic operators, defined from the top down, starting from the operator $\kin{K}{\Psi}{2 K - 1}$ of~\eqref{p:eq:all:dressed-odd}, by:
+\begin{equation}
+  \label{p:eq:all:nested}
+  \begin{aligned}
+    &
+    \pair[k]{A}{\kin{k}{\Psi}{2 K - 1}(B)}
+      := \pair[k]{A}{\kin{k}{\Psi}{2 k - 1}(B)}
+    \\ &
+    \qquad
+    - \frac{\gs^2}{(2 k + 1) (2 k + 2)} \, \pair[k + 1]{\kin{k + 1}{}{2 k}(\Psi \otimes A)}{\big( \kin{k + 1}{\Psi}{2 K - 1} \big)^{-1} \circ \kin{k + 1}{}{2 k}(\Psi \otimes B)},
+  \end{aligned}
+\end{equation}
+for $k = K - 1, \ldots, 2$ and $A, B \in \Hn{k}$.
+The second term is the exchange of $\Sigma_{k + 1}$ between two sources of $\Sigma_{k + 1}$.
+  At $k = 2, 3$, its coefficient is the $1 / 30$ of~\eqref{p:eq:hs6:dressed-2} and the $1 / 56$ of~\eqref{p:eq:hs8:dressed-3}.
+The operator of each level contains the inverse of the operator of the next level, and the chain stops at the top, where no higher-order field is left.
+We assume, as in \cref{p:sec:hs:octic}, that the bare operators $\kin{k}{}{2 k - 2}$ are invertible on their quotients and that the condition~\eqref{p:eq:hs8:kernel-condition} on the nested kernels holds.
+At a fixed level truncation, with the momenta fixed or discretized, and at fixed $K$, the nested operators are then invertible for $\gs \Psi$ in a neighborhood of zero, and they reduce to the bare ones at $\gs \Psi = 0$.
+At $K = \infty$ the chain has no top.
+Its coefficient of $\gs^m$ involves finitely many levels, as we show below, so that the nested operators are defined coefficient by coefficient, and their inverses exist as formal power series because their term of order $\gs^0$ is the bare operator.
+No assumption beyond those of finite $K$ is needed, but we lose the statement that the inverse exists for $\gs \Psi$ in a neighborhood of zero.
+
+The nested operators put the action in a form which is the all-order version of the completed squares of \cref{p:sec:hs}.
+Define the fluctuation of each field from its conditional solution, the solution of its own equation of motion at fixed lower-order fields, once the higher-order ones are eliminated:
+\begin{equation}
+  \label{p:eq:all:deviation}
+  \sigma_k^{(2 K - 1)}
+    := \Sigma_k - \big( \kin{k}{\Psi}{2 K - 1} \big)^{-1} \circ \kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1}),
+  \qquad
+  k = 2, \ldots, K,
+\end{equation}
+with $\Sigma_1 = \Psi$, so that $\sigma_2^{(2 K - 1)} = \Sigma_2 - (\kin{2}{\Psi}{2 K - 1})^{-1} \circ \sprod{2}{2}(\Psi^2)$.
+Then, exactly and off-shell, we have:
+\begin{equation}
+  \label{p:eq:all:squares}
+  \caction[\le 2 K + 1]
+    = \caction[\le 2 K + 1] \big|_{\text{solution}}
+      - \sum_{k = 2}^{K} \frac{\gs^{2 k - 2}}{(2 k)!} \, \pair[k]{\sigma_k^{(2 K - 1)}}{\kin{k}{\Psi}{2 K - 1}(\sigma_k^{(2 K - 1)})},
+\end{equation}
+where the first term is the value of the action on the joint solution of the auxiliary equations, computed below.
+At $K = 2$ this is the completed square of \cref{p:sec:hs:quintic},~\eqref{p:eq:hs5:square}, at $K = 3$ the identity~\eqref{p:eq:hs7:identity} of \cref{p:sec:hs:septic}, and the fluctuations generalize $\Sigma_2 - \Psi^2$ at the quartic order and $\Sigma_3 - \Psi \otimes \Sigma_2$ at the sextic one, to which they reduce at $\gs = 0$.
+Each square carries the operator of its own level, which is the operator of that field once the higher-order fields are eliminated.
+We checked~\eqref{p:eq:all:squares} in the finite-dimensional model, where it holds to machine precision for a tower of three auxiliary fields, $\Sigma_2$, $\Sigma_3$, $\Sigma_4$.
+
+\subparagraph{Squares at every order.}
+
+We reach the form~\eqref{p:eq:all:action} by repeating at every even order the step of \cref{p:sec:hs:sextic,p:sec:hs:octic}.
+At order $\gs^{2 k - 2}$ the matching requires a new term, which we write as $\tfrac{\gs^{2 k - 2}}{(2 k)!} \dvertex{2 k}(\Psi \otimes \Sigma_{k - 1}, \Psi \otimes \Sigma_{k - 1})$, with $\dvertex{2 k}$ a symmetric bilinear form on $\Hn{k}$ whose diagonal value the matching fixes.
+We complete this term into a square with a new $k$-string field:
+\begin{equation}
+  \label{p:eq:all:square}
+  \begin{gathered}
+    \Delta S_{2 k}
+      := - \frac{\gs^{2 k - 2}}{(2 k)!} \, \dvertex{2 k}(\Sigma_k - \Psi \otimes \Sigma_{k - 1}, \Sigma_k - \Psi \otimes \Sigma_{k - 1}),
+    \\
+    \caction[2 k]
+      := \frac{\gs^{2 k - 2}}{(2 k)!} \, \dvertex{2 k}(\Psi \otimes \Sigma_{k - 1}, \Psi \otimes \Sigma_{k - 1}) + \Delta S_{2 k}.
+  \end{gathered}
+\end{equation}
+At $k = 2$ this is the square~\eqref{p:eq:hs4:DeltaS4} of $\Sigma_2 - \Psi^2$ with the quartic vertex, at $k = 3$ the square~\eqref{p:eq:hs6:DeltaS6} of $\Sigma_3 - \Psi \otimes \Sigma_2$ with $\dvertex{6}$, at $k = 4$ the square~\eqref{p:eq:hs8:DeltaS8} with $\dvertex{8}$.
+Expanding the square cancels the term we started from and leaves the kinetic term and the source of~\eqref{p:eq:all:action}.
+The state $\Psi \otimes \Sigma_{k - 1}$, rather than $\Psi^k$, in the square keeps the cross term cubic in the fields.
+Since $\Sigma_{k - 1} = \Psi^{k - 1} + O(\gs)$ on-shell, only the diagonal value $\dvertex{2 k}(\Psi^{2 k})$ is produced at this order.
+At the odd order which follows, the vertex $\dvertex{2 k + 1}$ is written with two slots for $\Sigma_k$ and one for $\Psi$:
+\begin{equation}
+  \label{p:eq:all:odd}
+  \caction[2 k + 1]
+    := \frac{\gs^{2 k - 1}}{(2 k + 1)!} \, \dvertex{2 k + 1}(\Sigma_k, \Sigma_k, \Psi),
+\end{equation}
+as in~\eqref{p:eq:hs5:S5tilde} and~\eqref{p:eq:hs7:S7tilde}, which is the third term of~\eqref{p:eq:all:action}.
+
+The two terms of level $k$ at the even order come from one form, $\dvertex{2 k}$, which fills the kinetic term with its $2 k$ slots split as $k + k$ and the source with the split $k + (k - 1) + 1$.
+This makes $\caction[2 k]$ a square, and the construction rests on this property.
+The representative of the reduced vertex built from the diagrams is the elementary vertex minus the exchange diagrams that the lower-order auxiliary fields already produce at that order, with the reduced vertices at their nodes: $\dvertex{6}$ is~\eqref{p:eq:hs6:dressed-vertex}, the sextic vertex minus the $\Sigma_2$ exchange between two quintic vertices, and $\dvertex{7}$ is~\eqref{p:eq:hs7:dressed-vertex}, with a chain of three quintic vertices and a sextic--quintic exchange.
+Written with the string vertices at the nodes, the sign of a diagram depends on the diagram: the chain enters $\dvertex{7}$ with the coefficient $+ \tfrac{42}{25}$ of~\eqref{p:eq:hs7:diagonal}, because the diagram $\dvertex{6} \cdot \vertex{5}$, subtracted, contains the chain once more with the opposite sign.
+Only its diagonal value is fixed by the matching, through the rule~\eqref{p:eq:hs7:deficit}, and the representative built from the diagrams is one choice among those with that diagonal.
+
+The dressed kinetic operators of~\eqref{p:eq:all:nested} follow the pattern of \cref{p:sec:hs:septic,p:sec:hs:octic} at every level.
+Once the fields of higher order than $\Sigma_k$ are eliminated, the operator of $\Sigma_k$ is its bare operator, dressed by the odd vertex at order $\gs$ and by the exchange of $\Sigma_{k + 1}$ at order $\gs^2$.
+The $\Sigma_{k + 1}$ line inside that exchange carries the dressed operator of $\Sigma_{k + 1}$ in its turn.
+Expanding the inverse in~\eqref{p:eq:all:nested} as a Neumann series, the operator of $\Sigma_2$ is a continued fraction of exchanges, whose depth is the number of auxiliary fields.
+The operator $\kin{2}{\Psi}{2 K - 1}$ contains the exchange of $\Sigma_3$, inside which the $\Sigma_3$ line carries the exchange of $\Sigma_4$, and so on up to $\Sigma_K$.
+Its expansion in $\gs$ starts as in~\eqref{p:eq:hs8:scaling}, and the coefficient of $\gs^m$ involves the levels $k \le m / 2 + 2$ only, since each rung of the chain costs $\gs^2$.
+More precisely, for the action truncated at order $\gs^{2 K - 1}$, the coefficients of $\gs^m$ of the operator of $\Sigma_k$ and of the solution $\Sigma_k^*$ do not depend on $K$ once $K \ge k + \lfloor m / 2 \rfloor$, and that of the value of the action once $K \ge 1 + \lfloor m / 2 \rfloor$.
+For the truncation at $\gs^{2 K - 2}$, $\lfloor m / 2 \rfloor$ is replaced by $\lceil m / 2 \rceil$, since the top level has no odd dressing.
+These are algebraic identities between the recursions at finite $K$ and at $K = \infty$, valid whenever the bare inverses exist on the quotients.
+Every coefficient of the expansion is therefore unchanged once the tower is long enough, and the continued fraction is well defined as a formal power series in $\gs$: the operators at $K = \infty$ are the limits of those at finite $K$, coefficient by coefficient.
+
+The powers of $\gs$ in~\eqref{p:eq:all:action} are those of the original action, in which $\vertex{n}$ carries $\gs^{n - 2}$.
+We can redistribute them by absorbing a power of $\gs$ in each auxiliary field, as was done for $\Sigma_2$ in \cref{p:sec:hs:quartic}.
+With
+\begin{equation}
+  \label{p:eq:all:rescaling}
+  \widetilde{\Sigma}_k
+    := \gs^{k - 1} \, \Sigma_k,
+  \qquad
+  k \ge 1,
+  \qquad
+  \widetilde{\Sigma}_1
+    = \Psi,
+\end{equation}
+the action becomes:
+\begin{equation}
+  \label{p:eq:all:rescaled}
+  \begin{aligned}
+    \caction[\le 2 K + 1]
+      &
+      = S_{\le 3}
+        + \sum_{k = 2}^{K} \Big[
+          - \frac{1}{(2 k)!} \, \pair[k]{\widetilde{\Sigma}_k}{\kin{k}{}{2 k - 2}(\widetilde{\Sigma}_k)}
+          + \frac{2 \gs}{(2 k)!} \, \pair[k]{\widetilde{\Sigma}_k}{\kin{k}{}{2 k - 2}(\Psi \otimes \widetilde{\Sigma}_{k - 1})}
+      \\ &
+      \qquad\qquad\quad
+          + \frac{\gs}{(2 k + 1)!} \, \dvertex{2 k + 1}(\widetilde{\Sigma}_k, \widetilde{\Sigma}_k, \Psi)
+        \Big].
+  \end{aligned}
+\end{equation}
+Every kinetic term, including the one of $\Psi$ in $S_{\le 3}$, now carries no power of $\gs$, and every cubic term, including the cubic vertex of $\Psi$, carries exactly one, as expected for a cubic action with one coupling constant.
+The rescaling reflects a homogeneity of the action: under $\Psi \to t \Psi$, $\Sigma_k \to t^k \Sigma_k$ and $\gs \to \gs / t$, every term of~\eqref{p:eq:all:action} scales as $t^2$, so that the rescaled fields $\widetilde{\Sigma}_k$ all scale as $\Psi$ does.
+Since the rescaled fields all have the weight of $\Psi$, their sum is homogeneous under this scaling, and we define the total field:
+\begin{equation}
+  \label{p:eq:all:total-field}
+  \begin{gathered}
+    \boldsymbol{\Psi}
+      := \sum_{n \ge 1} \gs^{n - 1} \, \Psi_n
+      = \sum_{n \ge 1} \widetilde{\Sigma}_n,
+    \\
+    \Psi_1
+      := \Psi,
+    \qquad
+    \Psi_n
+      := \Sigma_n
+    \quad
+    (n \ge 2),
+  \end{gathered}
+\end{equation}
+an element of $\bigoplus_{n \ge 1} \Hn{n}$.
+In terms of it, the kinetic terms of~\eqref{p:eq:all:rescaled} are one quadratic form on the direct sum, with no $\gs$, and the cubic terms are one cubic form with a single $\gs$ in front.
+This is the form in which \cref{p:sec:ibl} reads the cubic action as an action for a single string field with multi-string components.
+
+\subsubsection{Reduced vertices at every order}
+\label{p:sec:all:reduced-vertices}
+
+The matching of \cref{p:sec:hs} fixed the reduced vertices one order at a time, through their diagonal values.
+The following statement extends this to every order.
+Let the vertices $\vertex{n}$, $n \ge 4$, be symmetric multilinear forms on a finite-dimensional space, which for the string vertices is a level truncation with the momenta fixed or discretized, and let every identity be read as a formal power series in $\gs$.
+Assume that the bare kinetic operators $\kin{k}{}{2 k - 2}$ are invertible on their quotients and that the condition~\eqref{p:eq:hs8:kernel-condition} on the nested kernels holds.
+The nested operators~\eqref{p:eq:all:nested} are then invertible for $\gs \Psi$ in a neighborhood of zero at every finite $K$, the neighborhood possibly depending on $K$, and as formal power series at $K = \infty$.
+Assume also that each level is introduced through the square~\eqref{p:eq:all:square}, its kinetic term and its source read off the same form $\dvertex{2 k}$.
+Then there exist reduced vertices $\dvertex{n}$, $n \ge 4$, with $\dvertex{4} = \vertex{4}$ and $\dvertex{5} = \vertex{5}$, whose diagonal values are fixed recursively by:
+\begin{equation}
+  \label{p:eq:all:diagonal}
+  \dvertex{n}(\Psi^n)
+    = \vertex{n}(\Psi^n) - n! \, \big[ \gs^{n - 2} \big] \, \caction[\le n - 1] \big|_{\text{solution}},
+  \qquad
+  n \ge 6,
+\end{equation}
+such that the cubic action reproduces the original one on the solution of the auxiliary equations:
+\begin{equation}
+  \label{p:eq:all:closure}
+  \caction[\le N] \big|_{\text{solution}}
+    = S_{\le N} + O(\gs^{N - 1}),
+  \qquad
+  N \ge 4,
+\end{equation}
+as a formal power series in $\gs$.
+At each truncation the identity is exact and rational in $\gs$, with a remainder at the order of the first term left out, $\gs^{2 K}$ for $\caction[\le 2 K + 1]$ and $\gs^{2 K - 1}$ for $\caction[\le 2 K]$.
+The rule~\eqref{p:eq:all:diagonal} is~\eqref{p:eq:hs7:deficit}: the diagonal value of the new vertex is the vertex of the original action minus what the previous orders already produce, and~\eqref{p:eq:hs6:dressed-vertex}, \eqref{p:eq:hs7:coefficient} and~\eqref{p:eq:hs8:diagonal} are its cases $n = 6, 7, 8$.
+
+Three facts make the recursion well defined.
+First, the mismatch on the right of~\eqref{p:eq:all:diagonal} is a homogeneous polynomial of degree $n$ in $\Psi$: a polynomial because finitely many diagrams contribute to it, and homogeneous by the homogeneity under $\Psi \to t \Psi$, $\Sigma_k \to t^k \Sigma_k$, $\gs \to \gs / t$ noted above, since the coefficient of $\gs^{n - 2}$ in a quantity scaling as $t^2$ has degree $n$.
+A homogeneous polynomial of degree $n$ is the diagonal value of a symmetric $n$-linear form, its polarization, which we read as a form on $\Hn{k} \times \Hn{k}$ for $n = 2 k$ and on $\Hn{k} \times \Hn{k} \times \Hs$ for $n = 2 k + 1$ by grouping its slots, with the same value at $\Psi^n$; a vertex with the required diagonal therefore exists.
+Second, the coefficient of $\gs^{n - 2}$ in the eliminated action depends on $\dvertex{n}$ only through its diagonal value, with coefficient $1 / n!$, and on the vertices $\dvertex{m}$ with $m < n$ otherwise.
+This is the content of the collapse lemma below.
+The diagonal of $\dvertex{n}$ is therefore fixed by the orders below it, and fixing it does not disturb them.
+
+Third, everything else in $\dvertex{n}$ is free as far as the matching goes: two forms with the same diagonal value close the order equally well.
+Where the kinetic operators have a kernel, the condition~\eqref{p:eq:hs8:kernel-condition} restricts this freedom (\cref{p:sec:hs:octic}).
+This freedom has an effect on the next orders: the terms of $\dvertex{n}$ vanishing on the diagonal enter their exchange diagrams and change the mismatches there, hence the diagonal values of the later vertices.
+The recursion absorbs the change by fixing those diagonals in their turn.
+At the sextic order, for instance, the vertex~\eqref{p:eq:hs6:dressed-vertex} built from the exchange diagram and the polarization of its diagonal value both close the order and the next ones, differ as forms, and give different diagonal values for $\dvertex{7}$.
+
+We prove the statement by induction on $n$ at the algebraic level, for symmetric forms on a finite-dimensional space.
+The induction hypothesis is that the vertices $\dvertex{m}$, $m < n$, exist and close the orders below $\gs^{n - 2}$; the first fact gives a $\dvertex{n}$ with the required diagonal, and the second, which rests on the collapse lemma below, shows that it closes the order $\gs^{n - 2}$ without changing the lower ones.
+We ran the recursion in the finite-dimensional model from $n = 6$ to $n = 9$: the remainder of the eliminated action scales as $\gs^8$, and its response to a change of the diagonal is the one stated below.
+No property of the vertices beyond their symmetry is used: the relations satisfied by the string vertices play no role in the matching, which is a statement about the Hubbard--Stratonovich transformation alone.
+From the string vertices we need in addition the invertibility assumption on the kinetic operators, which we take as in \cref{p:sec:hs:octic}.
+The independence of the exchange structures is needed only to decompose the diagonal into named terms, as in~\eqref{p:eq:hs7:diagonal}.
+The recursion itself fixes the diagonal as a polynomial and needs no such independence.
+
+The statement is one about formal power series: at every truncation the identities are exact, and nothing is said about the convergence of the continued fraction~\eqref{p:eq:all:nested} as the number of auxiliary fields grows.
+We do not write a representative of $\dvertex{n}$ built from the diagrams for $n \ge 8$ either, as noted in \cref{p:sec:hs:octic}.
+
+\subparagraph{Value of the action on the solution.}
+
+With the nested operators built from the top down, the auxiliary equations of~\eqref{p:eq:all:truncation} are solved from the bottom up, each field in terms of the lower-order ones:
+\begin{equation}
+  \label{p:eq:all:saddles}
+  \Sigma_k^*
+    = \big( \kin{k}{\Psi}{2 K - 1} \big)^{-1} \circ \kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1}^*),
+  \qquad
+  k = 2, \ldots, K,
+  \qquad
+  \Sigma_1^*
+    := \Psi,
+\end{equation}
+the fluctuations~\eqref{p:eq:all:deviation} vanishing one after the other.
+Each solution lies on the diagonal at leading order, $\Sigma_k^* = \Psi^k + O(\gs)$, as we show below.
+The squares of~\eqref{p:eq:all:squares} vanish on the joint solution, and the value of the action is the first term there.
+With the auxiliary fields eliminated one after the other, in decreasing order, $\Sigma_K$ first, this value is:
+\begin{equation}
+  \label{p:eq:all:value}
+  \caction[\le 2 K + 1] \big|_{\text{solution}}
+    = S_{\le 3} + \frac{\gs^2}{4!} \, \pair[2]{\sprod{2}{2}(\Psi^2)}{\big( \kin{2}{\Psi}{2 K - 1} \big)^{-1} \circ \sprod{2}{2}(\Psi^2)},
+\end{equation}
+exactly in $\gs$ at fixed truncation, under the invertibility assumption stated above.
+The only source is the quartic one, and every other term of the action sits in the nested operator~\eqref{p:eq:all:nested} of $\Sigma_2$, a continued fraction in which the dressed operator of each field contains the inverse of the next one.
+At $K = 2$ the operator is $\kin{2}{\Psi}{3}$ and~\eqref{p:eq:all:value} is the constant term of~\eqref{p:eq:hs5:square} in \cref{p:sec:hs:quintic}; with the three auxiliary fields of \cref{p:sec:hs:octic} and the top odd coupling dropped, it is the value of that section with the operator~\eqref{p:eq:hs8:dressed-2}.
+As a formal series in $\gs$, every coefficient of the expansion of~\eqref{p:eq:all:value} no longer changes once enough fields are introduced, and the whole interaction content of the original action is carried by the diagonal values of the reduced vertices.
+At $K = \infty$, under the assumptions of the matching statement above, the value of the action~\eqref{p:eq:all:action} on the solution is then the original action $S$, as a formal power series in $\gs$.
+We write out the elimination itself, with the induced terms at each step, below.
+
+The lemma behind~\eqref{p:eq:all:diagonal} is the all-order form of the collapse of \cref{p:sec:hs:quartic}, where the $\Sigma_2$ exchange between two quartic sources gave back the contact term $\vertex{4}(\Psi^4)$,~\eqref{p:eq:hs4:telescoping}.
+It has three parts.
+First, because the kinetic term and the source of level $k$ come from the same form, the source evaluated on the diagonal is the kinetic operator applied to the diagonal: for $A \in \Hn{k}$, we have:
+\begin{equation}
+  \label{p:eq:all:same-form}
+  \pair[k]{A}{\kin{k}{}{2 k - 2}(\Psi \otimes \Psi^{k - 1})}
+    = \dvertex{2 k}(A, \Psi^k)
+    = \pair[k]{A}{\kin{k}{}{2 k - 2}(\Psi^k)},
+\end{equation}
+where the first reading is the source of~\eqref{p:eq:all:action} at $\Sigma_{k - 1} = \Psi^{k - 1}$ and the last one its kinetic term at $\Sigma_k = \Psi^k$, both being $\dvertex{2 k}$ with all slots but the first $k$ filled with $\Psi$.
+Hence $(\kin{k}{}{2 k - 2})^{-1}$ applied to the source on the diagonal gives $\Psi^k$ on the quotient, and since the dressed operators reduce to the bare ones at $\gs = 0$, the solutions~\eqref{p:eq:all:saddles} are $\Sigma_k^* = \Psi^k + O(\gs)$ by induction on $k$.
+No symmetry of $\dvertex{2 k}$ beyond the one in the two groups of $k$ slots is needed, so that the forms built from the exchange diagrams and the polarized ones qualify equally.
+Second, each rung of the chain~\eqref{p:eq:all:nested} costs $\gs^2$, so that the data of level $k$ first enter the value~\eqref{p:eq:all:value} at order $\gs^2 (\gs^2)^{k - 2} = \gs^{2 k - 2}$.
+The odd vertex $\dvertex{2 k + 1}$, which dresses the operator of level $k$ at order $\gs$, enters one order later.
+Third, at its first order each level contributes its diagonal value alone, with the coefficient of the original action: at that order the two sources flanking the level-$k$ exchange are on the diagonal, and
+\begin{equation}
+  \label{p:eq:all:collapse}
+  \frac{\gs^{2 k - 2}}{(2 k)!} \, \pair[k]{\kin{k}{}{2 k - 2}(\Psi^k)}{\big( \kin{k}{}{2 k - 2} \big)^{-1} \circ \kin{k}{}{2 k - 2}(\Psi^k)}
+    = \frac{\gs^{2 k - 2}}{(2 k)!} \, \dvertex{2 k}(\Psi^{2 k}),
+\end{equation}
+the inverse cancelling against one of the two operators, as $\sprod{2}{2}^{-1}$ did in~\eqref{p:eq:hs4:telescoping}.
+The coefficient $1 / (2 k)!$ is the product of the $1 / 4!$ of the quartic source and of the factors $(2 j)! / (2 j + 2)!$ of the rungs $j = 2, \ldots, k - 1$ in~\eqref{p:eq:all:nested}, which telescope.
+For the odd vertex, expanding $(\kin{k}{\Psi}{2 k - 1})^{-1}$ to first order in $\gs$ between the same two diagonal sources gives $+ \tfrac{\gs^{2 k - 1}}{(2 k + 1)!} \dvertex{2 k + 1}(\Psi^{2 k + 1})$, as $\vertex{5}$ entered in~\eqref{p:eq:hs5:constant}.
+An exchange diagram of auxiliary fields with all its sources on the diagonal thus collapses to a contact term, at every level.
+From the sextic order on, the exchanges between interaction vertices do not collapse, and the reduced vertices absorb them.
+In the finite-dimensional model, adding to $\dvertex{8}$ the form $\epsilon \, \alpha^{\otimes 8}$, with $\alpha$ a linear form, shifts the coefficient of $\gs^6$ in the value by $\epsilon \, \alpha(\Psi)^8 / 8!$ and leaves the lower orders unchanged, and likewise for $\dvertex{9}$ at order $\gs^7$.
+
+\subsubsection{Integrating out the auxiliary fields}
+\label{p:sec:all:integrating-out}
+
+We now carry out the elimination which the value~\eqref{p:eq:all:value} summarizes, one field at a time, to show how the original action comes back and where each induced interaction goes.
+The order is from the top of the tower down, since $\Sigma_K$ is the only field whose equation involves no higher-order one.
+Each step is exact, because the action is quadratic in the field being eliminated: the elimination of $\Sigma_k$ is the classical form of a Gaussian integral, and it produces no remainder of higher degree in the remaining fields.
+A coupling cubic in an auxiliary field would break this: its square never completes, and the elimination would leave a remainder cubic in the fluctuation.
+The form with $\Sigma_2$ alone, mentioned in \cref{p:sec:hs:sextic}, has such a coupling, its sextic vertex with three $\Sigma_2$ slots.
+
+The first step eliminates $\Sigma_K$.
+In the truncated action~\eqref{p:eq:all:truncation} it appears in the three terms of level $K$ only, and its equation of motion is the case $k = K$ of~\eqref{p:eq:all:eom-sigma-dressed}, which has no higher-order field:
+\begin{equation}
+\label{p:eq:all:eom-top}
+\mathcal E_{\Sigma_K}
+  = \kin{K}{}{2 K - 2}(\Psi \otimes \Sigma_{K - 1}) - \kin{K}{\Psi}{2 K - 1}(\Sigma_K)
+  = 0,
+\end{equation}
+the source minus the dressed kinetic operator~\eqref{p:eq:all:dressed-odd} applied to the field, as~\eqref{p:eq:hs5:eom-sigma-dressed} at the quintic order.
+Its solution is the top line of~\eqref{p:eq:all:saddles}, $\Sigma_K^* = (\kin{K}{\Psi}{2 K - 1})^{-1} \circ \kin{K}{}{2 K - 2}(\Psi \otimes \Sigma_{K - 1})$, a function of $\Sigma_{K - 1}$ and $\Psi$.
+Substituting it back, we find that the kinetic term and the source of level $K$ combine into one term:
+\begin{equation}
+  \label{p:eq:all:eliminate-top}
+  \begin{aligned}
+    &
+    \caction[\le 2 K + 1] \big|_{\Sigma_K = \Sigma_K^*}
+      = \caction[\le 2 K - 1]
+    \\ &
+    \qquad
+    + \frac{\gs^{2 K - 2}}{(2 K)!} \, \pair[K]{\kin{K}{}{2 K - 2}(\Psi \otimes \Sigma_{K - 1})}{\big( \kin{K}{\Psi}{2 K - 1} \big)^{-1} \circ \kin{K}{}{2 K - 2}(\Psi \otimes \Sigma_{K - 1})},
+  \end{aligned}
+\end{equation}
+where $\caction[\le 2 K - 1]$ is the action of the levels $2, \ldots, K - 1$.
+The second term is the interaction induced by the $\Sigma_K$ exchange: two sources of $\Sigma_K$ joined by the dressed $\Sigma_K$ line.
+It is exactly quadratic in $\Sigma_{K - 1}$, since the source is linear in it, and it carries one $\Psi$ on each side.
+At $K = 3$ this is the elimination of $\Sigma_3$ in \cref{p:sec:hs:septic}, whose induced interaction is quadratic in $\Sigma_2$ and combines with the quintic coupling into a single quadratic form.
+
+The induced term has the form of the quadratic term of $\Sigma_{K - 1}$, and we absorb it there.
+The sum of the two is:
+\begin{equation}
+  \label{p:eq:all:absorb}
+  \begin{aligned}
+    &
+    - \frac{\gs^{2 K - 4}}{(2 K - 2)!} \, \pair[K - 1]{\Sigma_{K - 1}}{\kin{K - 1}{\Psi}{2 K - 3}(\Sigma_{K - 1})}
+      + \big( \text{induced term of~\eqref{p:eq:all:eliminate-top}} \big)
+    \\ &
+    \qquad
+    = - \frac{\gs^{2 K - 4}}{(2 K - 2)!} \, \pair[K - 1]{\Sigma_{K - 1}}{\kin{K - 1}{\Psi}{2 K - 1}(\Sigma_{K - 1})},
+  \end{aligned}
+\end{equation}
+with the nested operator of~\eqref{p:eq:all:nested}.
+At this point the action of the levels $2, \ldots, K - 1$ has the form~\eqref{p:eq:all:truncation} again, with one field less and with the kinetic operator of the new top field dressed by the exchange of the field just eliminated.
+The second step eliminates $\Sigma_{K - 1}$ with this dressed operator, by the same two displays with $K$ replaced by $K - 1$ and $\kin{K - 1}{\Psi}{2 K - 3}$ replaced by $\kin{K - 1}{\Psi}{2 K - 1}$, and so on down to $\Sigma_2$.
+The chain of operators~\eqref{p:eq:all:nested} is built in the process, one rung per step, and the last step leaves the value~\eqref{p:eq:all:value}: the quartic source of $\Sigma_2$ paired with itself through the fully dressed operator $\kin{2}{\Psi}{2 K - 1}$.
+Every step inverts an operator of the form bare plus $O(\gs \Psi)$, so the result is a rational function of $\gs$ at a fixed truncation of the tower and of the mass level, with the momenta fixed or discretized.
+The whole tower of induced interactions is this one function.
+We checked in the finite-dimensional model, for a tower of three auxiliary fields, that the elimination one field at a time agrees with the simultaneous solution of the auxiliary equations, at real and complex values of $\gs$, to machine precision.
+
+The original action is recovered from the value by the collapse of the exchange diagrams.
+If we expand~\eqref{p:eq:all:value} in $\gs$, every term is a diagram of $\Psi$ lines and auxiliary lines with the sources and the odd vertices at its nodes.
+The diagrams whose sources all sit on the diagonal collapse to contact terms by~\eqref{p:eq:all:collapse}.
+At order $\gs^{2 k - 2}$ the $\Sigma_k$ exchange between two diagonal sources gives $\tfrac{\gs^{2 k - 2}}{(2 k)!} \dvertex{2 k}(\Psi^{2 k})$, and at order $\gs^{2 k - 1}$ the odd vertex inserted on the $\Sigma_k$ line gives $\tfrac{\gs^{2 k - 1}}{(2 k + 1)!} \dvertex{2 k + 1}(\Psi^{2 k + 1})$.
+The remaining diagrams at order $\gs^{n - 2}$ are the exchanges between interaction vertices, those which \cref{p:sec:hs:sextic,p:sec:hs:septic} met at the sextic and septic orders.
+These are exactly the terms by which $\dvertex{n}(\Psi^n)$ differs from $\vertex{n}(\Psi^n)$ in~\eqref{p:eq:all:diagonal}.
+The diagonal value of the reduced vertex was defined as that of the elementary one minus what the lower-order fields already produce, so that at every order the contact term and the exchange terms add up to $\tfrac{\gs^{n - 2}}{n!} \vertex{n}(\Psi^n)$.
+Order by order the induced interactions are therefore the terms that the reductions subtract, and the value is:
+\begin{equation}
+  \label{p:eq:all:recovered}
+  \caction[\le 2 K + 1] \big|_{\text{solution}}
+    = S_{\le 2 K + 1} + O(\gs^{2 K}),
+\end{equation}
+the closure~\eqref{p:eq:all:closure} at $N = 2 K + 1$, with the remainder at the order of the first level left out.
+The Hubbard--Stratonovich construction thus gives back the original action not term by term, but through the two mechanisms of \cref{p:sec:hs}, repeated at every level: the collapse of the diagonal exchanges and the subtraction of the others.
+
+The equations of motion follow the same pattern.
+Varying the cubic action with respect to $\Psi$ and evaluating at the auxiliary solution gives the equation of motion of the value~\eqref{p:eq:all:recovered}, since the auxiliary fields are stationary there and their variation drops out.
+Hence, as a formal power series in $\gs$, the $\Psi$ equation of the cubic action with the auxiliaries eliminated is the equation of motion of $S_{\le 2 K + 1}$ up to order $\gs^{2 K - 1}$:
+\begin{equation}
+  \label{p:eq:all:eom-recovered}
+  \mathcal E_\Psi \big|_{\Sigma_k = \Sigma_k^*}
+    = Q_B \Psi + \sum_{n = 2}^{2 K} \frac{\gs^{n - 1}}{n!} \, \ell_n(\Psi^n) + O(\gs^{2 K}),
+\end{equation}
+with the normalization of the products fixed in \cref{p:sec:hs:action}.
+The auxiliary solutions~\eqref{p:eq:all:saddles} are determined only modulo the kernels of the bare kinetic operators $\kin{k}{}{2 k - 2}$, and the statement does not depend on the representative.
+The assumptions are those of the matching statement above: the bare operators invertible on their quotients, the condition on the nested kernels, and the kinetic term and the source of each level read off one form.
+The statement is made at a fixed level truncation with the momenta fixed or discretized.
+This is the form in which \cref{p:sec:bar-cobar} uses the result.
+
+Under the condition~\eqref{p:eq:hs8:kernel-condition} the auxiliary solution is stationary in every direction, those of the kernels included, so the variation of $\Sigma_k^*$ drops out whatever its direction.
+The remainder of~\eqref{p:eq:all:recovered} is of order $\gs^{2 K}$ and of the form $\gs^{-2}$ times a function of $\gs \Psi$, so its $\Psi$-derivative is of the same order, which is the error term of~\eqref{p:eq:all:eom-recovered}.
+A shift $\Sigma_k \to \Sigma_k + N_k$ with $N_k \in \ker \kin{k}{}{2 k - 2}$ leaves the kinetic term of $\Sigma_k$ and its own source unchanged, by the symmetry of $\kin{k}{}{2 k - 2}$, and changes the action by the shifts of the odd coupling and of the source of $\Sigma_{k + 1}$:
+\begin{equation}
+  \label{p:eq:all:kernel-shift}
+  \begin{aligned}
+    &
+    \frac{\gs^{2 k - 1}}{(2 k + 1)!} \Big[
+      2 \dvertex{2 k + 1}(N_k, \Sigma_k, \Psi)
+      + \dvertex{2 k + 1}(N_k, N_k, \Psi)
+    \Big]
+    \\ &
+    \qquad
+    + \frac{2 \gs^{2 k}}{(2 k + 2)!} \, \pair[k + 1]{\Sigma_{k + 1}}{\kin{k + 1}{}{2 k}(\Psi \otimes N_k)},
+  \end{aligned}
+\end{equation}
+the last term being absent at $k = K$.
+These are the only terms through which a kernel shift reaches $\mathcal E_\Psi$, and they are linear in $\Psi$.
+The condition~\eqref{p:eq:hs8:kernel-condition} makes each of them vanish, so the $\Psi$-equation, the auxiliary equations and the value are the same for every representative.
+
+\subsubsection{Gauge transformations at all orders}
+\label{p:sec:all:gauge}
+
+The gauge transformation~\eqref{p:eq:hs1:gauge-psi} of the string field extends to the tower by the rule of \cref{p:sec:hs:quintic,p:sec:hs:septic}: each auxiliary field transforms as its solution, plus a rotation of its fluctuation which keeps the corresponding square invariant.
+Writing the action as a sum of squares,~\eqref{p:eq:all:squares}, makes the rule explicit at every level at once.
+Its first term is a function of $\Psi$ alone, and each square is a quadratic form in the fluctuation $\sigma_k^{(2 K - 1)}$ with the field-dependent operator $\kin{k}{\Psi}{2 K - 1}$.
+Demanding that every square be exactly invariant under an arbitrary variation $\delta_\Lambda \Psi$ gives, as in~\eqref{p:eq:hs7:gauge-deviations}:
+\begin{equation}
+  \label{p:eq:all:gauge-deviations}
+  \delta_\Lambda \sigma_k^{(2 K - 1)}
+    = - \frac{1}{2} \, \big( \kin{k}{\Psi}{2 K - 1} \big)^{-1} \circ \big( \delta_\Lambda \kin{k}{\Psi}{2 K - 1} \big) (\sigma_k^{(2 K - 1)}),
+  \qquad
+  k = 2, \ldots, K,
+\end{equation}
+and the field itself transforms as:
+\begin{equation}
+  \label{p:eq:all:gauge-fields}
+  \delta_\Lambda \Sigma_k
+    = \delta_\Lambda \Big[ \big( \kin{k}{\Psi}{2 K - 1} \big)^{-1} \circ \kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1}) \Big]
+      + \delta_\Lambda \sigma_k^{(2 K - 1)},
+\end{equation}
+the first term being the variation of its conditional solution~\eqref{p:eq:all:deviation}, through $\Psi$ and through $\Sigma_{k - 1}$, which transforms in its turn.
+The variation of the nested operator is read off~\eqref{p:eq:all:dressed-odd} and~\eqref{p:eq:all:nested}.
+It collects the variation of the odd coupling, $- \tfrac{\gs}{2 k + 1} \dvertex{2 k + 1}(\, \cdot \,, \, \cdot \,, \delta_\Lambda \Psi)$, those of the two sources of $\Sigma_{k + 1}$ flanking the exchange, and that of the inverse of $\kin{k + 1}{\Psi}{2 K - 1}$.
+The last one contains the same three pieces one level up.
+The laws are rotations rather than implicit equations, since each square is Gaussian in its fluctuation.
+With them, the variation of the cubic action equals the variation of its value on the solution identically, off-shell, for any $\delta_\Lambda \Psi$ and exactly in $\gs$ at fixed truncation:
+\begin{equation}
+  \label{p:eq:all:delta-S-equal}
+  \delta_\Lambda \caction[\le 2 K + 1]
+    = \delta_\Lambda \Big[ \caction[\le 2 K + 1] \big|_{\text{solution}} \Big],
+\end{equation}
+so that by~\eqref{p:eq:all:recovered} the cubic action is invariant up to order $\gs^{2 K}$, the order of the truncation it reproduces.
+This last step uses the invariance of $S_{\le 2 K + 1}$ to that order, which rests on the relations of \cref{p:sec:hs:action} among the string vertices, whereas the matching itself does not use them.
+At $K = 2$ these are the laws~\eqref{p:eq:hs5:gauge-deviation} and~\eqref{p:eq:hs5:gauge-sigma}, at $K = 3$ the laws~\eqref{p:eq:hs7:gauge-deviations} and~\eqref{p:eq:hs7:gauge-fields}.
+We checked the identity~\eqref{p:eq:all:delta-S-equal} in the finite-dimensional model for the tower $\Sigma_2, \Sigma_3, \Sigma_4$, with analytic directional derivatives.
+Dropping the rotation of $\sigma_2^{(2 K - 1)}$ or of $\sigma_4^{(2 K - 1)}$ leaves exactly the variation of the corresponding square, as it should.
+
+Two features of~\eqref{p:eq:all:gauge-deviations} carry over from the lower orders.
+The rotation is homogeneous in $\sigma_k^{(2 K - 1)}$, and the laws carry no gauge parameter of their own at any level: the auxiliary sector follows the solution and rotates its fluctuations.
+In the Batalin--Vilkovisky language of \cref{p:sec:gauge}, each fluctuation and its antifield form a contractible pair whose coefficient depends on $\Psi$.
+A flat representative makes the coefficient constant.
+We constructed it only through order $\gs^4$, but we expect it to exist at any order.
+Below the top level the dependence comes through the odd coupling of the level and through the exchanges of the higher-order fields.
+At the top level, it comes through the odd coupling alone.
+The rotation vanishes when the operator of the level does not depend on $\Psi$, as for $\Sigma_3$ at the sextic order,~\eqref{p:eq:hs6:gauge-sigma3}.
+
+The closure of the gauge algebra, and the representative of the law in which it closes modulo the equation of motion of $\Psi$ alone at the quintic order, are the subject of \cref{p:sec:gauge}.
+So is the question whether the cubic action is the gauge-fixed form of a theory with an independent $2$-string parameter: within the classes examined there, every such theory is a trivial enlargement, in which the parameter shifts $\Sigma_2$ along null directions and carries no physics, and the question is left open beyond them.
+

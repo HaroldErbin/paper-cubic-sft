@@ -1,0 +1,35 @@
+.venv/
+output/
+
+# Scripts that need data of the companion SL(2,C) project (not published yet)
+verify-dressing-test.py
+verify-forced-kernel.py
+verify-gluing-recipe.py
+verify-h1-error.py
+verify-hs-level11.py
+verify-mean-field-gap-level11.py
+verify-mean-field-level11.py
+verify-mu-segment-cert.py
+verify-mu-table.py
+verify-neumann-chain.py
+verify-offshell-gluing.py
+verify-per-tile.py
+verify-ph31-actual.py
+verify-ph6-conjugation-n4.py
+verify-rho3-residual.py
+verify-stu-reduction.py
+verify-tachyon-dilaton-quartic.py
+verify-transformation-law.py
+lib/gluing_recipe.py
+# Scripts whose check constants are companion-project values (withheld for the same reason)
+comparator-points-2026-09-22.py
+verify-a2-schwinger.py
+verify-conventions.py
+verify-d5-five-field.py
+verify-j-closed-form.py
+verify-kernel-analytic-structure.py
+verify-kp-box.py
+verify-kp-kernel.py
+verify-kp-real-s.py
+verify-ph24-vs.py
+verify-stage0-translation.py

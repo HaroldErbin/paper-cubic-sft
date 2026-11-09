@@ -1,0 +1,473 @@
+\subsection{One vertex, many maps: \texorpdfstring{$\Psi$}{Psi} counts inputs, \texorpdfstring{$\chi$}{chi} counts outputs}
+\label{ibk:sec:gen}
+
+\subsubsection{The pairing, its inverse, and where the sign lives}
+\label{ibk:sec:gen:pairing}
+
+The pairing $\braket{A,B}$ is nonzero only when the ghost numbers of $A$ and $B$ add up to five, so it pairs states of opposite parity, and on that support it is antisymmetric,
+\begin{equation}
+  \label{ibk:eq:gen:omega}
+  \braket{A,B}
+    = -(-1)^{\varepsilon_A\varepsilon_B}\braket{B,A}
+    = -\braket{B,A},
+  \qquad
+  \omega_{ab}
+    := \braket{e_a,e_b}
+    = -\omega_{ba}.
+\end{equation}
+As an operation it is odd (one insertion of $c_0^-$). The vertices $\mc V_n$ are totally graded symmetric in the physical parity, and $\mc V_n$ is nonzero only when the ghost numbers of its arguments add up to $2n$.
+
+The inverse pairing is the bivector $\Delta$ with components $\Delta^{ab}$, $\omega_{ab}\Delta^{bc}=\delta_a{}^c$. It is antisymmetric, its components are nonzero only for $\varepsilon_a+\varepsilon_b=1$, and it carries ghost number $+5$. One consequence is used constantly: whenever $\Delta^{ab}\neq0$, the two indices have opposite parity, $(-1)^{\varepsilon_b}=-(-1)^{\varepsilon_a}$. Raising a leg of a vertex means contracting it with $\Delta$, and we do this with no extra sign, so that the string products are defined by the bare pairing identity $\braket{A_0,\ell_n(A_1,\dots,A_n)}=\mc V_{n+1}(A_0,A_1,\dots,A_n)$ and, in particular, $\ell_1=Q$ on the nose.
+
+A sign nevertheless has to appear somewhere in this bookkeeping, and it is cleanest to isolate it before any product is written down. It is the weight carried by the classical BV antibracket. With $\Psi=\Psi^ae_a$ an even superfield and left derivatives $\pd_a=\pd/\pd\Psi^a$, the antibracket of two even functionals contains the factor $(-1)^{\varepsilon_a}$ that converts a right derivative into a left one,
+\begin{equation}
+  \label{ibk:eq:gen:antibracket}
+  S(\Psi)
+    = \sum_{n\ge2}\frac{1}{n!}\,\mc V_n(\Psi^n),
+  \qquad
+  (S,S)
+    = (-1)^{\varepsilon_a}\,\pd_aS\,\Delta^{ab}\,\pd_bS
+    = \pd_aS\,\tilde\Delta^{ab}\,\pd_bS,
+\end{equation}
+where the second form collects the weight into the sign-dressed bivector
+\begin{equation}
+  \label{ibk:eq:gen:tilde-delta}
+  \tilde\Delta^{ab}
+    := (-1)^{\varepsilon_a}\,\Delta^{ab},
+\end{equation}
+which, unlike $\Delta$, is graded \emph{symmetric} on its support. That symmetry is the whole point: without the weight, $(S,S)$ would vanish identically, because on the support of $\Delta$ the two factors $\pd_aS$ and $\pd_bS$ commute while $\Delta^{ab}$ is antisymmetric. With it, the classical master equation $(S,S)=0$ is equivalent to $(\mc H,\braket{\cdot,\cdot},\{\ell_n\})$ being a cyclic $L_\infty$ algebra; this is the standard statement of Zwiebach's construction~\cite{Zwiebach:1993:ClosedStringField}. Physically, $\pd_aS$ is the equation of motion, and \eqref{ibk:eq:gen:antibracket} says that the master equation is the statement that the equation-of-motion vector
+\begin{equation}
+  \label{ibk:eq:gen:eom}
+  \mc E(\Psi)
+    := \sum_{n\ge2}\frac{1}{(n-1)!}\,\ell_{n-1}(\Psi^{n-1})
+    = Q\Psi+\tfrac12\ell_2(\Psi,\Psi)+\tfrac16\ell_3(\Psi^3)+\cdots
+\end{equation}
+has vanishing weighted square, $(S,S)=\tilde\omega(\mc E,\mc E)$ with $\tilde\omega(X,Y):=(-1)^{\varepsilon_c}X^c\omega_{cd}Y^d$ the pairing dressed by the same weight. The rule to carry along is short: \emph{every contraction that closes a bracket carries the sign of the strand it closes}. It is carried once per closed contraction, by $\tilde\Delta$ or equivalently by $\tilde\omega$, and never by a product.
+
+\subsubsection{Raising legs: inputs and outputs of one vertex}
+\label{ibk:sec:gen:raising}
+
+Take one vertex $\mc V_{k+\ell}$ and decide that $k$ of its legs are inputs and $\ell$ are outputs. The inputs are fed the states $B_1,\dots,B_k$; the $\ell$ remaining legs are cut open, and what comes out is a state in $\mc H^{\otimes\ell}$. The cleanest way to say this is to say what the resulting object pairs to, exactly as $\ell_n$ is defined by what $\mc V_{n+1}$ pairs to,
+\begin{equation}
+  \label{ibk:eq:gen:pkl}
+  \mc V_{k+\ell}(A_1,\dots,A_\ell,B_1,\dots,B_k)
+    =: \braket{A_1\otimes\cdots\otimes A_\ell,\ p_{k,\ell}(B_1,\dots,B_k)}_\ell,
+\end{equation}
+with no sign anywhere. Here $\braket{\cdot,\cdot}_\ell$ is the $\ell$-fold pairing, which has to be fixed once because it is the one place where an ordering choice enters:
+\begin{equation}
+  \label{ibk:eq:gen:ell-pairing}
+  \braket{A_1\otimes\cdots\otimes A_\ell,\ C_1\otimes\cdots\otimes C_\ell}_\ell
+    := (-1)^{\sum_{i<j}\varepsilon_{C_i}\varepsilon_{A_j}}\;
+      \prod_{i=1}^{\ell}\braket{A_i,C_i}.
+\end{equation}
+Strand $i$ on the left pairs with strand $i$ on the right, and the prefactor is the Koszul sign collected in interleaving the two blocks, $A_1\cdots A_\ell C_1\cdots C_\ell\mapsto A_1C_1A_2C_2\cdots$: this is $\braket{\cdot,\cdot}^{\otimes\ell}$ in the standard convention, and it is the pairing under which the multi-string field is tested strand by strand. Another choice --- reversed strand order, or no interleaving sign --- changes $p_{k,\ell}$ by a sign depending only on the output parities; the one place where that sign becomes visible is noted below.
+
+Solving \eqref{ibk:eq:gen:pkl} for the components of $p_{k,\ell}$ is one contraction with $\Delta$ per output leg,
+\begin{equation}
+  \label{ibk:eq:gen:pkl-comp}
+  p_{k,\ell}(B)^{c_1\dots c_\ell}
+    = (-1)^{\sum_{i<j}\varepsilon_{c_i}\bar\varepsilon_{c_j}}\;
+      \Delta^{c_1b_1}\cdots\Delta^{c_\ell b_\ell}\;
+      \mc V_{k+\ell}\bigl(e_{b_1},\dots,e_{b_\ell},B_1,\dots,B_k\bigr),
+\end{equation}
+the prefactor being the interleaving sign of \eqref{ibk:eq:gen:ell-pairing} rewritten on the output indices, using $\varepsilon_{b_j}=\bar\varepsilon_{c_j}$ on the support of $\Delta$. For $\ell\le1$ the prefactor is empty and raising is plain contraction: $p_{k,1}=\ell_k$ are the string products, with $p_{1,1}=\ell_1=Q$, and $p_{k,0}=\mc V_k$ is the vertex itself read as a functional. For $\ell=2$ the prefactor is $(-1)^{\varepsilon_{c_1}\bar\varepsilon_{c_2}}$, which is $+1$ whenever the two outputs have the same parity, in particular on physical inputs; from $\ell=3$ on it is genuinely there, component by component. Each raising converts an input slot into an output slot and adds the ghost number of $\Delta$, so
+\begin{equation}
+  \label{ibk:eq:gen:ghost}
+  N_{\rm gh}(p_{k,\ell})
+    = 3-2(k+\ell-1)+5(\ell-1)
+    = 3\ell-2k.
+\end{equation}
+The counting says which object lives where: $p_{k,1}$ has odd ghost number and is an operator, while $p_{2,2}$ has $N_{\rm gh}=+2$, the ghost number of a string field, which is why it can act as a kinetic operator on the two-string field.
+
+The one Koszul sign that matters appears when one wants the raised leg somewhere other than in the first slot, as happens when an output of one product is fed into a non-first input of another. Graded symmetry of $\mc V$ moves the leg $e_b$ past the inputs to its left, and since $\varepsilon_b=\bar\varepsilon_a$ on the support of $\Delta$,
+\begin{equation}
+  \label{ibk:eq:gen:dressing}
+  \begin{split}
+    \Delta^{ab}\,\mc V(A_1,\dots,A_{j-1},e_b,A_{j+1},\dots)\,e_a
+      &
+      = (-1)^{\bar\varepsilon_a(\varepsilon_{A_1}+\cdots+\varepsilon_{A_{j-1}})}
+    \\
+      &
+      \quad\times
+        \Delta^{ab}\,\mc V(e_b,A_1,\dots,A_{j-1},A_{j+1},\dots)\,e_a.
+  \end{split}
+\end{equation}
+The rule to remember is that an output strand commutes past inputs and other outputs with its \emph{shifted} parity $\bar\varepsilon_a$, while inputs commute among themselves with $\varepsilon$. In words: cutting a leg open flips the parity that strand carries, and the bookkeeping has to follow that flip from the moment the leg is cut.
+
+The symmetry of the outputs follows from the same observation together with \eqref{ibk:eq:gen:ell-pairing}. The inputs are graded symmetric in the physical parity, inherited from $\mc V$. The outputs inherit the symmetry type of the pairing itself: at $\ell=2$, swapping the two output indices in \eqref{ibk:eq:gen:pkl-comp} costs the swap inside $\mc V$, $(-1)^{\varepsilon_{b_1}\varepsilon_{b_2}}=(-1)^{\bar\varepsilon_{c_1}\bar\varepsilon_{c_2}}$, times the ratio of the two interleaving prefactors, $(-1)^{\varepsilon_{c_1}+\varepsilon_{c_2}}$, and the two combine into
+\begin{equation}
+  \label{ibk:eq:gen:symmetry}
+  p_{k,2}(B)^{c_1c_2}
+    = -(-1)^{\varepsilon_{c_1}\varepsilon_{c_2}}\,p_{k,2}(B)^{c_2c_1}:
+  \qquad
+  p_{k,\ell}:\ \mathrm{Sym}^k_{\varepsilon}\mc H\to\Lambda^\ell_{\varepsilon}\mc H,
+\end{equation}
+graded symmetric in the physical parity on the inputs and graded antisymmetric in the same parity on the outputs --- the symmetry type of $\braket{\cdot,\cdot}$. This per-slot asymmetry is why no single global shift of $\mc H$ turns the bare $p_{k,\ell}$ into a map between symmetric powers of one graded space; it has to be handled slot by slot.
+
+\subsubsection{Where the weight lives is a choice, and here is the dictionary}
+\label{ibk:sec:gen:convention}
+
+Neither of the two places where the sign of \eqref{ibk:eq:gen:tilde-delta} can be put is forced. What is forced is that the weight $(-1)^{\varepsilon_a}$ of the antibracket appear \emph{somewhere}. The convention used here puts it in the bracket, as in \cref{ibk:sec:gen:pairing}: the products are the sign-free ones of \eqref{ibk:eq:gen:pkl}, and every closed contraction carries one factor $(-1)^\varepsilon$ through $\tilde\Delta$ or $\tilde\omega$. An earlier draft of this note made the opposite choice and put the weight into the raising, defining products $\tilde\ell_n=\tilde\Delta\circ\mc V_{n+1}$ and, for several outputs, $\tilde p_{k,\ell}=\tilde\Delta^{\otimes\ell}\circ\mc V_{k+\ell}$ with the raised legs leftmost. The two families are related component by component,
+\begin{equation}
+  \label{ibk:eq:gen:dictionary}
+  \tilde p_{k,\ell}(B)^{c_1\dots c_\ell}
+    = \underbrace{(-1)^{\sum_i\varepsilon_{c_i}}}_{\text{one }-(-1)^{\varepsilon}\text{ per raised leg}}\;
+      \underbrace{(-1)^{\sum_{i<j}\varepsilon_{c_i}\bar\varepsilon_{c_j}}}_{\text{interleaving sign of }\eqref{ibk:eq:gen:ell-pairing}}\;
+      p_{k,\ell}(B)^{c_1\dots c_\ell}.
+\end{equation}
+The first factor is the expected one: a factor $-(-1)^{\varepsilon}$ per raised leg, with $\varepsilon$ the parity of the paired basis state, equivalently $(-1)^{\varepsilon}$ with $\varepsilon$ the parity of the output index. The second is not a product of one-leg signs and is an artefact of the ordering convention \eqref{ibk:eq:gen:ell-pairing}.
+
+Two consequences matter for the physical inputs used in this note. On inputs at ghost number two, \eqref{ibk:eq:gen:ghost} forces the output ghost numbers to add up to $3\ell$ on every nonvanishing component, so $\sum_i\varepsilon_{c_i}\equiv\ell$ and the first factor of \eqref{ibk:eq:gen:dictionary} is $(-1)^\ell$ throughout. Hence $\tilde\ell_k=-\ell_k$ and $\tilde p_{k,2}=p_{k,2}$: the one-output products differ by an overall sign, the two-output ones do not. In particular the two-string kinetic operator $p_{2,2}$ is the same object in both conventions. What the earlier choice bought was that every contraction closing an antibracket becomes a bare index sum with no leftover weight, and that the outputs are uniformly graded symmetric in the shifted parity $\bar\varepsilon$ for all $\ell$; what it cost was a dressed $\tilde\ell_1=(-1)^{\varepsilon_{\rm out}}Q$ instead of $Q$, and dressed string products throughout. The present choice buys $\ell_1=Q$ and Zwiebach's products undressed, at the price of \eqref{ibk:eq:gen:symmetry} and of the interleaving sign from $\ell=3$ on. Nothing below depends on the choice: the two families differ by one uniform sign per closed contraction, so every relation of \cref{ibk:sec:compositions} is the same identity in either convention, with the names of the products exchanged by \eqref{ibk:eq:gen:dictionary}.
+
+One remark to keep in view. Since the outputs of $p_{k,2}$ are antisymmetric in the physical parity by \eqref{ibk:eq:gen:symmetry}, while a two-string field is expected to live in a symmetric square, the two statements agree only on the components where the two output parities are equal. On physical inputs they always are; off the physical sector they are genuinely different subspaces. Every symmetric-power statement about the two-string field below is therefore a statement on physical inputs.
+
+\begin{example}[$p_{2,2}$, the $\Sigma$ kinetic operator]
+  \label{ibk:ex:p22}
+  For $k=\ell=2$, \eqref{ibk:eq:gen:pkl} is the defining relation of the kinetic operator of the two-string field,
+  \begin{equation}
+    \label{ibk:eq:gen:p22}
+    \mc V_4(A_1,A_2,A_3,A_4)
+      = \braket{A_1\otimes A_2,\ p_{2,2}(A_3,A_4)}_2,
+    \qquad
+    N_{\rm gh}(p_{2,2})
+      = +2,
+  \end{equation}
+  with no sign: the quartic vertex, with two of its legs held open, \emph{is} the object that pairs with a two-string state. In components,
+  \begin{equation}
+    \label{ibk:eq:gen:p22-comp}
+    p_{2,2}(A_3,A_4)^{c_1c_2}
+      = (-1)^{\varepsilon_{c_1}\bar\varepsilon_{c_2}}\,
+        \Delta^{c_1b_1}\Delta^{c_2b_2}\,
+        \mc V_4(e_{b_1},e_{b_2},A_3,A_4),
+  \end{equation}
+  and on physical inputs the prefactor is $+1$. There the two outputs sit at ghost number three each, so both are odd, and $\varepsilon$-antisymmetry in \eqref{ibk:eq:gen:symmetry} becomes symmetry under exchange: $p_{2,2}(\Psi,\Psi)$ is symmetric in its two output strands. This is the statement that $\Sigma$ lives in $\mathrm{Sym}^2\mc H_0$ and not in the antisymmetric part, now read off from the parities.
+\end{example}
+
+\subsubsection{The placeholder \texorpdfstring{$\chi$}{chi} and the generating function}
+\label{ibk:sec:gen:genfun}
+
+Rather than carrying the output vectors around, one may contract them with a second, even superfield $\chi=\chi^ae_a$ and record the result as a single number. This is exactly what \eqref{ibk:eq:gen:pkl} does when all the test states are taken equal to $\chi$,
+\begin{equation}
+  \label{ibk:eq:gen:one-output}
+  \braket{\chi^{\otimes\ell},\ p_{k,\ell}(\Psi^k)}_\ell
+    = \mc V_{k+\ell}(\chi^\ell,\Psi^k)
+    = \mc V_{k+\ell}(\Psi^k,\chi^\ell),
+\end{equation}
+the last step because $\mc V$ is graded symmetric and $\Psi,\chi$ are even. So the number $\mc V_{k+\ell}(\Psi^k,\chi^\ell)$ is, with no sign at all, the matrix element of $p_{k,\ell}$ between the inputs $\Psi^k$ and the test state $\chi^{\otimes\ell}$: the power of $\Psi$ counts inputs, the power of $\chi$ counts outputs. Physically, $\chi$ is not a second dynamical field: it is a marker for an open leg, and nothing below depends on giving it a dynamical meaning. Collecting all the components with the symmetry factors,
+\begin{equation}
+  \label{ibk:eq:gen:H}
+  H(\Psi,\chi)
+    := \sum_{k,\ell\ge0,\ k+\ell\ge2}\frac{1}{k!\,\ell!}\,\mc V_{k+\ell}(\Psi^k,\chi^\ell)
+    = S(\Psi+\chi),
+\end{equation}
+by the binomial expansion of $\mc V_n((\Psi+\chi)^n)$. So the generating function of the raised products is nothing but the action evaluated at a shifted field, and $p_{k,\ell}$ is the $k$-th derivative of the $\ell$-th-order vertex: the $k$-point function in the background $\chi$. This is the reason the whole family will turn out to contain no more information than $S$ itself does. We write $H_{k,\ell}$ for the bidegree-$(k,\ell)$ term of \eqref{ibk:eq:gen:H}.
+
+This is the Weyl-algebra picture of Cieliebak, Fukaya and Latschev~\cite[\S7]{Cieliebak:2015:HomologicalAlgebraRelated}, with their variables $p\leftrightarrow\Psi$ for the inputs and $q\leftrightarrow\chi$ for the outputs, and with their formal weighting parameter odd, because our pairing is odd.
+
+\subsection{Compositions and the IBL relations in the generating-function language}
+\label{ibk:sec:compositions}
+
+\subsubsection{One contraction between two vertices}
+\label{ibk:sec:comp:one}
+
+Feeding one output of $p_{k_1,\ell_1}$ into one input of $p_{k_2,\ell_2}$ is, in components, a single $\tilde\Delta$-contraction between two vertices,
+\begin{equation}
+  \label{ibk:eq:comp:contraction}
+  \mc V_{k_2+\ell_2}(\dots,e_a,\dots)\,\tilde\Delta^{ab}\,\mc V_{k_1+\ell_1}(e_b,\dots),
+\end{equation}
+with the dressing \eqref{ibk:eq:gen:dressing} for moving the contracted legs into place. In the generating-function language the same operation is the one-sided bracket
+\begin{equation}
+  \label{ibk:eq:comp:bracket}
+  \{F,G\}
+    := \frac{\pd F}{\pd\Psi^a}\;\tilde\Delta^{ab}\;\frac{\pd G}{\pd\chi^b},
+\end{equation}
+which differentiates its first argument with respect to an input and its second with respect to an output. The indices here are component indices and nothing else: $\Psi=\Psi^ae_a$ and $\chi=\chi^ae_a$ are expanded on the basis, $\Psi^a$ and $\chi^a$ are the (Grassmann-even) coordinates, and $\pd F/\pd\Psi^a$ is the left derivative of the function $F$ with respect to the coordinate $\Psi^a$, a component of a covector that the bivector $\tilde\Delta^{ab}$ then contracts. The weight sitting in $\tilde\Delta$ is the one of \cref{ibk:sec:gen:pairing}: this contraction closes a bracket. Applied to two bidegree components,
+\begin{equation}
+  \label{ibk:eq:comp:bidegree}
+  \{H_{k_1,\ell_1},H_{k_2,\ell_2}\}
+    = \frac{1}{(k_1-1)!\,\ell_1!\,k_2!\,(\ell_2-1)!}\,
+      \mc V(e_a,\Psi^{k_1-1},\chi^{\ell_1})\,\tilde\Delta^{ab}\,\mc V(e_b,\Psi^{k_2},\chi^{\ell_2-1}),
+\end{equation}
+which has bidegree $(k_1+k_2-1,\ell_1+\ell_2-1)$: one input and one output have been consumed. The factorials are the symmetry factors of \eqref{ibk:eq:gen:H} after one differentiation on each side. Differentiating $\frac{1}{k_1!\ell_1!}\mc V(\Psi^{k_1},\chi^{\ell_1})$ with respect to $\Psi^a$ removes one of the $k_1$ equal $\Psi$ slots, and since any one of them can be the one removed, the derivative produces a factor $k_1$ which cancels one factorial and leaves $1/(k_1-1)!\,\ell_1!$. The same happens on the right for the $\chi$-derivative, which removes one of the $\ell_2$ equal $\chi$ slots and leaves $1/k_2!\,(\ell_2-1)!$. So the factorials are not put in by hand: they are what survives of the $1/n!$ of the action once one leg on each vertex has been used up by the contraction. Cieliebak, Fukaya and Latschev's Proposition~7.2 says that the composition $\hat p_{k_2,\ell_2}\circ_1\hat p_{k_1,\ell_1}$ of the coderivation extensions, with spectators passing through, corresponds to the bracket \eqref{ibk:eq:comp:bidegree} with weight exactly one: the spectators are the untouched variables of the polynomial. This is the convenient feature of the generating function. The hat-extension in bare variables has no uniform sign rule on all parity sectors, because a spectator is an input (parity $\varepsilon$) which is also an output (parity $\bar\varepsilon$), whereas in \eqref{ibk:eq:comp:bracket} everything commutes correctly because $\Psi$ and $\chi$ are even superfields.
+
+It is useful to name the individual configurations. Write $T(i,j\,|\,m,n)$ for the contraction \eqref{ibk:eq:comp:bidegree} in which the first vertex keeps $i$ free input legs and $j$ free output legs and the second keeps $m$ and $n$, with the symmetry factor $1/(i!j!m!n!)$. Relabelling $a\leftrightarrow b$ and using the graded symmetry of $\tilde\Delta$ shows that a configuration equals its mirror image,
+\begin{equation}
+  \label{ibk:eq:comp:mirror}
+  T(m,n\,|\,i,j)
+    = T(i,j\,|\,m,n).
+\end{equation}
+The content of \eqref{ibk:eq:comp:mirror} is that a diagram does not care which of its two vertices one calls the emitter and which the absorber: the same propagator joins them either way. With the plain $\Delta$ the same steps would instead give a minus sign, and every sum below would vanish identically; this is the sharp form of the remark after \eqref{ibk:eq:gen:antibracket}.
+
+\subsubsection{The IBL relations and what augmentation removes}
+\label{ibk:sec:comp:aug}
+
+The genus-zero IBL relations in the sense of Cieliebak, Fukaya and Latschev's Definition~2.3 concern the family with $k,\ell\ge1$ only. In generating-function form they are the vanishing, bidegree by bidegree, of the bracket of
+\begin{equation}
+  \label{ibk:eq:comp:H0}
+  H_0(\Psi,\chi)
+    := S(\Psi+\chi)-S(\Psi)-S(\chi)
+    = \sum_{k,\ell\ge1}H_{k,\ell}
+\end{equation}
+with itself. The subtraction removes the all-input components $H_{k,0}=\frac1{k!}\mc V_k(\Psi^k)$ and the all-output components $H_{0,\ell}$. In the IBL vocabulary this is the augmentation: the Hamiltonian is required to vanish when either set of variables is set to zero. Here $S(\Psi)$ and $S(\chi)$ are the same nonzero function, so the full generating function \eqref{ibk:eq:gen:H} is not augmented, and $H_0$ is what one gets by forcing the condition.
+
+Now compare with the master equation. By the chain rule for $u=\Psi+\chi$, the bracket of the full generating function with itself is the antibracket \eqref{ibk:eq:gen:antibracket} evaluated at the shifted field,
+\begin{equation}
+  \label{ibk:eq:comp:master}
+  \{S(u),S(u)\}
+    = (\pd_aS)(u)\,\tilde\Delta^{ab}\,(\pd_bS)(u)
+    = (S,S)\big|_{\Psi\to u},
+\end{equation}
+and its bidegree components $B_{k,\ell}$ vanish for all $k,\ell$ exactly when the algebra is cyclic $L_\infty$. Sorting the configurations in $B_{k,\ell}$ and in $R_{k,\ell}:=\{H_0,H_0\}|_{(k,\ell)}$,
+\begin{equation}
+  \label{ibk:eq:comp:sums}
+  B_{k,\ell}
+    = \sum_{\substack{i+m=k,\ j+n=\ell\\ (i,j),(m,n)\neq(0,0)}}T(i,j\,|\,m,n),
+  \qquad
+  R_{k,\ell}
+    = \sum_{\substack{i+m=k,\ j+n=\ell\\ j\ge1,\ m\ge1}}T(i,j\,|\,m,n).
+\end{equation}
+The two sums run over the same diagrams but with different admissibility rules: $B_{k,\ell}$ keeps every way of splitting the free legs between the two vertices, while $R_{k,\ell}$ keeps only those in which the leg contracted on the left comes from an output slot and the one on the right from an input slot, both vertices being asked to have at least one leg of the relevant kind. Call a configuration \emph{mixed} when all four numbers $i,j,m,n$ are at least one, so that each vertex keeps both an input and an output, and \emph{pure} otherwise: in a pure configuration one vertex is the all-output component $p_{0,j}$ feeding one leg into an input of the other, or the all-input functional $p_{m,0}$ eating one output of the other. Let $M_{k,\ell}$ be the sum of the mixed configurations and $P_{k,\ell}:=R_{k,\ell}-M_{k,\ell}$ the pure ones that survive in $R$. Grouping the terms of $B$ into mirror pairs and using \eqref{ibk:eq:comp:mirror}, a pure pair has exactly one member in $R$ and a mixed pair has both, so
+\begin{equation}
+  \label{ibk:eq:comp:decomposition}
+  B_{k,\ell}
+    = 2P_{k,\ell}+M_{k,\ell},
+  \qquad
+  R_{k,\ell}
+    = \tfrac12 B_{k,\ell}+\tfrac12 M_{k,\ell}
+  \qquad (k,\ell\ge1).
+\end{equation}
+
+This is the key observation, in one line. The master equation contains, besides the output-to-input contractions between two components with $k,\ell\ge1$, the contractions involving an all-input or an all-output component. The augmented relations drop the latter. But the master equation constrains only the single combination $2P+M$; it does not make $P$ and $M$ vanish separately. Given a cyclic $L_\infty$ algebra, therefore,
+\begin{equation}
+  \label{ibk:eq:comp:half-M}
+  R_{k,\ell}
+    = \tfrac12 M_{k,\ell}
+    = -P_{k,\ell},
+\end{equation}
+and the augmented relation at $(k,\ell)$ holds if and only if there is no mixed configuration or the mixed ones happen to cancel. A mixed configuration needs $i,m\ge1$, hence $k\ge2$, and $j,n\ge1$, hence $\ell\ge2$. So for $\min(k,\ell)=1$ there is none, $M_{k,\ell}=0$, and the augmented relations hold: at $(k,1)$ they are the $L_\infty$ relations themselves, and at $(1,\ell)$ they express the BRST compatibility of the tower of multi-string states emitted by a single vertex, written out in \cref{ibk:sec:comp:1ell}. For $k,\ell\ge2$ the augmented relation is the \emph{additional} quadratic condition $P_{k,\ell}=0$ on the products, which the $L_\infty$ relations do not imply; what it says at the first such signature, with the string fields put back in, is the subject of \cref{ibk:sec:comp:22}.
+
+\subsubsection{The \texorpdfstring{$(1,\ell)$}{(1,l)} relations: the emitted multi-string states are BRST compatible}
+\label{ibk:sec:comp:1ell}
+
+The signature $(1,\ell)$ is the one with a single input, and the object it constrains has a direct physical reading. Feed the background field $\Psi$ into one leg of the vertex $\mc V_{\ell+1}$ and cut the remaining $\ell$ legs open: what comes out is $p_{1,\ell}(\Psi)$, the $\ell$-string state emitted by that vertex when one of its legs absorbs $\Psi$. It is a map $\mc H\to\mc H^{\otimes\ell}$ of ghost number $3\ell-2$, and the family $\{p_{1,\ell}\}_{\ell\ge1}$, which starts at $p_{1,1}=Q$, is a tower of such emissions of growing multiplicity. The $(1,\ell)$ relations say that this tower is compatible with the BRST charge: acting with $Q$ on an emitted state and emitting from the BRST variation of the background differ only by emissions that factor through a shorter one.
+
+Written out, at $\ell=2$ this is a plain commutator,
+\begin{equation}
+  \label{ibk:eq:comp:1ell-2}
+  p_{1,2}(Q\Psi)+\hat Q\,p_{1,2}(\Psi)
+    = 0,
+  \qquad\text{i.e.}\qquad
+  [\hat Q,p_{1,2}]
+    = 0,
+\end{equation}
+where $\hat Q$ is the extension of $Q$ to two strands, acting on each in turn with the Koszul sign of the strand it passes, as in \eqref{ibk:eq:gen:dressing}. So the two-string state emitted by the cubic vertex is BRST covariant on the nose. At $\ell=3$ the covariance is spoiled, and by a definite amount,
+\begin{equation}
+  \label{ibk:eq:comp:1ell-3}
+  p_{1,3}(Q\Psi)
+    + \bigl(\hat p_{1,2}\otimes1\bigr)\bigl(p_{1,2}(\Psi)\bigr)_{\rm sym}
+    + \hat Q\,p_{1,3}(\Psi)
+    = 0,
+\end{equation}
+where the middle term is $p_{1,2}$ acting on one of the two strands already emitted, the other strand looking on, symmetrised over the three resulting output strands. Reading \eqref{ibk:eq:comp:1ell-3} as a statement about $p_{1,3}$: the three-string emission of the quartic vertex fails to commute with $Q$ by exactly the two-step process in which the cubic vertex emits twice. This is the same pattern as the $L_\infty$ relations themselves, where the failure of $Q$ to be a derivation of $\ell_3$ is the Jacobiator of $\ell_2$. What \eqref{ibk:eq:comp:1ell-2}--\eqref{ibk:eq:comp:1ell-3} are, precisely, is the single-input part of the genus-zero relations in coderivation form: the one-leg compositions $\hat p_{k_2,\ell_2}\circ_1\hat p_{k_1,\ell_1}$ of \cref{ibk:sec:compositions}, summed at $k=1$. It is tempting to compress this into \enquote{the family $Q+\sum_{\ell\ge2}p_{1,\ell}$ squares to zero}, and one should resist: what the relations say is that the single-input components of the coderivation-form relations vanish, which constrains those compositions and is not the statement that an operator squares to zero. From two outputs on, no differential operator on a single graded-commutative polynomial host in the strand variables, with the same parity-homogeneous raising map in every slot of a given type and an even grading parameter, realises the family with its propagator contraction; other hosts --- the symbol calculus, separate generators for inputs and outputs, an odd parameter --- are untested, not excluded. See \cref{ibk:sec:cubic}.
+
+At $k=1$ the augmented and the non-augmented relation say the same thing. Allowing the components with no input or no output adds, at each $\ell$, exactly as many terms as there already were, and each new term equals its partner by the mirror symmetry \eqref{ibk:eq:comp:mirror}; the sum is doubled and the relation is unchanged. This is the structural difference from $(2,2)$: there the extra terms are again mirrors, but only of the pure terms; the mixed term is its own mirror and is not doubled, so the relation changes weight.
+
+Of this tower, the cubic action at order $g_s^2$ uses only \eqref{ibk:eq:comp:1ell-2}. The quartic vertex enters the action at that order through $\mc V_4(\Psi,\Psi,\cdot,\cdot)=p_{2,2}$ contracted with the auxiliary two-string field, and the gauge variation with the composite law $\delta\Sigma=\delta\Psi\otimes\Psi+\Psi\otimes\delta\Psi$ closes because of the two relations at $(2,1)$ and $(1,2)$. The first is $[Q,\ell_2]=0$; the second is \eqref{ibk:eq:comp:1ell-2}, which is equivalent to it, since $p_{1,2}$ is the raised $\ell_2$. So the only structural input at this order is that $Q$ is a derivation of the cubic product, used once on the one-output side and once on the two-output side. The relation \eqref{ibk:eq:comp:1ell-3}, and with it $p_{1,3}$, first matters at order $g_s^3$.
+
+\subsubsection{The \texorpdfstring{$(2,2)$}{(2,2)} relation with the fields inserted}
+\label{ibk:sec:comp:22}
+
+At $(2,2)$ one would like to read the relation the way one reads $[Q,\ell_2]=0$ (\enquote{$Q$ is a derivation of the string product}) or $[Q,\ell_3]+\ell_2\circ_1\ell_2=0$ (\enquote{the failure of $Q$ to be a derivation of $\ell_3$ is the Jacobiator of $\ell_2$}). It does not have that shape, and seeing why is the point of this subsection.
+
+Sorting the bidegree-$(2,2)$ part of $\{S(u),S(u)\}=0$ by configuration gives seven ordered terms. Each is one contraction between two vertices, and each has a name:
+\begin{enumerate}
+  \setlength{\itemsep}{0.6ex}
+
+  \item $\tfrac12\,\hat Q\,p_{2,2}(\Psi,\Psi)$: the quartic vertex with two legs on the background and two open, one of the open strands then hitting the BRST charge. The configuration carries $Q$ on \emph{one} strand, while $\hat Q$ acts on both; the $\tfrac12$ is that difference.
+
+  \item $\tilde p_{2,2}(Q\Psi,\Psi)$: the same vertex, with one of the two background legs replaced by $Q\Psi$.
+
+  \item $\tfrac12\,\tilde p_{1,2}\bigl(\tilde\ell_2(\Psi,\Psi)\bigr)$: the two backgrounds first fuse through the cubic product, and the result is fed into the single input of the two-string emission.
+
+  \item $2\,\bigl[\bigl(\ell_2\otimes1\bigr)\bigl(p_{1,2}(\Psi)\otimes\Psi\bigr)\bigr]_{\rm sym}$: the cubic vertex emits a two-string state, and one of its two strands is glued, through the cubic product, to the remaining background leg; either of the two emitted strands can be the glued one, and the factor two counts the two ways. Both vertices keep an input and an output --- this is the \emph{mixed} configuration of \cref{ibk:sec:comp:aug}, and at this signature it is the only one.
+
+  \item $\bigl[\bigl(\ell_3(\Psi,\Psi,\cdot)\otimes1\bigr)\tilde p_{0,2}\bigr]_{\rm sym}$: the no-input component $\tilde p_{0,2}$, a two-string state produced by the propagator out of the quadratic vertex, with one of its strands absorbed by $\ell_3$ together with the two backgrounds.
+
+  \item $\bigl(\mc V_2(\Psi,\cdot)\otimes1^{\otimes2}\bigr)\tilde p_{1,3}(\Psi)$: the three-string emission of the quartic vertex, one of whose strands is closed off against the background through the no-output component $p_{2,0}=\mc V_2$.
+
+  \item $\tfrac12\bigl(\mc V_3(\Psi,\Psi,\cdot)\otimes1^{\otimes2}\bigr)\tilde p_{0,3}$: likewise with the three-string no-input component $\tilde p_{0,3}$ closed off against the cubic vertex carrying the two backgrounds.
+\end{enumerate}
+Each term is a map $\mathrm{Sym}^2\mc H\to\mc H^{\otimes2}$ evaluated at $(\Psi,\Psi)$ and symmetrised over its two output strands --- on physical inputs, ordinary symmetrisation, by \cref{ibk:ex:p22}. Three conventions have to be fixed before the seven can be added up, and all three are visible in the coefficients just written; the relative signs are those of the display below.
+
+First, $\hat Q$ is the coderivation of $Q$ on the two output strands, $Q\otimes1+1\otimes Q$, the strand it passes contributing the Koszul sign of its \emph{shifted} parity $\bar\varepsilon$ as in \eqref{ibk:eq:gen:dressing}; so read, $\hat Q$ preserves the symmetry type of the outputs. Second, $[\,\cdot\,]_{\rm sym}$ is the graded symmetrisation over the two free output strands in $\bar\varepsilon$, normalised so that a map already symmetric is left unchanged, and $\otimes1$ means that the map on its left is fed strand one of the tensor on its right, the other strand looking on. Third, the products are the raised ones $\tilde p_{k,\ell}$, $\tilde\ell_n$ of \eqref{ibk:eq:gen:dictionary}, with two exceptions. In the fourth and fifth terms, where the output of a one-output product is itself a free strand of the result, the sign-free $\ell_2$ and $\ell_3$ of \eqref{ibk:eq:gen:pkl} appear, and they have to stay sign-free: the strand they act on is an open one, not a physical input, so the relation $\tilde\ell_n=-\ell_n$ of \cref{ibk:sec:gen} does not apply to them. And where a two-output product is evaluated on physical arguments the two conventions coincide and the tilde is dropped, which is why the two objects the cubic action uses, $p_{2,2}(\Psi,\Psi)$ and $p_{1,2}(\Psi)$, appear undressed. The third term is not an exception: there $\tilde\ell_2$ acts on the two backgrounds, so it may equally be written $-\ell_2(\Psi,\Psi)$, and the reader who prefers the sign-free product throughout should flip the sign of that term.
+
+The coefficients are then a leg count: a term written on one output strand carries $\tfrac12\binom2i\binom2j$, where $i$ and $j$ are the numbers of backgrounds and of open strands sitting on one of the two vertices of the configuration $T(i,j\,|\,m,n)$ --- either one, since $\binom2i=\binom2m$. The two that are easy to get wrong are the first and the fourth. On the first, the leg count gives $\tfrac12\binom22\binom21=1$ per strand, and $\hat Q$ has two strands, so the coefficient in front of $\hat Q$ is $\tfrac12$, as said in the list. On the fourth it gives two, the two strands of $p_{1,2}(\Psi)$ that $\ell_2$ can absorb. With these coefficients each term written above \emph{is} the corresponding configuration, and the relation is that the seven add to zero,
+\begin{equation}
+  \label{ibk:eq:comp:22-map}
+  \begin{split}
+    &-\tfrac12\,\hat Q\,p_{2,2}(\Psi,\Psi)
+      + \tilde p_{2,2}(Q\Psi,\Psi)
+      - \tfrac12\,\tilde p_{1,2}\bigl(\tilde\ell_2(\Psi,\Psi)\bigr)
+      - 2\,\bigl[\bigl(\ell_2\otimes1\bigr)\bigl(p_{1,2}(\Psi)\otimes\Psi\bigr)\bigr]_{\rm sym}
+    \\
+    &\quad
+      - \bigl[\bigl(\ell_3(\Psi,\Psi,\cdot)\otimes1\bigr)\tilde p_{0,2}\bigr]_{\rm sym}
+      + \bigl(\mc V_2(\Psi,\cdot)\otimes1^{\otimes2}\bigr)\tilde p_{1,3}(\Psi)
+      + \tfrac12\bigl(\mc V_3(\Psi,\Psi,\cdot)\otimes1^{\otimes2}\bigr)\tilde p_{0,3}
+      = 0.
+  \end{split}
+\end{equation}
+This is the identity on physical backgrounds, $N_{\rm gh}(\Psi)=2$. Every coefficient and every relative sign in it has been measured row by row against the corresponding configuration, on all parity sectors and on two random models of the vertices; off the physical sector the same seven terms close, the rows other than the first carrying one Koszul sign each that is not written here. The physical-sector form above was also checked directly, as an identity assembled with the sign-free products and no sign tensors, rather than only read off the all-sector one.
+Where those dressings sit inside the named compositions --- the piece of bookkeeping an earlier version of this note left open --- is exactly what the two sign-free $\ell$'s and the two dropped tildes record: in the two rows where the output of a one-output product is itself a free strand of the result, the product that appears is the sign-free one.
+
+The last three terms are the mirror images of the first three in the sense of \eqref{ibk:eq:comp:mirror} --- exchanging which of the two vertices is differentiated in $\Psi$ and which in $\chi$ turns a $p_{k,\ell}$ into a $p_{k-1,\ell+1}$ --- so they are not new physical input: as test-field scalars the last three equal the first three, and the seven-term sum collapses to twice the first three plus the mixed one.
+
+Now the reading. The first two terms of \eqref{ibk:eq:comp:22-map} are the failure of $Q$ to be a derivation of the two-string kinetic operator $p_{2,2}$. They are exactly that, in the form of a graded commutator: since $p_{2,2}$ and $\Psi$ are both even, letting the coderivation act on the two \emph{inputs} gives twice $\tilde p_{2,2}(Q\Psi,\Psi)$, so the two terms together are $-\tfrac12[\hat Q,p_{2,2}](\Psi,\Psi)$ with $[\hat Q,p_{2,2}]=\hat Q\,p_{2,2}-p_{2,2}\hat Q$. Add the third term, the chain in which the quartic vertex is replaced by two cubic ones, which is the exact analogue of the Jacobiator term at $(3,1)$. Were the pattern of $(2,1)$ and $(3,1)$ to persist, that combination would vanish. It does not; multiplying \eqref{ibk:eq:comp:22-map} by $-2$ and keeping the first three terms on the left,
+\begin{equation}
+  \label{ibk:eq:comp:22-reading}
+  \begin{split}
+    &\underbrace{[\hat Q,p_{2,2}](\Psi,\Psi)}_{\text{failure of }Q\text{ to be a derivation of }p_{2,2}}
+      + \underbrace{\tilde p_{1,2}\bigl(\tilde\ell_2(\Psi,\Psi)\bigr)}_{\text{the analogue of the Jacobiator}}
+    \\
+    &\qquad
+      = -4\,\bigl[\bigl(\ell_2\otimes1\bigr)\bigl(p_{1,2}(\Psi)\otimes\Psi\bigr)\bigr]_{\rm sym}
+        - 2\,\bigl[\bigl(\ell_3(\Psi,\Psi,\cdot)\otimes1\bigr)\tilde p_{0,2}\bigr]_{\rm sym}
+    \\
+    &\qquad\quad
+      + 2\,\bigl(\mc V_2(\Psi,\cdot)\otimes1^{\otimes2}\bigr)\tilde p_{1,3}(\Psi)
+      + \bigl(\mc V_3(\Psi,\Psi,\cdot)\otimes1^{\otimes2}\bigr)\tilde p_{0,3}.
+  \end{split}
+\end{equation}
+The first term on the right is the two-string state obtained by gluing two cubic vertices along a propagator with one leg of each on the background. In the language of \cref{ibk:sec:gen} it is the square of the cubic vertex in test-field form: contracting the two open strands with $\chi$ turns it into $\tilde\omega\bigl(\ell_2(\Psi,\chi),\ell_2(\Psi,\chi)\bigr)$, a vertex paired with itself. That object is not zero --- it would be, were the weight of \cref{ibk:sec:gen:pairing} absent, and this is precisely where the weight earns its place. The other three terms on the right are the mirror ones, built from the components with no output, $p_{2,0}=\mc V_2$, and with no input, $\tilde p_{0,2}$ and $\tilde p_{0,3}$.
+
+So at $(2,2)$ the pattern breaks: what would be the analogue of the Jacobi identity does not close on its own. What restores it can be said in two ways, and they are one statement seen before and after the mirror symmetry is used. Before: the first four terms of \eqref{ibk:eq:comp:22-map} do not add to zero --- they add to half the mixed configuration --- and the sum closes only once the last three, the ones built from $p_{2,0}=\mc V_2$, $\tilde p_{0,2}$ and $\tilde p_{0,3}$, are put back. After: since each of those three equals one of the first three, putting them back is the same as counting the first three twice against the mixed term. Keeping or dropping them is the whole difference between the two readings of \cref{ibk:sec:three-senses}, and it is worth stating the two side by side.
+
+\begin{description}
+  \setlength{\itemsep}{0.8ex}
+
+  \item[Augmented --- the first four terms alone.] \emph{False} in general. Dropping the three mirror terms leaves a combination that does not vanish; the defect is half the mixed configuration, and on the random algebra of \cref{ibk:sec:comp:obstruction} it is of order ten, the size of the individual terms.
+
+  \item[Non-augmented --- all seven terms.] \emph{True}, on every parity sector. This is the bidegree-$(2,2)$ component of the polarised master equation, and it holds whenever the $\ell_n$ form a cyclic $L_\infty$ algebra.
+\end{description}
+The two differ only in the weight given to the mixed term: the true relation counts it once against twice the sum of the other three, the augmented one counts it once against that sum. No choice of signs in the bare variables changes this, the raising being forced as in \eqref{ibk:eq:comp:M22}: the sign dressings of \cref{ibk:sec:gen} move the raised legs between slots and never alter the relative weight of a configuration, so no convention makes the mixed term enter the augmented combination with the weight $\tfrac12$ that would turn it into the true relation.
+
+\subsubsection{Why the augmented relation fails: the obstruction at \texorpdfstring{$(2,2)$}{(2,2)}}
+\label{ibk:sec:comp:obstruction}
+
+The quickest way to see that the mixed term cannot be made to vanish is to go back to the test-field form. Every configuration is a weighted pairing of two products with superfields in the remaining slots, $\mc V(e_a,\dots)\tilde\Delta^{ab}\mc V(e_b,\dots)=\tilde\omega(\ell(\dots),\ell(\dots))$ with the dressed pairing $\tilde\omega$ of \cref{ibk:sec:gen:pairing}. At $(2,2)$ there is a single mixed configuration, the self-contraction of $X_a:=\mc V_3(e_a,\Psi,\chi)$ with the bivector,
+\begin{equation}
+  \label{ibk:eq:comp:M22}
+  M_{2,2}
+    = X_a\,\tilde\Delta^{ab}\,X_b
+    = \tilde\omega\bigl(\ell_2(\Psi,\chi),\ell_2(\Psi,\chi)\bigr),
+\end{equation}
+which does not vanish by antisymmetry precisely because $\tilde\Delta$ is graded symmetric; with the plain $\Delta$ it would be identically zero, which is the version that had been computed on the even sector in the earlier check. The pure part is
+\begin{equation}
+  \label{ibk:eq:comp:P22}
+  P_{2,2}
+    = \tfrac12\tilde\omega\bigl(Q\chi,\ell_3(\Psi,\Psi,\chi)\bigr)
+      + \tfrac12\tilde\omega\bigl(\ell_3(\Psi,\chi,\chi),Q\Psi\bigr)
+      + \tfrac14\tilde\omega\bigl(\ell_2(\chi,\chi),\ell_2(\Psi,\Psi)\bigr),
+\end{equation}
+and the $L_\infty$ relation at this bidegree is $2P_{2,2}+M_{2,2}=0$. The three terms of $P_{2,2}$ are the pure configurations: in the first two one vertex is the quadratic vertex, i.e.\ $Q$ acting on a strand that is not shared, and in the third the two cubic vertices split the background legs and the test legs between them, one keeping only inputs and the other only outputs. None of them has both a free input and a free output on each vertex, which is what distinguishes them from $M_{2,2}$.
+
+For a cyclic dg Lie algebra, $\ell_{n\ge3}=0$, the $Q$-terms drop out and $M_{2,2}=-\frac12\tilde\omega(\ell_2(\chi,\chi),\ell_2(\Psi,\Psi))$. Reading off the coefficient of $\chi^\mu\chi^\nu\Psi^\rho\Psi^\sigma$ and moving one $\ell_2$ across the pairing by cyclicity,
+\begin{equation}
+  \label{ibk:eq:comp:dg-lie}
+  M_{2,2}\equiv0
+  \iff
+  \braket{\ell_2(\ell_2(e_\mu,e_\nu),e_\rho),e_\sigma}=0\ \ \forall\mu,\nu,\rho,\sigma
+  \iff
+  \ell_2\circ_1\ell_2=0.
+\end{equation}
+The augmented $(2,2)$ relation holds for a cyclic dg Lie algebra exactly when the bracket is two-step nilpotent. The smallest exactly solvable instance is the Chevalley--Eilenberg algebra of a Lie algebra $\alg g$ in BV form, $\mc H=\alg g_{(1)}\oplus\alg g^*_{(4)}$ with $\braket{c,c^*}=\langle c^*,c\rangle$, $S=\frac12\langle c^*,[c,c]\rangle$ and $Q=0$: there $M_{2,2}\neq0$ if and only if $[\alg g,[\alg g,\alg g]]\neq0$, so $\alg{sl}_2$ violates the relation and the Heisenberg algebra satisfies it. The obstruction needs at least three ghost-number levels; on a space whose ghost numbers occupy only $\{2,3\}$, $\ell_2\circ_1\ell_2$ vanishes by degree, which is why an earlier random search over such toys found only trivially satisfied relations.
+
+On a randomly generated cyclic $L_\infty$ algebra with four ghost-number levels the same failure was seen numerically: at $(2,2)$, $(2,3)$ and $(3,2)$ the augmented residual $R_{k,\ell}$ equals half the mixed sum to machine precision and is of order $10$--$10^2$, and at $(2,2)$ it stays of order $10$ when the inputs are restricted to ghost number $2$, so the failure is not an artefact of unphysical sectors. Whether $P_{k,\ell}\neq0$ for \emph{every} $k,\ell\ge2$ on generic data was not established; what is established is that the condition is independent of the $L_\infty$ relations and fails at the three signatures tested.
+
+\subsection{Three senses of \enquote{\texorpdfstring{$L_\infty$}{L-infinity} implies IBL}}
+\label{ibk:sec:three-senses}
+
+The slogan \enquote{a cyclic $L_\infty$ algebra implies an IBL structure on its raised products} can mean three things, and they have different truth values. The one that is true is the one to state first. Take the family of \emph{all} raised products, the components with no input and the components with no output included. That family satisfies the genus-zero relations precisely when the string products form a cyclic $L_\infty$ algebra; this is \cref{ibk:thm:non-augmented} below. It is the expected statement, and the reason is one line long: those relations are the polarised master equation $(S,S)(\Psi+\chi)=0$ sorted by the number of free legs, so they say neither more nor less than $(S,S)=0$ does. The two other readings ask for something stronger --- the relations of the IBL definition proper, which requires discarding the all-input and all-output components, and a small closed sub-family containing $p_{2,2}$ --- and both fail. The discussion in \cref{ibk:sec:compositions} decides each of the three.
+
+\subsubsection{All raised products, augmented: false for \texorpdfstring{$k,\ell\ge2$}{k,l >= 2}}
+\label{ibk:sec:senses:aug}
+
+This is the reading in which the family $\{p_{k,\ell}\}_{k,\ell\ge1}$ is asked to satisfy the genus-zero relations of Definition~2.3 of Cieliebak, Fukaya and Latschev, i.e.\ $\{H_0,H_0\}=0$.
+
+\begin{theorem}[Augmented relations]
+  \label{ibk:thm:augmented}
+  Let $\{\ell_n\}$ be a cyclic $L_\infty$ algebra on $(\mc H,\braket{\cdot,\cdot})$. The augmented family $\{p_{k,\ell}\}_{k,\ell\ge1}$ satisfies the genus-zero relation at every signature with $\min(k,\ell)=1$. At $k,\ell\ge2$ the relation is equivalent to the extra condition $M_{k,\ell}=0$ on the mixed configurations, which the $L_\infty$ relations do not imply; it fails at $(2,2)$ already for the Chevalley--Eilenberg algebra of $\alg{sl}_2$.
+\end{theorem}
+
+Both halves are read off \eqref{ibk:eq:comp:half-M}: the augmented residual is $R_{k,\ell}=\frac12M_{k,\ell}$, which vanishes for lack of mixed configurations when $\min(k,\ell)=1$ and is an independent condition otherwise. Physically, the augmented reading asks the products with at least one input and at least one output to close among themselves; what \cref{ibk:thm:augmented} says is that they do not, because a diagram in which each of the two vertices keeps a leg on both sides has no partner to cancel against once the pure components are gone. Since the two augmentation conditions fail by exactly the pure-input functionals and the pure-output elements, and expanding around a solution of the equations of motion changes $S$ but leaves both $S(\Psi)$ and $S(\chi)$ nonzero, no such twist restores augmentation; a genuine augmentation would need $S(\chi)=0$ identically, which we have not pursued.
+
+\subsubsection{Non-augmented, M\"unster--Sachs sense: true, and nothing beyond \texorpdfstring{$L_\infty$}{L-infinity}}
+\label{ibk:sec:senses:non-aug}
+
+Keep every component, including the two-input zero-output pairing $p_{2,0}=\mc V_2$ and more generally $p_{k,0}=\mc V_k$ and the no-input elements $p_{0,\ell}\in\mc H^{\otimes\ell}$. Then the statement is exact and goes both ways.
+
+\begin{theorem}[Non-augmented relations]
+  \label{ibk:thm:non-augmented}
+  Let $\{\mc V_n\}_{n\ge2}$ be graded-symmetric forms on $(\mc H,\braket{\cdot,\cdot})$ and let $p_{k,\ell}$ be the raised products \eqref{ibk:eq:gen:pkl}. The full family $\{p_{k,\ell}\}_{k,\ell\ge0,\,k+\ell\ge2}$ satisfies the genus-zero relations
+  \begin{equation}
+    \label{ibk:eq:senses:non-augmented}
+    B_{k,\ell}
+      = \sum_{\substack{k_1+k_2=k+1\\ \ell_1+\ell_2=\ell+1\\ k_1,\ell_2\ge1;\ \ell_1,k_2\ge0}}
+        \hat p_{k_2,\ell_2}\circ_1\hat p_{k_1,\ell_1}\Big|_{\mathrm{Sym}^k}
+      = 0
+    \quad\text{for all }(k,\ell)
+  \end{equation}
+  if and only if $\{\ell_n=p_{n,1}\}$ is a cyclic $L_\infty$ algebra with cyclic forms $\mc V_n$.
+\end{theorem}
+
+The proof is \eqref{ibk:eq:comp:master}: the relations are the bidegree components of the polarised master equation $(S,S)(\Psi+\chi)=0$, and nothing else is used. Each $B_{k,\ell}$ collects the ways of gluing two vertices along one propagator so that $k$ input legs and $\ell$ output legs are left free, and asking them to cancel among themselves, signature by signature, is the same as asking the equations of motion to have vanishing weighted square at the shifted field $\Psi+\chi$. The sum in \eqref{ibk:eq:senses:non-augmented} is the genus-zero relation of Cieliebak, Fukaya and Latschev extended to $\ell_1=0$ (a zero-output factor eating one output of the other product) and to $k_2=0$ (a zero-input factor feeding one leg into the other). Structures with constants of this kind are the ones they admit in their \S8. Two caveats keep the identification from being literal: the degree bookkeeping for an odd pairing requires their $d=\frac12$, outside their integer-$d$ hypotheses, and the slot symmetries \eqref{ibk:eq:gen:symmetry} need the per-slot dictionary rather than one grading on a single space. So the family satisfies the genus-zero IBL relations in generating-function form, of the non-augmented type, and is not an IBL$_\infty$ algebra in the Definition~2.3 sense.
+
+Two comments on what this does and does not give. First, the master equation organised leg by leg gains no structure beyond $L_\infty$: by \eqref{ibk:eq:gen:H} the family is the Taylor expansion of $S$ about a second field, and the relations are $(S,S)=0$ at the shifted point. Second, the bracket \eqref{ibk:eq:comp:bracket} is a single contraction between two distinct vertices, and this is what genus zero means here; the components with $k=0$ or $\ell=0$ enter through exactly such single contractions and do not introduce loops. Terms with two contractions between the two vertices belong to the next order of the loop expansion and are one class of the one-loop terms; the other is the self-contraction of a single vertex (the BV Laplacian), also outside the present statement.
+
+The algebraic structure that governs a family of maps with several inputs and several outputs of this kind is the one studied by Markl and Voronov~\cite{Markl:2015:MVFormalism$rm} and, in the BV setting, by Bashkirov and Voronov~\cite{Bashkirov:2017:BVFormalismL$_infty$algebras}. The family of \cref{ibk:thm:non-augmented} is the genus-zero part of such a structure, but only up to the parity caveat already stated: the generator assembled from the $p_{k,\ell}$ is not parity-homogeneous here, so the odd square-zero generator those formalisms assume is not available, and we do not claim the identification beyond the level of form.
+
+The loop algebra of M\"unster and Sachs~\cite{Muenster:2014:HomotopyClassificationBosonic} is the other genus-zero packaging of the same cyclic $L_\infty$ data: at genus zero it consists of the single-output coderivation $L^0=\widehat{\sum_n\ell_n}$, which in our variables is the slice of $H$ linear in $\Psi$, together with a second-order term $\Omega_c^{-1}$ with zero inputs and two outputs, which in our variables is $\frac12\tilde\omega^{-1}(\chi,\chi)$ and sits at the first order of their loop expansion. Their family is augmented in the output direction, since every term has at least one output, but not in the input direction, and it has neither zero-output components nor multi-input products $p_{k\ge2,\ell}$. Their $\mathfrak L_c^2=0$ at genus zero is the $L_\infty$ relation together with the invariance of the bivector. The two packagings share the $L^0$ slice.
+
+\subsubsection{Sub-algebra sense: what a sub-family containing \texorpdfstring{$p_{2,2}$}{p22} must carry}
+\label{ibk:sec:senses:sub}
+
+The reading intended for the cubic action is different again. Witten's cubic open string field theory is an $A_2\subset A_\infty$ structure, and the quantum $L_\infty$ algebra with the BV Laplacian sits inside IBL$_\infty$: a chosen subset of components is nonzero, the others are set to zero, and \emph{every} relation must still hold for the reduced family. The question is which sub-family of raised products on $\mc H$ can contain $p_{2,2}$ in this sense.
+
+The count goes as follows. A candidate $\{Q,\ell_2,\ell_3,p_{1,2},p_{2,2}\}$ is not closed: the relation at $(1,3)$,
+\begin{equation}
+  \label{ibk:eq:senses:13}
+  [\hat Q,\hat p_{1,3}]+\hat p_{1,2}\circ_1\hat p_{1,2}
+    = 0,
+\end{equation}
+is of the same order $g_s^2$ as $(2,2)$ and its second term is nonzero (it equals $-[\hat Q,\hat p_{1,3}]\neq0$ by the $\min(k,\ell)=1$ result), so the three-string emission $p_{1,3}$ of the quartic vertex is forced, exactly as $\ell_3$ is forced by $(3,1)$, which reads $[Q,\ell_3]+\ell_2\circ_1\ell_2=0$ and has a nonzero second term, and as $p_{1,2}$ is forced by $(2,2)$: without it the $(2,2)$ relation would reduce to $[\hat Q,p_{2,2}]=0$ and lose the term $p_{1,2}\circ\ell_2$, which is nonzero on the toy algebra. The smallest augmented sub-family containing $p_{2,2}$ is therefore all augmented components of $\mc V_{\le4}$,
+\begin{equation}
+  \label{ibk:eq:senses:F4}
+  F_4
+    = \{Q,\ \ell_2,\ \ell_3,\ p_{1,2},\ p_{1,3},\ p_{2,2}\},
+\end{equation}
+whose relations at $k+\ell\le4$ are $(1,1),(2,1),(3,1),(1,2),(1,3)$, all of which hold, and $(2,2)$, which fails by $\frac12M_{2,2}\neq0$. The $(2,2)$ relation involves only components of $\mc V_2,\mc V_3,\mc V_4$, all present in $F_4$, so the sub-algebra reading changes nothing about it. Relations with $k+\ell\ge5$ fail for $F_4$ by terms that need $\mc V_{\ge5}$, in the same way as the quartic-truncated $L_\infty$ algebra fails at $(4,1)$: closure is to the order kept, never exact for string field theory, unlike $A_2\subset A_\infty$, which is exact because the product is associative, and unlike quantum $L_\infty$ plus $\Delta$, which is exact because the bivector is $Q$-invariant.
+
+The status of the $(2,2)$ relation is thus settled, and it corrects an earlier conclusion of this project: for the raised products of a cyclic $L_\infty$ algebra the augmented $(2,2)$ relation is \emph{false}. The vanishing step of the earlier check had never been computed; the tensor it asserted to vanish, the raised $[Q,\ell_3]+\ell_2\circ_1\ell_2$, is not the cyclic $L_\infty$ relation, and once the weight of \cref{ibk:sec:gen:pairing} is put where it belongs the augmented relation fails by $\frac12M_{2,2}$, with the $\alg{sl}_2$ Chevalley--Eilenberg algebra as counterexample. The relation that does hold at $(2,2)$ is the non-augmented one, $2P_{2,2}+M_{2,2}=0$, with the no-output component $p_{2,0}=\mc V_2$ and the no-input component $p_{0,2}$ present. Consequently no augmented IBL sub-family on $\mc H$ contains $p_{2,2}$; the sub-structure reading survives only in the non-augmented sense, where the components of $\mc V_{\le4}$ close exactly under every relation with $k+\ell\le4$, including $(2,2)$, because the $(k,\ell)$ relation only involves $\mc V_n$ with $n\le k+\ell$. That is the non-augmented theorem truncated by vertex rank.
+
+\subsection{What this means for the cubic action}
+\label{ibk:sec:cubic}
+
+Nothing changes for the cubic action at order $g_s^2$. The action uses only $Q$, $\ell_2$, $p_{1,2}$ and $p_{2,2}$, and its consistency statements, the composite gauge law of $\Sigma$ in particular, use only the relations with $\min(k,\ell)=1$; the $(2,2)$ relation never enters, and the cyclicity of the two-string kinetic term is a property of the action, not of the brace products discussed below. One earlier inference is withdrawn along with the $(2,2)$ relation: that $p_{2,2}$ is $Q$-exact, which had been read off from that relation, no longer follows.
+
+The organising structure is the master equation, and the raised products are its Taylor coefficients about a background. The direction that carries new content is the $L_\infty$ structure on the multi-string space $W=\bigoplus_{n\ge0}\mathrm{Sym}^n\mc H$, and there the result is as follows. Let $\hat{\mathfrak p}=\sum_{k,\ell}\hat p_{k,\ell}$ be any generator of this kind, a finite-order differential operator on a graded-commutative host algebra $A$ (the criterion below is host-independent; whether the family of raised products is realized this way is the subject of the last paragraphs), graded by a formal parameter $t$ that counts inputs, each component $\hat p_{k,\ell}$ carrying the weight $t^{k-1}$ (set $t=1$ at the end), and let $\ell^W_n=\Phi^n_{\hat{\mathfrak p}}$ be its Koszul braces, defined by $F(a):=\e^{-a}\hat{\mathfrak p}\,\e^{a}=\sum_n\frac1{n!}\ell^W_n(a^n)$ for even $a$. The generator is parity-inhomogeneous in every grading of $W$ ($\hat Q$ is odd, $\hat p_{2,2}$ is even), so the classical brace theorem for an odd square-zero operator does not apply, and its conclusion is false here: the braces form a curved $L_\infty$ algebra, in every input-parity sector, if and only if
+\begin{equation}
+  \label{ibk:eq:cubic:criterion}
+  F_{\hat{\mathfrak p}^2}(a)
+    = F_{\hat{\mathfrak p}}(a)^2
+  \qquad\text{for all even }a\in A\otimes\Lambda,
+\end{equation}
+with $\Lambda$ an arbitrary auxiliary Grassmann algebra; equivalently, the braces of $\hat{\mathfrak p}^2$ are the shuffle square of those of $\hat{\mathfrak p}$. The auxiliary odd parameters are needed: over even $a\in A$ alone only the relations on even inputs follow, and the derivation $\theta\pd_\theta$ on $\Lambda(\theta)$ satisfies the criterion vacuously while $(\ell^W_1)^2\theta\neq0$. This is not $\hat{\mathfrak p}^2=0$: the free theory has curved-$L_\infty$ braces with $\hat{\mathfrak p}^2\neq0$, and the single component $\hat p_{2,0}$ has non-$L_\infty$ braces although its symbol square has no contraction. For an odd homogeneous operator the criterion reduces to $D^2=0$, which recovers the classical theorem with its hypothesis now stated. Read physically, \eqref{ibk:eq:cubic:criterion} asks that squaring the generator produce nothing beyond the square of what it produces in a background: the multi-string products are then a genuine homotopy algebra rather than a mere list of maps, and it is that, not the nilpotency of the generator, which is the natural condition to test for the multi-string products. The equivalence is proven by a Wick-type lemma separating $\e^{-a}D_1D_2\e^{a}$ from $F_{D_1}F_{D_2}$; the underlying identity and the counterexamples were also checked on the toy algebra, the equivalence itself by hand.
+
+Its single-string content is \cref{ibk:thm:non-augmented}: on single-string inputs the braces reduce to $\ell^W_n(\Psi_1,\dots,\Psi_n)=\sum_\ell p_{n,\ell}$, and the lowest contraction order of \eqref{ibk:eq:cubic:criterion} there is exactly $B_{k,\ell}=0$. No suspension sign enters the one-output components: on the host built from the physical strand variables they are the ordinary coderivation extension, the physical space being already the shifted one, and this was checked at arity up to three. For the components with two or more outputs there is no single graded-commutative polynomial host in the strand variables, with the same parity-homogeneous raising map in every slot of a given type and an even grading parameter, against which a convention could be fixed --- that is the next point, which also lists the hosts not yet tried --- and their ordering convention is bookkeeping.
+
+Whether the leading-order relations on \emph{multi-string} inputs also follow from the single-string ones is open, and it is open in a specific way. At that order the criterion contains, besides the single contraction of \cref{ibk:sec:compositions}, terms in which one derivative of the left factor lands on a derivative of $a$ produced by the right factor; these are absent on single strings and cancel for odd homogeneous operators. Whether they cancel here cannot be decided on an operator host of the kind used above. Take any graded-commutative polynomial algebra with one generator per strand, of whatever parities, with the same parity-homogeneous raising map in every slot of a given type and an even grading parameter: the operator realising the family then either projects one of the two slot symmetries to zero --- the outputs or the inputs, depending on which parity the generators carry --- or replaces the propagator contraction of the products by a bare index sum, because two raising maps in a row compose to the identity. The argument is a parity count on the single contraction, and the three hosts on which it could be run fail in exactly the way it predicts. What is untested, and is where the question survives, is the symbol calculus with its own contraction, a host with separate generators for inputs and outputs, a non-polynomial product, and an odd parameter in a host that is not graded commutative.
+
+Two facts about pairings survive at the level of the brace products, independently of which relations the braces satisfy. No degree-diagonal pairing $\bigoplus_nc_n\omega_n$ on $W$ makes $\omega_W(a_0,\ell^W_n(a_1,\dots,a_n))$ cyclic: already at arity two the term coming from $\hat p_{2,0}$ has no partner. This is a hand computation of one component, not machine-checked, and the component it turns on, $\hat p_{2,0}$, is one the sign checks above did not exercise. Cyclicity is restored by the cotangent doubling $T^*W$, whose action $\mc S(\Phi,\Phi^\vee)=\langle\Phi^\vee,\e^{-\Phi}\hat{\mathfrak p}\,\e^{\Phi}\rangle$ solves the classical master equation exactly when the braces satisfy the curved $L_\infty$ relations, i.e.\ under \eqref{ibk:eq:cubic:criterion}. The two-string kinetic term of the cubic action is, in this picture, a re-weighted slice of the brace products (again up to the ordering convention of the components with two outputs, which nothing here fixes), and it is not the brace structure of any operator: the arity-one brace of such an operator would have to be its own arity-two brace's generator, and a one-line check on $\Psi$ shows it is not.
+
+One question is left open, and it is the one worth recording here because nothing above addresses it. In the basis used throughout this note the gauge transformations of the auxiliary multi-string fields $\Sigma_k$ are simple. It is then natural to ask whether some gauge can be \emph{unfixed} for the $\Sigma_k$, in the same sense in which unfixing the gauge of $\Psi$ replaces the gauge-fixed kinetic operator $c_0^+L_0^+$ by $Q$, and whether the products one would reach that way are more general than the raised products of a single $L_\infty$ algebra. We have no construction to propose, and the question is not settled here.
+

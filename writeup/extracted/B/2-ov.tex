@@ -1,0 +1,93 @@
+\subsubsection{The Yang--Mills strictification toy}
+\label{ov:sec:explicit:YM}
+
+The cleanest finite-dimensional illustration of the mechanism is the strictification of the
+quartic Yang--Mills vertex \cite{Borsten:2021:DoubleCopyHomotopy}. Written in colour--kinematics-dual form the
+quartic vertex is non-local,
+\begin{equation}
+	\mathscr{L}^{(4)}\sim
+	-\eta^{\mu\nu}\eta^{\kappa\rho}\eta^{\lambda\sigma}\,
+	\partial^{12}_\mu\partial^{34}_\nu\,
+	\frac{\tr\{[A_\kappa,A_\lambda][A_\rho,A_\sigma]\}}{\square_{12}}.
+	\label{ov:eq:YM4}
+\end{equation}
+Introducing a rank-3 auxiliary $G^a_{\mu\nu\kappa}$ (ghost number $0$, self-conjugate kinetic
+term) gives the strictly cubic Lagrangian
+\begin{equation}
+	\mathscr{L}^{\,\mathrm{YM,st}}_4 = \tr\Big\{
+	-\tfrac12\,G^{\mu\nu\kappa}_a\square G^a_{\mu\nu\kappa}
+	-g\Big(\partial_\mu A_\nu+\tfrac{1}{\sqrt2}\partial^\kappa G^a_{\kappa\mu\nu}\Big)
+	[A^\mu,A^\nu]\Big\}.
+	\label{ov:eq:YMst}
+\end{equation}
+The $G$ equation of motion is $\square G^a_{\mu\nu\kappa}=-\tfrac{g}{\sqrt2}\partial_{[\mu}
+[A_\nu,A_{\kappa]}]$, i.e. $G^a_{\mu\nu\kappa}=-\tfrac{g}{\sqrt2\,\square}\partial_{[\mu}
+[A_\nu,A_{\kappa]}]$; substituting back reproduces the non-local quartic \eqref{ov:eq:YM4} (plus
+the standard $g$-vertex). On a single-contraction scalar representative
+$\mathscr{L}(G)=-\tfrac12 G\square G-\tfrac{1}{\sqrt2}GJ$ one finds the EOM
+$G=-\tfrac{1}{\sqrt2}J/\square$ and the on-shell value $\mathscr{L}=\tfrac14 J(1/\square)J$, the
+non-local quartic with the correct coefficient (checked symbolically). The map
+$\phi_1(A)=A^{\mathrm{st}}$, $\tfrac12\phi_2(A,A)=G|_{\text{on-shell}}=
+\tfrac{g}{2\square}\partial_\mu[A_\nu,A_\kappa]$ is the leading quasi-isomorphism. The auxiliary
+field is purely auxiliary because $\square$ is invertible (away from zero momentum) and there
+are no closed loops of purely auxiliary lines, so integrating it out is an exact Gaussian and
+the theory is quantum-equivalent to ordinary Yang--Mills. This is the precise gauge-theory
+mirror of the HS step: $\ell_3$ (or here $\mathscr{L}^{(4)}$) traded for cubic vertices plus an
+invertible auxiliary kinetic term.
+
+\subsubsection{The Erbin--F{\i}rat open-string stub as the \texorpdfstring{$\Aoo$}{A-infinity}
+precedent}
+\label{ov:sec:explicit:stub}
+
+The closest \emph{string-theoretic} precedent is the open-string stub construction
+\cite{ErbinFirat2023}, which is the $\Aoo$ analogue of the closed $\Loo$ programme. Witten's
+cubic open SFT augmented with stubs of length $\lambda$ (a non-polynomial deformation) is recast
+as a strictly cubic action by a single auxiliary field $\Sig\in\Hilb$ (\emph{the same} Hilbert
+space as $\Psi$, not a tensor product). The gauge-invariant cubic action is
+\begin{equation}
+	-g_o^2 S[\Psi,\Sig]
+	= \tfrac12\Mean{\Psi,Q_B\Psi}
+	+ \tfrac12\Mean{\Sig,\frac{Q_B}{1-\e^{-2\lambda L_0}}\Sig}
+	- \tfrac13\Mean{\Sig-\e^{-\lambda L_0}\Psi,
+	(\Sig-\e^{-\lambda L_0}\Psi)*(\Sig-\e^{-\lambda L_0}\Psi)},
+	\label{ov:eq:stubaction}
+\end{equation}
+with two independent gauge parameters $\Lambda_1,\Lambda_2\in\Hilb$. The auxiliary field is
+truly auxiliary: its kinetic operator $Q_B/(1-\e^{-2\lambda L_0})$ inverts to the propagator
+\begin{equation}
+	\widetilde\Delta_\Sig = b_0\,\frac{1-\e^{-2\lambda L_0}}{L_0}
+	= 2\lambda b_0\big[1-\lambda L_0+\cdots\big],
+	\label{ov:eq:stubprop}
+\end{equation}
+which is \emph{regular} as $L_0\to0$ --- no on-shell pole (checked symbolically) ---
+so the $\Sig$ sector has empty cohomology and carries no physical states. The key structural
+facts transferring to the closed case are: (i) the construction is realised as homotopy transfer
+from a \emph{strictly associative} cyclic $\Aoo$-algebra on the doubled space
+$\Hilb'=\Hilb\times\Hilb$, with a \emph{strong} deformation retract
+($h^2=0$, $h\iota=0$, $ph=0$) --- the ingredient not established in
+\cite{SchnablStettinger2023}; (ii) integrating $\Sig$ out perturbatively
+reproduces the non-polynomial stubbed theory, while the algebraic gauge choice
+$\Sig=-2\sinh(\lambda L_0)\Psi$ reproduces Witten's cubic theory after a field redefinition.
+
+The transfer to closed strings is partial. What carries over: the structural form (an auxiliary
+field with an unconventional, pole-free kinetic term; homotopy transfer of a cyclic algebra on a
+doubled space; the exchange of $\Sig$ carrying the region of moduli that the cubic channels leave uncovered). What is genuinely harder
+\cite{ErbinFirat2023}: (a) the closed-string collar moduli are \emph{complex} (length $+$ twist),
+so there is no purely real $\e^{-\lambda L_0}$ shift operator; (b) collar widths are mutually
+constrained, so the binary-tree decomposition does not generalise directly; (c) $\Sig$ must live
+in $\Hilb^{\otimes2}$ (or a level-matched twisted version), complicating the $(\ker L_0)^c$
+restriction and the kinetic term; (d) the gauge algebra is $\Loo$, with graded-symmetric
+brackets and higher gauge parameters.
+
+\subparagraph{An additional precedent.} The EKS open-superstring localization of
+Maccaferri--Merlano \cite{MaccaferriMerlano2019} provides a related explicit quartic structure:
+the localized quartic effective potential factorises into matter two-point functions of
+composite auxiliary fields, $\tr[\Mean{\mathbb{H}_1^{(+)}|\mathbb{H}_1^{(-)}}
++\tfrac14\Mean{\mathbb{H}_0|\mathbb{H}_0}]$, controlled by the projector condition
+$P_0M_2(\Psi,\Psi)=0$.
+Here the auxiliary fields live in a \emph{single} copy of $\Hilb$, not in $\Hilb^{\otimes2}$,
+because the localized quartic is already a product of single-copy bilinears. This is therefore a
+contrast to --- not a direct precedent for --- the closed $\Sig\in\Hilb^{\otimes2}$ structure,
+and a useful warning that the tensor-product structure of the closed auxiliary field is
+specific to the closed $\Loo/\IBL$ setting.
+

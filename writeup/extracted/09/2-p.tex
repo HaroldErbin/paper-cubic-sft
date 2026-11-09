@@ -1,0 +1,160 @@
+\subsubsection{The inverse of the quartic form}
+\label{p:sec:ws:inverse}
+
+
+The propagator of the auxiliary field is the inverse of a vertex, and we now ask what it means in the worldsheet description.
+The propagator of the string field in Siegel gauge contains the operator $1 / L_0^+$wich can be written as a Laplace transform:
+\begin{equation}
+  \label{p:eq:ws:propagator-psi}
+  \frac{1}{L_0^+}
+    = \int_0^\infty \dd s \; \e^{- s L_0^+},
+\end{equation}
+This representation gives the worldsheet computation.
+The operator $\e^{- s L_0^+}$ is a cylinder of length $s$, the integral over $s$ is the integral over the length of the plumbing cylinder, and $b_0^+$ is the antighost insertion that goes with that modulus.
+The spectrum of $L_0^+$ is not positive, because of the tachyon, so that the RHS~\eqref{p:eq:ws:propagator-psi} does not converge, strictly speaking.
+However, the LHS is perfectly well-defined and can be used as a \emph{definition} of the RHS whenever the latter is not~\cite{Sen:2015:OffshellAmplitudesSuperstring,deLacroix:2017:ClosedSuperstringField,Erbin:2021:StringFieldTheory}.
+
+In the same spirit we write
+\begin{equation}
+  \label{p:eq:ws:propagator-sigma}
+  \sprod{2}{2}^{-1}
+    = \int_0^\infty \dd t \; \e^{- t \sprod{2}{2}},
+\end{equation}
+on the quotient where $\sprod{2}{2}$ is invertible, the left-hand side being the object the cubic action defines.
+Making sense of the exponent needs one choice: a real positive inner product on the truncated $2$-string space, which identifies the two ghost-number sectors that the quartic form connects.
+The representation~\eqref{p:eq:ws:propagator-sigma} needs in addition a sign condition on the spectrum of the quartic form in that inner product, a condition the quartic form need not satisfy.
+The alternative representation $\int_0^\infty \dd t \, A \, \e^{- t A^2}$, with $A$ the real symmetric matrix of the quartic form in an orthonormal basis of that inner product, needs no such condition.
+The inner product enters the integrand but not the result.
+We keep the representation~\eqref{p:eq:ws:propagator-sigma} for the comparison with~\eqref{p:eq:ws:propagator-psi}, since its exponent is the quartic form itself.
+  The conclusion of the next paragraph holds for the alternative as well, whose integrand expands in chains of an odd number of vertices and not term by term in the propagator.
+
+The representation differs from~\eqref{p:eq:ws:propagator-psi} by its exponent.
+In~\eqref{p:eq:ws:propagator-sigma} the exponent is the quartic form itself: there is no $L_0^+$, no $b_0^+$, and the parameter $t$ is not the length of anything.
+Expanded in powers of $t$, the integrand $\e^{- t \sprod{2}{2}}$ at fixed $t$ is a sum over chains of quartic vertices joined through the inner product chosen above, which identifies the two ghost-number sectors, with the weight $(- t)^k / k!$ for the chain of $k$ vertices.
+In surfaces these are chains of four-punctured spheres sewn along necks of fixed length.
+The parameter $t$ is a spectral variable conjugate to the vertex, and the integral over $t$ does not commute with the expansion: each term $\int_0^\infty t^k \, \dd t$ diverges.
+The representation~\eqref{p:eq:ws:propagator-sigma} therefore does not provide a term-by-term expansion of the propagator in surfaces, in contrast with~\eqref{p:eq:ws:propagator-psi}, whose integral over $s$ is part of the integral over the moduli of the sewn surface.
+
+A representation that does expand in surfaces is the Neumann series.
+Split the quartic form into its level-diagonal part and the rest,
+\begin{equation}
+  \label{p:eq:ws:neumann}
+  \sprod{2}{2}
+    = D - R,
+  \qquad
+  \sprod{2}{2}^{-1}
+    = \sum_{k \ge 0} (D^{-1} R)^k \, D^{-1},
+\end{equation}
+with $D$ invertible on the quotient.
+The series converges when the spectral radius of $D^{-1} R$ is below one, which we assume (and motivate below).
+The term of order $k$ is a chain of $k$ insertions of $R$, the level-off-diagonal part of the quartic vertex, threaded on $k + 1$ level-diagonal $\Sigma_2$ lines $D^{-1}$.
+In surfaces it is a chain of $k$ four-punctured spheres sewn pairwise along two necks of fixed length, each $\Sigma_2$ line, internal or external, carrying one algebraic factor $D^{-1}$ on its level, which acts on its pair of necks, and each sphere carrying the projection that removes the level-diagonal part of its vertex.
+Where the series converges, this gives $\sprod{2}{2}^{-1}$ in terms of Riemann surfaces, up to the algebraic factors $D^{-1}$, which are not surfaces.
+It is a sum over a discrete family of chains of surfaces with necks of fixed length, one algebraic factor per $\Sigma_2$ line and per vertex, rather than an integral over a continuous family.
+The split~\eqref{p:eq:ws:neumann} is a choice, like a subtraction scheme, but the sum does not depend on it when it converges.
+For example, for the quartic $\mathrm{SL}(2, \C)$ vertex~\cite{Erbin:2023:SL2CQuarticVertex,Erbin:2026:SL2CVerticesClosed}, on the block of pairs of zero-momentum tachyons and ghost dilatons, the spectral radius of $D^{-1} R$ is below one at the two values of the stub parameter $\beta$ checked, so the series converges there.
+The matrix is not diagonally dominant on this block: the radius is below one because the products of off-diagonal entries partly cancel.
+At other momenta and on the other blocks the convergence is open.
+The series in $\gs$ of \cref{p:sec:hs:quintic}, which dresses $\sprod{2}{2}^{-1}$ with quintic vertices, is a Neumann series of the same kind, and its terms are chains of the same kind with quintic vertices on the line.
+
+We can ask whether the propagator can instead be a worldsheet kernel of the usual kind, as $b_0^+ / L_0^+$ is.
+By a kernel of the usual kind we mean an integral, over a finite-dimensional parameter space with a signed measure, of ghost-dressed correlators on connected surfaces with four external punctures, two in and two out.
+The surfaces may have any genus and any number of nodes, the topology staying bounded over the parameter space.
+They carry one antighost insertion per integrated modulus and, at each node, the standard sewing insertion: $b_0^- \delta_{L_0^-, 0}$ for a node of fixed length and $b_0^+ b_0^- / L_0^+ \, \delta_{L_0^-, 0}$ for a node whose length is integrated.
+The class contains every finite connected chain of spheres sewn along necks, with the moduli of the spheres integrated or not.
+The double tube, two independent plumbing cylinders, is disconnected and lies outside it.
+No kernel of this class equals $\sprod{2}{2}^{-1}$, by ghost-number counting.
+The inverse lowers the ghost number by two, as $\sprod{2}{2}$ raises it by two, while every correlator of the class raises it by at least two:
+\begin{equation}
+  \label{p:eq:ws:ghost-obstruction}
+  \Ngh\big( \sprod{2}{2}^{-1} \big)
+    = - 2,
+  \qquad
+  \Ngh\big( \text{kernel} \big)
+    = 2 + \nu_f + m
+    \ge 2,
+\end{equation}
+where $\nu_f$ is the number of nodes of fixed length and $m$ the number of unintegrated real moduli.
+The second count rests on the standard factorization of CFT correlators at a node, which fixes the insertion there to the ones listed.
+This is the one input of the argument, and we take it from~\cite[ch.~9]{Polchinski:2005:StringTheoryVolume} without rederiving it.
+Within the class so defined the exclusion is a proof by counting, and it says nothing outside it: the insertions that could lower the ghost number, antighosts attached to no modulus, are those the class leaves out, and they are the subject of the second option below.
+
+Outside the class lie, among others, three options.
+The first is the Neumann series~\eqref{p:eq:ws:neumann}, an infinite sum with one algebraic factor per $\Sigma_2$ line and per vertex.
+The second is a dressing of the surfaces by such insertions, tuned to the actual quartic vertex.
+  A dressing built uniformly from the vertex data, the same construction for every vertex, is excluded by its degree: under a rescaling $\vertex{4} \to t \, \vertex{4}$ of the vertex it is homogeneous of non-negative degree in $t$, while $\sprod{2}{2}^{-1}$ has degree $- 1$.
+  A dressing at the actual vertex data is not excluded by this argument.
+The third is a change of the kinetic term of the auxiliary field, which is what the construction of~\cite{Erbin:2024:OpenStringStub} does for the stub of an open string field theory.
+This changes the identity to be satisfied rather than the kernel.
+The reading of a $\Sigma_2$ line as a surface in the previous paragraphs holds up to this one factor, which is algebraic.
+
+\subsubsection{Counting moduli}
+\label{p:sec:ws:moduli}
+
+If a $\Sigma_2$ line carries no modulus, a diagram with such lines has fewer moduli than the vertices it is made of.
+The count nevertheless matches, at every order, the dimension of the moduli space that the diagram would have to cover.
+We assign to every vertex the real dimension of its region, $\hat d(\vertex{n}) = \dim_\R \mathcal V_{0,n} = 2 n - 6$, the dimension of the moduli space of the $n$-punctured sphere, extended to $n \le 2$ by the same formula.
+
+Kinetic operators count as the vertices they are, $\hat d(Q_B) = \hat d(\vertex{2}) = - 2$ and $\hat d(\sprod{2}{2}) = \hat d(\vertex{4}) = + 2$, and the count is additive under gluing.
+The dimension assigned to an inverse is then minus that of what it inverts.
+For the string field this gives $\hat d(Q_B^{-1}) = + 2$, the two real moduli of the plumbing cylinder: its length, integrated with $b_0^+ / L_0^+$, and its twist, integrated by the level-matching insertion $b_0^- \delta_{L_0^-, 0}$ of the pairing.
+
+A handle of the resolved surface~\eqref{p:eq:ws:genus} counts $- 6$, the shift of the ghost-number anomaly: $\hat d$ is the number of antighost insertions minus the number of ghost insertions minus six per resolved handle, and on a connected tree the number of integrated real moduli.
+For the auxiliary field it gives
+\begin{equation}
+  \label{p:eq:ws:negative-moduli}
+  \hat d\big( \sprod{2}{2}^{-1} \big)
+    = - 2,
+\end{equation}
+two moduli removed rather than added.
+This is the dimension-counting form of the ghost-number mismatch~\eqref{p:eq:ws:ghost-obstruction}, the two gradings agreeing on $\sprod{2}{2}$ and its inverse, and it is the sense in which a $\Sigma_2$ line carries negative moduli.
+With it the count closes at every order:
+\begin{equation}
+  \label{p:eq:ws:closure}
+  \begin{aligned}
+    \hat d\big( \vertex{4} \, \sprod{2}{2}^{-1} \, \vertex{4} \big)
+      &
+      = 2 - 2 + 2
+      = 2
+      = \dim_\R \mathcal M_{0,4},
+    \\
+    \hat d\big( \vertex{4} \, \sprod{2}{2}^{-1} \, \vertex{5} \, \sprod{2}{2}^{-1} \, \vertex{4} \big)
+      &
+      = 2 - 2 + 4 - 2 + 2
+      = 4
+      = \dim_\R \mathcal M_{0,5},
+    \\
+    \hat d\big( \vertex{5} \, \sprod{2}{2}^{-1} \, \vertex{5} \big)
+      &
+      = 4 - 2 + 4
+      = 6
+      = \dim_\R \mathcal M_{0,6},
+  \end{aligned}
+\end{equation}
+and the same closure holds for the longer chains, whose count reduces to $2 N - 6$ for $N$ external legs.
+The diagrams of the cubic theory have, formally, the dimension of the moduli space with their number of external punctures, as the diagrams of closed string field theory do.
+The $\Psi$-channel analogue is $\hat d(\vertex{3} \, Q_B^{-1} \, \vertex{3}) = 0 + 2 + 0 = 2$, the familiar statement that the $3$-string vertex and the propagator together have the moduli of the four-punctured sphere.
+These are corollaries of the additivity of the count under gluing, and they are the same statement as the saturation of the ghost number on the sphere.
+
+The count is necessary for a geometric reading and never sufficient, as two facts show.
+The four-point chain $\vertex{4} \, \sprod{2}{2}^{-1} \, \vertex{4}$ has the dimension of $\mathcal M_{0,4}$, and it equals $\vertex{4}$ by the collapse~\eqref{p:eq:hs4:telescoping}: a chain that is a single vertex region, covering only $\mathcal V_{0,4}$.
+The dimension count is satisfied there because the line removes exactly the two moduli that the second vertex region would have added, which is how the collapse shows in the count.
+Conversely, the double tube, two plumbing cylinders whose lengths and twists are integrated independently, is a bona fide family of surfaces with the same count $\hat d = - 2$, and it is not the inverse.
+With any signed measure over its two lengths and twists, it commutes with the two operators $L_0^\pm$ of the strands and is therefore diagonal in the $2$-string level, while $\sprod{2}{2}$ has a non-vanishing level-off-diagonal part $R$ and so has its inverse.
+This excludes the double tube.
+Being disconnected, it lies outside the class of~\eqref{p:eq:ws:ghost-obstruction}, whose count alone does not exclude it.
+
+The count does not single out a surface either.
+The double tube of the previous paragraph reaches $\hat d = - 2$ by the handle rule, its two cylinders sitting at resolved genus one, with no $c$-ghost insertion.
+A connected surface reaches $\hat d = - 2$ only with antighost insertions attached to no modulus of its own surface, the zero modes of plumbing fixtures on its external legs, which the class of~\eqref{p:eq:ws:ghost-obstruction} does not admit.
+Sewn into a diagram, they become the moduli of the two resolved handles, which is how the handle rule reaches $- 2$.
+Such dressings are excluded only as uniform constructions, as said above.
+A negative formal dimension is therefore not by itself an obstruction to a geometric reading, as $2$-strand families reach it through a handle.
+The obstruction is the ghost-number argument~\eqref{p:eq:ws:ghost-obstruction} for connected surfaces with the standard insertions of its class, and level-diagonality for the disconnected double tube.
+
+At six points the count is the first that is not explained by a collapse.
+The composite vertex $\vertex{5 \cdot 5}$ of~\eqref{p:eq:hs5:exchange-vertex} has the dimension of $\mathcal M_{0,6}$, and it is the first chain whose line joins two interaction vertices, so that it does not collapse by the criterion of \cref{p:sec:hs:sextic:kernel}.
+We call \emph{covering question} the question whether it covers a region of $\mathcal M_{0,6}$, and covers it once.
+  We return to it below, after the circle picture has given the line a geometric model.
+Everything in this counting is bookkeeping at a fixed level of truncation and at tree level: it gives the dimensions and says nothing about the regions themselves.
+

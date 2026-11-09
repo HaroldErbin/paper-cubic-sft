@@ -1,0 +1,16 @@
+[project]
+name = "cubic-closed-sft-codes"
+version = "0.1.0"
+description = "Verification scripts for the cubic closed string field theory paper"
+requires-python = ">=3.12"
+dependencies = [
+    "jax",
+    "matplotlib",
+    "mpmath",
+    "numpy",
+    "scipy",
+    "sympy",
+]
+
+[tool.uv]
+package = false

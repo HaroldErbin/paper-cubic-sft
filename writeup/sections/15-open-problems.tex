@@ -28,27 +28,23 @@ At level zero there is no determinant of the quartic form: the pair kernel $K_P(
 
 \paragraph{A scalar model.}
 Freezing both relative momenta at zero reduces the kernel to one number, the contact term $F(s, 0, 0)$, an entire function of $s$, positive on the real axis.
-It has simple complex zeros off the lattice: the pair $\alpha' s = - 1.7125875239 \pm 5.7403212597 \, \I$ at $\beta = 2$, and at $\beta = \tfrac{3}{2}$ none in the scanned strip $\Re \alpha' s \in [-40, 20]$, $\abs{\Im \alpha' s} \le 10$, the first pair being $\alpha' s = - 1.7583 \pm 10.9120 \, \I$.
+It has simple complex zeros off the lattice at $\beta = 2$; at $\beta = \tfrac{3}{2}$ there is none in the scanned strip $\Re \alpha' s \in [-40, 20]$, $\abs{\Im \alpha' s} \le 10$.
 A $1 \times 1$ block has no isotropic null vector, so the mechanism of a pole off the lattice is realized in this model.
 The model decides nothing at level zero, since one matrix element of $K_P$ is not an eigenvalue branch; it served to place the search contour.
 
 \paragraph{The discretized kernel.}
-On the Nyström matrices of the $s$-wave block of $K_P(s)$ at $\beta = 2$, the determinant has one simple zero off the lattice, at
-\begin{equation}
-  \alpha' s_{**}
-    \approx 3.2231131 + 9.4645234 \, \I .
-\end{equation}
-Five discretizations place it within a disc of diameter $2.8 \times 10^{-7}$: $44$ and $56$ radial nodes at the radial cutoff $\Lambda = 8$, the cutoff $\Lambda = 10$ at the same node density, and three rules for the vertex integral with $60$, $90$ and $120$ points.
+On the Nyström matrices of the $s$-wave block of $K_P(s)$ at $\beta = 2$, the determinant has one simple zero off the lattice, denoted $\alpha' s_{**}$ (value from the companion $\group{SL}(2, \C)$ computation, not reproduced here).
+It is stable under the five discretizations tried, which vary the radial nodes, the radial cutoff and the rule for the vertex integral.
 The zero is therefore a property of the discretized family, and neither a cutoff artifact nor a quadrature error.
 Whether $K_P(s_{**})$ itself has a square-integrable null function is not established.
-No separated eigenvalue branch is seen to vanish there, and the null vector of the matrices is not resolved at the precision reached, about $31$ digits: under every regularization it sits at the edge of the radial range, and its coefficients on the eigenvectors of the kernel do not decay over the resolved range.
+No separated eigenvalue branch is seen to vanish there, and the null vector of the matrices is not resolved at the precision reached: under every regularization it sits at the edge of the radial range, and its coefficients on the eigenvectors of the kernel do not decay over the resolved range.
 Two readings remain: a square-integrable null function whose coefficients lie below the precision floor, or none at all.
-What would decide between them is the profile of these coefficients computed from matrix entries accurate beyond $10^{-50}$ relative to the kernel, which needs a vertex-integral rule converged at that level (the present rule is converged to about $10^{-13}$, not monotonically) and an analytic derivative in $s$; this computation was not run.
+What would decide between them is the profile of these coefficients computed from matrix entries at a much higher precision than the present rule, which needs a vertex-integral rule converged at that level and an analytic derivative in $s$; this computation was not run.
 Only if a null function exists does its isotropy become the question.
 
 \paragraph{The rest of the strip.}
 On $\Re \alpha' s \in [-40, -20]$, $\abs{\Im \alpha' s} \le 40$, none of the four leading eigenvalue branches of the $s$-wave and the $d$-wave vanishes (for the fourth branch of the $d$-wave, only on $\Re \alpha' s \in [-30, -20]$, $\abs{\Im \alpha' s} \le 30$); this is strong evidence and not a certificate, since no interior test was run there.
-On $\Re \alpha' s \in [-20, 20]$, $0 \le \Im \alpha' s \le 40$, a count of the zeros of the leading branches by their winding finds, besides $s_{**}$, four cells with winding one that the refinement could neither attribute to a zero nor exclude; a winding without a zero is the expected outcome there, a zero the alternative.
+On $\Re \alpha' s \in [-20, 20]$, $0 \le \Im \alpha' s \le 40$, a count of the zeros of the leading branches by their winding finds, besides $s_{**}$, unresolved candidate cells that the refinement could neither attribute to a zero nor exclude; a winding without a zero is the expected outcome there, a zero the alternative.
 The search covers neither higher partial waves, nor $\abs{\Im \alpha' s} > 40$, nor $\beta = \tfrac{3}{2}$.
 As long as the null function is not decided, the pole of the composite off the lattice is neither realized nor excluded at level zero, and whether a level-zero zero survives in the full composite is the question of the level limit in the block above.
 
@@ -133,6 +129,11 @@ The second is on the \IBL{} side (\cref{ch11:sec:mc}): a modification of the pro
 For that bubble it is open whether a linear redefinition independent of $\gs$ absorbs its term of order $\gs^0$ for the closed string, which a finite model excludes, and whether the bubble is finite and nonzero, which a level truncation or a gauge test would decide.
 The third is a worldsheet definition of the two-string form $q$ from one factorization channel of the four-punctured sphere: such a form need not be totally symmetric in its four slots, so it would carry a component that vanishes on every square $\Psi^2$, invisible in the eliminated action at order $\gs^2$: a form $q$ that carries data beyond $\vertex{4}$, the case left open in \cref{sec:gauge-bv:projector}.
 
+\status{open}\record{119-aux-physical-dof-conjecture (PH44)}
+A related question is whether the auxiliary fields can carry physical states in a parent formulation of which the cubic action is a gauge-fixed form (\cref{sec:gauge-bv:physical-states}).
+Within the present field content, at order $\gs^2$ and generic momentum, this is excluded under the hypotheses stated there; what survives is the conjecture of a parent with a partner field of ghost number five and enlarged sectors of $\Sigma_2$, whose two-string parameter acts on $\Psi$ by $\gs \, \ell_2(\Lambda_2)$ at leading order.
+Constructing or excluding this parent with its partner at order $\gs^2$ would settle it.
+
 \subsection{Further directions}
 \label{sec:open:directions}
 
@@ -210,7 +211,7 @@ Let $F$ be a redefinition from the fields of Cheung and Remmen to the truncated 
 It maps the family $\Phi(a)$ of flat metrics to a family $F(\Phi(a))$ of zero-momentum solutions of the truncated theory, whose tangent $L \Phi'(0)$ at $a = 0$ is an on-shell zero-momentum state of the truncated free theory: in the massless sector, the marginal state up to gauge.
 The quartic term of the truncated potential along that state is~\eqref{eq:open:cr:potential} at the truncation level, nonzero, so the truncated equations of motion have no solution tangent to it at order $a^3$, and no such $F$ exists.
 The argument needs only that $F$ is perturbative and invertible at linear order, so non-local redefinitions are included, and it does not use the momentum-dependent four-graviton amplitude.
-The reason behind it is that the quartic coupling of the Einstein--Hilbert term is the effective coupling of the massless fields after every massive field, the tachyon included, has been integrated out (shown for the superstring in~\cite{Sen:2016:WilsonianEffectiveAction}), followed by the low-energy limit and a field redefinition, while a finite truncation keeps the elementary vertex and a finite part of the exchanges.
+The reason behind it is that the quartic coupling of the Einstein--Hilbert term is the effective coupling of the massless fields after every massive field, the tachyon included, has been integrated out (shown for the superstring in~\cite{Sen:2017:WilsonianEffectiveAction}), followed by the low-energy limit and a field redefinition, while a finite truncation keeps the elementary vertex and a finite part of the exchanges.
 
 A second obstruction holds under a hypothesis: that the block of the quartic kernel on massless pairs, $K_P(q', q)$ at fixed total momentum, has infinite rank as a kernel in the relative momentum.
 The motivation is that the Koba--Nielsen factor of $\vertex{4}$ carries $\exp(\alpha' q \cdot q' \, \ell(\xi))$, with $\ell$ a logarithm of cross-ratios that varies over the two-dimensional vertex region, so that the coefficients of the expansion in $q \cdot q'$ are moments of $\ell$ over the region, and the kernel is smooth and not a delta function times a polynomial (\cref{ch:momentum-space}); the Taylor coefficients of the massless block in $q \cdot q'$ would discharge or falsify it.

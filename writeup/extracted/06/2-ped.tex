@@ -1,0 +1,204 @@
+\subsubsection{The Liouville analogy and the wrong-sign partner
+\texorpdfstring{$\chi$}{chi}}
+\label{ped:sec:milestones:chi}
+
+The feedback $vK_\Psi^{-1}v$ has a familiar shape: it is the induced nonlocal action of
+2d gravity, $S\sim R\,\Delta^{-1}R$, obtained by integrating the Liouville field out of
+$S=\phi\Delta\phi+R\phi$. The analogy is exact, and
+running it \emph{backwards} produces a new presentation of the sextic
+(checked numerically in a finite-dimensional model, see below).
+
+\subparagraph{The dictionary (exact).} In the exact rewriting \eqref{eq:partner:S3rewrite} the
+deviation $\tilde X$ is a Gaussian field with kernel $K_\Psi$ and linear source
+$\propto v$; integrating it out \emph{produces} the nonlocal composite:
+\begin{center}
+	\begin{tabular}{lcl}
+		\toprule
+		2d gravity & & here \\
+		\midrule
+		Liouville field $\phi$ & $\leftrightarrow$ & deviation $\tilde X=\Sig-\Sig_*(\Psi)$ \\
+		kinetic operator $\Delta$ & $\leftrightarrow$ & dressed kernel $K_\Psi$ \\
+		curvature source $R$ (metric-dep.) & $\leftrightarrow$ & source $v=V_5(\cdot,\Psi^{\otimes2},\Psi)$ ($\Psi$-dep.) \\
+		induced $R\,\Delta^{-1}R$ & $\leftrightarrow$ & feedback $\tfrac{\gs^4}{600}\,vK_\Psi^{-1}v$ \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+\subparagraph{The constructive converse.} In 2d gravity one also \emph{localises} the
+nonlocal Polyakov action by re-introducing $\phi$. Here the object to remove is the
+feedback \emph{overshoot}: it must be \emph{subtracted} at $O(\gs^4)$ --- which is
+exactly why the minimal presentation of the sextic order needs the composite $-\tfrac65\mathcal C$ inside $W_6$, and
+the presentation with $\Sig_3$ the composite $\tilde M$. A subtraction is the induced action of a
+\emph{wrong-sign} Gaussian field. Introduce a second bilocal auxiliary
+$\chi\in\Sym^2\Hilb_0$ ($\Ngh(\chi)=4$, even --- the same quantum numbers as $\Sig$)
+with \emph{elementary vertices only}:
+\begin{equation}
+	S_\chi
+	= +\,\frac{\gs^2}{4!}\,a_\chi V_4(\chi,\chi)
+	+ \frac{\gs^3}{5!}\,b_\chi V_5(\chi,\Sig,\Psi),
+	\label{ped:eq:Schi}
+\end{equation}
+--- note the \emph{plus} sign of the kinetic term, opposite to
+$-\tfrac{\gs^2}{4!}V_4(\Sig,\Sig)$, and that every term is cubic in fields
+($\chi\Sig\Psi$ is trilinear; the direct source $v(\chi)=V_5(\chi,\Psi^{\otimes2},\Psi)$
+would be quartic in fields and is \emph{not} used). $\chi$ has no
+$V_4(\chi,\Psi^{\otimes2})$ source, so it talks to the theory only through the
+trilinear $O(\gs^3)$ coupling. On the $\Sig$-saddle ($\Sig\to P$, so
+$V_5(\chi,\Sig,\Psi)\to v(\chi)$) the $\chi$-sector is a wrong-sign sourced Gaussian
+whose on-shell value is
+\begin{equation}
+	S_\chi\big|_{\chi_*}
+	= -\,\frac{b_\chi^2}{4a_\chi}\cdot\frac{(\gs^3/5!)^2\,4!}{\gs^2}\;vV_4^{-1}v+O(\gs^5)
+	= -\,\frac{b_\chi^2}{a_\chi}\cdot\frac{\gs^4}{2400}\,vV_4^{-1}v+O(\gs^5),
+	\label{ped:eq:chivalue}
+\end{equation}
+so cancelling the feedback $+\tfrac{\gs^4}{600}vV_4^{-1}v$ \emph{forces}
+\begin{equation}
+	\boxed{\;\frac{b_\chi^2}{a_\chi}=4,\qquad (a_\chi,b_\chi)=(1,2)\;}
+	\label{ped:eq:chiforced}
+\end{equation}
+--- the universal HS $1{:}2$ kinetic-to-source ratio, reappearing once more. The result
+is an all-elementary-vertex cubic action that closes at $O(\gs^4)$ with \emph{no}
+composite, \emph{no} dressed vertex, and \emph{no} $\Sig_3$:
+\begin{equation}
+	\boxed{\;
+	S^{\chi}_4
+	= S_{\rm HS}
+	+ \frac{\gs^3}{5!}V_5(\Sig,\Sig,\Psi)
+	+ \frac{\gs^2}{4!}V_4(\chi,\chi)
+	+ \frac{2\gs^3}{5!}V_5(\chi,\Sig,\Psi)
+	+ \frac{\gs^4}{6!}V_6(\Sig,\Sig,\Sig).
+	\;}
+	\label{ped:eq:S4chi}
+\end{equation}
+Machine check (generic non-$\Loo$ tensors, joint $(\Sig,\chi)$ saddle, Richardson in
+$\gs$): without $\chi$ the mismatch/$\gs^4$ reproduces $+vV_4^{-1}v/600$ to
+$3\times10^{-5}$; with $(a_\chi,b_\chi)=(1,2)$ it vanishes at the $10^{-3}$ level with
+residual scaling exponent $\approx0.93$ (i.e.\ the mismatch is $O(\gs^5)$); $b_\chi=1$
+leaves exactly $(1-b_\chi^2/4)$ of the residual; the 5-point matching is uncontaminated
+($\chi$-exchange starts at $O(\gs^4)$).
+
+\subparagraph{Consistency with the no-go for elementary vertices, and what $\chi$ is.} The no-go for elementary vertices at order $\gs^4$
+had content $\Sig_2\oplus\Sig_3$ and its strong form (\enquote{no elementary
+presentation whatsoever}) was explicitly a conjecture; the $\chi$-scheme settles that
+strong form in the \emph{negative} --- \emph{provided indefinite-signature
+(negative-kinetic) auxiliaries are admitted as an elementary presentation}: the
+falsification inherits the tree-level-only unitarity caveat below as part of its
+scope. The mechanism is instructive: a $\Sig_3$-exchange is
+$V_6$-built and can never reach the feedback (this is the no-go), while the
+$\chi$-exchange is $V_5V_4^{-1}V_5$-built --- the \emph{same} composite as the feedback
+--- with a sign-flipped propagator. The impossible trade $V_4^{-1}\to V_6^{-1}$ is
+replaced by the possible pairing $+V_4^{-1}\to\pm V_4^{-1}$. As for what $\chi$
+\emph{is}: its quantum numbers ($\Ngh=4$, even) show it is \emph{not} the odd
+up-component $\Sig_\uparrow$ of an unconstrained two-string field (that sits at
+$\Ngh=3$) and \emph{not} the ghost-5 partner $\Pi$ of the gauge analysis at quartic order --- at the parity
+level it is genuinely a new field. But the \emph{structure} it creates is telling: the
+joint $(\tilde X,\tilde\chi)$ quadratic form is split-signature,
+$-K_\Psi\oplus+V_4$ --- equal to $-K_\Psi\oplus+K_\Psi$ only at leading order in
+the dressing, since no $V_5(\chi,\chi,\Psi)$ coupling exists and the $\chi$-kinetic
+stays bare --- i.e.\ at leading order purely off-diagonal in the light-cone
+combinations $\Pi_\pm=\tilde X\mp\tilde\chi$:
+\begin{equation}
+	-K_\Psi(\tilde X,\tilde X)+K_\Psi(\tilde\chi,\tilde\chi)
+	=-K_\Psi(\Pi_+,\Pi_-),
+	\label{ped:eq:lightcone}
+\end{equation}
+the shape of a BV quartet / contractible-pair sector with a $V_4$-type (non-$\hat Q$)
+off-diagonal kernel --- suggestive of an already-gauge-fixed enlarged theory, i.e.\ a
+$V_5$-sourced cousin of the open question whether the quartic Hubbard--Stratonovich action is the gauge fixing of a larger theory. \emph{Caveats, honest:}
+$\chi$ carries negative kinetic energy. At tree level this is harmless in the precise
+sense that the kinetic operator is a contact kernel, the
+telescoping of the $\Sig$ exchange to a contact term applies verbatim with a sign, no propagating
+negative-norm states arise, and the formal Gaussian is signature-indifferent
+--- but the quantum status of the negative direction, the
+$\chi$-sector gauge law and exact rewriting, and the $O(\gs^5)$ extension (one $\chi$,
+or a wrong-sign tower mirroring the $\Sig_k$?) are open.
+
+\subparagraph{The algebraic home: sign-twisted $\IBL$ and the coloured coalgebra.} Does
+the $\chi$-action still carry an $\IBL$ structure? Two-part answer: the $\chi$-sector
+alone is a \emph{sign-twisted copy} of the same $\IBL$ data --- this is a theorem, by a
+two-line counting argument --- while the \emph{coupled} $(\Psi,\Sig,\chi)$ system lives
+on the symmetric coalgebra of \emph{several copies} of $\Hilb_0$, a coloured structure
+whose systematic development is the natural next step.
+
+\emph{(a) The twist lemma.} Every structure map is built from one geometric bracket by
+$\Delta$-raisings and $\Delta$-self-gluings, and each costs exactly one $\Delta$:
+starting from $\ell_n$ ($n$ inputs, $1$ output) and applying $r$ raisings ($-1$ input,
+$+1$ output) and $s$ self-gluings ($-2$ inputs, $+1$ genus), one lands on the signature
+$(k,\ell,g)=(n-r-2s,\,1+r,\,s)$ with $\Delta$-count
+\begin{equation}
+	\#\Delta\big(\pklg\big)=r+s=\ell-1+g.
+	\label{ped:eq:deltacount}
+\end{equation}
+This count is \emph{conserved} by the coderivation composition: gluing $j$ legs of a
+$(k_2,\ell_2,g_2)$-operation into a $(k_1,\ell_1,g_1)$-operation produces the signature
+$(k_1{+}k_2{-}j,\,\ell_1{+}\ell_2{-}j,\,g_1{+}g_2{+}j{-}1)$, whose count is
+\begin{equation}
+	(\ell_1{+}\ell_2{-}j)-1+(g_1{+}g_2{+}j{-}1)
+	=(\ell_1{-}1{+}g_1)+(\ell_2{-}1{+}g_2)
+	\label{ped:eq:deltaconserved}
+\end{equation}
+--- the $j$-dependence cancels. Hence \emph{every} component relation of
+$\hat{\mathfrak p}\circ\hat{\mathfrak p}=0$ at fixed signature is homogeneous in the
+total $\Delta$-count, and the rescaling
+\begin{equation}
+	\Delta\to\lambda\Delta,
+	\qquad
+	\pklg\to\lambda^{\ell-1+g}\,\pklg
+	\qquad(\lambda\neq0)
+	\label{ped:eq:lambdatwist}
+\end{equation}
+maps $\IBL$ data to $\IBL$ data at all signatures and genera. (For $\lambda$ a formal
+parameter this is the familiar $\hbar$-type grading freedom; the new use is)
+$\lambda=-1$: the wrong-sign sector. The $\chi$-kinetic $+V_4(\chi,\chi)$ is
+$G_2(\chi,\mtwo^-\chi)$ with $\mtwo^-=(-\Delta)\circ\ell_3=-\mtwo$, i.e.\ the
+$\chi$-copy uses the $\lambda=-1$ twist of the \emph{same} products built from the
+\emph{same} geometric vertices --- it satisfies the same $\IBL$ relations and imposes no
+new condition. This is the algebraic reason the wrong-sign trick is free.
+
+\emph{(b) The coloured coalgebra.} The coupled system no longer fits in
+$\IBL(S\Hilb_0)$: the symmetric coalgebra of one copy of $\Hilb_0$ has exactly
+\emph{one} two-string slot, and $(\Sig,\chi)$ are two independent $\Sym^2$-valued
+fields. The minimal home is an $\IBL$ structure on several
+copies of $\Sym\Hilb$: the symmetric coalgebra of a \emph{coloured} complex,
+\begin{equation}
+	E\big(\Hilb_0^{(1)}\oplus\Hilb_0^{(2)}\big)\;\cong\;E\big(\Hilb_0^{(1)}\big)\otimes
+	E\big(\Hilb_0^{(2)}\big),
+	\label{ped:eq:colouredE}
+\end{equation}
+with $\Sig$ the $\Sym^2$-component of the first factor and $\chi$ of the second, the
+two copies identified as vector spaces but carrying opposite twists
+($\lambda=+1$ vs $-1$, equivalently pairings $\pm\omega_1^{\otimes2}$), and the master
+field \emph{truncated}: no single-string colour-2 component, no mixed-strand
+components. The geometric vertices are colour-blind ($V_5(\chi,\Sig,\Psi)$ is one
+trinion with legs of three colours); the colour enters \emph{only} through the
+propagator signs on colour-2 edges --- the coloured-operad statement of the scheme with colour-2 propagators
+(\cref{ped:sec:allorders:chi}). Two concrete facts support the truncation's consistency at
+this order: the $\chi$-saddle is exactly minus the feedback shift of the $\Sig$-saddle,
+\begin{equation}
+	\Sig_*=P+\tfrac{\gs}5 K_\Psi^{-1}v+O(\gs^2),
+	\qquad
+	\chi_*=-\tfrac{\gs}5 V_4^{-1}v+O(\gs^2)
+	\quad\Longrightarrow\quad
+	\Sig_*+\chi_*=P+O(\gs^2),
+	\label{ped:eq:saddlesum}
+\end{equation}
+so the coloured master field returns to the Veronese variety at leading order; and the
+quadratic sector is invariant under a rigid $O(1,1)$ boost $\delta\tilde X=
+\varepsilon\tilde\chi$, $\delta\tilde\chi=\varepsilon\tilde X$ of the split-signature
+pair \eqref{ped:eq:lightcone} --- the first structure in the whole HS tower admitting
+\emph{any} independent two-string transformation, albeit rigid and broken already
+at $O(\gs^3)$ by the $V_5$ couplings ($\delta V_5(\chi,\Sig,\Psi)=\varepsilon
+[V_5(\Sig,\Sig,\Psi)+V_5(\chi,\chi,\Psi)]\neq0$; the $K_\Psi$-vs-$V_4$ kinetic
+asymmetry breaks it at $O(\gs)$ within the quadratic sector itself); whether a field-dependent
+completion survives is part of the same open question on a larger theory. \emph{Gauge transformations of all
+fields}: on \eqref{ped:eq:colouredE} the universal coderivation law
+$\delta\Phi=\hat{\mathfrak p}(\Lambda,\e^\Phi)$ applies verbatim, predicting
+saddle-tracking laws for \emph{both} $\Sig$ and $\chi$
+($\delta\chi=\delta[\chi_*(\Psi)]+\text{homogeneous rotation}$, the
+contractible-pair class with $\chi_*$ from \eqref{ped:eq:saddlesum}); the consistency
+condition is that this law \emph{preserves the truncation} (does not source the
+single-string colour-2 or mixed components). The twist lemma beyond
+$\ell\le2$ on the toy model of the $\Delta$-raised products, the truncation-preservation, and the $\delta\chi$
+law have not been verified.
+

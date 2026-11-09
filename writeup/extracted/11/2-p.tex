@@ -1,0 +1,38 @@
+\subsubsection{Integrating out as a homotopy transfer}
+\label{p:sec:all:homotopy-transfer}
+
+The elimination of the auxiliary fields has an algebraic reading, which \cref{p:sec:ibl} develops and which we state here in the terms of this section.
+The field $\Sigma_2$ and its equation of motion form a pair that the elimination contracts: the equation is algebraic, its linear part is $\sprod{2}{2}$, and the inverse of $\sprod{2}{2}$ on the quotient is the contracting homotopy.
+Eliminating $\Sigma_2$ along this inverse is a homological-perturbation transfer, and the brackets it transfers to the string-field sector are those of the original theory truncated at the quartic order.
+The three-bracket is the $\Sigma_2$-exchange tree between two quartic sources, which collapses to the contact vertex as in \cref{p:sec:hs:quartic}, and no higher bracket is generated at this order.
+The transfer map is $\Psi \mapsto (\Psi, \Psi^2)$, the solution of the auxiliary equation, with no higher components.
+On the classical complex, the fields and their equations of motion, it is a cyclic $\Loo$ quasi-isomorphism from the quartic-truncated theory to the cubic one, not a strict one since its quadratic component is not zero.
+We verified this in a finite-dimensional model of the vertex data (\cref{p:app:finite-models}).
+Beyond the model the statement assumes the quartic form invertible on the quotient by its kernel at each mass level of the level truncation and at generic total momentum, and that at such momenta the quotient and the propagator, the inverse of the form on the quotient, have a limit as the mass level grows.
+We do not assume that a null vector at one mass level remains a null vector at all higher levels.
+
+On a complex concentrated in two degrees the $\Loo$ relations and the morphism identities are vacuous beyond three statements.
+These are the equality of the transferred brackets with those of the original theory, the isomorphism on cohomology, which is the invertibility of the quartic form restated, and cyclicity.
+  The word ``quasi-isomorphism'' means these three statements here.
+  The quasi-isomorphism controls only the solutions and their linearizations.
+With the brackets read off the cubic action and any grading by the total ghost number, it does not extend to the gauge parameters or to the antifields, since there the ghost number of $\sprod{2}{2}$ obstructs it, as \cref{p:sec:ibl} explains.
+The transfer was written for $\Sigma_2$ alone, and we have not examined whether the elimination of the whole tower, from the top down, is a sequence of such transfers.
+
+Off the classical complex, the same map is not a morphism of $\Loo$ algebras, and we display the identity that fails.
+Write $\tilde \ell_n$ for the brackets read off the cubic action on $\Hs \oplus \Hn{2}$, $\phi_1 = \iota$ for the inclusion of $\Hs$ and $\phi_2(\Psi, \Psi) = \Psi^2$ for the quadratic component of the map.
+The single-string component of every morphism identity with even inputs holds exactly.
+The $2$-string component of the identity with two inputs reads:
+\begin{equation}
+  \label{p:eq:all:morphism-fails}
+  \Big[ \tilde \ell_1 \big( \phi_2(\Psi, \Psi) \big) + \tilde \ell_2(\Psi, \Psi) - \phi_1 \big( \ell_2(\Psi, \Psi) \big) - 2 \, \phi_2(Q_B \Psi, \Psi) \Big]_{\Hn{2}}
+    = - \big( Q_B \Psi \otimes \Psi + \Psi \otimes Q_B \Psi \big),
+\end{equation}
+where the terms in $\sprod{2}{2}$ on the left cancel for the normalization of $\phi_2$ fixed by the auxiliary solution, and what remains is of order $\gs^0$.
+The cause is that $\Sigma_2$ has no $Q_B$ kinetic term.
+The differential of the cubic action on $\Hn{2}$ is proportional to $\gs^2 \sprod{2}{2}$, not to $Q_B \otimes 1 + 1 \otimes Q_B$, so nothing on the left is of order $\gs^0$ in the $2$-string slot except the last term.
+No normalization of $\phi_2$, constant or $\gs$-dependent, repairs this, and no higher component of the map enters the identity with two inputs.
+For generic vertices a counting argument indicates that a cubic component $\phi_3$ does not repair the identity with three inputs either, and this was not tested.
+The defect is proportional to the equation of motion of $\Psi$: the map sends solutions to solutions and gauge transformations to gauge transformations through the composite law~\eqref{p:eq:hs4:gauge-sigma}, and that is its full content off-shell.
+The failing term sits at ghost number five, and it is absent from the classical complex, which is why the transfer above exists there and not beyond.
+This was checked in the finite-dimensional model for the even-input identities.
+  We did not write the odd-input sectors.

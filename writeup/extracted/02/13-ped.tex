@@ -1,0 +1,185 @@
+\subsubsection{The \texorpdfstring{$\Sig_3$}{Sigma3} presentations of the sextic: elementary
+fails, dressed closes}
+\label{ped:sec:milestones:sigma3}
+
+The dressed vertex \eqref{p:eq:hs6:dressed-vertex} carries $V_4^{-1}$ \emph{inside} a three-$\Sig_2$
+coupling --- an unusual object. (In this and the next subsection we write $\Sig_2\equiv\Sig$
+for the bilocal auxiliary, to keep the tower index explicit.) It is natural to ask whether one can
+avoid the composite altogether by introducing the \emph{next} field of the auxiliary
+tower early: a three-string auxiliary
+\begin{equation}
+	\Sig_3\in\Sym^3\Hilb_0,\qquad \Ngh(\Sig_3)=6,
+	\label{ped:eq:Sigma3def}
+\end{equation}
+(the tower assignment $\Ngh(\Sig_k)=2k$; $\Sig_3$ is first \emph{needed} only at
+$V_7=(3{,}2{,}2)$, but nothing forbids introducing it at $O(\gs^4)$). The hope: replace the
+composite $W_6(\Sig_2^3)$ by \emph{elementary} vertices only --- a bilinear kinetic term
+$V_6(\Sig_3,\Sig_3)$ and a cubic source $V_6(\Sig_3,\Sig_2,\Psi)$ --- so that the
+$V_4^{-1}$ inside $W_6$ is traded for a $\Sig_3$-propagator $V_6^{-1}$. Ghost saturation is
+consistent: $V_6(\Sig_3,\Sig_3)$ saturates at $6{+}6=12=2\cdot6$, and
+$V_6(\Sig_3,\Sig_2,\Psi)$ at $6{+}4{+}2=12$. Both presentations below are machine-checked
+on generic (non-$\Loo$) tensors in a finite-dimensional model (the scripts are listed in \cref{ch:finite-models}).
+
+\subparagraph{The elementary presentation fails.} Take
+\begin{equation}
+	S_{\rm elem}
+	= S_3
+	+ \tfrac{\gs^4}{6!}\big[-V_6(\Sig_3,\Sig_3)+2\,V_6(\Sig_3,\Sig_2,\Psi)\big],
+	\label{ped:eq:Selem}
+\end{equation}
+with $S_3$ the quintic action, $\caction[\le 4]$ plus \eqref{p:eq:hs5:S5tilde} (the $-1{:}2$ kinetic-to-source ratio mirrors
+\eqref{p:eq:hs4:S4tilde}). Since $\Sig_3$ enters only quadratically$+$linearly, it can be eliminated
+exactly (Gaussian): with $M:=V_6|_{\Sym^3}$ and $u(\Sig_2):=V_6(\cdot,\Sig_2,\Psi)$, the
+elimination produces the $\Sig_3$-channel exchange
+$\mathcal D(\Sig_2,\Sig_2)=u^\top M^{-1}u$, \emph{quadratic} in $\Sig_2$. Three facts kill
+the hope:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+	\setlength{\itemsep}{0.4ex}
+	\item \emph{On-shell, $\mathcal D$ collapses to the bare contact.} By $\Sym^3$
+	completeness and total symmetry of $V_6$, the source collapses on the Veronese diagonal:
+	$u(P)=M\,p_3$ with $p_3:=\Psi^{\otimes3}$, hence
+	$\mathcal D(P,P)=p_3^\top M\,p_3=V_6(\Psi^6)$ --- a telescoping $V_6V_6^{-1}V_6=V_6$,
+	the exact analogue of the quartic collapse \eqref{p:eq:hs4:telescoping}. The $\Sig_3$ sector supplies precisely the
+	\emph{target} sextic contact, nothing else.
+	\item \emph{The feedback is a $\Sig_2$-channel object and survives.} The quintic
+	overshoot $\tfrac{\gs^4}{600}vV_4^{-1}v$ is built from $V_4,V_5$ \emph{only} --- it is
+	exactly $V_6$-independent, so no $V_6$-built exchange can cancel it. Structurally:
+	$\mathcal D$ is quadratic in $\Sig_2$, while the composite it would have to reproduce,
+	$\mathcal C=V_5V_4^{-1}V_5$, is cubic in $\Sig_2$ --- different field degrees, different
+	invariants. The joint on-shell mismatch $\tfrac{\gs^4}{600}vV_4^{-1}v$ remains for
+	generic tensors.
+	\item \emph{No repair exists within the content.} A cubic-in-$\Sig_2$ $\Sig_3$-source
+	would need $V_7(\Sig_3,\Sig_2,\Sig_2)$ --- septic, hence $O(\gs^5)$, forbidden at this
+	order; and a $\Sig_3$-source at order $\gs^k$ feeds an exchange at $\gs^{2k-4}$, so only
+	$k=4$ contributes at $O(\gs^4)$ at all.
+\end{enumerate}
+The conclusion: \emph{the composite $\mathcal C$ is
+irreducible} --- no elementary $\Sig_2\oplus\Sig_3$ presentation closes the $O(\gs^4)$
+matching; the $V_4^{-1}\to V_6^{-1}$ trade is not an identity. (A new auxiliarity condition
+appears alongside the one for $\Sig_2$: $\Sig_3$ is purely auxiliary iff $V_6$ is non-degenerate
+on $\Sym^3\Hilb_0$.)
+
+\subparagraph{The dressed presentation closes.} The cure is not to reproduce the \emph{bare} $V_6(\Psi^6)$ with $\Sig_3$ but
+to pair $\Sig_3$ with the \emph{dressed effective sextic} --- the vertex that already
+contains the lower-order feedback. Define the linear map
+\begin{equation}
+	\Phi:\ \Sym^3\Hilb_0\to\big(\Sym^2\Hilb_0\big)^*,
+	\qquad
+	\Phi(X):=V_5(\,\cdot\,,X)\big|_{\Sym^2},
+	\label{ped:eq:Phimap}
+\end{equation}
+i.e.\ contract $V_5$ on three of its five slots with $X\in\Sym^3$ and read the remaining
+two slots as a covector on $\Sym^2$ (well defined by total symmetry of $V_5$). Its
+key property is the \emph{Veronese collapse}
+\begin{equation}
+	\Phi(\Psi^{\otimes3})=v
+	\qquad\big(v=V_5(\cdot,\Psi^{\otimes2},\Psi)\text{, the quintic source covector}\big):
+	\label{ped:eq:Phicollapse}
+\end{equation}
+on the diagonal, splitting three $\Psi$-slots as $2{+}1$ is immaterial. Then set
+\begin{equation}
+	\boxed{\;
+	\tilde M:=M-\tfrac65\,N,
+	\qquad
+	N:=\Phi^\top V_4^{-1}\Phi,
+	\qquad
+	\tilde u(\Sig_2):=u(\Sig_2)-\tfrac65\,\Phi^\top V_4^{-1}\,v(\Sig_2),
+	\;}
+	\label{ped:eq:tildeMdef}
+\end{equation}
+with $v(\Sig_2):=V_5(\cdot,\Sig_2,\Psi)$ the off-shell extension of $v$. Here $M$,
+$\tilde M$ are bilinear forms on $\Sym^3\Hilb_0$, while $u(\Sig_2)$, $\tilde u(\Sig_2)$
+are \emph{covectors} on $\Sym^3\Hilb_0$ (linear functionals of the would-be $\Sig_3$
+argument), themselves linear in $\Sig_2$; we write $\Mean{\tilde u(\Sig_2),\Sig_3}$ for
+the evaluation. Explicitly, in an orthonormal basis $\{\Lambda^2_I\}$ of $\Sym^2$:
+\begin{equation}
+	\begin{aligned}
+	\Mean{\tilde u(\Sig_2),\Sig_3}
+	&= V_6(\Sig_3,\Sig_2,\Psi)
+	- \tfrac65\sum_{I,J} V_5(\Lambda^2_I,\Sig_3)\,(V_4^{-1})_{IJ}\,V_5(\Lambda^2_J,\Sig_2,\Psi)
+	\\&=: \tilde V_6(\Sig_3,\Sig_2,\Psi),
+	\end{aligned}
+	\label{ped:eq:utildeexplicit}
+\end{equation}
+the first term the bare source, the second the $\Phi$-map bridge: one $V_5$ eats the
+three strands of $\Sig_3$, the other eats $\Sig_2$ and $\Psi$, and a $\Sig_2$-propagator
+$V_4^{-1}$ joins them. The action is
+\begin{equation}
+	S_{\rm dr}
+	= S_3
+	+ \tfrac{\gs^4}{6!}\big[-\tilde M(\Sig_3,\Sig_3)+2\,\Mean{\tilde u(\Sig_2),\Sig_3}\big].
+	\label{ped:eq:Sdr}
+\end{equation}
+Both $\tilde M$ and $N$ are $\Psi$-\emph{independent} (built from $V_4,V_5,V_6$ and fixed
+bases alone) and symmetric; this will matter for the gauge law. Two identities, both direct
+consequences of \eqref{ped:eq:Phicollapse}, do all the work:
+\begin{equation}
+	\tilde M(p_3,p_3)
+	= V_6(\Psi^6)-\tfrac65\,vV_4^{-1}v
+	= W_6(\Psi^6),
+	\qquad
+	\tilde u(P)=\tilde M(p_3,\cdot).
+	\label{ped:eq:tildecollapse}
+\end{equation}
+The second is an equality of covectors on $\Sym^3$: $\tilde u(P)$ means \enquote{the
+source covector evaluated on the $\Sig_2$-saddle $\Sig_2=P=\Psi^{\otimes2}$}, i.e.\
+$\Mean{\tilde u(P),X}=\tilde V_6(X,\Psi^{\otimes2},\Psi)$ for every $X\in\Sym^3$, and the
+identity says this functional coincides with pairing $X$ against $\Psi^{\otimes3}$
+through the dressed kinetic form, $\tilde M(p_3,X)$. It is proved in one line from
+\eqref{ped:eq:Phicollapse}: $u(P)=M(p_3,\cdot)$ is the bare collapse of the elementary presentation (total symmetry of
+$V_6$: splitting six $\Psi$-slots as $3{+}2{+}1$ or $3{+}3$ is immaterial), and
+$\Phi^\top V_4^{-1}v\big|_{\Sig_2=P}=N(p_3,\cdot)$ by $\Phi(p_3)=v$. Consequently the
+dressed saddle is \emph{exactly} $\Sig_3^*=\Psi^{\otimes3}$ on-shell, and the resulting
+$\Sig_3$-contact is $\tfrac{\gs^4}{6!}\tilde M(p_3,p_3)=\tfrac{\gs^4}{6!}W_6(\Psi^6)$ ---
+the geometric sextic \emph{and} the feedback subtraction, in one Gaussian step. The
+matching closes exactly as in \cref{p:sec:hs:sextic}, with the composite
+$-\tfrac65\mathcal C$ now living \emph{inside the $\Sig_3$-kinetic pairing} instead of
+inside a three-$\Sig_2$ vertex: the map $\Phi$ is the relocation mechanism, converting the
+$\Sig_2$-channel feedback $vV_4^{-1}v$ (a $\Sym^2$-channel object) into a $\Sym^3$-kinetic
+correction $N$. The composite is not eliminated --- the elementary presentation shows it cannot be ---
+it is \emph{repackaged} where it does the least harm: in a quadratic kernel, the natural
+home of a propagator-like object, rather than in a cubic vertex.
+
+\subparagraph{The complete cubic action through $O(\gs^4)$, both presentations.} For
+reference:
+\begin{equation}
+	\boxed{
+	\begin{aligned}
+	S^{\rm min}_4
+	&= \tfrac12V_2(\Psi^2)+\tfrac{\gs}{3!}V_3(\Psi^3)
+	-\tfrac{\gs^2}{4!}V_4(\Sig_2,\Sig_2)+\tfrac{2\gs^2}{4!}V_4(\Sig_2,\Psi^{\otimes2})
+	\\&\quad
+	+\tfrac{\gs^3}{5!}V_5(\Sig_2,\Sig_2,\Psi)
+	+\tfrac{\gs^4}{6!}\,W_6(\Sig_2,\Sig_2,\Sig_2),
+	\\[1ex]
+	S^{\rm dr}_4
+	&= \tfrac12V_2(\Psi^2)+\tfrac{\gs}{3!}V_3(\Psi^3)
+	-\tfrac{\gs^2}{4!}V_4(\Sig_2,\Sig_2)+\tfrac{2\gs^2}{4!}V_4(\Sig_2,\Psi^{\otimes2})
+	\\&\quad
+	+\tfrac{\gs^3}{5!}V_5(\Sig_2,\Sig_2,\Psi)
+	-\tfrac{\gs^4}{6!}\tilde M(\Sig_3,\Sig_3)+\tfrac{2\gs^4}{6!}\Mean{\tilde u(\Sig_2),\Sig_3}.
+	\end{aligned}
+	}
+	\label{ped:eq:S4both}
+\end{equation}
+Both are cubic in the tower fields $(\Psi,\Sig_2,\Sig_3)$, agree exactly with
+$S^{(6)}_{\rm eff}$ on-shell up to $O(\gs^5)$ feedback, and carry the homogeneous gauge
+laws of \cref{sec:order:sextic:both-gauge}. The minimal presentation is more economical (one field
+fewer); the dressed presentation is structurally uniform --- every order adds one field and
+one HS pair (kinetic $+$ source), which is what generalises
+(\cref{ch:all-orders}).
+
+\subparagraph{Equations of motion and the auxiliarity chain.} In both presentations the
+$\Sig_3$-EOM is Gaussian --- $\Sig_3$ enters bilinearly $+$ linearly --- with exact saddle
+$\Sig_3^*=\tilde M^{-1}\tilde u(\Sig_2)$ (dressed; bare with $M,u$), collapsing to
+$\Psi^{\otimes3}$ on-shell by \eqref{ped:eq:tildecollapse}. The $\Sig_2$-EOM is the
+\emph{implicit} saddle equation ($\tilde X_6=0$ with the $\Sig_3$-exchange
+folded into the Hessian): the $\Sig_2$-saddle is a perturbative fixed point
+$\Sig_2^*(\Psi)=\Psi^{\otimes2}+O(\gs)$, Neumann-solvable at small $\gs$. The auxiliarity
+conditions chain up: $\Sig_2$ is purely auxiliary iff $V_4|_{\Sym^2}$ is non-degenerate
+(\cref{p:sec:hs:quartic}); $\Sig_3$ iff the relevant kinetic kernel is --- $M=V_6|_{\Sym^3}$
+(elementary) or $\tilde M$ (dressed; this needs \emph{both} $V_4$ and $V_6$ well behaved,
+tying the two conditions together). Reality extends verbatim from
+\cref{p:eq:hs4:reality} (in the sign convention of the translation box): $\Sig_3^\ddagger=\Sig_3$, inherited from
+$(\Psi^{\otimes3})^\ddagger=\Psi^{\otimes3}$, makes every new term real.
+

@@ -1,0 +1,44 @@
+\subsubsection{Kernel conditions}
+\label{pc:sec:all:kernel}
+
+The auxiliary fields live on quotients, $\Sigma_k$ on $\Hn{k} / \ker \wprod{k}{k}$, and every term of the action must be a function on them.
+At the quintic and septic orders this required the odd vertex to vanish on the kernel, and at the sextic order the source of the next field.
+Besides its kinetic term, a kernel direction $N_k \in \ker \wprod{k}{k}$ enters three terms of the action: its own source, which pairs to zero with $N_k$ by the symmetry of $\wprod{k}{k}$, the odd coupling, and the source of $\Sigma_{k + 1}$.
+The action descends to the quotients if the last two vanish on every kernel direction:
+\begin{equation}
+  \label{pc:eq:all:kernel-condition}
+  \begin{gathered}
+    \forall N_k \in \ker \wprod{k}{k}, \;
+    \forall A_k \in \Hn{k}, \;
+    \forall B \in \Hs:
+    \\
+    \dvertex{2 k + 1}(N_k, A_k, B)
+      = 0,
+    \qquad
+    \wprod{k + 1}{k + 1}(B \otimes N_k)
+      = 0,
+  \end{gathered}
+\end{equation}
+for every $k \ge 2$.
+The first clause is the condition of the odd orders and the second that of the even ones: at $k = 2$ the second clause is the vanishing of the sextic vertex on $\ker \sprod{2}{2}$,~\eqref{p:eq:hs6:kernel-condition}, since, for the form built from the diagrams, the exchange part of $\dvertex{6}$ vanishes there by the first clause.
+The second clause says that a null direction of one level, tensored with any string field, is a null direction of the next: null directions propagate up the tower.
+Every null vector of the kinetic operator of $\Sigma_k$ is a joint null vector of every vertex in which $\Sigma_k$ appears.
+A kernel is meant in the square-integrable sense at fixed total momentum, as for $\sprod{2}{2}$ in \cref{p:sec:hs:quartic}.
+Through the second clause, a null vector of $\sprod{2}{2}$ at a single total momentum would give the higher operators null vectors at every total momentum, but these are plane waves, sharp in one relative momentum, and do not count as kernel directions.
+At $k = 2$ the condition bears on the quintic and sextic vertices themselves; for $k \ge 3$ it bears in part on the choice of the reduced vertices, which are defined up to terms vanishing at leading order.
+The choice has a limit: at $k = 2$ a reduced sextic vertex satisfying the second clause exists only if its leading-order value vanishes on the symmetric tensors of $\Hn{3} \otimes \ker \sprod{2}{2} \otimes \Hs$.
+The condition holds trivially when the bare operators have no kernel.
+We do not try to settle here whether the string vertices satisfy it; in principle, this can be checked level by level in level truncation.
+
+The conditions are what makes the quotient prescription consistent at every order.
+The kernels in~\eqref{pc:eq:all:kernel-condition} are those of the bare operators, while the operators inverted in the elimination are the dressed ones, and the quotient is meaningful only if $\ker \wprod{k}{k}$ stays in the radical of the dressed operator for every $\Psi$, so that every dressed operator descends to the same quotient.
+Read order by order in~\eqref{p:eq:hs8:scaling}, this is the condition: the first clause makes the term of order $\gs$ vanish on the kernel and the second the exchange term.
+Generically the second clause is also necessary: a kernel direction it misses is lifted at order $\gs^2$.
+When a clause fails along a kernel direction, that direction has no kinetic term at order $\gs^{2 k - 2}$ and acquires one from the odd coupling at the next order, or from the exchange one order further.
+The failure does not show in the dressed operator of the level below at $\gs = 0$, so that the invertibility of the quartic form on its quotient does not certify the higher levels.
+The construction as presented then breaks down and must be refined.\footnote{
+  A way out may exist when a condition fails.
+  The constraint $\Sigma_k = \Psi \otimes \Sigma_{k - 1}$ can be imposed by a multiplier instead of a kinetic term, either on the whole field, in which case nothing is inverted and no kernel condition arises, but the exchange structure is lost, or on the kernel directions only.
+  This hybrid reproduces, at the sextic order, the original action through order $\gs^4$ for every complement of $\ker \sprod{2}{2}$, with a reduced vertex that depends on the complement (shown for a scalar model in \cref{p:app:scalar-hs}).
+  The gauge transformations of the hybrid are left for future work.
+}

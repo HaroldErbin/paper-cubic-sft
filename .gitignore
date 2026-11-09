@@ -14,5 +14,9 @@
 !figures/*.pdf
 !**/figures/*.pdf
 
+# Override files and tool reports of the extraction (they quote removed source text)
+writeup/extracted/**/*.patch.tex
+writeup/extracted/*.md
+
 # Python
 __pycache__/

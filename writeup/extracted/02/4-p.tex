@@ -1,0 +1,30 @@
+
+We now consider the four-point function with four identical external states $\Psi$ at order $\gs^2$.
+The auxiliary sector contributes three channels, $s$, $t$ and $u$, each with two cubic vertices and one $\Sigma_2$ line.
+Since the external states are identical, the three channels are equal and we get:
+\begin{equation}
+  \label{p:eq:hs4:telescoping}
+  \begin{aligned}
+    3 \times
+    \Big( \frac{\gs^2}{3!} \, \vertex{4}(\Psi^2, \cdot) \Big)
+    \circ
+    \Big( \frac{12}{\gs^2} \, \sprod{2}{2}^{-1} \Big)
+    \circ
+    \Big( \frac{\gs^2}{3!} \, \vertex{4}(\cdot, \Psi^2) \Big)
+      &
+      = \gs^2 \, \vertex{4}\Big( \Psi^2, \sprod{2}{2}^{-1} \circ \sprod{2}{2}(\Psi^2) \Big)
+      \\ &
+      = \gs^2 \, \vertex{4}(\Psi^4),
+  \end{aligned}
+\end{equation}
+where the second vertex is written through the pairing, $\vertex{4}(\cdot, \Psi^2) = \pair[2]{\cdot}{\sprod{2}{2}(\Psi^2)}$, and where $\sprod{2}{2}^{-1} \circ \sprod{2}{2}$ is the identity on the quotient.
+We call \emph{collapse} the fact that a $\Sigma_2$ line ending on a source vertex~\eqref{p:eq:hs4:feynman-rules} reduces to a contact term, $\sprod{2}{2}^{-1} \circ \sprod{2}{2}(\Psi^2) = \Psi^2$.
+The exchange~\eqref{p:eq:hs4:telescoping} is the diagrammatic form of the elimination~\eqref{p:eq:hs4:eliminate}.
+We give the worldsheet interpretation of the exchange in \cref{p:sec:worldsheet}.
+
+The Feynman rules of the $\Psi$ sector, the propagator $- b_0^+ / L_0^+$ in Siegel gauge and the cubic vertex $\vertex{3}$, are those of closed string field theory.
+The $\Sigma_2$ exchange collapses as in~\eqref{p:eq:hs4:telescoping} for any external states: the two pair states filling the vertices replace $\Psi^2$.
+Hence every tree-level Green's function of $\Psi$ computed from the cubic action equals its counterpart in the quartic-truncated theory, for the same vertex family and off-shell.
+Besides the invertibility of $\sprod{2}{2}$ on the quotient assumed above, we need one more assumption.
+The composition of vertex, propagator and vertex is a sum over a complete set of intermediate $2$-string states, which runs over the oscillator levels of the two strands and over the relative momentum of the pair.
+We assume that this sum converges on the $2$-string states the external sources produce.

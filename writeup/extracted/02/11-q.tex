@@ -1,0 +1,65 @@
+\subsection{Orders: why the corrected saddle does not spoil the matching}
+\label{q:sec:orders}
+
+One may ask why the order-$g_s$ correction to $\Sigma_2^*$ does not enter the action at order $g_s^3$: the kinetic term is quadratic in $\Sigma_2$ and of order $g_s^2$, so a correction of order $g_s$ costs $g_s^4$ there, but the source term is linear in $\Sigma_2$ and also of order $g_s^2$, so the same correction seems to cost only $g_s^3$.
+The objection is right about the source term taken alone and wrong about the sum, and the reason is stationarity.
+We give the one-line computation, then the general statement.
+
+\subsubsection{The one-line computation}
+\label{q:sec:orders:oneline}
+
+Write the saddle as $\Sigma_2^*=\Psi^2+\delta$ with $\delta=\frac{g_s}{5}K_\Psi^{-1}v=O(g_s)$, and insert it into \eqref{q:eq:square:F}.
+The kinetic term gives
+\begin{equation}
+  - \frac{g_s^2}{4!} \, \mc V_4(\Psi^2 + \delta, \Psi^2 + \delta)
+    = - \frac{g_s^2}{4!} \, \mc V_4(\Psi^4)
+      - \frac{2 g_s^2}{4!} \, \mc V_4(\Psi^2, \delta)
+      - \frac{g_s^2}{4!} \, \mc V_4(\delta, \delta),
+\end{equation}
+and the source term gives
+\begin{equation}
+  \frac{2 g_s^2}{4!} \, \mc V_4(\Psi^2 + \delta, \Psi^2)
+    = \frac{2 g_s^2}{4!} \, \mc V_4(\Psi^4)
+      + \frac{2 g_s^2}{4!} \, \mc V_4(\delta, \Psi^2).
+\end{equation}
+The two terms linear in $\delta$ are equal and opposite, by the symmetry of $\mc V_4$:
+\begin{equation}
+  \label{q:eq:orders:cancel}
+  - \frac{2 g_s^2}{4!} \, \mc V_4(\Psi^2, \delta)
+    + \frac{2 g_s^2}{4!} \, \mc V_4(\delta, \Psi^2)
+    = 0 .
+\end{equation}
+This cancellation is the statement that $\Psi^2$ is the saddle of the order-$g_s^2$ action: the first-order variation of $\widetilde S_{\le4}$ in $\Sigma_2$ vanishes at $\Sigma_2=\Psi^2$, whatever the direction $\delta$.
+The source term alone does shift the action at order $g_s^3$; the kinetic term shifts it back by the same amount.
+What survives is the term quadratic in $\delta$, $-\frac{g_s^2}{4!}\mc V_4(\delta,\delta)=O(g_s^2)\cdot O(g_s)^2=O(g_s^4)$, and the variation of the quintic term, $\frac{2g_s^3}{5!}\mc V_5(\delta,\Psi^2,\Psi)=O(g_s^3)\cdot O(g_s)=O(g_s^4)$.
+Both are of order $g_s^4$.
+
+\subsubsection{The general statement}
+\label{q:sec:orders:general}
+
+The same argument in one sentence: $F$ is quadratic in $\Sigma_2$, so its value at $\Psi^2+\delta$ is exactly its value at $\Psi^2$, plus its first variation at $\Psi^2$ in the direction $\delta$, plus one half of its second variation; the first variation of the order-$g_s^2$ part vanishes because $\Psi^2$ is its stationary point, the first variation of the quintic part is $O(g_s^3)\times O(g_s)$, and the second variation is the quadratic form $-\frac{g_s^2}{4!}K_\Psi(\delta,\delta)$, of order $g_s^2$ in a shift of order $g_s$.
+Hence a shift of the saddle of order $g_s$ changes the on-shell value at order $g_s^4$.
+The exact identity \eqref{q:eq:square:identity} says the same without any expansion: on shell the quadratic form vanishes identically and the only remainder is the feedback, which is $O(g_s^4)$ by inspection.
+The naive counting, that a correction of order $g_s$ times a coupling of order $g_s^2$ gives $g_s^4$, lands on the right order, but the mechanism is stationarity and not the order of the correction: a correction of order $g_s$ inserted into a term linear in $\Sigma_2$ of order $g_s^2$ would give $g_s^3$ if that term stood alone.
+
+\subsubsection{Any other coefficient fails}
+\label{q:sec:orders:falsify}
+
+Repeat \cref{q:sec:square:collect} with a general coefficient $c\,\frac{g_s^3}{5!}$ on the quintic coupling and expand around $\Psi^2$, $\Sigma_2=\Psi^2+X$.
+The $\mc V_4$ cross terms cancel as in \eqref{q:eq:orders:cancel}, and
+\begin{equation}
+  \label{q:eq:orders:c}
+  \widetilde S_{\le 5} - S_{\le 5}
+    = - \frac{g_s^2}{4!} \, \mc V_4(X, X)
+      + \frac{c \, g_s^3}{5!} \Big[ \mc V_5(X, X, \Psi) + 2 \mc V_5(X, \Psi^2, \Psi) \Big]
+      + \frac{(c - 1) \, g_s^3}{5!} \, \mc V_5(\Psi^5).
+\end{equation}
+The last term is independent of $X$ and survives on shell at order $g_s^3$.
+Hence closure forces
+\begin{equation}
+  \boxed{\;
+  c = 1,
+  \;}
+\end{equation}
+and any other value leaves the uncancelled mismatch $(c-1)\frac{g_s^3}{5!}\mc V_5(\Psi^5)$ in the effective action, a five-point contact term at order $g_s^3$; this has been checked symbolically by extracting the order-$g_s^3$ coefficient of the on-shell mismatch for $c\neq1$.
+The naive rule, replace $\Psi^2$ by $\Sigma_2$ and keep the $1/5!$, is therefore derived and not assumed, and it is the $X$-dependence in \eqref{q:eq:orders:c} that carries all the dynamics.

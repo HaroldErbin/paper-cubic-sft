@@ -1,0 +1,411 @@
+\subsection{Conventions and normalization}
+\label{p:app:conventions}
+
+This appendix collects the conventions of the paper, following~\cite{Erbin:2021:StringFieldTheory}.
+
+
+\subparagraph{State space.}
+
+The zero modes of the ghosts and of the Virasoro generators are combined into
+\begin{equation}
+  \label{p:eq:conv:pm-operators}
+  L_0^\pm
+    := L_0 \pm \bar L_0,
+  \qquad
+  b_0^\pm
+    := b_0 \pm \bar b_0,
+  \qquad
+  c_0^\pm
+    := \frac{1}{2} \, (c_0 \pm \bar c_0).
+\end{equation}
+$\Hs$ denotes the space of states of the matter--ghost CFT, at every ghost number, that satisfy the level-matching conditions
+\begin{equation}
+  \label{p:eq:conv:level-matching}
+  b_0^- \ket{A}
+    = 0,
+  \qquad
+  L_0^- \ket{A}
+    = 0.
+\end{equation}
+We include all ghost numbers so that the string products below map into $\Hs$.
+
+Ghost numbers are physical: the $\group{SL}(2, \C)$ vacuum has ghost number zero, $c$ counts $+1$ and $b$ counts $-1$.
+The tachyon $c_1 \bar c_1 \ket{0}$ then has ghost number two.
+The Grassmann parity of a state is its ghost number modulo two:
+\begin{equation}
+  \label{p:eq:conv:parity}
+  \abs{A}
+    := \Ngh(A) \bmod 2.
+\end{equation}
+
+The $n$-string space $\Hn{n}$ is the space of tensors in $\Hs^{\otimes n}$ whose components are graded-symmetric under permutations of the strands.
+Given a basis $\{ \phi_r \}$ of $\mc H$, we can write a state $\Sigma_n \in \mc H^{\wedge n}$ as
+\begin{equation}
+  \label{p:eq:conv:exp-sigma-n}
+  \Sigma_n
+    = \sum_{\{ r_i \}} \sigma_{r_1 \cdots r_n} \phi_{r_1} \cdots \phi_{r_n}.
+\end{equation}
+
+The parity in which the symmetry is graded depends on the role of the strands.
+For the arguments of the vertices and products below, the fields $\Psi^n$ and $\Sigma_n$ and the gauge parameters, the grading is given by the parity $\abs{\phi_{r_i}}$ of the basis state in the strand $i$ of~\eqref{p:eq:conv:exp-sigma-n}, and $\Hn{n}$ is the symmetrized tensor product of $n$ copies of $\mc H$~\cite{Erler:2014:NSNSSectorClosed,Erbin:2020:ClassicalAlgebraicStructures}.
+Even strands then have symmetric components and odd strands antisymmetric ones, so that a product is antisymmetric in two gauge parameters.
+
+For the strands that the $n$-string pairing~\eqref{p:eq:conv:pairing-n} sets against a field, those of the outputs of the products and of the multipliers $\Theta_k$, it is the shifted parity $\abs{\phi_{r_i}} + 1$.
+This is the dual of the former space under the pairing: if we were also defining the graded-symmetry with respect to the strand parity, the outputs at ghost number three would have antisymmetric components and would pair to zero with $\Sigma_n$.
+For this reason, we use instead the shifted parity $\abs{\phi_{r_i}} + 1$.
+In this way, the fields have symmetric components, as the pairing requires.
+For a tensor with one odd and one even strand, the two parities give the same sign and we need not specify the role.
+We write $\Psi^n := \Psi^{\otimes n} \in \Hn{n}$.
+
+
+\subparagraph{Fields of the paper.}
+
+We list below the fields of the paper with their space, ghost number and Grassmann parity, and the section where each is introduced.
+All of them have commuting coefficients, so that the parity of a field is that of its states.
+\begin{itemize}
+  \item $\Psi \in \Hs$, the classical string field: $\Ngh(\Psi) = 2$, even (\cref{p:sec:hs:action}).
+
+  \item $\Lambda \in \Hs$, the classical gauge parameter: $\Ngh(\Lambda) = 1$, odd (\cref{p:sec:hs:action}).
+
+  \item $\Sigma_k \in \Hn{k} / \ker$, the auxiliary field that replaces the tensor power $\Psi^{\otimes k}$, on the quotient by the kernel of its quadratic operator, $\sprod{2}{2}$ for $k = 2$ and $\wprod{3}{3}$ for $k = 3$: $\Ngh(\Sigma_k) = 2 k$, even (\cref{p:sec:hs:quartic,p:sec:hs:sextic}).
+    In the multiplier form of \cref{p:sec:all-orders}, the fields $\Sigma_n \in \Hn{n}$ carry the same letter but live on $\Hn{n}$ itself and are not these auxiliary fields.
+
+  \item $\Theta_k \in \Hn{k}$, the multiplier that enforces $\Sigma_k = \Sigma_{k-1} \otimes \Psi$ in the multiplier form of the action: $\Ngh(\Theta_k) = 3 k$, parity $k \bmod 2$, its strands read in the shifted parity (\cref{p:sec:all-orders}).
+
+  \item $\Upsilon_2 \in \Hn{2} / \ker \sprod{2}{2}$, the partner field: $\Ngh(\Upsilon_2) = 4$, even (\cref{p:app:wrong-sign}).
+\end{itemize}
+Three letters should not be confused: $d$ is the spacetime dimension, $D$ the ghost dilaton of \cref{p:sec:solutions}, and $\hat d$ the formal dimension of \cref{p:sec:worldsheet}.
+
+
+\subparagraph{Sphere normalization.}
+
+We normalize the correlation functions on the sphere, with the momentum-conservation factor $(2\pi)^d \delta^{(d)}(\sum k)$ stripped off, as:
+\begin{equation}
+  \label{p:eq:conv:sphere}
+  \braket{c_{-1} \bar c_{-1} c_0^- c_0^+ c_1 \bar c_1}
+    = - \frac{1}{2},
+  \qquad
+  \braket{c_{-1} \bar c_{-1} c_0 \bar c_0 c_1 \bar c_1}
+    = - 1.
+\end{equation}
+The value is real, with no factor $\I$, as the reality of the action under~\eqref{p:eq:conv:reality-fields} requires.
+A sphere correlator is nonzero only when the ghost numbers of its insertions add up to six, the ghost-number anomaly.
+All the ghost-number formulas below follow from this selection rule.
+
+
+\subparagraph{Pairing.}
+
+The pairing of two states is the BPZ inner product with one insertion of $c_0^-$:
+\begin{equation}
+  \label{p:eq:conv:pairing}
+  \pair{A}{B}
+    := \braket{A | c_0^- | B},
+\end{equation}
+where $\bra{A}$ is the BPZ conjugate of $\ket{A}$.
+We write the BPZ conjugate as $\transp{A}$.
+The pairing is nonzero only when $\Ngh(A) + \Ngh(B) = 5$, since the insertion of $c_0^-$ supplies the sixth unit.
+Hence it pairs states of opposite parity, $\abs{A} + \abs{B} = 1$.
+
+BPZ conjugation acts on the modes as
+\begin{equation}
+\label{p:eq:conv:bpz-modes}
+\transp{c_n}
+  = - c_{-n},
+\qquad
+\transp{b_n}
+  = b_{-n},
+\qquad
+\transp{(c_0^\pm)}
+  = - c_0^\pm,
+\end{equation}
+and in the same way for $\bar c_n$ and $\bar b_n$.
+These are the rules for the inversion $I^+(z) = 1/z$, the standard choice for the closed string~\cite[footnote p.~13]{Zwiebach:1993:ClosedStringField}.
+On a monomial of creation modes acting on the vacuum, BPZ conjugation conjugates each mode in place, without a reordering sign:
+\begin{equation}
+  \label{p:eq:conv:bpz-word}
+  \transp{(O_1 \cdots O_k \ket{0})}
+    = \bra{0} \transp{O_1} \cdots \transp{O_k}.
+\end{equation}
+
+With these rules and the normalization~\eqref{p:eq:conv:sphere}, the pairing is graded-symmetric in the shifted parity:
+\begin{equation}
+\label{p:eq:conv:pairing-symmetry}
+\pair{B}{A}
+  = (-1)^{(1 + \abs{A}) (1 + \abs{B})} \, \pair{A}{B}.
+\end{equation}
+Since the pairing is nonzero only for $\abs{A} + \abs{B} = 1$, the sign is $+1$ on its support: the pairing is symmetric.
+This is the rearrangement rule of~\cite{Erbin:2021:StringFieldTheory} restricted to the support.
+The sign is checked on explicit states in \cref{p:app:reality}, where the reality conditions are also derived.
+
+
+\subparagraph{Multi-string pairing.}
+
+On $n$-string states the pairing is the tensor power of~\eqref{p:eq:conv:pairing}, one $c_0^-$ per strand, with the Koszul sign of a tensor product of bilinear forms,
+\begin{equation}
+  \label{p:eq:conv:pairing-n}
+  \pair[n]{A_1 \otimes \cdots \otimes A_n}{B_1 \otimes \cdots \otimes B_n}
+    := (-1)^{\sum_{i < j} \abs{B_i} \abs{A_j}} \,
+      \pair{A_1}{B_1} \cdots \pair{A_n}{B_n},
+\end{equation}
+extended bilinearly.
+For $n = 1$ it is the pairing~\eqref{p:eq:conv:pairing}, written without index.
+When the strands of the first tensor are even, as for $\Psi^n$ and $\Sigma_n$, the sign is $+1$ and the pairing is the plain product of the pairings of the strands.
+Each $c_0^-$ thus sits inside the pairing of its own strand, and we read the products in this grouping.
+The multi-string pairing is nonzero only when the ghost numbers of the two tensors add up to $5n$.
+
+For every $n$, it is graded-symmetric in the total parity:
+\begin{equation}
+\label{p:eq:conv:pairing-n-symmetry}
+\pair[n]{Y}{X}
+  = (-1)^{\abs{X} \abs{Y}} \, \pair[n]{X}{Y},
+\qquad
+X, Y \in \Hn{n}.
+\end{equation}
+This follows from combining the Koszul signs with~\eqref{p:eq:conv:pairing-symmetry} strand by strand.
+Whenever one of the two tensors is even, as for every pair met in this paper, the sign is $+1$ and the pairing is symmetric.
+
+
+\subparagraph{String vertices.}
+
+The vertices $\vertex{n} \colon \Hn{n} \to \C$ are the genus-zero string vertices, graded-symmetric multilinear forms.
+Their arguments, and those of the products, are graded-symmetric in the parity of the strands for every parity of the arguments.
+Hence the product of two gauge parameters in \cref{p:sec:gauge} is antisymmetric in the two.
+The outputs of the multi-string products are read in the shifted parity.
+The string products $\ell_n \colon \Hn{n} \to \Hs$ are the maps they define through the pairing:
+\begin{equation}
+  \label{p:eq:conv:vertex}
+  \vertex{n}(A_1, \ldots, A_n)
+    =: \pair{A_1}{\ell_{n-1}(A_2, \ldots, A_n)},
+  \qquad
+  \ell_1
+    := Q_B.
+\end{equation}
+For $n = 2$, we have in particular, $\vertex{2}(A_1, A_2) := \pair{A_1}{Q_B A_2}$.
+The BRST operator is graded self-adjoint for the pairing:
+\begin{equation}
+  \label{p:eq:conv:QB-self-adjoint}
+  \pair{Q_B A}{B}
+    = (-1)^{\abs{A}} \, \pair{A}{Q_B B}.
+\end{equation}
+This property is the symmetry of $\vertex{2}$.
+
+A vertex extended by multilinearity to tensor arguments is written with the tensors in its slots: using~\eqref{p:eq:conv:exp-sigma-n},
+\begin{equation}
+  \vertex{n}(\Sigma_k, \cdots)
+    := \sum_{\{ r_i \}} \sigma_{r_1 \cdots r_k} \, \vertex{n}(\phi_{r_1}, \ldots, \phi_{r_k}, \cdots).
+\end{equation}
+
+The selection rule fixes the ghost number carried by every map.
+For $\ell_n$ and $\sprod{m}{n}$ it is the ghost number of the output minus the sum of those of the inputs.
+For $\vertex{n}$ it is the ghost number of its antighost insertions, so that $\vertex{n}(A_1, \ldots, A_n)$ is nonzero only when $\sum_i \Ngh(A_i) = 2n$:
+\begin{equation}
+  \label{p:eq:conv:ghost-numbers}
+  \Ngh(\vertex{n})
+    = 6 - 2n,
+  \qquad
+  \Ngh(\ell_n)
+    = 3 - 2n,
+  \qquad
+  \Ngh(\sprod{m}{n})
+    = 3n - 2m.
+\end{equation}
+The last entry concerns the products with several outputs, $\sprod{m}{n} \colon \Hn{m} \to \Hn{n}$, whose output strands have ghost number three.
+They are defined by splitting the slots of a vertex into $n$ outputs and $m$ inputs and reading the result through the $n$-string pairing,
+\begin{equation}
+  \label{p:eq:conv:sprod}
+  \vertex{m+n}(A_1, \ldots, A_n, B_1, \ldots, B_m)
+    =: \pair[n]{A_1 \otimes \cdots \otimes A_n}{\sprod{m}{n}(B_1, \ldots, B_m)},
+\end{equation}
+so that $\sprod{n}{1} = \ell_n$ and, for instance:
+\begin{equation*}
+  \vertex{4}(A_1, A_2, A_3, A_4)
+    = \pair[2]{A_1 \otimes A_2}{\sprod{2}{2}(A_3, A_4)}.
+\end{equation*}
+Each output raises the ghost number by three and each input lowers it by two, so that $\Ngh(\sprod{2}{2}) = 2$, $\Ngh(\sprod{3}{2}) = 0$ and $\Ngh(\sprod{3}{3}) = 3$.
+
+Since $\vertex{m+n}$ is graded-symmetric, reading the same vertex with inputs and outputs exchanged gives the transposition identity
+\begin{equation}
+  \label{p:eq:conv:transpose}
+  \pair[n]{X}{\sprod{m}{n}(Y)}
+    = \pair[m]{\sprod{n}{m}(X)}{Y},
+  \qquad
+  X \in \Hn{n},
+  \quad
+  Y \in \Hn{m},
+\end{equation}
+for even arguments, the case of $\Psi$ and the auxiliary fields (odd arguments bring a sign).
+$\sprod{n}{m}$ is thus the transpose of $\sprod{m}{n}$ with respect to the multi-string pairing.
+We write compositions with $\circ$.
+
+\subparagraph{Normalization of the action.}
+
+With the vertices normalized as in~\eqref{p:eq:conv:vertex}, the action of closed string field theory is:
+\begin{equation}
+  \label{p:eq:conv:action}
+  S
+    = \frac{1}{2} \, \pair{\Psi}{Q_B \Psi}
+      + \sum_{n \ge 3} \frac{\gs^{n-2}}{n!} \, \vertex{n}(\Psi^n)
+    = \sum_{n \ge 1} \frac{\gs^{n-1}}{(n+1)!} \, \pair{\Psi}{\ell_n(\Psi^n)},
+\end{equation}
+with $\gs$ the string coupling.
+The equation of motion and the gauge transformation read:
+\begin{equation}
+  \label{p:eq:conv:gauge}
+  Q_B \Psi
+    + \sum_{n \ge 2} \frac{\gs^{n-1}}{n!} \, \ell_n(\Psi^n)
+    = 0,
+  \qquad
+  \delta_\Lambda \Psi
+    = Q_B \Lambda
+      + \sum_{n \ge 2} \frac{\gs^{n-1}}{(n-1)!} \, \ell_n(\Psi^{n-1}, \Lambda),
+\end{equation}
+with $\Lambda \in \Hs$ of ghost number one.
+
+The Euclidean path integral is weighted by $\e^{S}$, that is, $S = -S_E$ with $S_E$ the Euclidean action.
+  For the tachyon component $t(k)$ of the string field, $\Psi \supset t(k) \, c_1 \bar c_1 \ket{k}$, with $m_T^2 = -4/\alpha'$, the quadratic term of~\eqref{p:eq:conv:action} is:
+  \begin{equation}
+  \label{p:eq:conv:tachyon-quadratic}
+  S
+    \supset - \frac{\alpha'}{8} \int \frac{\dd^d k}{(2\pi)^d} \, (k^2 + m_T^2) \, t(k) \, t(-k).
+\end{equation}
+  It decreases at large Euclidean momentum, as a damped weight requires.
+  This fixes the sign of~\eqref{p:eq:conv:sphere} against the sign of the weight.
+
+
+\subparagraph{Reality.}
+
+
+We impose reality with the star conjugation of~\cite{Erbin:2021:StringFieldTheory}, the composition of the BPZ and Hermitian conjugations:
+\begin{equation}
+  \label{p:eq:conv:star}
+  A^\star
+    := \adj{(\transp{A})}
+    = \transp{(\adj{A})}.
+\end{equation}
+The BPZ bra of $A^\star$ is thus the Hermitian bra of $A$, and conversely:
+  \begin{equation}
+  \label{p:eq:rea:star-bras}
+  \bra{A^\star}
+    = \adj{A},
+  \qquad
+  \adj{(A^\star)}
+    = \bra{A},
+\end{equation}
+  with $\bra{A} = \transp{A}$.
+  The two conjugations commute on every mode, since each maps $c_n$, $b_n$ and $\alpha_n$ to a real multiple of the mode of opposite index.
+  On the modes, Hermitian conjugation is $\adj{(c_n)} = c_{-n}$ and $\adj{(b_n)} = b_{-n}$, and it reverses the order of a product of modes.
+  On operators the star is the same composition, and it distributes over the action on a state with a Koszul sign:
+  \begin{equation}
+  \label{p:eq:rea:star-operator}
+  O^\star
+    := \transp{(\adj{O})},
+  \qquad
+  (O A)^\star
+    = (-1)^{\abs{O} \abs{A}} \, O^\star A^\star.
+\end{equation}
+  The sign appears because $O^\star$ is written to the left of $A^\star$ while Hermitian conjugation reverses the order.
+Star conjugation is antilinear and squares to one on every state, even or odd: on a monomial of modes acting on a momentum state it returns the same monomial, up to a sign, on the opposite momentum.
+On a tensor it acts strand by strand, without a reordering sign.
+On the string field, the reality condition is that of~\cite[eq.~(3.6)]{Zwiebach:1993:ClosedStringField}:
+\begin{equation}
+  (\ket{\Psi})^\dagger
+    = - \bra{\Psi}.
+\end{equation}
+
+The pairing is equivariant up to a minus sign,
+\begin{equation}
+  \label{p:eq:conv:pairing-equivariance}
+  \pair{A^\star}{B^\star}
+    = - \, \pair{A}{B}^*,
+\end{equation}
+for all $A$ and $B$.
+Complex conjugation of a sphere correlator and Hermitian conjugation of its insertions define two antilinear functionals on the monomials of modes, which vanish on the same monomials.
+  Since the vacuum functional is unique up to a factor, there is a constant $\eta$ such that $\braket{W}^* = \eta \, \braket{\adj{W}}$ for every monomial $W$.
+  On $W_0 = c_{-1} \bar c_{-1} c_0 \bar c_0 c_1 \bar c_1$, Hermitian conjugation swaps each pair $(c_n, \bar c_n)$, which amounts to three transpositions of anticommuting modes, so that $\adj{W_0} = - W_0$.
+  With $\braket{W_0} = - 1$ from~\eqref{p:eq:conv:sphere}, this gives $\eta = - 1$: the vacuum functional is anti-Hermitian, as in~\cite[eq.~(2.37)]{Zwiebach:1993:ClosedStringField}.
+  Writing $A = U \ket{0}$ and $B^\star = V \ket{0}$ with monomials of modes $U$ and $V$, the relations~\eqref{p:eq:rea:star-bras} and $\adj{(c_0^-)} = c_0^-$ give $\pair{A^\star}{B^\star} = \eta \, \pair{B}{A}^*$, which is~\eqref{p:eq:conv:pairing-equivariance} by the symmetry~\eqref{p:eq:conv:pairing-symmetry}.
+The BRST operator is Hermitian and odd under BPZ conjugation, so that $Q_B^\star = - Q_B$.
+  With~\eqref{p:eq:rea:star-operator} and $\abs{Q_B} = 1$, it commutes with star conjugation up to a sign fixed by the parity of its argument:
+\begin{equation}
+  \label{p:eq:conv:QB-star}
+  (Q_B A)^\star
+    = (-1)^{\abs{A} + 1} \, Q_B A^\star.
+\end{equation}
+The vertices are real in the sense that
+\begin{equation}
+  \label{p:eq:conv:vertex-reality}
+  \vertex{n}(A_1, \ldots, A_n)^*
+    = (-1)^{n + \sum_{i < j} \abs{A_i} \abs{A_j}} \, \vertex{n}(A_1^\star, \ldots, A_n^\star).
+\end{equation}
+On even arguments, the sign is $(-1)^n$.
+  This property makes the action~\eqref{p:eq:conv:action} real.
+For $n = 2$ it follows from~\eqref{p:eq:conv:pairing-equivariance} and~\eqref{p:eq:conv:QB-star}, since $\vertex{2}(A_1, A_2) = \pair{A_1}{Q_B A_2}$.
+For $n \ge 3$, we take it as a standing assumption on the vertices.
+It follows from the invariance of the vertex regions and measures under complex conjugation of the moduli together with the hermiticity conditions of~\cite[sec.~5.1 and eq.~(7.98)]{Zwiebach:1993:ClosedStringField}.
+For the $\group{SL}(2, \C)$ vertices of~\cite{Erbin:2026:SL2CVerticesClosed} it holds for the quartic vertex, and we assume it for every $n$.
+
+Since star conjugation acts strand by strand and preserves the parity of every strand, the multi-string pairing is equivariant as well, $\pair[n]{X^\star}{Y^\star} = (-1)^n \, \pair[n]{X}{Y}^*$.
+  The reality conditions on the fields of the paper are:
+\begin{equation}
+  \label{p:eq:conv:reality-fields}
+  \Psi^\star
+    = - \Psi,
+  \qquad
+  \Sigma_k^\star
+    = (-1)^k \, \Sigma_k,
+  \qquad
+  \Lambda^\star
+    = - \Lambda.
+\end{equation}
+The condition on $\Psi$ is the reality condition of the theory, and the condition on $\Lambda$ is the one under which every gauge transformation~\eqref{p:eq:conv:gauge} preserves it~\cite[eq.~(3.18)]{Zwiebach:1993:ClosedStringField}, the free term by the star of $Q_B$ and the interaction terms by the reality of the vertices (\cref{p:app:reality}).
+  The condition on $\Sigma_k$ follows from the reality of $\Psi$ and of the vertices once the auxiliary fields are introduced (\cref{p:app:reality}).
+
+
+\subparagraph{Batalin--Vilkovisky conventions.}
+
+In the Batalin--Vilkovisky formalism of \cref{p:sec:gauge}, every field $\phi^i$ is paired with an antifield $\phi^+_i$ of opposite Grassmann parity and target-space ghost number $\gh(\phi^+_i) = -\gh(\phi^i) - 1$.
+The master action is even, of ghost number zero.
+In the standard assignment of~\cite{Zwiebach:1993:ClosedStringField}, the antifield of a component of $\Psi$ at worldsheet ghost number $g$ sits at ghost number $5 - g$, so that the two pair under~\eqref{p:eq:conv:pairing}.
+For a $2$-string field the pairing is~\eqref{p:eq:conv:pairing-n}, nonzero when the ghost numbers add up to ten, so the antifield of $\Sigma_2$ sits at ghost number six.
+We take the antibracket in the convention of~\cite[ch.~15]{Henneaux:1994:QuantizationGaugeSystems},
+\begin{equation}
+  \label{p:eq:conv:antibracket}
+  (F, G)
+    := \frac{\pd^r F}{\pd \phi^i} \, \frac{\pd^l G}{\pd \phi^+_i}
+      - \frac{\pd^r F}{\pd \phi^+_i} \, \frac{\pd^l G}{\pd \phi^i},
+\end{equation}
+with right and left derivatives as indicated.
+
+On the string field, the odd symplectic form is the pairing twisted by the parity of its first argument:
+\begin{equation}
+  \label{p:eq:conv:odd-symplectic}
+  \Omega(A, B)
+    := (-1)^{\abs{A}} \, \pair{A}{B},
+  \qquad
+  \Omega(B, A)
+    = - (-1)^{\abs{A} \abs{B}} \, \Omega(A, B).
+\end{equation}
+It is odd and graded-antisymmetric on every pair of states in its support, since the twist changes sign under the exchange of two arguments of opposite parity, whereas the pairing itself is symmetric.
+Twisting by the parity of the second argument gives $-\Omega$.
+Its overall sign relative to the antibracket~\eqref{p:eq:conv:antibracket} is a convention fixed where the master action is written.
+
+On the auxiliary fields, the parity $\Ngh \bmod 2$ does not give an odd pairing: $\Sigma_2$ and the $2$-string states it pairs with, at ghost numbers four and six, are both even in that grading.
+We take the antifield $\Sigma_2^+$ of \cref{p:sec:gauge} to be a $2$-string state paired with $\Sigma_2$ by the $2$-string pairing, hence of worldsheet ghost number six.
+It is Grassmann odd and of target-space ghost number $-1$ by the definition of an antifield.
+Its worldsheet ghost number is a label on which nothing depends.
+The rule~\eqref{p:eq:conv:parity} applies to the string field, its gauge parameter and their antifields.
+On the auxiliary pair the overall sign of $\Omega$ is absorbed in the sign of $\Sigma_2^+$ (\cref{p:sec:gauge}).
+
+
+\subparagraph{Potential.}
+
+
+The potential is the action at zero momentum with the sign reversed,
+\begin{equation}
+  \label{p:eq:conv:potential}
+  V
+    := - S \big\vert_{k = 0},
+\end{equation}
+so that the tachyon sits at a maximum, $V = -\tfrac{1}{2} \, t^2$ at quadratic order.
+A vertex quoted on the potential side carries the sign opposite to that of $\vertex{n}$.
+When we count the negative directions of a Hessian, we say on which side it is taken, since the numbers of positive and negative directions of $\Hess S$ are those of $\Hess V$ exchanged.

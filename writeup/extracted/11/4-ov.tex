@@ -1,0 +1,152 @@
+\subsection{The \texorpdfstring{$\IBL$}{IBL-infinity} structure}
+\label{ov:sec:IBL}
+
+\subsubsection{Definition and the master equation}
+
+An $\IBL$-algebra \cite{Cieliebak:2015:HomologicalAlgebraRelated} of degree $d$ is a graded module $C$ with operations
+\begin{equation}
+	\pklg : E_kC \to E_\ell C,\qquad k,\ell\ge1,\ g\ge0,\qquad
+	|\pklg| = -2d(k+g-1)-1,
+	\label{ov:eq:IBLdeg}
+\end{equation}
+where $E_kC$ is the degree-$k$ piece of the reduced symmetric algebra on the suspension $C[1]$,
+and $g$ is the genus, the associated surface having Euler characteristic $\chi=2-2g-k-\ell$.
+The structure relations are packaged in the master equation
+\begin{equation}
+	\boxed{\;\hat{\mathfrak{p}}\circ\hat{\mathfrak{p}}=0,\qquad
+	\hat{\mathfrak{p}}=\sum_{k,\ell\ge1,\,g\ge0}
+	\hat{\mathfrak{p}}_{k,\ell,g}\,\hbar^{\,k+g-1}\,\tau^{\,k+\ell+2g-2},\;}
+	\label{ov:eq:IBLmaster}
+\end{equation}
+with $\hbar,\tau$ formal bookkeeping variables ($|\hbar|=2d$, $|\tau|=0$); under the
+finiteness condition satisfied in SFT one sets $\tau=1$, and $\hbar$ plays the role of the
+genus-counting $\gs$. The hat denotes the extension of an operation to all of the symmetric
+algebra by applying it to every $k$-subset and symmetrising. The product $\mtwo$ of
+\cref{p:sec:hs:quartic} is $\mathfrak{p}_{2,2,0}$; the $\Loo$ brackets are
+$\ell_k=\mathfrak{p}_{k,1,0}$, the BRST differential $Q=\mathfrak{p}_{1,1,0}$.
+(Degree/Euler bookkeeping checked symbolically: C5a--c.)
+
+Spelled out at low signature in the classical ($g=0$) sector, the master equation gives the
+familiar $\Loo$ relations on the single-output ($\ell=1$) operations,
+\begin{equation}
+	\hat\ell_1\circ\hat\ell_1=0,\qquad
+	\hat\ell_1\circ\hat\ell_2+\hat\ell_2\circ\hat\ell_1=0,\qquad
+	\hat\ell_1\circ\hat\ell_3+\hat\ell_2\circ\hat\ell_2+\hat\ell_3\circ\hat\ell_1=0,
+	\label{ov:eq:Loorels}
+\end{equation}
+together with a two-output ($\ell=2$) sector. The genuine low-order CFL relations involving
+two-output operations are, in order of signature (\cite{Cieliebak:2015:HomologicalAlgebraRelated}, Lemma 2.6 table), the chain-map
+relation for the cobracket $\mathfrak{p}_{1,2,0}$ at signature $(1,2,0)$,
+\begin{equation}
+	\hat{\mathfrak{p}}_{1,1,0}\circ_1\mathfrak{p}_{1,2,0}
+	+\mathfrak{p}_{1,2,0}\circ_1\hat{\mathfrak{p}}_{1,1,0}=0,
+	\label{ov:eq:IBLchain}
+\end{equation}
+and the structure equation for $\mtwo=\mathfrak{p}_{2,2,0}$ at signature $(2,2,0)$,
+\begin{equation}
+	\boxed{\;
+	\hat{\mathfrak{p}}_{1,1,0}\circ_1\mathfrak{p}_{2,2,0}
+	+\mathfrak{p}_{2,2,0}\circ_1\hat{\mathfrak{p}}_{1,1,0}
+	+\mathfrak{p}_{1,2,0}\circ_1\mathfrak{p}_{2,1,0}
+	+\hat{\mathfrak{p}}_{2,1,0}\circ_1\hat{\mathfrak{p}}_{1,2,0}=0,
+	\;}
+	\label{ov:eq:IBLrels}
+\end{equation}
+where $\circ_1$ is partial composition feeding one output into one input. With
+$Q=\mathfrak{p}_{1,1,0}$, $\ell_2=\mathfrak{p}_{2,1,0}$, and the cobracket
+$\mathfrak{p}_{1,2,0}$, relation \eqref{ov:eq:IBLrels} says that $\mtwo=\mathfrak{p}_{2,2,0}$ is a
+\emph{$Q$-homotopy} for the cobracket--bracket composition
+$\mathfrak{p}_{1,2,0}\circ_1\ell_2+\hat{\mathfrak{p}}_{2,1,0}\circ_1\hat{\mathfrak{p}}_{1,2,0}$,
+i.e. that composition is $Q$-exact (equals
+$-[\,Q,\mathfrak{p}_{2,2,0}\,]$), \emph{not} zero. There is in particular \emph{no} CFL relation
+of the form ``$\ell_3$ commutes with $\mtwo$''; the only objects coupling to $\mtwo$ at this
+order are $Q$, $\ell_2$, and the cobracket $\mathfrak{p}_{1,2,0}$. (The signature ordering
+$(1,1,0)\prec(1,2,0)\prec(2,1,0)\prec(1,1,1)\prec(1,3,0)\prec(2,2,0)\prec\cdots$ places
+$\ell_3=\mathfrak{p}_{3,1,0}$ \emph{after} $(2,2,0)$, so $\ell_3$ does not enter the
+$\mtwo$ structure equation.) (Verified against \cite{Cieliebak:2015:HomologicalAlgebraRelated}: C6.) The schematic $\IBL$ action
+is $S=\omega\circ\hat{\mathfrak{p}}(\e^\Psi)$ with a total symplectic form
+$\omega=\omega_1+\omega_2$, $\omega_2:\Hilb^{\otimes2}\otimes\Hilb^{\otimes2}\to\C$.
+
+\subsubsection{\texorpdfstring{$\Loo\Rightarrow\IBL$}{L to IBL} and
+\texorpdfstring{$\IBL\Rightarrow\Loo$}{IBL to L}}
+
+The two directions are clean and recorded in CFL \cite{Cieliebak:2015:HomologicalAlgebraRelated}, §2:
+\begin{itemize}[leftmargin=*]
+	\item \textbf{$\Loo\Rightarrow\IBL$ (embed).} Any $\Loo$-algebra $(C,\{\ell_k\})$ is an
+	$\IBL$-algebra with $\mathfrak{p}_{k,1,0}=\ell_k$ and all other operations zero. This is
+	trivially true.
+	\item \textbf{$\IBL\Rightarrow\Loo$ (project).} Setting $\pklg=0$ for $\ell\ge2$ or $g>0$
+	reduces the master equation \eqref{ov:eq:IBLmaster} to the standard $\Loo$ axioms; equivalently
+	one projects any $\IBL$-algebra onto its $\ell=1,g=0$ operations. This always yields an
+	$\Loo$-algebra but \emph{discards} the cobracket ($\ell=2$) and higher-genus data.
+\end{itemize}
+For the present programme the relevant statement is the on-shell equivalence: the HS/$\IBL$
+action reduces to the $\Loo$ action on integrating out $\Sig$, and the $\Loo$ data are recovered
+by the projection above. The conjecture that the full non-polynomial $\Loo$ closed SFT is
+equivalent on-shell to an $\IBL$ SFT is precisely a statement
+about this pair of maps being mutually inverse in an appropriate homotopy sense; the precise
+condition is open (\cref{ch:open-problems}).
+
+\subsubsection{Homotopy transfer (out) and strictification (in)}
+
+Strictification and the elimination of the auxiliary fields are inverse to one another.
+
+\subparagraph{Homotopy transfer --- the canonical model.} CFL's
+Theorem~1.3/6.1 \cite{Cieliebak:2015:HomologicalAlgebraRelated} states that every $\IBL$-algebra over a field of characteristic
+zero is homotopy equivalent to an $\IBL$-structure on its homology
+$H=H(C,\mathfrak{p}_{1,1,0})$, with the transferred operations $\mathfrak{q}_{K,L,G}$ given by
+an explicit recursive formula built from a projection $\pi:C\to H$, an inclusion
+$\mathfrak{f}_{1,1,0}:H\hookrightarrow C$, and a contracting homotopy. It
+is the $\IBL$ counterpart of the minimal-model theorem for $\Loo$: every off-shell mode is integrated out and only the cohomology remains.
+Integrating out the auxiliary fields alone is a different transfer, along a contraction of the auxiliary fields and their equations of motion, and the minimal model is a further transfer reached from either theory (\cref{ch11:sec:transfer}). Münster--Sachs
+\cite{Muenster:2014:HomotopyClassificationBosonic} make this concrete for closed SFT: choosing a (harmonious) Hodge
+decomposition is the same as choosing a gauge, and the transferred minimal model on the BRST
+cohomology has multilinear maps equal to the S-matrix amplitudes (a sum over Feynman graphs
+built from the vertices, the propagator homotopy $h$, and the loop bivector
+$g^{-1}=h\circ\omega^{-1}$).
+
+\subparagraph{Strictification --- integrating auxiliary fields in.} The inverse direction is the
+strictification theorem \cite{Borsten:2021:DoubleCopyHomotopy}: every $\Loo$-algebra is quasi-isomorphic to a
+strict one (a differential graded Lie algebra, with $\ell_i=0$ for $i\ge3$) on a larger space
+obtained by adjoining an \emph{infinite tower of auxiliary fields} that eliminate all
+interaction vertices of arity $\ge4$. At the Lagrangian level this trades each higher vertex for
+cubic vertices joined by auxiliary-field propagators (the ``blow-up'' of an $n$-point contact
+vertex into $s/t/u$-channel trees). This is exactly the abstract content of the HS step:
+$\ell_3$ is dualised into a cubic coupling of $\Sig$ to $\Psi^{\otimes2}$ plus a quadratic
+kinetic term for $\Sig$. Strictification and the elimination of the auxiliary fields are
+quasi-inverse: original $\Loo$ $\hookrightarrow$ strict $\Loo$ (in), and strict $\Loo$
+$\twoheadrightarrow$ original $\Loo$ (out); the minimal model, original $\Loo$ $\twoheadrightarrow$ its cohomology, is a further transfer, whose genus-zero operations are the tree-level on-shell amplitudes (\cite{Kajiura:2007:NoncommutativeHomotopyAlgebras} for $\Aoo$ algebras).
+
+\subparagraph{Where strictification stops.} The published strictification theorem
+\cite{Borsten:2021:DoubleCopyHomotopy} applies to $\Loo$- (and $\Aoo$-, $C_\infty$-) algebras, i.e. to the
+single-output sector $\mathfrak{p}_{k,1,0}$. The closed-string $\ell_3$, once HS-dualised,
+produces an auxiliary field with a \emph{two-output} kinetic structure, i.e. an $\IBL$ vertex
+$\mathfrak{p}_{1,2,0}$ (cobracket); the strict theory is then a differential involutive bi-Lie
+(``dIBL'') algebra, not merely a dgLa. Whether an $\IBL$ analogue of the strictification theorem
+exists --- a strict-dIBL counterpart for the cobracket sector --- is not established
+\cite{Borsten:2021:DoubleCopyHomotopy}; this is the precise sense in which the $\Loo$ strictification covers only
+part of the closed-string structure.
+
+\subsubsection{Convention traps}
+
+Several conventions must be tracked when importing CFL/Münster--Sachs formulae into SFT.
+\begin{itemize}[leftmargin=*]
+	\item \textbf{Suspension shift.} CFL build $E_kC$ on $C[1]$, so their degree $|c|$ is
+	$\deg c-1$. The Münster--Sachs papers \cite{MunsterSachs2013,Muenster:2014:HomotopyClassificationBosonic} likewise
+	place fields in degree zero after $A_c=s^{-2}\tilde A_c$. Translating into the ghost-number
+	grading requires the inverse shift.
+	\item \textbf{Formal $\hbar$ of degree $2d$.} The CFL $\hbar$ in \eqref{ov:eq:IBLmaster} is a
+	formal variable carrying the genus weight; it is \emph{not} the physical $\hbar$ and should
+	be identified with $\gs$ in the genus expansion.
+	\item \textbf{$\omega_1$, $\Delta$ live only in the cyclic-DGA model.} CFL do not use a
+	symplectic form or BV Laplacian in the abstract $\IBL$ definition; the pairing
+	$\Mean{\cdot,\cdot}$ and its inverse appear only in the cyclic DGA construction (their
+	§10--12). Identifying $\omega_1$ with that pairing and $\Delta=\omega_1^{-1}$ is part of
+	\emph{building} the $\IBL$ structure from the string-field algebra, not a feature of the
+	abstract axioms.
+	\item \textbf{One $\omega$ per sector in QOCHA.} In Münster--Sachs \cite{MunsterSachs2013}
+	the quantum open-closed homotopy algebra carries a \emph{single} odd symplectic form per
+	sector ($\omega_o$ for open, $\omega_c$ for closed); there is \emph{no} factorised form
+	$\omega_2=\omega_1^{\otimes2}$ anywhere. 
+\end{itemize}
+

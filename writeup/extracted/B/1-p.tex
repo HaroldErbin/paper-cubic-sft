@@ -1,0 +1,245 @@
+\subsection{Hubbard--Stratonovich transformation for \texorpdfstring{$N$}{N} scalar fields}
+\label{p:app:scalar-hs}
+
+
+In this appendix, we perform the Hubbard--Stratonovich transformation for a theory of several scalar fields with a quartic interaction.
+We see on this example how the auxiliary fields are organized when there are several physical fields: the auxiliary field carries a pair of indices, as $\Sigma_2$ carries two strings.
+This is the model of the paper's introduction with constant couplings, which underlies the analogy used in \cref{p:sec:hs:quartic}.
+
+
+\subparagraph{Action of the scalar fields.}
+
+Consider $N$ scalar fields $\phi_i$, $i = 1, \ldots, N$, with the action:
+\begin{equation}
+\label{p:eq:shs:action}
+S
+  = \int \dd^d x \left[
+    - \frac{1}{2} \, \partial_\mu \phi_i \, \partial^\mu \phi_i
+    - \frac{1}{2} \, M_{ij} \phi_i \phi_j
+    + \frac{1}{3!} \, W_{ijk} \phi_i \phi_j \phi_k
+    + \frac{1}{4!} \, V_{ijk\ell} \phi_i \phi_j \phi_k \phi_\ell
+  \right],
+\end{equation}
+where repeated indices are summed over.
+The mass matrix $M_{ij}$ and the coupling tensors $W_{ijk}$ and $V_{ijk\ell}$ are constant and completely symmetric.
+We write $S_4$ for the quartic term.
+
+
+\subparagraph{Auxiliary fields.}
+
+The quartic term is the square of the products $\phi_i \phi_j$ with respect to the tensor $V_{ijk\ell}$.
+We introduce one auxiliary field for each such product, that is $N (N + 1) / 2$ fields $\sigma_{ij} = \sigma_{ji}$, and add to the action the term~\cite{Stratonovich:1957:MethodCalculatingQuantum, Hubbard:1959:CalculationPartitionFunctions, Weinberg:2005:QuantumTheoryFields-2}:
+\begin{equation}
+\label{p:eq:shs:DeltaS4}
+\Delta S_4
+  := - \frac{1}{4!} \int \dd^d x \, V_{ijk\ell} \, \big(
+    \sigma_{ij} - \phi_i \phi_j
+  \big) \big(
+    \sigma_{k\ell} - \phi_k \phi_\ell
+  \big),
+\end{equation}
+which vanishes when $\sigma_{ij} = \phi_i \phi_j$.
+We expand the square and use $V_{ijk\ell} = V_{k\ell ij}$ for the cross term, so that the quartic term of the action becomes:
+\begin{equation}
+\label{p:eq:shs:S4tilde}
+\caction[4]
+  := S_4 + \Delta S_4
+  = \int \dd^d x \left[
+    - \frac{1}{4!} \, V_{ijk\ell} \, \sigma_{ij} \sigma_{k\ell}
+    + \frac{1}{12} \, V_{ijk\ell} \, \sigma_{ij} \phi_k \phi_\ell
+  \right].
+\end{equation}
+The term quartic in $\phi_i$ has disappeared.
+The kinetic, mass and cubic terms are untouched, so that the action
+\begin{equation}
+\label{p:eq:shs:action-tilde}
+\begin{aligned}
+  \caction
+    := S + \Delta S_4
+    = \int \dd^d x \bigg[
+      &
+      - \frac{1}{2} \, \partial_\mu \phi_i \, \partial^\mu \phi_i
+      - \frac{1}{2} \, M_{ij} \phi_i \phi_j
+      + \frac{1}{3!} \, W_{ijk} \phi_i \phi_j \phi_k
+      \\ &
+      + \frac{1}{12} \, V_{ijk\ell} \, \sigma_{ij} \phi_k \phi_\ell
+      - \frac{1}{4!} \, V_{ijk\ell} \, \sigma_{ij} \sigma_{k\ell}
+    \bigg]
+\end{aligned}
+\end{equation}
+is cubic in $(\phi_i, \sigma_{ij})$.
+For a single field, $N = 1$, the integrand of the quartic term~\eqref{p:eq:shs:S4tilde} reads:
+\begin{equation}
+- \frac{1}{4!} \, V \sigma^2
++ \frac{1}{12} \, V \sigma \phi^2.
+\end{equation}
+This is the transformation of the introduction at constant coupling, with the normalization $1 / 4!$ of the vertices.
+
+The fields $\sigma_{ij}$ have no kinetic term, and their equation of motion is algebraic:
+\begin{equation}
+\label{p:eq:shs:eom-sigma}
+V_{ijk\ell} \, \big( \sigma_{k\ell} - \phi_k \phi_\ell \big)
+  = 0.
+\end{equation}
+When $V_{ijk\ell}$ is invertible as a matrix acting on the symmetric pairs of indices $(ij)$ and $(k\ell)$ (this is the matrix $V_{IJ}$ defined below), the solution is:
+\begin{equation}
+\label{p:eq:shs:solution}
+\sigma_{ij}
+  = \phi_i \phi_j,
+\end{equation}
+on which $\Delta S_4$ vanishes and $\caction$ reduces to the original action $S$.
+
+
+\subparagraph{Pair-index basis.}
+
+The pair of indices of $\sigma_{ij}$ can be traded for a single index.
+Let $\lambda_{I;ij}$, $I = 1, \ldots, N (N + 1) / 2$, be an orthonormal and complete basis of the real symmetric $N \times N$ matrices:
+\begin{equation}
+\label{p:eq:shs:basis}
+\lambda_{I;ij} \lambda_{J;ij}
+  = \delta_{IJ},
+\qquad
+\lambda_{I;ij} \lambda_{I;k\ell}
+  = \frac{1}{2} \, \big( \delta_{ik} \delta_{j\ell} + \delta_{i\ell} \delta_{jk} \big).
+\end{equation}
+The right-hand side of the completeness relation is the projector on symmetric matrices.
+We define:
+\begin{equation}
+\label{p:eq:shs:pair-index}
+\sigma_I
+  := \lambda_{I;ij} \, \sigma_{ij},
+\qquad
+V_{IJ}
+  := \lambda_{I;ij} \lambda_{J;k\ell} \, V_{ijk\ell},
+\qquad
+V_{I;k\ell}
+  := \lambda_{I;ij} \, V_{ijk\ell}.
+\end{equation}
+Since $\sigma_{ij}$ and $V_{ijk\ell}$ are symmetric in each pair of indices, the completeness relation gives $\sigma_{ij} = \lambda_{I;ij} \sigma_I$ and $V_{I;k\ell} = V_{IJ} \lambda_{J;k\ell}$.
+The quartic term~\eqref{p:eq:shs:S4tilde} then becomes:
+\begin{equation}
+\label{p:eq:shs:S4tilde-pair}
+\caction[4]
+  = \int \dd^d x \left[
+    - \frac{1}{4!} \, V_{IJ} \, \sigma_I \sigma_J
+    + \frac{1}{12} \, V_{I;k\ell} \, \sigma_I \phi_k \phi_\ell
+  \right].
+\end{equation}
+
+The matrix $V_{IJ}$ is real and symmetric, so we can diagonalize it by an orthogonal change of the basis $\lambda_{I;ij}$, which puts the quadratic term of the $\sigma_I$ in diagonal form.
+We assume that all its eigenvalues are nonzero.
+Otherwise, the auxiliary fields $\sigma_I$ along the eigenvectors with zero eigenvalue appear neither in the quadratic term nor in the coupling to $\phi_i$, since $V_{I;k\ell} = V_{IJ} \lambda_{J;k\ell}$.
+They do not enter the action, so we leave them out and perform the transformation on the subset of the $\sigma_I$ that does enter.
+
+
+\subparagraph{Four-point amplitude.}
+
+We read the Feynman rules off $\caction$ as in \cref{p:sec:hs:quartic}: a vertex factor is the derivative of the action with respect to the fields on its legs, and a propagator is minus the inverse of the Hessian.
+The auxiliary sector~\eqref{p:eq:shs:S4tilde-pair} contributes the propagator of $\sigma_I$ and the vertex coupling $\sigma_I$ to $\phi_k \phi_\ell$, respectively:
+\begin{equation}
+\label{p:eq:shs:feynman-rules}
+12 \, (V^{-1})_{IJ},
+\qquad
+\frac{1}{3!} \, V_{I;k\ell}.
+\end{equation}
+
+The exchange of $\sigma$ between two such vertices, with the external fields $\phi_i, \phi_j$ on one vertex and $\phi_k, \phi_\ell$ on the other, gives:
+\begin{equation}
+\label{p:eq:shs:channel}
+\frac{1}{3!} \, V_{I;ij} \;
+12 \, (V^{-1})_{IJ} \;
+\frac{1}{3!} \, V_{J;k\ell}
+  = \frac{1}{3} \, \lambda_{K;ij} V_{KI} (V^{-1})_{IJ} V_{JL} \lambda_{L;k\ell}
+  = \frac{1}{3} \, V_{ijk\ell},
+\end{equation}
+where the first equality uses $V_{I;ij} = V_{IK} \lambda_{K;ij}$ and the second $V_{ijk\ell} = \lambda_{K;ij} V_{KL} \lambda_{L;k\ell}$, which follows from the completeness relation.
+We sum over the three ways of distributing the four external fields on the two vertices and use the complete symmetry of $V_{ijk\ell}$.
+The four-point amplitude is then:
+\begin{equation}
+\label{p:eq:shs:A4}
+A_{ijk\ell}
+  = \frac{1}{3} \, \big( V_{ijk\ell} + V_{ikj\ell} + V_{i\ell jk} \big) + \cdots
+  = V_{ijk\ell} + \cdots,
+\end{equation}
+where the dots are the $s$-, $t$- and $u$-channel exchanges of $\phi$ built from the cubic coupling $W_{ijk}$, which the transformation leaves untouched.
+The exchange of $\sigma$ thus reproduces the contact vertex $V_{ijk\ell}$ of the original action~\eqref{p:eq:shs:action}.
+
+
+\subparagraph{Relation to the string field.}
+
+We obtain the construction of \cref{p:sec:hs:quartic} from this one by replacing the products $\phi_i \phi_j$ by the $2$-string state $\Psi^2$, the tensor $V_{ijk\ell}$ by $\gs^2 \vertex{4}$ (so that $V_{IJ}$ becomes $\gs^2 \sprod{2}{2}$), the auxiliary field $\sigma_{ij}$ by $\Sigma_2 \in \Hn{2}$, and the propagator $12 \, (V^{-1})_{IJ}$ by $12 \gs^{-2} \, \sprod{2}{2}^{-1}$.
+
+
+
+\subparagraph{Degenerate coupling matrix.}
+
+To couple the directions of zero eigenvalue of $V_{IJ}$, left out above, we now add a quintic term to the action~\eqref{p:eq:shs:action}, with a constant and completely symmetric coupling $U_{ijk\ell m}$:
+\begin{equation}
+\label{p:eq:shs:S5}
+S_5
+  = \frac{1}{5!} \int \dd^d x \, U_{ijk\ell m} \, \phi_i \phi_j \phi_k \phi_\ell \phi_m.
+\end{equation}
+As in \cref{p:sec:hs:quintic}, we replace two pairs of fields by the auxiliary field, which turns the quintic term into a cubic coupling:
+\begin{equation}
+\label{p:eq:shs:S5tilde}
+\caction[5]
+  := \frac{1}{5!} \int \dd^d x \, U_{IJm} \, \sigma_I \sigma_J \phi_m,
+\qquad
+U_{IJm}
+  := \lambda_{I;ij} \lambda_{J;k\ell} \, U_{ijk\ell m},
+\end{equation}
+which agrees with $S_5$ at $\sigma_{ij} = \phi_i \phi_j$.
+When the matrix $V_{IJ}$ is invertible, eliminating $\sigma_I$ from $\caction + \caction[5]$ gives back $S + S_5$ up to terms of second order in $U_{ijk\ell m}$, the exchange of $\sigma$ between two quintic couplings, whose string counterpart is cancelled at the sextic order (\cref{p:sec:hs:sextic}).
+
+We now suppose that $V_{IJ}$ has null vectors, $V_{IJ} \xi^J = 0$, and we work in the basis $\lambda_{I;ij}$ that diagonalizes it.
+The index $I$ then splits into the directions of nonzero eigenvalue, which span the orthogonal complement $C$ of the null space, and the null directions, which span the null space $K$.
+We write $\pi_C$ and $\pi_K$ for the projections on $C$ along $K$ and on $K$ along $C$.
+The null components of $\sigma_I$ drop out of the quartic terms~\eqref{p:eq:shs:S4tilde-pair}, as noted above, but they enter the quintic coupling~\eqref{p:eq:shs:S5tilde}.
+Under the shift $\sigma_I \to \sigma_I + \xi^I$, $\caction[5]$ changes by:
+\begin{equation}
+\label{p:eq:shs:null-shift}
+\frac{1}{5!} \int \dd^d x \, \big(
+  2 \, U_{IJm} \, \xi^I \sigma_J \phi_m
+  + U_{IJm} \, \xi^I \xi^J \phi_m
+\big).
+\end{equation}
+For this to vanish for all $\sigma_I$, the term linear in $\sigma_J$ must vanish, which then implies that the quadratic one vanishes.
+The null components therefore decouple if and only if the quintic coupling annihilates the null vectors, and they can then be left out as before:
+\begin{equation}
+\label{p:eq:shs:kernel-condition}
+\forall \xi \in K, \;
+\forall k, \ell, m:
+\quad
+\xi^I \, U_{I;k\ell m}
+  = 0,
+\qquad
+U_{I;k\ell m}
+  := \lambda_{I;ij} \, U_{ijk\ell m}.
+\end{equation}
+This is the condition~\eqref{p:eq:hs5:kernel-condition} of the string construction, with $\xi$ for $N_2$ and $U_{ijk\ell m}$ for $\vertex{5}$.
+
+When this condition fails, the null components of $\sigma_I$ have no quadratic term in $\caction$ but they have a source, the term of~\eqref{p:eq:shs:S5tilde} linear in them.
+  We could keep the null components as fields, but their quadratic form in $\caction[5]$ is proportional to $\phi_m$, so that around $\phi_i = 0$ they have neither a propagator nor a perturbative expansion.
+  If we leave them out instead, that is, if we take $\sigma_I$ in $C$, we get an action of the form~\eqref{p:eq:shs:action-tilde} with $V_{IJ}$ restricted to $C$.
+  Since $V_{IJ}$ is invertible on $C$, $\sigma_I$ can be eliminated as before.
+  The eliminated action reproduces the quartic term.
+  However, at first order in $U_{ijk\ell m}$, it contains $U_{IJm} \, (\pi_C P)^I (\pi_C P)^J \phi_m$ in place of the quintic term $U_{IJm} \, P_I P_J \phi_m$, where $P_I := \lambda_{I;ij} \, \phi_i \phi_j$.
+  The missing terms are those with a null direction in at least one of the two pair indices; they depend on the complement and cannot vanish for all complements.
+  Indeed, we could choose any other complement of $K$ in place of the span of the eigenvectors, and we would get a different eliminated action.
+
+We can repair the construction with a multiplier on the null directions, as in the hybrid form of \cref{p:sec:hs:sextic}.
+  We keep all the components of $\sigma_I$, and we add to the action a field $\theta_I$ on the null directions, paired with the null component of $\sigma_I - P_I$:
+  \begin{equation}
+  \label{p:eq:shs:multiplier}
+  \caction + \caction[5]
+    + \int \dd^d x \, \theta_I \, \big( \pi_K (\sigma - P) \big)^I.
+\end{equation}
+  Since $\theta_I P_I$ is cubic, every term has at most three fields and the action stays cubic.
+  The equation of motion of $\theta_I$ sets the null components of $\sigma_I$ to those of $P_I$.
+  The equation of motion of the null components fixes $\theta_I$, which appears nowhere else.
+  Finally, the equation of motion of the components along $C$ is the one of the action with $\sigma_I$ in $C$, with a source shifted by the quintic coupling evaluated on the null component of $P_I$.
+  Eliminating all the fields gives back $S + S_5$ up to terms of second order in $U_{ijk\ell m}$, for every choice of complement.
+  Indeed, the null components supply the part of $P_I$ that the complement was missing.
+  The multiplier vanishes on the solution if and only if the quintic coupling annihilates the null vectors, in which case it is not needed.
+  We see on this degenerate case how the multiplier replaces the quotient when a vertex does not vanish on the kernel of the quadratic form, in a setting where the linear algebra is explicit.
+  For the string vertices, a multiplier on the null directions is the fallback for an accidental null vector of $\sprod{2}{2}$, though we have no indication that one exists (\cref{p:sec:hs:quintic}).

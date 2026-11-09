@@ -1,0 +1,78 @@
+\subsection{A coloured operad: two punctures glued without raising the genus}
+\label{rs:sec:operad}
+
+The cleanest way to make ``a colour-2 edge glues two pairs of punctures without
+raising the genus'' precise, rather than paradoxical, is to choose objects for
+which it is true by construction. The device is a multi-sorted (coloured) operad,
+in which the symmetric square is a \emph{single} colour rather than a pair of
+ordinary punctures.
+
+\subparagraph{Objects, operations, and the resolution functor.} Take colours
+\begin{equation}
+	C_1=\Hilb_0,\quad C_2=\Sym^2\Hilb_0,\quad\dots,\quad C_k=\Sym^k\Hilb_0,
+	\qquad \Ngh(C_k)=2k,
+	\label{rs:eq:colours}
+\end{equation}
+each with its own pairing ($\omega_1$ on $C_1$; $G_k=\omega_1^{\otimes k}$ on
+$C_k$). Then $\mtwo$ is a \emph{unary} operation $C_2\to C_2$; the HS vertex
+$V_4(\Sig,\Psi,\Psi)$ is a $(C_2;C_1,C_1)$-corolla; the cobracket $p_{1,2,0}$ is a
+colour-changing unary $C_1\to C_2$; and composition is contraction of one
+$C_k$-edge with $G_k^{-1}$. In this category a colour-2 edge is \emph{one} edge, a
+tree is a tree, and the genus is the coloured loop number $L_c=E-V+1$. The ``two
+punctures at once'' of the strand picture is the \emph{resolution functor}
+$\rho:C_2\hookrightarrow C_1\otimes C_1$, a morphism of vector spaces that is
+\textbf{not} a morphism of the graded operadic structures: it fails to preserve
+exactly the three gradings of \Cref{rs:tab:grading}.
+
+\subparagraph{The genus formula.} Let $E_s=\sum_e k_e$ be the total number of
+elementary strand-sewings across the coloured edges $e$ (a colour-$k$ edge is a
+$k$-strand cable, contributing $k$ sewings), $V$ the number of vertices, and
+$L_c=E-V+1$ the coloured loop number ($E$ = number of coloured edges), for a
+\emph{connected} coloured graph all of whose vertices are genus-zero. Then
+\begin{empheq}[box=\fbox]{equation}
+	g_{\rm res} = E_s - V + 1 = L_c + \sum_e (k_e-1).
+	\label{rs:eq:genus}
+\end{empheq}
+\emph{Derivation (three lines, proven here).} (1) The Euler characteristic is
+additive under sewing and each strand-sewing preserves the total
+$\chi=\sum_v(2-n_v)$, where $n_v$ is the valence of vertex $v$. (2) With
+$n_{\rm ext}=\sum_v n_v-2E_s$ external legs and $\chi_{\rm res}=2-2g_{\rm res}-n_{\rm ext}$,
+equate: $2-2g_{\rm res}-\big(\sum_v n_v-2E_s\big)=\sum_v(2-n_v)=2V-\sum_v n_v$. (3)
+The $\sum_v n_v$ cancels, leaving $2-2g_{\rm res}+2E_s=2V$, i.e.
+$g_{\rm res}=E_s-V+1$; substituting $E_s=E+\sum_e(k_e-1)$ and $L_c=E-V+1$ gives the
+second equality. \qed
+
+\medskip
+\noindent The physical (coloured) grading uses $L_c$; the resolved (formal) genus
+exceeds it by $k_e-1$ per colour-$k$ edge. \textbf{A colour-2 edge raises the
+resolved genus by one and the physical genus by zero} --- this is
+\eqref{rs:eq:g1} for a single edge and $g=k-1$ for a chain (\Cref{rs:tab:grading}). The
+discrepancy is not a paradox: it is precisely the statement that $\rho$ is not a
+map of operads.
+
+\subparagraph{The CFT-data formula for the composition.} Contracting a $C_2$-edge
+inserts, at two punctures of one vertex region and two of another, the fixed
+(moduli-independent) two-string state sandwich
+\begin{equation}
+	\sum_{a,b,c,d}\big(V_4^{-1}\big)^{(ab),(cd)}\;
+	\ket{\phi_a}\ket{\phi_b}\otimes\ket{\phi_c}\ket{\phi_d}.
+	\label{rs:eq:c2insert}
+\end{equation}
+Compare the colour-1 insertion \eqref{rs:eq:sewing}, which is
+$\sum_a\int\dd s\,\dd\theta\;e^{-sh_a+\I\theta\bar h_a}\,(b\text{-dressed})\,
+\ket{\phi_a}\bra{\phi^a}$. The difference between the two kernels --- the presence
+versus absence of the $(s,\theta)$ family and its $b$'s --- \emph{is} the entire
+geometric distinction between propagating and auxiliary, and it sits in the edge
+kernel, not in the vertices. See \Cref{rs:fig:kernels}.
+
+\subparagraph{Where this sits in the operad literature.} Multi-edge gluings between
+two vertices are exactly what \emph{properads} grade by graph genus
+\cite{Vallette2007}; treating $\Sym^2\Hilb_0$ as a single colour converts the
+double-edge gluing into a \emph{dioperadic} (single-edge, tree-level) composition
+\cite{Gan2003}. The ambient framework for surfaces with in- and out-punctures at
+all genera is the modular operad of Getzler--Kapranov \cite{GetzlerKapranov1998}.
+The HS construction chooses the dioperadic description, and the amplitudes agree
+with that choice (\Cref{rs:tab:grading}). \emph{(Interpretive: the operad statements
+are an organising language for the gradings established above, not an independent
+theorem.)}
+

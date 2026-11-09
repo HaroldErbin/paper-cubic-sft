@@ -62,6 +62,64 @@ The footnote at its end summarizes the multiplier and hybrid forms, which are tr
 
 \input{extracted/03/3-pc}
 
+\subsection{Signs of the composite terms and the order labels}
+\label{ch3:sec:signs-labels}
+
+Three later derivations complete what the blocks above say about the reduced vertices and the kinetic operators: the sign with which the exchange diagrams enter a reduced vertex, and which operators need the order label.
+They use the assumptions of this chapter (tree level, formal power series in $\gs$, the kernel conditions) and the coefficients of the displays of the orders treated one at a time, which they take as given.
+
+\paragraph{Sign of the composite terms.}
+
+\noindent\status{Proven} In the basis of the diagrams of the cubic theory, the tree diagrams with $\Sigma_k$ propagators and the reduced vertices at their nodes, every composite term of a reduced vertex enters with a minus sign and a positive coefficient, at every order $n \ge 6$.\record{118-composite-vertex-sign (R114)}
+By the rule~\eqref{p:eq:all:diagonal}, the leading-order value of the reduced vertex is the elementary vertex minus everything the cubic action of the previous order produces at order $\gs^{n - 2}$:
+\begin{equation}
+  \label{ch3:eq:composite-sign}
+  \dvertex{n}(\Psi^n)
+    = \vertex{n}(\Psi^n)
+      - \sum_T n! \, c_T \, T,
+  \qquad
+  c_T
+    > 0,
+\end{equation}
+where the sum runs over the tree diagrams $T$ of $\caction[\le n - 1]$ at order $\gs^{n - 2}$.
+The coefficients are positive because the kinetic term of every auxiliary field carries a minus sign, which makes every propagator of the eliminated action positive, while the odd couplings carry a plus sign; the sources enter linearly and twice per chain of $\Sigma_k$ lines, at its two ends, so that their sign drops out.
+The reality signs of the auxiliary fields and the exchange sign of the pairing are conditions on the fields, not coefficients of the action, and do not enter.
+Distinct diagrams are taken to evaluate to independent forms, as the septic block assumes for the string vertices; this is what makes \enquote{the coefficient of a diagram} well defined.
+
+Re-expanded in the elementary string vertices, the sign of a composite term depends on the diagram, because a diagram nested in a reduced node is counted once more with the opposite sign.
+The first positive elementary term is the chain of three quintic vertices in $\dvertex{7}$, written $\mathcal S_1$ in the septic block, whose coefficient in~\eqref{p:eq:hs7:diagonal} is
+\begin{equation}
+  \label{ch3:eq:chain-sign}
+  + \frac{42}{25}
+    = - \frac{42}{25}
+      + \frac{14}{5} \cdot \frac{6}{5}:
+\end{equation}
+the chain is subtracted once directly and added back through the diagram $\dvertex{6} \cdot \vertex{5}$, whose reduced node contains it with the coefficient $- \tfrac{6}{5}$; the sextic--quintic diagram $\mathcal S_2$ keeps the coefficient $- \tfrac{14}{5}$.
+The rational identities and the positivity of every monomial of the stationary value in a two-level model, to third order in the coupling, are machine-checked, and the check fails when the sign of the septic vertex is flipped.
+
+In words: the reduced vertex always subtracts the exchanges of the auxiliary fields, as long as these exchanges are written with the vertices of the cubic theory at their nodes.
+This is what supports the reading of each exchange diagram as a region removed from the vertex region of $\mathcal V_{0, n}$, in the covering question of \cref{ch:worldsheet-circle}.
+The statement concerns the sign of the coefficients only; it does not say whether the exchanges are integrals over regions of moduli space.
+
+\paragraph{Order labels of the kinetic operators.}
+
+\noindent\status{no ledger entry} The quadratic form of $\Sigma_k$ that does not depend on $\Psi$ is $\tfrac{\gs^{2 k - 2}}{(2 k)!} \, \wprod{k}{k}$ at every order in $\gs$, for every truncation $K \ge k$ of the tower and after the elimination of any subset of the other auxiliary fields, and $\wprod{k}{k}$ does not depend on $K$.\record{115-bare-operator-notation}
+At $\Psi = 0$ the auxiliary sector is block-diagonal in the tower, so that eliminating any auxiliary field adds only $\Psi$-dependent terms to the quadratic forms of the others, and the reduced even vertex $\dvertex{2 k}$ is fixed at the order $\gs^{2 k - 2}$ at which $\Sigma_k$ enters.
+The bare operator therefore needs no order label, which is why the later blocks write $\wprod{k}{k}$ where the earlier ones write $\kin{k}{}{2 k - 2}$.
+
+\noindent\status{no ledger entry} The dressed operators do need the label: they receive corrections that depend on $\Psi$ alone and are not linear in it, from the elimination of the higher auxiliary fields, from relative order $\gs^2$ on.\record{117-dressed-operator-order-label}
+For $\Sigma_2$, the elimination of $\Sigma_3$ at the sextic order adds a term quadratic in $\Psi$, exactly in $\gs$,
+\begin{equation}
+  \label{ch3:eq:label-k2}
+  \pair[2]{A}{\kin{2}{\Psi}{4}(B)}
+    - \pair[2]{A}{\kin{2}{\Psi}{3}(B)}
+    = - \frac{\gs^2}{30} \, \dvertex{6}(\Psi \otimes A, \Psi \otimes B),
+\end{equation}
+the septic truncation adds terms of degree three and four in $\Psi$ at the orders $\gs^3$ and $\gs^4$, and the octic truncation a further term of degree four, $- \tfrac{\gs^4}{1680} \, \dvertex{8}(\Psi^2 \otimes A, \Psi^2 \otimes B) + O(\gs^5)$.
+In general, with the superscript $n$ the power of $\gs$ at which the action is truncated, $n \ge 2 k - 2$, the truncated operator agrees with the operator of the full tower up to $O(\gs^{n - 2 k + 3})$, with a leading difference that does not vanish in general.
+The rule the blocks follow is thus: $\kin{k}{\Psi}{n}$ is the operator of the action truncated at $\gs^n$, and the operator of the full tower carries no superscript.
+Both statements are checked in a finite-dimensional model by companion scripts, whose break legs fail as they should.
+
 \subsection{Two complements from the derivation records}
 \label{ch3:sec:complements}
 
@@ -170,7 +228,7 @@ This is the triangular structure of the recursion~\eqref{p:eq:all:eom-orders} in
 \subsubsection{The converse of the kernel-shift statement}
 \label{ch3:sec:converse}
 
-The recovered-action blocks show that, under the kernel condition~\eqref{pc:eq:hs8:kernel-condition}, a shift of the auxiliary fields along the bare kernels changes neither the equations nor the value of the action.
+The recovered-action blocks show that, under the kernel condition~\eqref{pc:eq:all:kernel-condition}, a shift of the auxiliary fields along the bare kernels changes neither the equations nor the value of the action.
 The converse also holds: asking only that the equation of motion of $\Psi$ be unchanged by every kernel shift, at arbitrary values of the auxiliary fields, already forces both clauses of the condition, in its field-space form (at the top level of a truncated tower, only the first clause).
 The argument is pure algebra and does not use the matching theorem.
 We work at a fixed level truncation with the momenta fixed or discretized, so that every space is finite-dimensional, with the tower truncated at $K$, the bare operators symmetric for the $k$-string pairing and the pairings nondegenerate.
@@ -294,7 +352,7 @@ The converse is an off-shell statement.
 On the solution, $\Sigma_k^*$ and $\Sigma_{k + 1}^*$ are fixed functions of $\Psi$, and the order-$\lambda$ relation of~\eqref{ch3:eq:lambda} gives only one combination of the two clauses; moreover, without the condition, $\Sigma^* + N$ is in general not a solution, so that the set of representatives of the solution is not defined.
 At the top level $k = K$ there is no source of a heavier field, and only the first clause is obtained; in the even truncation the top odd coupling is absent, and the first clause at $k = K$ is not needed.
 The clauses obtained hold with $A$, $B$ and $N_k$ in the spaces of the fields, of ghost numbers $2 k$, $2$ and $2 k$.
-The condition~\eqref{pc:eq:hs8:kernel-condition}, written for all $A \in \Hn{k}$ and $B \in \Hs$, is a stronger sufficient condition: for $B$ of ghost number other than $2$, the term $\wprod{k + 1}{k + 1}(B \otimes N_k)$ is not removed by ghost-number counting.
+The condition~\eqref{pc:eq:all:kernel-condition}, written for all $A \in \Hn{k}$ and $B \in \Hs$, is a stronger sufficient condition: for $B$ of ghost number other than $2$, the term $\wprod{k + 1}{k + 1}(B \otimes N_k)$ is not removed by ghost-number counting.
 
 \paragraph{What the converse means.}
 

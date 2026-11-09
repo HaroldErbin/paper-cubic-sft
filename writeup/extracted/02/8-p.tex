@@ -1,0 +1,483 @@
+\subsubsection{Septic order, \texorpdfstring{$O(\gs^5)$}{O(gs**5)}}
+\label{p:sec:hs:septic}
+
+The septic vertex $\vertex{7}$ is the first one that cannot be written with $\Sigma_2$ alone.
+This is the order at which the $3$-string field introduced in \cref{p:sec:hs:sextic} becomes indispensable, and at which the pattern repeated at all orders in \cref{p:sec:all-orders} becomes visible.
+We first display the structure of the action obtained so far, which allows the auxiliary fields to be eliminated one after the other by Gaussian integrals, exact at tree level.
+We then compute the interactions this elimination induces at order $\gs^5$, and fix the cubic coupling of $\vertex{7}$ that cancels them.
+
+\paragraph{Elimination of the auxiliary fields}
+\label{p:sec:hs:septic:structure}
+
+\subparagraph{Triangular form of the action.}
+
+The terms of $\caction[\le 6]$ which contain an auxiliary field are, by~\eqref{p:eq:hs5:F} and~\eqref{p:eq:hs6:S6tilde}:
+\begin{equation}
+  \label{p:eq:hs7:action-6}
+  \begin{aligned}
+    \caction[\le 6] - S_{\le 3}
+      &
+      = - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+        + \frac{2 \gs^2}{4!} \, \vertex{4}(\Sigma_2, \Psi^2)
+        + \frac{\gs^3}{5!} \, \vertex{5}(\Sigma_2^2, \Psi)
+      \\ &
+      \quad
+      - \frac{\gs^4}{6!} \, \pair[3]{\Sigma_3}{\wprod{3}{3}(\Sigma_3)}
+        + \frac{2 \gs^4}{6!} \, \pair[3]{\Sigma_3}{\wprod{3}{3}(\Psi \otimes \Sigma_2)},
+  \end{aligned}
+\end{equation}
+where $S_{\le 3}$ is the kinetic term and the cubic vertex of $\Psi$, common to the cubic action and to the target, and where the sextic term is written through the kinetic operator $\wprod{3}{3}$ of~\eqref{p:eq:hs6:kinetic}.
+The rest of the construction relies on two features of this expression.
+First, the action is quadratic in each auxiliary field separately: in $\Sigma_3$, with the field-independent operator $\wprod{3}{3}$, and in $\Sigma_2$, with the dressed operator $\kin{2}{\Psi}{3}$ of~\eqref{p:eq:hs5:dressed}.
+Second, the source of $\Sigma_3$ is linear in $\Sigma_2$ and $\Psi$.
+The source of $\Sigma_2$ involves $\Psi$ only, apart from the coupling to $\Sigma_3$, which is the source of $\Sigma_3$ read the other way.
+Once the higher-order auxiliary field $\Sigma_3$ is eliminated, the action is again quadratic in $\Sigma_2$, with a source that depends on $\Psi$ only.
+We can therefore eliminate the auxiliary fields one at a time, in decreasing order, $\Sigma_3$ first, and each elimination is a Gaussian integral, exact at tree level.
+The value of the action on the solution then comes out in closed form rather than order by order.
+We call this the triangular form of the action.
+
+
+\subparagraph{Eliminating the $3$-string field.}
+
+We eliminated the $3$-string field in~\eqref{p:eq:hs6:eliminate-sigma3}, exactly in $\gs$ and for any $\Sigma_2$.
+The solution is $\Sigma_3^{(4)*} = \Psi \otimes \Sigma_2$, and the value of the $\Sigma_3$ terms on it is:
+\begin{equation}
+  \label{p:eq:hs7:sigma3-value}
+    \pair[3]{\wprod{3}{3}(\Psi \otimes \Sigma_2)}{\big( \wprod{3}{3} \big)^{-1} \circ \wprod{3}{3}(\Psi \otimes \Sigma_2)}
+    = \dvertex{6}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2),
+\end{equation}
+which is exactly quadratic in $\Sigma_2$, since the source is linear in $\Sigma_2$.
+The inverse of $\wprod{3}{3}$ is taken on the quotient~\eqref{p:eq:hs6:quotient}, under the assumption~\eqref{p:eq:hs6:invertibility-3}.
+The action left for $\Sigma_2$ is therefore quadratic too, since the quintic vertex has only two $\Sigma_2$ slots, and the second elimination is again a Gaussian integral.
+We expand around the quartic-order solution, $\Sigma_2 = \Psi^2 + \sigma_2^{(2)}$, which does not depend on $\gs$; the solution of this order then follows by completing the square in the fluctuation $\sigma_2^{(2)}$.
+The terms of $\caction[\le 6]$ with $\Sigma_3$ eliminated then sort into three groups:
+\begin{subequations}
+\label{p:eq:hs7:sigma2-groups}
+\begin{align}
+  \label{p:eq:hs7:sigma2-contact}
+  \caction[\le 6] \big|_{\Sigma_3 = \Sigma_3^{(4)*}} - S_{\le 3}
+    &
+    = \frac{\gs^2}{4!} \, \vertex{4}(\Psi^4)
+      + \frac{\gs^3}{5!} \, \vertex{5}(\Psi^5)
+      + \frac{\gs^4}{6!} \, \dvertex{6}(\Psi^6)
+  \\
+  \label{p:eq:hs7:sigma2-quadratic}
+  &
+  \quad
+  - \frac{\gs^2}{4!} \, \pair[2]{\sigma_2^{(2)}}{\kin{2}{\Psi}{4}(\sigma_2^{(2)})}
+  \\
+  \label{p:eq:hs7:sigma2-linear}
+  &
+  \quad
+  + \frac{\gs^3}{60} \, \Big[
+    \vertex{5}(\sigma_2^{(2)}, \Psi^2, \Psi)
+    + \frac{\gs}{6} \, \dvertex{6}(\Psi^3, \Psi \otimes \sigma_2^{(2)})
+  \Big],
+\end{align}
+\end{subequations}
+where the first line collects the contact terms, the second is the quadratic form of the fluctuation and the third is linear in it.
+The contact terms are the target through order $\gs^4$ except for the sextic deficit: $\dvertex{6}(\Psi^6)$ differs from $\vertex{6}(\Psi^6)$ by $- \tfrac{6}{5} \vertex{5 \cdot 5}(\Psi^6)$, which the exchange term of the quintic order compensates, as in~\eqref{p:eq:hs6:eliminate}.
+The quadratic form is that of the dressed kinetic operator $\kin{2}{\Psi}{4}$ of~\eqref{p:eq:hs6:dressed-2}.
+It is the quartic form dressed by the quintic vertex, as in~\eqref{p:eq:hs5:dressed}, and by the exchange of $\Sigma_3$ between two sextic couplings: by~\eqref{p:eq:hs7:sigma3-value}, this exchange is the last term of $\kin{2}{\Psi}{4}$.
+The linear term defines the source of the fluctuation, the $2$-string state $\beta_\Psi \in \Hn{2}$ such that
+\begin{equation}
+  \label{p:eq:hs7:source-2}
+  \pair[2]{\beta_\Psi}{A}
+    := \vertex{5}(A, \Psi^2, \Psi) + \frac{\gs}{6} \, \dvertex{6}(\Psi^3, \Psi \otimes A),
+  \qquad
+  \beta_\Psi
+    = \sprod{3}{2}(\Psi^3) + O(\gs),
+\end{equation}
+so that~\eqref{p:eq:hs7:sigma2-linear} reads $\tfrac{\gs^3}{60} \pair[2]{\beta_\Psi}{\sigma_2^{(2)}}$.
+Completing the square, we get the value of $\caction[\le 6]$ on the joint solution as a single expression, exact in $\gs$:
+\begin{equation}
+  \label{p:eq:hs7:closed-form}
+  \caction[\le 6] \big|_{\Sigma_3 = \Sigma_3^{(4)*}, \, \Sigma_2 = \Sigma_2^{(4)*}} - S_{\le 6}
+    = \frac{\gs^4}{600} \Big[ \pair[2]{\beta_\Psi}{\big( \kin{2}{\Psi}{4} \big)^{-1}(\beta_\Psi)} - \vertex{5 \cdot 5}(\Psi^6) \Big],
+\end{equation}
+where the last term is the sextic deficit of~\eqref{p:eq:hs7:sigma2-contact}.
+The right-hand side is a single function of $\gs$, rational at any finite level truncation: it describes the the whole sequence of interactions induced by the two auxiliary fields.
+It is as explicit as the inverse of the dressed operator, which is a Neumann series for small $\gs$ as in \cref{p:sec:hs:quintic}.
+It holds at finite $\gs$ when $\wprod{3}{3}$ and $\kin{2}{\Psi}{4}$ are invertible on their quotients.
+We checked~\eqref{p:eq:hs7:closed-form} against a direct solution of the joint equations of motion in the finite-dimensional models of \cref{p:app:finite-models}, with generic vertices.
+
+\subparagraph{Induced interactions at order $\gs^5$.}
+
+We expand~\eqref{p:eq:hs7:closed-form} to first order in $\gs$ beyond the sextic order, with the inverse of the dressed operator:
+\begin{equation}
+\big( \kin{2}{\Psi}{4} \big)^{-1}
+  = \sprod{2}{2}^{-1}
+    + \frac{\gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \cdot) \circ \sprod{2}{2}^{-1}
+    + O(\gs^2).
+\end{equation}
+The $\Sigma_3$ exchange inside $\kin{2}{\Psi}{4}$ enters only at order $\gs^6$.
+We get:
+\begin{equation}
+  \label{p:eq:hs7:induced}
+  \caction[\le 6] \big|_{\Sigma_3 = \Sigma_3^{(4)*}, \, \Sigma_2 = \Sigma_2^{(4)*}}
+    = S_{\le 6}
+      + \frac{\gs^5}{600} \Big[ \frac{1}{3} \, \mathcal S_2(\Psi^7) - \frac{1}{5} \, \mathcal S_1(\Psi^7) \Big]
+      + O(\gs^6),
+\end{equation}
+with the two seven-point structures
+\begin{subequations}
+  \label{p:eq:hs7:structures}
+  \begin{align}
+    \label{p:eq:hs7:S1}
+    \mathcal S_1(\Psi^7)
+      &
+      := \vertex{5}\Big( \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3), \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3), \, \Psi \Big),
+    \\
+    \label{p:eq:hs7:S2}
+    \mathcal S_2(\Psi^7)
+      &
+      := \vertex{6}\Big( \Psi^4, \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3) \Big).
+  \end{align}
+\end{subequations}
+Both are exchange diagrams of $\Sigma_2$ between interaction vertices, and neither collapses, by the criterion of \cref{p:sec:hs:sextic}.
+The first is a chain of three quintic vertices joined by two $\Sigma_2$ lines, the two end vertices carrying three external $\Psi$ each and the middle one a single $\Psi$.
+It is the next term of the Neumann series~\eqref{p:eq:hs5:saddle-series} inserted in the exchange term of~\eqref{p:eq:hs5:identity}, which gives $+ \tfrac{\gs^5}{3000} \mathcal S_1$.
+The second is a sextic vertex with four external $\Psi$ joined by a $\Sigma_2$ line to a quintic vertex with three.
+It comes from the reduced sextic vertex evaluated on the quintic-order solution, that is, from the $\Sigma_3$ exchange~\eqref{p:eq:hs7:sigma3-value} with one $\Sigma_2$ slot of $\dvertex{6}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2)$ receiving the correction $\tfrac{\gs}{5} \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$ of~\eqref{p:eq:hs5:saddle-series}.
+This cross term is $\tfrac{2 \gs^5}{5 \cdot 6!} \dvertex{6}(\Psi^3, \Psi \otimes B)$ with $B := \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$.
+By $\dvertex{6}(\Psi^3, \Psi \otimes B) = \vertex{6}(\Psi^4, B) - \tfrac{6}{5} \vertex{5 \cdot 5}(\Psi^3, \Psi \otimes B)$, whose exchange part is $\mathcal S_1$ again, it equals $\tfrac{\gs^5}{1800} [\mathcal S_2 - \tfrac{6}{5} \mathcal S_1]$.
+The two contributions add up to~\eqref{p:eq:hs7:induced}.
+No other term enters at order $\gs^5$: the correction of order $\gs^2$ to the solution for $\Sigma_2$ from the sextic term contributes only at order $\gs^6$, by stationarity of $\caction[\le 5]$ at its own solution, as at the sextic order.
+In both structures, each triple of external legs is attached to one and the same vertex.
+  We use this property to build the reduced vertex below.
+
+\paragraph{Septic coupling}
+\label{p:sec:hs:septic:dressed}
+
+\subparagraph{Reduced septic vertex.}
+
+
+The septic order must reproduce $\vertex{7}$ and cancel the induced term of~\eqref{p:eq:hs7:induced} at the same time.
+A term added at order $\gs^5$ contributes to the eliminated action at that order through its value on the diagonal $\Sigma_k = \Psi^k$, where it must be of degree seven in $\Psi$, and it must be cubic in the fields.
+The only partitions of seven strands over three fields drawn from $\{\Psi, \Sigma_2, \Sigma_3\}$ are $7 = 3 + 3 + 1$ and $7 = 3 + 2 + 2$.
+We take the first partition, in which the $3$-string field plays the role $\Sigma_2$ played in the quintic coupling:
+\begin{equation}
+  \label{p:eq:hs7:S7tilde}
+  \caction[7]
+    := \frac{\gs^5}{7!} \, \dvertex{7}(\Sigma_3, \Sigma_3, \Psi),
+  \qquad
+  \caction[\le 7]
+    := \caction[\le 6] + \caction[7],
+\end{equation}
+with a trilinear form $\dvertex{7}$ on $\Hn{3} \times \Hn{3} \times \Hs$, symmetric in its two $3$-string arguments, which the matching determines.
+  We discuss the second partition below.
+We define the reduced septic vertex, for $A, B \in \Hn{3}$ and $C \in \Hs$:
+\begin{equation}
+  \label{p:eq:hs7:dressed-vertex}
+  \begin{aligned}
+    \dvertex{7}(A, B, C)
+      &
+      := \vertex{7}(A, B, C)
+        + \frac{42}{25} \, \vertex{5}\Big( \sprod{2}{2}^{-1} \circ \sprod{3}{2}(A), \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(B), \, C \Big)
+      \\ &
+      \quad
+      - \frac{14}{5} \cdot \frac{1}{2} \Big[
+        \vertex{6}\Big( A, C, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(B) \Big)
+        + \vertex{6}\Big( B, C, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(A) \Big)
+      \Big],
+  \end{aligned}
+\end{equation}
+where $\sprod{3}{2}(A)$ fills the three input slots of $\sprod{3}{2}$ with the $3$-string state $A$, and where $\vertex{6}(A, C, D)$ fills three slots with $A$, one with $C$ and two with $D \in \Hn{2}$.
+The second term is the chain of three quintic vertices of $\mathcal S_1$, the two end vertices read with their three single-string slots as one $\Sigma_3$ slot.
+The third term is the sextic--quintic exchange of $\mathcal S_2$, with one $\Sigma_3$ in the sextic vertex and the other in the quintic one, symmetrized.
+On the diagonal
+\begin{equation}
+  \dvertex{7}(\Psi^3, \Psi^3, \Psi)
+    = \vertex{7}(\Psi^7)
+      + \frac{42}{25} \, \mathcal S_1(\Psi^7)
+      - \frac{14}{5} \, \mathcal S_2(\Psi^7),
+\end{equation}
+by~\eqref{p:eq:hs7:structures}.
+\begin{figure}[htp]
+  \centering
+  \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (a1) at (0, 0) {$\Sigma_3$};
+      \vertex (a) at (1.2, 0) [dot];
+      \vertex (b) at (2.8, 0) [dot];
+      \vertex (c) at (4.4, 0) [dot];
+      \vertex (c1) at (5.6, 0) {$\Sigma_3$};
+      \vertex (p) at (2.8, 1.2) {$\Psi$};
+      \diagram* {
+      (a1) -- [plain, double distance=2.5pt] (a) -- [plain, double, edge label'={$\Sigma_2$}] (b) -- [plain, double, edge label'={$\Sigma_2$}] (c) -- [plain, double distance=2.5pt] (c1),
+      (b) -- [plain] (p),
+      };
+      \vertex (d1) at (7.5, 0) {$\Sigma_3$};
+      \vertex (d) at (8.7, 0) [dot];
+      \vertex (e) at (10.3, 0) [dot];
+      \vertex (e1) at (11.5, 0) {$\Sigma_3$};
+      \vertex (q) at (8.7, 1.2) {$\Psi$};
+      \diagram* {
+      (d1) -- [plain, double distance=2.5pt] (d) -- [plain, double, edge label'={$\Sigma_2$}] (e) -- [plain, double distance=2.5pt] (e1),
+      (d) -- [plain] (q),
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \caption{The two exchange terms of the reduced septic vertex~\eqref{p:eq:hs7:dressed-vertex}: a thick double line is a $\Sigma_3$ leg (three strands), a double line a $\Sigma_2$ line carrying $\sprod{2}{2}^{-1}$. Left, three quintic vertices on two $\Sigma_2$ lines; right, a sextic vertex and a quintic vertex on one $\Sigma_2$ line. In both, the three strands of each $\Sigma_3$ leg enter one and the same vertex.}
+  \label{p:fig:hs7:dressed-vertex}
+\end{figure}
+
+The elimination proceeds as before, $\Sigma_3$ first.
+The septic coupling is quadratic in $\Sigma_3$ and does not change its source, so the $3$-string sector stays Gaussian, with the dressed kinetic operator:
+\begin{equation}
+  \label{p:eq:hs7:dressed-3}
+  \pair[3]{A}{\kin{3}{\Psi}{5}(B)}
+    := \pair[3]{A}{\wprod{3}{3}(B)} - \frac{\gs}{7} \, \dvertex{7}(A, B, \Psi),
+  \qquad
+  A, B \in \Hn{3}.
+\end{equation}
+The equation of motion of $\Sigma_3$ and its solution are:
+\begin{equation}
+  \label{p:eq:hs7:saddle-3}
+  \begin{aligned}
+    \mathcal E^{(5)}_{\Sigma_3}
+      &
+      := \wprod{3}{3}(\Psi \otimes \Sigma_2) - \kin{3}{\Psi}{5}(\Sigma_3)
+      = 0,
+    \\
+    \Sigma_3^{(5)*}
+      &
+      := \big( \kin{3}{\Psi}{5} \big)^{-1} \circ \wprod{3}{3}(\Psi \otimes \Sigma_2),
+  \end{aligned}
+\end{equation}
+the inverse existing as a Neumann series in $\tfrac{\gs}{7} (\wprod{3}{3})^{-1} \circ \dvertex{7}(\, \cdot \,, \cdot \,, \Psi)$ for small $\gs$.
+The solution is now $\Psi \otimes \Sigma_2$ plus a correction of order $\gs$, as $\Sigma_2^{(3)*}$ at the quintic order.
+The value of the $\Sigma_3$ terms on the solution is the completed square:
+\begin{equation}
+  \label{p:eq:hs7:sigma3-value-5}
+  \begin{aligned}
+    &
+    \frac{\gs^4}{6!} \, \pair[3]{\wprod{3}{3}(\Psi \otimes \Sigma_2)}{\big( \kin{3}{\Psi}{5} \big)^{-1} \circ \wprod{3}{3}(\Psi \otimes \Sigma_2)}
+    \\ &
+    \qquad
+    = \frac{\gs^4}{6!} \, \dvertex{6}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2)
+      + \frac{\gs^5}{7!} \, \dvertex{7}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2, \Psi)
+      + O(\gs^6),
+  \end{aligned}
+\end{equation}
+where the first term of the Neumann series gives back~\eqref{p:eq:hs7:sigma3-value} and the second is the septic coupling.
+The order-$\gs^5$ contribution of the septic coupling on-shell is thus its naive contact value, as for the quintic coupling in~\eqref{p:eq:hs5:constant}.
+The action left for $\Sigma_2$ is still exactly quadratic, since $\Sigma_3^{(5)*}$ is linear in $\Sigma_2$.
+Its solution $\Sigma_2^{(5)*}$ differs from $\Sigma_2^{(4)*}$ at order $\gs^3$.
+By stationarity this does not affect order $\gs^5$, and at that order the septic term enters only through its value at $\Sigma_2 = \Psi^2$.
+
+The target at this order is:
+  \begin{equation}
+  S_{\le 7}
+    = S_{\le 6} + \frac{\gs^5}{7!} \, \vertex{7}(\Psi^7).
+\end{equation}
+  When we add the contact value of the septic coupling to~\eqref{p:eq:hs7:induced}, the matching with this target requires the single condition:
+\begin{equation}
+  \label{p:eq:hs7:coefficient}
+  \frac{\gs^5}{600} \Big[ \frac{1}{3} \, \mathcal S_2 - \frac{1}{5} \, \mathcal S_1 \Big]
+    + \frac{\gs^5}{7!} \, \dvertex{7}(\Psi^7)
+    = \frac{\gs^5}{7!} \, \vertex{7}(\Psi^7),
+\end{equation}
+that is,
+\begin{equation}
+  \label{p:eq:hs7:diagonal}
+  \dvertex{7}(\Psi^7)
+    = \vertex{7}(\Psi^7) + \frac{42}{25} \, \mathcal S_1(\Psi^7) - \frac{14}{5} \, \mathcal S_2(\Psi^7),
+\end{equation}
+which is the diagonal value of~\eqref{p:eq:hs7:dressed-vertex}.
+The matching determines the three coefficients $(1, \tfrac{42}{25}, - \tfrac{14}{5})$, since $\vertex{7}(\Psi^7)$, $\mathcal S_1$ and $\mathcal S_2$ are independent functions of $\Psi$ in a finite-dimensional model with generic vertices.
+We assume this independence for the string vertices, as at the sextic order.
+  Changing one coefficient then leaves a seven-point term proportional to the corresponding invariant.
+With these coefficients, we get:
+\begin{equation}
+  \label{p:eq:hs7:eliminate}
+  \caction[\le 7] \big|_{\Sigma_3 = \Sigma_3^{(5)*}, \, \Sigma_2 = \Sigma_2^{(5)*}}
+    = S_{\le 7} + O(\gs^6),
+\end{equation}
+and the septic order closes: the exchange diagrams induced at order $\gs^5$ are canceled by the exchange parts of $\dvertex{7}$, one structure at a time, and the septic vertex is reproduced.
+We checked~\eqref{p:eq:hs7:eliminate} in the finite-dimensional models, where the residual scales as $\gs^6$ and the matching through order $\gs^4$ is untouched.
+The remainder of order $\gs^6$ is the next induced interaction, which the octic order absorbs in its turn (\cref{p:sec:hs:octic}).
+
+\subparagraph{Dressed kinetic operators.}
+
+The septic coupling dresses the kinetic operator of $\Sigma_3$ with $\Psi$, through~\eqref{p:eq:hs7:dressed-3}, as the quintic coupling did for $\Sigma_2$.
+We can read its two exchange parts in terms of the exchanges of the lower orders, and this reading shows the pattern of the higher orders.
+The chain term of~\eqref{p:eq:hs7:dressed-vertex} enters $\kin{3}{\Psi}{5}$ with the coefficient $- \tfrac{6}{5} \cdot \tfrac{\gs}{5}$.
+This is the order-$\gs$ term of the exchange part of $\wprod{3}{3}$ with the bare $\Sigma_2$ propagator replaced by the dressed one,
+\begin{equation}
+  \label{p:eq:hs7:running}
+  \begin{aligned}
+    \sprod{2}{3} \circ \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}
+      &
+      = \sprod{2}{3} \circ \sprod{2}{2}^{-1} \circ \sprod{3}{2}
+        + \frac{\gs}{5} \, \sprod{2}{3} \circ \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \cdot) \circ \sprod{2}{2}^{-1} \circ \sprod{3}{2}
+        \\ & \qquad
+        + O(\gs^2),
+  \end{aligned}
+\end{equation}
+by the Neumann series~\eqref{p:eq:hs5:neumann}.
+At this order, the chain term of the dressing is thus the first Taylor coefficient of the operator obtained from $\wprod{3}{3}$ by replacing the bare $\Sigma_2$ propagator with the dressed one, and $\wprod{3}{3}$ is the value of that operator at $\gs = 0$.
+The higher coefficients are not tested here.
+The sextic--quintic term, whose coefficient $+ \tfrac{2 \gs}{5}$ follows from the matching, is the $\Sigma_2$ exchange between the contact part $\vertex{6}$ of the sextic source vertex of $\Sigma_3$ and the quintic vertex read as $\sprod{3}{2}(\Sigma_3)$.
+Conversely, the dressed operator of $\Sigma_2$ at this order is read off the action once $\Sigma_3$ is eliminated with~\eqref{p:eq:hs7:sigma3-value-5}:
+\begin{equation}
+  \label{p:eq:hs7:dressed-2}
+  \begin{aligned}
+    \pair[2]{A}{\kin{2}{\Psi}{5}(B)}
+      &
+      := \vertex{4}(A, B)
+        - \frac{\gs}{5} \, \vertex{5}(A, B, \Psi)
+      \\ &
+      \quad
+      - \frac{\gs^2}{30} \, \pair[3]{\wprod{3}{3}(\Psi \otimes A)}{\big( \kin{3}{\Psi}{5} \big)^{-1} \circ \wprod{3}{3}(\Psi \otimes B)},
+  \end{aligned}
+\end{equation}
+This is the operator $\kin{2}{\Psi}{4}$ of~\eqref{p:eq:hs6:dressed-2} with the $\Sigma_3$ propagator dressed in its turn.
+Each order thus dresses the kinetic operators of the lower-order auxiliary fields by the exchanges of the higher-order ones, and the propagators inside these exchanges are themselves the dressed ones.
+The diagonal value of every reduced vertex is fixed in the same way: it is the vertex of the target minus what the previous orders induce:
+\begin{equation}
+  \label{p:eq:hs7:deficit}
+  \dvertex{n}(\Psi^n)
+    = \vertex{n}(\Psi^n) - n! \, \big[ \gs^{n - 2} \big] \, \caction[\le n - 1] \big|_{\text{solution}},
+\end{equation}
+where the cubic action of the previous order is evaluated on the solution of its auxiliary fields and $[\gs^{n - 2}]$ extracts the coefficient of $\gs^{n - 2}$; the reduced sextic vertex~\eqref{p:eq:hs6:dressed-vertex} and the condition~\eqref{p:eq:hs7:coefficient} are its cases $n = 6$ and $n = 7$.
+
+\paragraph{Choices in the construction}
+\label{p:sec:hs:septic:alternatives}
+
+\subparagraph{Choice of the partition.}
+
+The matching~\eqref{p:eq:hs7:coefficient} constrains the septic term only through its value on the diagonal, a septic polynomial in $\Psi$.
+Any trilinear form with this diagonal value closes the order, and two forms differing by one that vanishes on the diagonal give the same eliminated action at this order.
+The exchange parts of~\eqref{p:eq:hs7:dressed-vertex} are unique only up to this freedom, as those of the reduced sextic vertex were, and the freedom now includes the partition of the strands.
+The second partition, $7 = 3 + 2 + 2$, gives a coupling $\vertex{7}(\Sigma_3, \Sigma_2, \Sigma_2)$ which, reduced by the same two structures with the same diagonal value, closes the order as well by the argument just given.
+So does any combination of the two partitions whose coefficients add up to one.
+To realize $\mathcal S_1$ and $\mathcal S_2$ in the second partition, the two strands of a $\Sigma_2$ slot must be split between two constituent vertices.
+We prefer the first partition for three reasons.
+In the first partition all the strands of each slot sit inside one constituent vertex, as in \cref{p:fig:hs7:dressed-vertex}, so that each exchange part of the reduced vertex is one of the induced diagrams~\eqref{p:eq:hs7:structures} with its triples of legs read as $\Sigma_3$ slots, off the diagonal as well as on it.
+The first partition also preserves the triangular form.
+A coupling $\vertex{7}(\Sigma_3, \Sigma_2, \Sigma_2)$ makes the source of $\Sigma_3$ quadratic in $\Sigma_2$, the action left after eliminating $\Sigma_3$ becomes quartic in $\Sigma_2$, and the closed form~\eqref{p:eq:hs7:closed-form} is lost at the next order.
+With the first partition, finally, $\Sigma_3$ comes with an even and an odd coupling, $\dvertex{6}$ and $\dvertex{7}$, as $\Sigma_2$ came with $\vertex{4}$ and $\vertex{5}$.
+We therefore keep the first partition,~\eqref{p:eq:hs7:S7tilde} with the reduced vertex~\eqref{p:eq:hs7:dressed-vertex}.
+
+\subparagraph{The necessity of the $3$-string field.}
+
+We could ask whether the $3$-string field could be introduced at this order, where it is first indispensable, rather than at the sextic order.
+Suppose that the sextic order had been closed with $\Sigma_2$ alone, with a sextic coupling in $\Sigma_2^3$, see \cref{p:sec:hs:sextic}, and that $\Sigma_3$ were introduced here with a kinetic term and a single coupling, $\vertex{7}(\Sigma_3, \Sigma_2, \Sigma_2)$ or $\vertex{7}(\Sigma_3, \Sigma_3, \Psi)$.
+The only kinetic term for $\Sigma_3$ built from the vertices is of sextic type, $\vertex{6}(\Sigma_3^2)$ or its reduced form, and is of order $\gs^4$.
+Without a source at that order, the solution for $\Sigma_3$ is of order $\gs$ and the value of the coupling on it is of order $\gs^6$ at least.
+The contact term $\vertex{7}(\Psi^7)$ is then never produced at order $\gs^5$, for any kernel and any coefficient.
+Within cubic actions in $\Psi$, $\Sigma_2$ and $\Sigma_3$ with kinetic terms of the same sign, a kinetic term and a source for $\Sigma_3$ at the sextic order, giving it a solution of order one, are therefore required before the septic order can close.
+The completed square~\eqref{p:eq:hs6:DeltaS6} is the form we use.
+Within this class, a sextic order closed with $\Sigma_2$ alone has to be rebuilt with $\Sigma_3$ as soon as $\vertex{7}$ is reached: that form reproduces the same eliminated action through order $\gs^4$ and does not extend beyond it, the distinction made in \cref{p:sec:hs:sextic}.
+
+This is why we introduce each auxiliary field through a completed square at the even order $\gs^{2 k - 2}$ and let the odd vertex dress its kinetic operator at the next order.
+The pattern is established here for $k = 3$ and repeated in \cref{p:sec:all-orders}.
+The septic order thus introduces no new field: it couples $\Sigma_3$ beyond the completed square of the sextic order, and gives it its first dressed kinetic operator.
+
+\subparagraph{Kernel condition.}
+
+The septic coupling must be a function on the quotient~\eqref{p:eq:hs6:quotient} on which $\Sigma_3$ lives, as the quintic coupling had to be a function on $\Hn{2} / \ker \sprod{2}{2}$.
+The sextic source $\wprod{3}{3}(\Psi \otimes \Sigma_2)$ pairs to zero with every kernel element by the symmetry of $\wprod{3}{3}$, so it descends automatically, whereas the septic coupling does not.
+From this order on we make a further standing assumption, besides those of \cref{p:sec:hs:quintic,p:sec:hs:sextic}.
+The kernel of the kinetic operator with which each auxiliary field is introduced, $\wprod{3}{3}$ for $\Sigma_3$ here and its analogue for $\Sigma_k$ in \cref{p:sec:all-orders}, consists of joint null vectors of every vertex in which that field appears.
+It need only hold for one choice of the terms vanishing on the diagonal, up to which the reduced vertices are defined.
+At this order the condition reads:
+\begin{equation}
+  \label{p:eq:hs7:kernel-condition}
+  \forall N_3 \in \ker \wprod{3}{3}, \;
+  \forall A \in \Hn{3}, \;
+  \forall B \in \Hs:
+  \quad
+  \dvertex{7}(N_3, A, B)
+    = 0,
+\end{equation}
+and it makes $\dvertex{7}(\, \cdot \,, \cdot \,, \Psi)$, hence $\kin{3}{\Psi}{5}$ and its inverse, descend to the quotient.
+It holds trivially when $\wprod{3}{3}$ has no kernel, and it is a condition on the choice of the reduced vertex rather than on the vertices alone, since $\dvertex{7}$ may be changed by terms vanishing on the diagonal.
+When it fails for some kernel direction $N_3$, that direction has no kinetic term at order $\gs^4$ and acquires a quadratic term from the background at order $\gs^5$, $\tfrac{\gs^5}{7!} \dvertex{7}(N_3, N_3, \Psi)$.
+Integrating it out divides by this field-dependent mass, and the eliminated action acquires a term rational in $\Psi$, $- \tfrac{\gs^5}{7!} \dvertex{7}(N_3, \Psi^3, \Psi)^2 / \dvertex{7}(N_3, N_3, \Psi)$ when the denominator does not vanish, which no polynomial vertex can match.
+We established this in a finite-dimensional model.
+Under the assumption, the auxiliary fields reproduce a polynomial action order by order.
+When it fails along a direction where the denominator does not vanish, the eliminated action is not polynomial.
+We do not try to settle here whether the string vertices satisfy this condition.
+\Cref{p:sec:all-orders} and \cref{p:sec:gauge} refer to it in this form.
+
+\paragraph{Gauge transformation}
+\label{p:sec:hs:septic:gauge}
+
+\subparagraph{Rotation of the fluctuations.}
+
+With the septic coupling, the action decomposes exactly, off-shell, into the target, the induced interactions and two squares:
+\begin{equation}
+  \label{p:eq:hs7:identity}
+  \begin{aligned}
+    \caction[\le 7]
+      &
+      = S_{\le 7}
+        + \big( \text{exchange terms of order } \gs^6 \big)
+      \\ &
+      \quad
+      - \frac{\gs^4}{6!} \, \pair[3]{\sigma_3^{(5)}}{\kin{3}{\Psi}{5}(\sigma_3^{(5)})}
+      - \frac{\gs^2}{4!} \, \pair[2]{\sigma_2^{(5)}}{\kin{2}{\Psi}{5}(\sigma_2^{(5)})},
+  \end{aligned}
+\end{equation}
+where the exchange terms of order $\gs^6$ are the induced interaction of~\eqref{p:eq:hs7:eliminate}, a function of $\Psi$ alone.
+The fluctuations are:
+\begin{equation}
+  \label{p:eq:hs7:deviations}
+  \sigma_3^{(5)}
+    := \Sigma_3 - \Sigma_3^{(5)*},
+  \qquad
+  \sigma_2^{(5)}
+    := \Sigma_2 - \Sigma_2^{(5)*},
+\end{equation}
+the first from the solution~\eqref{p:eq:hs7:saddle-3} at the given $\Sigma_2$, the second from the solution of the $\Sigma_2$ equation once $\Sigma_3$ is eliminated.
+Both squares come with dressed kinetic operators.
+As at the quintic order, we fix the gauge law by demanding that each square be exactly invariant.
+Since the action is Gaussian in both fluctuations, the transformation laws are explicit rotations:
+\begin{equation}
+  \label{p:eq:hs7:gauge-deviations}
+  \begin{aligned}
+    \delta_\Lambda \sigma_3^{(5)}
+      &
+      = - \frac{1}{2} \, \big( \kin{3}{\Psi}{5} \big)^{-1} \circ \big( \delta_\Lambda \kin{3}{\Psi}{5} \big) (\sigma_3^{(5)})
+      = \frac{\gs}{14} \, \big( \kin{3}{\Psi}{5} \big)^{-1} \circ \dvertex{7}(\, \cdot \,, \sigma_3^{(5)}, \delta_\Lambda \Psi),
+    \\
+    \delta_\Lambda \sigma_2^{(5)}
+      &
+      = - \frac{1}{2} \, \big( \kin{2}{\Psi}{5} \big)^{-1} \circ \big( \delta_\Lambda \kin{2}{\Psi}{5} \big) (\sigma_2^{(5)}),
+  \end{aligned}
+\end{equation}
+where $\dvertex{7}(\, \cdot \,, \sigma_3^{(5)}, \delta_\Lambda \Psi)$ denotes the $3$-string state paired with the open slot, as in~\eqref{p:eq:hs6:eom}.
+Each auxiliary field transforms as its solution plus the rotation of its fluctuation:
+\begin{equation}
+  \label{p:eq:hs7:gauge-fields}
+  \delta_\Lambda \Sigma_3
+    = \delta_\Lambda \Sigma_3^{(5)*} + \delta_\Lambda \sigma_3^{(5)},
+  \qquad
+  \delta_\Lambda \Sigma_2
+    = \delta_\Lambda \Sigma_2^{(5)*} + \delta_\Lambda \sigma_2^{(5)}.
+\end{equation}
+The variation of $\kin{2}{\Psi}{5}$ collects those of the quintic term, of the sextic source $\wprod{3}{3}(\Psi \otimes \cdot)$ and of the inverse of $\kin{3}{\Psi}{5}$ in~\eqref{p:eq:hs7:dressed-2}.
+With these transformation laws, varying~\eqref{p:eq:hs7:identity} gives:
+\begin{equation}
+  \label{p:eq:hs7:delta-S-equal}
+  \delta_\Lambda \caction[\le 7] - \delta_\Lambda \big[ S_{\le 7} + \big( \text{exchange terms of order } \gs^6 \big) \big]
+    = 0
+\end{equation}
+identically, off-shell, for any variation $\delta_\Lambda \Psi$ and exactly in $\gs$.
+Since $\delta_\Lambda S_{\le 7} = O(\gs^6)$, the cubic action is invariant up to order $\gs^6$, the order of the truncation it reproduces.
+We checked the identity, and the residuals left by dropping either rotation, in the finite-dimensional model.
+At the sextic order, the fluctuation of $\Sigma_3$ needed no rotation, since its kinetic operator was independent of $\Psi$.
+From this order on, both fluctuations rotate.
+The rotations are homogeneous, $\delta_\Lambda X \propto X$, and vanish on-shell.
+Their algebra and the Batalin--Vilkovisky structure of the cubic action with both auxiliary fields are worked out in \cref{p:sec:gauge} through the sextic order.
+A flat representative for the square of $\sigma_3^{(5)}$, expected as for $\Sigma_2$, has not been constructed.
+
+\subparagraph{Reality.}
+
+The fields are subject to the conditions $\Sigma_3^\star = - \Sigma_3$ and $\Sigma_2^\star = \Sigma_2$ of \cref{p:app:conventions}, and the septic coupling is compatible with them for the reason given at the quintic and sextic orders.
+The reduced vertex $\dvertex{7}$ is built from $\vertex{5}$, $\vertex{6}$, $\vertex{7}$, $\sprod{3}{2}$ and $\sprod{2}{2}^{-1}$ with real coefficients, so the septic term is real on real fields by the reality of the vertices~\eqref{p:eq:hs4:vertex-real}, and $\kin{3}{\Psi}{5}$ is a real form when $\Psi$ is real.
+The map $(\kin{3}{\Psi}{5})^{-1} \circ \wprod{3}{3}$ then commutes with $\star$, by conjugating the relation $\pair[3]{A}{\kin{3}{\Psi}{5}(B')} = \dvertex{6}(A, B)$, with $B' := (\kin{3}{\Psi}{5})^{-1} \circ \wprod{3}{3}(B)$, that characterizes it, as at the quintic order.
+Hence the solution $\Sigma_3^{(5)*}$ is real when $\Psi$ and $\Sigma_2$ are, and the rotations~\eqref{p:eq:hs7:gauge-deviations} map the real locus to itself.
+The argument at every order is given in \cref{p:app:reality}.

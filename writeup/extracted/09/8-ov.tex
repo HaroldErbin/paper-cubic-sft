@@ -1,0 +1,117 @@
+\subsubsection{The asymmetric vertex \texorpdfstring{$\mc{V}_3'$}{V3'} and its gluings}
+\label{ov:sec:explicit:V3}
+
+\subparagraph{Local coordinates.} The prime vertex is
+\begin{equation}
+	\mc{V}_{0,3}'(A_1,A_2,A') = \Mean{f_0'\!\circ\! A_1(0)\; f_\infty'\!\circ\! A_2(0)\;
+	f_1'\!\circ\! A'(0)},
+	\label{ov:eq:V3prime}
+\end{equation}
+symmetric, for generic parameters, only under exchange of the punctures at $0$ and $\infty$. With real parameters
+$\alpha',\gamma',\beta'$ the local-coordinate maps are
+\begin{equation}
+	f_0'(w)=\frac{w}{\alpha'w+\gamma'},\qquad
+	f_\infty'(w)=\frac{\alpha'w+\gamma'}{w},\qquad
+	f_1'(w)=\frac{2\beta'-w}{2\beta'+w},
+	\label{ov:eq:V3primemaps}
+\end{equation}
+with non-overlapping patch conditions $\alpha'\le\gamma'-1$, $\beta'>1/2$. This is the
+Sen--Zwiebach \cite{SenZwiebach1994} asymmetric three-punctured sphere $\mc{V}_3'$: punctures
+$1,2$ at $z=0,\infty$ carry the symmetric (overlap) coordinates, and the special puncture at
+$z=1$ carries $z_3=h(z)$, the only constraint being the off-shell exchange symmetry
+\begin{equation}
+	z_3(z)=-z_3(1/z),
+	\label{ov:eq:exchange}
+\end{equation}
+with general solution $z_3(z)=f_0\!\big(\tfrac{z-1}{z+1}\big)$ for any odd $f_0$,
+$f_0(0)=0$, $f_0'(0)\ne0$. The simplest choice $f_0=\id$ gives $z_3=(z-1)/(z+1)$; the map
+$f_1'$ in \eqref{ov:eq:V3primemaps} is this rescaled by $2\beta'$, i.e.
+$f_0(y)=2\beta'y$, which matches exactly at $\beta'=1/2$. The puncture locations of
+$\mc{V}_3'$ are \emph{independent of $\alpha',\gamma'$} and coincide with those of the standard
+vertex $\mc{V}_{0,3}$ when $\beta=\beta'$.
+The vertex $\mc{V}_3'$ is asymmetric for generic coordinates at its ordinary punctures, but not for all of them.
+At $\alpha'=\tfrac12$ and $\gamma'=\beta'=\beta$ (here $\alpha'$ is the parameter of \eqref{ov:eq:V3primemaps}, not the Regge slope) it is the cubic vertex of the theory itself, the symmetric Hermitian $\group{SL}(2,\C)$ vertex with Möbius local coordinates of \cite{Sonoda:1990:CovariantClosedString}, with parameter $a=2\beta$.
+
+\subparagraph{Twist-only gluing.} The vertex $\mc{V}_3'$ above is
+Sen--Zwiebach's; the sewing prescription that follows is \emph{not}. Sen--Zwiebach cover the
+moduli spaces by gluing $\mc{V}_3'$ with the \emph{standard} propagator --- twist sewing
+\emph{integrated} over the full twist $\theta\in[0,2\pi]$ together with the usual length
+integration. Here we consider instead sewing the special punctures of two copies \emph{twist-only}, at fixed $|q|=1$:
+\begin{equation}
+	w_1^{(1)}w_1^{(2)}=q,\qquad |q|=1,
+	\label{ov:eq:twistonly}
+\end{equation}
+i.e. $s=0$ in $q=\e^{-s+\I\theta}$, $\theta\in[0,2\pi)$, where the standard SFT propagator integrates
+$s\in[0,\infty)$. Geometrically $|q|=1$ is a single curve in $\mc{M}_{0,4}\cong\C$, so
+gluing two $\mc{V}_3'$ on their special punctures in the $s,t,u$ channels covers only the
+\emph{boundary} $\partial\mc{V}_{0,4}$. The reproduction of $\partial\mc{V}_{0,4}$ by this
+twist-only gluing (next paragraph) is therefore computed here, not a result of
+\cite{SenZwiebach1994}.
+
+This gluing is not the line of $\Sig$.
+That line is the inverse of the quartic form $W_2(A_2,B_2):=\Mean{A_2\,|\,\mtwo(B_2)}$, an operator with no modulus to integrate over, and in the fixed-halves model described below it is not a gluing at all.
+Twist-only plumbing enters the auxiliary-field theory in another place: each of the two strands of the line, the sewing of two punctures through the inverse of the single-string pairing, is the insertion of the level-matching bivector $b_0^-\delta_{L_0^-,0}$ between them, that is, the plumbing at zero length $w_1w_2=\e^{\I\theta}$ with only the twist integrated.
+A $\Psi$ line differs from a strand only by the integrated length, with its insertion $b_0^+/L_0^+$.
+The line of $\Sig$ carries, in addition to its two strands, the inverse of the quartic form, which strands of fixed length do not represent.
+As the line of an auxiliary field, a twist-only gluing of two copies of $\mc{V}_3'$ belongs to a different route, with an auxiliary field that has a single string leg, discussed at the end of this subsection; in the theory considered here the curve $|q|=1$ is the seam between the $s$-channel exchange and the region of the quartic form.
+
+\subparagraph{Gluing two $\mc{V}_3'$ in $s/t/u$ to recover $\partial\mc{M}_{0,4}$.} Parametrise
+$\mc{M}_{0,4}\cong\C$ by the location $z_4$ of the fourth puncture; the SFT decomposition gives
+three propagator regions $\mc{M}_{s,t,u}$ and a residual region. For the $s$-channel graph built
+from two $\mc{V}_3'$ at $|q|=1$, the four maps are
+\begin{equation}
+	\begin{aligned}
+		F_1(W)&=\frac{W}{\alpha'W+\gamma'}, \qquad
+		F_2(W)=\frac{\alpha'W+\gamma'}{W}, \\
+		F_3(W)&=\frac{4\beta'^2\big((\alpha'{-}1)W+\gamma'\big)-q\big((\alpha'{+}1)W+\gamma'\big)}
+		{4\beta'^2\big((\alpha'{-}1)W+\gamma'\big)+q\big((\alpha'{+}1)W+\gamma'\big)}, \\
+		F_4(W)&=\frac{4\beta'^2\big({-}(\alpha'{-}1)W+\gamma'\big)-q\big((\alpha'{+}1)W+\gamma'\big)}
+		{4\beta'^2\big({-}(\alpha'{-}1)W+\gamma'\big)+q\big((\alpha'{+}1)W+\gamma'\big)},
+	\end{aligned}
+	\label{ov:eq:Fmaps}
+\end{equation}
+and the puncture location is, remarkably, independent of $\alpha',\gamma'$:
+\begin{equation}
+	Z_4 = \frac{q}{16\beta'^2}\Big(1+\frac{4\beta'^2}{q}\Big)^2.
+	\label{ov:eq:Z4}
+\end{equation}
+With $|q|=1$ this traces exactly the $s$-channel boundary $\partial\mc{V}_{0,4}$ when
+$\beta'=\beta$. Comparison with the SFT decomposition curves
+\begin{equation}
+	Z_4^{(s)}(q)=\cosh^2H(q),\quad
+	Z_4^{(t)}(q)=\frac{\cosh^2H(q)}{\sinh^2H(q)},\quad
+	Z_4^{(u)}(q)=-\frac{1}{\sinh^2H(q)},\quad
+	H(q)=\ln\frac{2\beta}{\sqrt q},
+	\label{ov:eq:Zstu}
+\end{equation}
+confirms the match: setting $\beta'=\beta$ one checks
+$Z_4=(q/16\beta^2)(1+4\beta^2/q)^2=\cosh^2H(q)=Z_4^{(s)}$ (checked symbolically), and the
+$t,u$ companions follow from the cross-ratio closure
+$Z^{(t)}=Z^{(s)}/(Z^{(s)}-1)$, $Z^{(u)}=1/(1-Z^{(s)})$ (checked symbolically).
+The maps \eqref{ov:eq:Fmaps} that produce $Z_4$, and the identification of the curve \eqref{ov:eq:Zstu} at $|q|=1$ with $\partial\mc{V}_{0,4}$, are quoted, not checked.
+What this establishes is a statement about the twist-only gluing of two copies of $\mc{V}_3'$: it reproduces $\partial\mc{V}_{0,4}$ on the nose, and only the boundary.
+
+\subparagraph{The quartic form as a gluing over a region.}
+The interior of $\mc{V}_{0,4}$ is the region of the quartic vertex, which in the auxiliary-field theory the $\Sig$ exchange carries (\cref{sec:order:amplitude}).
+To see it as a gluing, cut the four-punctured sphere along a circle $|w_1|=r$ that encloses the two punctures of one $\Sig$ slot.
+The two pieces are copies of $\mc{V}_3'$, glued at their special punctures by $w_1w_2=q$, $q=\e^{-s+\I\theta}$, now with both the length $s$ and the twist $\theta$ varying.
+They range over a region $Q_V$ of the $q$-plane bounded on the inside by the twist-only curve $|q|=1$ of \eqref{ov:eq:twistonly}, the seam with the $s$-channel Feynman region, and on the outside by a seam with the $t$- and $u$-channel Feynman regions (that the outer seam is a single-valued curve $|q|=\e^{\tau_V(\theta)}$ is a numerical finding at $\beta=\tfrac32$).
+On shell at four points, for inputs of finite level and modulo a measure identity argued by hand, the $s$-channel exchange and the quartic form together are the sewing of the two halves over the union of the unit disc and $Q_V$, with propagating states that are not level matched.
+At $\alpha'=\tfrac12$, $\gamma'=\beta'=\beta$ the halves are two copies of the cubic vertex of the theory.
+The twist-only gluing above is thus the inner boundary of the region over which the quartic form is a gluing.
+
+Off shell the quartic form is still a gluing over $Q_V$, but not of fixed halves: its local coordinates at the external punctures move with $q$ inside $Q_V$.
+Equivalently, it is two copies of a fixed half with input operators at the four legs that depend on $q$, paired through a plumbing operator over $Q_V$ whose two antighosts are dressed by contour insertions acting on the inputs.
+Rigid halves glued over $Q_V$, the \emph{fixed-halves model}, equal the quartic form on shell and differ from it off shell.
+Their local coordinates do not even agree, up to a phase, with those of the cubic exchanges at the outer seam: at the seam point $\theta=\pi$ the logarithms of the mapping radii differ, at all four punctures, by $\ln\big((4\beta^2-1)/(4\beta)\big)$, which is non-zero for every $\beta>(1+\sqrt2)/2$.
+In the model the inverse of the quartic form is not a gluing and has no region of its own.
+Pushed to a single string through the circle map, it is the product of the ghost zero modes $c_0^-c_0^+$, dual to the two conformal Killing vectors of the circle (a dilation and a rotation), of the reciprocal of the Laplace transform in the neck length and Fourier transform in the twist of the region $Q_V$, and of the projector onto the states the circle can produce.
+With or without the model, the line of $\Sig$ on the worldsheet is two strands of zero length together with an operator that carries no modulus; the model makes that operator explicit.
+
+\subparagraph{A single-strand route.}
+The halves suggest a different cubic theory, with one asymmetric cubic vertex $\mc{V}_3'$ and an auxiliary field with a single string leg, which would obtain the quartic vertex by exchanging the auxiliary field between two copies of $\mc{V}_3'$ after a change of its kinetic term, as the open-string stub of Section~\ref{ov:sec:explicit:stub} does; it requires the local discs of $\mc{V}_3'$ to extend beyond the unit circle, which fails for tangent discs, those of the theory's cubic vertex at $\beta=\tfrac32$ included.
+On that route the twist-only gluing \eqref{ov:eq:twistonly} is the gluing of the auxiliary channel at $|q|=1$, and it reproduces the boundary of $\mc{V}_{0,4}$ and not its interior.
+At the parameters sampled, the plumbing family continued to $|q|>1$ (the reversed plumbing range) covers the interior exactly once when the stub length varies along a seam symmetric under the permutations of the three channels, and never for a constant stub length; this is numerical, and the seam is under-determined.
+The local coordinates transported across the seam agree to first order but not to second.
+Whether such a cubic theory with a geometric auxiliary channel exists is not established, nor whether its strictly cubic version, if it agrees with the quartic vertex on shell, does so only by coincidence.
+

@@ -1,0 +1,118 @@
+\subsubsection{The all-orders theorem: the fixed point solved}
+\label{ped:sec:allorders:theorem}
+
+The fixed-point proof announced above has been carried out (machine-checked end to end
+at truncation $K=4$ by a companion script, listed in the script table of
+\cref{ch:finite-models}: 8/8 checks on generic
+non-$\Loo$ tensors $V_4\dots V_9$, two seeds). Three structural facts, then the
+theorem.
+
+\subparagraph{(i) The scheme-B action is a Jacobi quadratic form in the tower.} Stronger
+than sequential Gaussianity: \eqref{ped:eq:Sdrallorders} is \emph{jointly} quadratic in
+$(\Sig_2,\dots,\Sig_K)$. With $a_k:=\gs^{2k-2}/(2k)!$ its Hessian is
+block-\emph{tridiagonal} --- diagonal blocks $a_k\hat M_k$ with
+\begin{equation*}
+	\hat M_k=\tilde M_k-\tfrac{\gs}{2k+1}\,\tilde V_{2k+1}(\cdot,\cdot,\Psi),\qquad
+	L_k(\Psi)=\tilde V_{2k}(\cdot,\cdot,\Psi),
+\end{equation*}
+(the odd couplings are kinetic dressings, never sources, because their third slot is
+$\Psi$); off-diagonal blocks the source maps $L_k(\Psi)$ (partition
+$k+(k{-}1)+1$); and the only inhomogeneity is the $k=2$ source
+$\tilde u_2=V_4(\cdot,\Psi^{\otimes2})$. Eliminating the tower is therefore \emph{one}
+exact Gaussian, and the on-shell value is the $(2,2)$ resolvent block of a Jacobi
+operator --- an operator continued fraction:
+\begin{equation}
+	\boxed{\;
+	\begin{aligned}
+	S(\text{saddles})
+	&= \tfrac12V_2+\tfrac{\gs}{3!}V_3
+	+ \frac{\gs^2}{4!}\,\tilde u_2^{\top}\hat H_2(\gs,\Psi)^{-1}\tilde u_2,\\
+	\hat H_k &= \hat M_k - \gs^2\,\tfrac{(2k)!}{(2k+2)!}\,
+	L_{k+1}^{\top}\hat H_{k+1}^{-1}L_{k+1}.
+	\end{aligned}
+	\;}
+	\label{ped:eq:contfrac}
+\end{equation}
+The $k=2$ instance of the recursion is the dressed operator~\eqref{p:eq:hs7:dressed-2} of
+the septic order (the factor $(2k)!/(2k+2)!$ gives its $\gs^2/30$ at $k=2$, then
+$\gs^2/56$ at $k=3$). Closure
+\eqref{p:eq:all:closure} becomes the statement that the \emph{full} classical effective
+action is the value of a single Gaussian in $\Sig_2$ with the continued-fraction
+kernel.
+
+\subparagraph{(ii) Telescoping contact lemma.} Level-$k$ data first enter the
+$\gs$-expansion of \eqref{ped:eq:contfrac} at order $\gs^{2k-2}$ (each rung of the
+fraction costs $\gs^2$), and at the two leading orders $\gs^{2k-2},\gs^{2k-1}$ they
+enter \emph{only through the Veronese diagonals} $\tilde V_{2k}(\Psi^{2k})$,
+$\tilde V_{2k+1}(\Psi^{2k+1})$, linearly, with coefficients exactly $1/(2k)!$ and
+$1/(2k+1)!$. Two ingredients: the collapse identity $\tilde u_j(P_{j-1})=\tilde M_j
+P_j$ pins every flank of the insertion to the Veronese at leading order (it holds
+automatically whenever kinetic and source descend from one parent form --- block
+composites like $\Phi^\top V_4^{-1}\Phi$ and fully symmetric polarizations equally);
+and the rung prefactors telescope,
+$\tfrac1{4!}\cdot\tfrac{4!}{6!}\tfrac{6!}{8!}\cdots\tfrac{(2k-2)!}{(2k)!}
+=\tfrac1{(2k)!}$. (Machine form: perturbing the level-4 parent $T_8$ by
+$\epsilon\,a^{\otimes8}$ shifts the $\gs^6$ coefficient by exactly
+$\epsilon\,(a\!\cdot\!\Psi)^8/8!$ and leaves the lower coefficients bit-identical.)
+
+\subparagraph{(iii) Theorem (all-orders closure).} Let the $V_n$ be arbitrary symmetric
+tensors with the nested kernels $\hat H_k(\gs,\Psi)$ invertible near $\gs=0$ (the
+all-orders auxiliarity hypothesis; for the string vertices, the analytic properties of
+the nested kernels are not addressed here). Define
+$T_4=V_4$, $T_5=V_5$ and recursively
+\begin{equation}
+	T_n := -\,n!\,\mathrm{Pol}\big(A_{n-2}\big),\qquad
+	A_{n-2}(\Psi) := [\gs^{n-2}]\big(S_{<n}(\text{saddles})-S_{\Loo}\big),
+	\label{ped:eq:diagrec}
+\end{equation}
+where $S_{<n}$ is the tower built from $T_4,\dots,T_{n-1}$ and $\mathrm{Pol}$ is
+polarization ($A_{n-2}$ is a homogeneous degree-$n$ polynomial in $\Psi$, by the
+scaling $\Psi\to t\Psi$, $\Sig_k\to t^k\Sig_k$, $\gs\to\gs/t$ under which every term
+of the action scales as $t^2$ --- so a symmetric tensor with that diagonal always
+exists; the geometric $V_n$ reappears through $\mathrm{Pol}$, i.e.\
+$T_n=V_n-n!\,\mathrm{Pol}(\text{feedback})$, the running rule \eqref{ped:eq:runningV}
+verbatim). Then \eqref{ped:eq:Sdrallorders} with these kernels satisfies
+\eqref{p:eq:all:closure} \emph{as a formal power series in $\gs$}, and at every finite
+truncation $K$ the identity is exact-rational, matched through $O(\gs^{2K-1})$ with
+$O(\gs^{2K})$ remainder (the first unmatched order is the absent level $K+1$'s first
+entry $\gs^{2(K+1)-2}=\gs^{2K}$; at $K=4$ this is the machine-checked slope-$8$
+residual).
+Moreover: the diagonals $d_n=T_n(\Psi^n)$ are \emph{forced} (linear response
+$\mathrm{diag}/n!$, by (ii)); the recursion is triangular (order $n$ never disturbs
+orders $<n$); and everything off-diagonal is presentation freedom that feeds forward
+into the higher $A_m$ and is re-absorbed by the recursion --- the canonical
+(block-composite, as at the sextic and septic orders) and fully-polarized towers both
+close, with the same forced $d_6$ but different tensors and hence different forced
+$d_7$. \emph{Proof:} (i) + (ii) + induction on $n$. All geometric vertices enter the cubic
+action only through the forced Veronese diagonals; the running rule (\cref{ped:eq:runningV}) is now a theorem.
+
+\subparagraph{(iv) Gauge at all orders.} Block-Cholesky off-shell: with the conditional
+deviations $Y_k:=\Sig_k-\hat H_k^{-1}L_k\Sig_{k-1}$ ($Y_2=\Sig_2-\hat
+H_2^{-1}\tilde u_2$),
+\begin{equation}
+	S = S(\text{saddles})+\sum_{k\ge2}(-a_k)\,\hat H_k(Y_k,Y_k)
+	\quad\text{exactly},\qquad
+	\delta Y_k = -\tfrac12\,\hat H_k^{-1}(\delta\hat H_k)\,Y_k,
+	\label{ped:eq:dYall}
+\end{equation}
+and with these rotations $\delta S=\delta[S(\text{saddles})]$ holds exactly off-shell
+at every truncation (machine: $9\times10^{-16}$; dropping any one rotation leaves
+exactly $-a_kY_k^\top(\delta\hat H_k)Y_k$). Homogeneous, no independent parameter at
+any level: the pattern found at the quartic to septic orders is a theorem for the whole
+tower --- the auxiliary sector is saddle-tracking plus contractible kernel rotations, and
+one expects it to be in the BV class of the homogeneous auxiliary-rotation law
+(\cref{ch:gauge-bv}) at every $k$, which is not proved.
+
+\subparagraph{(v) The $O(\gs^6)$ instance, settled en passant.} The machine run executes
+\eqref{ped:eq:diagrec} for $n=6\dots9$: the $\Sig_4$ pair $\{(4,4),(4,3,1)\}$ closes
+orders $\gs^6$ \emph{and} $\gs^7$ with forced diagonals (residual log-slope $8.02$);
+the source $\tilde u_4(\Sig_3)$ is forced (zeroing it leaves exactly the $A_6$
+deficit) and \emph{uses} $\Sig_3$
+($\partial\Sig_4^*/\partial\Sig_3=\hat H_4^{-1}L_4\neq0$). The tower rule
+$\Sig_k\leftrightarrow(\tilde V_{2k},\tilde V_{2k+1})$ holds at $k=4$ and, by the
+theorem, at every $k$. What the theorem does \emph{not} cover: the free-partition
+conjecture for $(3,3,2)$-type couplings at $n\ge8$ (they break the Jacobi form ---
+non-Gaussian shape; expected free by the pattern of the septic order, unchecked), the
+convergence in $\gs$ of the infinite continued fraction (the statement is order-by-order),
+and the CFT analytics of the nested $\hat H_k$ chain (now one condition per level).
+

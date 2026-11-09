@@ -1,0 +1,291 @@
+\subsubsection{Octic order, \texorpdfstring{$O(\gs^6)$}{O(gs**6)}}
+\label{p:sec:hs:octic}
+
+The octic order repeats the sextic one with every field moved one order up the tower.
+We introduce each auxiliary field by completing a square at the even order $\gs^{2 k - 2}$, as explained in \cref{p:sec:hs:septic}, and we reach $k = 4$ here.
+We introduce the $4$-string field, write the dressed operators of the three auxiliary fields at this order, and show that they depend on the string field only through $\gs \Psi$.
+We write the equations of motion of all the fields, and then state the condition on the kernels under which the auxiliary fields can still be taken on quotients, and what goes wrong when it fails.
+The matching follows the rule~\eqref{p:eq:hs7:deficit} without change, and we state it at all orders in the next section.
+
+\subparagraph{The $4$-string field.}
+
+The remainder of order $\gs^6$ of~\eqref{p:eq:hs7:eliminate} collects the exchange diagrams of $\Sigma_2$ and $\Sigma_3$ between the quintic, sextic and septic vertices, among them the $\Sigma_3$ exchange inside $\kin{2}{\Psi}{4}$, which did not contribute at order $\gs^5$.
+Its diagonal value fixes the reduced octic vertex by~\eqref{p:eq:hs7:deficit} with $n = 8$:
+\begin{equation}
+  \label{p:eq:hs8:diagonal}
+  \dvertex{8}(\Psi^8)
+    = \vertex{8}(\Psi^8) - 8! \, \big[ \gs^6 \big] \, \caction[\le 7] \big|_{\Sigma_3 = \Sigma_3^{(5)*}, \, \Sigma_2 = \Sigma_2^{(5)*}}.
+\end{equation}
+The right-hand side is an octic polynomial in $\Psi$.
+Any symmetric form with this diagonal value closes the order.
+We have not written out the form built from the diagrams themselves, with the strands of each slot inside one constituent vertex as in~\eqref{p:eq:hs7:dressed-vertex}.
+  In the finite-dimensional model, we use the polarization of the diagonal.
+Only this diagonal value enters the closure of the order, and \cref{p:sec:all-orders} shows that the same holds at every order.
+A $4$-string field fills half of the eight slots.
+We read $\dvertex{8}$ as a symmetric bilinear form on $\Hn{4}$, write the octic term with $\dvertex{8}(\Psi \otimes \Sigma_3, \Psi \otimes \Sigma_3)$, and complete its square with a $4$-string field:
+\begin{equation}
+  \label{p:eq:hs8:DeltaS8}
+  \begin{gathered}
+    \Delta S_8
+      := - \frac{\gs^6}{8!} \, \dvertex{8}(\Sigma_4 - \Psi \otimes \Sigma_3, \Sigma_4 - \Psi \otimes \Sigma_3),
+    \\
+    \Sigma_4 \in \Hn{4},
+    \qquad
+    \Ngh(\Sigma_4)
+      = 8.
+  \end{gathered}
+\end{equation}
+We use the state $\Psi \otimes \Sigma_3$ instead of $\Psi^4$ for the reason given at the sextic order: the cross term of the square must be cubic in the fields, and $\Sigma_3 = \Psi^3 + O(\gs)$ on-shell guarantees that only $\dvertex{8}(\Psi^8)$ is produced at this order.
+The state $\Sigma_2 \otimes \Sigma_2$ would also give a cubic cross term, but the source of $\Sigma_4$ would then be quadratic in $\Sigma_2$ rather than linear in the field just below it, and the action would leave the triangular form of \cref{p:sec:hs:septic}.
+The octic term of the cubic action is then:
+\begin{equation}
+  \label{p:eq:hs8:S8tilde}
+  \begin{aligned}
+    \caction[8]
+      &
+      := \frac{\gs^6}{8!} \, \dvertex{8}(\Psi \otimes \Sigma_3, \Psi \otimes \Sigma_3) + \Delta S_8
+    \\ &
+      = - \frac{\gs^6}{8!} \, \dvertex{8}(\Sigma_4^2)
+        + \frac{2 \gs^6}{8!} \, \dvertex{8}(\Psi \otimes \Sigma_3, \Sigma_4),
+    \qquad
+    \caction[\le 8]
+      := \caction[\le 7] + \caction[8].
+  \end{aligned}
+\end{equation}
+It contains a quadratic term for $\Sigma_4$ and a cubic coupling of $\Sigma_4$, $\Sigma_3$ and $\Psi$, whose slots split the eight strands as $8 = 4 + 3 + 1$.
+As at the sextic order, we write the form through the $4$-string pairing,
+\begin{equation}
+  \label{p:eq:hs8:kinetic}
+  \dvertex{8}(A, B)
+    =: \pair[4]{A}{\kin{4}{}{6}(B)},
+  \qquad
+  A, B \in \Hn{4},
+\end{equation}
+which defines the kinetic operator $\kin{4}{}{6} \colon \Hn{4} \to \Hn{4}$ of the $4$-string field, symmetric with respect to the $4$-string pairing.
+This operator does not depend on the fields, since the odd vertex $\dvertex{9}$ which dresses it is of order $\gs^7$ and no higher-order field has been introduced whose exchange could dress it.
+
+We now write the equations of motion of all four fields at this order, to show their pattern and the couplings between the fields.
+  As at the previous orders, the equation of each auxiliary field is normalized with coefficient one on its source, that is, up to the overall normalization of the term in the action:
+  \begin{equation}
+  \label{p:eq:hs8:eom-normalization}
+  \delta \caction[\le 8]
+    = \pair{\delta \Psi}{\mathcal E^{(6)}_\Psi}
+      + \sum_{k = 2}^{4} \frac{2 \gs^{2 k - 2}}{(2 k)!} \, \pair[k]{\delta \Sigma_k}{\mathcal E^{(6)}_{\Sigma_k}},
+\end{equation}
+  which is the normalization of~\eqref{p:eq:hs4:eom}, \eqref{p:eq:hs5:eom}, \eqref{p:eq:hs6:eom} and~\eqref{p:eq:hs7:saddle-3}.
+  The equations of motion of $\caction[\le 8]$ are $\mathcal E^{(6)}_X = 0$ for $X = \Psi, \Sigma_2, \Sigma_3, \Sigma_4$, with
+  \begin{subequations}
+  \label{p:eq:hs8:eom}
+  \begin{align}
+    \label{p:eq:hs8:eom-psi}
+    \mathcal E^{(6)}_\Psi
+      &
+      := Q_B \Psi
+        + \frac{\gs}{2} \, \ell_2(\Psi^2)
+        + \frac{\gs^2}{3!} \, \ell_3(\Psi, \Sigma_2)
+        + \frac{\gs^3}{5!} \, \ell_4(\Sigma_2^2)
+        + \frac{2 \gs^4}{6!} \, \dvertex{6}(\, \cdot \, \otimes \Sigma_2, \Sigma_3)
+    \notag
+    \\ &
+      \quad
+        + \frac{\gs^5}{7!} \, \dvertex{7}(\Sigma_3, \Sigma_3, \, \cdot \,)
+        + \frac{2 \gs^6}{8!} \, \dvertex{8}(\, \cdot \, \otimes \Sigma_3, \Sigma_4),
+    \\
+    \label{p:eq:hs8:eom-sigma2}
+    \mathcal E^{(6)}_{\Sigma_2}
+      &
+      := \sprod{2}{2}(\Psi^2)
+        - \sprod{2}{2}(\Sigma_2)
+        + \frac{\gs}{5} \, \sprod{3}{2}(\Psi, \Sigma_2)
+        + \frac{\gs^2}{30} \, \dvertex{6}(\Psi \otimes \, \cdot \,, \Sigma_3),
+    \\
+    \label{p:eq:hs8:eom-sigma3}
+    \mathcal E^{(6)}_{\Sigma_3}
+      &
+      := \wprod{3}{3}(\Psi \otimes \Sigma_2)
+        - \wprod{3}{3}(\Sigma_3)
+        + \frac{\gs}{7} \, \dvertex{7}(\, \cdot \,, \Sigma_3, \Psi)
+        + \frac{\gs^2}{56} \, \dvertex{8}(\Psi \otimes \, \cdot \,, \Sigma_4),
+    \\
+    \label{p:eq:hs8:saddle-4}
+    \mathcal E^{(6)}_{\Sigma_4}
+      &
+      := \kin{4}{}{6}(\Psi \otimes \Sigma_3)
+        - \kin{4}{}{6}(\Sigma_4),
+  \end{align}
+\end{subequations}
+  where the dot denotes the state paired with the open slot, as in~\eqref{p:eq:hs6:eom}.
+  Each term is the variation of one term of the action.
+  In the equation of $\Psi$ these are, in order, the kinetic term and the cubic vertex, the quartic source, the quintic coupling, the sextic source, the septic coupling and the octic source.
+  In the equation of each auxiliary field they are its source, its kinetic term, its odd coupling to $\Psi$, and the source of the next field, varied with respect to $\Sigma_k$ rather than to that field.
+  The equations of the auxiliary fields are linear in the tower and tridiagonal, which is the triangular form of \cref{p:sec:hs:septic} read on the equations: the equation of $\Sigma_k$ involves the lower-order field $\Sigma_{k - 1}$ through its source, $\Sigma_k$ itself through its kinetic term and its odd coupling, and the higher-order field $\Sigma_{k + 1}$ only through one coupling, which comes with $\gs^2$.
+  The equation of $\Psi$ is the only non-linear one, and the only one that involves every field.
+
+We solve the equations from the top.
+  The last one has the solution
+  \begin{equation}
+  \label{p:eq:hs8:solution-4}
+  \Sigma_4^{(6)*}
+    = \Psi \otimes \Sigma_3
+\end{equation}
+  on the quotient $\Hn{4} / \ker \kin{4}{}{6}$, where the $4$-string field lives for the reason given at~\eqref{p:eq:hs6:quotient}: a kernel direction has zero action and couples to nothing at this order.
+  Once substituted in the equation of $\Sigma_3$, the last term becomes the $\gs^2 / 56$ term of the operator~\eqref{p:eq:hs8:dressed-3} below, and the equation of $\Sigma_2$ then receives the operator~\eqref{p:eq:hs8:dressed-2}.
+  The elimination from the top is thus the Gaussian elimination of a tridiagonal system, with one inversion per field.
+  The solution depends on $\Sigma_3$, and $\Sigma_4 = \Psi^4 + O(\gs)$ once the lower-order fields are on-shell.
+  We write the equations of motion at every order, with sums, in~\eqref{p:eq:all:eom} of \cref{p:sec:all-orders}.
+Since $\Delta S_8$ vanishes on this solution, eliminating $\Sigma_4$ gives back the octic term exactly in $\gs$ and for any $\Sigma_3$:
+\begin{equation}
+\caction[\le 8] \big|_{\Sigma_4 = \Sigma_4^{(6)*}}
+  = \caction[\le 7]
+    + \frac{\gs^6}{8!} \, \dvertex{8}(\Psi \otimes \Sigma_3, \Psi \otimes \Sigma_3).
+\end{equation}
+The induced action is still quadratic in terms $\Sigma_3$.
+At order $\gs^6$ only the diagonal value $\dvertex{8}(\Psi^8)$ of the octic term enters, by stationarity of $\caction[\le 7]$ at its own solution, and~\eqref{p:eq:hs8:diagonal} gives:
+\begin{equation}
+  \label{p:eq:hs8:eliminate}
+  \caction[\le 8] \big|_{\text{solution}}
+    = S_{\le 8} + O(\gs^7).
+\end{equation}
+The octic order closes, and its remainder of order $\gs^7$ is absorbed by the odd vertex $\dvertex{9}$ through the coupling $\dvertex{9}(\Sigma_4, \Sigma_4, \Psi)$, which dresses $\kin{4}{}{6}$ as $\dvertex{7}$ dressed $\wprod{3}{3}$ in~\eqref{p:eq:hs7:dressed-3}.
+The pair $(\dvertex{8}, \dvertex{9})$ is for $\Sigma_4$ what $(\dvertex{6}, \dvertex{7})$ was for $\Sigma_3$, and we checked the closure of both orders in the finite-dimensional model, with $\dvertex{8}$ and $\dvertex{9}$ the polarizations of their diagonal values.
+
+\subparagraph{The dressed kinetic operators.}
+
+Once $\Sigma_4$ is eliminated, the quadratic term in $\Sigma_3$ of the octic term adds to~\eqref{p:eq:hs7:dressed-3}.
+For $A, B \in \Hn{3}$, the dressed operator of $\Sigma_3$ at this order is:
+\begin{equation}
+  \label{p:eq:hs8:dressed-3}
+  \pair[3]{A}{\kin{3}{\Psi}{6}(B)}
+    := \pair[3]{A}{\kin{3}{\Psi}{5}(B)}
+      - \frac{\gs^2}{56} \, \pair[4]{\kin{4}{}{6}(\Psi \otimes A)}{\big( \kin{4}{}{6} \big)^{-1} \circ \kin{4}{}{6}(\Psi \otimes B)}.
+\end{equation}
+The last term is the exchange of $\Sigma_4$ between two octic couplings.
+At this order the $\Sigma_4$ line carries the bare operator, and $\dvertex{9}$ dresses it at the next order.
+Since $(\kin{4}{}{6})^{-1} \circ \kin{4}{}{6}$ is the identity on the quotient, the term is at this order the contact term $- \tfrac{\gs^2}{56} \dvertex{8}(\Psi \otimes A, \Psi \otimes B)$.
+We keep the exchange form because at the next order the line carries the operator dressed by $\dvertex{9}$, and the inverse no longer cancels.
+The dressed operator of $\Sigma_2$ is~\eqref{p:eq:hs7:dressed-2} with $\kin{3}{\Psi}{5}$ replaced by $\kin{3}{\Psi}{6}$ inside the $\Sigma_3$ exchange, for $A, B \in \Hn{2}$:
+\begin{equation}
+  \label{p:eq:hs8:dressed-2}
+  \begin{aligned}
+    \pair[2]{A}{\kin{2}{\Psi}{6}(B)}
+      &
+      := \vertex{4}(A, B)
+        - \frac{\gs}{5} \, \vertex{5}(A, B, \Psi)
+      \\ &
+      \quad
+      - \frac{\gs^2}{30} \, \pair[3]{\wprod{3}{3}(\Psi \otimes A)}{\big( \kin{3}{\Psi}{6} \big)^{-1} \circ \wprod{3}{3}(\Psi \otimes B)}.
+  \end{aligned}
+\end{equation}
+The three operators are nested: each one contains the inverse of the next one up the tower, and the chain stops at $\kin{4}{}{6}$, which is bare.
+
+
+Every occurrence of $\Psi$ in these operators comes with one power of $\gs$.
+The odd vertex enters as $\gs \, \dvertex{2 k + 1}(\, \cdot \,, \cdot \,, \Psi)$, and the source of the next field, linear in $\Psi$, enters the exchange term twice, with $\gs^2$.
+The dressed kinetic operators are therefore functions of $\gs \Psi$ alone.
+Their expansion in that variable starts with the bare operator, and the exchange term reduces at this order to the reduced even vertex as in~\eqref{p:eq:hs6:dressed-2},
+\begin{equation}
+  \label{p:eq:hs8:scaling}
+  \begin{aligned}
+    \pair[k]{A}{\kin{k}{\Psi}{n}(B)}
+      &
+      = \pair[k]{A}{\kin{k}{}{2 k - 2}(B)}
+        - \frac{\gs}{2 k + 1} \, \dvertex{2 k + 1}(A, B, \Psi)
+      \\ &
+      \quad
+      - \frac{\gs^2}{(2 k + 1) (2 k + 2)} \, \dvertex{2 k + 2}(\Psi \otimes A, \Psi \otimes B)
+        + O(\gs^3 \Psi^3),
+  \end{aligned}
+\end{equation}
+for $k = 2, 3$ at this order and $n \ge 2 k$, with $\dvertex{5} := \vertex{5}$ and $\kin{2}{}{2} := \sprod{2}{2}$.
+
+The dependence through $\gs \Psi$ alone holds at every order.
+The reduction to the bare operator at $\gs \Psi = 0$ holds as soon as the bare operators of the higher-order fields are invertible on their quotients at generic momentum and the condition~\eqref{p:eq:hs8:kernel-condition} below holds: the inverse of $\kin{k + 1}{\Psi}{n}$ is then analytic at $\gs \Psi = 0$.
+The operator introduced with the square at order $\gs^{2 k - 2}$ is thus the value at $\gs = 0$ of the dressed operator of $\Sigma_k$ at every later order, and the background enters through $\gs \Psi$ only.
+This also turns the invertibility assumption on the dressed operators into a condition on the bare ones.
+At a fixed level truncation, with the momenta fixed or discretized, and under the same condition, a dressed operator whose bare value is invertible on the quotient stays so for $\gs \Psi$ in a neighborhood of zero.
+
+\subparagraph{The condition on the nested kernels.}
+
+The auxiliary fields live on quotients, $\Sigma_k$ on $\Hn{k} / \ker \kin{k}{}{2 k - 2}$, and the action must be a function on them.
+At the quintic and septic orders this gave a condition on the odd vertex, \eqref{p:eq:hs5:kernel-condition} and~\eqref{p:eq:hs7:kernel-condition}.
+At the sextic order it gave~\eqref{p:eq:hs6:kernel-condition}, a condition on the source of the next field.
+Besides its kinetic term, a kernel direction $N_k \in \ker \kin{k}{}{2 k - 2}$ appears in three terms of the action: the odd coupling, the source of $\Sigma_{k + 1}$, and its own source $\pair[k]{\Sigma_k}{\kin{k}{}{2 k - 2}(\Psi \otimes \Sigma_{k - 1})}$.
+The last one pairs to zero with $N_k$ by the symmetry of $\kin{k}{}{2 k - 2}$, and the action descends to the quotients if the other two vanish on every kernel direction:
+\begin{equation}
+  \label{p:eq:hs8:kernel-condition}
+  \begin{aligned}
+    &
+    \forall N_k \in \ker \kin{k}{}{2 k - 2}, \;
+    \forall A \in \Hn{k}, \;
+    \forall B \in \Hs:
+    \\ &
+    \qquad
+    \dvertex{2 k + 1}(N_k, A, B)
+      = 0,
+    \qquad
+    \kin{k + 1}{}{2 k}(B \otimes N_k)
+      = 0,
+  \end{aligned}
+\end{equation}
+for every $k \ge 2$, with the conventions of~\eqref{p:eq:hs8:scaling} at $k = 2$.
+The first clause is the condition of the odd orders, and the second that of the even ones.
+At $k = 2$, the second clause is~\eqref{p:eq:hs6:kernel-condition}, since the exchange part of $\dvertex{6}$ vanishes on the kernel by the first clause.
+The second clause says that a null direction of one level, tensored with any string field, is a null direction of the next, to which the condition applies in its turn: null directions propagate upward through the whole tower.
+Equivalently, every null vector of the kinetic operator of $\Sigma_k$ must be a joint null vector of every vertex in which $\Sigma_k$ appears.
+Here, as for $\sprod{2}{2}$ and for the kinetic operator of $\Sigma_3$ in \cref{p:sec:hs:sextic}, a kernel is meant in the square-integrable sense: at fixed total momentum, its elements are square-integrable functions of the relative momenta.
+Through the second clause, a null vector of $\sprod{2}{2}$ at a single total momentum gives every higher operator null vectors at every total momentum, but these are plane waves, sharp in one relative momentum, and are not counted in their kernels, so that the condition does not by itself exclude zeros of $\sprod{2}{2}$, even when the higher operators have no kernel.
+
+This is the standing assumption of \cref{p:sec:hs:septic}, extended to the whole tower.
+At $k = 2$ it is a condition on the quintic and sextic vertices themselves.
+For $k \ge 3$ it is in part a condition on the choice of the reduced vertices, since each is defined up to terms vanishing on the diagonal.
+  A choice satisfying it exists, however, only if the diagonal values fixed by the matching vanish on the kernel directions.
+The condition holds trivially when the kinetic operators have no kernel.
+
+The kernels in~\eqref{p:eq:hs8:kernel-condition} are those of the bare operators, while the operators that are inverted depend on the background.
+The quotient prescription is meaningful only if $\ker \kin{k}{}{2 k - 2}$ stays in the radical of $\kin{k}{\Psi}{n}$ for every $\Psi$ and every small $\gs$, so that every dressed operator descends to the same quotient.
+Read order by order in~\eqref{p:eq:hs8:scaling}, this is condition~\eqref{p:eq:hs8:kernel-condition}: the first clause makes the term of order $\gs$ vanish on the kernel, and the second the exchange term.
+Conversely, the second clause is required as soon as $\kin{k + 1}{}{2 k}$ is definite on its quotient.
+When the condition fails, a kernel direction of the bare operator is lifted, at order $\gs$ when the first clause fails and at order $\gs^2$ when the second does.
+The inverse of $\kin{k}{\Psi}{n}$ then has a pole at $\gs = 0$, and the quotient is not defined for $\gs \neq 0$.
+A second requirement, independent of the first, is that the quotients and the inverses have a limit as the mass level of the truncation grows, at generic momentum.
+We assume it for every $\kin{k}{}{2 k - 2}$, in the weak form we assumed for the quartic form: the kernels at successive levels need not be nested, and only the quotients and the inverses are required to converge.
+
+In the construction used here, a failure of the condition at one order of the tower does not show in the dressed operator of the field below it at $\gs = 0$, for poles of order at most two, as we now check.
+Suppose that a single null vector $N$ of $\kin{k + 1}{}{2 k}$, the operators of the fields above $\Sigma_{k + 1}$ being regular, violates~\eqref{p:eq:hs8:kernel-condition} and is not quotiented.
+Restricted to the line of $N$ after eliminating the complement, $\kin{k + 1}{\Psi}{n}$ is $\gs \alpha_1 + \gs^2 \alpha_2 + O(\gs^3)$, with $\alpha_1 = - \tfrac{1}{2 k + 3} \dvertex{2 k + 3}(N, N, \Psi)$.
+When $\alpha_1 = 0$, $\alpha_2$ is the order-$\gs^2$ entry along $N$ corrected by the order-$\gs$ mixing of $N$ with the complement, a quadratic form in $\Psi$.
+The inverse of the restricted operator has a pole at $\gs = 0$, simple if $\alpha_1 \neq 0$, double if $\alpha_1$ vanishes identically and $\alpha_2$ does not.
+
+To see the effect of the pole, we consider a variant of the construction in which the kernel direction couples to the source of $\Sigma_{k + 1}$, through a form $\ell$ on $\Hn{k}$ linear in $\Psi$.
+The exchange term in the operator of $\Sigma_k$ then picks up the pole.
+For a double pole the value at $\gs = 0$ of the dressed operator of $\Sigma_k$ is then shifted from the bare one by $- \ell(A) \, \ell(B) / ((2 k + 1) (2 k + 2) \, \alpha_2)$.
+For a simple pole the same term, with $\alpha_1$ in place of $\alpha_2$, enters at order $\gs$.
+The shift is homogeneous of degree zero in $\Psi$, so that the operator has a direction-dependent limit at $\gs \Psi = 0$, which the reduction to the bare operator misses.
+In the construction used here the source of $\Sigma_{k + 1}$ is $\kin{k + 1}{}{2 k}(\Psi \otimes \Sigma_k)$, and $\ell$ vanishes by the symmetry of $\kin{k + 1}{}{2 k}$: the value at $\gs = 0$ is protected for poles of order at most two.
+A failed order of the tower is then invisible in the dressed operators at $\gs = 0$.
+Hence the invertibility of the quartic form on its quotient never certifies the fields above $\Sigma_2$, and the failure shows up in the eliminated action.
+
+\subparagraph{Failure of the kernel condition.}
+
+Let a kernel direction $N$ of $\kin{k}{}{2 k - 2}$ violate the first clause of~\eqref{p:eq:hs8:kernel-condition} and satisfy the second, the kinetic operators of the lower-order fields being invertible, with no kernel.
+That direction has no kinetic term at order $\gs^{2 k - 2}$ and acquires a quadratic term from the background at the next order, $\gs \, \dvertex{2 k + 1}(N, N, \Psi)$ up to normalization.
+Integrating it out divides by this field-dependent mass, and the eliminated action acquires a term rational in $\Psi$,
+\begin{equation}
+  \label{p:eq:hs8:rational}
+  \Delta S \big|_{\gs^{2 k - 1}}
+    = - \frac{\gs^{2 k - 1}}{(2 k + 1)!} \, \frac{\dvertex{2 k + 1}(N, \Psi^k, \Psi)^2}{\dvertex{2 k + 1}(N, N, \Psi)},
+\end{equation}
+when the denominator does not vanish identically.
+When it does but $\dvertex{2 k + 1}(N, \, \cdot \,, \Psi)$ does not, the pole is double and the term appears one order earlier, at $\gs^{2 k - 2}$, with a quadratic form in $\Psi$ in the denominator.
+The case $k = 3$ is the term of \cref{p:sec:hs:septic}, which we checked in the finite-dimensional model.
+The general $k$ is argued by the same computation, the shift of the dressed operator of $\Sigma_{k - 1}$ entering the value through its diagonal, and we have not checked it beyond $k = 3$.
+The ratio has the degree $2 k + 1$ of its order but is not a polynomial for generic vertices, and no vertex, elementary or reduced, can absorb it: the matching~\eqref{p:eq:hs7:deficit} adjusts a polynomial diagonal.
+The condition~\eqref{p:eq:hs8:kernel-condition} is thus what makes the auxiliary tower reproduce a polynomial action.
+
+When the condition holds and the bare operators are invertible on their quotients at generic momentum, the elimination goes through at every truncation.
+The value of the action is then a continued fraction in the nested operators, which \cref{p:sec:all-orders} states for the whole tower.
+When the condition fails for the actual vertices, the auxiliary field concerned cannot be taken on a quotient, and we use instead the multiplier form~\eqref{p:eq:all:multiplier-action} of the action.
+Its fields are constrained to be $\Psi^k$ by multipliers, including their kernel components, and nothing is inverted, so that no kernel condition arises, but the exchange structure is lost.
+The hybrid of \cref{p:sec:hs:sextic:kernel}, which constrains the kernel directions only, keeps the exchange structure at the sextic order, where its reduced vertex depends on the complement; we have not carried it beyond that order.
+Which of the two forms applies to the string vertices depends on the kernels of the operators $\kin{k}{}{2 k - 2}$.
+We do not compute them here, but level-truncated data settle them mass level by mass level.

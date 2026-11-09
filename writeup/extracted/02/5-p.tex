@@ -1,0 +1,523 @@
+\subsubsection{Quintic order, \texorpdfstring{$O(\gs^3)$}{O(gs**3)}}
+\label{p:sec:hs:quintic}
+
+\paragraph{Quintic coupling and equations of motion}
+
+\subparagraph{The quintic coupling.}
+
+The next term of the action is the quintic term:
+\begin{equation}
+  \label{p:eq:hs5:S5}
+  S_5
+    = \frac{\gs^3}{5!} \, \vertex{5}(\Psi^5),
+\end{equation}
+where the vertex $\vertex{5}$ has five slots.
+The question is how to describe this vertex in terms of auxiliary fields.
+We cannot use the same trick as for the quartic order, because it requires an exact square.
+
+Given the form of the saddle-point solution \eqref{p:eq:hs4:saddle} for $\Sigma_2$, we can replace $\Psi^4$ by $\Sigma_2^2$ to turn the quintic term into a cubic coupling.
+Two auxiliary fields $\Sigma_2$ fill four of the five slots and the string field fills the last one:
+\begin{equation}
+  \label{p:eq:hs5:S5tilde}
+  \caction[5]
+    := \frac{\gs^3}{5!} \, \vertex{5}(\Sigma_2^2, \Psi),
+  \qquad
+  \caction[\le 5]
+    := \caction[\le 4] + \caction[5],
+\end{equation}
+where $\vertex{5}(\Sigma_2^2, \Psi) := \vertex{5}(\Sigma_2, \Sigma_2, \Psi)$.
+At this stage this should be treated as an ansatz: we will now check that eliminating $\Sigma_2$ gives back $S_{\le 5}$.
+Note that the partition $5 = 2 + 2 + 1$ of the five strands over three fields drawn from $\{\Sigma_2, \Psi\}$ is the only one, so no other cubic term can be built from the quintic vertex with these two fields.
+In principle we could use a $3$-string field to partition $5 = 3 + 1 + 1$, but it is not needed before the sextic order: we want to keep the field content minimal and avoid introducing fields from higher orders into lower orders.
+Such a term also appeared when decomposing the quintic term of open SFT with stubs~\cite{Erbin:2024:OpenStringStub}.
+
+Ghost number is conserved as it must: the two $\Sigma_2$ and the $\Psi$ carry $4 + 4 + 2 = 10$, the same total as $\Psi^5$.
+Since the vertex is read with two of its slots as outputs, we define the product $\sprod{3}{2} \colon \Hn{3} \to \Hn{2}$ by
+\begin{equation}
+  \label{p:eq:hs5:p32}
+  \vertex{5}(A_1, A_2, A_3, A_4, A_5)
+    =: \pair[2]{A_1 \otimes A_2}{\sprod{3}{2}(A_3, A_4, A_5)},
+\end{equation}
+as $\sprod{2}{2}$ was defined from the quartic vertex, with the $2$-string pairing on the left.
+It has ghost number zero, by the general formula~\eqref{p:eq:conv:ghost-numbers}.
+
+Since the cubic term $\caction[5]$ contains $\Sigma_2$, it modifies the equation of motion of $\Sigma_2$, whose solution is no longer $\Psi^2$.
+The terms of $\caction[\le 5]$ which contain $\Sigma_2$ are:
+\begin{equation}
+  \label{p:eq:hs5:F}
+  \caction[4] + \caction[5]
+    = - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+      + \frac{2 \gs^2}{4!} \, \vertex{4}(\Sigma_2, \Psi^2)
+      + \frac{\gs^3}{5!} \, \vertex{5}(\Sigma_2^2, \Psi),
+\end{equation}
+a quadratic form in $\Sigma_2$ with two terms, and a source term linear in $\Sigma_2$.
+The kinetic term and the cubic vertex of $\Psi$ are the same in $\caction[\le 5]$ and in $S_{\le 5}$ and drop out of every comparison.
+
+
+\subparagraph{Equations of motion.}
+
+Varying the cubic action~\eqref{p:eq:hs5:S5tilde} and writing each term through the pairing, we get:
+\begin{equation}
+  \label{p:eq:hs5:delta-S}
+  \begin{aligned}
+    \delta \caction[\le 5]
+      &
+      = \pair{\delta \Psi}{Q_B \Psi}
+        + \frac{\gs}{2} \, \pair{\delta \Psi}{\ell_2(\Psi^2)}
+        + \frac{\gs^2}{3!} \, \pair{\delta \Psi}{\ell_3(\Psi, \Sigma_2)}
+        + \frac{\gs^3}{5!} \, \pair{\delta \Psi}{\ell_4(\Sigma_2^2)}
+        \\ &
+        \quad
+        - \frac{2 \gs^2}{4!} \, \pair[2]{\delta \Sigma_2}{\sprod{2}{2}(\Sigma_2)}
+        + \frac{2 \gs^2}{4!} \, \pair[2]{\delta \Sigma_2}{\sprod{2}{2}(\Psi^2)}
+        + \frac{2 \gs^3}{5!} \, \pair[2]{\delta \Sigma_2}{\sprod{3}{2}(\Psi, \Sigma_2)}.
+  \end{aligned}
+\end{equation}
+The two new terms are the variation of~\eqref{p:eq:hs5:S5tilde} with respect to $\Psi$ and to $\Sigma_2$.
+The equations of motion are then:
+\begin{subequations}
+  \label{p:eq:hs5:eom}
+  \begin{align}
+    \label{p:eq:hs5:eom-psi}
+    \mathcal E^{(3)}_\Psi
+      &
+      := Q_B \Psi
+        + \frac{\gs}{2} \, \ell_2(\Psi^2)
+        + \frac{\gs^2}{3!} \, \ell_3(\Psi, \Sigma_2)
+        + \frac{\gs^3}{5!} \, \ell_4(\Sigma_2^2)
+      = 0,
+    \\
+    \label{p:eq:hs5:eom-sigma}
+    \mathcal E^{(3)}_{\Sigma_2}
+      &
+      := \sprod{2}{2}(\Psi^2)
+        - \sprod{2}{2}(\Sigma_2)
+        + \frac{\gs}{5} \, \sprod{3}{2}(\Psi, \Sigma_2)
+      = 0.
+  \end{align}
+\end{subequations}
+The equation for $\Sigma_2$ is still algebraic, but it no longer states that $\Sigma_2$ and $\Psi^2$ have the same image under $\sprod{2}{2}$: the quintic vertex adds a term linear in $\Sigma_2$ and in $\Psi$.
+We group this term with the quadratic form, since both are linear in $\Sigma_2$, and define the operator:
+\begin{equation}
+  \label{p:eq:hs5:dressed}
+  \kin{2}{\Psi}{3}
+    := \sprod{2}{2} - \frac{\gs}{5} \, \sprod{3}{2}(\Psi, \cdot),
+  \qquad
+  \kin{2}{\Psi}{3} \colon \Hn{2} \to \Hn{2},
+\end{equation}
+which we call the \emph{dressed kinetic operator} of $\Sigma_2$.
+The quintic vertex, with one slot filled by $\Psi$, is not a kinetic term: it dresses the kinetic operator $\sprod{2}{2}$, as interaction insertions dress a propagator.
+The superscript records that it is the operator of the action truncated at order $\gs^3$, since it receives further corrections at the next orders.
+The dressed operator is symmetric with respect to the $2$-string pairing, $\pair[2]{A}{\kin{2}{\Psi}{3}(B)} = \pair[2]{\kin{2}{\Psi}{3}(A)}{B}$, since both vertices are symmetric, and it is affine in $\Psi$.
+In terms of it, the quadratic part of~\eqref{p:eq:hs5:F} is a single form:
+\begin{equation}
+  \label{p:eq:hs5:F-dressed}
+  - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+    + \frac{\gs^3}{5!} \, \vertex{5}(\Sigma_2^2, \Psi)
+    = - \frac{\gs^2}{4!} \, \pair[2]{\Sigma_2}{\kin{2}{\Psi}{3}(\Sigma_2)}.
+\end{equation}
+The equation of motion of $\Sigma_2$ then reads:
+\begin{equation}
+  \label{p:eq:hs5:eom-sigma-dressed}
+  \mathcal E^{(3)}_{\Sigma_2}
+    = \sprod{2}{2}(\Psi^2) - \kin{2}{\Psi}{3}(\Sigma_2)
+    = 0.
+\end{equation}
+We can make an analogy with non-linear sigma models: the quadratic form of $\Sigma_2$ has a $\Psi$-dependent metric, and the field $\Psi$ enters the kinetic term of $\Sigma_2$ as a background.
+
+
+\paragraph{Saddle-point solution and induced interactions}
+
+\subparagraph{Saddle-point solution.}
+
+On the quotient, where $\sprod{2}{2}$ is injective, the dressed operator is $\sprod{2}{2}$ composed with a perturbation of the identity:
+\begin{equation}
+  \label{p:eq:hs5:dressed-factor}
+  \kin{2}{\Psi}{3}
+    = \sprod{2}{2} \circ \Big( 1 - \frac{\gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \cdot) \Big),
+\end{equation}
+provided that $\sprod{3}{2}(\Psi, \cdot)$ takes its values in the image of $\sprod{2}{2}$ and descends to the quotient.
+This is an assumption on the quintic vertex, stated precisely in~\eqref{p:eq:hs5:kernel-condition} below, where the two standing assumptions of the construction from this order on are collected.
+For small $\gs$, the inverse of the dressed operator then exists as a Neumann series:
+\begin{equation}
+  \label{p:eq:hs5:neumann}
+  \big( \kin{2}{\Psi}{3} \big)^{-1}
+    = \sum_{n \ge 0} \Big( \frac{\gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \cdot) \Big)^n \circ \sprod{2}{2}^{-1},
+\end{equation}
+which converges for $\gs$ small at fixed $\Psi$ when the composite $\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \cdot)$ is bounded on the quotient.
+Order by order in $\gs$, no invertibility condition appears beyond the one on $\sprod{2}{2}$ assumed in \cref{p:sec:hs:quartic}.
+The statements at finite $\gs$ below assume instead that $\kin{2}{\Psi}{3}$ itself is invertible on the quotient.
+The equation of motion~\eqref{p:eq:hs5:eom-sigma-dressed} then has the unique solution:
+\begin{equation}
+  \label{p:eq:hs5:saddle}
+  \Sigma_2^{(3)*}
+    := \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{2}{2}(\Psi^2)
+    = \Psi^2 + \frac{\gs}{5} \, \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}(\Psi^3),
+\end{equation}
+where the second form follows from $\sprod{2}{2}(\Psi^2) = \kin{2}{\Psi}{3}(\Psi^2) + \tfrac{\gs}{5} \, \sprod{3}{2}(\Psi, \Psi^2)$, the definition~\eqref{p:eq:hs5:dressed} applied to $\Psi^2$.
+The solution is again fixed entirely by $\Psi$ through an algebraic equation, so that $\Sigma_2$ remains an auxiliary field.
+It is no longer $\Psi^2$ but $\Psi^2$ plus corrections at all orders in $\gs$.
+The solution now contains more terms, and we could ask whether the correction of order $\gs$ spoils the matching, but this is not the case by construction.
+By stationarity of the quartic-order action at $\Psi^2$, the action is quadratic in any fluctuation around it, and the quintic term, of order $\gs^3$, changes linearly in the correction of order $\gs$, so the correction to the eliminated action starts at order $\gs^4$, as we will see below.
+
+Applying $\sprod{2}{2}^{-1}$ to~\eqref{p:eq:hs5:eom-sigma} instead gives the solution as a recursion:
+\begin{equation}
+  \label{p:eq:hs5:recursion}
+  \begin{aligned}
+    \Sigma_2^{(3)*}
+      &
+      = \Psi^2 + \frac{\gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \Sigma_2^{(3)*})
+      \\ &
+      = \quad
+        \begin{tikzpicture}[diagram]
+          \draw (0, 0.1) -- (2, 0.1) pic {ext} node[above right] {$\Psi$};
+          \draw (0, -0.1) -- (2, -0.1) pic {ext} node[below right] {$\Psi$};
+        \end{tikzpicture}
+        \quad
+        +
+        \quad
+        \begin{tikzpicture}[diagram]
+          \draw[sigma line] (0, 0.1) -- (4, 0.1) pic {ext};
+          \draw[sigma line] (0, -0.1) -- (4, -0.1) pic {ext};
+          \node[right=3pt] at (4, 0) {$\Sigma_2^{(3)}$};
+          \draw (2, 0.1) -- (2, 1.4) pic {ext} node[above=2pt] {$\Psi$};
+          \node[below=3pt] at (0.9, -0.1) {$\sprod{2}{2}^{-1}$};
+          \node[below=3pt] at (2, -0.1) {$\sprod{3}{2}$};
+        \end{tikzpicture}
+  \end{aligned}
+\end{equation}
+Iterating it, we get:
+\begin{equation}
+  \label{p:eq:hs5:saddle-series}
+  \begin{aligned}
+    \Sigma_2^{(3)*}
+      &
+      = \Psi^2
+        + \frac{\gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)
+        + \frac{\gs^2}{25} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}\Big( \Psi, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3) \Big)
+        + O(\gs^3)
+      \\ &
+      = \quad
+        \begin{tikzpicture}[diagram]
+          \draw (0, 0.1) -- (2, 0.1) pic {ext} node[above right] {$\Psi$};
+          \draw (0, -0.1) -- (2, -0.1) pic {ext} node[below right] {$\Psi$};
+        \end{tikzpicture}
+        \quad
+        +
+        \quad
+        \begin{tikzpicture}[diagram]
+          \draw[sigma line] (0, 0.1) -- (2, 0.1) pic {ext};
+          \draw[sigma line] (0, -0.1) -- (2, -0.1) pic {ext};
+          \draw (2, 0.1) -- (4, 0.1) pic {ext} node[above right] {$\Psi$};
+          \draw (2, -0.1) -- (4, -0.1) pic {ext} node[below right] {$\Psi$};
+          \draw (2, 0.1) -- (2, 1.4) pic {ext} node[above=2pt] {$\Psi$};
+          \node[below=3pt] at (0.9, -0.1) {$\sprod{2}{2}^{-1}$};
+          \node[below=3pt] at (2, -0.1) {$\sprod{3}{2}$};
+        \end{tikzpicture}
+        \quad
+        +
+        \quad
+        \cdots
+  \end{aligned}
+\end{equation}
+which is the Neumann series~\eqref{p:eq:hs5:neumann} applied to $\sprod{3}{2}(\Psi^3)$ (we did not include the numerical factors in the graphical representations).
+Each iteration inserts one more $\sprod{3}{2}(\Psi, \cdot)$ between two $\sprod{2}{2}^{-1}$, with one more factor $\gs / 5$.
+Read as Feynman diagrams, the term of order $\gs^n$ is a chain of $n$ quintic vertices joined by $\Sigma_2$ lines, each carrying one external $\Psi$.
+The chain ends on the source $\Psi^2$ at one end and on the open $\Sigma_2$ slot at the other.
+Up to the factor $12 / \gs^2$, the inverse of the dressed operator is the $\Sigma_2$ propagator in the background $\Psi$, and the chain is the geometric series of the insertions $\sprod{3}{2}(\Psi, \cdot)$ on the $\Sigma_2$ line.
+
+The field $\Sigma_2$ enters the cubic action through its fluctuation from the solution:
+\begin{equation}
+  \label{p:eq:hs5:deviation}
+  \sigma_2^{(3)}
+    := \Sigma_2 - \Sigma_2^{(3)*},
+\end{equation}
+which replaces the fluctuation $\sigma_2^{(2)} = \Sigma_2 - \Psi^2$ of the quartic order.
+The terms~\eqref{p:eq:hs5:F} can be written as a completed square in the fluctuation.
+By~\eqref{p:eq:hs5:F-dressed} and the definition~\eqref{p:eq:hs5:saddle} of the solution, $\sprod{2}{2}(\Psi^2) = \kin{2}{\Psi}{3}(\Sigma_2^{(3)*})$, we get:
+\begin{equation}
+\label{p:eq:hs5:square}
+\begin{aligned}
+  \caction[4] + \caction[5]
+    &
+    = - \frac{\gs^2}{4!} \Big[ \pair[2]{\Sigma_2}{\kin{2}{\Psi}{3}(\Sigma_2)} - 2 \, \pair[2]{\Sigma_2}{\kin{2}{\Psi}{3}(\Sigma_2^{(3)*})} \Big]
+    \\ &
+    = - \frac{\gs^2}{4!} \Big[ \pair[2]{\sigma_2^{(3)}}{\kin{2}{\Psi}{3}(\sigma_2^{(3)})} - \pair[2]{\Sigma_2^{(3)*}}{\kin{2}{\Psi}{3}(\Sigma_2^{(3)*})} \Big],
+\end{aligned}
+\end{equation}
+using the symmetry of the dressed operator.
+The first term is the quadratic form of the fluctuation and vanishes on-shell.
+The second term does not depend on $\Sigma_2$ and is the value of the action on the solution.
+
+
+\subparagraph{Induced interactions.}
+
+Expanding the second form of~\eqref{p:eq:hs5:saddle} in the constant term of~\eqref{p:eq:hs5:square}, and using $\kin{2}{\Psi}{3} \circ (\kin{2}{\Psi}{3})^{-1} = 1$ together with $\pair[2]{A}{\sprod{3}{2}(\Psi^3)} = \vertex{5}(A, \Psi^2, \Psi)$, we get:
+\begin{equation}
+  \label{p:eq:hs5:constant}
+  \pair[2]{\Sigma_2^{(3)*}}{\kin{2}{\Psi}{3}(\Sigma_2^{(3)*})}
+    = \vertex{4}(\Psi^4)
+      + \frac{\gs}{5} \, \vertex{5}(\Psi^5)
+      + \frac{\gs^2}{25} \, \vertex{5}\Big( \Psi^3, \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}(\Psi^3) \Big).
+\end{equation}
+The first two terms come from $\pair[2]{\Psi^2}{\kin{2}{\Psi}{3}(\Psi^2)} = \vertex{4}(\Psi^4) - \tfrac{\gs}{5} \vertex{5}(\Psi^5)$ and from twice the cross term $\tfrac{\gs}{5} \vertex{5}(\Psi^5)$.
+Multiplied by $\gs^2 / 4!$, the first two terms are the quartic and quintic terms of $S_{\le 5}$.
+This is how the coefficient $1 / 5!$ of~\eqref{p:eq:hs5:S5tilde} enters: the quintic term of the target is the cross term minus the quintic part of the dressed operator, and the two combine to $+ \gs / 5$ only with this coefficient.
+Putting~\eqref{p:eq:hs5:square} and~\eqref{p:eq:hs5:constant} together, and adding back the terms of $\Psi$ alone, we get:
+\begin{equation}
+  \label{p:eq:hs5:identity}
+  \caction[\le 5]
+    = S_{\le 5}
+      - \frac{\gs^2}{4!} \, \pair[2]{\sigma_2^{(3)}}{\kin{2}{\Psi}{3}(\sigma_2^{(3)})}
+      + \frac{\gs^4}{600} \, \vertex{5}\Big( \Psi^2, \Psi, \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}(\Psi^3) \Big),
+\end{equation}
+This is an identity in the fields $(\Psi, \Sigma_2)$, exact in $\gs$, and the counterpart at this order of the completed square~\eqref{p:eq:hs4:action-tilde}.
+The three terms are the target, a quadratic form in the fluctuation which vanishes on-shell, and a term independent of $\Sigma_2$.
+The last term starts at order $\gs^4$, where it is of degree six in $\Psi$.
+It is a six-point interaction induced by the exchange of $\Sigma_2$, which the Gaussian elimination produces in addition to the vertex for which the auxiliary field was introduced.
+
+On-shell, $\sigma_2^{(3)} = 0$ and the elimination of $\Sigma_2$ gives:
+\begin{equation}
+  \label{p:eq:hs5:eliminate}
+  \caction[\le 5] \big|_{\Sigma_2 = \Sigma_2^{(3)*}}
+    = S_{\le 5}
+      + \frac{\gs^4}{600} \, \vertex{5 \cdot 5}(\Psi^6)
+      + O(\gs^5),
+\end{equation}
+where we expanded the dressed inverse with~\eqref{p:eq:hs5:neumann} and introduced the composite vertex
+\begin{equation}
+  \label{p:eq:hs5:exchange-vertex}
+  \begin{aligned}
+    \vertex{5 \cdot 5}(A_1, \ldots, A_6)
+      &
+      := \vertex{5}\Big( A_1, A_2, A_3, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(A_4, A_5, A_6) \Big)
+      \\ &
+      = \pair[2]{\sprod{3}{2}(A_1, A_2, A_3)}{\sprod{2}{2}^{-1} \circ \sprod{3}{2}(A_4, A_5, A_6)},
+  \end{aligned}
+\end{equation}
+a composite six-point vertex obtained from two quintic vertices joined by a $\Sigma_2$ line.
+It is a six-linear form, graded-symmetric within each triple of arguments and under the exchange of the two triples, since $\sprod{2}{2}^{-1}$ is symmetric with respect to the $2$-string pairing as $\sprod{2}{2}$ is.
+We read it also as a trilinear form on $2$-string states: $\vertex{5 \cdot 5}(B_1, B_2, B_3)$ with $B_i \in \Hn{2}$ places $B_1$ in the first two slots, $B_3$ in the last two, and the two strands of $B_2$ in the third and sixth slots.
+The result is averaged over the three choices of the split argument, so that the form is symmetric in $(B_1, B_2, B_3)$.
+Off the diagonal, this symmetrized form is the one meant whenever $\vertex{5 \cdot 5}$ is evaluated on $2$-string states, in particular in the reduced sextic vertex of \cref{p:sec:hs:sextic}.
+On the diagonal this reading gives $\vertex{5 \cdot 5}(\Psi^2, \Psi^2, \Psi^2) = \vertex{5 \cdot 5}(\Psi^6)$.
+
+
+Once the quintic vertex is included, the auxiliary field thus induces interactions at all orders.
+A $\Sigma_2$ line collapses to a contact term when one of its ends is a source vertex, as in~\eqref{p:eq:hs4:telescoping}.
+The line of $\vertex{5 \cdot 5}$ joins two quintic vertices and in general does not collapse.
+The sextic order must therefore reproduce $\vertex{6}$ and cancel this induced term at the same time, which is the subject of \cref{p:sec:hs:sextic}.
+\Cref{p:sec:worldsheet} gives the interpretation of this exchange in terms of moduli space.
+
+This also means that this approach of using $\Sigma_2$ directly in the quintic term works only because SFT contains an infinite number of higher-order terms.
+Indeed, any term induced at higher orders can be re-packaged with the higher-order elementary vertices.
+In normal QFT, we would not be able to use the same technique, without also introducing an infinite tower of auxiliary fields.
+Another way to deal with odd powers was suggested in~\cite{Rivasseau:2010:LoopVertexExpansion,Lionni:2019:IntermediateFieldRepresentation}.
+
+
+\subparagraph{The five-point diagrams.}
+
+The identity~\eqref{p:eq:hs5:identity} guarantees that every tree amplitude of the cubic action agrees with that of $S_{\le 5}$ through order $\gs^3$, under the assumptions on the exchange stated in \cref{p:sec:hs:quartic} and the standing assumptions of this subsection.
+We show how the new diagram of the five-point amplitude reduces to the quintic vertex, since this is the first order at which the auxiliary field gives a new diagram.
+Tree amplitudes with $n$ external legs scale as $\gs^{n - 2}$, so order $\gs^3$ is the five-point tree level.
+The Feynman rules are those of \cref{p:sec:hs:quartic}, in the same convention: the propagator $\tfrac{12}{\gs^2} \sprod{2}{2}^{-1}$ and the source vertex $\tfrac{\gs^2}{3!} \vertex{4}(\Sigma_2, \Psi^2)$ of~\eqref{p:eq:hs4:feynman-rules}.
+The quintic coupling~\eqref{p:eq:hs5:S5tilde} adds a vertex with two $\Sigma_2$ legs and one $\Psi$ leg:
+\begin{equation}
+  \label{p:eq:hs5:feynman-rule}
+  \frac{2 \gs^3}{5!} \, \vertex{5}(\Sigma_2, \Sigma_2, \Psi).
+\end{equation}
+A $\Sigma_2$ line ends either on a source vertex, linear in $\Sigma_2$, or on the quintic vertex, quadratic in it.
+\begin{figure}[htp]
+  \centering
+  \begin{tikzpicture}[baseline={(0, -0.1)}]
+    \begin{feynman}
+      \vertex[dot] (v) at (0, 0) {};
+      \vertex (a) at (-1.2, 0.8) {$\Sigma_2$};
+      \vertex (b) at (-1.2, -0.8) {$\Sigma_2$};
+      \vertex (c) at (1.2, 0) {$\Psi$};
+      \diagram* {
+      (a) -- [double, double distance=1.5pt] (v) -- [double, double distance=1.5pt] (b),
+      (v) -- [plain] (c),
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \qquad \qquad
+  \begin{tikzpicture}[baseline={(0, -0.1)}]
+    \begin{feynman}
+      \vertex[dot] (s1) at (0, 0.9) {};
+      \vertex[dot] (s2) at (0, -0.9) {};
+      \vertex[dot] (q) at (1.6, 0) {};
+      \vertex (p1) at (-1, 1.5) {$\Psi$};
+      \vertex (p2) at (-1, 0.4) {$\Psi$};
+      \vertex (p3) at (-1, -0.4) {$\Psi$};
+      \vertex (p4) at (-1, -1.5) {$\Psi$};
+      \vertex (p5) at (2.7, 0) {$\Psi$};
+      \diagram* {
+      (p1) -- [plain] (s1),
+      (p2) -- [plain] (s1),
+      (p3) -- [plain] (s2),
+      (p4) -- [plain] (s2),
+      (s1) -- [double, double distance=1.5pt, edge label={$\Sigma_2$}] (q),
+      (s2) -- [double, double distance=1.5pt, edge label'={$\Sigma_2$}] (q),
+      (q) -- [plain] (p5),
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \quad $\longrightarrow$ \quad
+  \begin{tikzpicture}[baseline={(0, -0.1)}]
+    \begin{feynman}
+      \vertex[dot] (c) at (0, 0) {};
+      \vertex (l1) at (90:1.1) {$\Psi$};
+      \vertex (l2) at (162:1.1) {$\Psi$};
+      \vertex (l3) at (234:1.1) {$\Psi$};
+      \vertex (l4) at (306:1.1) {$\Psi$};
+      \vertex (l5) at (18:1.1) {$\Psi$};
+      \diagram* {
+      (c) -- [plain] (l1),
+      (c) -- [plain] (l2),
+      (c) -- [plain] (l3),
+      (c) -- [plain] (l4),
+      (c) -- [plain] (l5),
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \caption{Left, the vertex~\eqref{p:eq:hs5:feynman-rule} of the quintic coupling, with two $\Sigma_2$ legs (double lines) and one $\Psi$ leg (single line); right, the five-point exchange diagram, two source vertices joined by $\Sigma_2$ lines to the quintic vertex, and its collapse to the contact vertex $\vertex{5}$.}
+  \label{p:fig:hs5:five-point}
+\end{figure}
+
+The new diagram joins two source vertices by $\Sigma_2$ lines to the quintic vertex, whose $\Psi$ leg carries the fifth external state (\cref{p:fig:hs5:five-point}).
+Both lines collapse at once, since the propagated source is the pair state: the exchange diagram evaluates $\vertex{5}(\Psi^2, \Psi^2, \Psi)$.
+The collapse holds up to an element of $\ker \sprod{2}{2}$, on which the quintic vertex vanishes by~\eqref{p:eq:hs5:kernel-condition}.
+A quintic vertex joined to a cubic vertex by its $\Psi$ leg, or to a second quintic vertex by a $\Sigma_2$ line, has six external legs and is of order $\gs^4$.
+The second one is the diagram behind the induced term of~\eqref{p:eq:hs5:eliminate}.
+
+
+\paragraph{Gauge transformation}
+
+The transformation law~\eqref{p:eq:hs4:gauge-sigma} of $\Sigma_2$ at quartic order does not leave the action invariant at order $\gs^3$.
+
+Since the solution~\eqref{p:eq:hs5:saddle} contains new terms which depend on $\Psi$, it transforms under~\eqref{p:eq:hs1:gauge-psi}, and the transformation of $\Sigma_2$ must be modified to compensate.
+We generalize the pattern of the quartic order, where the transformation law~\eqref{p:eq:hs4:gauge-sigma} left the fluctuation invariant, and require the quadratic form $\pair[2]{\sigma_2^{(3)}}{\kin{2}{\Psi}{3}(\sigma_2^{(3)})}$ to be invariant.
+We impose the invariance of this form because it is the only term of the identity~\eqref{p:eq:hs5:identity} which depends on $\Sigma_2$.
+If it is invariant, the variation of the cubic action equals that of $S_{\le 5}$ up to the variation of the last term, which is of order $\gs^4$, the order of the truncation.
+Its variation has two pieces, from the fluctuation and from the $\Psi$ inside the dressed operator.
+By~\eqref{p:eq:hs5:dressed} and the symmetry of the dressed operator, we get:
+\begin{equation}
+  \label{p:eq:hs5:form-variation}
+  \delta_\Lambda \pair[2]{\sigma_2^{(3)}}{\kin{2}{\Psi}{3}(\sigma_2^{(3)})}
+    = 2 \, \pair[2]{\delta_\Lambda \sigma_2^{(3)}}{\kin{2}{\Psi}{3}(\sigma_2^{(3)})}
+      - \frac{\gs}{5} \, \vertex{5}(\sigma_2^{(3)}, \sigma_2^{(3)}, \delta_\Lambda \Psi).
+\end{equation}
+This variation vanishes if the fluctuation transforms as:
+\begin{equation}
+  \label{p:eq:hs5:gauge-deviation}
+  \delta_\Lambda \sigma_2^{(3)}
+    = \frac{\gs}{10} \, \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}(\delta_\Lambda \Psi, \sigma_2^{(3)}).
+\end{equation}
+The fluctuation transforms homogeneously, by a $\Psi$-dependent linear rotation which vanishes on-shell.
+This is the transformation law~\eqref{p:eq:gauge:law-quintic} of \cref{p:sec:gauge}, where its algebra is worked out.
+
+Translating back to $\Sigma_2 = \Sigma_2^{(3)*} + \sigma_2^{(3)}$, the auxiliary field transforms as its own solution, plus the rotation of the fluctuation:
+\begin{equation}
+  \label{p:eq:hs5:gauge-sigma}
+  \delta_\Lambda \Sigma_2
+    = \delta_\Lambda \Sigma_2^{(3)*}
+      + \frac{\gs}{10} \, \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}(\delta_\Lambda \Psi, \sigma_2^{(3)}),
+\end{equation}
+where $\delta_\Lambda \Sigma_2^{(3)*}$ is the variation of~\eqref{p:eq:hs5:saddle} induced by $\delta_\Lambda \Psi$.
+The transformation law of the quartic order is the order-$\gs^0$ truncation of $\delta_\Lambda \Sigma_2 = \delta_\Lambda \Sigma_2^{(3)*}$.
+Through order $\gs$, the transformation law reads:
+\begin{equation}
+  \label{p:eq:hs5:gauge-sigma-g1}
+  \begin{aligned}
+    \delta_\Lambda \Sigma_2
+      = 2 \, \delta_\Lambda \Psi \otimes \Psi
+        &
+        + \frac{3 \gs}{5} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\delta_\Lambda \Psi, \Psi^2)
+        \\ &
+        + \frac{\gs}{10} \, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\delta_\Lambda \Psi, \Sigma_2 - \Psi^2)
+        + O(\gs^2),
+    \end{aligned}
+\end{equation}
+the middle term being the variation of $\tfrac{\gs}{5} \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$, cubic in $\Psi$.
+The last term vanishes on-shell but cannot be dropped off-shell: it compensates the variation of the dressed operator.
+
+With~\eqref{p:eq:hs5:gauge-sigma} the quadratic form is exactly invariant.
+Varying the identity~\eqref{p:eq:hs5:identity} gives:
+\begin{equation}
+  \label{p:eq:hs5:delta-S-equal}
+  \delta_\Lambda \caction[\le 5] - \delta_\Lambda S_{\le 5}
+    = \frac{\gs^4}{600} \, \delta_\Lambda \vertex{5}\Big( \Psi^2, \Psi, \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}(\Psi^3) \Big)
+    = O(\gs^4),
+\end{equation}
+identically, off-shell, for any variation $\delta_\Lambda \Psi$ and exactly in $\gs$.
+Since $\delta_\Lambda S_{\le 5} = O(\gs^4)$, the cubic action is invariant up to terms of order $\gs^4$, the order of the truncation it should match.
+We discuss the nature of the rotation term, the commutator of two gauge transformations and the Batalin--Vilkovisky structure of the cubic action in \cref{p:sec:gauge}.
+
+
+\paragraph{Kernel condition and reality}
+
+\subparagraph{Kernel condition.}
+
+The auxiliary field lives on the quotient~\eqref{p:eq:hs4:quotient}, and the quintic coupling must be a function on it.
+The two quartic terms of~\eqref{p:eq:hs5:F} are invariant under $\Sigma_2 \to \Sigma_2 + N_2$ for $N_2 \in \ker \sprod{2}{2}$, by~\eqref{p:eq:hs4:kernel}, while the quintic term shifts by
+\begin{equation}
+  \vertex{5}((\Sigma_2 + N_2)^2, \Psi) - \vertex{5}(\Sigma_2^2, \Psi)
+    \to 2 \, \vertex{5}(N_2, \Sigma_2, \Psi) + \vertex{5}(N_2^2, \Psi).
+\end{equation}
+For this to vanish for all $\Sigma_2$, the term linear in $\Sigma_2$ must vanish, which then kills the quadratic one.
+The cubic action therefore descends to the quotient if and only if the quintic vertex vanishes on the kernel:
+\begin{equation}
+  \label{p:eq:hs5:kernel-condition}
+  \forall N_2 \in \ker \sprod{2}{2}, \;
+  \forall A \in \Hn{2}, \;
+  \forall B \in \Hs:
+  \quad
+  \vertex{5}(N_2, A, B)
+    = 0,
+\end{equation}
+that is, $\sprod{3}{2}(A, B)$ pairs to zero with every kernel element.
+In infinite dimension, the states which pair to zero with the kernel of $\sprod{2}{2}$ form only the closure of its image: the condition thus places the values of $\sprod{3}{2}$ in the closure of the image of $\sprod{2}{2}$, and the first assumption below, that they lie in the image itself, is what makes $\sprod{2}{2}^{-1}$ defined on them.
+It also says that $\sprod{3}{2}(\Psi, \cdot)$ does not depend on the representative of its argument.
+The condition thus makes $\sprod{3}{2}(\Psi, \cdot)$ descend to the quotient, and with it the dressed operator~\eqref{p:eq:hs5:dressed-factor} and its inverse~\eqref{p:eq:hs5:neumann}.
+Since $\vertex{5}$ is symmetric, the condition is equivalent by polarization to its restriction to the diagonal, $\vertex{5}(N_2, \Psi^2, \Psi) = 0$ for all $\Psi$, which is the only evaluation of the quintic vertex in the matching at order $\gs^3$.
+
+We have no proof that the quintic vertex vanishes on a null vector of $\sprod{2}{2}$, and nothing imposes it.
+  At the same time, no null vector of $\sprod{2}{2}$ is known above level $0$ (at level $0$ there is none at any real momentum for the sections with $\beta > \sqrt{2}$, \cref{p:sec:hs:quartic}), and none is forced by the mechanisms we have checked at the levels and momenta where the couplings are known: the dilaton theorem with the ghost-number counting behind the zeros of the cubic vertex, BRST-exact strands, the universality of the zero-momentum couplings, and the worldsheet twist.
+  If $\sprod{2}{2}$ has an accidental zero at some real momentum, with a single null vector $N_2$, the condition at that momentum is that $N_2$ pairs to zero with the quintic source $\sprod{3}{2}(\Psi^2, \Psi)$, one number for each $\Psi$, a property of $\vertex{5}$ at that momentum which nothing enforces and which we expect to fail in general; the matching is then restored by the multiplier described next.
+
+When it fails, the quotient is not available and one must choose a complement of the kernel.
+The eliminated action then differs from $S_{\le 5}$ at order $\gs^3$ by a five-point term which depends on the complement and cannot vanish for all of them.
+The kernel directions can then be handled by a multiplier rather than by inversion, which restores the matching at this order and keeps the action cubic; this is taken up in \cref{p:sec:all-orders}.
+
+Hence, unless said otherwise, we make two assumptions from this order on: 1) the states on which $\sprod{2}{2}^{-1}$ acts, here the values of $\sprod{3}{2}$, lie in the image of $\sprod{2}{2}$ and not only in its closure, which is all the kernel condition gives, so that the inverse exists on them level by level (\cref{p:sec:hs:quartic}); 2) the quintic vertex vanishes on the kernel of the quartic vertex,~\eqref{p:eq:hs5:kernel-condition} (``kernel condition'').
+The sextic vertex is subject to an analogous condition at the next order.
+
+
+\subparagraph{Reality.}
+
+The quintic order is the first where the solution and the gauge law carry an inverse, so that reality is trickier to prove.
+
+We use the reality of the vertices~\eqref{p:eq:hs4:vertex-real} for $n = 4$ and $n = 5$, and the condition~\eqref{p:eq:hs5:kernel-condition}.
+  The kernel of $\sprod{2}{2}$ is stable under the star conjugation.
+  Indeed, if $\vertex{4}(A, N_2) = 0$ for all $A$, then $\vertex{4}(A, N_2^\star) = \vertex{4}(A^\star, N_2)^* = 0$ for all $A$, since $A^\star$ ranges over all $2$-string states as $A$ does.
+  Hence $\star$ descends to the quotient, and the condition~\eqref{p:eq:hs4:reality}, $\Sigma_2^\star = \Sigma_2$, makes sense there.
+
+The two maps from which the solution is built, $\sprod{2}{2}^{-1} \circ \sprod{3}{2}$ and $(\kin{2}{\Psi}{3})^{-1} \circ \sprod{2}{2}$, commute with $\star$ for real $\Psi$.
+This follows by conjugating both sides of the two relations which characterize them:
+\begin{equation}
+\vertex{4}\big( A, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(C) \big)
+  = \vertex{5}(A, C),
+\qquad
+\pair[2]{A}{\kin{2}{\Psi}{3}(B')}
+  = \vertex{4}(A, B),
+\end{equation}
+with $B' := (\kin{2}{\Psi}{3})^{-1} \circ \sprod{2}{2}(B)$.
+The conjugation is applied only to states whose strands have the ghost number of the string field, in $\Hs$, $\Hn{2}$ and $\Hn{3}$, where it acts strand by strand.
+It is never applied to the outputs of $\sprod{2}{2}$ and $\sprod{3}{2}$, whose strands have ghost number three.
+All coefficients are real rationals times $\gs$.
+
+With $\Psi^\star = - \Psi$, the state $\Psi \otimes \Psi$ is star-even.
+For $\gs$ real, the solution~\eqref{p:eq:hs5:saddle} therefore satisfies $\Sigma_2^\star = \Sigma_2$, to all orders of the formal expansion in $\gs$ and, within the quintic truncation, wherever the dressed operator is invertible on the quotient.
+For a real variation $\delta_\Lambda \Psi$, each term of the transformation law~\eqref{p:eq:hs5:gauge-sigma} is real for the same reason, and the transformation law maps the real locus of $(\Psi, \Sigma_2)$ to itself.
+A gauge parameter satisfying the reality condition $\Lambda^\star = - \Lambda$ of \cref{p:app:conventions} produces such a real variation, the vertices being real.

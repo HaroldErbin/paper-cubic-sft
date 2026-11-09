@@ -1,0 +1,479 @@
+\subsection{Proof of the truncation lemma}
+\label{p:app:truncation}
+
+
+In this appendix, we state and prove the lemma used in \cref{p:sec:solutions} to relate the solutions of a level truncation of the cubic action to those of the full cubic action and of the original theory.
+The argument is algebraic: we treat the vertices as given multilinear forms, and their worldsheet definition enters through one assumption, stated below, in addition to the standing assumptions on the quartic form.
+
+\subparagraph{Setting.}
+
+Let $\mathcal U \subset \Hs$ be a finite-dimensional subspace of zero-momentum states of ghost number two, and let $\mathcal U^c$ be a complement:
+\begin{equation}
+  \label{p:eq:trunc:split-H}
+  \Hs
+    = \mathcal U \oplus \mathcal U^c.
+\end{equation}
+In the application, $\mathcal U$ is a level truncation: it lies in the zero-momentum, twist-even universal subspace and is spanned by its Siegel-gauge states of a finite set of levels, such as the tachyon and the ghost dilaton.
+Its complement $\mathcal U^c$ contains the universal states outside $\mathcal U$ and the non-universal states, among them all states of nonzero momentum.
+We assume that the kinetic term does not mix $\mathcal U$ with $\mathcal U^c$, as in~\eqref{p:eq:sol:kinetic-block}.
+The $2$-string space then splits according to the number of strands lying outside $\mathcal U$:
+\begin{equation}
+  \label{p:eq:trunc:split-H2}
+  \Hn{2}
+    = \mathcal U^{\wedge 2}
+      \oplus \big( \mathcal U \wedge \mathcal U^c \big)
+      \oplus \big( \mathcal U^c \big)^{\wedge 2},
+\end{equation}
+where $\mathcal U^{\wedge 2}$ is spanned by the symmetrized products of two states of $\mathcal U$ and $(\mathcal U^c)^{\wedge 2}$ by those of two states of $\mathcal U^c$.
+The middle summand is spanned by the symmetrized products of one state of each:
+\begin{equation}
+\label{p:eq:trunc:wedge}
+\mathcal U \wedge \mathcal U^c
+  := \Span \{ u \otimes v + v \otimes u \,:\, u \in \mathcal U, \ v \in \mathcal U^c \}.
+\end{equation}
+
+A level truncation of the cubic action restricts the string field to $\mathcal U$ and extends to the auxiliary field by restricting it to $\mathcal U^{\wedge 2}$, and the truncated action is the cubic action evaluated on these fields:
+\begin{equation}
+  \label{p:eq:trunc:action}
+  \caction[\le n]^{[\mathcal U]}(\Psi, \Sigma_2)
+    := \caction[\le n](\Psi, \Sigma_2),
+  \qquad
+  \Psi \in \mathcal U,
+  \quad
+  \Sigma_2 \in \mathcal U^{\wedge 2},
+\end{equation}
+for $n = 4, 5, 6$, where the cubic action at sextic order is:
+\begin{equation}
+  \label{p:eq:trunc:action-explicit}
+  \begin{aligned}
+    \caction[\le 6]
+      = \frac{1}{2} \, \pair{\Psi}{Q_B \Psi}
+        &
+        + \frac{\gs}{3!} \, \vertex{3}(\Psi^3)
+        - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+        + \frac{2 \gs^2}{4!} \, \vertex{4}(\Sigma_2, \Psi^2)
+      \\
+      &
+      + \frac{\gs^3}{5!} \, \vertex{5}(\Sigma_2^2, \Psi)
+      + \frac{\gs^4}{6!} \, \dvertex{6}(\Sigma_2^3),
+  \end{aligned}
+\end{equation}
+and $\caction[\le 5]$, $\caction[\le 4]$ obtained by dropping the last term, then the last two.
+The sextic term is written with $\Sigma_2$ as the only auxiliary field, as a cubic coupling of three $\Sigma_2$ through the reduced vertex of \cref{p:sec:hs:sextic}:
+\begin{equation}
+\label{p:eq:trunc:W6}
+\dvertex{6}
+  = \vertex{6} - \frac{6}{5} \, \vertex{5 \cdot 5}.
+\end{equation}
+Its exchange part $\vertex{5 \cdot 5}$, the composite vertex of \cref{p:sec:hs:quintic}, contains the inverse of $\sprod{2}{2}$ on the whole of $\Hn{2}$.
+Here we read $\dvertex{6}$ and $\vertex{5 \cdot 5}$ as trilinear forms on $\Hn{2}$, symmetrized in their three $2$-string arguments (\cref{p:sec:hs:quintic,p:sec:hs:sextic}).
+We do not treat here the sextic action with $\Sigma_3$ as a second auxiliary field.
+Since the strands of $\Sigma_2$ are Grassmann even, no sign enters anywhere in this appendix.
+
+We write the variation of the full cubic action along $\delta \Psi = \psi \in \Hs$ and $\delta \Sigma_2 = \sigma_2 \in \Hn{2}$ as:
+\begin{equation}
+\label{p:eq:trunc:variation}
+\delta \caction[\le 6]
+  = \pair{\psi}{\mathcal E^{(4)}_\Psi}
+    + \frac{\gs^2}{12} \, \pair[2]{\sigma_2}{\mathcal E^{(4)}_{\Sigma_2}},
+\end{equation}
+which defines the two equations of motion with the normalization:
+\begin{subequations}
+\label{p:eq:trunc:eom}
+\begin{align}
+  \label{p:eq:trunc:eom-psi}
+  \pair{\psi}{\mathcal E^{(4)}_\Psi}
+    &
+    = \pair{\psi}{Q_B \Psi}
+      + \frac{\gs}{2} \, \vertex{3}(\psi, \Psi^2)
+      + \frac{\gs^2}{6} \, \vertex{4}(\psi, \Psi, \Sigma_2)
+      + \frac{\gs^3}{120} \, \vertex{5}(\psi, \Sigma_2^2),
+  \\
+  \label{p:eq:trunc:eom-sigma}
+  \pair[2]{\sigma_2}{\mathcal E^{(4)}_{\Sigma_2}}
+    &
+    = \vertex{4}(\sigma_2, \Psi^2 - \Sigma_2)
+      + \frac{\gs}{5} \, \vertex{5}(\sigma_2, \Sigma_2, \Psi)
+      + \frac{\gs^2}{20} \, \dvertex{6}(\sigma_2, \Sigma_2^2),
+\end{align}
+\end{subequations}
+whose leading terms are those of \cref{p:sec:hs:quartic}.
+The superscript is the highest power of $\gs$ in the action.
+At quintic order the last term of~\eqref{p:eq:trunc:eom-sigma} is absent.
+At quartic order its last two terms are absent, and so is the last term of~\eqref{p:eq:trunc:eom-psi}.
+We say that the equation of $\Sigma_2$ is violated at relative order $\gs^k$ along $\sigma_2$ when $\pair[2]{\sigma_2}{\mathcal E^{(n)}_{\Sigma_2}}$, normalized as in~\eqref{p:eq:trunc:eom-sigma}, is of order $\gs^k$.
+The truncated equations of motion are:
+\begin{equation}
+\label{p:eq:trunc:eom-truncated}
+\pair{\psi}{\mathcal E^{(n)}_\Psi}
+  = 0
+\quad
+\forall \psi \in \mathcal U,
+\qquad
+\pair[2]{\sigma_2}{\mathcal E^{(n)}_{\Sigma_2}}
+  = 0
+\quad
+\forall \sigma_2 \in \mathcal U^{\wedge 2},
+\end{equation}
+whereas the full equations require the same for all $\psi \in \Hs$ and all $\sigma_2 \in \Hn{2}$.
+We want to know which of the remaining components, along $\mathcal U^c$ and along the two other summands of~\eqref{p:eq:trunc:split-H2}, a solution of the truncated equations satisfies.
+\begin{equation}
+  \label{p:eq:trunc:nondegenerate}
+  \vertex{4}(A, B)
+    = 0
+  \ \ \forall B \in \mathcal U^{\wedge 2}
+  \quad \Longrightarrow \quad
+  A
+    = 0,
+  \qquad
+  A \in \mathcal U^{\wedge 2},
+\end{equation}
+which replaces, inside the truncation, the quotient by $\ker \sprod{2}{2}$ of the untruncated theory.
+If the restricted form is degenerate, we pass to the quotient of $\mathcal U^{\wedge 2}$ by its kernel, which is consistent exactly when $\vertex{5}$ vanishes on the kernel, as in the untruncated theory.
+We also use that $\Psi^2 \in \mathcal U^{\wedge 2}$ whenever $\Psi \in \mathcal U$.
+This is what makes $\mathcal U^{\wedge 2}$ the minimal auxiliary space: with an auxiliary space not containing $\Psi^2$, the matching generically fails already at quartic order.
+
+Some statements use the inverse of $\sprod{2}{2}$ on all of $\Hn{2}$: the criterion in (iii), the full reduced vertex, the sextic-order residual~\eqref{p:eq:trunc:residual-sextic} and the comparison~\eqref{p:eq:trunc:schur}--\eqref{p:eq:trunc:schur-difference}.
+They rest on the standing assumptions of \cref{p:sec:hs:quartic}: the quartic form is invertible on the quotient by its kernel, level by level, and the sum over intermediate $2$-string states converges.
+In the comparison we take the kernel to vanish.
+The proofs are exact in any finite-dimensional truncation of $\Hs$ containing $\mathcal U$.
+We do not address the limit of infinite level.
+
+\subparagraph{Universality assumption.}
+
+The lemma rests on the universality assumption~\eqref{p:eq:sol:universality}: a vertex vanishes whenever exactly one of its legs lies in the space $\mathcal N$ of non-universal states, those of nonzero momentum included, and all the others lie in $\mathcal U$.
+The kinetic term does not couple $\mathcal U$ to $\mathcal N$ either, as noted in \cref{p:sec:solutions}.
+Couplings with two or more non-universal legs are not constrained, nor are those whose single non-universal leg comes with a leg outside $\mathcal U$, nor those whose legs are all universal.
+The pairs of a state of $\mathcal U$ and a non-universal state form the subspace $\mathcal U \wedge \mathcal N \subset \mathcal U \wedge \mathcal U^c$, defined as in~\eqref{p:eq:trunc:wedge}.
+
+This property allows Sen to restrict the open string field to the universal subspace~\cite{Sen:1999:UniversalityTachyonPotential}.
+This subspace is spanned by the states built on the zero-momentum vacuum by ghost oscillators and matter Virasoro generators, and on it the tachyon potential is independent of the background.
+The argument is a Ward identity: a vertex is a moduli integral of a sphere correlator of conformally transformed states with $b$-ghost insertions.
+The conformal maps preserve the matter Virasoro module of each leg, and the $b$-insertions act on the ghost factor only.
+The matter factor is then a correlator with exactly one state outside the identity module, which vanishes.
+The same argument applies to the closed string and underlies the level-truncation studies of the closed-string tachyon vacuum~\cite{Yang:2005:ClosedStringTachyon}, where the matter primaries are dropped and the ghost dilaton is kept.
+
+The rule is established at genus zero and zero momentum, on the Fock space of zero momentum, for any vertex given as such a moduli integral, and it holds for the cubic and quartic vertices of the $\group{SL}(2, \C)$ family in any admissible section; at five points and more it rests on this family-independent Ward argument, since no quintic vertex of that family exists yet.\footnote{Ledger entry \recordref{R88}; a cited result (Yang and Zwiebach, after Sen), with no derivation record of its own.}
+We use it in the form~\eqref{p:eq:sol:universality}.
+It is falsified by a nonzero coupling with a single non-universal leg and all other legs in $\mathcal U$, such as $\vertex{4}(T^3, x)$ with $T$ the tachyon and $x$ a zero-momentum matter primary.
+It is needed only at zero momentum: a coupling with exactly one leg at nonzero momentum and all others at zero momentum vanishes by momentum conservation.
+The assumption concerns the elementary vertices $\vertex{n}$, not the reduced vertex $\dvertex{6}$, whose exchange part need not vanish with a single non-universal leg.
+This exchange part is the source of the single sextic-order residual found below.
+
+\subparagraph{Lemma.}
+
+\emph{Let $\mathcal U$ lie in the zero-momentum universal subspace, let the quartic vertex be non-degenerate on $\mathcal U^{\wedge 2}$, and let the kinetic block~\eqref{p:eq:sol:kinetic-block} and the universality assumption~\eqref{p:eq:sol:universality} hold.
+  Let $(\Psi^*, \Sigma_2^*) \in \mathcal U \times \mathcal U^{\wedge 2}$ be a solution of the truncated equations of motion~\eqref{p:eq:trunc:eom-truncated}, on the branch connected to $\Sigma_2 = \Psi^2$ at $\gs = 0$.
+  Then:}
+\begin{enumerate}[label=(\roman*)]
+  \setlength{\itemsep}{0.5ex}
+
+  \item \emph{the equation of motion of $\Psi$ of the full cubic action holds along every direction of $\mathcal N$, at quartic, quintic and sextic order, identically for every $(\Psi, \Sigma_2) \in \mathcal U \times \mathcal U^{\wedge 2}$ and not only on-shell.
+      Along a universal direction outside $\mathcal U$ it is in general violated from order $\gs$, by the level-truncation residual~\eqref{p:eq:trunc:level-residual};}
+
+  \item \emph{at quartic order, the equation of motion of $\Sigma_2$ of the full cubic action holds along every direction of $\Hn{2}$.
+      The truncated solution thus solves every equation of motion of $\caction[\le 4]$ except that of $\Psi$ along the universal directions outside $\mathcal U$, whose residual is that of level truncation;}
+
+  \item \emph{at quintic order, the equation of motion of $\Sigma_2$ holds identically along $\mathcal U \wedge \mathcal N$, the pairs of a state of $\mathcal U$ and a non-universal state.
+      Along the other pairs outside $\mathcal U^{\wedge 2}$ the truncated equations do not imply it: its residual~\eqref{p:eq:trunc:residual} is of relative order $\gs$ and vanishes along all of them exactly when $\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$ lies in $\mathcal U^{\wedge 2}$.
+      At sextic order the component along $\mathcal U \wedge \mathcal N$ is no longer protected: it is of relative order $\gs^2$, through the exchange part of $\dvertex{6}$, unless a symmetry removes it;}
+
+  \item \emph{eliminating $\Sigma_2$ inside the truncation reproduces the original action restricted to $\mathcal U$ exactly at quartic order and through $O(\gs^3)$ at quintic order, as the elimination in the full theory does.
+      At sextic order it does so through $O(\gs^4)$, provided the reduced vertex is built with the inverse of the quartic form on $\mathcal U^{\wedge 2}$ rather than on $\Hn{2}$.
+      This truncated action is no longer the restriction of $\caction[\le 6]$, and its solution violates the equation of $\Sigma_2$ of $\caction[\le 6]$ along $\mathcal U^{\wedge 2}$ at relative order $\gs^2$.}
+\end{enumerate}
+\emph{The orders in (iii) and (iv) are orders of the Taylor expansion in $\gs$ at fixed $\Psi$.}
+
+The universality assumption is used only for the directions of $\mathcal N$ in (i) and for $\mathcal U \wedge \mathcal N$ in (iii).
+The other statements need only the non-degeneracy~\eqref{p:eq:trunc:nondegenerate} and the kinetic block.
+Statements (iii) and (iv) use only the truncated equation of $\Sigma_2$, at any fixed $\Psi \in \mathcal U$.
+
+Statement (i) means that the truncated solution sources no non-universal field.
+Along the universal states outside $\mathcal U$, its error is that of a level truncation of the original theory.
+The auxiliary field does need to leave $\mathcal U^{\wedge 2}$ from quintic order on.
+At quintic order it does so, in general, along the pairs outside $\mathcal U^{\wedge 2}$ other than $\mathcal U \wedge \mathcal N$, and at sextic order also along $\mathcal U \wedge \mathcal N$, through the exchange part of $\dvertex{6}$.
+The error this causes in the action is of the order at which the truncated elimination stops matching the full one.
+
+\subparagraph{Proof.}
+
+\emph{(i) The $\Psi$-equation along $\mathcal N$ and along the universal states outside $\mathcal U$.}
+We take $\psi \in \mathcal N$ in~\eqref{p:eq:trunc:eom-psi}, with $\Psi \in \mathcal U$ and $\Sigma_2 \in \mathcal U^{\wedge 2}$.
+By multilinearity, expanding $\Sigma_2 = \sum_a \lambda_a \, u_a \otimes u'_a$ with $u_a, u'_a \in \mathcal U$, every term of~\eqref{p:eq:trunc:eom-psi} becomes a sum of vertices with all legs in $\mathcal U$ except the single non-universal leg $\psi$:
+\begin{equation}
+\label{p:eq:trunc:psi-outside}
+\begin{aligned}
+  \pair{\psi}{\mathcal E^{(4)}_\Psi}
+    &
+    = \pair{\psi}{Q_B \Psi}
+      + \frac{\gs}{2} \, \vertex{3}(\psi, \Psi, \Psi)
+      + \frac{\gs^2}{6} \sum_a \lambda_a \, \vertex{4}(\psi, \Psi, u_a, u'_a)
+    \\
+    &
+    \quad
+    + \frac{\gs^3}{120} \sum_{a, b} \lambda_a \lambda_b \, \vertex{5}(\psi, u_a, u'_a, u_b, u'_b).
+\end{aligned}
+\end{equation}
+The first term vanishes by the kinetic block~\eqref{p:eq:sol:kinetic-block}.
+The others vanish by the universality assumption, term by term and for every value of the fields.
+The sextic term of the action contains no $\Psi$ leg, so (i) holds at sextic order as well.
+
+Along a universal direction $\psi$ outside $\mathcal U$ the assumption gives nothing.
+The kinetic term drops by~\eqref{p:eq:sol:kinetic-block}, and at the truncated solution the residual is:
+\begin{equation}
+\label{p:eq:trunc:level-residual}
+\pair{\psi}{\mathcal E^{(n)}_\Psi}
+  = \frac{\gs}{2} \, \vertex{3}(\psi, \Psi^{* 2})
+    + \frac{\gs^2}{6} \, \vertex{4}(\psi, \Psi^{* 3})
+    + O(\gs^3),
+\qquad
+n = 2, 3, 4,
+\end{equation}
+which is the residual of the level-truncated original theory along $\psi$~\cite{Yang:2005:ClosedStringTachyon}, exactly at quartic order and through order $\gs^2$ beyond.
+At quartic order $\Sigma_2^* = \Psi^{* 2}$ exactly, by (ii) below, and the two terms shown are the whole residual.
+Beyond, $\Sigma_2^* = \Psi^{* 2} + O(\gs)$, so the term $\tfrac{\gs^2}{6} \vertex{4}(\psi, \Psi^*, \Sigma_2^*)$ equals $\tfrac{\gs^2}{6} \vertex{4}(\psi, \Psi^{* 3})$ up to $O(\gs^3)$, and the quintic term starts at $\gs^3$.
+
+\emph{(ii) The $\Sigma_2$-equation at quartic order.}
+The truncated equation reads $\vertex{4}(\sigma_2, \Psi^{* 2} - \Sigma_2^*) = 0$ for all $\sigma_2 \in \mathcal U^{\wedge 2}$, and since $\Psi^{* 2} - \Sigma_2^* \in \mathcal U^{\wedge 2}$ the non-degeneracy~\eqref{p:eq:trunc:nondegenerate} gives:
+\begin{equation}
+\label{p:eq:trunc:saddle-quartic}
+\Sigma_2^*
+  = \Psi^{* 2},
+\end{equation}
+as in the untruncated theory and without any use of the universality assumption.
+The full equation is $\vertex{4}(\sigma_2, \Psi^{* 2} - \Sigma_2^*) = 0$ for all $\sigma_2 \in \Hn{2}$, and it holds at~\eqref{p:eq:trunc:saddle-quartic} for every $\sigma_2$ since its argument vanishes.
+Together with (i), the truncated solution satisfies every component of the full equations of motion of $\caction[\le 4]$ except those of $\Psi$ along the universal directions outside $\mathcal U$.
+
+\emph{(iii) The $\Sigma_2$-equation at quintic and sextic order.}
+Along $\sigma_2 \in \mathcal U \wedge \mathcal N$, the terms $\vertex{4}(\sigma_2, \Psi^2 - \Sigma_2)$ and $\vertex{5}(\sigma_2, \Sigma_2, \Psi)$ of~\eqref{p:eq:trunc:eom-sigma} are, after expanding $\Sigma_2$, sums of vertices with exactly one non-universal leg.
+They vanish identically by the universality assumption.
+At quintic order this is the whole equation, which therefore holds identically along $\mathcal U \wedge \mathcal N$.
+Along the other pairs outside $\mathcal U^{\wedge 2}$ the assumption gives nothing.
+To find the residual at leading order we solve the truncated equation perturbatively.
+We write $\Sigma_2^{(n)*[\mathcal U]}$ for the solution of the truncated equation of $\Sigma_2$ of $\caction[\le n+2]^{[\mathcal U]}$ at fixed $\Psi \in \mathcal U$, on the branch connected to $\Psi^2$, and $\Sigma_2^{(n)*}$ for the solution of the full one.
+The component $\Sigma_2^*$ of a solution of the truncated equations is $\Sigma_2^{(n)*[\mathcal U]}$ evaluated at $\Psi = \Psi^*$.
+At quintic order, we write the truncated solution as:
+\begin{equation}
+  \label{p:eq:trunc:expansion}
+  \Sigma_2^{(3)*[\mathcal U]}
+    = \Psi^2 + \frac{\gs}{5} \, Y_2^{[\mathcal U]} + O(\gs^2),
+  \qquad
+  Y_2^{[\mathcal U]} \in \mathcal U^{\wedge 2},
+\end{equation}
+and the order $\gs$ of the truncated equation along $B \in \mathcal U^{\wedge 2}$ is:
+\begin{equation}
+  \label{p:eq:trunc:saddle-quintic}
+  \vertex{4}(B, Y_2^{[\mathcal U]})
+    = \vertex{5}(B, \Psi^2, \Psi)
+  \quad
+  \forall B \in \mathcal U^{\wedge 2},
+\end{equation}
+which determines $Y_2^{[\mathcal U]}$ uniquely by~\eqref{p:eq:trunc:nondegenerate}.
+In the untruncated theory the same relation with $B$ running over all of $\Hn{2}$ gives the first correction $\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$.
+The truncated $Y_2^{[\mathcal U]}$ is its analogue with the inverse taken on $\mathcal U^{\wedge 2}$.
+We insert the expansion into~\eqref{p:eq:trunc:eom-sigma} along any $\sigma_2 \in \Hn{2}$.
+The order $\gs^0$ vanishes because $\Sigma_2 - \Psi^2 = O(\gs)$, and the order $\gs$ is:
+\begin{equation}
+\label{p:eq:trunc:residual}
+\pair[2]{\sigma_2}{\mathcal E^{(3)}_{\Sigma_2}}
+  = \frac{\gs}{5} \Big[
+      \vertex{5}(\sigma_2, \Psi^2, \Psi)
+      - \vertex{4}(\sigma_2, Y_2^{[\mathcal U]})
+    \Big]
+    + O(\gs^2),
+\qquad
+\sigma_2 \in \Hn{2}.
+\end{equation}
+The bracket vanishes on $\mathcal U^{\wedge 2}$ by~\eqref{p:eq:trunc:saddle-quintic}.
+Outside $\mathcal U^{\wedge 2}$, it is that relation evaluated outside the space on which it was imposed, and it need not vanish.
+It vanishes for every $\sigma_2$ exactly when the untruncated correction $\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$ lies in $\mathcal U^{\wedge 2}$.
+Along $\mathcal U \wedge \mathcal N$ it vanishes identically, each of its two terms having a single non-universal leg.
+Without the universality assumption, it need not vanish there.
+
+At sextic order the component of $\mathcal E^{(4)}_{\Sigma_2}$ along the same pairs has the same order-$\gs$ term as~\eqref{p:eq:trunc:residual}, because the sextic term moves the solution only at order $\gs^2$.
+Along $\mathcal U \wedge \mathcal N$, however, the term $\dvertex{6}(\sigma_2, \Sigma_2^2)$ of~\eqref{p:eq:trunc:eom-sigma} need not vanish.
+Its elementary part $\vertex{6}(\sigma_2, \Sigma_2^2)$ does, having a single non-universal leg.
+Its exchange part need not: the inverse of $\sprod{2}{2}$ on $\Hn{2}$ connects $\mathcal U \wedge \mathcal N$ to the pairs of two non-universal states through components of $\vertex{4}$ with three non-universal legs, which the assumption allows.
+With $\Sigma_2 = \Psi^2 + O(\gs)$ the residual is:
+\begin{equation}
+\label{p:eq:trunc:residual-sextic}
+\begin{aligned}
+  \pair[2]{\sigma_2}{\mathcal E^{(4)}_{\Sigma_2}}
+    &
+    = \frac{\gs^2}{20} \, \dvertex{6}(\sigma_2, \Psi^2, \Psi^2)
+      + O(\gs^3)
+    \\
+    &
+    = - \frac{3 \gs^2}{50} \, \vertex{5 \cdot 5}(\sigma_2, \Psi^2, \Psi^2)
+      + O(\gs^3),
+  \qquad
+  \sigma_2 \in \mathcal U \wedge \mathcal N,
+\end{aligned}
+\end{equation}
+where only the exchange part survives in the second equality.
+The lemma makes no claim about the other pairs outside $\mathcal U^{\wedge 2}$ beyond order $\gs$, nor about a branch of solutions not connected to $\Psi^2$.
+
+\emph{(iv) The elimination.}
+At quartic order, $\Psi^2 \in \mathcal U^{\wedge 2}$ and we can complete the square of \cref{p:sec:hs:quartic} inside the truncation:
+\begin{equation}
+  \label{p:eq:trunc:eliminate-quartic}
+  \caction[\le 4]^{[\mathcal U]}
+    = S_{\le 4} \big|_{\mathcal U}
+      - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2 - \Psi^2, \Sigma_2 - \Psi^2),
+  \qquad
+  \caction[\le 4]^{[\mathcal U]} \Big|_{\Sigma_2 = \Psi^2}
+    = S_{\le 4} \big|_{\mathcal U},
+\end{equation}
+with no remainder: the truncated elimination is exact, as the full one is.
+This is the step that fails for an auxiliary space not containing $\Psi^2$, where the square cannot be completed and the eliminated action differs from $S_{\le 4}$ at order $\gs^2$ for generic vertices.
+
+At quintic order the truncated action is quadratic in $\Sigma_2$, and we evaluate it on the expansion~\eqref{p:eq:trunc:expansion} of the truncated solution $\Sigma_2^{(3)*[\mathcal U]}$.
+Through order $\gs^4$ only $Y_2^{[\mathcal U]}$ is needed.
+The terms linear in $\Sigma_2 - \Psi^2$ from the two quartic terms of~\eqref{p:eq:trunc:action-explicit} cancel each other, and the linear term from the quintic vertex, $\tfrac{\gs^3}{60} \vertex{5}(\Sigma_2 - \Psi^2, \Psi^2, \Psi)$, feels the order-$\gs^2$ term of the solution only at order $\gs^5$.
+The orders $\gs^2$ and $\gs^3$ reproduce $\vertex{4}(\Psi^4)$ and $\vertex{5}(\Psi^5)$ with the coefficients of $S_{\le 5}$.
+At order $\gs^4$ the linear term of the quintic vertex and the completed square of~\eqref{p:eq:trunc:eliminate-quartic} give:
+\begin{equation}
+  \label{p:eq:trunc:eliminate-quintic}
+  \begin{aligned}
+    \caction[\le 5]^{[\mathcal U]} \Big|_{\Sigma_2^{(3)*[\mathcal U]}}
+      &
+      = S_{\le 5} \big|_{\mathcal U}
+        + \gs^4 \Big[
+          \frac{1}{300} \, \vertex{5}(Y_2^{[\mathcal U]}, \Psi^2, \Psi)
+          - \frac{1}{600} \, \vertex{4}(Y_2^{[\mathcal U]}, Y_2^{[\mathcal U]})
+        \Big]
+        + O(\gs^5)
+      \\
+      &
+      = S_{\le 5} \big|_{\mathcal U}
+        + \frac{\gs^4}{600} \, \vertex{5}(Y_2^{[\mathcal U]}, \Psi^2, \Psi)
+        + O(\gs^5),
+  \end{aligned}
+\end{equation}
+where the second line uses~\eqref{p:eq:trunc:saddle-quintic} with $B = Y_2^{[\mathcal U]}$.
+The value is a rational function of $\Psi$, with denominator the determinant of the dressed kinetic operator $\kin{2}{\Psi}{3}$ restricted to $\mathcal U^{\wedge 2}$, and~\eqref{p:eq:trunc:eliminate-quintic} is its Taylor series.
+The elimination in the full theory gives the same expression with $\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$ in place of $Y_2^{[\mathcal U]}$, so the two agree with $S_{\le 5}|_{\mathcal U}$ through order $\gs^3$, which is (iv) at quintic order.
+Their order-$\gs^4$ terms differ in general.
+
+To compare them, we fix a basis of $\Hn{2}$ adapted to the decomposition $\Hn{2} = \mathcal U^{\wedge 2} \oplus (\mathcal U^{\wedge 2})^c$, with $(\mathcal U^{\wedge 2})^c$ the sum of the last two summands of~\eqref{p:eq:trunc:split-H2}.
+In this basis we write:
+\begin{equation}
+  \label{p:eq:trunc:blocks}
+  \vertex{4}
+    = \begin{pmatrix}
+        a & b
+        \\
+        b^{\mathsf T} & d
+      \end{pmatrix},
+  \qquad
+  \vertex{5}(\,\cdot\,, \Psi^2, \Psi)
+    = (v_{\mathcal U}, v_c),
+\end{equation}
+for the matrix of the quartic form and the components of the source.
+The source is the vector of the values $\vertex{5}(B, \Psi^2, \Psi) = \pair[2]{B}{\sprod{3}{2}(\Psi^3)}$ on the basis.
+The composite vertex on the diagonal is $\vertex{5 \cdot 5}(\Psi^6) = \vertex{5}(\Psi^2, \Psi, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3))$, and the block inversion of~\eqref{p:eq:trunc:blocks} gives:
+\begin{equation}
+  \label{p:eq:trunc:schur}
+  \vertex{5 \cdot 5}(\Psi^6)
+    = v_{\mathcal U}^{\mathsf T} \, a^{-1} v_{\mathcal U}
+      + w^{\mathsf T} m^{-1} w,
+  \qquad
+  m
+    := d - b^{\mathsf T} a^{-1} b,
+  \qquad
+  w
+    := v_c - b^{\mathsf T} a^{-1} v_{\mathcal U},
+\end{equation}
+where $m$ is invertible whenever $a$ and $\sprod{2}{2}$ are.
+The quantities $v_{\mathcal U}^{\mathsf T} a^{-1} v_{\mathcal U}$ and $w^{\mathsf T} m^{-1} w$ depend neither on the basis nor on the choice of $\mathcal U^c$: $w$ is the residual~\eqref{p:eq:trunc:residual}, a linear form vanishing on $\mathcal U^{\wedge 2}$, and $m^{-1}$ is the inverse quartic form restricted to such linear forms.
+The left side is the untruncated order-$\gs^4$ coefficient of~\eqref{p:eq:trunc:eliminate-quintic}, up to the factor $\gs^4 / 600$.
+The first term on the right is the truncated one, since $Y_2^{[\mathcal U]} = a^{-1} v_{\mathcal U}$ by~\eqref{p:eq:trunc:saddle-quintic}.
+Hence:
+\begin{equation}
+  \label{p:eq:trunc:schur-difference}
+  \caction[\le 5]^{[\mathcal U]} \Big|_{\Sigma_2^{(3)*[\mathcal U]}}
+    - \caction[\le 5] \Big|_{\Sigma_2^{(3)*}}
+    = - \frac{\gs^4}{600} \, w^{\mathsf T} m^{-1} w
+      + O(\gs^5),
+\end{equation}
+both at the same $\Psi \in \mathcal U$.
+The vector $w$ is, up to the factor $5 / \gs$, the residual~\eqref{p:eq:trunc:residual} along $(\mathcal U^{\wedge 2})^c$, and under the universality assumption it vanishes on $\mathcal U \wedge \mathcal N$.
+The difference is thus quadratic in the violated component of the auxiliary equation, and its sign is not fixed, $m$ being indefinite like $\vertex{4}$.
+Because the quintic action is quadratic in $\Sigma_2$, this holds exactly, wherever the inverses exist:
+\begin{equation}
+  \label{p:eq:trunc:exact-difference}
+  \caction[\le 5] \Big|_{\Sigma_2^{(3)*}}
+    - \caction[\le 5]^{[\mathcal U]} \Big|_{\Sigma_2^{(3)*[\mathcal U]}}
+    = \frac{\gs^2}{24} \, e_c^{\mathsf T} \big( (\kin{2}{\Psi}{3})^{-1} \big)_{cc} \, e_c,
+\end{equation}
+with $e_c$ the component of $\mathcal E^{(3)}_{\Sigma_2}$ along $(\mathcal U^{\wedge 2})^c$ at the truncated solution, whose leading term is~\eqref{p:eq:trunc:residual}.
+The block $\big( (\kin{2}{\Psi}{3})^{-1} \big)_{cc}$ is that of the inverse of the dressed kinetic operator on $(\mathcal U^{\wedge 2})^c$.
+
+At sextic order the sextic term contributes $\tfrac{\gs^4}{6!} \dvertex{6}(\Psi^6)$ at order $\gs^4$.
+It moves the solution at order $\gs^2$, which changes the value only at order $\gs^6$, since the quintic action is stationary at the quintic solution.
+With the reduced vertex of the untruncated theory, $\dvertex{6}(\Psi^6) = \vertex{6}(\Psi^6) - \tfrac{6}{5} \, \vertex{5 \cdot 5}(\Psi^6)$.
+Adding~\eqref{p:eq:trunc:eliminate-quintic} and using~\eqref{p:eq:trunc:schur}, we get:
+\begin{equation}
+  \label{p:eq:trunc:eliminate-sextic}
+  \caction[\le 6]^{[\mathcal U]} \Big|_{\Sigma_2^{(4)*[\mathcal U]}}
+    = S_{\le 6} \big|_{\mathcal U}
+      - \frac{\gs^4}{600} \, w^{\mathsf T} m^{-1} w
+      + O(\gs^5).
+\end{equation}
+The truncation matches one order less than the full theory, and the difference is the same term.
+This vertex is moreover not computable from the truncation data, since its exchange part needs the inverse of $\sprod{2}{2}$ on all of $\Hn{2}$.
+With the truncation-consistent reduced vertex~\eqref{p:eq:sol:W6-truncated}, whose exchange part $\vertex{5 \cdot 5}^{[\mathcal U]}$ is built with the inverse $(\sprod{2}{2}^{[\mathcal U]})^{-1}$ on $\mathcal U^{\wedge 2}$, the matrix $a^{-1}$ of~\eqref{p:eq:trunc:blocks}, and needs only vertices with all legs in $\mathcal U$, we have:
+\begin{equation}
+  \label{p:eq:trunc:W6-truncated}
+  \vertex{5 \cdot 5}^{[\mathcal U]}(\Psi^6)
+    = \vertex{5}(Y_2^{[\mathcal U]}, \Psi^2, \Psi),
+  \qquad
+  \frac{\gs^4}{720} \, \dvertex{6}^{[\mathcal U]}(\Psi^6)
+    + \frac{\gs^4}{600} \, \vertex{5 \cdot 5}^{[\mathcal U]}(\Psi^6)
+    = \frac{\gs^4}{720} \, \vertex{6}(\Psi^6),
+\end{equation}
+the first identity being~\eqref{p:eq:trunc:saddle-quintic} read on $\mathcal U^{\wedge 2}$.
+Hence the action~\eqref{p:eq:trunc:action} with $\dvertex{6}$ replaced by $\dvertex{6}^{[\mathcal U]}$ equals $S_{\le 6} \big|_{\mathcal U} + O(\gs^5)$ at the solution of its equation of $\Sigma_2$.
+The truncated reduction cancels the exchange term of the truncated theory in the same way as the full reduction cancels the full exchange term, and it restores the match through order $\gs^4$ without enlarging the auxiliary space.
+This proves (iv).
+
+The price is that this action is no longer the restriction of the full cubic action.
+Its solution violates the equation of $\Sigma_2$ of the full action along $\mathcal U^{\wedge 2}$ itself at relative order $\gs^2$:
+\begin{equation}
+\label{p:eq:trunc:residual-inner}
+\pair[2]{\sigma_2}{\mathcal E^{(4)}_{\Sigma_2}}
+  = - \frac{3 \gs^2}{50} \, \big( \vertex{5 \cdot 5} - \vertex{5 \cdot 5}^{[\mathcal U]} \big)(\sigma_2, \Psi^2, \Psi^2)
+    + O(\gs^3),
+\qquad
+\sigma_2 \in \mathcal U^{\wedge 2},
+\end{equation}
+and this violation and the one of (iii) cancel in the value of the action through order $\gs^4$.
+\qed
+
+\subparagraph{Scope of the lemma.}
+
+The lemma is a statement about equations of motion and about the value of the action, not about stability.
+The Hessian of the full cubic action at the truncated solution has directions outside $\mathcal U$ and outside $\mathcal U^{\wedge 2}$, and nothing in the universality assumption constrains its sign there.
+We discuss it in \cref{p:sec:solutions}.
+
+Without the universality assumption the computations of the proof still apply and give the generic statements.
+The equation of $\Psi$ along every direction of $\mathcal U^c$ then has the level-truncation residual~\eqref{p:eq:trunc:level-residual}, in general from order $\gs$.
+From quintic order on, the auxiliary equation is in general violated along every pair outside $\mathcal U^{\wedge 2}$, by~\eqref{p:eq:trunc:residual}, the pairs $\mathcal U \wedge \mathcal N$ no longer being protected.
+The selection rule and the level of $\mathcal U$ are thus independent sources of error: the first removes the error towards the non-universal states, the second leaves it along the universal states outside $\mathcal U$.
+
+The assumption is weaker than a symmetry.
+If the vertices were invariant under a $\mathbb Z_2$ under which the non-universal states are odd and the universal ones even, every coupling with an odd number of non-universal legs would vanish.
+The component of (iii) along $\mathcal U \wedge \mathcal N$ would then vanish identically at all three orders.
+The universality assumption allows couplings with three non-universal legs, which is why the sextic-order residual~\eqref{p:eq:trunc:residual-sextic} survives under it.
+
+Three limitations remain.
+The states of the same levels as $\mathcal U$ that lie outside $\mathcal U$ belong to $\mathcal U^c$ and are universal, so the selection rule says nothing about them.
+Since $\mathcal U$ contains all the twist-even universal Siegel-gauge states of its levels, these are the twist-odd ones, which decouple from $\mathcal U$ by the worldsheet twist (checked on the quartic contact terms at zero momentum), and the states outside Siegel gauge.
+The kinetic block~\eqref{p:eq:sol:kinetic-block} does not follow from the level argument for them.
+  If it fails, the equation of $\Psi$ along them is violated already at order $\gs^0$.
+
+The lemma does not address the gauge structure of the auxiliary field.
+
+Finally, the orders in (iii) and (iv) are Taylor orders at fixed $\Psi$.
+In the variables $(\gs \Psi, \gs^2 \Sigma_2)$ the combination $\gs^2 \caction$ does not depend on $\gs$, so at a solution with $\gs \Psi = O(1)$, where a tachyon vacuum sits, the order counting carries no accuracy statement.
+The exact statements survive there: the identities (i) and (ii), and the exact form~\eqref{p:eq:trunc:exact-difference} of the quintic-order difference, which is the quantity to report next to the energy of a truncated solution.
+

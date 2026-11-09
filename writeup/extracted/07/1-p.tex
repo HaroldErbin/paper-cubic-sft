@@ -1,0 +1,518 @@
+\subsection{Gauge symmetry, Batalin--Vilkovisky structure and the physical spectrum}
+\label{p:sec:gauge}
+
+We found the gauge transformation of the auxiliary fields order by order in \cref{p:sec:hs}: at each order, the cubic action is invariant to the same order as the truncated action it reproduces.
+In this section, we study the gauge structure as a whole.
+We first summarize the gauge algebra and the freedom in the transformation of the auxiliary field, and state what we have established on the question raised in \cref{p:sec:hs:quartic}: whether the cubic action is the gauge-fixed form of a theory with an independent $2$-string gauge parameter.
+We then write the Batalin--Vilkovisky master action of the cubic theory and show that the auxiliary sector is a contractible pair.
+The master action is thus that of the original theory plus a trivial pair.
+Expanding it around a classical solution gives the linearized BRST operator of the cubic theory, whose cohomology is that of the original theory: the auxiliary field adds no physical state.
+Finally, we interpret the classical auxiliary field as the direct channel of the exchange, add a caveat on level truncation and list the open questions.
+
+
+
+
+\subsubsection{Gauge algebra}
+\label{p:sec:gauge:algebra}
+
+At quartic order the auxiliary field transforms as the square of the string field, $\delta_\Lambda \Sigma_2 = 2 \, \delta_\Lambda \Psi \otimes \Psi$, and the variations of the cubic and of the truncated actions are equal identically, $\delta_\Lambda \caction[\le 4] = \delta_\Lambda S_{\le 4}$ (\cref{p:sec:hs:quartic}).
+The fluctuation $\sigma_2^{(2)} = \Sigma_2 - \Psi^2$ is invariant, and this is the whole mechanism.
+At quintic order the solution of the $\Sigma_2$ equation is corrected, $\Sigma_2^{(3)*} = \Psi^2 + O(\gs)$ (\cref{p:sec:hs:quintic}), and so is the law.
+$\Sigma_2$ transforms as its solution, plus the rotation~\eqref{p:eq:hs5:gauge-deviation} of the fluctuation $\sigma_2^{(3)} = \Sigma_2 - \Sigma_2^{(3)*}$, homogeneous in $\sigma_2^{(3)}$, which reads, with the dressed kinetic operator written out:
+\begin{equation}
+  \label{p:eq:gauge:law-quintic}
+  \delta_\Lambda \sigma_2^{(3)}
+    = \frac{\gs}{10} \, \big( \kin{2}{\Psi}{3} \big)^{-1} \circ \sprod{3}{2}(\delta_\Lambda \Psi, \sigma_2^{(3)}),
+  \qquad
+  \kin{2}{\Psi}{3}
+    = \sprod{2}{2} - \frac{\gs}{5} \, \sprod{3}{2}(\Psi, \cdot),
+\end{equation}
+where $\sigma_2^{(3)}$ fills two of the three input slots of $\sprod{3}{2}$ and $\kin{2}{\Psi}{3}$ is the dressed kinetic operator of $\Sigma_2$.
+The rotation is required by the dressing.
+  Indeed, the cubic action depends on $\sigma_2^{(3)}$ only through the quadratic form $\pair[2]{\sigma_2^{(3)}}{\kin{2}{\Psi}{3}(\sigma_2^{(3)})}$, whose dressed operator depends on $\Psi$.
+  The law~\eqref{p:eq:gauge:law-quintic} is the one that keeps this form invariant: its variation~\eqref{p:eq:hs5:form-variation} vanishes.
+At sextic order the same structure repeats in the triangular form of the action (\cref{p:sec:hs:sextic,p:sec:hs:septic}).
+The fluctuation $\sigma_3^{(4)} = \Sigma_3 - \Psi \otimes \Sigma_2$ is invariant, since the kinetic operator of $\Sigma_3$ does not depend on the fields.
+The fluctuation of $\Sigma_2$ rotates as in~\eqref{p:eq:gauge:law-quintic}, with the dressed kinetic operator of that order.
+
+In general, the cubic action truncated at order $\gs^{N-2}$ is the truncated action plus two kinds of terms: the exchange terms induced by the auxiliary fields beyond that order, which are functions of $\Psi$ alone, and completed squares of the fluctuations, which are invariant.
+Hence, we have
+\begin{equation}
+  \label{p:eq:gauge:invariance-order}
+  \delta_\Lambda \caction[\le N]
+    = \delta_\Lambda S_{\le N} + O(\gs^{N-1})
+    = O(\gs^{N-1}).
+\end{equation}
+The cubic action is thus invariant to the order of the truncation, as the truncated action is, and introducing the auxiliary fields does not weaken the gauge invariance.
+This holds for every odd truncation $N = 2 K + 1$ as shown in \cref{p:sec:all-orders}.
+
+The transformation of the auxiliary field is not unique.
+Invariance of the action fixes only the part of the law that is symmetric with respect to the quadratic form.
+  The difference between an admissible law $\delta'_\Lambda$ at quintic order and the law~\eqref{p:eq:gauge:law-quintic} is:
+\begin{equation}
+  \label{p:eq:gauge:freedom}
+  \delta'_\Lambda \sigma_2^{(3)} - \delta_\Lambda \sigma_2^{(3)}
+    = \big( \kin{2}{\Psi}{3} \big)^{-1} \circ s_\Lambda (\sigma_2^{(3)}),
+  \qquad
+  \pair[2]{A}{s_\Lambda(B)}
+    = - \pair[2]{s_\Lambda(A)}{B},
+\end{equation}
+with $s_\Lambda$ linear in $\Lambda$ and antisymmetric with respect to the $2$-string pairing.
+Since the equation of motion of $\Sigma_2$ reads $\kin{2}{\Psi}{3}(\sigma_2^{(3)}) = 0$, these are transformations proportional to the equations of motion with an antisymmetric coefficient: the trivial gauge symmetries that every action possesses~\cite[ch.~3]{Henneaux:1994:QuantizationGaugeSystems}.
+Conversely, every trivial symmetry built on the $\Sigma_2$ equation of motion alone is of the form~\eqref{p:eq:gauge:freedom}.
+  With the law of $\Psi$ kept, the freedom in the law of $\Sigma_2$ is thus exactly this set of trivial symmetries.
+  The trivial symmetries that also involve the $\Psi$ equation of motion change the law of $\Psi$ and are not part of it.
+
+This freedom matters for the gauge algebra.
+In the $\Psi$ sector the commutator of two transformations is that of closed string field theory:
+\begin{equation}
+  \label{p:eq:gauge:algebra-psi}
+  \begin{gathered}
+    [\delta_{\Lambda_1}, \delta_{\Lambda_2}] \Psi
+      = \delta_{\Lambda_{12}} \Psi
+        + \sum_{n \ge 0} \frac{\gs^{n+2}}{n!} \, \ell_{n+3}(\Psi^n, \Lambda_1, \Lambda_2, \mathcal E_\Psi),
+    \\
+    \Lambda_{12}
+      := \sum_{n \ge 0} \frac{\gs^{n+1}}{n!} \, \ell_{n+2}(\Lambda_1, \Lambda_2, \Psi^n),
+  \end{gathered}
+\end{equation}
+both sums truncated at the order kept, where $\mathcal E_\Psi$ is the equation of motion~\eqref{p:eq:hs1:eom-psi} of the original theory.
+On the $\Sigma_2$-shell it agrees with that of the cubic theory up to the derivative of the exchange terms, of order $\gs^{N-1}$.
+The algebra is open from order $\gs^2$ on, for the same reason as in closed string field theory~\cite{Zwiebach:1993:ClosedStringField}, before any auxiliary field is introduced.
+  The auxiliary fields add no gauge parameter and no further term in this row.
+
+
+In the $\Sigma_2$ sector the commutator closes on the same $\Lambda_{12}$, up to the image of the $\mathcal E_\Psi$-term under the $\Psi$-dependence of the law, plus a term proportional to $\sigma_2^{(3)}$ which depends on the representative chosen in~\eqref{p:eq:gauge:freedom}.
+For the law~\eqref{p:eq:gauge:law-quintic} this term is nonzero.
+Writing
+\begin{equation}
+  \label{p:eq:gauge:a-w}
+  a_w
+    := \sprod{2}{2}^{-1} \circ \sprod{3}{2}(w, \cdot),
+  \qquad
+  m_\Psi
+    := 1 - \frac{\gs}{5} \, a_\Psi,
+  \qquad
+  \kin{2}{\Psi}{3}
+    = \sprod{2}{2} \circ m_\Psi,
+\end{equation}
+for $w \in \Hs$, the term is $\tfrac{\gs^2}{100} \, [a_{\delta_{\Lambda} \Psi}, a_{\delta_{\Lambda'} \Psi}] \, \sigma_2^{(3)} + O(\gs^3)$, so that the algebra closes modulo both equations of motion.
+The term is the curvature of the law read as a connection on field space, and it can be removed: there is a representative in the family~\eqref{p:eq:gauge:freedom} for which it vanishes identically.
+
+Taking the square root of $m_\Psi$ as a formal power series in $\gs$, the variable
+\begin{equation}
+  \label{p:eq:gauge:flat-variable}
+  \hat\sigma_2^{(3)}
+    := m_\Psi^{1/2} \, \sigma_2^{(3)},
+  \qquad
+  \pair[2]{\sigma_2^{(3)}}{\kin{2}{\Psi}{3}(\sigma_2^{(3)})}
+    = \vertex{4}(\hat\sigma_2^{(3)}, \hat\sigma_2^{(3)}),
+\end{equation}
+carries the quadratic form with a field-independent kinetic operator (the hat marks the flat variable, and the superscript the quintic order, as on $\sigma_2^{(3)}$ of \cref{p:sec:hs:quintic}).
+The flat representative is the law under which it is inert:
+\begin{equation}
+  \label{p:eq:gauge:closure}
+  \delta_\Lambda \hat\sigma_2^{(3)}
+    = 0,
+  \qquad
+  [\delta_{\Lambda}, \delta_{\Lambda'}] \, \hat\sigma_2^{(3)}
+    = 0
+    = \delta_{\Lambda_{12}} \hat\sigma_2^{(3)}.
+\end{equation}
+It differs from~\eqref{p:eq:gauge:law-quintic} by the trivial symmetry $- \tfrac{\gs^2}{200} \, [a_\Psi, a_{\delta_\Lambda \Psi}] \, \sigma_2^{(3)} + O(\gs^3)$.
+  It is not the only flat representative: a $\Psi$-dependent relabeling of $\hat\sigma_2^{(3)}$ that preserves $\vertex{4}$ and reduces to the identity at $\Psi = 0$ gives another inert variable, subject to the ghost-number and reality conditions of the law, and every flat law is obtained in this way.
+  Any two of them differ by a trivial symmetry, and a $\Psi$-independent relabeling leaves the law unchanged.
+At this order the construction is algebraic: it uses only the total symmetry of the vertices and the invertibility of $\sprod{2}{2}$ and $\kin{2}{\Psi}{3}$ on the quotient, and it holds as a formal power series in $\gs$.
+In this representative the $\Sigma_2$ row of the algebra follows from the $\Psi$ row by the chain rule, and the algebra closes modulo the $\Psi$ equation of motion alone.
+Closure modulo both equations of motion is thus a property of the representative~\eqref{p:eq:gauge:law-quintic}, not of the theory.
+This is the form that the quartic statement takes at the next order: the inert variable is $\hat\sigma_2^{(3)}$ instead of $\sigma_2^{(2)}$, and the two coincide as $\gs \to 0$.
+
+
+
+
+\subparagraph{Trivial symmetries and the flat variable.}
+
+At sextic order the law~\eqref{p:eq:hs6:gauge-sigma2} is not unique either.
+  As at quintic order, invariance fixes only the part of $\delta_\Lambda \sigma_2^{(4)}$ that is symmetric with respect to the quadratic form.
+  Any admissible law differs from it by $(\kin{2}{\Psi}{4})^{-1} \circ s_\Lambda(\sigma_2^{(4)})$, with $s_\Lambda$ antisymmetric with respect to the $2$-string pairing: the trivial symmetries of~\eqref{p:eq:gauge:freedom}.
+  We use this freedom to choose a representative in which the fluctuation of $\Sigma_2$ is inert.
+  Writing the dressed operator as $\kin{2}{\Psi}{4} = \sprod{2}{2} \circ m^{(4)}_\Psi$ and taking the square root of $m^{(4)}_\Psi$ as a formal power series in $\gs$, the variable
+  \begin{equation}
+  \label{p:eq:hs6:flat-variable}
+  \begin{gathered}
+    \hat\sigma_2^{(4)}
+      := \big( m^{(4)}_\Psi \big)^{1/2} \, \sigma_2^{(4)},
+    \qquad
+    m^{(4)}_\Psi
+      := \sprod{2}{2}^{-1} \circ \kin{2}{\Psi}{4},
+    \\
+    \pair[2]{\sigma_2^{(4)}}{\kin{2}{\Psi}{4}(\sigma_2^{(4)})}
+      = \vertex{4}(\hat\sigma_2^{(4)}, \hat\sigma_2^{(4)}),
+  \end{gathered}
+\end{equation}
+  carries the quadratic form with the field-independent operator $\sprod{2}{2}$.
+  Here $m^{(4)}_\Psi$ is defined on the quotient under the condition~\eqref{p:eq:hs6:kernel-condition}, and through order $\gs$ it is the operator $m_\Psi$ of~\eqref{p:eq:gauge:a-w}.
+  The law under which $\hat\sigma_2^{(4)}$ is inert, $\delta_\Lambda \hat\sigma_2^{(4)} = 0$, is an admissible representative, the flat one~\eqref{p:eq:gauge:closure} extended by one order, with $m^{(4)}_\Psi$ in place of $m_\Psi$.
+  In it both fluctuations, $\hat\sigma_2^{(4)}$ and $\sigma_3^{(4)}$, are inert, and the cubic action is the eliminated action plus two squares with constant coefficients.
+  Unlike at quintic order, we constructed the flat representative here for generic vertices in the finite-dimensional models of \cref{p:app:finite-models}, in the form with $\Sigma_2$ alone; with $\Sigma_3$ the action stays quadratic in each fluctuation and the kinetic operator of $\Sigma_3$ is constant, so the argument of the quintic order applies unchanged and only the fluctuation of $\Sigma_2$ needs the square root.
+  It reaches the string vertices under the assumption that the exchange terms induced by $\Sigma_2$ are not linear combinations of the elementary vertices.
+  We constructed the flat representatives, and with them the contractible pairs below, only through order $\gs^4$, but we expect them to exist at any order, on the pattern of the two constructed: each further auxiliary field enters through a completed square, as $\Sigma_2$ and $\Sigma_3$ do.
+  Its kinetic operator has to be invertible only on the quotient by its kernel, and we expect this invertibility to hold at any order as well: if a vertex $\mathcal V_{2k}$ is not invertible on some states, it vanishes on them, and these states need no auxiliary field.
+
+The gauge algebra at sextic order is again that of closed string field theory, through order $\gs^4$.
+  The $\Psi$ row is~\eqref{p:eq:gauge:algebra-psi}, open from order $\gs^2$ on for the same reason as in the original theory.
+  In the flat representative the auxiliary rows follow from it by the chain rule, so that the algebra closes modulo the $\Psi$ equation of motion alone.
+  In the representative~\eqref{p:eq:hs6:gauge-sigma2} the $\Sigma_2$ row closes modulo both equations of motion.
+  Its curvature term, proportional to $\sigma_2^{(4)}$, is the one computed above at quintic order, with corrections from the sextic term at higher orders in $\gs$.
+  In the Batalin--Vilkovisky language, the two inert fluctuations and their antifields are two contractible pairs with constant coefficients, and the master action of the cubic theory is that of the eliminated theory plus these pairs.
+  This is made precise below, under the assumptions listed there, with the contractible pair~\eqref{p:eq:gauge:contractible-pair} of $\Sigma_2$ and the square of $\sigma_3^{(4)}$ added at this order.
+
+Two further symmetries deserve a comment.
+Before the quotient by $\ker \sprod{2}{2}$ is taken, the quartic cubic action is exactly invariant under a shift of $\Sigma_2$ along the kernel directions, $\delta \Sigma_2 = N_2$ with $N_2 \in \ker \sprod{2}{2}$, since $N_2$ enters neither the quadratic term nor the source term.
+This is a genuine $2$-string gauge symmetry, with a $2$-string state as parameter.
+  However, it shifts decoupled directions with zero action, and taking $\Sigma_2$ on the quotient is its gauge fixing.
+
+The homogeneous rotation in~\eqref{p:eq:gauge:law-quintic}, on the other hand, is not a symmetry on its own.
+With $\Psi$ held fixed it changes the action by $- \tfrac{\gs^3}{5!} \, \vertex{5}(\sigma_2^{(3)}, \sigma_2^{(3)}, \delta_\Lambda \Psi)$, which is the term it cancels in~\eqref{p:eq:hs5:form-variation}: it compensates the variation of the dressed kinetic operator, with the same parameter $\Lambda$.
+Nor is it a trivial symmetry in the sense of~\eqref{p:eq:gauge:freedom}: written as a coefficient times the $\Sigma_2$ equation of motion, its coefficient is symmetric with respect to the $2$-string pairing, where triviality requires antisymmetry.
+It is the transformation law of an auxiliary field under the single gauge symmetry of the theory: it carries no parameter of its own, is proportional to the fluctuation, vanishes on-shell, and disappears when $\Sigma_2$ is eliminated.
+In the Batalin--Vilkovisky language below, it is the law of one member of a contractible pair whose coefficient depends on $\Psi$, and the flat representative is the change of variables that makes the coefficient constant.
+
+\subparagraph{Is a $2$-string gauge parameter needed?}
+
+The auxiliary field has no gauge parameter of its own: its transformation is induced by that of $\Psi$, order by order.
+This is expected: the cubic action reproduces the original one once the auxiliary field is eliminated by its equation of motion, so the transformation law of the auxiliary field is fixed by that of $\Psi$ up to trivial symmetries.
+  It does not exclude a more general description, of which the cubic action is a gauge-fixed form.
+Hence, we can then ask whether the cubic action is the gauge-fixed form of a theory with an independent $2$-string parameter $\Lambda_2 \in \Hn{2}$, of ghost number three, acting on $\Sigma_2$ through a field-independent operator.
+
+Within the classes we have examined, every theory of which the cubic action is a gauge-fixed form is a trivial enlargement: $\Lambda_2$ shifts $\Sigma_2$ along null directions of the enlarged quadratic form and carries no physics.
+  The classes are those in which $\Lambda_2$ acts on $\Sigma_2$ alone, $\delta \Sigma_2 = D \Lambda_2$ with a field-independent operator $D$ of ghost number one, while $\Psi$ keeps its gauge transformation and $\Sigma_2$ its composite law $\delta_\Lambda \Sigma_2 = 2 \, \delta_\Lambda \Psi \otimes \Psi$.
+  We also require the enlarged theory to consist of a symmetric quadratic form on an enlarged space of $\Sigma_2$ that reduces to the quartic form on the present space, together with the source term it induces.
+  The enlarged space can be the present one or any extension of it, including the relaxation of the level-matching conditions~\eqref{p:eq:hs1:level-matching} on the two strands, with $D$ built from the zero modes $c_0^-$, $b_0^-$ and $L_0^-$.
+  Since the enlarged quadratic form is symmetric and invariant under $\Lambda_2$, the image of $D$ lies in its kernel.
+  With the composite law, $\Lambda_2$ commutes with the gauge transformation of $\Psi$ and generates a shift, an extension of the shift symmetry along the kernel of $\sprod{2}{2}$ (\cref{p:sec:hs:quartic}).
+  When the enlarged space is the direct sum of the present one and of the image of $D$, the enlarged quadratic form is the quartic form evaluated on the projection onto the present space, and it is the only symmetric one.
+  Off level matching, at quadratic order in $\Sigma_2$ and with the source term extended by zero to the new directions, an operator built from the zero modes raises the number of $c_0^-$ by one, so that its image never meets the level-matched states: $\Lambda_2$ does not act on the present components of $\Sigma_2$.
+  The gauge slice $(b_0^- \otimes 1 + 1 \otimes b_0^-) \Sigma_2 = 0$ is then strictly larger than the level-matched space, and the coupling between the level-matched directions and the others generically spoils the reduction to the original quartic term.
+  At order $\gs^2$, on the present field content and at generic momentum, the cubic action exposes no other $2$-string symmetry: modulo the components that the action at this order does not constrain, among which every level-matched field-independent $D$, the part linear in $\Lambda_2$ of any symmetry polynomial in the fields is a gauge transformation with a parameter built from $\Lambda_2$, a shift along the kernel of $\sprod{2}{2}$ or a trivial symmetry.
+  This statement concerns what the action at this order constrains: a $2$-string symmetry on the present field content could still appear at order $\gs^3$, which we have not examined.
+  We argue that the same holds for all symmetries, single-string parameter included, under three assumptions: those that make the master action~\eqref{p:eq:gauge:master-cubic} proper, a regularity hypothesis on the stationary surface of the truncated action, and the completeness of its gauge generators~\cite{Henneaux:1994:QuantizationGaugeSystems}.
+
+
+
+We do not exclude a theory of which the cubic action is a gauge-fixed form and in which $\Lambda_2$ acts on $\Psi$, or through a field-dependent operator, or through an extension of the quartic vertex off level matching, and we leave this case open.
+  On the present field content, at an exceptional momentum above level $0$, if any, the null directions of the quartic form are the kernel shifts of \cref{p:sec:hs:quartic}, which are pure gauge and are removed by the quotient, and no further cohomology arises in~\eqref{p:eq:gauge:cohomology}.
+The bar--cobar presentation of \cref{p:sec:bar-cobar} has an independent $2$-string parameter, used up in reaching its canonical gauge; we have not worked out how it relates to the classes above.
+
+In the \IBL{} reading of \cref{p:sec:ibl}, $\Psi$ transforms through $\Lambda_2$ by $\gs \, \ell_2(\Lambda_2)$ at first order in $\gs$ and by $\gs^2 \, \ell_3(\Psi, \Lambda_2)$ at second order.
+  There $\gs \, \ell_2(\Lambda_2)$ is one term of a transformation that also moves $\Sigma_2$ by $\hat Q_B \Lambda_2 + \dots$, with $\hat Q_B := Q_B \otimes 1 + 1 \otimes Q_B$ the BRST operator on $2$-string states.
+  This transformation preserves the Maurer--Cartan components of that reading through first order in $\gs$
+  Beyond that order the statement rests on an assumption on the operator form of the relations, which we have not checked, and on the relations with two contractions by the inverse pairing, which we expect to fail at genus zero.
+
+\subsubsection{Master action}
+\label{p:sec:gauge:master-action}
+
+Since the gauge algebra is open, the Batalin--Vilkovisky formalism is the natural setting.
+  It is also the one in which we can make precise the statement that the auxiliary field is a trivial sector.
+We use the conventions of \cref{p:app:conventions}: every field is paired with an antifield of opposite Grassmann parity and target-space ghost number $\gh(\phi^+) = - \gh(\phi) - 1$, and the antibracket is that of~\cite[ch.~15]{Henneaux:1994:QuantizationGaugeSystems}.
+For the string field we follow~\cite{Zwiebach:1993:ClosedStringField}: the master action of the original theory is the classical action with the string field taken at unrestricted ghost number:
+\begin{equation}
+  \label{p:eq:gauge:master-original}
+  S_{\mathrm{BV}}[\Psi]
+    = \frac{1}{2} \, \pair{\Psi}{Q_B \Psi}
+      + \sum_{n \ge 3} \frac{\gs^{n-2}}{n!} \, \vertex{n}(\Psi^n),
+  \qquad
+  \Psi \in \Hs,
+  \quad
+  \Ngh(\Psi) \text{ unrestricted},
+\end{equation}
+where the component of ghost number one is the ghost of the gauge symmetry and the components of ghost number zero and below are the ghosts for ghosts.
+The components of ghost number $5 - G$ are the antifields of those of ghost number $G$, the two being paired by~\eqref{p:eq:hs1:pairing}.
+The classical master equation $(S_{\mathrm{BV}}, S_{\mathrm{BV}}) = 0$ is then equivalent to the $\Loo$ relations of the products, order by order in the number of fields.
+We take the antifield of the auxiliary field to be a $2$-string state $\Sigma_2^+$ paired with $\Sigma_2$ by the $2$-string pairing, hence of worldsheet ghost number six.
+Since $\Sigma_2$ has no gauge parameter, hence no ghosts, its antifield is introduced in this way rather than as a component of a $2$-string field at unrestricted ghost number.
+  This worldsheet ghost number is a label on which nothing below depends, and the Grassmann parity of $\Sigma_2^+$ is not read off from it: the $2$-string states at ghost numbers four and six are both even for the parity $\Ngh \bmod 2$ (\cref{p:app:conventions}).
+The field $\Sigma_2$ is even, of target-space ghost number zero, and $\Sigma_2^+$ is odd, of target-space ghost number $-1$, by the definition of an antifield.
+The sign of the odd symplectic form relative to the antibracket is fixed on the string field so that the antibracket is that of~\cite[eq.~(3.26)]{Zwiebach:1993:ClosedStringField}.
+On the auxiliary pair, the corresponding sign is absorbed in the sign of $\Sigma_2^+$ and enters no statement below.
+
+
+The master action of the cubic theory truncated at order $\gs^{N-2}$ is built in the standard way for an open algebra~\cite[ch.~17]{Henneaux:1994:QuantizationGaugeSystems}.
+We write $\eta \in \Hs$ for the ghost, the gauge parameter promoted to a Grassmann-odd field of ghost number one, and $\delta_\eta$ for the gauge transformations with $\Lambda$ replaced by $\eta$.
+  The master action then reads:
+\begin{equation}
+  \label{p:eq:gauge:master-cubic}
+  \caction[\mathrm{BV}]
+    = \caction[\le N]
+      + \pair{\Psi^+}{\delta_\eta \Psi}
+      + \pair[2]{\Sigma_2^+}{\delta_\eta \Sigma_2}
+      + \frac{1}{2} \, \pair{\eta^+}{\Lambda_{12}(\eta, \eta)}
+      + \ldots,
+\end{equation}
+where the dots stand for the terms quadratic in the antifields, which the open algebra~\eqref{p:eq:gauge:algebra-psi} requires, and for the tower of ghosts for ghosts.
+The $\Psi$-sector terms are those of~\eqref{p:eq:gauge:master-original}, since the gauge transformation of $\Psi$ is that of the original theory: there $\eta$, $\Psi^+$ and $\eta^+$ are the components of the string field of ghost numbers one, three and four, and the terms written out in~\eqref{p:eq:gauge:master-cubic} are the parts of~\eqref{p:eq:gauge:master-original} linear in $\Psi^+$ and in $\eta^+$.
+  They are not generated by the cubic action at unrestricted ghost number, which would give only one third of the $\ell_3$ term in $\delta_\eta \Psi$, the direct channel of~\eqref{p:eq:gauge:direct-channel} below.
+The one new term is $\pair[2]{\Sigma_2^+}{\delta_\eta \Sigma_2}$, with the law of $\Sigma_2$ in the representative chosen.
+  A term quadratic in $\Sigma_2^+$ appears for a representative with a nonzero curvature and is absent for the flat one.
+
+The flat representative provides a change of variables in which the auxiliary sector of~\eqref{p:eq:gauge:master-cubic} becomes trivial.
+The change of variables on the fields is the shift to the fluctuation, $\Sigma_2 \mapsto \sigma_2^{(N-2)} = \Sigma_2 - \Sigma_2^{(N-2)*}(\Psi)$, followed at quintic order by the map $\sigma_2^{(3)} \mapsto \hat\sigma_2^{(3)}$ of~\eqref{p:eq:gauge:flat-variable}.
+Any change of variables on the fields extends to a canonical transformation of the antibracket, under which the antifields transform as covectors.
+The antifield $\hat\sigma_2^{(3)+}$ is the image of $\Sigma_2^+$ under the inverse transpose of the Jacobian.
+  Since the new variable depends on $\Psi$, the antifield $\Psi^+$ receives a shift proportional to $\Sigma_2^+$:
+\begin{equation}
+  \label{p:eq:gauge:antifield-shift}
+  \pair{\hat \Psi^+}{w}
+    = \pair{\Psi^+}{w} + \pair[2]{\Sigma_2^+}{\partial_\Psi \Sigma_2 \big\vert_{\hat\sigma_2^{(3)}} \, w}
+\end{equation}
+for every $w \in \Hs$, where $\partial_\Psi \Sigma_2 \vert_{\hat\sigma_2^{(3)}} \, w = \partial_\Psi \Sigma_2^{(3)*}(\Psi) \, w + (\partial_\Psi m_\Psi^{-1/2} \, w) \, \hat\sigma_2^{(3)}$ is the derivative of $\Sigma_2$ along $w$ at fixed $\hat\sigma_2^{(3)}$.
+In the new variables, the classical action becomes the eliminated action plus a square with a constant kinetic operator:
+\begin{equation}
+  \label{p:eq:gauge:S-el}
+  \caction[\le N]
+    = S^{\mathrm{el}}_{\le N} - \frac{\gs^2}{4!} \, \vertex{4}(\hat\sigma_2^{(3)}, \hat\sigma_2^{(3)}),
+  \qquad
+  S^{\mathrm{el}}_{\le N}(\Psi)
+    := \caction[\le N] \big( \Psi, \Sigma_2^{(N-2)*}(\Psi) \big),
+\end{equation}
+for $N \le 5$, with the square $- \tfrac{\gs^4}{6!} \, \pair[3]{\sigma_3^{(4)}}{\wprod{3}{3}(\sigma_3^{(4)})}$ of the second pair added at $N = 6$.
+Here the eliminated action $S^{\mathrm{el}}_{\le N}$, the cubic action with the auxiliary field at its solution, differs from $S_{\le N}$ by the exchange terms beyond the truncation order, a function of $\Psi$ alone.
+At the same time, the antifield-linear term of the auxiliary sector vanishes identically, $\pair[2]{\hat\sigma_2^{(3)+}}{\delta_\eta \hat\sigma_2^{(3)}} = 0$, since $\hat\sigma_2^{(3)}$ is inert.
+  This is where the flat representative is needed: for any other representative, this term survives.
+Hence
+\begin{equation}
+  \label{p:eq:gauge:master-hatted}
+  \caction[\mathrm{BV}]
+    = S_{\mathrm{BV}}\big[\Psi, \hat \Psi^+, \eta, \eta^+, \ldots\big]
+      - \frac{\gs^2}{4!} \, \vertex{4}(\hat\sigma_2^{(3)}, \hat\sigma_2^{(3)}),
+\end{equation}
+where $S_{\mathrm{BV}}$ is the master action of the eliminated theory $S^{\mathrm{el}}_{\le N}$, which is~\eqref{p:eq:gauge:master-original} truncated with the exchange terms added, in the shifted antifield.
+The auxiliary sector has become a pair with constant coefficients on which the BRST differential $s := (\cdot, \caction[\mathrm{BV}])$ acts as:
+\begin{equation}
+  \label{p:eq:gauge:contractible-pair}
+  s \hat\sigma_2^{(3)}
+    = 0,
+  \qquad
+  s \hat\sigma_2^{(3)+}
+    = - \frac{\gs^2}{12} \, \sprod{2}{2}(\hat\sigma_2^{(3)}),
+\end{equation}
+that is, a contractible pair in the sense of~\cite[sec.~17.3.5]{Henneaux:1994:QuantizationGaugeSystems}, since $\sprod{2}{2}$ is constant and invertible on the quotient.
+Such a pair carries no cohomology, and its contracting homotopy $- \tfrac{12}{\gs^2} \, \hat\sigma_2^{(3)+} \cdot \sprod{2}{2}^{-1} \, \partial / \partial \hat\sigma_2^{(3)}$ anticommutes with the $\Psi$-sector differential because the coefficients are field independent.
+Finally, the antibracket of~\eqref{p:eq:gauge:master-hatted} with itself is that of the $\Psi$ sector alone:
+\begin{equation}
+  \label{p:eq:gauge:master-equation-reduced}
+  \big( \caction[\mathrm{BV}], \caction[\mathrm{BV}] \big)
+    = \big( S_{\mathrm{BV}}, S_{\mathrm{BV}} \big),
+\end{equation}
+identically in the fields: every term of the antibracket pairs a derivative with respect to a field with one with respect to its antifield, $S_{\mathrm{BV}}$ depends on neither $\hat\sigma_2^{(3)}$ nor $\hat\sigma_2^{(3)+}$, and the square contains $\hat\sigma_2^{(3)}$ but no $\hat\sigma_2^{(3)+}$.
+The master action of the cubic theory is the master action of the original theory plus a trivial pair, to the order of the truncation.
+
+
+We now determine to what order~\eqref{p:eq:gauge:master-equation-reduced} vanishes.
+For the full action~\eqref{p:eq:gauge:master-original} the master equation holds exactly, by the $\Loo$ relations.
+For the action truncated at the vertex $\vertex{N}$, the term of order $\gs^m$ in $(S_{\le N}, S_{\le N})$ involves only kept vertices as long as $m \le N - 2$.
+It then coincides with that of the full action and vanishes.
+The first surviving term is:
+\begin{equation}
+  \label{p:eq:gauge:master-truncation}
+  \big( S_{\le N}, S_{\le N} \big)
+    = - 2 \, \big( S_2, S_{N+1} \big) + O(\gs^N)
+    = \sum_{\substack{a + b = N + 3 \\ 3 \le a, b \le N}} \big( S_a, S_b \big) + O(\gs^N).
+\end{equation}
+The two forms are equal by the relation of arity $N$, the first one that contains the product $\ell_N$ dual to the first vertex dropped.
+The obstruction is thus computable from the kept vertices alone and is, up to the factor $-2$, the antibracket of the kinetic term with the first vertex dropped.
+The exchange terms $S^{\mathrm{el}}_{\le N} - S_{\le N}$ first enter at order $\gs^{N-1}$ as well and add $2 \, (S_2, S^{\mathrm{el}}_{\le N} - S_{\le N})$ to this term.
+They are not gauge invariant: their variation is the difference between the variations of the cubic and of the truncated actions.
+  Hence this term need not vanish, and we have not computed it.
+Therefore
+\begin{equation}
+  \label{p:eq:gauge:master-equation-order}
+  \big( \caction[\mathrm{BV}], \caction[\mathrm{BV}] \big)
+    = O(\gs^{N-1}),
+\end{equation}
+the same order to which the cubic action is gauge invariant.
+The master action is also proper for $\gs \ne 0$, to the order of the truncation, at generic momentum.
+At $\gs = 0$ the Hessian of the kinetic term has half the maximal rank, since $Q_B$ has no cohomology off-shell.
+The rank cannot drop under perturbation, and the master equation prevents it from exceeding one half.
+The auxiliary pair adds a block whose rank is the dimension of the auxiliary field, half that of the pair, since $\sprod{2}{2}$ is invertible on the quotient and $\gs \ne 0$.
+At $\gs = 0$, this block vanishes, and the limit $\gs \to 0$ is not covered.
+
+This holds for the quartic and quintic truncations with $\Sigma_2$.
+It holds for the sextic truncation with $\Sigma_2$ and $\Sigma_3$ in the triangular form, where there are two pairs, with coefficients $\sprod{2}{2}$ and $\wprod{3}{3}$.
+They are reached by shifting $\Sigma_3$ to its solution first, with $\Sigma_2$ off-shell, and $\Sigma_2$ next.
+
+The assumptions are those of the construction.
+The vertices kept must be the truncation of a consistent genus-zero family, so that the $\Loo$ relations hold through arity $N - 1$, the last product the kept vertices define.
+This is the assumption of \cref{p:sec:hs:action}, and it is what~\eqref{p:eq:gauge:master-truncation} uses.
+The first form of~\eqref{p:eq:gauge:master-truncation} assumes in addition that the family has a consistent next vertex; the second, and the order of the obstruction, do not.
+
+The quadratic form $\vertex{4}$ must be invertible on the quotient by its kernel, level by level.
+If the kernel is nonzero, the quintic vertex must vanish on it, for the dressed kinetic operator and the quotient to be compatible.
+At sextic order the flat representative, constructed for generic vertices, reaches the string vertices under the assumption on the exchange terms stated with it; at quintic order it needs no such assumption.
+At sextic order, finally, the sextic vertex must vanish on $\ker \sprod{2}{2}$ as well, for the source of $\Sigma_3$ to be defined on the quotient.
+The kinetic operator $\wprod{3}{3}$ of $\Sigma_3$ must be invertible on the quotient by its kernel (\cref{p:sec:hs:sextic}).
+The source of $\Sigma_3$, $\wprod{3}{3}(\Psi \otimes \Sigma_2)$, lies in its image whether or not the kernel is trivial, since it pairs to zero with every kernel element by the symmetry of $\wprod{3}{3}$ (\cref{p:sec:hs:septic}).
+  From the next order on, the kernel must be a null direction of every vertex in which $\Sigma_3$ appears.
+
+Physically, the gauge fixing of the cubic theory requires no ghost beyond those of the original theory: the auxiliary field has no gauge parameter, hence no ghost, and its antifield is eliminated with it.
+
+\subsubsection{Spectrum around a background}
+\label{p:sec:gauge:spectrum}
+
+Let $(\Psi^*, \Sigma_2^*)$ be a solution of the equations of motion of the cubic theory, with $\Psi^*$ of order one in $\gs$, and with $\Sigma_2^* = \Sigma_2^{(N-2)*}(\Psi^*)$ on the branch where the dressed kinetic operator $\kin{2}{\Psi^*}{N-2}$ is invertible on the quotient.
+We write $\Psi = \Psi^* + \psi$ and $\Sigma_2 = \Sigma_2^* + \sigma_2$ for the fluctuations, with $\psi$ at unrestricted ghost number, and $\sigma_2^+$ for the fluctuation of the antifield.
+Expanding the master action~\eqref{p:eq:gauge:master-cubic} to second order around the background gives the linearized BRST operator of the cubic theory, which we denote by $\widetilde Q_{(\Psi^*, \Sigma_2^*)}$.
+Its counterpart in the original theory is the shifted BRST operator around $\Psi^*$~\cite[eq.~(4.112)]{Zwiebach:1993:ClosedStringField}:
+\begin{equation}
+  \label{p:eq:gauge:shifted-brst}
+  Q_{\Psi^*}
+    := Q_B
+      + \gs \, \ell_2(\Psi^*, \cdot)
+      + \frac{\gs^2}{2} \, \ell_3(\Psi^{*2}, \cdot)
+      + \ldots
+      + \frac{\gs^{N-2}}{(N-2)!} \, \ell_{N-1}(\Psi^{*(N-2)}, \cdot).
+\end{equation}
+The untruncated operator is nilpotent when $\Psi^*$ solves the equation of motion of the full theory, as a consequence of the $\Loo$ relations.
+The truncated operator~\eqref{p:eq:gauge:shifted-brst} is nilpotent up to terms of order $\gs^{N-1}$ when $\Psi^*$ solves the full or the truncated equation.
+Three facts hold under the assumptions of the master action, with the dressed kinetic operator invertible at the background.
+First, the auxiliary pair couples only to the components of $\psi$ of ghost number one to four: to the classical fluctuation and the ghost, and through the antibracket to their antifields.
+By ghost-number conservation on the sphere, a vertex with all its undifferentiated legs at ghost number two contributes to the Hessian only between components whose ghost numbers sum to four.
+The terms quadratic in the antifields therefore do not enter the linearized operator, and the tower of ghosts for ghosts enters it only through its own block, which the auxiliary pair does not touch.
+Second, $\widetilde Q_{(\Psi^*, \Sigma_2^*)}$ squares to zero up to terms of order $\gs^{N-1}$ at a critical point, its square being one half of the second derivative of~\eqref{p:eq:gauge:master-equation-order} contracted with the antibracket.
+Off-shell, the defect is linear in the residual of the classical equations.
+Third, and this is the theorem, the linearization of the canonical transformation generated by the shift $\Sigma_2 \mapsto \Sigma_2 - \Sigma_2^{(N-2)*}(\Psi)$ brings the operator to block-diagonal form.
+We write $x_2$ for the linearization of $\sigma_2^{(N-2)}$ around the background:
+\begin{equation}
+  \label{p:eq:gauge:x2}
+  x_2
+    := \sigma_2 - \partial_\Psi \Sigma_2^{(N-2)*}(\Psi^*) \, \psi,
+\end{equation}
+which at quartic order is $x_2 = \sigma_2 - 2 \, \psi \otimes \Psi^*$, the same combination as in the gauge law.
+We write $\mathcal L$ for the linear canonical transformation $(\psi, \sigma_2, \sigma_2^+) \mapsto (\psi, x_2, \sigma_2^+)$, completed on $\psi^+$.
+Then
+\begin{equation}
+  \label{p:eq:gauge:brst-theorem}
+  \mathcal L \, \widetilde Q_{(\Psi^*, \Sigma_2^*)} \, \mathcal L^{-1}
+    = Q^{\mathrm{el}}_{\Psi^*} \oplus Q^{\mathrm{pair}}_{\Psi^*},
+  \qquad
+  Q^{\mathrm{pair}}_{\Psi^*} \colon
+  \quad
+  x_2 \mapsto 0,
+  \quad
+  \sigma_2^+ \mapsto - \frac{\gs^2}{12} \, \kin{2}{\Psi^*}{N-2}(x_2),
+\end{equation}
+exactly, where $Q^{\mathrm{el}}_{\Psi^*}$ is the linearized BRST operator of the eliminated theory $S^{\mathrm{el}}_{\le N}$ at $\Psi^*$, and $\kin{2}{\Psi^*}{N-2}$ is the dressed kinetic operator at the background, equal to $\sprod{2}{2}$ at quartic order.
+The block $Q^{\mathrm{el}}_{\Psi^*}$ is $Q_{\Psi^*}$ exactly at quartic order, where the exchange terms vanish.
+Beyond, it is $Q_{\Psi^*} + O(\gs^{N-1})$, the difference being the Hessian of the exchange terms, under the compatibility of the quintic vertex with the kernel stated with the master action.
+The auxiliary pair is contractible under $Q^{\mathrm{pair}}_{\Psi^*}$ when $\gs \ne 0$ and $\kin{2}{\Psi^*}{N-2}$ is invertible on the quotient, level by level, and it then carries no cohomology.
+In general, its cohomology is the kernel plus the cokernel of the kinetic operator.
+This is why the quotient by $\ker \sprod{2}{2}$ is part of the statement: each kernel direction would otherwise contribute one class on each side.
+Since $\mathcal L$ preserves the ghost number, the cohomologies agree degree by degree:
+\begin{equation}
+  \label{p:eq:gauge:cohomology}
+  H^G\big( \widetilde Q_{(\Psi^*, \Sigma_2^*)} \big)
+    \cong H^G\big( Q_{\Psi^*} \big)
+  \quad \text{for every ghost number } G,
+\end{equation}
+to the order of the truncation.
+Hence the spectrum of fluctuations of the cubic theory around a classical solution is that of the original theory around $\Psi^*$, in every ghost number and to the order kept in $\gs$.
+The auxiliary field adds no physical state, no new ghost and no new antifield class, and the question of which states are physical can be answered in the original theory.
+Properness at the background is inherited the same way: by~\eqref{p:eq:gauge:brst-theorem} the rank of the Hessian of the cubic master action is that of the eliminated theory plus the dimension of the auxiliary field.
+
+The theorem is the linearization of~\eqref{p:eq:gauge:master-hatted}, and nothing in it depends on the dimension of the state space once the kinetic operator is invertible.
+We checked it numerically at quartic and quintic order in finite-dimensional models of the kind used in \cref{p:app:finite-models}.
+At quintic order the identification of the block with $Q_{\Psi^*}$ needs the quintic vertex to vanish on $\ker \sprod{2}{2}$ when that kernel is nonzero.
+Our model has a kernel and violates this condition, and there the block differs from $Q_{\Psi^*}$ already at order $\gs^3$.
+The identification at quintic order is therefore not checked numerically.
+  The model shows instead that the whole defect at order $\gs^3$ sits in the block of the eliminated theory and none in the auxiliary pair.
+  A model with no kernel, or with the quintic vertex vanishing on it, would check the identification itself.
+At sextic order, with $\Sigma_3$, the same holds with two pairs, the second with coefficient $- \tfrac{2 \gs^4}{6!} \, \wprod{3}{3}$, under the assumptions listed with the master action.
+We have not checked this case numerically.
+The statement of this section is therefore made through order $\gs^4$, the order to which the flat representatives are constructed.
+For a background of order $1 / \gs$, such as a candidate for the tachyon vacuum, no order counting is available.
+The similarity~\eqref{p:eq:gauge:brst-theorem} still holds pointwise wherever the dressed kinetic operator is invertible, now a nonperturbative condition.
+The fluctuation operator of the cubic theory is then exactly that of the eliminated theory $S^{\mathrm{el}}_{\le N}$.
+That theory is the truncated original theory at quartic order and differs from it, from quintic order on, by terms of the same nominal size as the first vertex dropped.
+On the wall where the dressed kinetic operator degenerates nothing is claimed: the branch of the $\Sigma_2$ equation changes there, as discussed in \cref{p:sec:solutions}.
+
+\subparagraph{Direct channel.}
+
+The theorem also clarifies the role of the classical auxiliary field in the fluctuation operator.
+The $\Psi \Psi$ block of the Hessian of the cubic action at the background, read as an operator through the pairing, is:
+\begin{equation}
+  \label{p:eq:gauge:direct-channel}
+  Q_B
+    + \gs \, \ell_2(\Psi^*, \cdot)
+    + \frac{\gs^2}{3!} \, \ell_3(\Sigma_2^*, \cdot),
+\end{equation}
+with $\Sigma_2^*$ filling two of the three slots of $\ell_3$: at $\Sigma_2^* = \Psi^{*2}$ the last term is one third of the $\ell_3$ term of $Q_{\Psi^*}$ in~\eqref{p:eq:gauge:shifted-brst}.
+The classical auxiliary field carries the direct channel of the exchange, the one of the three pairings of the four legs of the quartic vertex in which the two fluctuations enter the same $2$-string line.
+The other two thirds are the exchange of $\sigma_2$, the Schur complement of the auxiliary block, which the shift to $x_2$ makes explicit.
+At quintic order the block carries one fifth of the $\ell_4$ term, through the $O(\gs)$ correction of the solution, and the exchange the remaining four fifths.
+The block~\eqref{p:eq:gauge:direct-channel} alone is therefore not the BRST operator of any theory.
+At a critical point its square at order $\gs^2$ is proportional to $\{ Q_B, \ell_3(\Psi^{*2}, \cdot) \}$, which the $\Loo$ relations relate to the Jacobiator of $\ell_2$ on $\Psi^*$.
+The block is thus nilpotent at this order only if this anticommutator vanishes, which it does not at a critical point of a finite-dimensional model.
+Freezing the auxiliary field at its classical value is not a consistent truncation of the fluctuations.
+The mean field deforms the kinetic operator in the direct channel only, and the BRST operator of the background is recovered with the fluctuating auxiliary field.
+This is the fluctuation counterpart of the statement of \cref{p:sec:hs:quartic} that the exchange diagram collapses to the contact vertex only once the auxiliary propagator is included.
+
+\subsubsection{Truncations}
+\label{p:sec:gauge:truncations}
+
+\subparagraph{Level truncation.}
+
+The master equation~\eqref{p:eq:gauge:master-equation-order} holds order by order in $\gs$ on the full state space.
+Under level truncation we expect it to fail generically from order $\gs^2$ on, for the original theory and for the cubic theory alike.
+We give the argument, which we have not checked in a computation.
+The reason is the exchange between levels: the coefficient of $\gs^2$ in $(S_{\mathrm{BV}}, S_{\mathrm{BV}})$ is the Jacobiator of $\ell_2$ plus the BRST variation of $\ell_3$.
+The Jacobiator sums over intermediate states of all levels, which the truncation cuts, whereas the terms with $Q_B$ survive because $Q_B$ preserves the level.
+The linearized operators of the two truncated theories are then generically no longer nilpotent, and neither has a cohomology.
+The similarity~\eqref{p:eq:gauge:brst-theorem} uses no master equation and survives exactly: the joint Hessian of the truncated cubic theory is congruent to the Hessian of the truncated eliminated theory plus the auxiliary block, with the same zero modes and the same inertia.
+
+In level truncation the comparison is thus a statement about the classical fluctuation spectrum, masses and zero modes, rather than about the physical spectrum.
+Between the cubic theory and the eliminated theory it is exact, as a statement between two finite algebraic systems.
+The eliminated theory is the truncated original theory exactly at quartic order, and up to terms of order $\gs^4$ at quintic order, provided the truncated quadratic form has no kernel or the quintic vertex vanishes on it.
+
+\subparagraph{Truncation to a closed subspace.}
+
+Unlike level truncation, a truncation of another kind preserves the $\Loo$ relations of the original theory, and with them the master equation.
+Let $U$ be a subspace spanned by states of definite level and momentum, and $U^\perp$ the subspace orthogonal to $U$ for the pairing~\eqref{p:eq:hs1:pairing}.
+The truncation to $U$ requires every vertex to vanish when exactly one of its legs lies in $U^\perp$:
+\begin{equation}
+  \label{p:eq:gauge:closed-subspace-rule}
+  \vertex{n + 1}(y, u_1, \ldots, u_n)
+    = 0,
+  \qquad
+  y \in U^\perp,
+  \quad
+  u_i \in U,
+  \quad
+  n \ge 1.
+\end{equation}
+Since the pairing joins ghost numbers $G$ and $5 - G$, a subspace of string fields alone is orthogonal to itself, and the rule would make every vertex vanish on it.
+The rule therefore concerns subspaces containing every ghost number the products reach, such as the space of all universal states.
+By~\eqref{p:eq:hs1:vertex-product}, the rule says that $\pair{y}{\ell_n(u_1, \ldots, u_n)} = 0$ for every $y \in U^\perp$, so $\ell_n(u_1, \ldots, u_n)$ lies in $(U^\perp)^\perp$.
+This space is $U$, because the pairing joins the states of each level and momentum nondegenerately to those of the same level and the opposite momentum.
+Conversely, products that close on $U$ satisfy the rule.
+Each term of an $\Loo$ relation evaluated on elements of $U$ is then a composition of products whose inputs all lie in $U$, so the relations hold for the restricted products, which are cyclic for the restricted pairing.
+When the pairing stays nondegenerate on $U$, this is the master equation of the truncated action.
+
+For the subspace of all universal states, $U^\perp$ is the space of non-universal states, since the pairing does not mix matter modules.
+The rule is then the universality assumption of \cref{p:sec:solutions}, that a vertex with all its legs universal except exactly one vanishes, which is assumed there for the vertices $\vertex{3}$ to $\vertex{6}$ and motivated by a Ward-identity argument.
+  Here it is extended to every $n$ and to universal states of every ghost number, which that argument covers as well.
+This subspace contains the universal states of every level, and the truncation to it is not a level truncation.
+For a finite set of universal states, such as the tachyon and the dilaton, only the part of the rule whose outside leg is non-universal is available: it shows that $Q_B$ and the products $\ell_n$ with $n \le 5$, dual to the vertices $\vertex{3}$ to $\vertex{6}$ that the universality assumption covers, have no component towards the non-universal states, while the equations of motion along the omitted universal states carry the ordinary level-truncation error.
+
+The argument covers the original theory, and the eliminated theory through the order at which it equals the original one, but not the cubic theory.
+The universality rule is a statement per strand, and it does not remove the kinetic term of $\Sigma_2$ between a pair of universal states and a pair of non-universal states, $\vertex{4}(u, u', x, x')$ with $u, u'$ universal and $x, x'$ non-universal.
+The truncated cubic theory is therefore compared through elimination, where the kernel of the truncated quadratic form enters as stated above.
+
+\subsubsection{Open questions}
+\label{p:sec:gauge:open}
+
+
+We do not address two questions here.
+The first is the quantum master equation: the loops of the auxiliary field, starting with the $\Sigma_2$ tadpole on the quintic vertex, and the loop vertices of the original theory, which the classical construction never sees.
+The second is the Batalin--Vilkovisky structure of the multiplier form of \cref{p:sec:all-orders}, whose multipliers need their own antifields.
+Beyond sextic order the kinetic operator of $\Sigma_3$ is dressed by the background in turn.
+A flat representative for its pair, one per auxiliary field, is expected on the pattern of~\eqref{p:eq:gauge:flat-variable} but has not been constructed.

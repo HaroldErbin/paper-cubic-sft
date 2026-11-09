@@ -1,0 +1,509 @@
+\subsection{Classical solutions and fluctuations}
+\label{p:sec:solutions}
+
+At quartic order the cubic action and the original one have the same classical solutions, since eliminating the auxiliary field is exact and gives back the original action.
+At higher orders the solutions of the cubic action at which the auxiliary field can be eliminated, that is, where its quadratic operator is invertible, are the critical points of the eliminated action, which agrees with the original truncated action through the order kept; the configurations where it cannot are treated with the degenerate branch below.
+The difference lies in the fluctuation problem around a solution: the second variation of a cubic action is affine in the background, while that of the original action is not.
+We make the two statements precise, first in the level truncations in which solutions are actually computed, then for the Hessian, and finally for the two alternative eliminations, of $\Sigma_2$ and of $\Psi$.
+The statements are algebraic: they use the polynomial form of the action and linear algebra.
+They hold for the string vertices wherever the inverses they involve exist, under the assumptions of \cref{p:sec:hs}: the quartic form invertible on the quotient, the quintic and sextic vertices vanishing on its kernel.
+
+\subsubsection{Level truncations}
+\label{p:sec:sol:level-truncations}
+
+
+Solutions of closed string field theory are found numerically by level truncation, restricting the string field to a finite-dimensional subspace, typically the states up to a given level in Siegel gauge~\cite{Yang:2005:ClosedStringTachyon}.
+Let $\mathcal U \subset \Hs$ be a finite-dimensional subspace, and let $\Hs = \mathcal U \oplus \mathcal U^c$ be a decomposition in which the kinetic term does not mix the two summands:
+\begin{equation}
+  \label{p:eq:sol:kinetic-block}
+  \pair{u}{Q_B x}
+    = 0,
+  \qquad
+  u \in \mathcal U,
+  \quad
+  x \in \mathcal U^c,
+\end{equation}
+which is the case when $\mathcal U$ is a union of levels and $\mathcal U^c$ the remaining levels, since $Q_B$ commutes with $L_0^+$ and the pairing couples only states of equal level.
+We extend the level truncation of the string field to the auxiliary field by restricting it to $\mathcal U^{\wedge 2}$, the symmetric square of $\mathcal U$:
+\begin{equation}
+  \label{p:eq:sol:truncation}
+  \Psi
+    \in \mathcal U,
+  \qquad
+  \Sigma_2
+    \in \mathcal U^{\wedge 2},
+  \qquad
+  \caction[\le N]^{[\mathcal U]}
+    := \caction[\le N] \big|_{\mathcal U \times \mathcal U^{\wedge 2}},
+\end{equation}
+with the vertices evaluated as in the untruncated theory, and we assume that the quartic form has no kernel on $\mathcal U^{\wedge 2}$, so that no quotient is needed there.
+The choice $\mathcal U^{\wedge 2}$ is the smallest one that works: it contains $\Psi^2$ for every $\Psi \in \mathcal U$, so the solution $\Sigma_2^{(2)*} = \Psi^2$ of \cref{p:sec:hs:quartic} is representable in the truncation.
+An auxiliary space which does not contain $\mathcal U^{\wedge 2}$ fails already at quartic order: the square can no longer be completed, and the eliminated action differs from the quartic truncation for generic couplings.
+
+Eliminating $\Sigma_2$ from~\eqref{p:eq:sol:truncation} gives an action for $\Psi \in \mathcal U$ which we compare with the level truncation of the original theory, $S_{\le N} \big|_{\mathcal U}$.
+At quartic order the two agree exactly, since the solution $\Sigma_2 = \Psi^2$ lies in $\mathcal U^{\wedge 2}$ and the square completes inside the truncation.
+At quintic order the operator of $\Sigma_2$ is the dressed operator $\kin{2}{\Psi}{3}$ of \cref{p:sec:hs:quintic} restricted to $\mathcal U^{\wedge 2}$, and its inverse is a rational function of $\Psi$.
+The eliminated action then agrees with $S_{\le 5} \big|_{\mathcal U}$ through $O(\gs^3)$, with the same exchange term at $O(\gs^4)$ as in the untruncated theory, up to the inverse used.
+Writing $\Sigma_2^{(3)*[\mathcal U]}$ for the solution of the truncated auxiliary equation on $\mathcal U^{\wedge 2}$, we get:
+\begin{equation}
+  \label{p:eq:sol:matching}
+  \begin{gathered}
+    \caction[\le 4]^{[\mathcal U]} \Big|_{\Sigma_2 = \Psi^2}
+      = S_{\le 4} \big|_{\mathcal U},
+    \\
+    \caction[\le 5]^{[\mathcal U]} \Big|_{\Sigma_2 = \Sigma_2^{(3)*[\mathcal U]}}
+      = S_{\le 5} \big|_{\mathcal U}
+        + \frac{\gs^4}{600} \, \vertex{5 \cdot 5}^{[\mathcal U]}(\Psi^6)
+        + O(\gs^5).
+  \end{gathered}
+\end{equation}
+Here $\vertex{5 \cdot 5}^{[\mathcal U]}$ is the composite vertex of \cref{p:sec:hs:quintic} built with $(\sprod{2}{2}^{[\mathcal U]})^{-1}$, the inverse of the quartic form on $\mathcal U^{\wedge 2}$, in place of $\sprod{2}{2}^{-1}$.
+At sextic order the reduced vertex $\dvertex{6} = \vertex{6} - \tfrac{6}{5} \vertex{5 \cdot 5}$ of \cref{p:sec:hs:sextic} is built with the inverse of $\sprod{2}{2}$ on the whole of $\Hn{2}$, which is not computable inside a truncation.
+If it is nevertheless used, with that inverse computed outside the truncation, the eliminated action agrees with $S_{\le 6} \big|_{\mathcal U}$ through $O(\gs^3)$.
+The $O(\gs^4)$ difference is quadratic in the part of the source $\sprod{3}{2}(\Psi^3)$ that the truncated auxiliary space cannot absorb, with coefficient the inverse of the Schur complement (\cref{p:sec:hs:sextic:kernel}) of the block of $\vertex{4}$ on $\mathcal U^{\wedge 2}$~\eqref{p:eq:trunc:schur}.
+That part vanishes exactly when $\sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi^3)$ lies in $\mathcal U^{\wedge 2}$.
+The vertex to use in a truncation is instead the truncation-consistent reduced vertex
+\begin{equation}
+  \label{p:eq:sol:W6-truncated}
+  \dvertex{6}^{[\mathcal U]}
+    := \vertex{6} - \frac{6}{5} \, \vertex{5 \cdot 5}^{[\mathcal U]},
+\end{equation}
+built from the same data as the rest of the truncated action.
+With it the eliminated action equals $S_{\le 6} \big|_{\mathcal U} + O(\gs^5)$, without enlarging the auxiliary space: the truncated exchange term of the quintic order is cancelled by the truncated composite vertex inside $\dvertex{6}^{[\mathcal U]}$, as in the untruncated theory.
+The price is that this truncated action is not the restriction of the full one.
+Its solutions violate the equation of $\Sigma_2$ of the full cubic action along $\mathcal U^{\wedge 2}$ itself at relative order $\gs^2$.
+This violation and the one along the pairs with a leg outside $\mathcal U$ cancel in the value of the action through order $\gs^4$: this is the matching with $S_{\le 6} \big|_{\mathcal U}$ just stated, proved in \cref{p:app:truncation}.
+These matchings are statements about Taylor coefficients in $\gs$ at fixed $\Psi$, that is, about the terms through $\Psi^5$ or $\Psi^6$ of the action.
+At a tachyon vacuum $\gs \Psi = O(1)$, every term is of the same size, and the matchings carry no accuracy statement there.
+
+For a numerical solution the relevant question is different: a solution of the truncated equations of motion is not a solution of the untruncated ones, and we want to know which equations it violates and by how much.
+For the original theory the answer is the standard level-truncation error, the $\Psi$-equation along $\mathcal U^c$.
+For the cubic theory there is a second kind of error, along the auxiliary directions with a leg in $\mathcal U^c$.
+A selection rule, Sen's universality~\cite{Sen:1999:UniversalityTachyonPotential}, removes both along the directions that point towards the non-universal states, at the orders stated below (\cref{p:app:truncation}).
+At zero momentum, a vertex with all legs universal (matter part in the identity Virasoro module) except exactly one vanishes, by a Ward-identity argument: it is an integral over moduli of sphere correlators with a single matter leg outside the identity module.
+The same argument underlies the level-truncation studies of the closed-string tachyon vacuum~\cite{Yang:2005:ClosedStringTachyon}.
+The rule is established at genus zero and zero momentum, on the Fock space of zero momentum, for any vertex given as a moduli integral of a sphere correlator of conformally transformed states with $b$-ghost insertions, and it holds for the cubic and quartic vertices of the $\group{SL}(2, \C)$ family in any admissible section; at five points and more it rests on this family-independent Ward argument, since no quintic vertex of that family exists yet.\footnote{Ledger entry \recordref{R88}; a cited result (Yang and Zwiebach, after Sen), with no derivation record of its own.}
+We use it in the following form, for the vertices this section uses:
+\begin{equation}
+  \label{p:eq:sol:universality}
+  \vertex{n}(u_1, \ldots, u_{n-1}, x)
+    = 0,
+  \qquad
+  u_i \in \mathcal U,
+  \quad
+  x \in \mathcal N,
+  \quad
+  3 \le n \le 6,
+\end{equation}
+for $\mathcal U$ a subspace of zero-momentum universal states in Siegel gauge, such as the tachyon and the ghost dilaton, and $\mathcal N$ the non-universal states; nonzero-momentum states satisfy~\eqref{p:eq:sol:universality} by momentum conservation.
+The kinetic term does not mix $\mathcal U$ and $\mathcal N$ either, since $Q_B$ preserves the matter Virasoro module and the pairing does not mix modules.
+From here on $\mathcal U$ is such a space of universal states.
+  Then~\eqref{p:eq:sol:kinetic-block} holds towards $\mathcal N$ by this argument, and towards the universal states of other levels by the level argument below~\eqref{p:eq:sol:kinetic-block}.
+  The universal states of the same levels are discussed at the end of this subsection.
+
+Under these assumptions, let $(\Psi^*, \Sigma_2^*)$ solve the equations of motion of the truncated cubic action~\eqref{p:eq:sol:truncation} on the perturbative branch, the one connected to $\Sigma_2 = \Psi^2$.
+The $\Psi$-equation along $\mathcal N$ then vanishes identically in the fields, at every order considered here.
+At quartic order this is visible term by term: for every $x \in \mathcal N$,
+\begin{equation}
+  \label{p:eq:sol:lemma}
+  \pair{x}{\mathcal E^{(2)}_\Psi(\Psi^*, \Sigma_2^*)}
+    = \pair{x}{Q_B \Psi^*}
+      + \frac{\gs}{2} \, \vertex{3}(x, \Psi^{* 2})
+      + \frac{\gs^2}{6} \, \vertex{4}(x, \Sigma_2^*, \Psi^*)
+    = 0,
+\end{equation}
+the first term by~\eqref{p:eq:sol:kinetic-block} and the other two by~\eqref{p:eq:sol:universality}, since $\Sigma_2^* \in \mathcal U^{\wedge 2}$ has both strands in $\mathcal U$.
+Since the $\Sigma_2$-equation holds exactly at quartic order, a solution of the quartic truncation solves every equation of the quartic-order cubic theory except the $\Psi$-equation along the universal states outside $\mathcal U$.
+
+At quintic order the $\Sigma_2$-equation holds identically along the pairs of a state of $\mathcal U$ and a non-universal state.
+It is violated along the pairs of two non-universal states and, in general, along the pairs with a universal state outside $\mathcal U$, at relative order $\gs$, sourced by the part of $\sprod{3}{2}(\Psi^{* 3})$ that $\mathcal U^{\wedge 2}$ cannot absorb.
+At sextic order it is in general violated along the pairs of one state of $\mathcal U$ and one non-universal state as well, at relative order $\gs^2$, through the composite vertex.
+With~\eqref{p:eq:sol:W6-truncated}, so is $\mathcal U^{\wedge 2}$ itself, at the same relative order.
+Solving these auxiliary equations at fixed $\Psi^*$ changes the action by the term of order $\gs^4 \Psi^6$ found above, which~\eqref{p:eq:sol:W6-truncated} cancels.
+Along the universal states outside $\mathcal U$ the rule says nothing: for a finite $\mathcal U$ such as the tachyon and the ghost dilaton below, the error along the universal states of higher level is the ordinary level-truncation error.
+Same-level universal states outside $\mathcal U$ – outside Siegel gauge, or in Siegel gauge but not kept in $\mathcal U$ – are not removed by the rule, the non-universal ones being in $\mathcal N$, and~\eqref{p:eq:sol:kinetic-block} is not established for them.
+Their equations are the out-of-gauge equations of level truncation, which we do not examine.
+
+\subsubsection{The Hessian of the cubic action}
+\label{p:sec:sol:hessian}
+
+
+Consider a background $(\Psi^*, \Sigma_2^*)$ and the fluctuations around it:
+\begin{equation}
+  \label{p:eq:sol:fluctuations}
+  \Psi
+    = \Psi^* + \psi,
+  \qquad
+  \Sigma_2
+    = \Sigma_2^* + \sigma_2.
+\end{equation}
+The Hessian $\Hess \caction$ is the second variation of the action at the background, a symmetric bilinear form on the fluctuations with three blocks.
+Since the action is cubic, every block is affine in the background.
+The second derivative of a cubic monomial is linear in the fields and that of a quadratic one is constant, so each background-dependent term of a block is one vertex contracted once with one background field.
+Through quintic order the blocks are:
+\begin{subequations}
+  \label{p:eq:sol:hessian-blocks}
+  \begin{align}
+    \label{p:eq:sol:H-psi-psi}
+    H_{\Psi \Psi}(\psi, \psi')
+      &
+      = \pair{\psi}{Q_B \psi'}
+        + \gs \, \vertex{3}(\Psi^*, \psi, \psi')
+        + \frac{\gs^2}{6} \, \vertex{4}(\Sigma_2^*, \psi, \psi'),
+    \\
+    \label{p:eq:sol:H-sigma-psi}
+    H_{\Sigma_2 \Psi}(\sigma_2, \psi)
+      &
+      = \frac{\gs^2}{6} \, \vertex{4}(\sigma_2, \Psi^*, \psi)
+        + \frac{\gs^3}{60} \, \vertex{5}(\sigma_2, \Sigma_2^*, \psi),
+    \\
+    \label{p:eq:sol:H-sigma-sigma}
+    H_{\Sigma_2 \Sigma_2}(\sigma_2, \sigma_2')
+      &
+      = - \frac{\gs^2}{12} \, \Big[
+          \vertex{4}(\sigma_2, \sigma_2')
+          - \frac{\gs}{5} \, \vertex{5}(\sigma_2, \sigma_2', \Psi^*)
+        \Big]
+      = - \frac{\gs^2}{12} \, \pair[2]{\sigma_2}{\kin{2}{\Psi^*}{3}(\sigma_2')},
+  \end{align}
+\end{subequations}
+where the auxiliary block is the dressed kinetic operator of \cref{p:sec:hs:quintic} evaluated in the background.
+
+The $\Psi \Psi$ block receives no further term at any order, since the only cubic monomials containing $\Psi$ twice are $\Psi^3$ and $\Sigma_2 \Psi^2$.
+The $\Sigma_2 \Psi$ block is complete at quintic order.
+  When the sextic term is written with $\Sigma_2$ only (\cref{p:sec:hs:sextic}), the $\Sigma_2 \Sigma_2$ block is complete at sextic order, where the reduced sextic vertex contracted with $\Sigma_2^*$ enters; with $\Sigma_3$ the sextic terms go instead to its blocks and to the $\Sigma_2 \Psi$ block.
+  Each higher auxiliary field $\Sigma_k$, $k \ge 3$, adds blocks of the same kind.
+Its diagonal block is constant at the order at which the field enters and linear in $\Psi^*$ one order later, and it couples to $\Sigma_{k \pm 1}$ and to $\Psi$ only.
+
+We write $\phi := (\psi, \sigma_2)$ for the joint fluctuation.
+The fluctuation operator $\mathcal T$ is obtained from the Hessian by the kinetic pairing $\pair{\cdot}{\cdot} \oplus \pair[2]{\cdot}{\cdot}$:
+\begin{equation}
+  \label{p:eq:sol:fluctuation-operator}
+  \Hess \caction(\phi, \phi')
+    =: \pair{\psi}{(\mathcal T \phi')_\Psi}
+      + \pair[2]{\sigma_2}{(\mathcal T \phi')_{\Sigma_2}},
+\end{equation}
+so that $\mathcal T$ is one affine matrix built from the vertices through $\vertex{5}$ and the background.
+
+The joint Hessian is not the fluctuation operator of the eliminated theory, but the two are related by a change of variables.
+Wherever the auxiliary block is invertible, that is, wherever $\kin{2}{\Psi^*}{3}$ is invertible on the quotient, we complete the square in the auxiliary fluctuation.
+In the shifted auxiliary fluctuation
+\begin{equation}
+  \label{p:eq:sol:shift}
+  x_2
+    := \sigma_2 + H_{\Sigma_2 \Sigma_2}^{-1} H_{\Sigma_2 \Psi} \, \psi,
+\end{equation}
+the Hessian becomes block diagonal:
+\begin{equation}
+  \label{p:eq:sol:congruence}
+  \begin{gathered}
+    \Hess \caction
+      = L^{\mathsf T} \,
+        \big( H_{\rm eff} \oplus H_{\Sigma_2 \Sigma_2} \big) \,
+        L,
+    \qquad
+    L
+      = \begin{pmatrix}
+          1 & 0
+          \\
+          H_{\Sigma_2 \Sigma_2}^{-1} H_{\Sigma_2 \Psi} & 1
+        \end{pmatrix},
+    \\
+    H_{\rm eff}
+      := H_{\Psi \Psi}
+        - H_{\Sigma_2 \Psi}^{\mathsf T} \, H_{\Sigma_2 \Sigma_2}^{-1} \, H_{\Sigma_2 \Psi},
+  \end{gathered}
+\end{equation}
+where $H_{\rm eff}$ is the Schur complement of the auxiliary block and $L$ is unipotent.
+
+Two forms related by an invertible $L$ have the same inertia, the numbers of positive, negative and zero directions (Sylvester's law), and the same kernel up to $L$.
+We write $\mathrm{In}$ for this triple.
+They do not, in general, have the same eigenvalues with respect to the kinetic pairing, since $L$ does not preserve that pairing.
+Hence, in any finite truncation, the counts add:
+\begin{equation}
+  \label{p:eq:sol:inertia}
+  \begin{gathered}
+    \mathrm{In}(\Hess \caction)
+      = \mathrm{In}(H_{\rm eff}) + \mathrm{In}(H_{\Sigma_2 \Sigma_2}),
+    \\
+    \ker \Hess \caction
+      = \big\{ (\psi, \, - H_{\Sigma_2 \Sigma_2}^{-1} H_{\Sigma_2 \Psi} \, \psi) : \psi \in \ker H_{\rm eff} \big\},
+  \end{gathered}
+\end{equation}
+and the determinant factorizes, $\det \Hess \caction = \det H_{\Sigma_2 \Sigma_2} \, \det H_{\rm eff}$.
+
+On the auxiliary shell, $\Sigma_2^* = \Sigma_2^{(3)*}(\Psi^*)$, the shift $x_2$ is the linearization of $\Sigma_2 - \Sigma_2^{(3)*}(\Psi)$, and $H_{\rm eff}$ is exactly the Hessian of the eliminated action.
+There, $- H_{\Sigma_2 \Sigma_2}^{-1} H_{\Sigma_2 \Psi} \, \psi$ is the derivative of $\Sigma_2^{(3)*}(\Psi)$ along $\psi$.
+This is the envelope theorem at second order: differentiating the eliminated action $\caction\big(\Psi, \Sigma_2^{(3)*}(\Psi)\big)$ twice and using the auxiliary equation reproduces the Schur complement.
+The identity holds on and off the $\Psi$-shell, at every order, on any branch of the auxiliary equation where the auxiliary block is invertible; at sextic order this excludes the fold discussed below.
+Through the matchings of \cref{p:sec:hs}, $H_{\rm eff}$ equals the Hessian of the original truncated action exactly at quartic order and through $O(\gs^3)$ at quintic order, the $O(\gs^4)$ remainder being the Hessian of the exchange term.
+At sextic order the two agree through $O(\gs^4)$.
+The zero mode of the cubic theory is the zero mode of the eliminated theory dressed by the fluctuation of the auxiliary field which follows the solution.
+The naive lift $(\psi, 0)$ is a zero mode only if $H_{\Sigma_2 \Psi} \psi = 0$.
+
+At quartic order the split can be read on the vertex itself.
+With $\Sigma_2^* = \Psi^{* 2}$ the Schur term is $\tfrac{\gs^2}{3} \vertex{4}(\Psi^{* 2}, \psi, \psi)$, and we get:
+\begin{equation}
+  \label{p:eq:sol:channels}
+  \begin{aligned}
+    H_{\rm eff}(\psi, \psi)
+      &
+      = \pair{\psi}{Q_B \psi}
+        + \gs \, \vertex{3}(\Psi^*, \psi, \psi)
+        + \underbrace{\frac{\gs^2}{6} \, \vertex{4}(\Psi^{* 2}, \psi, \psi)}_{\text{direct channel}}
+        + \underbrace{\frac{\gs^2}{3} \, \vertex{4}(\Psi^{* 2}, \psi, \psi)}_{\sigma_2 \text{ exchange}}
+      \\
+      &
+      = \pair{\psi}{Q_{\Psi^*} \psi},
+  \end{aligned}
+\end{equation}
+with $Q_{\Psi^*}$ the shifted BRST operator of the original theory around $\Psi^*$ (\cref{p:sec:gauge}), here at quartic order~\cite{Zwiebach:1993:ClosedStringField}.
+This is the split into the direct channel and the exchange found for the BRST operator around the background in~\eqref{p:eq:gauge:direct-channel}, here read on the Hessian.
+At quintic order the $\Psi \Psi$ block carries one fifth of the quintic term, through the $O(\gs)$ correction of $\Sigma_2^*$, and the exchange of $\sigma_2$ the remaining four fifths.
+
+This is also where the two descriptions differ in kind.
+The original action at quartic order is quartic in $\Psi$, so its Hessian is quadratic in the background.
+The Hessian of the cubic action is affine, and the quadratic dependence is produced by the elimination, through the mixed block $H_{\Sigma_2 \Psi}$, linear in $\Psi^*$, which enters the Schur complement twice.
+
+At higher orders the elimination also produces singularities that the cubic theory does not have.
+At sextic order, when the sextic term is written with $\Sigma_2$ only, without $\Sigma_3$ (\cref{p:sec:hs:sextic}), the auxiliary equation is quadratic in $\Sigma_2$ and its solution has two sheets which meet where $H_{\Sigma_2 \Sigma_2}$ degenerates, a fold.
+There the Hessian of the eliminated action diverges as the inverse square root of the distance of $\Psi^*$ to the fold, approached along either sheet, while $\Hess \caction$, being affine, is finite and continuous, with the Schur complement simply undefined.
+In the one-field model of \cref{p:app:finite-models}, the joint Hessian at the fold has a determinant that does not vanish for generic couplings, with one positive and one negative direction.
+In that model the two summands of~\eqref{p:eq:sol:inertia} therefore exchange one unit between the sheets meeting at the fold, and the total count stays regular.
+The fold is a property of the elimination, not of the cubic theory.
+
+Two cautions are in order.
+The kinetic pairing is indefinite, so that the fluctuation operator $\mathcal T$, although self-adjoint with respect to it, is in general not self-adjoint for a positive inner product: its eigenvalues need not be real, and their signs are not a count of unstable directions.
+The invariant quantities, which~\eqref{p:eq:sol:congruence} controls, are the inertia and the kernel.
+Once momentum is restored, a mass shell is a momentum at which the fluctuation operator has a zero mode.
+Then~\eqref{p:eq:sol:inertia} says that at momenta where the auxiliary block is invertible the mass shells of the cubic theory around the background are those of $H_{\rm eff}$.
+We know of nothing that excludes a zero of $\det H_{\Sigma_2 \Sigma_2}(k)$ at some $k \neq 0$: the contact vertices give the block no pole, but its determinant can vanish at isolated momenta.
+Such a zero would be a mass shell of the cubic theory carried by the auxiliary field and absent from $H_{\rm eff}$.
+
+\subparagraph{The level-\texorpdfstring{$(1, 1)$}{(1,1)} instance.}
+
+
+We illustrate the structure on the truncation to the tachyon $T$ and the ghost dilaton $D$ at level $(1, 1)$ and zero momentum, with the quartic vertex of the companion paper~\cite{Erbin:2026:SL2CVerticesClosed} (the auxiliary field restricted to $\{T, D\}^{\wedge 2}$ is not a consistent truncation, since $\vertex{4}$ couples $T \otimes T$ and $D \otimes D$ to pairs of matter states).
+Levels are counted from the tachyon in the left and right sectors, so that level $(1, 1)$ is $L_0 = \bar L_0 = 0$, the level of the dilaton, and the truncation keeps the states up to it.
+Here $D = (c_1 c_{-1} - \bar c_1 \bar c_{-1}) \ket{0}$, with no matter oscillator, is the same vector as in the companion paper, and $\braket{D | c_0^- c_0^+ | D} = 1$ in our conventions.
+The string field has two components and the auxiliary field three:
+\begin{equation}
+  \label{p:eq:sol:level11}
+  \begin{gathered}
+  \Psi
+    = t \, T + d \, D,
+  \\
+  \Sigma_2
+    = \sigma_{TT} \, T \otimes T
+      + \sigma_{TD} \, \tfrac{1}{2} (T \otimes D + D \otimes T)
+      + \sigma_{DD} \, D \otimes D
+    \in \mathcal U^{\wedge 2},
+  \quad
+  \mathcal U
+    = \Span(T, D),
+  \end{gathered}
+\end{equation}
+so that the cubic action is a function of five real variables, cubic in $(t, d)$ and quadratic in $\sigma$.
+At quartic order the elimination is exact, $\Sigma_2^* = \Psi^2$, that is, $(\sigma_{TT}, \sigma_{TD}, \sigma_{DD}) = (t^2, 2 t d, d^2)$.
+The eliminated action is the ordinary $2$-field quartic potential of the level-truncated original theory, for this vertex family: nothing specific to the cubic formulation enters before the quintic vertex.
+Its critical points, their values and the comparison with the literature are the subject of the companion paper, and we only use their structure here.
+
+At this order the cubic formulation adds the auxiliary block.
+The quartic form $\vertex{4}$ restricted to $\mathcal U^{\wedge 2}$ is indefinite.
+On the potential side, $V := - S \big|_{k = 0}$ as in \cref{p:app:conventions}, the block $\tfrac{\gs^2}{12} \vertex{4}$ has exactly one negative direction, and the tachyon--dilaton pair $T \otimes D$ is itself a negative direction, since $\vertex{4}(T^2, D^2) < 0$.
+This holds whenever $\vertex{4}(T^4)$ and $\vertex{4}(D^4)$ are positive and $\vertex{4}(T^2, D^2)$ lies between $- \sqrt{\vertex{4}(T^4) \, \vertex{4}(D^4)}$ and zero, whatever the two couplings with an odd number of dilatons.
+The Gaussian integral over $\Sigma_2$, formally exact whatever the signature (\cref{p:sec:hs:quartic}), is then defined by rotating this one direction to the imaginary axis.
+The result is the exponential of the quartic term times a field-independent constant, whose phase alone depends on the orientation of the rotated axis, and the propagator of $\Sigma_2$ is unchanged.
+The negative direction is the auxiliary analogue of the conformal-factor rotation~\cite{Gibbons:1978:PathIntegralsIndefiniteness}, not an instability: at zero momentum the block is a constant, algebraic direction of the quadratic form, with no $L_0^+$ and no derivative in its equation.
+
+Around the perturbative vacuum and around each regular critical point of the $2$-field potential, the joint Hessian is the $5 \times 5$ matrix~\eqref{p:eq:sol:hessian-blocks} with $\vertex{5} = 0$.
+The congruence~\eqref{p:eq:sol:congruence} holds there with $H_{\rm eff}$ equal to minus the Hessian of the $2$-field potential $V$.
+The auxiliary sector adds its constant inertia at every background, one negative direction on the potential side.
+It is orthogonal, with respect to the Hessian, to the tangent of the auxiliary shell $(\psi, \partial_\Psi \Sigma_2^{(2)*}(\Psi^*) \, \psi)$, on which the Hessian is that of the eliminated theory.
+Everything the zero-momentum truncation says about a critical point therefore lives in the Hessian of the $2$-field potential.
+Stability itself is not decidable from zero-momentum data, which do not contain the momentum-dependent fluctuation operator of the full level.
+
+The instance also shows what goes wrong with a shortcut.
+One may be tempted to freeze the auxiliary field at its classical value and count the negative directions of the $\Psi \Psi$ block~\eqref{p:eq:sol:H-psi-psi} alone.
+That block keeps only the direct channel, one third of the quartic term in~\eqref{p:eq:sol:channels}, and misses the exchange, which is twice as large and not suppressed at this level.
+For the zero-momentum data of the companion paper~\cite{Erbin:2026:SL2CVerticesClosed} it gives the wrong count at some critical points.
+At the perturbative vacuum and at the small-amplitude points, where the quartic channels do not compete with the kinetic and cubic terms, the count is right.
+The small-amplitude points lie in the dilaton valley that the truncation itself creates.
+
+The correct count is~\eqref{p:eq:sol:inertia}: the inertia of the joint Hessian minus the constant inertia of the auxiliary block.
+Equivalently, freezing the fluctuation $\sigma_2^{(2)} = \Sigma_2 - \Psi^2$ instead of $\Sigma_2$ gives the right count, since in the completed-square form of \cref{p:sec:hs:quartic} the action splits exactly into the eliminated action plus a quadratic form in $\sigma_2^{(2)}$.
+This is the usual distinction between a mean field and the random-phase approximation in a Hubbard--Stratonovich treatment~\cite{Negele:1988:QuantumManyParticleSystems}.
+A fluctuation analysis around a mean-field saddle must therefore integrate $\sigma_2$ jointly, or use the Schur complement.
+
+\subsubsection{Elimination of \texorpdfstring{$\Psi$}{Psi}}
+\label{p:sec:sol:psi-elimination}
+
+The cubic action is quadratic in $\Sigma_2$, which is why we eliminate $\Sigma_2$.
+It is cubic in $\Psi$, so $\Psi$ cannot be eliminated in closed form, but we can ask what the equation for $\Psi$ at fixed $\Sigma_2$ looks like, since it is the equation of a Hubbard--Stratonovich mean field.
+It gives a second route to the classical solutions, with the auxiliary field as the variable, and it tells whether the elimination of $\Sigma_2$ misses any of them (end of this subsection).
+At quartic order it reads:
+\begin{equation}
+  \label{p:eq:sol:psi-equation}
+  Q_{\Sigma_2} \Psi
+    + \frac{\gs}{2} \, \ell_2(\Psi^2)
+    = 0,
+  \qquad
+  Q_{\Sigma_2}
+    := Q_B + \frac{\gs^2}{6} \, \ell_3(\Sigma_2, \cdot),
+\end{equation}
+where the terms linear in $\Psi$ define a kinetic operator deformed by the background $\Sigma_2$.
+This operator is symmetric with respect to the pairing, since $\vertex{4}$ is, but it is not nilpotent for a generic $\Sigma_2$.
+Its square is controlled by the $\Loo$ relation at arity three.
+The $O(\gs^2)$ term is the failure of $\ell_3(\Sigma_2, \cdot)$ to commute with $Q_B$.
+By the arity-three relation it is the sum of $\ell_3$ applied to $\hat Q_B \Sigma_2$, with $\hat Q_B$ the $2$-string BRST operator of \cref{p:sec:gauge}, and of the Jacobiator of $\ell_2$ on $\Sigma_2$, and it vanishes only if this sum does.
+The $O(\gs^4)$ term $\ell_3(\Sigma_2, \ell_3(\Sigma_2, \cdot))$ is constrained by no relation at all.
+On the solution $\Sigma_2 = \Psi^{* 2}$, $Q_{\Sigma_2}$ is not the shifted operator $Q_{\Psi^*}$ of~\eqref{p:eq:sol:channels}.
+It lacks the $\ell_2$ term, being the linearization at $\Psi = 0$ rather than at $\Psi^*$, and it carries one third of the $\ell_3$ term, the direct channel again.
+The quintic order adds to~\eqref{p:eq:sol:psi-equation} the term $\tfrac{\gs^3}{5!} \ell_4(\Sigma_2^2)$, a tadpole for $\Psi$ in the background $\Sigma_2$, and leaves $Q_{\Sigma_2}$ unchanged.
+
+In Siegel gauge, the solutions of~\eqref{p:eq:sol:psi-equation} come in branches.
+$\Psi = 0$ solves it for every $\Sigma_2$, and this trivial branch is isolated wherever $Q_{\Sigma_2}$ is invertible, by the implicit function theorem.
+A nontrivial branch can pass through $(0, \Sigma_2)$ only where $Q_{\Sigma_2}$ has a kernel, which happens on a hypersurface in the auxiliary space.
+It does pass when the kernel is one-dimensional and the cubic vertex does not vanish on it, see below.
+Since every term of the action carries one power of $\gs$ per leg beyond two, with $\Sigma_2$ counting two legs, that hypersurface sits at $\Sigma_2 = O(\gs^{-2})$: the scale of the tachyon vacuum, where nothing is perturbative.
+Below that scale $Q_{\Sigma_2}$ is invertible by a Neumann series, at generic momentum in Siegel gauge.
+
+At zero momentum the massless states lie in the kernel of $Q_B$, so $\Sigma_2 = 0$ itself is on the hypersurface and the small-$\Sigma_2$ statements do not apply.
+The statement that follows is local and holds at any point of the hypersurface where the kernel is one-dimensional, in either regime.
+At a point of the hypersurface where the kernel is one-dimensional, spanned by $\kappa$ with $\vertex{3}(\kappa^3) \neq 0$, the crossing is transcritical.
+To first order in the displacement $\delta \Sigma_2$ from the hypersurface, the nontrivial branch is:
+\begin{equation}
+  \label{p:eq:sol:transcritical}
+  \Psi^*(\Sigma_2)
+    = - \frac{\gs}{3} \, \frac{\vertex{4}(\delta \Sigma_2, \kappa^2)}{\vertex{3}(\kappa^3)} \, \kappa.
+\end{equation}
+
+Along a branch $\Psi^*(\Sigma_2)$ the action becomes a function of $\Sigma_2$ alone, the tree-level effective action $\Gamma$ of the auxiliary field:
+\begin{equation}
+  \label{p:eq:sol:gamma}
+  \Gamma[\Sigma_2]
+    := \caction \big( \Psi^*(\Sigma_2), \Sigma_2 \big),
+  \qquad
+  \dd \Gamma
+    = \partial_{\Sigma_2} \caction \big|_{\Psi^*(\Sigma_2)},
+\end{equation}
+the second identity because $\partial_\Psi \caction$ vanishes on the branch, the mirror of the envelope identity used for the eliminated action.
+On the trivial branch $\Gamma$ is just the quadratic term $- \tfrac{\gs^2}{4!} \vertex{4}(\Sigma_2^2)$, stationary at $\Sigma_2 = 0$ only: at quartic order there is no tree diagram with external $\Sigma_2$ legs only, since a $\Psi$ line has nowhere to end.
+At quintic order the tadpole provides the end, and $\Gamma$ on the perturbative branch is the sum of tree diagrams with $\Sigma_2$ legs, the first being two tadpoles joined by a $\Psi$ propagator $- Q_{\Sigma_2}^{-1}$ at $O(\gs^6)$.
+The identity in~\eqref{p:eq:sol:gamma} says that a stationary point of $\Gamma$ is a joint critical point of the cubic action.
+Conversely, a joint critical point whose $\Psi$-Hessian $Q_{\Sigma_2} + \gs \, \ell_2(\Psi^*, \cdot)$ is invertible lies on a unique local branch and is stationary for its $\Gamma$.
+At quartic order the joint critical points are those of the original theory, $(\Psi^*, \Psi^{* 2})$ with $\Psi^*$ a critical point of $S_{\le 4}$, so the two eliminations see the same critical points on their common domain.
+Each elimination can miss only the critical points where its own Hessian block degenerates.
+The elimination of $\Sigma_2$ can miss those where the dressed kinetic operator $\kin{2}{\Psi}{3}$ degenerates, from quintic order on, and the elimination of $\Psi$ those where the $\Psi$-Hessian at the point degenerates.
+Neither has stationary points the other lacks, away from these two loci.
+
+\subsubsection{The degenerate branch}
+\label{p:sec:sol:degenerate}
+
+
+The dressed kinetic operator of the auxiliary field depends on $\Psi$ from quintic order on, and it can fail to be invertible at some backgrounds.
+At quintic order the auxiliary equation is linear, $\kin{2}{\Psi}{3}(\Sigma_2) = \sprod{2}{2}(\Psi^2)$, and its solution set $F_\Psi$ at fixed $\Psi$ is:
+\begin{equation}
+  \label{p:eq:sol:degenerate}
+  F_\Psi
+    = \begin{cases}
+        \big\{ \Sigma_2^{(3)*}(\Psi) \big\}
+          & \kin{2}{\Psi}{3} \text{ invertible},
+        \\
+        \emptyset
+          & \kin{2}{\Psi}{3} \text{ singular},
+            \ \sprod{2}{2}(\Psi^2) \notin \operatorname{im} \kin{2}{\Psi}{3},
+        \\
+        \Sigma_{2, p} + \ker \kin{2}{\Psi}{3}
+          & \kin{2}{\Psi}{3} \text{ singular},
+            \ \sprod{2}{2}(\Psi^2) \in \operatorname{im} \kin{2}{\Psi}{3},
+      \end{cases}
+\end{equation}
+with $\Sigma_{2, p}$ a particular solution.
+The third case is the degenerate branch: an affine space of solutions of the auxiliary equation over each $\Psi$ of the locus where the dressed operator is singular and the source lies in its image.
+For a kernel of dimension one this is a line, and the two conditions cut a locus of expected codimension two in $\Psi$-space (checked in the $2$-field example with random couplings below), at $\Psi = O(1 / \gs)$ by the same scaling as above.
+The branch then has one dimension less than $\Psi$-space.
+The action is constant along each line, since every point of it solves the auxiliary equation, and the auxiliary field is not algebraically eliminable there, the line being a flat direction of the auxiliary block.
+The regular solution $\Sigma_2^{(3)*}(\Psi)$, a rational function of $\Psi$ with the determinant of the dressed operator of the auxiliary field in the denominator, has a point of indeterminacy at each such $\Psi$ rather than a pole.
+Along every direction not tangent to the singular locus of the dressed operator of the auxiliary field, the eliminated action tends there to its value on the line, which is constant.
+Approaching the point along different directions, the regular solution $\Sigma_2^{(3)*}(\Psi)$ tends to different points of the line, and sweeps the whole of it: the branch is the closure of the regular solution over its base points, not a disconnected family.
+
+It solves the auxiliary equation only.
+A joint critical point on the branch needs, in addition, the $\Psi$-equation, which has as many components as $\Psi$ while the branch has one dimension less: one condition too many.
+
+In a finite-dimensional model with generic couplings, a one-dimensional kernel and a locus of codimension two, the counting is a theorem.
+It does not apply to the string, whose kinetic term is fixed, but it shows what a critical point on the branch requires: a coincidence between the kinetic term and the vertices, which the string vertices would have to produce.
+We fix the cubic, quartic and quintic vertices.
+The auxiliary equation does not contain the kinetic term, so the locus, the particular solution and the kernel are fixed with them, while the kinetic operator of $\Psi$ enters the $\Psi$-equation only through its value on $\Psi$.
+The branch avoids $\Psi = 0$, since there the dressed operator of the auxiliary field is the quartic form, which is invertible.
+For $\Psi \neq 0$ every vector is the image of $\Psi$ under some symmetric kinetic operator.
+At each point of the branch, the kinetic operators that solve the $\Psi$-equation there therefore form an affine subspace whose codimension is the dimension of $\Psi$-space.
+The branch has one dimension less than $\Psi$-space, so these subspaces fill a set of dimension at most one less than that of the space of kinetic operators.
+That set lies in a proper algebraic subset, and for a kinetic operator outside it no joint critical point lies on the branch.
+
+For a kinetic operator in that subset, a joint critical point on the branch, when it is nondegenerate, persists off the subset as an ordinary critical point at which the dressed operator of the auxiliary field is invertible.
+It is a regular critical point crossing the locus, not a solution of its own.
+In a $2$-field example with random couplings the subset has codimension one and the critical point on it is nondegenerate.
+
+The exclusion uses the genericity of the kinetic term, and that of the quartic and quintic vertices through the two conditions on the locus; the string provides neither, its kinetic term being fixed by the spectrum.
+The structure~\eqref{p:eq:sol:degenerate} and the closure statement transfer to the string vertices, under the standing assumptions.
+We have not done the computation with the quintic data that would decide whether the actual vertices put the theory on that subset.
+Nor have we checked whether a selection rule makes the source orthogonal to the kernel identically on the singular locus, which would change the counting.
+
+At the level-$(1, 1)$ instance above, which stops at quartic order, the kinetic operator of the auxiliary field is the constant form $\vertex{4}$ on $\mathcal U^{\wedge 2}$, invertible, and no degenerate branch exists.
+At sextic order the auxiliary equation is quadratic, and the fold described with the Hessian is the analogous locus; beyond the one-field model we have not examined it.
+
+\subsubsection{Mean-field approximation}
+\label{p:sec:sol:mean-field}
+
+
+This remark is formal: it leaves the classical theory, through the path integral and an approximation that no small parameter controls.
+At one loop the effective potential of the string field involves the loop vertices of the original theory, which the classical construction does not contain; without them the mean field is not a controlled approximation.
+With the weight $\e^{S}$ of \cref{p:app:conventions}, the exact equation of motion of the auxiliary field in the quantum theory at quartic order is:
+\begin{equation}
+  \label{p:eq:sol:quantum-auxiliary}
+  \sprod{2}{2}\big( \Sigma_2 - \langle \Psi^2 \rangle_{\Sigma_2} \big)
+    = 0,
+\end{equation}
+so that the auxiliary field is, formally, the pair correlator of the string field in its own background.
+We evaluate it in the Gaussian approximation, in Siegel gauge, with the cubic vertex dropped and the trace taken over the fields of ghost number two.
+This gives the one-loop effective potential for $\Sigma_2$ at $\Psi = 0$ and the gap equation that follows from it:
+\begin{equation}
+  \label{p:eq:sol:gap}
+  V[\Sigma_2]
+    = \frac{\gs^2}{24} \, \vertex{4}(\Sigma_2^2)
+      + \frac{\hbar}{2} \, \tr \log \big( - Q_{\Sigma_2} \big),
+  \qquad
+  \Sigma_2
+    = \hbar \, G_{\Sigma_2}
+  \quad \text{on } \Hn{2} / \ker \sprod{2}{2}.
+\end{equation}
+Here $G_{\Sigma_2}$ is the propagator of $Q_{\Sigma_2}$ read as a $2$-string state.
+The mean field is thus a self-consistent propagator dressed by the auxiliary field, as in the Hubbard--Stratonovich derivation of the BCS gap equation~\cite{Weinberg:2005:QuantumTheoryFields-2,Negele:1988:QuantumManyParticleSystems}.
+The analogy stops there: the dressing $\tfrac{\hbar \gs^2}{6} \ell_3(G, \cdot)$ is one third of the one-loop self-energy $\tfrac{\hbar \gs^2}{2} \ell_3(G, \cdot)$ of the quartic theory, Hartree and Fock terms together, and the third it keeps is the direct channel of~\eqref{p:eq:sol:channels}, the Hartree term.
+The other two thirds are the diagrams with an internal $\Sigma_2$ line, which a mean field drops, and no small parameter, neither a Fermi surface nor a large $N$, suppresses them.
+There is no density-of-states enhancement of the loop either, and the cubic vertex makes the slice $\Psi = 0$ non-stationary at one loop.
+These obstacles to a BCS-type condensate are arguments, not theorems.
+In the level-$(1, 1)$ instance, at zero momentum and with the cubic vertex dropped, the gap equation can be solved completely.
+No root is a minimum of the potential on the real slice, for every value of $\hbar \gs^2$ examined.
+Among its real roots, the only local convergent saddles on an admissible contour of the rotated $\Sigma_2$ integral, at the same values, are the one-loop displacements of the classical point $\Sigma_2 = \Psi^{* 2}$.
+This point is the common image of the two critical points $\pm \Psi^*$ of the potential without cubic vertex.
+A mean-field treatment gives back the classical structure and no new vacuum, and we expect this conclusion to persist when the loop momentum is restored.
+
+\subsubsection{Physical meaning}
+\label{p:sec:sol:meaning}
+
+At quartic order the cubic description changes nothing about the classical solutions: the joint critical points are $(\Psi^*, \Psi^{* 2})$ with $\Psi^*$ a critical point of $S_{\le 4}$.
+At higher orders they are the critical points of the eliminated action, which agrees with the original one through the order kept, as a statement about Taylor coefficients in $\gs$.
+At quintic order, in finite-dimensional models with a generic kinetic term, a one-dimensional kernel and a singular locus of codimension two, the only additional configurations, the lines of the degenerate branch, solve the auxiliary equation alone and carry no critical point.
+Whether the string vertices place a critical point on them is open, and the sextic order is not covered.
+
+The cubic description changes the fluctuation problem.
+Around any solution, the second variation is one matrix, affine in the background and built from the couplings of the cubic action, with no inverse taken around the background.
+Through quintic order these couplings are the elementary vertices, with no inverse of $\sprod{2}{2}$ and no reduced vertex.
+The second variation is congruent to the Hessian of the eliminated action, which is that of the original theory through the order kept, plus an algebraic auxiliary block, constant at quartic order and linear in the background from quintic order on.
+Wherever that block is invertible, the counts of negative and zero directions of the cubic theory are those of the eliminated theory plus those of the auxiliary block, and the mass shells are those of the eliminated theory.
+The auxiliary block is the price of the cubic form: an indefinite sector whose quadratic term contains no $L_0^+$, whose negative directions are rotated in the path integral and subtracted in every count.
+Whether it has mass shells at nonzero momentum is open.
+Freezing the auxiliary field at its classical value keeps only the direct channel and can give the wrong count of negative directions.
+The singularities of the eliminated description, the fold and the points of indeterminacy of the auxiliary solution, are artifacts of the elimination.

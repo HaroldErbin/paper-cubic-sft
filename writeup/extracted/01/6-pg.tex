@@ -1,0 +1,27 @@
+\subsection{Suspended versus physical grading}
+\label{pg:sec:suspension}
+
+The two frameworks from which the algebraic vocabulary of this construction is borrowed both suspend, and both fold the load-bearing sign of the odd symplectic form into the shift.
+This section says what each one does and how to undo it for the objects of this note.
+
+\emph{Cieliebak, Fukaya and Latschev} \cite{Cieliebak:2015:HomologicalAlgebraRelated} build their symmetric algebras on the suspension $C[1]$ of the underlying complex, so their degree is the physical degree minus one, $|c|=\deg c-1$.
+Their structure maps carry a degree $-2d(k+g-1)-1$ depending on the numbers $k$ of inputs and $g$ of handles and on a fixed integer $d$, but not on the number of outputs; the grading is homological, the differential lowers the degree, opposite to $Q_B$ which raises the ghost number.
+
+\emph{Münster and Sachs} \cite{Muenster:2012:HomotopyAlgebrasString-kn,Muenster:2013:HomotopyAlgebrasQuantum} place the closed string field in degree zero after the shift $A_c=s^{-2}\tilde A_c$, and write the symplectic form as
+\begin{equation}
+  \omega_c
+    = (\,\cdot\,, c_0^- \,\cdot\,)_{\rm bpz} \circ (s^2 \otimes s^2),
+\end{equation}
+which is odd and graded antisymmetric by construction of the shift: the apparent symmetry of the BPZ product is removed by the suspension.
+The physical ghost number of $\tilde A_c$ is kept implicit.
+
+\emph{Undoing it.}
+For the objects at this order the translation is the following.
+The physical grading is $\epsilon=N_{\rm gh}\bmod2$ with $\Psi$ at $2$ and $\Sigma$ at $4$, both even.
+The one-string pairing is symmetric on its support (\cref{pg:sec:pairing:one}), with no shift needed; the shift $s^{-2}$ is even and does not touch the parity.
+The two-string pairing is graded symmetric (\cref{pg:sec:pairing:sign}); its graded-antisymmetric partner, an even form, is the one-unit shift \eqref{pg:eq:grading:symp}, and that shift is a choice of presentation, not a property of $\Sigma$.
+The ghost numbers of the maps are fixed by saturation: $N_{\rm gh}(\ell_n)=3-2n$ and $N_{\rm gh}(p_{2,2})=+2$ from \eqref{p:eq:conv:ghost-numbers}, every output at $N_{\rm gh}=3$ and every input at $N_{\rm gh}=2$.
+The entries of $\braket{\cdot,\cdot}_2$, $\mc V_4$ and $p_{2,2}$ are the same in the suspended and in the physical presentation; only Koszul-sign labels differ, and in particular the subspace $\wedge^2\mc H_0$ of antisymmetric two-string states, which lies in the kernel~\eqref{p:eq:hs4:kernel} of $p_{2,2}$ by the symmetry of the vertex and decouples from the action, is the same subspace in both, even though after a one-unit shift per strand it would be called the graded-symmetric square.
+A reader working in the suspended presentation must select the subspace, not the label.
+The same translation, carried through every relation of the bracket-and-cobracket structure at higher order, is done in the chapter on the IBL structure (\cref{ch:ibl}).
+

@@ -1,0 +1,316 @@
+\subsubsection{Quartic order, \texorpdfstring{$O(\gs^2)$}{O(gs**2)}}
+\label{p:sec:hs:quartic}
+
+
+\subparagraph{The auxiliary field.}
+
+The quartic term of the action reads:
+\begin{equation}
+  S_4
+    = \frac{\gs^2}{4!} \, \vertex{4}(\Psi^2, \Psi^2).
+\end{equation}
+It is the square of the $2$-string state $\Psi^2$ with respect to the bilinear form $\vertex{4}$, in the same way as $\lambda \phi^4$ is the square of $\phi^2$.
+A Hubbard--Stratonovich transformation trades a square for a linear coupling to a new field, at the cost of a quadratic term for that field.
+We introduce an auxiliary $2$-string field $\Sigma_2 \in \Hn{2}$ and add to the action the square of its fluctuation from $\Psi^2$:
+\begin{equation}
+  \label{p:eq:hs4:DeltaS4}
+  \Delta S_4
+    := - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2 - \Psi^2, \Sigma_2 - \Psi^2).
+\end{equation}
+This term vanishes when $\Sigma_2 = \Psi^2$.
+We put a tilde on every action that contains a term $\Delta S_n$ vanishing on-shell, and write $\caction[n] := S_n + \Delta S_n$.
+Expanding the square and using the symmetry of $\vertex{4}$ for the cross term, we find the quartic term of the action:
+\begin{equation}
+  \label{p:eq:hs4:S4tilde}
+  \caction[4]
+    := S_4 + \Delta S_4
+    = - \frac{\gs^2}{4!} \, \vertex{4}(\Sigma_2^2)
+      + \frac{2 \gs^2}{4!} \, \vertex{4}(\Sigma_2, \Psi^2),
+\end{equation}
+where $\vertex{4}(\Sigma_2^2) := \vertex{4}(\Sigma_2, \Sigma_2)$.
+The term $\vertex{4}(\Psi^4)$ has disappeared: the first term is quadratic in $\Sigma_2$, and the second one is cubic in the fields, with one $\Sigma_2$ and two $\Psi$.
+Together with the kinetic term and the cubic vertex of~\eqref{p:eq:hs1:action}, which are untouched, the action
+\begin{equation}
+  \label{p:eq:hs4:action-tilde}
+  \caction[\le 4]
+    := S_2 + S_3 + \caction[4]
+    = S_{\le 4} + \Delta S_4
+\end{equation}
+is cubic in $(\Psi, \Sigma_2)$.
+
+We could redistribute the powers of $\gs$ in~\eqref{p:eq:hs4:S4tilde} by absorbing $\gs$ in the auxiliary field, $\Sigma_2 \to \Sigma_2 / \gs$.
+The quadratic term then carries no coupling and the mixed term a single power of $\gs$, like the cubic vertex $S_3$, which makes its cubic nature manifest.
+We nevertheless keep $\gs$ explicit, so that the solution for $\Sigma_2$ is $\Psi^2$ without a coupling in front and the two actions can be compared order by order in $\gs$ term by term.
+
+\subparagraph{Equations of motion.}
+
+We vary the cubic action~\eqref{p:eq:hs4:action-tilde} with respect to both fields and write each term through the pairing:
+\begin{equation}
+  \label{p:eq:hs4:delta-S}
+  \begin{aligned}
+    \delta \caction[\le 4]
+      = \pair{\delta \Psi}{Q_B \Psi}
+        &
+        + \frac{\gs}{2} \, \pair{\delta \Psi}{\ell_2(\Psi^2)}
+        + \frac{\gs^2}{3!} \, \pair{\delta \Psi}{\ell_3(\Psi, \Sigma_2)}
+        \\ &
+        - \frac{2 \gs^2}{4!} \, \pair[2]{\delta \Sigma_2}{\sprod{2}{2}(\Sigma_2)}
+        + \frac{2 \gs^2}{4!} \, \pair[2]{\delta \Sigma_2}{\sprod{2}{2}(\Psi^2)},
+  \end{aligned}
+\end{equation}
+where $\ell_3(\Psi, \Sigma_2)$ is the product $\ell_3$ with $\Sigma_2$ filling two of its three slots.
+Since the pairing is non-degenerate, the equations of motion are:
+\begin{subequations}
+  \label{p:eq:hs4:eom}
+  \begin{align}
+    \label{p:eq:hs4:eom-psi}
+    \mathcal E^{(2)}_\Psi
+      &
+      := Q_B \Psi
+        + \frac{\gs}{2} \, \ell_2(\Psi^2)
+        + \frac{\gs^2}{3!} \, \ell_3(\Psi, \Sigma_2)
+      = 0,
+    \\
+    \label{p:eq:hs4:eom-sigma}
+    \mathcal E^{(2)}_{\Sigma_2}
+      &
+      := \sprod{2}{2}(\Psi^2) - \sprod{2}{2}(\Sigma_2)
+      = 0.
+  \end{align}
+\end{subequations}
+The equation for $\Sigma_2$ contains no $Q_B$: it is algebraic, and it says that $\Sigma_2$ and $\Psi^2$ have the same image under $\sprod{2}{2}$.
+
+This equation determines $\Sigma_2$ up to the kernel of $\sprod{2}{2}$, which is the kernel of the quartic vertex seen as a bilinear form on $2$-string states:
+\begin{equation}
+  \label{p:eq:hs4:kernel}
+  N_2 \in \ker \sprod{2}{2}
+  \quad \Longleftrightarrow \quad
+  \forall A \in \Hn{2}:
+  \quad
+  \vertex{4}(N_2, A)
+    = 0.
+\end{equation}
+The two statements are equivalent since the $2$-string pairing is non-degenerate.
+This kernel can contain entangled $2$-string states, so it is in general larger than the space spanned by the products $A \otimes B$ with $A$ a single-string state annihilated by $\vertex{4}(A, \cdot, \cdot, \cdot)$.
+A kernel direction $N_2$ appears neither in the quadratic term $\vertex{4}(\Sigma_2^2)$ nor in the source term $\vertex{4}(\Sigma_2, \Psi^2)$ of~\eqref{p:eq:hs4:S4tilde}.
+Shifting $\Sigma_2$ by $N_2$ leaves the action invariant, with zero action for $N_2$ itself, so such a direction drops out of every equation and of every amplitude at this order.
+
+We therefore take the auxiliary field on the quotient:\footnotemark{}
+\footnotetext{
+  In the same way, the auxiliary field associated with stubs lives outside the kernel of $L_0$ or $L_0^+$~\cite{Erbin:2024:OpenStringStub}.
+}
+\begin{equation}
+  \label{p:eq:hs4:quotient}
+  \Sigma_2
+    \in \Hn{2} / \ker \sprod{2}{2},
+  \qquad
+  \Ngh(\Sigma_2)
+    = 4.
+\end{equation}
+We restrict each strand to ghost number two, like the strands of $\Psi^2$.
+On this quotient, $\sprod{2}{2}$ is injective by construction, and the equation of motion~\eqref{p:eq:hs4:eom-sigma} has the unique solution:
+\begin{equation}
+  \label{p:eq:hs4:saddle}
+  \Sigma_2^{(2)*}
+    := \Psi^2
+    = \quad
+      \begin{tikzpicture}[diagram]
+        \draw (0, 0.1) -- (2, 0.1) pic {ext} node[above right] {$\Psi$};
+        \draw (0, -0.1) -- (2, -0.1) pic {ext} node[below right] {$\Psi$};
+      \end{tikzpicture}
+\end{equation}
+We represent the solution graphically by two strands, one for each $\Psi$ of the solution.
+This description will be helpful at higher orders.
+
+Taking the auxiliary field in \eqref{p:eq:hs4:quotient} is also consistent with the form of the action: single-string states that never enter the quartic vertex have no quartic term and need no auxiliary field.
+This is illustrated in \cref{p:app:scalar-hs} for the $\phi^4$ theory.
+What is problematic is the consistency with composite vertices at higher orders.
+As a consequence, it is still important to understand if there is a kernel and what are its properties, which is the topic developed below.
+The $\phi^4$ model of \cref{p:app:scalar-hs} with a degenerate coupling matrix illustrates this situation, and also the multiplier form, which we use on a kernel direction when a higher coupling sources it.
+
+The quotient needs no inner product, and the $2$-string pairing cannot provide one: it vanishes identically between two fields of ghost number four, so it defines no orthogonal complement of the kernel inside the space where $\Sigma_2$ lives.
+A complement of the kernel appears only in the multiplier form of \cref{p:sec:all-orders}.
+
+The solution~\eqref{p:eq:hs4:saddle} shows that $\Sigma_2$ is an auxiliary field: it is fixed entirely by $\Psi$ through an algebraic equation and carries no degree of freedom of its own.
+It also shows that $\Delta S_4$ vanishes on-shell, since $\Delta S_4$ is the square of $\Sigma_2 - \Psi^2$.
+Eliminating $\Sigma_2$ therefore gives back the truncated action exactly.
+Substituting the solution into~\eqref{p:eq:hs4:S4tilde}, we get:
+\begin{equation}
+  \label{p:eq:hs4:eliminate}
+  \caction[4] \big|_{\Sigma_2 = \Psi^2}
+    = \Big( - \frac{1}{4!} + \frac{2}{4!} \Big) \, \gs^2 \, \vertex{4}(\Psi^4)
+    = S_4.
+\end{equation}
+This is the completed square~\eqref{p:eq:hs4:action-tilde} read backwards, with no extra term.
+Since the cubic action is quadratic in $\Sigma_2$, with the quadratic form $\sprod{2}{2}$ independent of $\Psi$, the same holds in the path integral: the Gaussian integral over $\Sigma_2$ is formally exact whatever the signature of the quartic form.
+From the quintic order on, the kinetic operators of the auxiliary fields depend on $\Psi$, and so do their determinants; the eliminations are exact at tree level, to which we restrict ourselves from then on.
+It contributes only a field-independent normalization, so that, formally, all the Green's functions of $\Psi$ computed from $\caction[\le 4]$ coincide with those of $S_{\le 4}$.
+
+Physically, the auxiliary field is a contact field: its equation of motion is built from an invertible operator with no zeros.
+Whether that inverse is singular at some momentum depends on the quartic form itself, and this question enters the invertibility assumption stated below with the Feynman rules.
+In particular, the latter is not the usual kinetic operator $L_0^+$, so it has no pole at the mass of any string state and describes no propagating state.
+Its ``propagator'' is the inverse of a vertex rather than of $L_0^+$, as we make explicit below.
+The auxiliary field changes the arrangement of the interaction: the $4$-string contact term of closed string field theory is now produced by two cubic couplings joined by a $2$-string line.
+
+
+\subparagraph{Gauge transformation.}
+
+Under the gauge transformation~\eqref{p:eq:hs1:gauge-psi}, the truncated action is invariant up to the order of the truncation, $\delta_\Lambda S_{\le 4} = O(\gs^3)$, the remainder being cancelled by the quintic vertex.
+We look for a transformation of $\Sigma_2$ under which the cubic action is invariant to the same order.
+Since $\Sigma_2 = \Psi^2$ on-shell, the natural candidate is the transformation of $\Psi^2$ itself:
+\begin{equation}
+  \label{p:eq:hs4:gauge-sigma}
+  \delta_\Lambda \Sigma_2
+    = 2 \, \delta_\Lambda \Psi \otimes \Psi.
+\end{equation}
+We do not symmetrize it, since it only appears inside a symmetric vertex.
+Inserting~\eqref{p:eq:hs4:gauge-sigma} into the variation~\eqref{p:eq:hs4:delta-S}, we find that the two terms in $\delta \Sigma_2$ become:
+\begin{equation}
+  \begin{gathered}
+    - \frac{\gs^2}{3!} \, \pair[2]{\delta \Psi \otimes \Psi}{\sprod{2}{2}(\Sigma_2)}
+    + \frac{\gs^2}{3!} \, \pair[2]{\delta \Psi \otimes \Psi}{\sprod{2}{2}(\Psi^2)}
+      \\
+      = - \frac{\gs^2}{3!} \, \pair{\delta \Psi}{\ell_3(\Psi, \Sigma_2)}
+        + \frac{\gs^2}{3!} \, \vertex{4}(\delta \Psi, \Psi^3),
+  \end{gathered}
+\end{equation}
+where we used that both sides are the same quartic vertex read with different outputs:
+\begin{equation}
+  \label{p:eq:hs4:same-vertex}
+  \pair[2]{\delta \Psi \otimes \Psi}{\sprod{2}{2}(A)}
+    = \vertex{4}(\delta \Psi, \Psi, A)
+    = \pair{\delta \Psi}{\ell_3(\Psi, A)}.
+\end{equation}
+The first term cancels the term $\pair{\delta \Psi}{\ell_3(\Psi, \Sigma_2)}$ of~\eqref{p:eq:hs4:delta-S}, and the second one is the variation of $S_4$.
+We obtain:
+\begin{equation}
+  \label{p:eq:hs4:delta-S-equal}
+  \delta \caction[\le 4]
+    = \pair{\delta \Psi}{Q_B \Psi}
+      + \frac{\gs}{2} \, \pair{\delta \Psi}{\ell_2(\Psi^2)}
+      + \frac{\gs^2}{3!} \, \vertex{4}(\delta \Psi, \Psi^3)
+    = \delta S_{\le 4}.
+\end{equation}
+This equality holds identically, off-shell, for any variation $\delta \Psi$ and not only for a gauge transformation.
+The cubic action with the induced transformation~\eqref{p:eq:hs4:gauge-sigma} is thus invariant to the same order $O(\gs^3)$ as the truncated action.
+We did not use the solution~\eqref{p:eq:hs4:saddle} itself, only the transformation it suggests.
+
+We give another approach which will be more convenient at higher orders.
+This equality follows more directly from the completed square: by~\eqref{p:eq:hs4:action-tilde}, $\delta \caction[\le 4] = \delta S_{\le 4} + \delta \Delta S_4$, and
+\begin{equation}
+  \label{p:eq:hs4:delta-DeltaS}
+  \delta \Delta S_4
+    = - \frac{2 \gs^2}{4!} \, \vertex{4}\big(\delta \Sigma_2 - \delta (\Psi^2), \Sigma_2 - \Psi^2\big)
+    = 0,
+\end{equation}
+since $\delta (\Psi^2) = \delta \Psi \otimes \Psi + \Psi \otimes \delta \Psi$ equals $2 \, \delta \Psi \otimes \Psi$ inside the symmetric vertex.
+The transformation law~\eqref{p:eq:hs4:gauge-sigma} is the one under which the fluctuation $\sigma_2^{(2)} := \Sigma_2 - \Psi^2$ is invariant.
+The transformation of $\Sigma_2$ is induced by that of $\Psi$, and no independent parameter enters the on-shell matching.
+
+Before the quotient is taken, the cubic action also has the shift symmetry along the kernel directions, which have zero action, and the transformations proportional to its equations of motion that every action possesses.
+We do not look for others here.
+Whether the cubic action can be seen as a gauge-fixed form of a theory with an independent $2$-string parameter $\Lambda_2 \in \Hn{2}$ is a different question, which we take up in \cref{p:sec:gauge}.
+At the next order, the transformation law~\eqref{p:eq:hs4:gauge-sigma} receives corrections in $\gs$, as does the solution~\eqref{p:eq:hs4:saddle}.
+
+
+\subparagraph{Reality.}
+
+The string field satisfies the reality condition~\eqref{p:eq:hs1:reality-psi}, $\Psi^\star = - \Psi$.
+The star conjugation acts strand by strand on tensors.
+We assume, as in \cref{p:app:conventions}, that the vertices are real:
+\begin{equation}
+  \label{p:eq:hs4:vertex-real}
+  \vertex{n}(A_1, \ldots, A_n)^*
+    = (-1)^n \, \vertex{n}(A_1^\star, \ldots, A_n^\star)
+  \qquad
+  \text{for even arguments}.
+\end{equation}
+Together with $\Psi^\star = - \Psi$, this property makes the action~\eqref{p:eq:hs1:action} real.
+The solution~\eqref{p:eq:hs4:saddle} then shows that the natural reality condition on the auxiliary field is:
+\begin{equation}
+  \label{p:eq:hs4:reality}
+  \Sigma_2^\star
+    = \Sigma_2.
+\end{equation}
+Indeed, $(\Psi \otimes \Psi)^\star = \Psi^\star \otimes \Psi^\star = \Psi \otimes \Psi$ for a string field satisfying its reality condition, and the reality of the vertices makes the cubic action real for real $\Psi$ and $\Sigma_2$.
+We derive~\eqref{p:eq:hs4:reality} and the reality conditions of the higher auxiliary fields in \cref{p:app:reality}.
+
+
+\subparagraph{Spacetime fields.}
+
+The string field $\Psi$ expands on a basis $\ket{\phi_\alpha(k)}$ of single-string states of momentum $k$ with coefficients $\psi_\alpha(k)$, the spacetime fields in momentum space.
+The auxiliary field expands in the same way on $2$-string states.
+Since a general element of $\Hn{2}$ is an entangled state, its coefficient is a function of two momenta:
+\begin{equation}
+  \label{p:eq:hs4:spacetime}
+  \Sigma_2
+    = \sum_{\alpha_1, \alpha_2} \int \frac{\dd^d k_1}{(2\pi)^d} \, \frac{\dd^d k_2}{(2\pi)^d} \,
+      \sigma_{\alpha_1 \alpha_2}(k_1, k_2) \,
+      \ket{\phi_{\alpha_1}(k_1)} \otimes \ket{\phi_{\alpha_2}(k_2)},
+\end{equation}
+where $d$ is the spacetime dimension.
+The coefficient is symmetric under the joint exchange of the two strands, $(\alpha_1, k_1) \leftrightarrow (\alpha_2, k_2)$.
+The components $\sigma_{\alpha_1 \alpha_2}(k_1, k_2)$ are bilocal fields in momentum space, and thus also in position space, where they are functions of two spacetime points.
+
+Every vertex conserves only the total momentum of its strands: its single momentum delta function comes from the zero mode of the matter CFT.
+We introduce the total and relative momenta:
+\begin{equation}
+  \label{p:eq:hs4:momenta}
+  P
+    := k_1 + k_2,
+  \qquad
+  q
+    := \frac{1}{2} \, (k_1 - k_2).
+\end{equation}
+The quadratic term is thus diagonal in $P$:
+\begin{equation}
+  \label{p:eq:hs4:diagonal}
+  \vertex{4}(\Sigma_2, \Sigma_2')
+    = \int \frac{\dd^d P}{(2\pi)^d}
+      \int \frac{\dd^d q}{(2\pi)^d} \frac{\dd^d q'}{(2\pi)^d} \;
+      \sigma(- P, q') \, V_4(P; q', q) \, \sigma'(P, q),
+\end{equation}
+where we suppressed the oscillator labels and where $V_4(P; q', q) := V_4\big(- \tfrac{P}{2} + q', - \tfrac{P}{2} - q', \tfrac{P}{2} + q, \tfrac{P}{2} - q\big)$ is the momentum-space quartic vertex on two pairs of states with total momenta $- P$ and $P$.
+At fixed total momentum, the quadratic term is thus an integral operator in the relative momentum.
+We define such expressions using the Sen's generalized Wick rotation~\cite{Pius:2016:CutkoskyRulesSuperstring,deLacroix:2017:ClosedSuperstringField,Erbin:2021:StringFieldTheory,Bautista:2019:QuantumGravityTimelike}.
+The theory is defined with Euclidean momenta, and the Lorentzian theory is obtained from it by a Wick rotation afterwards.
+We keep the total momentum $P$ as a real label.
+The operator acts on the square-integrable functions of the relative momentum at fixed total momentum.
+Throughout, a kernel of $\sprod{2}{2}$ at fixed total momentum is meant in this sense: its elements are square-integrable functions of the relative momentum, valued in the oscillator labels.
+We now restrict each strand to oscillator level at most $L$, as in level truncation.
+At level $L$, $V_4(P; q', q)$ is then the integral over the compact vertex region of an exponential of a real quadratic form in $(P, q, q')$, the same as at level $0$, times a polynomial in the momenta whose degree grows with the level.
+Since the region avoids the collisions of the punctures, $V_4(P; q', q)$ is an entire function of the total momentum and of both relative momenta, rather than a delta function times a polynomial.
+The kinetic term of $\Sigma_2$ is therefore not local in the relative coordinate.
+The Gaussian decay in $q$ and $q'$ produced by the stubs~\cite{Sonoda:1990:ClosedStringField}, when its rate is positive, dominates any polynomial.
+  As a consequence, $\sprod{2}{2}$ is a Hilbert--Schmidt, hence compact, operator at every level, under this condition, which makes the level-$0$ kernel square integrable (\cref{p:sec:worldsheet}).
+
+The $2$-string states carry no canonical positive inner product above level $0$, but counting the null vectors of $\sprod{2}{2}$ is nevertheless a self-adjoint problem.
+  Reflecting the relative momentum along the direction of $P$, together with the matching reflection of the oscillator labels, defines a fixed involution.
+  At real spacelike $P$, $\sprod{2}{2}$ at level $L$ composed with this involution is a real symmetric compact operator.
+  For timelike $P$ in its rest frame, $\sprod{2}{2}$ itself is self-adjoint.
+  At every real $P^2$, of either sign, the null vectors can therefore be counted with the spectral theorem.
+  A null vector is defined by~\eqref{p:eq:hs4:kernel}, whatever basis or inner product is used.
+
+The source term $\vertex{4}(\Sigma_2, \Psi^2)$ is of the same form, with $\sigma'(P, q)$ replaced by the product $\psi_{\alpha_1}(\tfrac{P}{2} + q) \, \psi_{\alpha_2}(\tfrac{P}{2} - q)$ of two components of $\Psi$.
+The component of $\Sigma_2$ at total momentum $P$ is sourced by every pair of components of $\Psi$ whose momenta add up to $P$.
+
+A translation-invariant configuration of $\Sigma_2$, such as a translation-invariant classical solution or a vacuum expectation value, is proportional to $\delta^d(k_1 + k_2)$ and depends on the relative momentum only~\cite{Weinberg:2005:QuantumTheoryFields-2}.
+It is then described by a single momentum, like a local field, though with the non-local kinetic term just described.
+This is the $n = 2$ case of a general statement: the $n$-string auxiliary field introduced at higher orders is a function of one total momentum and $n - 1$ relative momenta, and its quadratic term is diagonal in the total momentum.
+Its translation-invariant configurations depend on the $n - 1$ relative momenta only, that is, on $n$ points modulo an overall translation.
+We discuss the form of the kernel $V_4(P; q', q)$ and its worldsheet interpretation in \cref{p:sec:worldsheet}.
+
+
+\subparagraph{Feynman rules.}
+
+We read the Feynman rules off the action $\caction[\le 4]$, the path-integral weight being $\e^{\caction}$.
+A vertex factor is the derivative of the action with respect to the fields on its legs, and a propagator is minus the inverse of the Hessian of the action.
+A tree diagram then gives the corresponding derivative of the action with the internal fields eliminated.
+The auxiliary sector of~\eqref{p:eq:hs4:S4tilde} contributes a propagator and a cubic vertex:
+\begin{equation}
+  \label{p:eq:hs4:feynman-rules}
+  \frac{12}{\gs^2} \, \sprod{2}{2}^{-1},
+  \qquad
+  \frac{\gs^2}{3!} \, \vertex{4}(\Sigma_2, \Psi^2).
+\end{equation}
+

@@ -1,0 +1,587 @@
+\subsection{Introduction}
+\label{fdm:sec:intro}
+
+The cubic action is built from a graded vector space with a non-degenerate graded-symmetric pairing, a nilpotent operator of degree one, and cyclic multilinear forms on that space.
+Every statement of the construction which uses only these data and the $\Loo$ relations is an identity between multilinear forms, and in finite dimension such an identity can be evaluated on random tensors.
+This is what the finite-dimensional models do: they replace each object by a finite-dimensional counterpart with the same symmetries, build the cubic action by the formulas of the paper, and evaluate the claimed identity.
+Nothing in them depends on an explicit string vertex.
+
+Two kinds of models were used, depending on whether the statement needs the $\Loo$ relations.
+When it does not, the vertices are random real symmetric tensors and the computation is done in exact rational arithmetic (\cref{fdm:sec:general:symmetric}).
+When it does, the vertices are obtained by homotopy transfer from a matrix Chern--Simons theory, so that the relations hold by construction, and the computation is done in floating point (\cref{fdm:sec:general:cs}).
+The following sections take the checked statements one at a time, in the order of the paper's appendix: the master equation (\cref{fdm:sec:master}), the contractible pair (\cref{fdm:sec:pair}), the Hessian around a background (\cref{fdm:sec:hessian}), the BRST operator around a background (\cref{fdm:sec:brst}), the homotopy transfer at the quartic order (\cref{fdm:sec:transfer}) and the nested kernels of the all-orders tower (\cref{fdm:sec:nested}).
+\Cref{fdm:sec:outside} lists the statements that the models cannot reach, and \cref{fdm:sec:scripts} the scripts.
+
+A model establishes that the algebra closes under the stated assumptions.
+Whether the string vertices satisfy these assumptions is a separate question, and every statement that depends on the actual vertices lies outside the models.
+
+\subparagraph{Notation.}
+We use the notation of the paper's conventions appendix.
+$\Hs$ is the state space, $\pair{\cdot}{\cdot}$ the pairing, $\vertex{n}$ the vertices, $\ell_n$ the products they define through the pairing, $\sprod{m}{n} \colon \Hn{m} \to \Hn{n}$ the products with several outputs, and $\Hn{n}$ the graded-symmetrized tensor product of $n$ copies of $\Hs$.
+The auxiliary fields are $\Sigma_k \in \Hn{k}$, with physical ghost numbers $\Ngh(\Psi) = 2$ and $\Ngh(\Sigma_k) = 2 k$.
+The quartic form is $\vertex{4}(A_2, B_2) = \pair[2]{A_2}{\sprod{2}{2}(B_2)}$ on two-string states, and $\vertex{4}(\Sigma_2^2) := \vertex{4}(\Sigma_2, \Sigma_2)$.
+The dressed kinetic operator of $\Sigma_2$ at the quintic order is
+\begin{equation}
+  \label{fdm:eq:intro:dressed}
+  \kin{2}{\Psi}{3}
+    := \sprod{2}{2} - \frac{\gs}{5} \, \sprod{3}{2}(\Psi, \cdot),
+\end{equation}
+and $\kin{k}{}{2 k - 2}$, $\kin{k}{\Psi}{2 k - 1}$ and $\kin{k}{\Psi}{2 K - 1}$ are the bare, dressed and nested kinetic operators of $\Sigma_k$ in a tower truncated at $\Sigma_K$, as in the paper's all-orders section.
+A background is $(\Psi^*, \Sigma^*)$ with $\Sigma^* := (\Sigma_2^*, \Sigma_3^*, \dots)$, and the fluctuations around it are $\psi$ and $\sigma_k$.
+In the models the coupling $\gs$ is often written $g$.
+The \emph{quartic truncation} keeps the vertices up to $\vertex{4}$, that is the action through order $\gs^2$, and the \emph{quintic truncation} keeps them up to $\vertex{5}$.
+The companion scripts are named by their file names in footnotes and in \cref{fdm:tab:scripts}; each prints one line PASS or FAIL per named check and exits with a nonzero code on any failure.
+
+\subsection{The general model}
+\label{fdm:sec:general}
+
+This section describes the data a model consists of, how an identity is tested in it, and the two families of models.
+
+\subsubsection{Model data}
+\label{fdm:sec:general:data}
+
+The construction uses a graded vector space with a non-degenerate graded-symmetric pairing, a nilpotent operator of degree one, and cyclic multilinear forms on that space, with the conventions of the paper.
+A finite-dimensional model replaces each by its finite-dimensional counterpart and keeps the symbols of the paper: $\Hs$ is then a graded space of finite dimension, and $\pair{\cdot}{\cdot}$ and the $\vertex{n}$ are forms on it with the same symmetries.
+The BRST operator alone is renamed, an odd operator $Q$ with
+\begin{equation}
+  \label{fdm:eq:fm:Q}
+  Q^2
+    = 0,
+  \qquad
+  \pair{QA}{B}
+    = (-1)^{\abs{A}} \, \pair{A}{QB},
+\end{equation}
+as for $Q_B$ in the paper.
+The products $\ell_n$ and $\sprod{m}{n}$ are defined from the vertices through the pairing.
+The cubic action is built from these data by the formulas of the paper, with $\Sigma_2$ on the quotient of the symmetric square by the kernel of the quartic form.
+
+Every algebraic statement of the construction which uses only the pairing, the vertices and the $\Loo$ relations can then be tested by evaluating the claimed identity on random tensors.
+The symmetric-tensor models allow exact rational arithmetic; in the Chern--Simons models the identities are checked in floating point, at machine precision or with a measured order in $\gs$.
+An order in $\gs$ is measured from the slope of $\log \abs{\cdot}$ against $\log g$ between two or more small values of $g$, or, in the Grassmann code of the master-equation check, by treating $g$ as a nilpotent parameter and reading off the coefficient of each power.
+Random seeds are fixed and printed, so that every run can be repeated.
+
+The checks include deliberately broken variants (a flipped sign, a dropped bracket, a changed coefficient), which fail, so that a passing check is not vacuous.
+This is not a formality.
+In the first version of the master-equation check, the matrix of the antibracket was taken symmetric; every coefficient of $(S, S)$ then vanished by the cancellation $(S_a, S_b) = - (S_b, S_a)$, a pass that tested nothing.
+It was caught because the size of each term was printed, and replaced by the antisymmetric matrix of \cref{fdm:eq:cs:antibracket} below, for which each $(S_a, S_b)$ is nonzero where it should be and the broken variants fail.
+
+\subsubsection{Symmetric-tensor models}
+\label{fdm:sec:general:symmetric}
+
+When the statement uses only the polynomial structure of the action, the model is simpler.
+Then $\Hs$ is a real vector space of finite dimension in a single degree, a random symmetric form $\vertex{2}$ takes the place of $\pair{\cdot}{Q_B \, \cdot}$, and the $\vertex{n}$ are random real symmetric tensors.
+The fields are Grassmann-even, and $\Sigma_k \in \mathcal U^{\wedge k}$ for a subspace $\mathcal U \subseteq \Hs$; since all fields are even, $\mathcal U^{\wedge k}$ is the symmetric power $\Sym^k \mathcal U$, and the coordinates of $\Sigma_k$ are its independent components.
+The $\Loo$ relations are not imposed there, and no statement checked in it uses them.
+The tensors have random rational entries, so that every identity is checked in exact arithmetic (with \texttt{sympy}); where an inertia is needed, the eigenvalues are computed at high precision (50 digits, with \texttt{mpmath}) and the number of zero modes is fixed by the exact rank.
+
+The actions are those of the paper, order by order.
+With $S_{\le 3} := \tfrac12 \vertex{2}(\Psi^2) + \tfrac{g}{3!} \vertex{3}(\Psi^3)$, the quartic and quintic truncations are
+\begin{subequations}
+  \label{fdm:eq:sym:actions}
+  \begin{align}
+    \caction[\le 4]
+      &
+      = S_{\le 3}
+        - \frac{g^2}{4!} \, \vertex{4}(\Sigma_2^2)
+        + \frac{2 g^2}{4!} \, \vertex{4}(\Sigma_2, \Psi^2),
+    \\
+    \caction[\le 5]
+      &
+      = \caction[\le 4]
+        + \frac{g^3}{5!} \, \vertex{5}(\Sigma_2^2, \Psi).
+  \end{align}
+\end{subequations}
+At the sextic order two presentations were used.
+In the first, the auxiliary field is $\Sigma_2$ alone, and the sextic term is a cubic form of it, $\tfrac{g^4}{6!} \dvertex{6}(\Sigma_2^3)$, with $\dvertex{6}$ the dressed sextic vertex of the paper or, where only the block structure matters, a generic symmetric tensor.
+In the second, the triangular form of the paper's all-orders section, each $\Sigma_k$ has a kinetic form and a source taken from the $(k \vert k)$ and $(k \vert k - 1, 1)$ blocks of one random multilinear form $T_{2k}$ of order $2k$, and an odd coupling $T_{2k+1}(\Sigma_k, \Sigma_k, \Psi)$,
+\begin{align}
+  \label{fdm:eq:sym:tower}
+  \caction[\le 2 K + 1]
+    &
+    = S_{\le 3}
+      + \sum_{k = 2}^{K} \frac{g^{2 k - 2}}{(2 k)!} \Big(
+        - T_{2k}(\Sigma_k, \Sigma_k)
+        + 2 \, T_{2k}(\Sigma_k; \Sigma_{k - 1}, \Psi)
+      \Big)
+  \nonumber
+  \\
+    &
+    \qquad
+      + \sum_{k = 2}^{K} \frac{g^{2 k - 1}}{(2 k + 1)!} \, T_{2k+1}(\Sigma_k, \Sigma_k, \Psi),
+\end{align}
+with $\Sigma_1 := \Psi$, $T_4 = \vertex{4}$ and $T_5 = \vertex{5}$, so that the terms with $k = 2$ are the quartic and quintic terms of~\eqref{fdm:eq:sym:actions}.
+In the paper the source is the kinetic form applied to $\Psi \otimes \Sigma_{k - 1}$; the models keep the $(k \vert k - 1, 1)$ block independent of the $(k \vert k)$ block, so that they also cover presentations in which the two differ (\cref{fdm:sec:nested}).
+In the triangular form the kinetic form of $\Sigma_k$ is $\kin{k}{}{2 k - 2}$, the $(k \vert k)$ block of $T_{2k}$.
+
+The smallest instance is the one-field model, with $\dim \mathcal U = 1$, used for the fold of the sextic auxiliary equation (\cref{fdm:sec:hessian:fold}).
+
+A graded variant with six basis vectors of ghost numbers $1$, $2$, $2$, $3$, $3$, $4$, a random pairing, random $\vertex{3}$ and $\vertex{4}$, and a $Q$ of rank one served for the homotopy transfer of \cref{fdm:sec:transfer}.
+Its pairing is odd and graded antisymmetric, and pairs ghost numbers summing to five; $Q$ is the inverse pairing composed with a form of rank one on the block of ghost number two.
+
+\subsubsection{Cyclic \texorpdfstring{$\Loo$}{L-infinity} models from matrix Chern--Simons theory}
+\label{fdm:sec:general:cs}
+
+When the statement needs the $\Loo$ relations, the vertices are obtained by homotopy transfer from a cyclic differential graded Lie algebra~\cite{Kajiura:2007:NoncommutativeHomotopyAlgebras,Doubek:2013:ModularOperadsQuantum}, so that the relations hold by construction.
+The parent is a matrix Chern--Simons theory on $L = H^\bullet(S^3) \otimes \mathrm{End}(W)$.
+Here $W$ is a graded space of dimension three in degrees $0$, $1$, $2$ with a random differential $d_W$, and $H^\bullet(S^3)$ is spanned by $1$ and an odd element $\varepsilon$ of degree three, with $\varepsilon^2 = 0$ and $\int \varepsilon = 1$.
+The differential, the pairing, which has degree $-3$, and the action are
+\begin{equation}
+  \label{fdm:eq:fm:cs-action}
+  Q
+    = [1 \otimes d_W, \cdot\,],
+  \qquad
+  \pair{x}{y}
+    = \int \tr(xy),
+  \qquad
+  S_{\mathrm{CS}}
+    = \int \tr \Big( \frac{1}{2} \, \mathcal A Q \mathcal A + \frac{\gs}{3} \, \mathcal A^3 \Big),
+\end{equation}
+on a superfield $\mathcal A$ of total degree one carrying all ghost numbers, with Grassmann-odd coordinates where the degree requires it.
+The product carries the Koszul sign, the bracket is the graded commutator, and the trace includes the sign $(-1)^{w_i}$ of the degree of the $i$-th basis vector of $W$.
+We assign to an element of degree $d$ the ghost number $d + 1$, so that the superfield has the ghost-number grading of the string field.
+The components of ghost number at most two are the fields and the others the antifields, as in the master action of~\cite{Zwiebach:1993:ClosedStringField}.
+
+The transfer is the tree-level elimination of the massive fields.
+A symplectic Hodge decomposition $L = H \oplus I \oplus C$ is built degree by degree, with $I = \operatorname{im} Q$, $C$ a Lagrangian complement and $H$ the orthogonal of $I \oplus C$ for the pairing.
+The massive pairs in a chosen set of degrees are integrated out at tree level,
+\begin{equation}
+  \label{fdm:eq:cs:transfer}
+  \mathcal A
+    = \iota \psi - g \, h''(\mathcal A \mathcal A),
+  \qquad
+  h''
+    = \big( Q \vert_{C''} \big)^{-1} P_{I''},
+  \qquad
+  S_{\mathrm{eff}}(\psi)
+    = S_{\mathrm{CS}}\big( \mathcal A(\psi) \big)
+    = \sum_n g^{n - 2} S_n,
+\end{equation}
+where $\iota$ is the inclusion of the retract and $I''$, $C''$ are the parts of $I$, $C$ in the chosen degrees.
+The Taylor coefficients $S_n$ are the cyclic transferred brackets.
+Integrating out a symplectic complement of the cohomology in chosen degrees in this way gives a cyclic $\Loo$ algebra in all ghost numbers on a retract of dimension $14$, with $\ell_3$ to $\ell_6$ nonzero.
+With a larger set of degrees integrated out the retract has dimension $10$ and the tower of transferred brackets stops at $S_4$, which serves as a control: there the truncation of \cref{fdm:sec:master} is exact.
+In this instance $\ell_3$ vanishes on the fields of ghost number two, so a classical background does not see it.
+
+The odd coordinates are implemented exactly, as a Grassmann algebra of even and odd monomials with their reordering signs and left and right derivatives, and $g$ is a nilpotent parameter ($g^5 = 0$, or $g^6 = 0$ when $S_7$ is needed).
+The antibracket on the retract is
+\begin{equation}
+  \label{fdm:eq:cs:antibracket}
+  (F, G)
+    = \frac{\pd_r F}{\pd x^a} \, P^{ab} \, \frac{\pd_l G}{\pd x^b},
+  \qquad
+  P
+    = \omega^{-1} \diag\big( (-1)^{\deg} \big),
+\end{equation}
+with $\omega$ the matrix of the pairing; $P$ is antisymmetric, and is fixed by that requirement and by the parent theory, on which $(S_{\mathrm{CS}}, S_{\mathrm{CS}}) = 0$ is checked first.
+
+For the statements around a background, $H^\bullet(S^3)$ is replaced by $H^\bullet(T^3)$, the exterior algebra on three generators of degree one, which gives the constant fields of a Chern--Simons theory on a three-torus.
+With $W$ of dimension four in degrees $0$, $0$, $1$, $1$ and a differential of rank one, the retract has dimension $92$ and $\ell_3$ is nonzero on the fields.
+Its field sector of ghost number two has dimension $22$, its symmetric square dimension $253$, and the quartic form has rank $42$ on it, so that the auxiliary space, realized as the image of $\vertex{4}$, has dimension $42$ and the kernel of $\vertex{4}$ dimension $211$.
+A variant with $W$ of dimension five, in degrees $0$, $0$, $0$, $1$, $1$, was also used; its retract has dimension $152$, the symmetric square of its field sector dimension $780$ and the auxiliary space dimension $160$.
+In both, the degree-one part of the massive fields is integrated out, so that $Q$ vanishes on the field sector.
+The shifted operator around a field $\psi$ of the transferred theory is computed by the homological perturbation lemma~\cite{Crainic:2004:PerturbationLemmaDeformations},
+\begin{equation}
+  \label{fdm:eq:cs:shifted}
+  T_\psi
+    = p \, (Q + g \operatorname{ad}_{\mathcal A}) (1 + g \, h'' \operatorname{ad}_{\mathcal A})^{-1} \iota,
+  \qquad
+  \mathcal A
+    = \iota \psi - g \, h''(\mathcal A \mathcal A),
+\end{equation}
+on all degrees, with $p$ the projection on the retract; its Taylor coefficients $T_\psi = T_0 + g T_1 + g^2 T_2 + g^3 T_3 + \dots$ give the operator of the truncated theories.
+These computations are done in double precision, with \texttt{numpy}.
+
+\subsection{Master equation}
+\label{fdm:sec:master}
+
+\subparagraph{Statement in the paper.}
+The statement of the paper's gauge section is that the cubic action with antifields, $\caction[\mathrm{BV}]$, solves the classical master equation to the truncation order, the auxiliary sector entering as a contractible pair~\cite{Henneaux:1990:EliminationAuxiliaryFields}.
+Its conditions are that the kept vertices are the truncation of a consistent genus-zero family, that $\vertex{4}$ is invertible on the quotient by its kernel level by level, and that the quintic and sextic vertices are compatible with that quotient.
+From the quintic order on, the canonical transformation of \cref{fdm:sec:pair}, constructed for generic vertices, reaches the string vertices under the assumption that the exchange terms induced by $\Sigma_2$ are not linear combinations of the elementary vertices.
+At the sextic order with $\Sigma_3$, the kinetic form of $\Sigma_3$ must in addition be invertible modulo a stable kernel.
+The source of $\Sigma_3$ must lie in the image of that kinetic form, and it must vanish when its two-string argument lies in $\ker \sprod{2}{2}$, the condition~\eqref{fdm:eq:fm:source-kernel} below.
+
+For an action truncated at $S_{\le N}$, the truncated master equation states which coefficients of the antibracket vanish and what the first nonvanishing one is,
+\begin{subequations}
+  \label{fdm:eq:master:truncation}
+  \begin{gather}
+    [g^m] (S_{\le N}, S_{\le N})
+      = 0
+    \qquad
+    (m \le N - 2),
+    \\
+    [g^{N - 1}] (S_{\le N}, S_{\le N})
+      = - 2 \, (S_2, S_{N + 1})
+      = \sum_{\substack{a + b = N + 3 \\ 3 \le a, b \le N}} (S_a, S_b),
+  \end{gather}
+\end{subequations}
+where the second equality uses the master equation of the untruncated action at order $g^{N - 1}$.
+In the paper this is the truncated master equation of the gauge section, whose derivation is the truncation lemma of its appendix.
+
+\subparagraph{Checks in the model.}
+What is established in the model is the mechanism.
+The model is the cyclic $\Loo$ model on $H^\bullet(S^3) \otimes \mathrm{End}(W)$ of \cref{fdm:sec:general:cs}, with the retract of dimension $14$ for three seeds and the terminating retract of dimension $10$ for a fourth.\footnote{\texttt{verify-bv-master-equation.py}, and \texttt{verify-bv-master-k4.py} for the order $g^5$ and the two auxiliary pairs; seeds 11, 12, 13 and 16.}
+In the cyclic $\Loo$ model the untruncated master equation $(S, S) = 0$ holds order by order through $\gs^5$, with all ghost numbers and Grassmann-odd coordinates, to a relative precision of order $10^{-15}$.
+The terms of the transferred action with two antifields are needed for it: dropping those of $S_4$, $S_5$ or $S_6$ makes the equation fail at order $\gs^2$, $\gs^3$ or $\gs^4$.
+The other broken variants fail as well: flipping the sign of $S_4$ or of $S_6$, setting $S_4$ or $S_6$ to zero (that is $\ell_3 \to 0$ or $\ell_5 \to 0$), dropping the terms of $S_3$ linear in the antifields, or replacing $S_4$ by a random quartic form on the same support which does not satisfy the $\Loo$ relations.
+For the action truncated at $S_{\le N}$, the coefficients of $(S_{\le N}, S_{\le N})$ vanish through order $\gs^{N-2}$, and the first nonvanishing one is $- 2 \, (S_2, S_{N+1})$, as in the truncated master equation~\eqref{fdm:eq:master:truncation}, for $N = 4, 5, 6$.
+The check distinguishes the coefficient $-2$ from $-1$.
+For the terminating retract, where $S_5 = S_6 = 0$, the remainder vanishes, as~\eqref{fdm:eq:master:truncation} predicts.
+The truncation statements are rearrangements of the coefficients of the untruncated equation: they test the bookkeeping of~\eqref{fdm:eq:master:truncation}, including its coefficient, and the independent content of the check is the untruncated master equation.
+
+The pair structure was checked by adding to the truncated action one or two auxiliary pairs with constant coefficients, a random symmetric form at order $\gs^2$ and another at order $\gs^4$.
+The pairs are even coordinates $Y_2$, $Y_3$ with odd antifields, entering as $- \tfrac{g^2}{4!} \, p(Y_2, Y_2) - \tfrac{g^4}{6!} \, K_3(Y_3, Y_3)$ with random symmetric $p$ and $K_3$.
+The antibracket of the full action then equals that of the string-field sector identically.
+A cross term between the two pairs that does not depend on $\Psi$ leaves this identity exact, while one depending on $\Psi$ spoils it.
+A term of either pair linear in its antifield and depending on $\psi$ spoils it as well.
+The constancy of the coefficients, which the shift to the saddle followed by the rescaling achieves, is therefore what makes the auxiliary sector decouple.
+The actual coupling between $\Sigma_2$ and $\Sigma_3$, the source of $\Sigma_3$, depends on $\Psi$; it is removed by the shift of $\Sigma_3$ to its saddle with $\Sigma_2$ off shell, after which the auxiliary sector is free of antifields and independent of $\Psi$, as the decoupling requires.
+This removal is a statement on the specific action, which the model with constant toy pairs does not test.
+
+\subparagraph{Limits of the check.}
+From the quintic order on, the string-field sector of the shifted action is the eliminated action, which differs from $S_{\le N}$ by the exchange terms induced by $\Sigma_2$.
+These add twice their antibracket with $S_2$ to the first nonvanishing coefficient above, a term that was not computed.
+These exchange terms are functions of the field of ghost number two only, and the model, which has none of them, does not exercise them.
+The model cannot test whether the string vertices satisfy the $\Loo$ relations, since the transferred structure has them by construction.
+It does not test properness either, nor the normalization of the terms with two antifields in the master action of the cubic theory.
+
+\subsection{Contractible pair}
+\label{fdm:sec:pair}
+
+\subparagraph{Statement in the paper.}
+The canonical transformation generated by $\Sigma_2 \mapsto \Sigma_2 - \Sigma_2^{(N-2)*}(\Psi)$ shifts the auxiliary to the saddle of the action truncated at $S_{\le N}$.
+Followed from the quintic order on by a rescaling of the shifted auxiliary by the square root of the dressed kinetic operator, it brings the auxiliary sector to a pair with constant coefficients.
+Explicitly, with $Y = \Sigma_2 - \Sigma_2^*(\Psi)$ and $M_\Psi := \sprod{2}{2}^{-1} \kin{2}{\Psi}{3} = 1 - \tfrac{g}{5} \, \sprod{2}{2}^{-1} \sprod{3}{2}(\Psi, \cdot)$, the new auxiliary is $\widehat Y = M_\Psi^{1/2} \, Y$, and its quadratic form $\vertex{4}(\widehat Y, \widehat Y)$ no longer depends on $\Psi$; the antifields transform by the cotangent lift of this field redefinition.
+
+\subparagraph{Checks in the model.}
+It was constructed in the symmetric-tensor model with $\Hs$ of dimension two and three.\footnote{\texttt{verify-gap3e-contractible-pair.py}, which imports the generic-tensor model of \texttt{verify-gauge-algebra-ogs4.py}; two seeds.}
+The cotangent lift preserves the antibracket, both as the identity $J^{\mathsf T} \Omega J = \Omega$ for its Jacobian $J$ and on random cubic functionals; using the inverse instead of the inverse transpose on the antifield of $Y$, or dropping the shift of $\Psi^+$, breaks it.
+After the transformation the term linear in the antifield $\Sigma_2^+$ vanishes exactly.
+It does so only for one representative of the gauge transformation of $\Sigma_2$, unique up to trivial symmetries: the one for which the rescaled deviation is gauge invariant.
+With the transformation law of the paper's quintic section kept in that term, a residual of order $g^2$ remains.
+At order $\gs^4$ the vanishing holds by construction of the representative; there the law of the sextic presentation with $\Sigma_2$ alone leaves a nonzero term, and the difference of the two laws is a trivial symmetry.
+The antibracket of the full master action then equals that of the string-field sector identically, and a $\Psi$-dependent kinetic term of the auxiliary, or a term in its antifield, spoils this.
+
+The identity relating this representative to the one of the paper's quintic section by a trivial gauge symmetry was checked at leading order; its normalization at the level of the terms quadratic in antifields was not tracked.
+That the master actions built on the two representatives are related by a canonical transformation, completed order by order in the antifields, follows from the uniqueness of the proper solution of the master equation up to canonical transformations~\cites[sec.~17.3.4]{Henneaux:1994:QuantizationGaugeSystems-kn}{Fisch:1990:HomologicalPerturbationTheory}{Gomis:1995:AntibracketAntifieldsGaugeTheory}.
+The theorem is applied order by order in $\gs$, up to the truncation order.
+
+\subparagraph{Limits of the check.}
+In this model the antifields are taken commuting, so every identity it tests is blind to the Grassmann signs of the antibracket; those signs are tested in the Chern--Simons model of \cref{fdm:sec:master}.
+For the same reason, a term quadratic in the antifields with an antisymmetric coefficient vanishes identically there, and the content of the canonical transformation at antifield number two cannot be tested in it.
+
+\subsection{Hessian around a background}
+\label{fdm:sec:hessian}
+
+The statements of the paper's section on solutions about fluctuations are of two kinds, and both were established in the symmetric-tensor model.
+The first uses only the polynomial degree of the action (\cref{fdm:sec:hessian:affine}); the second compares the cubic theory with the eliminated one (\cref{fdm:sec:hessian:congruence}).
+A third subsection treats the fold, where the auxiliary block is singular (\cref{fdm:sec:hessian:fold}).
+
+\subsubsection{Affine Hessian}
+\label{fdm:sec:hessian:affine}
+
+Since a cubic action has second derivatives at most linear in the fields, its Hessian at a background $(\Psi^*, \Sigma^*)$, with $\Sigma^* := (\Sigma_2^*, \Sigma_3^*)$, is affine in the background,
+\begin{equation}
+  \label{fdm:eq:fm:affine}
+  \Hess \caction (\Psi^*, \Sigma^*)
+    = \caction[\mathrm{quad}] + \caction[\mathrm{cub}](\Psi^*, \Sigma^*; \cdot, \cdot),
+\end{equation}
+with $\caction[\mathrm{quad}]$ the quadratic part and $\caction[\mathrm{cub}]$ the cubic part contracted once with the background, so that each block is a vertex with one background field inserted.
+In the triangular form the block of $\Sigma_k$ with itself is constant at the order at which $\Sigma_k$ enters and receives its last term one order later, where the odd vertex of order $2k+1$ makes it linear in $\Psi^*$.
+For $\Sigma_2$ this block is $- \tfrac{g^2}{12} \, \vertex{4}$ at the quartic order and $- \tfrac{g^2}{12} \, \kin{2}{\Psi^*}{3}$ from the quintic order on, and for $\Sigma_3$ it is constant, $- \tfrac{2 g^4}{6!} \, \kin{3}{}{4}$, at the sextic order.
+In the presentation with $\Sigma_2$ alone, the block of $\Sigma_2$ with itself is also linear in $\Sigma_2^*$ at the sextic order, through $\dvertex{6}(\Sigma_2^3)$.
+
+In the model, the blocks assembled by hand from the vertices and a random rational background equal the Hessian of the action computed symbolically, at every order in $\gs$.\footnote{\texttt{verify-hessian-affine.py}, seed 20261001.}
+This was done with $\dim \Hs = 2$ for the quintic truncation~\eqref{fdm:eq:sym:actions} and for the presentation with $\dvertex{6}(\Sigma_2^3)$ (field space of dimension $5$), and for the triangular form~\eqref{fdm:eq:sym:tower} with $K = 3$ (dimension $9$).
+Every entry of the symbolic Hessian has total degree one in the fields, and $\Hess \caction(\lambda \phi^*)$ has a vanishing second difference in $\lambda$ and a nonvanishing first one.
+Adding a quartic monomial to the action produces entries of degree two, and replacing the coefficient $\tfrac{g^3}{60}$ by $\tfrac{g^3}{48}$ breaks the comparison of the blocks.
+This statement holds verbatim at the string vertices.
+
+The consequence is computational: around any solution of the cubic equations of motion, the fluctuation operator is assembled from the low vertices contracted once with the background, with no dressed vertex, no inverse of $\vertex{4}$ and no Hessian of the effective action.
+
+\subsubsection{Comparison with the eliminated theory}
+\label{fdm:sec:hessian:congruence}
+
+The second kind of statement compares the cubic theory with the eliminated one, and holds wherever the auxiliary block of the Hessian is invertible.
+Write the joint Hessian in blocks, $H$ with the auxiliary block $H_{\mathrm{aux}}$, the mixed block $H_{\Sigma \Psi}$ and the block $H_{\Psi \Psi}$, and let $\Sigma_*'$ be the derivative of the saddle with respect to $\Psi$.
+The congruence of the paper's solutions section is
+\begin{equation}
+  \label{fdm:eq:hessian:congruence}
+  H
+    = L^{\mathsf T} \big( H_{\mathrm{eff}} \oplus H_{\mathrm{aux}} \big) L,
+  \qquad
+  H_{\mathrm{eff}}
+    := H_{\Psi \Psi} - H_{\Psi \Sigma} H_{\mathrm{aux}}^{-1} H_{\Sigma \Psi},
+\end{equation}
+with $L$ block unipotent, $L(x, y) = (x, y - \Sigma_*' x)$.
+It gives the additivity of the inertia, $\In(H) = \In(H_{\mathrm{eff}}) + \In(H_{\mathrm{aux}})$ (Haynsworth's inertia additivity), and the zero modes, $\ker H = \{ (x, \Sigma_*' x) : x \in \ker H_{\mathrm{eff}} \}$: the joint zero mode is the fluctuation that follows the saddle.
+
+The congruence of the paper's solutions section was checked with exact rational blocks, with one auxiliary at the quintic truncation and with the tower $(\Sigma_2, \Sigma_3)$, at backgrounds engineered to be joint critical points with a one-dimensional kernel.
+The quintic instance has $\dim \mathcal U = 3$ and the tower $\dim \mathcal U = 2$, both with a joint field space of dimension $9$.
+The critical points are engineered as follows: with $\vertex{2}$ left free, the gradient and the Hessian of the eliminated action at a chosen $\Psi^*$ are computed by solving the linear auxiliary equations as a series, independently of the Schur formula; $\vertex{2}$ is then the symmetric matrix that makes $\Psi^*$ critical and gives the Hessian a chosen one-dimensional kernel.
+The Schur complement of the joint Hessian equals the Hessian computed in this way, exactly.
+The inertia was counted from high-precision eigenvalues, with the number of zero modes fixed by the exact rank: $\In(H) = (4, 4, 1) = (1, 1, 1) + (3, 3, 0)$ at the quintic truncation and $(3, 5, 1) = (0, 1, 1) + (3, 4, 0)$ for the tower, as (positive, negative, zero) counts of $H_{\mathrm{eff}}$ and $H_{\mathrm{aux}}$.
+Replacing $H_{\mathrm{eff}}$ by the $\Psi$ block alone miscounts, and the vector $(x, 0)$ is not a zero mode.
+Flipping the sign of $H_{\mathrm{aux}}$ breaks the sum for the tower; for the quintic instance, whose $H_{\mathrm{aux}}$ has as many positive as negative directions, this variant cannot fail, and a shift of $H_{\mathrm{eff}}$ by $10^{-12}$, which removes its zero mode, serves as the broken variant at both truncations.
+The eigenvalues of the fluctuation operator $G^{-1} H$, for a random indefinite kinetic pairing $G$, differ from those of the direct sum (by $0.34$ and $0.095$ at most in the two instances): the two operators are congruent, not isospectral, and they share the inertia and the zero modes only.
+
+What transfers to the string vertices is the congruence itself, which is linear algebra.
+On the saddle, the Schur complement of the auxiliary block, which the congruence produces, is the Hessian of the truncated non-polynomial action exactly at the quartic order, and at higher orders up to the first order not matched, where the exchange terms induced by the auxiliaries enter (the paper's order-by-order section).
+In the symmetric-tensor model this was compared Taylor coefficient by Taylor coefficient in $g$, in exact rationals, with the Hessian of $S_{\le n}$:\footnote{\texttt{verify-mean-field-fluctuations.py}, part~1; seeds 601, 602, 603, 6031.} it is $\Hess S_{\le 4}$ at the quartic truncation, $\Hess S_{\le 5} + \tfrac{g^4}{600} \Hess \big( v \, \vertex{4}^{-1} v \big) + O(g^5)$ at the quintic one, with $v := \vertex{5}(\cdot, \Psi^2, \Psi)$, and $\Hess S_{\le 6} + O(g^5)$ at the sextic one, on the perturbative sheet of the auxiliary equation.
+This identification assumes that $\vertex{4}$ is invertible on the quotient level by level and that $\vertex{5}$ and $\vertex{6}$ are compatible with the kernel.
+
+\subsubsection{Fold}
+\label{fdm:sec:hessian:fold}
+
+Where the auxiliary block is singular, the one-field model at the sextic truncation shows one such case.
+Its action, with $\Psi = t \, e$ and $\Sigma_2 = \sigma \, e \otimes e$ along the single basis vector $e$ and at $g = 1$, is
+\begin{equation}
+  \label{fdm:eq:fold:action}
+  \caction
+    = \frac{v_2}{2} \, t^2 + \frac{v_3}{6} \, t^3
+      - \frac{a}{24} \, \sigma^2 + \frac{a}{12} \, \sigma t^2
+      + \frac{w}{120} \, \sigma^2 t + \frac{W}{720} \, \sigma^3,
+\end{equation}
+with $v_n$, $a$, $w$ and $W$ the values of $\vertex{n}$, $\vertex{4}$, $\vertex{5}$ and $\dvertex{6}$ on $e$.
+The equation of $\sigma$ is quadratic.
+The two sheets of the quadratic auxiliary equation meet at a fold, where the joint Hessian is regular.
+At the fold both the equation of $\sigma$ and $H_{\sigma \sigma} = \pd_\sigma^2 \caction$ vanish, which gives $\sigma_f^2 = \tfrac{20 a}{W} \, t_f^2$, real when $a W > 0$, and there
+\begin{equation}
+  \label{fdm:eq:fold:det}
+  \det H
+    = H_{tt} H_{\sigma \sigma} - H_{t \sigma}^2
+    = - H_{t \sigma}^2,
+  \qquad
+  H_{t \sigma}
+    = \frac{a}{6} \, t_f + \frac{w}{60} \, \sigma_f,
+\end{equation}
+nonzero for generic couplings, so that the inertia is $(1, 1)$.
+The second derivative of the eliminated action diverges there as the inverse square root of the distance of $\Psi$ to the fold.
+The fold is a property of the elimination; the joint Hessian of the cubic theory stays regular there.
+
+In the check, the couplings are chosen with $a = 1$ and $W = \tfrac54$, so that $\tfrac{20 a}{W}$ is a perfect square and the fold points are rational ($t_f = \tfrac65$ and $t_f = -6$); $\det H = - H_{t\sigma}^2 < 0$ holds exactly with $H_{\sigma\sigma} = 0$.
+Since this equality is an identity once $H_{\sigma\sigma} = 0$, the content tested is the existence of real rational fold points with $H_{t\sigma} \neq 0$, and the inertia is inferred from the sign of the determinant.
+On the real sheet, $\abs{V_{\mathrm{eff}}''}$ is $14.1$, $134$ and $1334$ at distances $10^{-2}$, $10^{-4}$ and $10^{-6}$ from the fold: a factor of about ten for a factor one hundred in the distance, the inverse square root.\footnote{\texttt{verify-hessian-affine.py}; the fold of this model was first located with \texttt{verify-truncation-structure.py}.}
+
+\subsection{BRST operator around a background}
+\label{fdm:sec:brst}
+
+\subparagraph{Statement in the paper.}
+The paper's gauge section shows that for $\gs \neq 0$, at a solution $(\Psi^*, \Sigma_2^*)$ of the cubic theory with an invertible dressed kinetic operator, the linearized BRST operator $\widetilde Q_{(\Psi^*, \Sigma_2^*)}$ is similar to a string-field block plus a contractible pair.
+The block is $Q_{\Psi^*}$ exactly at the quartic truncation, and up to terms of order $\gs^4$ at the quintic one when $\vertex{5}$ annihilates $\ker \sprod{2}{2}$.
+The similarity is the linearized cotangent lift of $\Sigma_2 \mapsto \Sigma_2 - \Sigma_2^*(\Psi)$; the pair block maps the shifted auxiliary fluctuation to zero and its antifield to $- \tfrac{g^2}{12} \, \kin{2}{\Psi^*}{3}$ applied to it, and it is contractible when $g \neq 0$ and the dressed operator is invertible.
+The similarity itself uses neither the equations of motion nor the master equation; the orders in $\gs$ do.
+
+\subparagraph{Checks in the model.}
+In the cyclic $\Loo$ model with the four-dimensional $W$, the background is an exact Maurer--Cartan point of the untruncated theory at every value of $\gs$, and $\Sigma_2^*$ is its saddle on the quotient.\footnote{\texttt{verify-brst-background.py}; model seeds 21, 22, 23 for the four-dimensional $W$ and 21 for the five-dimensional one.}
+The background is a one-parameter family: with a deformed differential $d_W' = (u + g a)(v + g b)^{\mathsf T}$ of rank one, the field $\psi^*(g) = p \, (d_W' - d_W) / g$ is of order one in $g$, and its Maurer--Cartan residual in the transferred theory is below $10^{-17}$.
+The auxiliary space is the quotient of the symmetric square of the field sector by $\ker \vertex{4}$, realized as the image of $\vertex{4}$.
+The joint operator on the fluctuations $\psi$ of all ghost numbers, $\sigma_2$ and its antifield $\sigma_2^+$ is assembled from the Hessian of the master action, with no constant fitted from nilpotency.
+The similarity to a string-field block plus the pair holds to machine precision at both truncations, and at the quartic truncation the string-field block equals $Q_{\Psi^*}$ exactly.
+In numbers, the conjugated operator is block diagonal to a relative $2 \times 10^{-16}$, the pair block is the one above to $10^{-17}$, and the string-field block equals the shifted operator of the quartic truncation to $3 \times 10^{-16}$.
+At both truncations the rank of the joint operator exceeds that of $Q_{\Psi^*}$ by the dimension of the quotient, and the two cohomologies, counted from the ranks, have the same dimension.
+For the four-dimensional $W$ the ranks are $72 = 30 + 42$ and the cohomology has dimension $32$; for the five-dimensional one, $200 = 40 + 160$ and $72$.
+As an anchor, the exactly nilpotent shifted operator of the untruncated theory has the cohomology of the deformed parent, of dimension $8 \, (\dim W - 2)^2$, that is $32$ and $72$.
+The ranks are read from singular values, with gaps of at least a factor ten on both sides of the threshold.
+
+The orders in $g$ are measured from the slopes between $g = 0.04$ and $g = 0.02$, confirmed down to $g = 0.0025$ for the quantities of the quartic truncation.
+The square of the operator is of order $\gs^3$ at the quartic truncation, as the master equation requires, and is only of order $\gs^2$ when the background is moved off shell or when the coupling between the fluctuations $\psi$ and $\sigma_2$ of the paper's gauge section is dropped.
+Off shell the defect is $g$ times the residual of the equation of motion, as for the shifted operator of the non-polynomial theory~\cite[eq.~(4.117)]{Zwiebach:1993:ClosedStringField}.
+
+On the components of ghost numbers two and three, the string-field block alone carries one third of the $\ell_3$ term of $Q_{\Psi^*}$; on the ghost components it carries all of it.
+The other two thirds are the exchange of $\sigma_2$, read in the shifted variable; with the coefficient one in place of one third, the decoupling survives but the string-field block differs from $Q_{\Psi^*}$ at order $g^2$.
+It is nilpotent at that order if and only if $\{Q, \ell_3(\Psi^*, \Psi^*, \cdot)\}$ vanishes.
+At a Maurer--Cartan point this anticommutator is, to leading order in $g$, the failure of $\ell_2$ to satisfy the Jacobi identity on $(\Psi^*, \Psi^*, \cdot)$; a nonzero $\ell_3$ alone does not suffice, since a minimal model, with $Q = 0$, has it identically zero.
+This anticommutator is nonzero at a Maurer--Cartan point of the variant with a five-dimensional $W$, while on the backgrounds used here it vanishes at leading order.\footnote{\texttt{verify-mean-field-fluctuations.py}, part~2, for the five-dimensional $W$.}
+For that reason the order of the square of the string-field block alone is the same as that of the joint operator on the family above, and the role of the exchange is shown by the broken variants (coefficient one, coupling dropped) rather than by a gap in orders.
+At the quartic truncation, when the kernel of $\vertex{4}$ is kept instead of quotiented, each kernel direction adds one class to the cohomology of $x_2$, the fluctuation of the deviation (the paper's gauge section), and one to that of $\sigma_2^+$, and the statement fails.
+In the model the cohomology then has dimension $454 = 32 + 2 \cdot 211$.
+
+\subparagraph{Limits of the check.}
+One limit of this model is to be kept in mind: its quartic form has a large kernel on which the generic quintic form does not vanish, so its eliminated theory at the quintic truncation is not the quintic truncation of the original theory.
+There the string-field block differs from $Q_{\Psi^*}$ already at order $\gs^3$, and the square of the operator is of order $\gs^3$ instead of $\gs^4$.
+The measured slopes are $2.97$ for the difference of the blocks and between $2.95$ and $3.04$ for the square, while the square of the shifted operator of the original theory truncated at the quintic order has slopes $3.95$ and $4.03$.
+The model thus shows that the condition on $\vertex{5}$ is needed.
+Its sufficiency at order $\gs^4$ was not checked; a model with $\ker \vertex{4} = 0$ and $\ell_3 \neq 0$ on the fields, or with the condition on $\vertex{5}$ imposed by construction, would check it.
+The model does not reach the locus where the dressed kinetic operator is singular, where the saddle and its derivative are undefined, nor backgrounds of order $1/g$, for which the counting of orders does not apply.
+
+\subsection{Homotopy transfer}
+\label{fdm:sec:transfer}
+
+\subparagraph{Statement in the paper.}
+The elimination of $\Sigma_2$ at the quartic order can be read as a homological-perturbation transfer~\cite{Crainic:2004:PerturbationLemmaDeformations}.
+The $\Sigma_2$ sector is contracted along the inverse of $\sprod{2}{2}$, and the brackets transferred to the string-field sector are compared with those of the quartic-truncated theory.
+The transferred brackets and the transfer map are those of the paper's section on the $\mathrm{IBL}_\infty$ structure: the brackets are $(Q, g \ell_2, g^2 \ell_3, 0, \dots)$, those of the quartic truncation, and the transfer map is $\Psi \mapsto (\Psi, \Psi^2)$, with no component of higher arity.
+
+\subparagraph{Checks in the model.}
+This was done in the six-dimensional graded model, on the classical complex of fields and equations of motion, that is on the states of ghost numbers two and three, with the auxiliary sector at ghost numbers four and six.\footnote{\texttt{verify-hpt-transfer.py}, seeds 2037, 7, 11; the model data are those of \texttt{verify-morphism-check.py}.}
+The complex has degree zero $\Hs^{(2)} \oplus \Sym^2 \Hs^{(2)}$ and degree one $\Hs^{(3)} \oplus \Sym^2 \Hs^{(3)}$, with $\Hs^{(n)}$ the states of ghost number $n$, and its differential is $Q \oplus \big( - \tfrac{g^2}{12} \, \sprod{2}{2}^{\mathrm{cl}} \big)$, where $\sprod{2}{2}^{\mathrm{cl}}$ is $\sprod{2}{2}$ projected on $\Sym^2 \Hs^{(3)}$.
+Through the pairing, $\sprod{2}{2}^{\mathrm{cl}}$ is the quartic form on $\Sym^2 \Hs^{(2)}$, so its invertibility is a statement on $\vertex{4}$; the contraction is $h = - \tfrac{12}{g^2} \, (\sprod{2}{2}^{\mathrm{cl}})^{-1}$ on $\Sym^2 \Hs^{(3)}$ and zero elsewhere.
+The transfer is run as a numerical fixed-point recursion, and the brackets are read from the Taylor coefficients of the transferred equation of motion along a ray, so that the closed forms are never substituted into their own checks.
+The transferred brackets equal those of the quartic-truncated theory, the second-order component of the transfer map is $\Psi^{\otimes 2}$ and the third-order one vanishes.
+Recomputed at four values of $g$, the norms of the transferred brackets scale as $g^0$, $g^1$, $g^2$ to $10^{-6}$, so the $g^{-2}$ of the contraction cancels the $g^2$ of the auxiliary sector.
+The cohomology of the complex, computed from the ranks of its differential, equals that of $Q$ on the string-field sector; the contraction is cyclic for the pairing of two-string states; and, as a second method, integrating the transferred equation of motion recovers the effective action assembled from $\vertex{3}$ and $\vertex{4}$.
+Each check has a broken variant that fails: $\vertex{4}$ made degenerate on $\Sym^2 \Hs^{(2)}$, the contraction rescaled by two or flipped in sign, the second-order component of the map rescaled by $1.3$, $\vertex{4}$ rescaled by $1.5$.
+
+The content of the statement is modest: on a two-term complex the $\Loo$ relations and the morphism identities are vacuous beyond the equality of the brackets, the isomorphism on cohomology (the invertibility of the quartic form restated) and cyclicity.
+Off the classical complex, without the truncation to ghost numbers two and three, the morphism identity fails, with a defect supported at ghost number five.
+For gradings of the two-string states that are functions of the total ghost number, and a transfer map with second component $\Psi^{\otimes 2}$, the ghost-number counting of the quartic form obstructs the extension to a complex with gauge parameters, so the statement does not extend to the gauge algebra or to the BV complex.
+
+\subparagraph{Limits of the check.}
+The hypothesis the model leaves is the one on the string side: the inverse of $\sprod{2}{2}$ must exist on the quotient level by level, with a kernel that stabilizes with the level, so that the contraction has a level limit.
+The model, having a single fixed dimension, exhibits only the injectivity half of that hypothesis.
+All inputs are even, so the suspension signs of odd inputs are not tested.
+
+\subsection{Nested kernels}
+\label{fdm:sec:nested}
+
+\subparagraph{Statement in the paper.}
+The all-orders construction of the paper eliminates the auxiliaries one at a time, heaviest first.
+It needs at each level $k$ the kinetic operator of $\Sigma_k$ in the background $\Psi$, after the heavier auxiliaries are eliminated, to be invertible modulo a stable kernel.
+In the model of~\eqref{fdm:eq:sym:tower} these nested operators are
+\begin{subequations}
+  \label{fdm:eq:nested:recursion}
+  \begin{gather}
+    \kin{k}{\Psi}{2 K - 1}
+      = \kin{k}{\Psi}{2 k - 1}
+        - \frac{g^2}{(2 k + 1)(2 k + 2)} \, L_{k + 1}(\Psi)^{\mathsf T} \big( \kin{k + 1}{\Psi}{2 K - 1} \big)^{-1} L_{k + 1}(\Psi),
+    \\
+    \kin{k}{\Psi}{2 k - 1}
+      = \kin{k}{}{2 k - 2} - \frac{g}{2 k + 1} \, T_{2k+1}(\cdot, \cdot, \Psi),
+  \end{gather}
+\end{subequations}
+for $k = K - 1, \dots, 2$, with $\kin{K}{\Psi}{2 K - 1}$ at the top, and $L_{k+1}(\Psi)$ the source map of $\Sigma_{k+1}$, read off the $(k + 1 \vert k, 1)$ block of $T_{2k+2}$ with one slot filled by $\Psi$.
+
+\subparagraph{Checks in the model.}
+A separate model was built for these conditions.
+The tower $(\Sigma_2, \dots, \Sigma_K)$ takes the kinetic form and the source of $\Sigma_k$ from the $(k \vert k)$ and $(k \vert k-1, 1)$ blocks of one random real multilinear form of order $2k$, as in the triangular form of the action (the paper's septic section).
+The odd couplings of $\Sigma_k$, $\Sigma_k$ and $\Psi$ are random as well.
+The model has $\Hs = \mathbb Q^2$, so that $\Sym^2 \Hs$, $\Sym^3 \Hs$ and $\Sym^4 \Hs$ have dimensions $3$, $4$ and $5$, and all computations are exact.\footnote{\texttt{verify-ph2a.py}, seeds 20260926 and 41.}
+
+Three things were checked, for towers with up to three auxiliaries.
+First, the dressed kinetic operator of $\Sigma_k$ depends on $\gs$ and $\Psi$ through $\gs \Psi$ only.
+When the levels above are non-degenerate, its expansion begins with the $(k \vert k)$ block, the odd coupling contracted once with $\Psi$ at order $\gs$, and the exchange of $\Sigma_{k+1}$ through the inverse of its own kinetic form at order $\gs^2$,
+\begin{align}
+  \label{fdm:eq:nested:expansion}
+  \kin{k}{\Psi}{2 K - 1}
+    &
+    = \kin{k}{}{2 k - 2}
+      - \frac{g}{2 k + 1} \, T_{2k+1}(\cdot, \cdot, \Psi)
+  \nonumber
+  \\
+    &
+    \qquad
+      - \frac{g^2}{(2 k + 1)(2 k + 2)} \, L_{k + 1}(\Psi)^{\mathsf T} \big( \kin{k + 1}{}{2 k} \big)^{-1} L_{k + 1}(\Psi)
+      + O(g^3).
+\end{align}
+The determinants were compared, coefficient by coefficient in $g$, between the nested recursion and the determinant of the full matrix of second derivatives of the auxiliary sector, which needs no recursion.
+Second, with $\Sigma_k$ quotiented by directions annihilated by every coupling in which it appears, the conditions hold at $\gs = 0$ if and only if, at every level, the kernel of the kinetic form of $\Sigma_k$ is the joint kernel of these couplings.
+The field $\Sigma_k$ then lives on the quotient by that kernel, and the conditions extend to a neighborhood of $\gs \Psi = 0$ at fixed truncation.
+In the model the operator built on the quotient is then the same for two choices of complement, and it differs between them when the kernel direction is not annihilated by the odd coupling.
+At $k = 2$ the content is that the quintic vertex annihilates $\ker \sprod{2}{2}$ and, when $\Sigma_3$ is present, that the source of $\Sigma_3$ does too,
+\begin{equation}
+  \label{fdm:eq:fm:source-kernel}
+  \dvertex{6}(A_3, \Psi \otimes N_2)
+    = 0
+  \qquad
+  \text{for all } A_3 \in \Hn{3}, \ N_2 \in \ker \sprod{2}{2},
+\end{equation}
+a condition that is necessary when the kinetic form of $\Sigma_3$ is definite on its quotient, and generically otherwise.
+It bears on the $(3 \vert 2, 1)$ block of the sextic form, which is part of the freedom of the presentation off the diagonal.
+Its restriction to the diagonal is fixed by the dressed sextic vertex, which on these directions reduces to $\vertex{6}$ once $\vertex{5}$ annihilates the kernel.
+The condition can therefore be satisfied only if $\vertex{6}$ vanishes on the six-string states with a factor in $\ker \sprod{2}{2}$, for instance $\vertex{6}(A^6) = 0$ whenever $A \otimes A \in \ker \sprod{2}{2}$.
+The compatibility of the quintic and sextic vertices with the kernel, assumed in the paper, implies this.
+In the model, with a one-dimensional $\ker \vertex{4}$ spanned by $N_2$, a $\vertex{5}$ annihilating it and a sextic form satisfying~\eqref{fdm:eq:fm:source-kernel} by exact projection, $\kin{2}{\Psi}{2 K - 1}$ annihilates $N_2$ at every $g$ and the value on the quotient does not depend on the complement.
+Breaking either clause makes the quotient inconsistent; with only~\eqref{fdm:eq:fm:source-kernel} broken, $\kin{2}{\Psi}{2 K - 1} N_2$ is of order $g^2$, with the coefficient of the exchange term of~\eqref{fdm:eq:nested:expansion}.
+With $\Sigma_2$ alone, the condition on $\vertex{5}$ is necessary and sufficient.
+The neighborhood of $\gs \Psi = 0$ has a positive radius at each fixed truncation; the argument gives no bound uniform in the level or in the number of auxiliaries.
+
+Third, the invertibility of $\sprod{2}{2}$ on its quotient does not imply the conditions at the higher levels.
+The model contains towers with a non-degenerate quartic form and a singular kinetic form at level three which, for a simple pole, is invisible in the level-two operator at $\gs = 0$.
+In the instance, $\det \vertex{4} = -21$ while $\det \kin{3}{\Psi}{2 K - 1}$ vanishes at $g = 0$.
+Such a failure generically shows in the eliminated action.
+A null direction of level three without kinetic term acquires a field-dependent mass from the background and, once integrated out, produces a term rational in $\Psi$ at the sixth or seventh order.
+For a null vector $N_3$ of $\kin{3}{}{4}$ and a form of order six symmetric in its last three slots, the term is
+\begin{equation}
+  \label{fdm:eq:nested:rational}
+  \begin{cases}
+    \displaystyle
+    - \frac{g^4}{6!} \, \frac{T_7(N_3, \Psi^3, \Psi)^2}{T_7(N_3, \cdot, \Psi)^{\mathsf T} \, (\kin{3}{}{4})^{+} \, T_7(N_3, \cdot, \Psi)}
+      & \text{if } T_7(N_3, N_3, \cdot) = 0,
+    \\[3ex]
+    \displaystyle
+    - \frac{g^5}{7!} \, \frac{T_7(N_3, \Psi^3, \Psi)^2}{T_7(N_3, N_3, \Psi)}
+      & \text{otherwise},
+  \end{cases}
+\end{equation}
+with $(\kin{3}{}{4})^{+}$ a generalized inverse.
+In the model the first was matched to the computed coefficient of the action at one value of $\Psi$ per seed and, with $\Psi$ symbolic, has a nonconstant denominator; the second was matched on a configuration with a simple pole.
+For a form of order six that is not symmetric in its last three slots it is derived to enter already at the fourth or fifth order, which was not checked in the model.
+The condition at the higher levels is therefore a genuine assumption on the presentation, and it is what the all-orders construction states.
+For the string vertices at a fixed level the momenta are continuous, and the determinant and neighborhood statements of the model are not covered there.
+
+\subparagraph{Limits of the check.}
+Only one-dimensional kernels were tested, with $\dim \Hs = 2$.
+Poles of order three and four in the level-two operator, the form of~\eqref{fdm:eq:nested:rational} at the higher levels, and the necessity, for forms not symmetric in their last slots, of the condition that the source of $\Sigma_k$ vanish on the kernel of its kinetic form, are derived but not checked.
+About twenty of the checks of the script hold by construction of the model, and serve to confirm that it is set up as stated; the content is carried by the others and by the seventeen broken variants.
+
+\subsection{Statements outside the models}
+\label{fdm:sec:outside}
+
+A finite-dimensional model establishes that the algebra closes under the stated assumptions; whether the string vertices satisfy them is a separate question, and everything that depends on the actual vertices lies outside the models.
+This covers the spectrum and the inertia of $\sprod{2}{2}$, the kernel of $\vertex{4}$ at level zero and its stability with the level, and the compatibility of $\vertex{5}$ and $\vertex{6}$ with that kernel.
+It also covers whether the exchange terms induced by the auxiliaries are linear combinations of the elementary vertices, which generic tensors exclude and on which the transfer of the canonical transformation rests.
+It covers, finally, the $\Loo$ relations of the vertex family, which a transferred structure satisfies by construction.
+
+The models have no momenta.
+The statements about mass shells, about the convergence of the sum over intermediate two-string states and about the behavior at on-shell momenta, where properness is not established, are therefore not theirs.
+The master-equation and cohomology statements are moreover order by order in $\gs$.
+In level truncation the master equation generically fails from order $\gs^2$ on, for the cubic and for the original theory alike.
+The fluctuation statements around a level-truncated solution therefore concern the Hessian and its zero modes, not a cohomology.
+
+\subsection{Scripts}
+\label{fdm:sec:scripts}
+
+\Cref{fdm:tab:scripts} lists the scripts, the statement each one checks, the model and its sizes, and the date of the computation.
+The dates are those at which the check was made, with the date of the last correction of the check where it differs.
+Each script is run with the project's Python environment and takes the seed as an optional argument where it has one.
+
+\begin{table}[H]
+  \centering
+  \small
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.44\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}@{}}
+    \toprule
+    Statement & Model, sizes, orders & Date \\
+    \midrule
+    \multicolumn{3}{@{}l}{\texttt{verify-bv-master-equation.py}} \\*
+    \quad master equation, truncation~\eqref{fdm:eq:master:truncation} for $N = 4, 5$, one auxiliary pair (\cref{fdm:sec:master}) & Chern--Simons on $S^3$, $\dim W = 3$, retracts $14$ and $10$; through $g^4$ & 2026-09-26 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-bv-master-k4.py}} \\*
+    \quad master equation through $g^5$, truncation for $N = 6$, two pairs and their cross terms (\cref{fdm:sec:master}) & same model, retract $14$, $S_7 \neq 0$ & 2026-10-01 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-gap3e-contractible-pair.py}} \\*
+    \quad canonical transformation, contractible pair (\cref{fdm:sec:pair}) & symmetric tensors, $\dim \Hs = 2, 3$; even antifields & 2026-09-26 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-hessian-affine.py}} \\*
+    \quad affine Hessian, congruence, zero modes, fold (\cref{fdm:sec:hessian}) & symmetric tensors, $\dim \Hs = 2$, field spaces $5$ and $9$; one-field model & 2026-10-01 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-mean-field-fluctuations.py}} \\*
+    \quad Schur complement against the Hessian of $S_{\le n}$; one third of $\ell_3$; nonvanishing anticommutator (\cref{fdm:sec:hessian,fdm:sec:brst}) & symmetric tensors; Chern--Simons on $T^3$, $\dim W = 5$ & 2026-09-26 \newline 2026-10-01 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-brst-background.py}} \\*
+    \quad similarity, cohomology, orders of nilpotency (\cref{fdm:sec:brst}) & Chern--Simons on $T^3$, retracts $92$ and $152$; $g$ from $0.04$ to $0.0025$ & 2026-10-01 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-hpt-transfer.py}} \\*
+    \quad homotopy transfer on the classical complex (\cref{fdm:sec:transfer}) & graded model, six basis vectors & 2026-09-21 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-ph2a.py}} \\*
+    \quad nested kernels (\cref{fdm:sec:nested}) & symmetric tensors, $\Hs = \mathbb Q^2$, up to three auxiliaries & 2026-09-26 \newline 2026-10-01 \\
+    \addlinespace
+    \multicolumn{3}{@{}l}{\texttt{verify-truncation-structure.py}} \\*
+    \quad one-field model, location of the fold (\cref{fdm:sec:hessian:fold}) & one-field model at the sextic truncation & 2026-09-26 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Companion scripts of the finite-dimensional checks. Two further scripts supply model data: \nolinkurl{verify-gauge-algebra-ogs4.py}, the generic-tensor model imported by the contractible-pair check, and \nolinkurl{verify-morphism-check.py}, whose graded data the transfer check reuses.}
+  \label{fdm:tab:scripts}
+\end{table}
+

@@ -118,6 +118,10 @@ In short: an enlargement with a field-independent operator is a Stückelberg enl
   \item The same holds for all symmetries, the single-string sector included, under three assumptions (\cref{sec:gauge-bv:all-symmetries}).
 
     \status{Conditional(PH1, PH27, PH43) -- Argued}\record{102-gauge-unfixing-structure, node C4 (R109)}
+
+  \item Whether the auxiliary fields can carry physical states in another formulation related to the cubic action by a gauge transformation: not within the cubic action's own gauge symmetry, nor on the present field content at order $\gs^2$; a re-split of the spectrum needs a two-string parameter acting on $\Psi$, on an enlarged field content (\cref{sec:gauge-bv:physical-states}).
+
+    \status{Conditional(PH1, PH5, PH14 [$O(\gs^4)$], PH27, PH43) -- Argued}\record{119-aux-physical-dof-conjecture (R115)}
 \end{itemize}
 
 The first paragraph below is the one of the \IBL{} section of an earlier version of the paper, in the paper's notation.
@@ -752,6 +756,36 @@ The motivation is that at order $\gs^0$ the equations $Q_B \Psi = 0$ are linear 
 Finally the theorem is a statement about the full theory, while the use here is order by order in a truncation, and the truncated form is not established.
 The finite model does not test this step, since there the field-dependent parameters lie in $U$; a model with a kinetic term on every non-gauge field would test it, and it was not built.
 The assumptions concern the single-string sector only: in the two-string sector the level-matched parameters have weight at least four and enter beyond $W = 4$, and \cref{sec:gauge-bv:lambda2-sector} settles that sector without them.
+
+\subsubsection{Auxiliary fields and physical states}
+\label{sec:gauge-bv:physical-states}
+
+The last item of the list at the head of this section asks a different question from the others: not whether the cubic action has a hidden two-string symmetry, but whether a family of formulations related to it by gauge transformations contains one in which the $\Sigma_n$ carry physical states moved out of $\Psi$.
+A gauge transformation is read here as a field redefinition that preserves the ghost numbers, a canonical transformation of the Batalin--Vilkovisky formalism, or the fixing or un-fixing of a gauge in a proper master action, the addition or removal of trivial pairs.
+All three preserve the BRST cohomology, so that \enquote{physical states in $\Sigma_n$} can only mean that the same classes are represented differently, with components in the auxiliary fields, never that new states appear.
+The answer comes in four parts.\record{119-aux-physical-dof-conjecture (R115)}
+
+First, within the gauge symmetry of the cubic action itself, with its single parameter $\Lambda \in \Hs$, no state moves out of $\Psi$: in the variables of the contractible pairs listed at the head of this chapter the flat fluctuation of the auxiliary sector is inert, and the orbits lie in the $\Psi$ sector.
+A representative with a component along the flat fluctuation differs from one without by an exact term, which is not what the question means.
+
+Second, the ghost-number argument for the kinetic operators does not depend on the gauge.
+A quadratic term $\pair[n]{\Sigma_n}{K \Sigma_n}$ requires $\Ngh(K) = n$, since the $n$-string pairing saturates at ghost number $5 n$ and $\Sigma_n$ has ghost number $2 n$, and this count is the same in every member of the family.
+The BRST operator acting on one strand, of ghost number one, is therefore a kinetic operator only at $n = 1$; for $n \ge 2$ it can enter only off the diagonal, paired with a partner field of ghost number $3 n - 1$, five for $\Sigma_2$, or in the half-integer grading of the \IBL{} framework (\cref{ch:ibl}).
+This part is arithmetic and holds without the hypotheses of the status line.
+
+Third, a parent theory in which the spectrum is re-split between $\Psi$ and $\Sigma_2$ must have a two-string parameter acting on $\Psi$ through an operator of ghost number $-1$, the candidate being the law $\delta \Psi \ni \gs \, \ell_2(\Lambda_2)$ that the \IBL{} gauge law fixes at leading order (\cref{ch:ibl}).
+The class of the shift theorem of \cref{sec:gauge-bv:shift} has no such action and re-splits nothing.
+Within the present field content at order $\gs^2$ and at generic momentum, a parameter acting on $\Psi$ moves nothing out of the orbits of $\Lambda$, since its action on $\Psi$ is BRST exact there (\cref{sec:gauge-bv:lambda2-sector}); a re-split therefore needs the enlarged content (the partner of ghost number five, the enlarged sectors of $\Sigma_2$), the order $\gs^3$, or on-shell momenta, and the classes it would move, if any, are not generic.
+
+Fourth, the \IBL{} formulation is not a gauge-unfixed member of this family.
+A proper parent and its gauge fixing share their BRST cohomology, and the multi-string sectors of the \IBL{} canonical model carry $\mathrm{Sym}^k H(Q_B)$, the multi-particle states, not a re-split of the cohomology of the cubic theory around a background.
+The comparison of field contents in the \IBL{} block of \cref{ch:ibl}, which states that the kinetic operators of the auxiliary fields are not of the form $1 \otimes \cdots \otimes Q_B \otimes \cdots \otimes 1$, compares field contents, not gauges, and stands.
+
+\noindent\status{open} What survives is a conjecture on a parent with an enlarged field content.\record{119-aux-physical-dof-conjecture (PH44)}
+The cubic action would be the gauge-fixed form of a parent theory with a two-string parameter $\Lambda_2 \in \Hn{2}$ of ghost number three, acting on $\Psi$ at leading order by $\gs \, \ell_2(\Lambda_2)$ and on $\Sigma_2$, extended to the whole ghost-number-four part of the two-string space, by $Q_B$ on each strand, with a partner field of ghost number five paired with $\Sigma_2$ through $Q_B$ on each strand (a dressed quartic form with these directions among its null directions is an alternative that is not excluded), and with some orbit of $\Lambda_2$ in $\Psi$ meeting a non-trivial cohomology class.
+The gauge of the cubic action represents every class in $\Psi$; a gauge fixed on $\Psi$ would represent in $\Sigma_2$ the classes, if any, that the orbits of $\Lambda_2$ reach, with no new state if the parent is proper.
+The motivation is the component form of the \IBL{} gauge law, which has these leading terms and preserves the Maurer--Cartan components through order $\gs$ in a model (\cref{ch11:sec:mc}).
+Constructing or excluding this parent with its partner at order $\gs^2$ would settle the conjecture.
 
 \subsubsection{What is left open}
 \label{sec:gauge-bv:unfixing-open}

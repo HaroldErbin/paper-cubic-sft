@@ -1,0 +1,105 @@
+\subsection{Two auxiliary-field mechanisms in Yang--Mills theory}
+\label{pg:sec:ym}
+
+The finite-dimensional mirror of the Hubbard--Stratonovich step is the quartic Yang--Mills vertex, which can be made cubic with an auxiliary field in at least two ways.
+The two mechanisms eliminate to the same quartic but differ in the anatomy of the auxiliary, and the comparison is what isolates the meaning of \enquote{invertible kinetic operator} for $p_{2,2}$.
+We work both out, then compare.
+
+\subsubsection{The color--kinematic mechanism}
+\label{pg:sec:ym:ck}
+
+In the color--kinematics-dual form of the Yang--Mills action the quartic vertex is written non-locally \cite{Borsten:2021:DoubleCopyHomotopy},
+\begin{equation}
+  \label{pg:eq:ym:quartic-nonlocal}
+  \mathscr L^{(4)}
+    \sim - \eta^{\mu\nu} \eta^{\kappa\rho} \eta^{\lambda\sigma} \,
+      \pd^{12}_\mu \pd^{34}_\nu \,
+      \frac{\tr\big( [A_\kappa, A_\lambda] [A_\rho, A_\sigma] \big)}{\square_{12}},
+\end{equation}
+where $\pd^{12}$ and $\square_{12}$ act on the first pair of fields.
+The $1/\square$ is removed by a rank-three auxiliary field $G^a_{\mu\nu\kappa}$ with kinetic term $-\frac12 G\square G$ and a local coupling of the form $\pd A\,[A,A]$, giving a strictly cubic Lagrangian.
+The mechanism is visible on a scalar representative with a single contraction, $G$ a scalar and $J$ standing for the local cubic current:
+\begin{equation}
+  \mathscr L(G)
+    = - \frac12 \, G \square G
+      - \frac{1}{\sqrt 2} \, G J .
+\end{equation}
+The equation of motion is $-\square G-J/\sqrt2=0$, so
+\begin{equation}
+  G
+    = - \frac{1}{\sqrt 2} \, \frac{1}{\square} \, J,
+\end{equation}
+and substituting back, integrating by parts to let $\square$ act symmetrically,
+\begin{equation}
+  \mathscr L(G) \big|_{\rm on-shell}
+    = - \frac12 \cdot \frac12 \, J \frac{1}{\square} J
+      + \frac12 \, J \frac{1}{\square} J
+    = \frac14 \, J \frac{1}{\square} J ,
+\end{equation}
+the non-local quartic with the correct coefficient.
+The auxiliary kinetic operator is $\square$, invertible away from $p^2=0$.
+
+\subsubsection{The ultralocal mechanism}
+\label{pg:sec:ym:h}
+
+The second mechanism introduces a Lie-algebra-valued antisymmetric auxiliary $h_{\mu\nu}=-h_{\nu\mu}$ with an algebraic kinetic term, no derivatives at all:
+\begin{equation}
+  \label{pg:eq:ym:Lh}
+  \mathscr L_h
+    = \frac14 \, \tr\big( h_{\mu\nu} h^{\mu\nu} \big)
+      - \frac12 \, \tr\big( h_{\mu\nu} [A^\mu, A^\nu] \big).
+\end{equation}
+The $h$ equation of motion is algebraic,
+\begin{equation}
+  \frac{\pd \mathscr L_h}{\pd h_{\mu\nu}}
+    = \frac12 \, h_{\mu\nu} - \frac12 \, [A_\mu, A_\nu]
+    = 0
+  \qquad\Longrightarrow\qquad
+  \boxed{\; h_{\mu\nu} = [A_\mu, A_\nu] \;}
+\end{equation}
+so $h$ is exactly the commutator.
+Substituting back,
+\begin{equation}
+  \begin{aligned}
+    \mathscr L_h \big|_{h = [A, A]}
+      &
+      = \frac14 \, \tr\big( [A_\mu, A_\nu] [A^\mu, A^\nu] \big)
+        - \frac12 \, \tr\big( [A_\mu, A_\nu] [A^\mu, A^\nu] \big)
+    \\ &
+      = - \frac14 \, \tr\big( [A_\mu, A_\nu] [A^\mu, A^\nu] \big),
+  \end{aligned}
+\end{equation}
+the Yang--Mills quartic with the correct coefficient.
+The kinetic operator is $\pd^2\mathscr L_h/\pd h^2=\frac12\,\mathbb 1$, a constant mass matrix, invertible everywhere with no momentum dependence.
+Note the same $1:2$ magnitude ratio between the kinetic and the source term as in \eqref{p:eq:hs4:S4tilde}: at the saddle the two terms combine as $+1-2=-1$, in units of $\frac14\tr([A_\mu,A_\nu][A^\mu,A^\nu])$ --- the same doubling mechanism as the string action's $-1+2=+1$, with the overall sign flipped because the $h$-mechanism's kinetic term has the opposite sign from the $\Sigma$ one.
+The elimination was checked symbolically with $\mathfrak{su}(2)$-valued $A_\mu$ in Euclidean signature; the identity is algebraic and signature-independent.
+
+\subsubsection{The comparison}
+\label{pg:sec:ym:compare}
+
+\begin{center}
+  \small
+  \begin{tabular}{lccc}
+    \toprule
+    mechanism & auxiliary & kinetic operator & coupling \\
+    \midrule
+    color--kinematic & $G^a_{\mu\nu\kappa}$ (rank 3) & $\square$ (non-local) & $\pd A [A, A]$ \\
+    ultralocal & $h_{\mu\nu}$ (rank 2) & $\frac12 \mathbb 1$ (ultralocal) & $h [A, A]$ \\
+    closed string & $\Sigma \in \Sym^2 \mc H_0 / \ker \mc V_4$ & $\mc V_4$ (contact) & $\mc V_4(\Sigma, \Psi^2)$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+
+What each mechanism buys is different.
+The ultralocal one shows what \enquote{auxiliary} means at its simplest: an algebraic equation of motion, a constant invertible Hessian, no propagator, no question to ask.
+The color--kinematic one shows that the kinetic operator of an auxiliary field can have a non-trivial inverse and that the substantive question is then its invertibility on the relevant space: for $G$, invertibility of $\square$ away from $p^2=0$.
+
+The closed-string $\Sigma$ is like the $h$ form in that its kinetic operator $\mc V_4$ is of contact type, ultralocal in the moduli-space sense: the auxiliary propagates through a genuine contact vertex, with no $1/L_0^+$ and no propagator pole.
+It is like the $G$ form in that invertibility is the substantive question: for $\Sigma$, invertibility of $\mc V_4$ on $\Sym^2\mc H_0$, or on the quotient by its kernel.
+This is why the color--kinematic mechanism is the better model for the invertibility of $p_{2,2}$, and why it is kept rather than replaced by the simpler $h$ form: the $h$ form makes the trivially invertible end of the spectrum concrete, the $G$ form the non-trivially invertible end, and $\mc V_4$ sits between them, contact-type but with an invertibility that has to be established.
+
+What does not carry over is the way the kernel is handled.
+In Yang--Mills the operator $\square$ does have a kernel, the massless shell, and integrates out benignly through a Green's function because the degeneration is a measure-zero shell in a continuous momentum spectrum that diagonalizes $\square$.
+The closed-string condition is an operator-kernel question on $\Sym^2\mc H_0$: there is no single invariant that diagonalizes the contact vertex on two-string states, and a normalizable symmetric null vector of $\mc V_4$ would be an honest flat direction of the action, not a removable shell.
+The Yang--Mills analogy therefore motivates the expectation that $\mc V_4$ is non-degenerate on the symmetric square, and provides no argument for it; the quotient~\eqref{p:eq:hs4:quotient} is what makes the expectation unnecessary at this order.
+

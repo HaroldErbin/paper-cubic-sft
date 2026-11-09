@@ -63,7 +63,7 @@ We write the level-zero kernel as
 with $\rho = \abs{q}$, $\lambda = \abs{q'}$, $x = \hat q \cdot \hat q'$, and $C$ a real nonzero constant that collects the normalization of the correlator (the overall constant of the vertex, the ghost normalization, the tachyon norm, the factors of $2\pi$); the vertex $V_4$ of~\eqref{p:eq:ws:level-0-kernel} is the case $C = 1$, up to the normalization conventions below.
 Such a constant rescales every eigenvalue by the same factor and moves no zero, no null vector and no convergence property, so the statements below hold for either sign of $C$; the definiteness theorem is stated for $\sign(C) \, K_P$.
 In the normalization of the action the level-zero kernel is $\tfrac{1}{2} \abs{C} F$, which is positive.
-The numerical values quoted below are at $C = 1$, in the normalization of the correlator in which they were computed in~\cite{Erbin:2026:SL2CVerticesClosed}; the normalization of \cref{ch:conventions} multiplies them by $\tfrac{1}{2}$.
+The kernel is taken at $C = 1$; the normalization of \cref{ch:conventions} multiplies it by $\tfrac{1}{2}$.
 
 \subsubsection{The kernel as an operator}
 \label{sec:mom:hs}
@@ -138,10 +138,10 @@ taken at the relative momenta of the external tachyons, which are momentum eigen
 For an indefinite kernel this pointwise convergence is not guaranteed, so the question is the absolute convergence of~\eqref{eq:mom:eigen-expansion}, which \cref{sec:mom:trace} settles.
 
 \paragraph{The spectrum.}
-A Nyström discretization of the s-wave kernel $k_0$ at $\beta = \tfrac{3}{2}$, $\alpha' P^2 = \tfrac{16}{3}$ gives the leading eigenvalues $4.271166 \times 10^9$, $1.025805 \times 10^9$, $2.539275 \times 10^8$ (at $C = 1$), converged to $5 \times 10^{-7}$ under radial refinement; the five leading eigenvalues are positive at $C = 1$ at both $\alpha' P^2 = 4$ and $\tfrac{16}{3}$.
+A Nyström discretization of the s-wave kernel $k_0$ at $\beta = \tfrac{3}{2}$, $\alpha' P^2 = \tfrac{16}{3}$ gives positive leading eigenvalues, converged under radial refinement; the five leading eigenvalues are positive at $C = 1$ at both $\alpha' P^2 = 4$ and $\tfrac{16}{3}$.
 Along the diagonal $\rho = \lambda$ the s-wave kernel decays at the rate $2 \ln \beta - \ln 2$ per unit of $\alpha' \rho^2$, set by the edge of the quadrant $t, u \ge 0$ rather than by its diagonal, and off the diagonal it is a narrow Gaussian ridge of width $(\alpha' \ln \beta)^{-1/2}$ along $\rho = \lambda$.
 A discretization must resolve that width: a radial spacing of at most $0.4$ and a cutoff $\Lambda \ge 12$ at $\beta = \tfrac{3}{2}$.
-At $\beta = 2$ the spectrum falls faster, the ratio of successive s-wave eigenvalues being about $0.11$ against $0.25$ at $\beta = \tfrac{3}{2}$, and the leading eigenvalue of the degree-$n$ wave decays geometrically in $n$, the ratio of the leading eigenvalues of the waves $n$ and $n - 2$ rising from $0.023$ ($n = 2$) to $0.080$ ($n = 30$).
+At $\beta = 2$ the spectrum falls faster than at $\beta = \tfrac{3}{2}$, and the leading eigenvalue of the degree-$n$ wave decays geometrically in $n$.
 
 The physical content of this section is that the level-zero kinetic term of $\Sigma_2$ is a smooth Gaussian kernel in the relative momentum, not a local differential operator.
 Its Gaussian decay is the stub of the vertex, and it is what makes the operator compact.
@@ -325,8 +325,8 @@ The eigenfunctions are $\psi_{n, j}(\rho) \, Y(\hat q)$ with $Y \in \mathcal Y_n
 both absolutely convergent.
 At the on-shell point $q' = q$ ($x = 1$, $P_n(1) = 1$) every term is positive, so absolute and plain convergence coincide and~\eqref{eq:mom:absolute} is saturated: this is the slowest point for the expansion.
 At generic $x$ the $P_n(x)$ alternate and are $O(n^{-12})$ for $\abs{x} < 1$, so the sum over $n$ converges faster.
-The multiplicity $\dim \mathcal Y_n$ grows like $n^{24}$ while the eigenvalues fall geometrically, so the product peaks at $n = 8$ and then decays with ratio, per step of two in $n$, approaching $0.27$ at $\beta = 2$: absolute convergence at $x = 1$ is a geometric tail after a polynomial prefactor.
-At $\beta = 2$ and $C = 1$ the trace~\eqref{eq:mom:trace} is $2.4572668 \times 10^9$ at $\alpha' P^2 = \tfrac{16}{3}$ and $4.8675173 \times 10^9$ at $\alpha' P^2 = 4$; the partial sums $\sum_n \dim \mathcal Y_n \tr M_n$ of the Nyström matrices reach the direct radial integral to $1.2 \times 10^{-8}$, and the number of terms needed for a fixed pointwise accuracy is stable under refinement of the discretization.
+The multiplicity $\dim \mathcal Y_n$ grows like $n^{24}$ while the eigenvalues fall geometrically, so the product peaks at $n = 8$ and then decays geometrically: absolute convergence at $x = 1$ is a geometric tail after a polynomial prefactor.
+At $\beta = 2$ the partial sums $\sum_n \dim \mathcal Y_n \tr M_n$ of the Nyström matrices converge to the trace~\eqref{eq:mom:trace}, and the number of terms needed for a fixed pointwise accuracy is stable under refinement of the discretization.
 These numbers are spot-checks; the result rests on~\eqref{eq:mom:mercer} and~\eqref{eq:mom:absolute}.
 
 \paragraph{What this gives for the two-string sum.}
@@ -337,8 +337,6 @@ Completeness is the contribution of \cref{thm:mom:definite}: $\ker K_P = 0$ mean
 The paper writes the sum in the momentum basis, where at fixed level it is the integral $\int \dd^{26} q \, K_P(q_0, q) (\cdots)$, absolutely convergent at level zero by the Gaussian bound; the eigenbasis form proven here is sufficient for that statement, not equivalent to it.
 Above level zero the oscillator sum at each level is finite, but the BPZ pairing is indefinite and the sum over levels is the limit of the level truncation, which this section does not touch.
 
-% omitted: the corner asymptotics of the tile integral J (same records) goes to the appendix on the SL(2,C) vertex data.
-
 \subsection{Fixed level: analytic family, discreteness, mass sum, no forced null vector}
 \label{sec:mom:fixed-level}
 
@@ -346,6 +344,13 @@ Above level zero the question is whether the kinetic operator of $\Sigma_2$, res
 The text below is the paragraph of the paper's section on the quartic order that states the three assumptions on the propagator of $\Sigma_2$ and the heuristic argument for the first, in the paper's notation ($\sprod{2}{2}$ the quadratic vertex, $\Hn{2}$ the space of $\Sigma_2$).
 It starts in the middle of the paper's discussion of the propagator, right after the definition of the propagator as the inverse of $\sprod{2}{2}$ on the quotient by its kernel.
 The subsections that follow it prove what it states: the structure of the fixed-level operator (\cref{sec:mom:operator}), the Fredholm form and the dichotomy behind the first assumption (\cref{sec:mom:discreteness}), the stub change and the mass sum behind the heuristic argument (\cref{sec:mom:stub,sec:mom:mass-sum}), and the search for a forced null vector (\cref{sec:mom:forced}).
+
+\noindent\status{no ledger entry} An independent check of this passage, sentence by sentence, found the argument correct and consistent with the results of the subsections below, with one sentence wrong as worded, one correct but open to a misreading, and three imprecise; the block carries the corrections, which the final version of the paper also makes.\record{116-first-assumption-check}
+The sentence that was wrong described the first case of the dichotomy, a null vector at every momentum, as a field of $2$-string states with no quadratic term.
+The quotient removes such states from $\Sigma_2$ and the source does not reach them, so the quartic order is unaffected; what the first case costs is the kernel conditions of the higher vertices, imposed at every momentum on a whole field of pair states rather than at isolated momenta.
+The requirement that the sources lie in the image of $\sprod{2}{2}$, and not only in its closure, is not a cost of the first case: it is the second assumption, needed in either case, since the image of a compact operator of infinite rank is never closed.
+The sentence open to a misreading said that one momentum without null vector would settle the dichotomy: what selects the second case is a proof that there is no null vector at a single momentum, which the definiteness gives at level zero and nothing gives above it, since in the first case no momentum is free of null vectors and no sampling can show anything.
+The three imprecisions were these: the statement that zero is never isolated in the spectrum holds for self-adjoint compact operators of infinite rank, not for every compact operator; the bounded inverse at level zero after the division is part of the assumption, since no result of the ledger states it; and the stub factor is injective as a whole, so it creates no null vector, while its Gaussian part may remove a null vector of insufficient decay from the domain of the operator.
 
 \input{extracted/04/2-p}
 
@@ -519,22 +524,8 @@ At real $p \ne 0$ the identity fails as an infimum: the level-zero block of $K_p
 The positivity route must therefore be stated for the full symmetric form, and it is closed near $P^2 = 0$ above level zero, in two steps.
 First, the mechanism of \cref{thm:mom:definite} does not extend: at level $L$ the contribution of a point $m$ of the region is $\e^{- \mathcal Q_m} \Pi^{(L)}(m; \cdot)$, and the matrix polynomial $\Pi^{(L)}$ is not positive semi-definite pointwise; its diagonal entries change sign between oscillator components.
 Second, the full symmetric form is indefinite near $P^2 = 0$ at level $L \ge 1$.
-At $P = 0$, strand levels $(1, 1)$ and all momenta zero, the quartic vertex restricted to $\Sym^2 \{T, D\}$ ($T$ the tachyon, $D$ the ghost dilaton) is invertible with inertia $(2, 1)$ on $\{TT, TD, DD\}$, for the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed} (\cref{ch:solutions}); at $\beta = 2$ the diagonal of this block, divided by the overall constant of the vertex, is $(3.47 \times 10^4, -425.3, 37.65)$.
-By Haynsworth's inertia additivity with the positive $TT$ entry, the Schur complement on $\{TD, DD\}$ has inertia $(1, 1)$:
-\begin{equation}
-  \label{eq:mom:frozen-schur}
-  \begin{pmatrix}
-    -450.3 & 17.0 \\
-    17.0 & 32.4
-  \end{pmatrix}
-  \quad (\beta = 2),
-  \qquad
-  \begin{pmatrix}
-    -57.3 & 6.1 \\
-    6.1 & 9.7
-  \end{pmatrix}
-  \quad (\beta = \tfrac{3}{2}).
-\end{equation}
+At $P = 0$, strand levels $(1, 1)$ and all momenta zero, the quartic vertex restricted to $\Sym^2 \{T, D\}$ ($T$ the tachyon, $D$ the ghost dilaton) is invertible with inertia $(2, 1)$ on $\{TT, TD, DD\}$, for the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed} (\cref{ch:solutions}).
+By Haynsworth's inertia additivity with the positive $TT$ entry, the Schur complement on $\{TD, DD\}$ has inertia $(1, 1)$, at $\beta = 2$ and at $\beta = \tfrac{3}{2}$ (values from the companion $\group{SL}(2, \C)$ computation, not reproduced here).
 For the operator, take $\sigma = c \otimes g$ with $c$ the negative direction of the zero-momentum form and $g$ an even Gaussian, normalized in $L^1$ and concentrated at $q = 0$; $g$ is even and $\mathcal R$ is trivial on $T$ and $D$, so $\sigma$ lies in the $U = + 1$ sector and $\langle \sigma, K_p U \sigma \rangle = \langle \sigma, K_p \sigma \rangle$.
 By continuity of the kernel, $\langle \sigma, K_0 \sigma \rangle$ tends to the negative value of the zero-momentum form as $g$ narrows, while $\langle TT \otimes g, K_0 \, TT \otimes g \rangle = \langle g, K_{00} g \rangle > 0$.
 So $K_0$ is indefinite at level 1, and by continuity in $p$ so is $K_p U$ on a real neighbourhood of $p = 0$ and $K_p$ on an imaginary one: the full symmetric form is indefinite near $P^2 = 0$, on both sides, at every level $L \ge 1$.
@@ -815,7 +806,7 @@ The criterion for a simple real zero with null vector $N$ to move under a change
 
 This section tests whether a null vector of the fixed-level operator is forced by one of the mechanisms known to produce zeros of string vertices: the dilaton theorem with the ghost-number counting behind the cubic zeros, BRST exactness, and the universality of zero-momentum couplings, together with the worldsheet twist and one candidate direction, the non-dynamical direction of the zero-momentum level-$(1, 1)$ block of \cref{ch:solutions}.
 None is null.
-The statuses are mixed: the non-nullity at all-zero momenta is numerical, from the zero-momentum level-$(1, 1)$ couplings $h_k = V_4(T^{4 - k} D^k)$ of the vertex family at $\beta \in \{\tfrac{3}{2}, 2\}$ (the margin: $h_2$ lies at $0.37$ to $0.42$ of the edge of its window, with a spread of $1.8\,\%$ across sections); its persistence near $P = 0$ and away from a closed null set of real $P$ is proven given those values and the entire dependence of \cref{sec:mom:operator}, and, for the exact family below, the twist property on ghost legs at every momentum of~\cite{Erbin:2026:SL2CVerticesClosed}; the statements on the universality rule, on exactness and on the twist are structural and proven; the role of the dilaton theorem as the mechanism, and the non-vanishing of the on-shell boundary term of the exactness identity, are argued.
+The statuses are mixed: the non-nullity at all-zero momenta is numerical, from the zero-momentum level-$(1, 1)$ couplings $h_k = V_4(T^{4 - k} D^k)$ of the vertex family at $\beta \in \{\tfrac{3}{2}, 2\}$ (the margin: $h_2$ lies strictly inside its window at both values of $\beta$); its persistence near $P = 0$ and away from a closed null set of real $P$ is proven given those values and the entire dependence of \cref{sec:mom:operator}, and, for the exact family below, the twist property on ghost legs at every momentum of~\cite{Erbin:2026:SL2CVerticesClosed}; the statements on the universality rule, on exactness and on the twist are structural and proven; the role of the dilaton theorem as the mechanism, and the non-vanishing of the on-shell boundary term of the exactness identity, are argued.
 The exclusion concerns these rules and this direction; the first alternative of \cref{thm:mom:dichotomy} is not excluded in general.
 
 \paragraph{Two senses of null vector.}

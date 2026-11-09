@@ -1,0 +1,53 @@
+\subsection{Six points}
+\label{icg:sec:six-points}
+
+Each $\mc V_5(\Psi^3, \Sigma_2)$ is cut along a circle enclosing its two $\Sigma_2$ legs: a disc carrying the three $\Psi$'s (two real moduli $m_3$) glued to a circle state over a $q$-region $Q_5(m_3)$ that depends on the cluster moduli (we assume such a parametrization with a single-valued neck region; it is not checked, and $Q_5$ is not computed).
+To say anything explicit one has to assume in addition that the $\Sigma_2$ pair of each $\mc V_5$ surface is again the rigid $\mc V_3'$ half with its transported coordinates, so that the circle state is the same $\Phi_2(\Sigma_2)$ as in $p$ and the gluing operator $G_5(m_3) := -\I\kappa\, b_0^+ b_0^- F_5(m_3)$, with $F_5(m_3) := \int_{Q_5(m_3)} \dd s \, \dd\theta \, \e^{-s L_0^+} \e^{\I\theta L_0^-}$, is diagonal in $L_0^\pm$, with eigenvalues $\hat f_5(h, m; m_3) := \hat f_{Q_5(m_3)}(h, m)$.
+This is a toy assumption, with no on-shell exactness behind it (the $\Sigma_2$ legs of $\mc V_5$ are always off shell in the composite) and known to fail for an $S_5$-symmetric $\mc V_5$ off shell; with the actual coordinates $G_5$ carries inner antighost dressings and nothing below has a diagonal form.
+Under it, and under the hypothesis that the circle states reach the block, the composite is
+\begin{gather}
+  \label{icg:eq:composite}
+  \mc C
+    = \mc V_5 \, p^{-1} \, \mc V_5
+    = \int \dd m_3 \, \dd m_3' \;
+      \Braket{\Phi_3^{[b]}(m_3), \; G_5(m_3) \, \Pi \, G_5(m_3') \, \Phi_3^{[b]}(m_3')},
+  \\
+  \label{icg:eq:composite-block}
+  G_5(m_3) \, \Pi \, G_5(m_3')
+    = - \I\kappa \; b_0^+ b_0^- \; F_5(m_3) \, F^{-1} \, F_5(m_3')
+  \quad \text{on } W,
+\end{gather}
+with $\Phi_3^{[b]}$ the three-puncture circle state dressed by the two cluster antighosts, which stay inside the cluster disc.
+We draw six consequences.
+
+\begin{enumerate}[leftmargin=*, itemsep=0.3ex]
+  \item \emph{A signed density on the $(3|3)$-cut surfaces.}
+    Of the eight antighosts of the two $\mc V_5$'s the two $c$'s remove the $b_0^\pm$ of one circle, leaving six, the top degree of $\mc M_{0,6}$; of the eight real parameters $(m_3, q_1, m_3', q_2)$ only six are moduli of the glued surface, $(m_3, m_3', Q)$ with $Q$ the parameter of the $\{123\}|\{456\}$ neck, and the remaining two form a fiber over which the integrand is a scalar weight.
+    In the level-matched sector with a constant cutoff and twist-independent $\mu_5$, on the branch $\Re h > 0$, the neck measure in the length $S$ of the final neck is
+    \begin{equation}
+      \label{icg:eq:neck-measure}
+      \mu_{\mc C}(S; m_3, m_3')
+        = \sum_{n \ge 1} \pd_S \big( \mu_5(\cdot\,; m_3) * \mu_5(\cdot\,; m_3') \big)(S - n\sigma),
+    \end{equation}
+    with $\mu_5$ the indicator of $Q_5(m_3)$ in the neck length: the $S$-derivative of the convolution of the two $\mc V_5$ neck regions, replicated at the shifts $n\sigma$; the $c$'s act on the neighbors' moduli as $\delta'$, as in \cref{p:sec:ws:telescoping}.
+  \item \emph{The trichotomy in the neck widths.}
+    For slabs of widths $\sigma_5, \sigma_5'$ (an illustration: $Q_5$ is not computed and $Q_V$ has no constant cutoff), the measure~\eqref{icg:eq:neck-measure} is a single slab if and only if one width equals $\sigma$, say $\sigma_5 = \sigma$, and it is then the \emph{other} width's slab $[-\sigma_5', 0]$; compactly supported if and only if one width is a multiple $k\sigma$, and then $k$ overlapping slabs on the reversed side; otherwise it carries signed weight on arbitrarily long necks, alternating in sign and without decay at the level of the measure.
+    In transform, $\hat f_{\sigma_5} \hat f_{\sigma_5'} / \hat f_\sigma$ with $\hat f_x = (\e^{xh} - 1)/h$ is a single $\hat f_c$ only if the exponent sets $\{\sigma_5 + \sigma_5', \sigma_5, \sigma_5'\}$ and $\{\sigma + c, \sigma, c\}$ agree, and is entire only if every pole $2\pi\I k/\sigma$ is cancelled by a zero of a numerator, which at $k = 1$ already forces one width into $\sigma\N$.
+    The sum of the widths is not the criterion: $(\sigma/2, 3\sigma/2)$ leaves weight at arbitrarily large $S$.
+    Nothing places a width of $Q_5(m_3)$, which depends on $m_3$, on the lattice of a $Q_V$ that has no constant cutoff, so the generic case is the last: $\mc C$ reaches into the $\{123\}|\{456\}$ Feynman region with long necks of lengths near $n\sigma$.
+    In all three cases it is neither a union of Feynman regions nor a sub-region with the standard measure.
+  \item \emph{Poles, and where they sit.}
+    The function $\hat f_5 \hat f^{-1} \hat f_5'$ is meromorphic in $h$ with poles at the zeros of $\hat f_m$ unless the residue vanishes, i.e. unless the $m_3$-integrated projection of $\mc V_5(\Psi^3, \cdot)$ onto the degenerate sector at that momentum vanishes (a pointwise zero of $\hat f_5(h; m_3)$ moves with $m_3$ and cancels nothing after integration).
+    In the level-matched sector these are complex momenta; in the even $m \neq 0$ sectors, for the actual $\sigma_V$, they sit at real timelike channel momentum, $\tfrac{\alpha'}{2} s_{123} = N + \bar N - 2 - h_*$ with $s_{123} := -(k_1 + k_2 + k_3)^2$ the invariant of the momentum through the $\{123\}|\{456\}$ circle, e.g. $N + \bar N + 0.36$ for $m = 4$, at non-integer values where no string mass sits.
+  \item \emph{Carried by the dressed sextic vertex, invisible to the amplitude.}
+    Since $W_6 + \tfrac65 \mc C = \mc V_6$, the six-point amplitude does not see these singularities; the dressed vertex $W_6$ does and, wherever the residue does not vanish, is not entire in the momenta.
+    Geometrically the dressing removes from the sextic vertex a signed density of long-neck surfaces, with the neck profile~\eqref{icg:eq:neck-measure}, and not a sub-region of $\mc V_{0,6}$.
+  \item \emph{What this says about which region of $\mc M_{0,6}$ the composite covers.}
+    Where the measure is a single slab, $\mc C$ lives on $\abs{Q} \in (1, \e^{\sigma_5'})$, on the vertex side of the boundary $\abs{Q} = 1$ of the $\{123\}|\{456\}$ Feynman region; its position relative to $\mc V_{0,6}$, a region defined with the sextic vertex's own coordinates, is not determined by the model, and the sum over the ten $(3|3)$ channels is not addressed.
+    The region arithmetic $R_5 \cdot R^{-1} \cdot R_5'$ fails for three reasons: there is no inverse region (the inverse is a tower of $\delta'$'s), the two $\mc V_5$ neck parameters form a fiber, and a width off the lattice leaves weight on long necks.
+  \item \emph{What this does not say about poles of the level-truncated composite.}
+    The mechanism of item~3 is realized in the untruncated model, under the surjectivity hypothesis and the toy assumption; it is not evidence for a pole of the level-truncated composite at the actual vertices.
+    Whether the actual $p_{2,2}$, through its coordinate dressing, projects the non-level-matched sectors of the $\Sigma_2$ line out – which would remove these sectors, and with them the real zeros, from the $\Sigma_2$ line – is open.
+\end{enumerate}
+
+

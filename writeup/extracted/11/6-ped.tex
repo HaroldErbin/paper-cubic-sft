@@ -1,0 +1,59 @@
+\subsection{The grading of \texorpdfstring{$\omega_2$}{omega-2}: one unit, not two}
+\label{ped:sec:omega2}
+
+A persistent grading puzzle is this: $\Sig\in\Sym^2\Hilb_0$ has
+\emph{two} tensor factors, so one expects the symplectic partner $\omega_2^{\rm symp}$ to
+carry \emph{two} degree-shift units, one per factor. It carries \emph{one}. The resolution
+is that the \enquote{two} and the \enquote{one} are counting two
+different $\Z_2$ data, and only one of them is the suspension.
+
+\subparagraph{Two $c_0^-$ make the operation even.} The single-string form
+$\omega_1(A,B)=\Mean{A|c_0^-|B}_{\rm bpz}$ has the exchange sign $\omega_1(B,A)=s\,(-1)^{\epsilon(A)\epsilon(B)}\,\omega_1(A,B)$ on its support, with $s=+1$ in the conventions of the paper, \eqref{p:eq:conv:pairing-symmetry}. The product form
+$G_2=\omega_1\otimes\omega_1$ inserts $c_0^-$ \emph{twice}, hence is even as an operation, and
+the two factors $s$ multiply to $s^2=1$, whichever sign the one-string form carries, so that $G_2$ is a graded-\emph{symmetric} bilinear:
+\begin{equation}
+	G_2(Y,X)=(-1)^{\epsilon(X)\epsilon(Y)}\,G_2(X,Y)
+	\quad\text{on }\operatorname{supp}(G_2),
+	\qquad \epsilon=\Ngh\bmod2
+	\label{ped:eq:G2sym}
+\end{equation}
+(the two signs $s$ from the two $\omega_1$'s multiply to $+1$). \emph{This is
+where the expected \enquote{two} lives}: the two tensor factors each supply a $c_0^-$, and the two
+$c_0^-$'s make $G_2$ even-as-an-operation. The \enquote{two} is a
+statement about the $c_0^-$ count, i.e. about the \emph{operation parity} --- not about the
+suspension.
+
+\subparagraph{One suspension unit makes it a symplectic form.} A graded-symmetric $G_2$ is not a
+symplectic form. To obtain the graded-antisymmetric form asked for by a cyclic
+$\Loo$/BV structure on the $\Sig$-sector, one shifts the \emph{field} $\Sig$ by a single
+suspension unit, \eqref{ped:eq:omega2symp}. The shift is \emph{per field}, not per tensor factor,
+because $\Sig$ is \emph{one} element of the enlarged complex $C=\Sym^2\Hilb_0$ --- one entry
+of the form's complex, hence one $C\to C[1]$ --- irrespective of how many $\Hilb_0$-factors
+build it. Concretely, the exchange sign flips iff
+\begin{equation}
+	G_2(Y,X)=-(-1)^{(\epsilon(X)+c_s)(\epsilon(Y)+c_s)}\,G_2(X,Y)
+	\quad\text{on support}
+	\ \Longrightarrow\ c_s=1,
+	\label{ped:eq:cs}
+\end{equation}
+so exactly one odd shift unit is required and consistent.
+
+\subparagraph{Reconciling the two counts.} The expectation \enquote{two factors $\to$ two units} conflates
+the two $\Z_2$ data. The correct bookkeeping is:
+\begin{center}
+	\begin{tabular}{lcc}
+		\toprule
+		datum & source & count for $\Sig\in\Sym^2\Hilb_0$ \\
+		\midrule
+		operation parity of $G_2$ & number of $c_0^-$ insertions & \textbf{two} ($\Rightarrow$ even $\Rightarrow$ symmetric) \\
+		suspension of the form's complex & $C\to C[1]$, per field & \textbf{one} ($\Rightarrow$ antisymmetric after shift) \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+The expected \enquote{two} is real, but it is the number of $c_0^-$'s (which makes
+$G_2$ even as an operation), while the suspension that
+converts $G_2$ into a symplectic form is one unit because $\Sig$ is a single field. The even
+$s^{-2}$ integer shift of Münster--Sachs' $A_c=s^{-2}\tilde A_c$ is parity-irrelevant; the
+single $[1]$ that flips the symmetry is the suspension of the form's complex, a
+BV-presentation choice, not a theorem about $\Sig$.
+

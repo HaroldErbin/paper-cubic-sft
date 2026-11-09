@@ -1,0 +1,46 @@
+\subsubsection{Recovered action and equations of motion}
+\label{pc:sec:all:integrating-out}
+
+Expanding the value~\eqref{p:eq:all:value} in $\gs$ shows how the original action comes back.
+Every term of the expansion is a tree diagram with $\Psi$ lines and auxiliary lines, the sources and the odd vertices at its nodes.
+The diagrams whose sources all sit on the diagonal collapse to contact terms by the lemma: at order $\gs^{2 k - 2}$ the $\Sigma_k$ exchange between two diagonal sources gives $\dvertex{2 k}(\Psi^{2 k})$, and at order $\gs^{2 k - 1}$ the odd vertex on the $\Sigma_k$ line gives $\dvertex{2 k + 1}(\Psi^{2 k + 1})$, both with the coefficients of the original action.
+The remaining diagrams at order $\gs^{n - 2}$ are the exchanges between interaction vertices, and by~\eqref{p:eq:all:diagonal} they are the terms by which $\dvertex{n}(\Psi^n)$ differs from $\vertex{n}(\Psi^n)$.
+The contact term and the exchange terms therefore add up to $\vertex{n}(\Psi^n)$ at every order:
+\begin{equation}
+  \label{pc:eq:all:recovered}
+  \caction[\le 2 K + 1] \big|_{\Sigma = \Sigma^*}
+    = S_{\le 2 K + 1} + O(\gs^{2 K}),
+\end{equation}
+which is the closure~\eqref{p:eq:all:closure} at $N = 2 K + 1$, and for the full tower the remainder is absent.
+The construction gives back the original action through the two mechanisms of \cref{p:sec:hs} repeated at every level: the collapse of the diagonal exchanges and the subtraction of the others.
+
+The equation of motion of $\Psi$ follows.
+Since the auxiliary fields are stationary on their solution, their variation drops out, and the $\Psi$ equation of the cubic action with the tower eliminated is the equation of motion of the value~\eqref{pc:eq:all:recovered}:
+\begin{equation}
+  \label{pc:eq:all:eom-recovered}
+  \mathcal E_\Psi \big|_{\Sigma = \Sigma^*}
+    = Q_B \Psi + \sum_{n = 2}^{2 K} \frac{\gs^{n - 1}}{n!} \, \ell_n(\Psi^n) + O(\gs^{2 K}),
+\end{equation}
+with the products normalized as in \cref{p:sec:hs:action}; the remainder of the value is $\gs^{-2}$ times a function of $\gs \Psi$, so that its derivative has the same order.
+\Cref{p:sec:bar-cobar} uses the result in this form.
+
+The solutions~\eqref{p:eq:all:saddles} are determined only modulo the kernels of the bare operators, and the statements above do not depend on the representative.
+A shift $\Sigma_k \to \Sigma_k + N_k$ with $N_k \in \ker \wprod{k}{k}$ leaves the kinetic term of $\Sigma_k$ and its own source unchanged, by the symmetry of $\wprod{k}{k}$, and changes the action by the shifts of the odd coupling and of the source of $\Sigma_{k + 1}$:
+\begin{equation}
+  \label{pc:eq:all:kernel-shift}
+  \begin{aligned}
+    &
+    \frac{\gs^{2 k - 1}}{(2 k + 1)!} \Big[
+      2 \, \dvertex{2 k + 1}(N_k, \Sigma_k, \Psi)
+      + \dvertex{2 k + 1}(N_k, N_k, \Psi)
+    \Big]
+    \\ &
+    \qquad
+    + \frac{2 \gs^{2 k}}{(2 k + 2)!} \, \pair[k + 1]{\Sigma_{k + 1}}{\wprod{k + 1}{k + 1}(\Psi \otimes N_k)},
+  \end{aligned}
+\end{equation}
+the last term being absent at the top of a truncated tower.
+These are the only terms through which a kernel shift reaches the action and its equations.
+We assume that the kernel conditions of \cref{pc:sec:all:kernel} hold, so that these terms vanish: the equations and the value are the same for every representative, and the solution is stationary in every direction, the kernel directions included.
+
+

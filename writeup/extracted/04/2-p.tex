@@ -1,0 +1,52 @@
+The propagator inverts the vertex $\sprod{2}{2}$ on its image, since $\sprod{2}{2}$ is injective on the quotient $\Hn{2} / \ker \sprod{2}{2}$.
+At level $L$ and fixed total momentum, $\sprod{2}{2}$ is a finite block of integral operators in the relative momentum.
+Since this operator is compact, its inverse on the image is unbounded.
+  By ``invertible on the quotient'' we mean injective with a dense image.
+  The propagator then rests on three assumptions, which we state here and discuss below.
+  First, at each level, $\sprod{2}{2}$ has no null vector at generic total momentum, the squared total momenta at which it has one forming a discrete set.
+  At level $0$ this is a result for the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed} at its sections with $\beta > \sqrt{2}$, with no real exceptional momentum at all (\cref{sec:mom:definite}).
+  Above level $0$ it rests on a Fredholm property, which we assume, and on the exclusion on physical grounds of a null vector at every momentum, which a heuristic argument supports.
+  Second, the sources on which the inverse acts, such as the quintic source of \cref{p:sec:hs:quintic}, lie in its image, and not only in the closure of its image.
+  Third, the quotient and the propagator have a limit as the level grows, at generic total momentum.
+
+The first assumption is not automatic for an analytic family of compact operators.
+  Zero is never an isolated point of the spectrum of an infinite-rank compact operator when the operator is self-adjoint, as ours is at real momentum up to the fixed reflection involution of the relative momentum, and there are entire families of Hilbert--Schmidt operators of the same type with null vectors on a set of momenta accumulating at a finite point.
+  We can recover the finite-dimensional intuition with a Fredholm form.
+  We divide $\sprod{2}{2}$ at level $L$ on both sides by the square root of its level-$0$ block at a fixed reference momentum (of its absolute value on the functions odd in the relative momentum, which appear above level $0$ and on which we assume the block injective).
+  We assume that the result is a bounded operator with a bounded inverse at real $P^2$ at level $0$, and a Fredholm operator of index zero depending analytically on $P^2$ near the real axis at every level.
+  The analytic Fredholm theorem then leaves only two possibilities at each level: a null vector at every total momentum, or null vectors at a discrete set of values of $P^2$ only.
+A proof that $\sprod{2}{2}$ has no null vector at a single total momentum would select the second case at that level.
+  At level $0$ the definiteness stated above does it; above level $0$ the form is indefinite near zero momentum, as recalled below, so the definiteness cannot be used, and no other proof is known.
+  In the first case the quartic vertex would be blind to a whole spacetime field of $2$-string states.
+  The quotient removes these states from $\Sigma_2$ and the source $\vertex{4}(\Sigma_2, \Psi^2)$ does not reach them, so the quartic order is unaffected.
+  The construction then requires the quintic and every higher vertex to vanish on them at every momentum (the kernel conditions of \cref{p:sec:hs:quintic,pc:sec:all:kernel}), imposed on a whole field rather than at isolated momenta.
+  The composition $\sprod{2}{2}^{-1} \circ \sprod{3}{2}$ needs in addition the second assumption, in either case.
+  We exclude this first case on physical grounds: a sector of $2$-string states to which the quartic vertex is blind at every momentum would have been seen before, and the following heuristic argument supports the exclusion.
+
+The stubs of the vertices suppress the high-mass states on each leg by a factor which, being injective, creates no null vector at fixed level.
+Lengthening the stubs adds to the vertex region a strip of surfaces on which a single-string state of every mass is exchanged, the sum over these masses converging at finite stub length.
+  The added stub length acts as a Laplace variable that separates the intermediate masses.
+  A null vector that remains a null vector as the stubs are lengthened must then decouple from the exchange of every mass level separately.
+  No $2$-string state should decouple from the whole tower of single-string exchanges: at level $0$ we expect this from the mechanism that makes the level-$0$ form definite (\cref{sec:mom:definite}), and above level $0$ we assume it.
+  Under this decoupling assumption, a kernel present at every momentum cannot be a conservation law of the vertex family.
+  The argument shows this much, but not that a kernel at every momentum cannot be accidental, that is, present at every momentum without a conservation law behind it.
+  This is the possibility we excluded on physical grounds above.
+  In support, neither the mechanisms that guarantee zeros of string vertices (the dilaton theorem with ghost-number counting, BRST-exact strands, the universality of zero-momentum couplings) nor the worldsheet twist produce a null vector of $\sprod{2}{2}$ at the levels and momenta where the couplings are known~\cite{Erbin:2026:SL2CVerticesClosed}, although these mechanisms are not exhaustive.
+
+The same argument constrains the real zeros, that is, the real exceptional momenta, if there are any.
+  A change of stub length acts on $\sprod{2}{2}$ at fixed level as a Gaussian factor in the relative momentum on each side, with a rate proportional to the added length, together with the exchanges across the added strip.
+  For a fixed operator, the Gaussian factor keeps the null vectors that decay faster than every Gaussian and loses those with Gaussian decay once the added length exceeds a threshold set by their rate.
+  Under the decoupling assumption above, a real zero at some level is not a conserved sector of the vertex family: its null vector cannot stay fixed, in fixed local coordinates, while the stubs are lengthened.
+  A real zero that moves along a curve in the momentum--stub plane with a rotating null vector is not excluded.
+  This is the generic behavior of an analytic family in two real parameters.
+  Above level $0$ the form is indefinite near zero momentum (at level $1$, for the vertex family of~\cite{Erbin:2026:SL2CVerticesClosed}, \cref{p:sec:solutions}), so no argument we have excludes isolated real zeros there.
+  For this reason, we state the first assumption at generic momentum rather than at every momentum.
+
+The second assumption is separate from the first.
+  The kernel condition of the quintic order~\eqref{p:eq:hs5:kernel-condition} places the quintic source in the closure of the image of $\sprod{2}{2}$, which is all that the vanishing of the quintic vertex on the kernel gives.
+  The assumption, which we have not established, is that the source lies in the image itself.
+  Gaussian decay of the source in the relative momentum is not enough: already for a model Gaussian kernel, only a window of decay rates of a Gaussian source is admissible.
+  The third assumption is the weak form of the statement that the kernel stabilizes as the level grows.
+  A null vector at level $L$ survives at level $L + 1$ only if the new rows of the form annihilate it, and level $L + 1$ can produce null vectors of its own, so the kernels at successive levels are not nested.
+  We do not assume that every null vector beyond some level is annihilated by all higher rows, only that the quotient and the propagator converge at generic momentum.
+  No finite-level computation decides either statement.

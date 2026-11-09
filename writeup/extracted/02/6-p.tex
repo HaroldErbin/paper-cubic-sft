@@ -1,0 +1,342 @@
+\subsubsection{Sextic order, \texorpdfstring{$O(\gs^4)$}{O(gs**4)}}
+\label{p:sec:hs:sextic}
+
+The sextic order is the first where the auxiliary field of the previous order induces a composite vertex to be decomposed.
+The vertex to add is therefore $\vertex{6}$ minus the exchange term of \cref{p:sec:hs:quintic}.
+In its simplest implementation, the $3$-string field $\Sigma_3$ introduced at this order has a kinetic operator which is not a vertex of closed string field theory.
+
+
+\paragraph{Decomposition of the reduced vertex}
+\label{p:sec:hs:sextic:vertex}
+
+The target at this order is:
+\begin{equation}
+  S_{\le 6}
+    = S_{\le 5} + \frac{\gs^4}{6!} \vertex{6}(\Psi^6).
+\end{equation}
+The cubic action $\caction[\le 5]$ of the quintic order induces a new term beyond $S_{\le 5}$: by~\eqref{p:eq:hs5:eliminate}, eliminating $\Sigma_2$ from it produces the six-point term $\tfrac{\gs^4}{600} \vertex{5 \cdot 5}(\Psi^6)$, the exchange of $\Sigma_2$ between two quintic vertices.
+The sextic order must thus reproduce on-shell the difference:
+\begin{equation}
+  \label{p:eq:hs6:remainder}
+  S_{\le 6} - \caction[\le 5] \big|_{\Sigma_2 = \Sigma_2^{(3)*}}
+    = \frac{\gs^4}{6!} \Big[ \vertex{6}(\Psi^6) - \frac{6}{5} \, \vertex{5 \cdot 5}(\Psi^6) \Big]
+      + O(\gs^5).
+\end{equation}
+Two things have to happen at once: the sextic vertex must be produced, and the induced exchange term must be cancelled.
+The second term is not a vertex of closed string field theory but a diagram built from $\vertex{4}$ and $\vertex{5}$.
+
+We define the \emph{reduced vertex} $\dvertex{6}(A_1, \ldots, A_6)$ with general arguments as the fundamental vertex minus the composite vertex ~\eqref{p:eq:hs5:exchange-vertex}:
+\begin{equation}
+  \label{p:eq:hs6:dressed-vertex}
+  \dvertex{6}(A_1, \ldots, A_6)
+    := \vertex{6}(A_1, \ldots, A_6) - \frac{6}{5} \, \vertex{5 \cdot 5}(A_1, \ldots, A_6).
+\end{equation}
+This is represented graphically in \cref{p:fig:hs6:dressed-vertex}.
+It is a six-linear form, graded-symmetric within each triple of arguments and under the exchange of the two triples, which is the symmetry of its exchange part.
+It is not symmetric under the permutations mixing the two triples.
+Read as a form in three $2$-string arguments, $\dvertex{6}(B_1, B_2, B_3)$ with $B_i \in \Hn{2}$, it is symmetrized in them, as $\vertex{5 \cdot 5}$ is in \cref{p:sec:hs:quintic}.
+On the diagonal, where every argument is built from $\Psi$ alone, all readings agree: $\dvertex{6}(\Psi^3, \Psi^3) = \dvertex{6}(\Psi^2, \Psi^2, \Psi^2) = \dvertex{6}(\Psi^6)$.
+By~\eqref{p:eq:hs6:remainder}, the term to add on-shell is thus the sextic term with $\dvertex{6}(\Psi^6)$ in place of $\vertex{6}(\Psi^6)$.
+\begin{figure}[htp]
+  \centering
+  \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (w) at (0, 0) [dot, label=above:{$\mathcal{W}_6$}];
+      \vertex (w1) at (-0.9, 0.8) {};
+      \vertex (w2) at (-1.1, 0) {};
+      \vertex (w3) at (-0.9, -0.8) {};
+      \vertex (w4) at (0.9, 0.8) {};
+      \vertex (w5) at (1.1, 0) {};
+      \vertex (w6) at (0.9, -0.8) {};
+      \vertex (eq) at (1.9, 0) {$=$};
+      \vertex (v) at (3.3, 0) [dot, label=above:{$\mathcal{V}_6$}];
+      \vertex (v1) at (2.4, 0.8) {};
+      \vertex (v2) at (2.2, 0) {};
+      \vertex (v3) at (2.4, -0.8) {};
+      \vertex (v4) at (4.2, 0.8) {};
+      \vertex (v5) at (4.4, 0) {};
+      \vertex (v6) at (4.2, -0.8) {};
+      \vertex (minus) at (5.3, 0) {$- \; \dfrac{6}{5}$};
+      \vertex (a) at (7.0, 0) [dot];
+      \vertex (b) at (9.0, 0) [dot];
+      \vertex (a1) at (6.2, 0.8) {};
+      \vertex (a2) at (6.0, 0) {};
+      \vertex (a3) at (6.2, -0.8) {};
+      \vertex (b1) at (9.8, 0.8) {};
+      \vertex (b2) at (10.0, 0) {};
+      \vertex (b3) at (9.8, -0.8) {};
+      \diagram* {
+      (w) -- (w1), (w) -- (w2), (w) -- (w3), (w) -- (w4), (w) -- (w5), (w) -- (w6),
+      (v) -- (v1), (v) -- (v2), (v) -- (v3), (v) -- (v4), (v) -- (v5), (v) -- (v6),
+      (a) -- (a1), (a) -- (a2), (a) -- (a3), (b) -- (b1), (b) -- (b2), (b) -- (b3),
+      (a) -- [plain, double, edge label={$\Sigma_2$}] (b),
+      };
+    \end{feynman}
+  \end{tikzpicture}
+  \caption{The reduced sextic vertex~\eqref{p:eq:hs6:dressed-vertex}: the sextic vertex minus the composite vertex, two quintic vertices joined by a $\Sigma_2$ line.}
+  \label{p:fig:hs6:dressed-vertex}
+\end{figure}
+
+
+We have several options to decompose this vertex, since the matching constrains the sextic term only through its value on the diagonal, which is a sextic polynomial in $\Psi$.
+Any trilinear form on $\Hn{2}$ with the value $\dvertex{6}(\Psi^6)$ on $\Sigma_2 = \Psi^2$ reproduces the target at this order.
+Two forms differing by one that vanishes on the diagonal give the same eliminated action: they are equivalent at this truncation.
+The construction we keep is the one that stays exact at all orders.
+We see that we cannot immediately apply the trick of the quartic order with a $3$-string field $\Sigma_3 \in \Hn{3}$, because we would get a quartic term $\mc V_6(\Sigma_3, \Psi^3)$.
+Another solution could be to write $\mc V_6(\Sigma_2^3)$, but this would not generalize at higher orders since $\mc V_8(\Sigma_2^4)$ is quartic.\footnotemark{}
+\footnotetext{
+  Such a term appeared in~\cite{Erbin:2024:OpenStringStub}.
+  This term together with the terms linear and quadratic in the auxiliary field were sufficient to reproduce the complete action, with a single auxiliary field.
+  This is specific to the structure of the interactions induced by the stubs.
+}
+The way out is to take an intermediary path and replace $\Psi^2$ by $\Sigma_2$ in the tensor power, since the solution $\Sigma_2 = \Psi^2 + O(\gs)$ guarantees that only $\dvertex{6}(\Psi^6)$ is produced at this order.
+Moreover, this form is suggested by the form of the composite vertex, whose arguments are identical, $\vertex{5 \cdot 5}(\Sigma_2^2, \Psi^2)$.
+
+
+We write the sextic term as $\dvertex{6}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2)$, with the $3$-string state $\Psi \otimes \Sigma_2$ in each triple of slots, and add the square of the fluctuation of $\Sigma_3$ from it:
+\begin{equation}
+  \label{p:eq:hs6:DeltaS6}
+  \Delta S_6
+    := - \frac{\gs^4}{6!} \, \dvertex{6}(\Sigma_3 - \Psi \otimes \Sigma_2, \Sigma_3 - \Psi \otimes \Sigma_2),
+\end{equation}
+where
+\begin{equation}
+  \Sigma_3 \in \Hn{3},
+  \qquad
+  \Ngh(\Sigma_3)
+    = 6.
+\end{equation}
+By construction, $\Delta S_6$ vanishes when $\Sigma_3 = \Psi \otimes \Sigma_2$.
+Expanding the square, we get the sextic term of the cubic action:
+\begin{equation}
+  \label{p:eq:hs6:S6tilde}
+  \begin{aligned}
+    \caction[6]
+      &
+      := \frac{\gs^4}{6!} \, \dvertex{6}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2) + \Delta S_6
+      \\ &
+      = - \frac{\gs^4}{6!} \, \dvertex{6}(\Sigma_3^2)
+        + \frac{2 \gs^4}{6!} \, \dvertex{6}(\Psi \otimes \Sigma_2, \Sigma_3),
+  \end{aligned}
+\end{equation}
+a quadratic term for $\Sigma_3$ and a cubic coupling of $\Psi$, $\Sigma_2$ and $\Sigma_3$.
+As a consequence, the action through this order,
+\begin{equation}
+  \label{p:eq:hs6:action-tilde}
+  \caction[\le 6]
+    := \caction[\le 5] + \caction[6],
+\end{equation}
+is cubic in $(\Psi, \Sigma_2, \Sigma_3)$.
+In terms of the elementary vertices of closed string field theory, we get:
+\begin{equation}
+  \label{p:eq:hs6:S6tilde-explicit}
+  \begin{aligned}
+    \caction[6]
+      =
+        &
+        - \frac{\gs^4}{6!} \, \vertex{6}(\Sigma_3^2)
+        + \frac{\gs^4}{600} \, \vertex{5}\Big( \Sigma_3, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Sigma_3) \Big)
+      \\ &
+      + \frac{2 \gs^4}{6!} \, \vertex{6}(\Psi, \Sigma_2, \Sigma_3)
+        - \frac{2 \gs^4}{600} \, \vertex{5}\Big( \Sigma_3, \sprod{2}{2}^{-1} \circ \sprod{3}{2}(\Psi, \Sigma_2) \Big),
+  \end{aligned}
+\end{equation}
+The second and fourth terms, the kinetic term of $\Sigma_3$ and its coupling to $(\Psi, \Sigma_2)$, are both non-local in the sense of effective field theory, since they contain the inverse of a vertex, $\sprod{2}{2}^{-1}$.
+This is the price of cancelling an exchange diagram with a contact term, and a typical phenomenon in effective field theory.
+For generic vertices, in which the exchange term is not a linear combination of the elementary vertices, the elementary vertices alone cannot cancel the exchange term, which contains $\sprod{2}{2}^{-1}$: the subtraction must itself be an exchange term, produced either by the reduced vertex or by a second $2$-string field.
+An alternative is to enlarge the field content with a second $2$-string field.
+  We show it at the sextic order in \cref{p:app:wrong-sign} and will not develop this approach further.
+
+Since the sextic vertex is now read with three of its slots as outputs, we define the product $\sprod{3}{3} \colon \Hn{3} \to \Hn{3}$ by:
+\begin{equation}
+  \label{p:eq:hs6:p33}
+  \vertex{6}(A_1, \ldots, A_6)
+    =: \pair[3]{A_1 \otimes A_2 \otimes A_3}{\sprod{3}{3}(A_4, A_5, A_6)},
+\end{equation}
+with the $3$-string pairing on the left, as $\sprod{2}{2}$ and $\sprod{3}{2}$ were defined from $\vertex{4}$ and $\vertex{5}$.
+It has ghost number three and it is symmetric with respect to the $3$-string pairing since $\vertex{6}$ is graded-symmetric.
+
+
+\paragraph{Elimination of the auxiliary fields}
+\label{p:sec:hs:sextic:eom}
+
+The $3$-string field enters $\caction[\le 6]$ only through $\dvertex{6}$.
+We write this form through the $3$-string pairing:
+\begin{equation}
+  \label{p:eq:hs6:kinetic}
+  \begin{aligned}
+    \dvertex{6}(A, B)
+      &
+      =: \pair[3]{A}{\wprod{3}{3}(B)},
+    \\
+    \wprod{3}{3}
+      &
+      := \sprod{3}{3} - \frac{6}{5} \, \sprod{2}{3} \circ \sprod{2}{2}^{-1} \circ \sprod{3}{2}
+    \qquad
+    \wprod{3}{3} \colon \Hn{3} \to \Hn{3},
+  \end{aligned}
+\end{equation}
+for $A, B \in \Hn{3}$, where $\sprod{2}{3} \colon \Hn{2} \to \Hn{3}$ is the transpose of $\sprod{3}{2}$,~\eqref{p:eq:conv:transpose}.
+This is the kinetic operator of $\Sigma_3$.
+It is symmetric with respect to the $3$-string pairing, as $\sprod{3}{3}$ and $\sprod{2}{2}^{-1}$ are, and it does not depend on the fields.
+It receives no correction at higher orders.
+
+Varying~\eqref{p:eq:hs6:S6tilde} with respect to the three fields, we get:
+\begin{equation}
+  \label{p:eq:hs6:delta-S}
+  \begin{aligned}
+    \delta \caction[6]
+      &
+      = \frac{2 \gs^4}{6!} \, \dvertex{6}(\delta \Psi \otimes \Sigma_2, \Sigma_3)
+        + \frac{2 \gs^4}{6!} \, \dvertex{6}(\Psi \otimes \delta \Sigma_2, \Sigma_3)
+      \\ &
+      \quad
+      - \frac{2 \gs^4}{6!} \, \pair[3]{\delta \Sigma_3}{\wprod{3}{3}(\Sigma_3)}
+        + \frac{2 \gs^4}{6!} \, \pair[3]{\delta \Sigma_3}{\wprod{3}{3}(\Psi \otimes \Sigma_2)}.
+  \end{aligned}
+\end{equation}
+The equations of motion of $\caction[\le 6]$ are:
+\begin{subequations}
+  \label{p:eq:hs6:eom}
+  \begin{align}
+    \label{p:eq:hs6:eom-psi}
+    \mathcal E^{(4)}_\Psi
+      &
+      := \mathcal E^{(3)}_\Psi
+        + \frac{2 \gs^4}{6!} \, \dvertex{6}(\, \cdot \, \otimes \Sigma_2, \Sigma_3)
+      = 0,
+    \\
+    \label{p:eq:hs6:eom-sigma2}
+    \mathcal E^{(4)}_{\Sigma_2}
+      &
+      := \mathcal E^{(3)}_{\Sigma_2}
+        + \frac{\gs^2}{30} \, \dvertex{6}(\Psi \otimes \cdot \,, \Sigma_3)
+      = 0,
+    \\
+    \label{p:eq:hs6:eom-sigma3}
+    \mathcal E^{(4)}_{\Sigma_3}
+      &
+      := \wprod{3}{3}(\Psi \otimes \Sigma_2) - \wprod{3}{3}(\Sigma_3)
+      = 0,
+  \end{align}
+\end{subequations}
+where $\mathcal E^{(3)}_\Psi$ and $\mathcal E^{(3)}_{\Sigma_2}$ are the equations~\eqref{p:eq:hs5:eom} of the quintic order, and where $\dvertex{6}(\, \cdot \, \otimes \Sigma_2, \Sigma_3)$ denotes the state paired with the open slot.
+
+The equation for $\Sigma_3$ is algebraic and linear, with the source $\wprod{3}{3}(\Psi \otimes \Sigma_2)$ and the field-independent kinetic operator $\wprod{3}{3}$.
+A kernel direction $N_3 \in \ker \wprod{3}{3}$ appears neither in the quadratic term nor in the coupling of~\eqref{p:eq:hs6:S6tilde}, by the symmetry of $\wprod{3}{3}$.
+It has zero action and couples to nothing at this order, as the kernel of $\sprod{2}{2}$ at the quartic order.
+We therefore take the $3$-string field on the quotient:
+\begin{equation}
+  \label{p:eq:hs6:quotient}
+  \Sigma_3
+    \in \Hn{3} / \ker \wprod{3}{3},
+\end{equation}
+where $\wprod{3}{3}$ is injective by construction.
+The equation of motion~\eqref{p:eq:hs6:eom-sigma3} then has the unique solution:
+\begin{equation}
+  \label{p:eq:hs6:saddle-sigma3}
+  \Sigma_3^{(4)*}
+    = \Psi \otimes \Sigma_2,
+\end{equation}
+for any $\Sigma_2$, and $\Psi \otimes \Sigma_2^{(4)*}$ on the joint solution.
+The $3$-string field satisfies the reality condition $\Sigma_3^\star = - \Sigma_3$, the sign of three star-odd strands, and the kernel of $\wprod{3}{3}$ is stable under $\star$, so that the condition is meaningful on the quotient~\eqref{p:eq:hs6:quotient}.
+The solution is real for real $\Psi$ and $\Sigma_2$ (\cref{p:app:reality}).
+The $3$-string field is thus an auxiliary field: it is fixed by $(\Psi, \Sigma_2)$ through an algebraic equation, and its solution lies on the diagonal, $\Sigma_3 = \Psi^3 + O(\gs)$ once $\Sigma_2$ is on-shell.
+Since $\Delta S_6$ is the square of $\Sigma_3 - \Psi \otimes \Sigma_2$, it vanishes on the solution.
+Eliminating $\Sigma_3$ thus gives back the sextic term we started from, exactly in $\gs$ and for any $\Sigma_2$, as in~\eqref{p:eq:hs4:eliminate}:
+\begin{equation}
+  \label{p:eq:hs6:eliminate-sigma3}
+  \caction[\le 6] \big|_{\Sigma_3 = \Sigma_3^{(4)*}}
+    = \caction[\le 5] + \frac{\gs^4}{6!} \, \dvertex{6}(\Psi \otimes \Sigma_2, \Psi \otimes \Sigma_2).
+\end{equation}
+
+The elimination of $\Sigma_2$ then proceeds as at the quintic order, with one new ingredient.
+The sextic term is quadratic in $\Sigma_2$ and of order $\gs^4$, so it adds a correction of order $\gs^2$ to the dressed operator of $\Sigma_2$ and none to its source, which remains $\sprod{2}{2}(\Psi^2)$.
+The solution therefore becomes $\Sigma_2^{(4)*} = \Sigma_2^{(3)*} + O(\gs^2)$.
+By stationarity of $\caction[\le 5]$ at $\Sigma_2^{(3)*}$, as in \cref{p:sec:hs:quintic}, a shift of order $\gs^2$ changes $\caction[\le 5]$ at order $\gs^2 \times \gs^4$, and the sextic term, of order $\gs^4$, at the same order.
+At order $\gs^4$ only the value of the sextic term on $\Sigma_2 = \Psi^2$ enters, $\dvertex{6}(\Psi^6)$.
+With~\eqref{p:eq:hs5:eliminate} and~\eqref{p:eq:hs6:remainder}, we get:
+\begin{equation}
+  \label{p:eq:hs6:eliminate}
+  \begin{aligned}
+    \caction[\le 6] \big|_{\Sigma_3 = \Sigma_3^{(4)*}, \, \Sigma_2 = \Sigma_2^{(4)*}}
+      &
+      = S_{\le 5}
+        + \frac{\gs^4}{600} \, \vertex{5 \cdot 5}(\Psi^6)
+        + \frac{\gs^4}{6!} \Big[ \vertex{6}(\Psi^6) - \frac{6}{5} \, \vertex{5 \cdot 5}(\Psi^6) \Big]
+        + O(\gs^5)
+      \\ &
+      = S_{\le 6} + O(\gs^5).
+  \end{aligned}
+\end{equation}
+The exchange term produced by $\Sigma_2$ at the quintic order and the exchange part of the reduced vertex cancel exactly, and the sextic vertex is reproduced.
+The elimination of $\Sigma_3$ is exact, and the elimination of $\Sigma_2$ matches the target through order $\gs^4$.
+Its remainder of order $\gs^5$ is the next induced interaction, built from the reduced vertex and from chains of quintic vertices on the $\Sigma_2$ line, which the septic order must absorb in its turn (\cref{p:sec:hs:septic}).
+Off-shell, $\caction[\le 6]$ contains the square of the fluctuation $\Sigma_3 - \Psi \otimes \Sigma_2$ with the field-independent operator $\wprod{3}{3}$.
+Once $\Sigma_3$ is eliminated, what is left is quadratic in $\Sigma_2$, with the dressed operator $\kin{2}{\Psi}{3}$ corrected at order $\gs^2$ by the sextic term.
+The gauge transformations built on these two fluctuations are the subject of \cref{p:sec:gauge}.
+
+
+\paragraph{Consistency conditions on the kernels}
+\label{p:sec:hs:sextic:kernel}
+
+The quadratic term of $\Sigma_3$ in~\eqref{p:eq:hs6:S6tilde-explicit} is not given by the sextic vertex alone.
+It contains the exchange part $\sprod{2}{3} \circ \sprod{2}{2}^{-1} \circ \sprod{3}{2}$ of~\eqref{p:eq:hs6:kinetic}, two quintic vertices joined by a $\Sigma_2$ line, read with three strands in and three strands out.
+The kinetic operator of $\Sigma_3$ is thus non-local in the sense of effective field theory since, unlike that of $\Sigma_2$, it contains the inverse of a vertex.
+A $\Sigma_2$ line collapses to a contact term if one of its ends is the source vertex $\sprod{2}{2}(\Psi^2)$, since $\sprod{2}{2}^{-1} \circ \sprod{2}{2}$ is the identity on the quotient, and, for generic vertices, in which the exchange term is not a linear combination of the elementary vertices, only then.
+  The line of $\vertex{5 \cdot 5}$ joins two quintic vertices, so it is the first that does not collapse, and this is why $\vertex{4}$ and $\vertex{5}$ needed no reduction while $\vertex{6}$ does.
+
+The interpretation is the same one as of the quintic order.
+The field $\Sigma_2$ describes more than the quartic interaction once the quintic vertex is included: it induces interactions at all orders.
+The part of the sextic interaction left for $\Sigma_3$ to describe is the sextic vertex minus what $\Sigma_2$ already produces.
+We can make an analogy with linear algebra: $\wprod{3}{3}$ is the quadratic form left on $\Hn{3}$ once $\Sigma_2$ is eliminated from the sextic form, that is, its Schur complement.\footnote{
+    For a block matrix with blocks $A$, $B$, $B^T$ and $D$, with $D$ invertible, the Schur complement of $D$ is $A - B D^{-1} B^T$: the quadratic form left on the first block once the second is eliminated by its equation of motion.
+    Here $A = \sprod{3}{3}$, $B = \sprod{2}{3}$ and $D = \tfrac{5}{6} \, \sprod{2}{2}$.
+  }
+  The completed square~\eqref{p:eq:hs6:DeltaS6} is built on this form.
+
+Two conditions make $\Sigma_3$ an auxiliary field, in addition to the invertibility of $\sprod{2}{2}$ on its quotient, which the exchange part needs.
+First, $\wprod{3}{3}$ must be invertible on the quotient~\eqref{p:eq:hs6:quotient}, so that $\Sigma_3$ has a propagator and is integrated out by a Gaussian integral.
+Second, its kernel must couple to nothing.
+Injectivity, which holds on the quotient by construction, already makes the solution~\eqref{p:eq:hs6:saddle-sigma3} unique.
+Unlike the dressed operator of $\Sigma_2$, $\wprod{3}{3}$ carries no power of $\gs$: its two terms are of the same order.
+Its invertibility is therefore a genuine condition on the vertex family, on the sextic vertex and on the exchange diagram together, which no expansion in $\gs$ reduces to the condition on $\sprod{2}{2}$.
+It holds in the finite-dimensional models of \cref{p:app:finite-models}, with generic vertices.
+For the string vertices, it is a condition on the spectrum of $\sprod{3}{3}$ on $\Hn{3}$ and on the exchange part, which can be checked level by level in level truncation.
+The kernels of $\sprod{3}{3}$ and $\wprod{3}{3}$ on $\Hn{3}$ are meant, as for $\sprod{2}{2}$, in the square-integrable sense: their elements are square-integrable functions of the relative momenta at fixed total momentum.
+We assume it as we did for $\sprod{2}{2}$ in \cref{p:sec:hs:quartic,p:sec:hs:quintic}: kernels in the square-integrable sense at fixed total momentum, sources of $(\wprod{3}{3})^{-1}$ and of its dressed forms lying in the image of $\wprod{3}{3}$, and kernels that stabilize as the level grows, in the sense that the quotient and the inverse have a limit at generic total momentum:
+\begin{equation}
+\label{p:eq:hs6:invertibility-3}
+\big( \wprod{3}{3} \big)^{-1} \circ \wprod{3}{3}
+  = \id
+\quad \text{on } \Hn{3} / \ker \wprod{3}{3}.
+\end{equation}
+
+A kernel direction of $\wprod{3}{3}$ is a flat direction of $\Sigma_3$, with zero action.
+At this order it decouples automatically, since $\Sigma_3$ enters only through $\wprod{3}{3}$.
+At the next order $\Sigma_3$ enters the septic vertex.
+The quotient then stays consistent only if the kernel directions are null vectors of every vertex in which $\Sigma_3$ appears, as the quintic vertex had to vanish on $\ker \sprod{2}{2}$ by~\eqref{p:eq:hs5:kernel-condition}.
+The construction needs this assumption on the kernel of $\wprod{3}{3}$ from the septic order on, and we state it there (\cref{p:sec:hs:septic}).
+
+We have taken the auxiliary fields on quotients, $\Sigma_2$ on $\Hn{2} / \ker \sprod{2}{2}$ and $\Sigma_3$ on $\Hn{3} / \ker \wprod{3}{3}$, and the action must be a function on them.
+  For $\Sigma_3$ nothing is required at this order, since the field enters only through $\wprod{3}{3}$, whose kernel is quotiented.
+  For $\Sigma_2$, the quintic coupling descends to the quotient if and only if the quintic vertex vanishes on the kernel,~\eqref{p:eq:hs5:kernel-condition}.
+  The sextic term adds one coupling, $\dvertex{6}(\Psi \otimes \Sigma_2, \Sigma_3)$.
+  Under $\Sigma_2 \to \Sigma_2 + N_2$ with $N_2 \in \ker \sprod{2}{2}$, its exchange part shifts by a term containing $\sprod{3}{2}(\Psi, N_2)$, which vanishes by~\eqref{p:eq:hs5:kernel-condition}, and its contact part by $\vertex{6}(\Psi, N_2, \Sigma_3)$.
+  The cubic action therefore descends to the quotient if and only if the sextic vertex vanishes on the kernel as well:
+  \begin{equation}
+  \label{p:eq:hs6:kernel-condition}
+  \forall N_2 \in \ker \sprod{2}{2}, \;
+  \forall A \in \Hn{3}, \;
+  \forall B \in \Hs:
+  \quad
+  \vertex{6}(N_2, A, B)
+    = 0.
+\end{equation}
+  The quotient is thus consistent through this order when the quartic form has no kernel or, if it has one, when the quintic and sextic vertices vanish on it.
+  When the vertices do not vanish on the kernel of $\sprod{2}{2}$, the quotient is not available: the quintic coupling depends on the representative of $\Sigma_2$, a complement of the kernel has to be chosen, and the eliminated action then depends on the complement, already at order $\gs^3$.
+  The constraint can then be enforced by a Lagrange multiplier instead: on the kernel component only, the hybrid below, or on the whole field, the multiplier form of \cref{p:sec:all-orders}.
+  The condition holds trivially at generic momentum if the quartic form has no kernel there.
+  We do not try to settle here whether it holds for the actual vertex family; in principle, this can be checked level by level in level truncation.
+  The quotient needs no inner product and no choice: it is canonical, and the kernel directions, which have zero action and couple to nothing, are not fields.
+
