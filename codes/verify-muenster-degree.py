@@ -20,8 +20,11 @@ Verifies (record ``agent/derivations/120-muenster-degree-dictionary.md``):
   except the zero grading.
 * C7 – on the support of the pairing (``|A| + |B|`` odd) the only parity signs
   ``eps(|A|, |B|)`` making ``eps * <A, B>`` graded antisymmetric are ``±(-1)^{|A|}``;
-  the paper's ``Omega_n`` equals the Koszul tensor power of ``Omega`` (checked on
-  n = 2, 3 for all parity assignments).
+  the paper's ``Omega_n`` sign ``(-1)^{|X| + sum_{i<j}|B_i||A_j|}`` equals the
+  Koszul tensor power of ``Omega``, computed independently by reordering the 2n
+  factors with odd-odd transposition signs (n = 2, 3, 4, all parity assignments on
+  the support); the transposed exponent ``sum_{i<j}|A_i||B_j|`` must disagree.
+  C7 assumes the Münster–Sachs bpz form differs from C1's by a parity sign (H1).
 
 Not verified: anything about the IBL relations themselves (the record only compares
 gradings), and the overall sign ``omega_c = ±Omega``, which the Münster–Sachs text does
@@ -29,7 +32,7 @@ not fix.
 
 Run from the project root::
 
-    uv run python verify-muenster-degree.py [--out DIR]
+    uv run --no-sync python agent/computations/verify-muenster-degree.py [--out DIR]
         [--perturb C2-break] [--seed N]
 """
 
@@ -135,29 +138,49 @@ def run(perturb: str | None, seed: int) -> list[tuple[str, bool, str]]:
 
     # C7: Omega_n(X, Y) = (-1)^{|X|} <X, Y>_n equals the Koszul tensor power of Omega.
     def koszul_power(par_a, par_b):
-        # Omega^{⊗n} with Koszul sign (-1)^{sum_{i<j} |B_i||A_j|}, each Omega = (-1)^{|A_i|}<.,.>
-        s = sum(
-            par_b[i] * par_a[j]
-            for i in range(len(par_a))
-            for j in range(i + 1, len(par_a))
-        )
-        return (-1) ** (s + sum(par_a))
+        # Omega^{⊗n}(A_1..A_n, B_1..B_n): reorder the 2n factors from
+        # A_1..A_n B_1..B_n to A_1 B_1 A_2 B_2 ... by adjacent transpositions,
+        # each swap of two odd factors giving -1; then each Omega(A_i, B_i)
+        # contributes (-1)^{|A_i|} <A_i, B_i>.
+        nn = len(par_a)
+        seq = [("A", i, par_a[i]) for i in range(nn)] + [
+            ("B", i, par_b[i]) for i in range(nn)
+        ]
+        target = [x for i in range(nn) for x in (seq[i], seq[nn + i])]
+        rank = {x: k for k, x in enumerate(target)}
+        sign = 1
+        arr = seq[:]
+        for i in range(len(arr)):  # bubble sort, sign from odd-odd swaps
+            for j in range(len(arr) - 1 - i):
+                if rank[arr[j]] > rank[arr[j + 1]]:
+                    sign *= (-1) ** (arr[j][2] * arr[j + 1][2])
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
+        return sign * (-1) ** sum(par_a)
 
-    def paper_omega_n(par_a, par_b):
-        s = sum(
-            par_b[i] * par_a[j]
-            for i in range(len(par_a))
-            for j in range(i + 1, len(par_a))
-        )
-        return (-1) ** (sum(par_a)) * (-1) ** s
+    def paper_omega_n(par_a, par_b, wrong=False):
+        # eq:conv:pairing-n as hardcoded in the paper:
+        # (-1)^{|X|} (-1)^{sum_{i<j} |B_i||A_j|}; wrong=True uses |A_i||B_j|.
+        nn = len(par_a)
+        if wrong:
+            s = sum(par_a[i] * par_b[j] for i in range(nn) for j in range(i + 1, nn))
+        else:
+            s = sum(par_b[i] * par_a[j] for i in range(nn) for j in range(i + 1, nn))
+        return (-1) ** sum(par_a) * (-1) ** s
 
-    ok = True
-    for nn in (2, 3):
+    ok, ok_wrong = True, True
+    for nn in (2, 3, 4):
         for par_a in itertools.product([0, 1], repeat=nn):
             par_b = tuple(1 - a for a in par_a)  # support: opposite parity per strand
-            ok &= koszul_power(par_a, par_b) == paper_omega_n(par_a, par_b)
+            k = koszul_power(par_a, par_b)
+            ok &= k == paper_omega_n(par_a, par_b)
+            ok_wrong &= k == paper_omega_n(par_a, par_b, wrong=True)
     results.append(
-        ("C7-tensor", ok, "Omega_n = Koszul tensor power of Omega (n = 2, 3)")
+        (
+            "C7-tensor",
+            ok and not ok_wrong,
+            "Omega_n (paper sign) = Koszul tensor power by explicit reordering "
+            f"(n = 2, 3, 4); transposed exponent i>j agrees: {ok_wrong} (must be False)",
+        )
     )
 
     return results

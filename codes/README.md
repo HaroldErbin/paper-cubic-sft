@@ -20,6 +20,7 @@ Outputs (figures, JSON logs) go to `output/`, which is git-ignored.
 
 "Standalone" = runs with the files of this repository only.
 "Result" = one run on 2026-11-09 (CPU, `nice -n 19`, 3 min cap, 4 threads); TIMEOUT means the script exceeded the cap, not that a check failed.
+Scripts that timed out were rerun with a 30 min cap; the table gives that result, and "> 30 min" marks scripts that exceeded it too.
 Scripts marked "needs data not published" import data of a companion project that is not public yet, and are not included in this repository.
 For the same reason the following scripts, which compare against values of that project, are listed but not included: `comparator-points-2026-09-22.py`, `verify-a2-schwinger.py`, `verify-conventions.py`, `verify-d5-five-field.py`, `verify-j-closed-form.py`, `verify-kernel-analytic-structure.py`, `verify-kp-box.py`, `verify-kp-kernel.py`, `verify-kp-real-s.py`, `verify-ph24-vs.py`, `verify-stage0-translation.py`.
 
@@ -48,7 +49,7 @@ For the same reason the following scripts, which compare against values of that 
 | `verify-chain-surfaces-covers.py` | Chain surfaces as covers (record 031) | yes | PASS |
 | `verify-cheung-remmen.py` | Cheung–Remmen cubic gravity vs the cubic HS step (record 099) | yes | PASS |
 | `verify-chi-ogs5-count.py` | O(g_s^5) counting argument (record 038) | yes | PASS |
-| `verify-chi-ogs5-matching.py` | chi-scheme O(g_s^5) matching (record 048) | yes | TIMEOUT |
+| `verify-chi-ogs5-matching.py` | chi-scheme O(g_s^5) matching (record 048) | yes | FAIL: two auxiliary C6 scan legs on seed 23, known and unexplained (record 048 §8.5); all other checks PASS |
 | `verify-chi-partner.py` | Wrong-sign (Liouville-type) partner chi at O(g_s^4) | yes | PASS |
 | `verify-circle-gluing-inverse.py` | p_{2,2}^{-1} as a circle gluing (record 074) | yes | PASS |
 | `verify-circle-map.py` | Circle map Phi_n, n = 2 tachyon pair (record 071) | yes | PASS |
@@ -66,7 +67,7 @@ For the same reason the following scripts, which compare against values of that 
 | `verify-forced-kernel.py` | Forced-kernel search (record 107) | no | needs data not published |
 | `verify-gap3c.py` | GAP-3c (record 043) | yes | PASS |
 | `verify-gap3e-contractible-pair.py` | BV consequences of the flat representative (record 056) | yes | PASS |
-| `verify-gauge-algebra-ogs3.py` | Gauge algebra at O(g_s^3) (records 040, 043) | yes | TIMEOUT |
+| `verify-gauge-algebra-ogs3.py` | Gauge algebra at O(g_s^3) (records 040, 043) | yes | > 30 min |
 | `verify-gauge-algebra-ogs4.py` | Gauge algebra at O(g_s^4) (record 053) | yes | PASS |
 | `verify-gauge-unfixing-c1.py` | Gauge unfixing of Sigma_2, candidate C1 (record 108) | yes | PASS |
 | `verify-gauge-unfixing-structure.py` | Gauge unfixing of Sigma_2, structure lemma (record 102) | yes | PASS |
@@ -88,7 +89,7 @@ For the same reason the following scripts, which compare against values of that 
 | `verify-kernel-analytic-structure.py` | Analytic structure of the fixed-level kinetic operator (record 104) | yes | PASS |
 | `verify-ker-v4-v5-compat.py` | Compatibility of the ker V_4 quotient with V_5 (record 034) | yes | PASS |
 | `verify-kp-box.py` | Discretisation box for the pair kernel K_P (record 045) | yes | PASS |
-| `verify-kp-complex-s.py` | Frozen-momentum zero scan of F(s,0,0) (record 051); optional groups need unpublished caches | yes | TIMEOUT |
+| `verify-kp-complex-s.py` | Frozen-momentum zero scan of F(s,0,0) (record 051); optional groups need unpublished caches | yes | > 30 min |
 | `verify-kp-kernel.py` | Level-0 s-wave pair kernel K_P (record 049) | yes | PASS |
 | `verify-kp-real-s.py` | Pair kernel K_P at real s (record 050) | yes | not run (process pool) |
 | `verify-linfty-ibl-repackaging.py` | L_infty => genus-zero IBL_infty repackaging (record 026) | yes | PASS |
@@ -114,9 +115,9 @@ For the same reason the following scripts, which compare against values of that 
 | `verify-p22-inverse-sewing.py` | p_{2,2}^{-1} as a sewing (record 110) | yes | PASS |
 | `verify-paper-gap-7.py` | Two forms of the (2,2) relation of the raised family (record 086) | yes | PASS |
 | `verify-paper-gaps-3-4.py` | Paper gaps 3 and 4 (record 085) | yes | PASS |
-| `verify-partner-closure.py` | Partner count, step 2 (record 101) | yes | TIMEOUT |
-| `verify-partner-count.py` | Partner count (record 101) | yes | TIMEOUT |
-| `verify-partner-octic.py` | Partner count, step 3 (record 101) | yes | TIMEOUT |
+| `verify-partner-closure.py` | Partner count, step 2 (record 101) | yes | PASS |
+| `verify-partner-count.py` | Partner count (record 101) | yes | PASS |
+| `verify-partner-octic.py` | Partner count, step 3 (record 101) | yes | PASS |
 | `verify-per-tile.py` | Per-tile step (record 091) | no | needs data not published |
 | `verify-ph20-virtual-dim.py` | Virtual dimension (record 036 addendum) | yes | PASS |
 | `verify-ph23-doublet.py` | The Sym^2 source doublet (Sigma, chi) is timelike | yes | PASS |
@@ -124,10 +125,10 @@ For the same reason the following scripts, which compare against values of that 
 | `verify-ph2a.py` | Nested kernels of the dressed tower at g = 0 (record 061) | yes | PASS |
 | `verify-ph31-actual.py` | PH31 for the actual p_{2,2} (record 094) | no | needs data not published |
 | `verify-ph31prime.py` | Fixed-halves model: conservation law, witness, limit (record 082) | yes | PASS |
-| `verify-ph31-rank-ext.py` | Extensions of the rank test (record 083) | yes | TIMEOUT |
-| `verify-ph31-rank-half.py` | Rank rows at the vertex (record 093) | yes | TIMEOUT |
-| `verify-ph31-rank-k3d3.py` | K = 3 cokernel of the rank test (record 087) | yes | TIMEOUT |
-| `verify-ph31-rank.py` | Rank falsifier (record 078) | yes | TIMEOUT |
+| `verify-ph31-rank-ext.py` | Extensions of the rank test (record 083) | yes | PASS |
+| `verify-ph31-rank-half.py` | Rank rows at the vertex (record 093) | yes | PASS |
+| `verify-ph31-rank-k3d3.py` | K = 3 cokernel of the rank test (record 087) | yes | PASS |
+| `verify-ph31-rank.py` | Rank falsifier (record 078) | yes | PASS |
 | `verify-ph6-conjugation-n4.py` | Conjugation invariance of the declared section at n = 4 (record 054) | no | needs data not published |
 | `verify-ph7-ddagger.py` | Reality conjugation squares to +1 on Grassmann-odd states | yes | PASS |
 | `verify-phase6-riemann.py` | Self-checks of the geometric-interpretation note | yes | PASS |
