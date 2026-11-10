@@ -747,3 +747,61 @@ involutive c-number conjugation. Side finding P.6: 028 (C3) needs $\ddagger$ rea
 $\ddagger'=(-1)^{N_{\rm gh}+1}\mathrm{bpz}^{-1}\circ\mathrm{hc}$, which is Zwiebach (3.6) on the total
 field. Next: orchestrator. Ledger PH7, R35 and R13 wording, and conventions candidates C3 and C1
 qualifiers. Report: `agent/reports/computator-ph7-20260926T102000.md`.
+
+## Addendum 2026-11-10 — external review (SL(2,C) project)
+
+Source: external review, SL(2,C) vertices and ghost-dilaton project, 2026-11-10 (`SL:` reports `critic-import-073a-20261110T171501`, `critic-import-073b-20261110T171502`), passed on in the message `inbox/done/2026-11-10-sl2c-vertices-ghost-dilaton-import-review-findings.md`.
+Brief: `agent/briefs/active-computator-import-review-addenda-20261110T183258.md`.
+Two wording and scope corrections; no result, number or check of this record changes.
+The text above this heading is not edited; the corrected readings below supersede the wording at the places listed.
+Notation: $\star:=\mathrm{bpz}^{-1}\circ\mathrm{hc}$ without sign, $\ddagger':=(-1)^{N_{\rm gh}+1}\star$ (conventions C3; 075, R81).
+
+### A.1 (C1): which conjugation
+
+*Statement corrected.* (C1) l. 41 writes $\ddagger=\mathrm{BPZ}\circ(\text{hermitian conjugation})$.
+Every statement of this record that uses $\ddagger$ ($\Psi^\ddagger=\Psi$, $\omega_1$ equivariant (C3), $\lambda_k^\ddagger=\lambda_k$ (4.1), Step 4.2) holds for $\ddagger'$ and only for it: the bare $\star$ gives $\Psi^\star=-\Psi$ and an anti-equivariant $\omega_1$ (P.6, items 1–3).
+With a constant sign the multiplier condition would read $\lambda_k^\ddagger=(-1)^k\lambda_k$ (P.6, l. 681–682), which contradicts (4.1) and R35's Scope.
+So **read $\ddagger$ throughout as $\ddagger'$**.
+
+*Status.* Already settled in this record: addendum P.6 (l. 656–700; the consequence paragraph l. 676–689, in particular l. 680 "Read literally, 028 (C1) … is $\eta=+1$"), the C3 text of l. 690–699, and the Status line of l. 742–750; in the ledger by conventions C3 and R35's Scope ("convention: $\ddagger$ is Zwiebach's (3.6) …, i.e. $(-1)^{N_{\rm gh}+1}\mathrm{bpz}^{-1}\circ\mathrm{hc}$").
+The external review's point (premise 1 of the brief) is therefore not a new finding; this addendum only adds the pointer from (C1) to P.6.
+
+*Places to read as $\ddagger'$* (grep `BPZ\|bpz`): l. 41 (C1); l. 309 ("if BPZ∘h.c. squared to $-1$ …", about $\ddagger^2$, unchanged by the sign, PH7 / P.3); l. 340 (the proposed ledger row "With $\ddagger=$ BPZ∘h.c.", superseded by R35's body, which already states $(-1)^{N_{\rm gh}+1}\mathrm{bpz}^{-1}\circ\mathrm{hc}$); l. 63 mentions "the BPZ inner product" only as the pairing and is not a statement about $\ddagger$.
+Statement or justification: the statement of (C1) is corrected (the sign), the justifications of every node are unchanged.
+
+### A.2 (H$_R$), eq. (1.1): all arguments versus Grassmann-even arguments
+
+*Statement corrected.* Eq. (1.1), l. 75, is written for all arguments, $n\ge2$:
+$V_n(A_1,\dots,A_n)^*=V_n(A_1^\ddagger,\dots,A_n^\ddagger)$.
+On general arguments the correct form is the one with the Koszul sign,
+$$V_n(A_1^{\ddagger'},\dots,A_n^{\ddagger'})=(-1)^{k_o(k_o-1)/2}\,V_n(A_1,\dots,A_n)^*,\tag{A.1}$$
+$k_o$ the number of Grassmann-odd arguments; this is H1 of record 075 (= PH6 in its component form, with the sign already carried by PH6's annotation of 2026-10-01).
+It reduces to (1.1) exactly when $k_o\in\{0,1\}$, in particular for Grassmann-even arguments, and (1.1) as written is false in general.
+
+*Derivation of (A.1) from R81 (one line).* 075 (4.4) gives $V_n(A^\star)=(-1)^{n+\sum_{i<j}|A_i||A_j|}V_n(A)^*$ on the support, and $\sum_{i<j}|A_i||A_j|=k_o(k_o-1)/2$.
+By $\ddagger'=(-1)^{N_{\rm gh}+1}\star$ on each strand and the support condition $\sum_iN_i=2n$ (the sphere correlator of $n$ closed vertex operators with $2(n-3)$ $b$-insertions has total ghost number 6), $V_n(A^{\ddagger'})=(-1)^{\sum_i(N_i+1)}V_n(A^\star)=(-1)^nV_n(A^\star)$, which gives (A.1); this is the cross-check at the end of 075 (4.4).
+
+*Counter-example to the unsigned form (no hypothesis needed).* $V_2(A,B)=\langle A|c_0^-Q_B|B\rangle$ on ghost numbers $(N_A,N_B)=(1,3)$.
+Ghost count: $1+3+1+1=6$ ($c_0^-$ and $Q_B$ add one each), so the sphere vacuum functional does not vanish; both arguments are Grassmann-odd, $k_o=2$.
+075 (4.4) at $n=2$ (from C4.1 and C4.3, without H1) gives $V_2(A^\star,B^\star)=(-1)^{|B|}V_2(A,B)^*=-V_2(A,B)^*$, and $\ddagger'$ is $+\star$ on $N=1,3$ ($(-1)^{N+1}=+1$), hence $V_2(A^{\ddagger'},B^{\ddagger'})=-V_2(A,B)^*$, the factor $(-1)^{k_o(k_o-1)/2}=-1$ of (A.1).
+The unsigned (1.1) would give $+$.
+
+*Where this record's results stand.* (i) The tower uses only Grassmann-even arguments of $V_n$, $k_o=0$: every strand of $\Sigma_k$ ($N_{\rm gh}=2$, (C2)), $\Psi$ ($N_{\rm gh}=2$), $\chi$ ($\chi\in\mathrm{Sym}^2\mathcal H_0$, $N_{\rm gh}=4$, two strands of $N_{\rm gh}=2$, l. 201) and the sources $\sigma_n$ of Step 4.1.
+So Lemma 1, (1.3), Steps 2.1–2.4, §3 and Step 4.1 use (H$_R$) only on the sector where (1.1) and (A.1) agree, and no verdict of §0 changes.
+(ii) §4, the odd-$k$ multipliers $\lambda_k$ (odd strands, $N_{\rm gh}=3$ each): the multiplier term $\omega_k(\lambda_k,C_k)$ involves the pairing $\omega_k=\omega_1^{\otimes k}$, not a vertex $V_n$ on odd arguments, so (H$_R$) is not what it rests on; its input is the equivariance of $\omega_1$ read with $\ddagger'$ (C3, P.6; on every nonvanishing pair, the strands being (odd, even) since $N_A+N_B=5$) and the componentwise convention (C2).
+The Koszul-type sign of odd-strand tensors is already carried at the places that this record's Step 4.3 and addendum P.3 name: the reversed-order shift $(-1)^{k(k-1)/2}$ of Step 4.3 item 1 (the same sign as (A.1) with $k_o=k$), the Grassmann-layer rule of item 2, and $\ddagger^2=1$ (PH7, P.3 with the factor $(-1)^{k_o(k_o-1)/2}$ in l. 554–560).
+So §4 is not affected and its verdict (c) stays as stated: $\lambda_k^\ddagger=\lambda_k$ in the componentwise convention, Conditional(PH6) – Proven at odd $k$ "with $\ddagger$ as in conventions C3".
+The PH6 annotation of 2026-10-01 says R35 "was not rechecked against the signed form": this addendum is that recheck, and R35 is unaffected.
+(iii) The paper already restricts the vertex reality to even arguments (`paper/sections/02-2-quartic.tex` l. 54–60, eq. `eq:hs4:vertex-real`, "for even arguments", with the star form $(-1)^n$), consistent with (A.1) at $k_o=0$; nothing to change there.
+
+*Restatements of (H$_R$) in this record* (grep `H\$_R\$\|(1.1)`), each to be read as "(1.1) on Grassmann-even arguments, (A.1) in general": l. 28 and l. 33 (§0 verdict table and its closing sentence); l. 70–81 ((C4), eq. (1.1) at l. 75 is the one unsigned display; l. 81 "Everything below is conditional on (1.1)"); l. 92–93 ("(H$_R$) is the statement that each $V_n$ is equivariant"); l. 102 ((1.3), arguments are tensors of even strands); l. 132, 136, 149 (Steps 2.1, 2.2); l. 196, 210 (check 2.5 text and Step 3.1); l. 261–262 (Step 4.1, $\sigma_n$ even); l. 323, 327 (hand-off and "What was not done" (i)); l. 342, 350, 356 (the proposed ledger text, the row's verification column and the R24 flag); l. 402 ("Not machine-checked: (H$_R$) itself; the Grassmann-odd sector").
+Statement or justification: the *statement* of (H$_R$) is corrected (all arguments → even arguments, general form (A.1)); the justification and every dependent node are unchanged, because they use $k_o=0$ only.
+The script `codes/verify-reality-tower.py` (finite-dimensional toy, commuting components, even sector) is not touched and tests no odd argument; it is not re-run.
+
+### Proposed ledger annotation for R35
+
+An external review (SL(2,C) vertices and ghost-dilaton project, 2026-11-10; `SL:` reports `critic-import-073a-20261110T171501`, `critic-import-073b-20261110T171502`) found two wordings of this entry's source (028) too strong. (i) (H$_R$), $V_n(A_i)^*=V_n(A_i^\ddagger)$, is stated for all arguments; as written it holds for Grassmann-even arguments only: on general arguments the correct form is $V_n(A_i^{\ddagger'})=(-1)^{k_o(k_o-1)/2}V_n(A_i)^*$, $k_o$ the number of Grassmann-odd arguments, i.e. H1 of record 075 (R81) with the Koszul sign (counter-example to the unsigned form: $V_2(A,B)=\langle A|c_0^-Q_B|B\rangle$ on ghost numbers $(1,3)$, sign $-1$); the tower (every strand of $\Sigma_k$, $\Psi$, $\chi$, $\sigma_n$) uses even arguments only, and the odd-$k$ multipliers rest on the equivariance of the pairing, not of a vertex on odd arguments, so (H$_R$) is meant in this entry on the even sector, where nothing changes. (ii) Record 028 (C1) writes $\ddagger=\mathrm{BPZ}\circ\mathrm{hc}$; every statement of the entry holds for $\ddagger'=(-1)^{N_{\rm gh}+1}\mathrm{bpz}^{-1}\circ\mathrm{hc}$ (the entry's body and Scope already say so, conventions C3), the bare $\mathrm{bpz}^{-1}\circ\mathrm{hc}$ giving $\Psi^\star=-\Psi$ and an anti-equivariant pairing. No result, status tag or number of the entry changes; the PH6 annotation of 2026-10-01 (signed form) is the same correction, and R35 is thereby rechecked against it.
+
+### Status of the 2026-11-10 addendum
+
+Status line of this addendum: complete 2026-11-10; next: orchestrator (ledger clerk copies the annotation for R35).

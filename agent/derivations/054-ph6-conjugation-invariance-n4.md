@@ -200,3 +200,59 @@ Script part 3: `C1.4-integrand` ($\mathcal I(\bar Z)-\mathcal I(Z)=0$, $\operato
 **New row (proposed).** *PH6 (b) at $n=4$ for the SL(2,C) family (record 054).* For $\beta\ge\beta_{04}$ (exactly, for $\beta>\tfrac12$) the declared-section contact region $\mathcal V_{0,4}$ is conjugation invariant and tiled consistently by $G=S_3\times\{1,\mathrm{conj}\}$ (conj = reflection in the wall $C_1$; 12 tiles in six conj pairs; the unit-disc inclusion $\operatorname{dist}(0,\partial E_\beta)\ge1$ is exactly $\beta\ge\beta_{04}$); the section data ($q$, plumbing $F_a$, $\rho_a$, $S_0$, $R$, $\Lambda_1$) are conj-equivariant identically, the conj-transported section equals the closed forms at $\bar Z$ and glues across $C_1$; the level-0 four-tachyon contact term is real (equivalently $\ddagger$-equivariant) at real off-shell momenta, conjugate tiles adding — tile by tile, so level 0 does not test the geometric input; for integer-spin primaries under the CFT reality input, the conj tile pairs are real – a corollary of the frame equivariance, checked numerically as a phase-sensitive probe that, unlike the level-0 block, fails when the conj tile is dropped or $S_0$ is deformed by $i\varepsilon|Z|/\beta$. Scope: $n=4$; first-order section data (descendants need the unpackaged $(S_0,R)\mapsto F_a$); ghost measure argued, not derived; CFT reality (H5) cited. Status: `Proven – Verified` for the geometric statements and the level-0 block (analytic, `codes/verify-ph6-conjugation-n4.py` 45/45, 14 break legs, seed 20260926); the probe clause conditional on the CFT reality input already inside PH6's statement.
 
 **PH6 status change (proposed wording):** `supported at n=4 for the SL(2,C) family (R…: region, tiling, first-order section data and plumbing maps proven; level-0 block real tile by tile, hence blind); open: descendant-level frame data, b-ghost measure, H5 itself as a CFT input, n≥5`.
+
+## Addendum 2026-11-10 — external review (SL(2,C) project)
+
+Source: external review, SL(2,C) vertices and ghost-dilaton project, 2026-11-10 (`SL:` report `critic-import-076-20261110T171506`, findings F1 and F5), passed on in `inbox/done/2026-11-10-sl2c-vertices-ghost-dilaton-import-review-findings.md`, and the orchestrator's hand check of the converse (brief `agent/briefs/active-computator-import-review-addenda-20261110T183258.md`, premise 3), re-read here step by step.
+Scope and wording corrections; no result, number or check output of this record changes.
+The text above this heading is not edited; the readings below supersede the wording at the places listed.
+
+### B.1 Step 2 (d): the unit-disc inclusion is sufficient, not necessary
+
+*Statement corrected.* Step 2 (d) (l. 80, l. 84) says that the reduction $\mathrm{FD}\cap\mathcal V^{\rm ind}_{0,4}=\mathrm{FD}\cap E_\beta$ "holds iff the unit disc lies in $E_\beta$".
+The "only if" is false.
+**For every $\beta>\tfrac12$**: $\mathrm{FD}\cap\mathcal V^{\rm ind}_{0,4}=\mathrm{FD}\cap E_\beta$.
+
+*Proof (hand check, premise 3 of the brief; re-checked).* $\mathcal V^{\rm ind}_{0,4}\subset E_\beta$ by (2.1).
+Conversely let $Z\in\mathrm{FD}\cap E_\beta$, so $|Z|\ge1$.
+(i) $1/Z=\bar Z/|Z|^2$ lies on the segment from $0$ to $\bar Z$. $\bar Z\in E_\beta$ by the conjugation symmetry (step 2 (b)). $0\in E_\beta$ for $\beta>\tfrac12$: $E_\beta$ is centred at $\tfrac12$ with real semi-axis $a=\beta^2+1/(16\beta^2)>\tfrac12$ (AM–GM, equality only at $\beta=\tfrac12$, where $b=0$). $E_\beta$ is convex, so $1/Z\in E_\beta$.
+(ii) $E_\beta$ is symmetric under $Z\to1-Z$ (centre $\tfrac12$ on the real axis), so $1-Z\in E_\beta$, $|1-Z|\ge1$ on FD, and (i) applied to $1-Z$ gives $1/(1-Z)=\overline{(1-Z)}/|1-Z|^2\in E_\beta$.
+Hence $Z\in\mathcal V^{\rm ind}_{0,4}$. The $G$-invariance of $\mathcal V^{\rm ind}_{0,4}$ in (d) used only (b) and the $S_3$ symmetry and holds for all $\beta$, so the tiling $\mathcal V^{\rm ind}_{0,4}=\bigcup_gg(T)$, the conjugation invariance (2.3), the six-pair structure and the arcs of (e) hold for every $\beta>\tfrac12$ ($b>0$ requires $\beta>\tfrac12$ anyway).
+The closed form $\operatorname{dist}(0,\partial E_\beta)=a-\tfrac12$ and the equivalence "unit disc $\subset E_\beta$ $\Leftrightarrow$ $\beta\ge\beta_{04}$" stay correct; they describe a sufficient condition for the reduction, with a different role below.
+
+*Role of $\beta_{04}$.* Per the sender, $\beta_{04}=\tfrac12+1/\sqrt2$ is the threshold for pairwise disjoint Feynman regions (the $s$-, $t$-, $u$-channel regions, the images of the exterior of $E_\beta$), not a condition of the tiling. One direction checked here in one line: if the unit disc lies in $E_\beta$ then $Z\notin E_\beta$ forces $|Z|>1$, so $1/Z\in$ unit disc $\subset E_\beta$, i.e. the $s$- and $t$-regions do not meet; the necessity of $\beta\ge\beta_{04}$ for disjointness is the sender's statement and is not examined here.
+Consequently `SL: R7` as quoted in A2 (l. 37) and T (l. 64), "$\mathrm{FD}\cap\mathcal V_{0,4}=\mathrm{FD}\cap E_\beta$ for $\beta\ge\beta_{04}$", is true but not sharp.
+
+*Check.* `C1.1-tiling` was run at the standard parameter values of the companion construction only, both above $\beta_{04}$ and also above $\tfrac12$, so it cannot fail for a wrong $\beta_{04}$ and does not test the threshold; the break leg "$\beta=0.9<\beta_{04}$ breaks the unit-disc inclusion" (l. 102, l. 196) is a break of the disc check `C1.1-disc` only, not of the tiling (at $\beta=0.9>\tfrac12$ the tiling holds by the proof above). The script is not edited or re-run.
+
+### B.2 Section data: strict inequality (sender's statement, not re-derived)
+
+The sender reports that the section data of the declared section exist for $\beta>\beta_{04}$ strictly: at $\beta=\beta_{04}$ the corner $Z=-1$ gives $1/R=0$ from the wall conditions and a nonzero value from the sewing datum.
+Recorded as the sender's statement; not re-derived here and not checked against the sister's module.
+Where it bears: the clauses of this record that use the section data (C1.2, C1.3, C1.4, C1.5 and their parents, A3 "$\beta\ge\beta_{04}$" at l. 38, the statement at l. 180) carry $\beta\ge\beta_{04}$ as the scope; they are to be read with $\beta>\beta_{04}$ strictly.
+The numerics at the standard parameter values are unaffected, and so is C1.1 (region and tiling), which needs only $\beta>\tfrac12$.
+
+### B.3 Places to read as corrected
+
+Grep `beta_{04}\|unit.disc\|unit disc` over the record; for each, the reading after this addendum.
+- l. 37 (A2) and l. 64: "for $\beta\ge\beta_{04}$" → true, not sharp; region and tiling for every $\beta>\tfrac12$ (B.1).
+- l. 38 (A3), l. 180 (Statement): scope $\beta\ge\beta_{04}$ of the section data → strictly $\beta>\beta_{04}$ (B.2); the region claims (item 1 of l. 180's list) → $\beta>\tfrac12$.
+- l. 45 (**C1.1.3**) "reproduce (2.1) exactly for $\beta\ge\beta_{04}$ (unit disc inside $E_\beta$, analytic)": statement corrected to every $\beta>\tfrac12$; the justification changes from "unit disc inside $E_\beta$" (sufficient) to the convexity argument of B.1; dependents C1.1 (l. 42), C1 (l. 41) and C1.2–C1.5 (l. 46–49) keep their statements within the scope of B.2, and C1.4/C1.5, which sit on the section data, carry $\beta>\beta_{04}$.
+- l. 80 and l. 84 (step 2 (d)): "iff the unit disc lies in $E_\beta$" → "if"; the distance formula and "iff $\beta\ge\beta_{04}$" for the disc inclusion stand.
+- l. 91 (commentary): "(d) is the only place the specific family enters (the ellipse size)" → the ellipse size enters the Feynman-region disjointness, not the tiling.
+- l. 96 (boxed result of step 2, "$(\beta\ge\beta_{04})$") and l. 98 ("including the unit-disc inclusion"): the boxed statement holds for $\beta>\tfrac12$; the disc inclusion is an additional true fact.
+- l. 102 and l. 196: break leg $\beta=0.9$ breaks the disc inclusion only (B.1, Check).
+- l. 170 (boxed result of step 4, "all $\beta\ge\beta_{04}$"): read $\beta>\beta_{04}$ (B.2); the level-0 block is real tile by tile and the statement itself does not use the section.
+- l. 200 (step 6, proposed row; R56 was promoted from it): "For $\beta\ge\beta_{04}$ (exactly, for $\beta>\tfrac12$) … the unit-disc inclusion … is exactly $\beta\ge\beta_{04}$" → region and tiling for all $\beta>\tfrac12$; section-data clauses for $\beta>\beta_{04}$; the disc inclusion is not a condition of either (annotation below).
+- l. 8 (Status) mentions the "$\beta>\tfrac12$ qualifier" of the fix pass; it is the qualifier now made exact by B.1.
+- Script `codes/verify-ph6-conjugation-n4.py` l. 6 (docstring): "the unit disc lies in the ellipse (beta >= beta_04)" is a check statement for `C1.1-disc`, correct as such.
+
+Statement or justification: the statement of C1.1.3 is corrected (wider range), its justification replaced (convexity instead of the disc inclusion); step 2 (d) changes its justification and its "iff"; the scope $\beta>\beta_{04}$ of B.2 changes statements of C1.2–C1.5 by the sender's report.
+
+### Proposed ledger annotation for R56
+
+An external review (SL(2,C) vertices and ghost-dilaton project, 2026-11-10; `SL:` report `critic-import-076-20261110T171506`, F1 and F5) and the orchestrator's hand check found the scope's $\beta\ge\beta_{04}$ misattributed. The reduction $\mathrm{FD}\cap\mathcal V^{\rm ind}_{0,4}=\mathrm{FD}\cap E_\beta$, hence the conjugation invariance of the region and its tiling by $G=S_3\times\{1,\mathrm{conj}\}$ (R56's first Status line), holds for every $\beta>\tfrac12$: for $Z\in\mathrm{FD}\cap E_\beta$, $|Z|\ge1$, and $1/Z=\bar Z/|Z|^2$ lies on the segment from $0$ to $\bar Z$, with $\bar Z\in E_\beta$ by conjugation symmetry and $0\in E_\beta$ for $\beta>\tfrac12$, so $1/Z\in E_\beta$ by convexity, likewise $1/(1-Z)$ through $Z\to1-Z$. The unit-disc inclusion ($\beta\ge\beta_{04}$) is sufficient for the reduction, not necessary; $\beta_{04}$ is the threshold for pairwise disjoint Feynman regions, not a condition of the tiling, and the check `C1.1-tiling` (run at the standard parameter values) does not test it. Per the review, the section data of the declared section exist for $\beta>\beta_{04}$ strictly (at $\beta_{04}$ the corner $Z=-1$ gives $1/R=0$ from the wall conditions and a nonzero value from the sewing datum; the sender's statement, not re-derived here), so the clauses of the Scope that use the section data read $\beta>\beta_{04}$. No result or number changes; the numerics at the standard parameter values are unaffected.
+
+### Status of the 2026-11-10 addendum
+
+Status line of this addendum: complete 2026-11-10; next: orchestrator (ledger clerk copies the annotation for R56).
